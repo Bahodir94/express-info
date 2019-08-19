@@ -19,7 +19,7 @@ class CheckAdminMiddleware
             if(\Auth::user()->isAdmin || \Auth::user()->role_id == 1):
                 return $next($request);
             else:
-//                return redirect('/');
+                return redirect('/');
             endif;
         else:
             return redirect('/');

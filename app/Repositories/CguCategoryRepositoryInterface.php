@@ -16,7 +16,7 @@ interface CguCategoryRepositoryInterface
      *
      * @param int
      */
-    public function get($post_id);
+    public function get($category_id);
 
     /**
      * Get's all posts.
@@ -30,7 +30,7 @@ interface CguCategoryRepositoryInterface
      *
      * @param int
      */
-    public function delete($post_id);
+    public function delete($category_id);
 
     /**
      * Updates a post.
@@ -38,7 +38,7 @@ interface CguCategoryRepositoryInterface
      * @param int
      * @param array
      */
-    public function update($post_id, array $post_data);
+    public function update($category_id, object $category_data);
 
     /**
      * Store a post
@@ -46,5 +46,5 @@ interface CguCategoryRepositoryInterface
      * @param array $post_data
      * @return mixed
      */
-    public function store(array $post_data);
+    public function store(object $category_data);
 }

@@ -37,7 +37,11 @@ class CguCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.cguCategories.create');
+        $data = [
+            'categories' => $this->category->all(),
+        ];
+
+        return view('admin.pages.cguCategories.create', $data);
     }
 
     /**
@@ -48,7 +52,23 @@ class CguCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'ru_title' => 'required|unique:cgu_categories|max:255',
+            'en_title' => 'required|unique:cgu_categories|max:255',
+            'uz_title' => 'required|unique:cgu_categories|max:255',
+//            'ru_slug' => 'unique:cgu_categories|max:255',
+//            'en_slug' => 'unique:cgu_categories|max:255',
+//            'uz_slug' => 'unique:cgu_categories|max:255',
+        ]);
+
+        $category = $this->category->store($request);
+
+        if($request->has('save'))
+            return redirect()->route('admin.cgucategories.index');
+        else if($request->has('saveQuit'))
+            return redirect()->route('admin.cgucategories.edit', $category->id);
+        else
+            return redirect()->route('admin.cgucategories.index');
     }
 
     /**

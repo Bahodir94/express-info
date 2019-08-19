@@ -1,0 +1,1 @@
+<option value="{{ $category_list->id }}">{{ $category_list->ru_title }}</option>

@@ -11,9 +11,31 @@ class CguCategory extends Model
     use NodeTrait;
 
     protected $fillable = [
-        'ru_title', 'en_title', 'uz_title'
+        'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function handbook()
+    {
+        return $this->hasMany(self::class, 'parent_id', 'id');
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function hasHandbook()
+    {
+        return (isset($this->handbook[0])) ? true : false;
+    }
+
+    /**
+     * Загружает изображение на сервер и сохраняет в базе
+     *
+     * @param $image
+     */
     public function uploadImage($image)
     {
         if($image == null) return;
@@ -24,11 +46,20 @@ class CguCategory extends Model
         $this->saveImageName();
     }
 
+    /**
+     * Создаёт название файла
+     *
+     * @param $ext
+     * @return string
+     */
     public function generateFileName($ext)
     {
         return str_random(20) . $ext;
     }
 
+    /**
+     *Удаляет изображение
+     */
     public function removeImage()
     {
         if($this->image != null)
@@ -37,15 +68,107 @@ class CguCategory extends Model
         }
     }
 
+    /**
+     * Сохраняет имя файла в базу
+     *
+     * @param $name
+     */
     public function saveImageName($name)
     {
         $this->image = $name;
         $this->save();
     }
 
+    /**
+     * Удаляем картину и сам объект
+     *
+     * @throws \Exception
+     */
     public function remove()
     {
         $this->removeImage();
         $this->delete();
+    }
+
+    /**
+     * Возвращаем очищенный заголовок
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return strip_tags($this->ru_title);
+    }
+
+//    /**
+//     * Создает слаг для русского языка если не ввели слаг
+//     *
+//     * @param $title
+//     */
+//    public function createRuSlug($title)
+//    {
+//        $this->ru_title = SlugService::createSlug(CguCategory::class, 'ru_slug', $title);
+//    }
+//
+//    /**
+//     * Создает слаг для английского языка если не ввели слаг
+//     *
+//     * @param $title
+//     */
+//    public function createEnSlug($title)
+//    {
+//        $this->en_title = SlugService::createSlug(CguCategory::class, 'en_slug', $title);
+//    }
+//
+//    /**
+//     * Создает слаг для узбекского языка если не ввели слаг
+//     *
+//     * @param $title
+//     */
+//    public function createUzSlug($title)
+//    {
+//        $this->uz_title = SlugService::createSlug(CguCategory::class, 'uz_slug', $title);
+//    }
+//
+//    /**
+//     * @param $title
+//     */
+//    public function saveRuSlug($title)
+//    {
+//        $this->ru_title = $title;
+//    }
+//
+//    /**
+//     * @param $title
+//     */
+//    public function saveEnSlug($title)
+//    {
+//        $this->en_title = $title;
+//    }
+//
+//    /**
+//     * @param $title
+//     */
+//    public function saveUzSlug($title)
+//    {
+//        $this->uz_title = $title;
+//    }
+
+    /**
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'ru_slug' => [
+                'source' => 'ru_title'
+            ],
+            'en_slug' => [
+                'source' => 'en_title'
+            ],
+            'uz_slug' => [
+                'source' => 'uz_title'
+            ],
+        ];
     }
 }
