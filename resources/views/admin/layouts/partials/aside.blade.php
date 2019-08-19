@@ -15,10 +15,10 @@
 
                 <!-- User Info -->
                 <div class="content-header-item">
-                    <a class="img-link mr-5" href="start_backend.html">
-                        <img class="img-avatar img-avatar32" src="assets/img/avatars/avatar0.jpg" alt="">
+                    <a class="img-link mr-5" href="#">
+                        <img class="img-avatar img-avatar32" src="{{ asset('assets/img/avatars/avatar0.jpg') }}" alt="">
                     </a>
-                    <a class="align-middle link-effect text-primary-dark font-w600" href="start_backend.html">Admin</a>
+                    <a class="align-middle link-effect text-primary-dark font-w600" href="#">{{ \Auth::user()->name }}</a>
                 </div>
                 <!-- END User Info -->
             </div>
@@ -30,7 +30,7 @@
             <!-- Search -->
             <div class="block pull-t pull-r-l">
                 <div class="block-content block-content-full block-content-sm bg-body-light">
-                    <form action="start_backend.html" method="post">
+                    <form action="#" method="post">
                         <div class="input-group">
                             <input type="text" class="form-control" id="side-overlay-search" name="side-overlay-search" placeholder="Search..">
                             <span class="input-group-btn">

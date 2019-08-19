@@ -64,7 +64,7 @@
                     </a>
                     <ul class="list-inline mt-10">
                         <li class="list-inline-item">
-                            <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="#">J. Smith</a>
+                            <a class="link-effect text-dual-primary-dark font-size-xs font-w600 text-uppercase" href="#">{{ \Auth::user()->name }}</a>
                         </li>
                         <li class="list-inline-item">
                             <!-- Layout API, functionality initialized in Codebase() -> uiApiLayout() -->

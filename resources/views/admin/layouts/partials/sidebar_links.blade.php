@@ -12,14 +12,11 @@
     <li>
         <a class="nav-submenu" data-toggle="nav-submenu" href="#">
             <i class="si si-puzzle"></i>
-            <span class="sidebar-mini-hide">Dropdown</span>
+            <span class="sidebar-mini-hide">Цгу</span>
         </a>
         <ul>
             <li>
-                <a href="javascript:void(0)">Link #1</a>
-            </li>
-            <li>
-                <a href="javascript:void(0)">Link #2</a>
+                <a href="{{ route('admin.cgucategories.index') }}">Категории</a>
             </li>
         </ul>
     </li>

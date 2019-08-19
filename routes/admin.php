@@ -8,5 +8,11 @@
 
 
 Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('Admin')->group(function (){
+    // Dashboard
     Route::get('/', 'DashboardController@index')->name('index');
+
+    // Resources
+    Route::resource('/cgucategories', 'CguCategoryController');
+
+    //Simple Routes
 });

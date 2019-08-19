@@ -16,10 +16,10 @@ class CheckAdminMiddleware
     public function handle($request, Closure $next)
     {
         if(\Auth::check()):
-            if(\Auth::user()->isAdmin):
+            if(\Auth::user()->isAdmin || \Auth::user()->role_id == 1):
                 return $next($request);
             else:
-                return redirect('/');
+//                return redirect('/');
             endif;
         else:
             return redirect('/');
