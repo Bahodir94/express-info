@@ -12,39 +12,45 @@ namespace App\Repositories;
 interface CguCategoryRepositoryInterface
 {
     /**
-     * Get's a post by it's ID
+     * Get's a category by it's ID
      *
      * @param int
      */
     public function get($category_id);
 
     /**
-     * Get's all posts.
+     * Get's all categories.
      *
      * @return mixed
      */
     public function all();
 
     /**
-     * Deletes a post.
+     * Deletes a category.
      *
      * @param int
      */
     public function delete($category_id);
 
     /**
-     * Updates a post.
+     * Updates a category.
      *
      * @param int
-     * @param array
+     * @param object $category_data
      */
     public function update($category_id, object $category_data);
 
+
     /**
-     * Store a post
+     * Store a category
      *
-     * @param array $post_data
+     * @param object $category_data
      * @return mixed
      */
     public function store(object $category_data);
+
+    /**
+     * @return mixed
+     */
+    public function create();
 }

@@ -37,8 +37,9 @@
             </div>
         </div>
         <!-- Form -->
-        <form action="{{ route('admin.cgucategories.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.cgucategories.update', $category->id) }}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('put')
             <div class="block-content">
                 <!-- Simple Wizard -->
                 <div class="wizard block">
@@ -65,7 +66,7 @@
                                 Заголовок
                                 @error('ru_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ old('ru_title') }}">
+                                <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ $category->ru_title }}">
                                 @error('ru_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_slug') is-invalid @enderror">
@@ -73,7 +74,7 @@
                                 Slug
                                 @error('ru_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="ru_slug" name="ru_slug" value="{{ old('ru_slug') }}">
+                                <input class="form-control" type="text" id="ru_slug" name="ru_slug" value="{{ $category->ru_slug }}">
                                 @error('ru_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
@@ -86,7 +87,7 @@
                                 Заголовок
                                 @error('en_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="en_title" name="en_title" value="{{ old('en_title') }}">
+                                <input class="form-control" type="text" id="en_title" name="en_title" value="{{ $category->en_title }}">
                                 @error('en_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('en_slug') is-invalid @enderror">
@@ -94,7 +95,7 @@
                                 Slug
                                 @error('en_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="en_slug" name="en_slug" value="{{ old('en_title') }}">
+                                <input class="form-control" type="text" id="en_slug" name="en_slug" value="{{ $category->en_slug }}">
                                 @error('en_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
@@ -107,7 +108,7 @@
                                 Заголовок
                                 @error('uz_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="uz_title" name="uz_title" value="{{ old('uz_title') }}">
+                                <input class="form-control" type="text" id="uz_title" name="uz_title" value="{{ $category->uz_title }}">
                                 @error('uz_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('uz_slug') is-invalid @enderror">
@@ -115,7 +116,7 @@
                                 Slug
                                 @error('uz_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="uz_slug" name="uz_slug" value="{{ old('uz_slug') }}">
+                                <input class="form-control" type="text" id="uz_slug" name="uz_slug" value="{{ $category->uz_slug }}">
                                 @error('uz_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
@@ -179,7 +180,6 @@
     <script src="{{ asset('assets/js/plugins/jquery-validation/additional-methods.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/select2/select2.full.min.js') }}"></script>
 
-
     <script>
         $(function(){
             $.fn.bootstrapWizard.defaults.nextSelector     = '[data-wizard="next"]';
@@ -198,7 +198,6 @@
                     }
                 }
             });
-
             $('#select2').select2();
         })
     </script>
