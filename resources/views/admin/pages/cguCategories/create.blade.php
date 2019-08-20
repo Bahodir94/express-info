@@ -1,5 +1,12 @@
 @extends('admin.layouts.app')
 
+@section('css')
+
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2-bootstrap.min.css') }}">
+
+@endsection
+
 @section('content')
 
     @include('admin.components.breadcrumb', [
@@ -115,7 +122,7 @@
                         <!-- END Step 3 -->
 
                         <div class="form-group">
-                            <label for="parent_id">Изображение</label>
+                            <label for="parent_id">Категории</label>
                             <select name="parent_id" id="select2" class="form-control">
                                 <option value="0">-- нет --</option>
                                 @foreach($categories as $category_list)
@@ -170,6 +177,8 @@
     <script src="{{ asset('assets/js/plugins/bootstrap-wizard/jquery.bootstrap.wizard.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/select2/select2.full.min.js') }}"></script>
+
 
     <script>
         $(function(){
@@ -189,6 +198,8 @@
                     }
                 }
             });
+
+            $('#select2').select2();
         })
     </script>
 @endsection

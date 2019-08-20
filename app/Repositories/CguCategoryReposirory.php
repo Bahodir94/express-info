@@ -50,17 +50,32 @@ class CguCategoryRepository implements CguCategoryRepositoryInterface
      */
     public function update($category_id, object $category_data)
     {
-        // TODO: Implement update() method.
-    }
+        $category = CguCategory::find($category_id);
+        $category->update($category_data->all());
+        $category->uploadImage($category_data->file('image'));
 
-    /**
-     * @return array
-     */
-    public function dataForCreateAndUpdate()
-    {
-        return [
-            'categories' => CguCategory::all()->toTree(),
-        ];
+        if($category_data->get('parent_id') != 0)
+        {
+            $parent = CguCategory::find($category_data->get('parent_id'));
+            $category->appendToNode($parent)->save();
+        }
+
+//        if($category_data->get('ru_slug') == null)
+//            $category->createRuSlug($category_data->get('ru_title'));
+//        else
+//            $category->saveEnSlug($category_data->get('ru_title'));
+//
+//        if($category_data->get('en_slug') == null)
+//            $category->createEnSlug($category_data->get('en_title'));
+//        else
+//            $category->saveEnSlug($category_data->get('en_title'));
+//
+//        if($category_data->get('uz_slug') == null)
+//            $category->createUzSlug($category_data->get('uz_title'));
+//        else
+//            $category->saveUzSlug($category_data->get('uz_title'));
+
+        return $category;
     }
 
     /**
@@ -94,5 +109,17 @@ class CguCategoryRepository implements CguCategoryRepositoryInterface
 //            $category->saveUzSlug($category_data->get('uz_title'));
 
         return $category;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function create()
+    {
+        $data = [
+            'categories' => CguCategory::all()->toTree()
+        ];
+
+        return $data;
     }
 }

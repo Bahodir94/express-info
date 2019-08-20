@@ -4,7 +4,15 @@
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
 @endsection
 @section('content')
-    @include('admin.components.breadcrumb', ['lastTitle' => 'Цгу Категории'])
+    @include('admin.components.breadcrumb', [
+        'list' => [
+            [
+                'url' => route('admin.cgucategories.index'),
+                'title' => 'Цгу Категории'
+            ]
+        ],
+        'lastTitle' => 'Дочерние категории'
+    ])
     <div class="block">
         <div class="block-header block-header-default">
             <h3 class="block-title">Категории <small>главные</small></h3>
@@ -31,7 +39,7 @@
                         <td class="font-w600">{{ $category_list->getTitle() }}</td>
                         <td class="d-none d-sm-table-cell">
                             @if($category_list->hasCategories())
-                                <a href="{{ route('admin.cgucategories.category', $category->id) }}">Перейти</a>
+                                <a href="{{ route('admin.cgucategories.category', $category_list->id) }}">Перейти</a>
                             @else
                                 Нет
                             @endif
