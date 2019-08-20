@@ -136,6 +136,11 @@ class HandbookCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $parent = $this->handbookCategoryRepository->delete($id);
+
+        if ($parent != null && $this->handbookCategoryRepository->get($parent)->hasCategories())
+            return redirect()->route('admin.handbookcategories.show');
+        else
+            return redirect()->route('admin.handbookCategories.index');
     }
 }
