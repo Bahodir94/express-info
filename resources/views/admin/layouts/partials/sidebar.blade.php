@@ -38,9 +38,9 @@
 
                     <!-- Logo -->
                     <div class="content-header-item">
-                        <a class="link-effect font-w700" href="start_backend.html">
+                        <a class="link-effect font-w700" href="{{ route('admin.index') }}">
                             <i class="si si-fire text-primary"></i>
-                            <span class="font-size-xl text-dual-primary-dark">code</span><span class="font-size-xl text-primary">base</span>
+                            <span class="font-size-xl text-dual-primary-dark">Express</span><span class="font-size-xl text-primary">Info</span>
                         </a>
                     </div>
                     <!-- END Logo -->
