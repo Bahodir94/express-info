@@ -46,7 +46,7 @@ class CguCategoryRepository implements CguCategoryRepositoryInterface
 
     /**
      * @param $category_id
-     * @param array $category_data
+     * @param object $category_data
      */
     public function update($category_id, object $category_data)
     {
@@ -54,8 +54,18 @@ class CguCategoryRepository implements CguCategoryRepositoryInterface
     }
 
     /**
-     * @param array $category_data
-     * @return mixed|void
+     * @return array
+     */
+    public function dataForCreateAndUpdate()
+    {
+        return [
+            'categories' => CguCategory::all()->toTree(),
+        ];
+    }
+
+    /**
+     * @param object $category_data
+     * @return mixed
      */
     public function store(object $category_data)
     {

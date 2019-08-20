@@ -11,6 +11,10 @@ class CguCategoryController extends Controller
 {
     protected $category;
 
+    /**
+     * CguCategoryController constructor.
+     * @param CguCategoryRepositoryInterface $category
+     */
     public function __construct(CguCategoryRepositoryInterface $category)
     {
         $this->category = $category;
@@ -30,6 +34,16 @@ class CguCategoryController extends Controller
         return view('admin.pages.cguCategories.index', $data);
     }
 
+
+    public function category($id)
+    {
+        $data = [
+            'category' => $this->category->get($id),
+        ];
+
+        return view('admin.pages.cguCategories.category', $data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -37,9 +51,8 @@ class CguCategoryController extends Controller
      */
     public function create()
     {
-        $data = [
-            'categories' => $this->category->all(),
-        ];
+        $data = $this->category->create();
+
 
         return view('admin.pages.cguCategories.create', $data);
     }
@@ -61,11 +74,10 @@ class CguCategoryController extends Controller
 //            'uz_slug' => 'unique:cgu_categories|max:255',
         ]);
 
+
         $category = $this->category->store($request);
 
         if($request->has('save'))
-            return redirect()->route('admin.cgucategories.index');
-        else if($request->has('saveQuit'))
             return redirect()->route('admin.cgucategories.edit', $category->id);
         else
             return redirect()->route('admin.cgucategories.index');
@@ -90,7 +102,8 @@ class CguCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        return view('admin.pages.cgucategories.edit');
     }
 
     /**

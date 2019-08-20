@@ -119,7 +119,7 @@
                             <select name="parent_id" id="select2" class="form-control">
                                 <option value="0">-- нет --</option>
                                 @foreach($categories as $category_list)
-                                    @include('admin.pages.cguCategories.components.category', ['delimiter' => ''])
+                                    @include('admin.pages.cguCategories.components.category')
                                 @endforeach
                             </select>
                         </div>

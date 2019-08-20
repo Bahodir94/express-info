@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Services\SlugService;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Kalnoy\Nestedset\NodeTrait;
@@ -17,18 +19,18 @@ class CguCategory extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function handbook()
+    public function categories()
     {
-        return $this->hasMany(self::class, 'parent_id', 'id');
+        return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('id', 'desc');
     }
 
 
     /**
      * @return bool
      */
-    public function hasHandbook()
+    public function hasCategories()
     {
-        return (isset($this->handbook[0])) ? true : false;
+        return (isset($this->categories[0])) ? true : false;
     }
 
     /**
@@ -100,59 +102,62 @@ class CguCategory extends Model
         return strip_tags($this->ru_title);
     }
 
-//    /**
-//     * Создает слаг для русского языка если не ввели слаг
-//     *
-//     * @param $title
-//     */
-//    public function createRuSlug($title)
-//    {
-//        $this->ru_title = SlugService::createSlug(CguCategory::class, 'ru_slug', $title);
-//    }
-//
-//    /**
-//     * Создает слаг для английского языка если не ввели слаг
-//     *
-//     * @param $title
-//     */
-//    public function createEnSlug($title)
-//    {
-//        $this->en_title = SlugService::createSlug(CguCategory::class, 'en_slug', $title);
-//    }
-//
-//    /**
-//     * Создает слаг для узбекского языка если не ввели слаг
-//     *
-//     * @param $title
-//     */
-//    public function createUzSlug($title)
-//    {
-//        $this->uz_title = SlugService::createSlug(CguCategory::class, 'uz_slug', $title);
-//    }
-//
-//    /**
-//     * @param $title
-//     */
-//    public function saveRuSlug($title)
-//    {
-//        $this->ru_title = $title;
-//    }
-//
-//    /**
-//     * @param $title
-//     */
-//    public function saveEnSlug($title)
-//    {
-//        $this->en_title = $title;
-//    }
-//
-//    /**
-//     * @param $title
-//     */
-//    public function saveUzSlug($title)
-//    {
-//        $this->uz_title = $title;
-//    }
+    /**
+     * Создает слаг для русского языка если не ввели слаг
+     *
+     * @param $title
+     */
+    public function createRuSlug($title)
+    {
+        $this->ru_slug = SlugService::createSlug(CguCategory::class, 'ru_slug', $title);
+    }
+
+    /**
+     * Создает слаг для английского языка если не ввели слаг
+     *
+     * @param $title
+     */
+    public function createEnSlug($title)
+    {
+        $this->en_slug = SlugService::createSlug(CguCategory::class, 'en_slug', $title);
+    }
+
+    /**
+     * Создает слаг для узбекского языка если не ввели слаг
+     *
+     * @param $title
+     */
+    public function createUzSlug($title)
+    {
+        $this->uz_slug = SlugService::createSlug(CguCategory::class, 'uz_slug', $title);
+    }
+
+    /**
+     * @param $title
+     */
+    public function saveRuSlug($title)
+    {
+        $this->ru_slug = $title;
+        $this->save();
+    }
+
+    /**
+     * @param $title
+     */
+    public function saveEnSlug($title)
+    {
+        $this->en_slug = $title;
+        $this->save();
+    }
+
+    /**
+     * @param $title
+     */
+    public function saveUzSlug($title)
+    {
+        $this->uz_slug= $title;
+        $this->save();
+    }
 
     /**
      * @return array

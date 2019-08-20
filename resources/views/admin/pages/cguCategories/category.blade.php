@@ -16,21 +16,21 @@
         <div class="block-content">
             <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
                 <thead>
-                    <tr>
-                        <th class="text-center"></th>
-                        <th class="sorting_desc">Заголовок</th>
-                        <th class="d-none d-sm-table-cell">Категории</th>
-                        <th class="d-none d-sm-table-cell">Справки</th>
-                        <th class="text-center" style="width: 15%;">Действия</th>
-                    </tr>
+                <tr>
+                    <th class="text-center"></th>
+                    <th class="sorting_desc">Заголовок</th>
+                    <th class="d-none d-sm-table-cell">Категории</th>
+                    <th class="d-none d-sm-table-cell">Справки</th>
+                    <th class="text-center" style="width: 15%;">Действия</th>
+                </tr>
                 </thead>
                 <tbody>
-                @foreach($categories as $category)
+                @foreach($category->categories as $category_list)
                     <tr>
-                        <td class="text-center">{{ $category->id }}</td>
-                        <td class="font-w600">{{ $category->getTitle() }}</td>
+                        <td class="text-center">{{ $category_list->id }}</td>
+                        <td class="font-w600">{{ $category_list->getTitle() }}</td>
                         <td class="d-none d-sm-table-cell">
-                            @if($category->hasCategories())
+                            @if($category_list->hasCategories())
                                 <a href="{{ route('admin.cgucategories.category', $category->id) }}">Перейти</a>
                             @else
                                 Нет
@@ -40,8 +40,8 @@
                             Нет
                         </td>
                         <td class="text-center d-flex align-items-center">
-                            <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category->id) }}"><i class="fa fa-edit"></i></a>
-                            <form method="post" action="{{ route('admin.cgucategories.destroy', $category->id) }}">
+                            <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category_list->id) }}"><i class="fa fa-edit"></i></a>
+                            <form method="post" action="{{ route('admin.cgucategories.destroy', $category_list->id) }}">
                                 @csrf
                                 <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" type="button" data-toggle="tooltip" title="Удалить">
                                     <i class="fa fa-trash"></i>
