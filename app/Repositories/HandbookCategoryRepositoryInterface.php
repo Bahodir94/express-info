@@ -25,7 +25,7 @@ interface HandbookCategoryRepositoryInterface
      * Delete a handbook category
      *
      * @param int $id
-     * @return void
+     * @return int
     */
     public function delete(int $id);
 

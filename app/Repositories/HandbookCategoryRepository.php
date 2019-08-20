@@ -34,13 +34,15 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
      * Delete a handbook category
      *
      * @param int $id
-     * @return void
+     * @return int
      * @throws \Exception
      */
     public function delete(int $id)
     {
         $category = $this->get($id);
+        $parentId = $category->getParentId();
         $category->delete();
+        return $parentId;
     }
 
     /**
