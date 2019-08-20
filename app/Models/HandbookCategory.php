@@ -31,7 +31,7 @@ class HandbookCategory extends Model
     */
     public function hasCategories()
     {
-        return (isset($this->categories[0])) ? true: false;
+        return isset($this->categories[0]);
     }
 
     /**
