@@ -39,8 +39,15 @@ class CguCategoryRepository implements CguCategoryRepositoryInterface
      */
     public function delete($category_id)
     {
-        $category = CguCategory::find($category_id);
+        $category = $this->get($category_id);
+
+        $parent = null;
+        if($category->parent_id != null)
+            $parent = $category->parent_id;
+
         $category->remove();
+
+        return $parent;
     }
 
 
@@ -109,17 +116,5 @@ class CguCategoryRepository implements CguCategoryRepositoryInterface
 //            $category->saveUzSlug($category_data->get('uz_title'));
 
         return $category;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function create()
-    {
-        $data = [
-            'categories' => CguCategory::all()->toTree()
-        ];
-
-        return $data;
     }
 }

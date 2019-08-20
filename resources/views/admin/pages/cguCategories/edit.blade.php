@@ -134,6 +134,13 @@
 
                         <div class="form-group">
                             <label for="image">Изображение</label>
+                            @if($category->image != null)
+                                <br>
+                                <img src="{{ $category->getImage() }}" style="width: 200px;">
+                                <br>
+                                <a href="{{ route('admin.cgucategories.remove.image', $category->id) }}" class="btn btn-danger">Удалить</a>
+                                <br>
+                            @endif
                             <input type="file" name="image" class="form-control">
                         </div>
 

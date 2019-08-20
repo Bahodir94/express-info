@@ -15,5 +15,5 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::resource('/cgucategories', 'CguCategoryController');
 
     //Simple Routes
-    Route::get('/cgucategories/{id}/category', 'CguCategoryController@category')->name('cgucategories.category');
+    Route::get('/cgucategories/{id}/image', 'CguCategoryController@removeImage')->name('cgucategories.remove.image');
 });

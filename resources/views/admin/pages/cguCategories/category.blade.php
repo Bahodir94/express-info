@@ -9,7 +9,11 @@
             [
                 'url' => route('admin.cgucategories.index'),
                 'title' => 'Цгу Категории'
-            ]
+            ],
+            [
+                'url' => ($category->hasParentCategory()) ? route('admin.cgucategories.show', $category->parentCategory->id) : '#',
+                'title' => ($category->hasParentCategory()) ? $category->parentCategory : ''
+            ],
         ],
         'lastTitle' => 'Дочерние категории'
     ])
@@ -33,31 +37,34 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($category->categories as $category_list)
-                    <tr>
-                        <td class="text-center">{{ $category_list->id }}</td>
-                        <td class="font-w600">{{ $category_list->getTitle() }}</td>
-                        <td class="d-none d-sm-table-cell">
-                            @if($category_list->hasCategories())
-                                <a href="{{ route('admin.cgucategories.category', $category_list->id) }}">Перейти</a>
-                            @else
+                @if($category->categories != null)
+                    @foreach($category->categories as $category_list)
+                        <tr>
+                            <td class="text-center">{{ $category_list->id }}</td>
+                            <td class="font-w600">{{ $category_list->getTitle() }}</td>
+                            <td class="d-none d-sm-table-cell">
+                                @if($category_list->hasCategories())
+                                    <a href="{{ route('admin.cgucategories.show', $category_list->id) }}">Перейти</a>
+                                @else
+                                    Нет
+                                @endif
+                            </td>
+                            <td class="d-none d-sm-table-cell">
                                 Нет
-                            @endif
-                        </td>
-                        <td class="d-none d-sm-table-cell">
-                            Нет
-                        </td>
-                        <td class="text-center d-flex align-items-center">
-                            <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category_list->id) }}"><i class="fa fa-edit"></i></a>
-                            <form method="post" action="{{ route('admin.cgucategories.destroy', $category_list->id) }}">
-                                @csrf
-                                <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" type="button" data-toggle="tooltip" title="Удалить">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
+                            </td>
+                            <td class="text-center d-flex align-items-center">
+                                <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category_list->id) }}"><i class="fa fa-edit"></i></a>
+                                <form method="post" action="{{ route('admin.cgucategories.destroy', $category_list->id) }}">
+                                    @csrf
+                                    @method('delete')
+                                    <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
                 </tbody>
             </table>
         </div>

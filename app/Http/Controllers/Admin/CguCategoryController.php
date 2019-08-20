@@ -36,13 +36,12 @@ class CguCategoryController extends Controller
     }
 
 
-    public function category($id)
+    public function removeImage($id)
     {
-        $data = [
-            'category' => $this->category->get($id),
-        ];
+        $category = CguCategory::find($id);
+        $category->removeImage();
 
-        return view('admin.pages.cguCategories.category', $data);
+        return redirect()->back();
     }
 
     /**
@@ -52,7 +51,9 @@ class CguCategoryController extends Controller
      */
     public function create()
     {
-        $data = $this->category->create();
+        $data = [
+            'categories' => CguCategory::all()->toTree()
+        ];
 
 
         return view('admin.pages.cguCategories.create', $data);
@@ -70,6 +71,7 @@ class CguCategoryController extends Controller
             'ru_title' => 'required|unique:cgu_categories|max:255',
             'en_title' => 'required|unique:cgu_categories|max:255',
             'uz_title' => 'required|unique:cgu_categories|max:255',
+            'image'    => 'nullable|image',
 //            'ru_slug' => 'unique:cgu_categories|max:255',
 //            'en_slug' => 'unique:cgu_categories|max:255',
 //            'uz_slug' => 'unique:cgu_categories|max:255',
@@ -92,7 +94,11 @@ class CguCategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'category' => $this->category->get($id),
+        ];
+
+        return view('admin.pages.cguCategories.category', $data);
     }
 
     /**
@@ -105,7 +111,7 @@ class CguCategoryController extends Controller
     {
         $data = [
             'categories' => CguCategory::all()->toTree(),
-            'category' => CguCategory::find($id)
+            'category' => $this->category->get($id)
         ];
 
         return view('admin.pages.cgucategories.edit', $data);
@@ -121,9 +127,10 @@ class CguCategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'ru_title' => 'required|max:255',
-            'en_title' => 'required|max:255',
-            'uz_title' => 'required|max:255',
+            'ru_title' => 'required|unique:cgu_categories|max:255',
+            'en_title' => 'required|unique:cgu_categories|max:255',
+            'uz_title' => 'required|unique:cgu_categories|max:255',
+            'image'    => 'nullable|image'
         ]);
 
         $category = $this->category->update($id,$request);
@@ -142,6 +149,11 @@ class CguCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $parent = $this->category->delete($id);
+
+        if($parent != null && $this->category->get($parent)->hasCategories())
+            return redirect()->route('admin.cgucategories.show', $parent);
+        else
+            return redirect()->route('admin.cgucategories.index');
     }
 }

@@ -17,6 +17,8 @@ class CguCategory extends Model
     ];
 
     /**
+     * Возвращает дочерние объекты категории
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function categories()
@@ -24,13 +26,32 @@ class CguCategory extends Model
         return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('id', 'desc');
     }
 
+    /**
+     * Возвращаем родительский объект категории
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function parentCategory()
+    {
+        return $this->hasOne(self::class, 'id', 'parent_id');
+    }
 
     /**
+     * Проверяет есть ли дочерние категории или нет
+     *
      * @return bool
      */
     public function hasCategories()
     {
         return (isset($this->categories[0])) ? true : false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasParentCategory()
+    {
+        return ($this->parentCategory != null) ? true : false;
     }
 
     /**
@@ -45,7 +66,14 @@ class CguCategory extends Model
         $this->removeImage();
         $filename = $this->generateFileName($image->extension());
         $image->storeAs('uploads/cgu_categories_image', $filename);
-        $this->saveImageName();
+        $this->saveImageName($filename);
+    }
+
+
+
+    public function getImage()
+    {
+        return '/uploads/cgu_categories_image/' . $this->image;
     }
 
     /**
@@ -67,6 +95,8 @@ class CguCategory extends Model
         if($this->image != null)
         {
             Storage::delete('uploads/cgu_categories_image/' . $this->image);
+            $this->image = null;
+            $this->save();
         }
     }
 

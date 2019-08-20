@@ -48,9 +48,4 @@ interface CguCategoryRepositoryInterface
      * @return mixed
      */
     public function store(object $category_data);
-
-    /**
-     * @return mixed
-     */
-    public function create();
 }
