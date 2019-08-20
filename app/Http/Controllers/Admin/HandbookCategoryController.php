@@ -147,7 +147,7 @@ class HandbookCategoryController extends Controller
         if ($parent != null && $this->handbookCategoryRepository->get($parent)->hasCategories())
             return redirect()->route('admin.handbookcategories.show');
         else
-            return redirect()->route('admin.handbookCategories.index');
+            return redirect()->route('admin.handbookcategories.index');
     }
 
     /**
