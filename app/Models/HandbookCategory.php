@@ -128,4 +128,14 @@ class HandbookCategory extends Model
         $this->removeImage();
         parent::delete();
     }
+
+    /**
+     * Get cleand title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return strip_tags($this->ru_title);
+    }
 }
