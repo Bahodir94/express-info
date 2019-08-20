@@ -29,7 +29,27 @@
                     <tbody>
                         @foreach($categories as $category)
                             <tr>
-
+                                <td class="text-center">{{ $category->id }}</td>
+                                <td class="font-w600">{{ $category->getTitle() }}</td>
+                                <td class="text-center">
+                                    @if($category->hasCategories())
+                                        <a href="{{ route('admin.handbookcategories.category', $category->id) }}" class="link-effect">Перейти</a>
+                                    @else
+                                        Нет
+                                    @endif
+                                </td>
+                                <td class="text-center">
+                                    Нет
+                                </td>
+                                <td class="text-center">
+                                    <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.handbookcategories.edit', $category->id) }}"><i class="fa fa-edit"></i></a>
+                                    <form method="post" action="{{ route('admin.handbookcategories.destroy', $category->id) }}">
+                                        @csrf
+                                        <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" type="button" data-toggle="tooltip" title="Удалить">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -37,4 +57,19 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <script>
+        jQuery('.js-dataTable-full').dataTable({
+            "order": [],
+            pageLength: 10,
+            lengthMenu: [[10, 20, 30, 50], [10, 20, 30, 50]],
+            autoWidth: true,
+            language: ru_datatable
+        });
+    </script>
 @endsection
