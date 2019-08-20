@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2-bootstrap.min.css') }}">
 @endsection
+
+@section('title') Добавить категорию справочника @endsection
+
 @section('content')
     @include('admin.components.breadcrumb', [
         'list' => [

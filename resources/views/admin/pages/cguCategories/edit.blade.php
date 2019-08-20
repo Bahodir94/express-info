@@ -7,6 +7,8 @@
 
 @endsection
 
+@section('title')ЦГУ {{ $category->ru_title }} @endsection
+
 @section('content')
 
     @include('admin.components.breadcrumb', [

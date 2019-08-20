@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
 @endsection
 
+@section('title') Категории справочника @endsection
+
 @section('content')
     @include('admin.components.breadcrumb', ['lastTitle' => 'Катеогрии справочника'])
     <div class="block">

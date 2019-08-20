@@ -7,6 +7,8 @@
 
 @endsection
 
+@section('title') Добавить ЦГУ категорию @endsection
+
 @section('content')
 
     @include('admin.components.breadcrumb', [

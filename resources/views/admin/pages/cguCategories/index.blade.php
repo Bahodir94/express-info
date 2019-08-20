@@ -3,6 +3,9 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
 @endsection
+
+@section('title') ЦГУ категории @endsection
+
 @section('content')
     @include('admin.components.breadcrumb', ['lastTitle' => 'Цгу Категории'])
     <div class="block">
