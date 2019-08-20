@@ -114,7 +114,7 @@ class CguCategoryController extends Controller
             'category' => $this->category->get($id)
         ];
 
-        return view('admin.pages.cgucategories.edit', $data);
+        return view('admin.pages.cguCategories.edit', $data);
     }
 
     /**
