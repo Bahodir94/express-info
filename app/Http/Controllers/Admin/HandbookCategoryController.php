@@ -143,4 +143,18 @@ class HandbookCategoryController extends Controller
         else
             return redirect()->route('admin.handbookCategories.index');
     }
+
+    /**
+     * Remove image for category
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+    */
+    public function removeImage(int $id)
+    {
+        $category = $this->handbookCategoryRepository->get($id);
+        $category->removeImage();
+
+        return redirect()->back();
+    }
 }
