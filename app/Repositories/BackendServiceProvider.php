@@ -19,5 +19,9 @@ class BackendServiceProvider extends ServiceProvider
         'App\Repositories\CguCategoryRepositoryInterface',
         'App\Repositories\CguCategoryRepository'
         );
+        $this->app->bind(
+        'App\Repositories\CguSiteRepositoryInterface',
+        'App\Repositories\CguSiteRepository'
+        );
     }
 }

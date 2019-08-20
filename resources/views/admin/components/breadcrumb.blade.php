@@ -3,7 +3,9 @@
     <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Главная</a></li>
         @if(isset($list))
             @foreach($list as $item)
-                <li class="breadcrumb-item"><a href="{{ $item['url'] }}">{{ $item['title'] }}</a></li>
+                @if($item['url'] != '' && $item['title'] != '')
+                    <li class="breadcrumb-item"><a href="{{ $item['url'] }}">{{ $item['title'] }}</a></li>
+                @endif
             @endforeach
         @endif
         @if(isset($lastTitle))

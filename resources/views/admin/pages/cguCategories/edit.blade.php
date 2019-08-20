@@ -16,12 +16,12 @@
                 'title' => 'Цгу Категории'
             ]
         ],
-        'lastTitle' => 'Создание'
+        'lastTitle' => 'Редактирование'
     ])
 
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Blank <small>Get Started</small></h3>
+            <h3 class="block-title">Редактирование <small>Цгу Категории</small></h3>
             <div class="block-options">
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
                 {{--<button type="button" class="btn-block-option" data-toggle="block-option" data-action="pinned_toggle">--}}
@@ -123,13 +123,19 @@
                         <!-- END Step 3 -->
 
                         <div class="form-group">
-                            <label for="parent_id">Категории</label>
-                            <select name="parent_id" id="select2" class="form-control">
-                                <option value="0">-- нет --</option>
-                                @foreach($categories as $category_list)
-                                    @include('admin.pages.cguCategories.components.category', ['delimiter' => ''])
-                                @endforeach
-                            </select>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="parent_id">Категории</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <select name="parent_id" id="select2" class="form-control">
+                                        <option value="0">-- нет --</option>
+                                        @foreach($categories as $category_list)
+                                            @include('admin.pages.cguCategories.components.category', ['delimiter' => ''])
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">

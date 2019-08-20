@@ -2,7 +2,13 @@
     <li>
         <a class="active" href="#">
             <i class="si si-cup"></i>
-            <span class="sidebar-mini-hide">Dashboard</span>
+            <span class="sidebar-mini-hide">Главная</span>
+        </a>
+    </li>
+    <li>
+        <a class="active" href="#" target="_blank">
+            <i class="si si-map"></i>
+            <span class="sidebar-mini-hide">На сайт</span>
         </a>
     </li>
     <li class="nav-main-heading">
@@ -16,7 +22,19 @@
         </a>
         <ul>
             <li>
-                <a href="{{ route('admin.cgucategories.index') }}">Категории</a>
+                <a href="{{ route('admin.cgucategories.index') }}">
+                    Категории
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.cgucategories.index') }}">
+                    Цгу фотки или видео
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('admin.cgusites.index') }}">
+                    Цгу сайты
+                </a>
             </li>
         </ul>
     </li>

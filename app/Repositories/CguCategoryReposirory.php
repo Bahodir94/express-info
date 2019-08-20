@@ -30,7 +30,7 @@ class CguCategoryRepository implements CguCategoryRepositoryInterface
      */
     public function all()
     {
-        return CguCategory::orderBy('id', 'desc')->where('parent_id', null)->get();
+        return CguCategory::orderBy('position', 'asc')->where('parent_id', null)->get();
     }
 
 
@@ -116,5 +116,15 @@ class CguCategoryRepository implements CguCategoryRepositoryInterface
 //            $category->saveUzSlug($category_data->get('uz_title'));
 
         return $category;
+    }
+
+    /**
+     * Возвращает всё дерево категориев цгу
+     *
+     * @return mixed
+     */
+    public function getTree()
+    {
+        return CguCategory::all()->toTree();
     }
 }

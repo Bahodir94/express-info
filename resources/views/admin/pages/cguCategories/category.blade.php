@@ -11,8 +11,12 @@
                 'title' => 'Цгу Категории'
             ],
             [
-                'url' => ($category->hasParentCategory()) ? route('admin.cgucategories.show', $category->parentCategory->id) : '#',
-                'title' => ($category->hasParentCategory()) ? $category->parentCategory : ''
+                'url' => ($category->hasParentCategory()) ? route('admin.cgucategories.show', $category->parentCategory->id) : '',
+                'title' => ($category->hasParentCategory()) ? $category->parentCategory->ru_title : ''
+            ],
+            [
+                'url' => route('admin.cgucategories.show', $category->id),
+                'title' => $category->ru_title
             ],
         ],
         'lastTitle' => 'Дочерние категории'
@@ -26,13 +30,13 @@
             </div>
         </div>
         <div class="block-content">
-            <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+            <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-full">
                 <thead>
                 <tr>
                     <th class="text-center"></th>
                     <th class="sorting_desc">Заголовок</th>
-                    <th class="d-none d-sm-table-cell">Категории</th>
-                    <th class="d-none d-sm-table-cell">Справки</th>
+                    <th>Категории</th>
+                    <th>Сайты</th>
                     <th class="text-center" style="width: 15%;">Действия</th>
                 </tr>
                 </thead>
@@ -42,15 +46,19 @@
                         <tr>
                             <td class="text-center">{{ $category_list->id }}</td>
                             <td class="font-w600">{{ $category_list->getTitle() }}</td>
-                            <td class="d-none d-sm-table-cell">
+                            <td>
                                 @if($category_list->hasCategories())
                                     <a href="{{ route('admin.cgucategories.show', $category_list->id) }}">Перейти</a>
                                 @else
                                     Нет
                                 @endif
                             </td>
-                            <td class="d-none d-sm-table-cell">
-                                Нет
+                            <td>
+                                @if($category_list->hasSites())
+                                    <a href="{{ route('admin.cgucategories.sites', $category_list->id) }}">Перейти</a>
+                                @else
+                                    Нет
+                                @endif
                             </td>
                             <td class="text-center d-flex align-items-center">
                                 <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category_list->id) }}"><i class="fa fa-edit"></i></a>
@@ -61,6 +69,11 @@
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </form>
+                                <select name="position" class="position" data-id="{{ $category_list->id }}">
+                                    @for($i = 0; $i <= count($category->categories); $i++)
+                                        <option value="{{ $i }}" @if($category_list->position == $i) selected @endif>{{ $i }}</option>
+                                    @endfor
+                                </select>
                             </td>
                         </tr>
                     @endforeach
@@ -77,12 +90,40 @@
     <script src="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
     <script>
-        jQuery('.js-dataTable-full').dataTable({
+        $('.js-dataTable-full').dataTable({
             "order": [],
             pageLength: 10,
             lengthMenu: [[10, 20, 30, 50], [10, 20, 30, 50]],
             autoWidth: true,
             language: ru_datatable
         });
+        $('.position').change(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var formData = new FormData;
+            formData.append('id', $(this).data('id'));
+            formData.append('position', $(this).val());
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('admin.cgucategories.change.position') }}',
+                dataType: 'json',
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    $('.position').attr('disabled', '');
+                },
+                success: function(data){
+                    console.log(data);
+                    $('.position').removeAttr('disabled', '');
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        })
     </script>
 @endsection

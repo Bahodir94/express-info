@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Codebase - Bootstrap 4 Admin Template &amp; UI Framework</title>
 
@@ -106,9 +107,17 @@ MAIN CONTENT LAYOUT
 <!-- END Page Container -->
 
 <!-- Codebase Core JS -->
+<script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/js/codebase.min.js') }}"></script>
 <script src="{{ asset('js/admin.js') }}"></script>
+<script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('plugins/ckfinder/ckfinder.js') }}"></script>
 <script>
+    $(function(){
+        var editor = CKEDITOR.replaceAll();
+        CKFinder.setupCKEditor( editor );
+    });
+
     var ru_datatable = {
         "sProcessing":   "Подождите...",
         "sLengthMenu":   "Показать _MENU_ записей",
