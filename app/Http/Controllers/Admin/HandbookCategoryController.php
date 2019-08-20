@@ -68,11 +68,17 @@ class HandbookCategoryController extends Controller
             'uz_title' => 'required|unique:cgu_categories|max:255',
         ]);
 
-        $this->handbookCategoryRepository->store($request);
+        $category = $this->handbookCategoryRepository->store($request);
         if ($request->has('saveQuit'))
-            return redirect()->route('admin.handbookCategories.index');
+        {
+            $parent = $category->getParentId();
+            if ($parent != null)
+                return redirect()->route('admin.handbookcategories.show', $parent);
+            else
+                return redirect()->route('admin.handbookcategories.index');
+        }
         else
-            return redirect()->route('admin.handbookCategories.create');
+            return redirect()->route('admin.handbookcategories.create');
     }
 
     /**
