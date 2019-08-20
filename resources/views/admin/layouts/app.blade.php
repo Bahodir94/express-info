@@ -7,17 +7,9 @@
 
     <title>@yield('title') | ExpressInfo</title>
 
-    <meta name="description" content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
-    <meta name="author" content="pixelcave">
+    <meta name="description" content="Административная панель ExpressInfo">
+    <meta name="author" content="vid.uz">
     <meta name="robots" content="noindex, nofollow">
-
-    <!-- Open Graph Meta -->
-    <meta property="og:title" content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework">
-    <meta property="og:site_name" content="Codebase">
-    <meta property="og:description" content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
 
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
