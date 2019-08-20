@@ -81,6 +81,19 @@ class HandbookCategory extends Model
     }
 
     /**
+     * Get image filename
+     *
+     * @return string
+    */
+    public function getImage()
+    {
+        if ($this->image)
+            return self::$UPLOAD_DIRECTORY . $this->image;
+        else
+            return '';
+    }
+
+    /**
      * Remove an image
      *
      * @return void
