@@ -45,4 +45,11 @@ interface HandbookCategoryRepositoryInterface
      * @return \App\Models\HandbookCategory
     */
     public function store($categoryData);
+
+    /**
+     * Get tree of handbook categories
+     *
+     * @return object
+    */
+    public function getTree();
 }

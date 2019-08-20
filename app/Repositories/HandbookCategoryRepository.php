@@ -79,4 +79,14 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
 
         return $category;
     }
+
+    /**
+     * Get tree of handbook categories
+     *
+     * @return object
+     */
+    public function getTree()
+    {
+        return HandbookCategory::all()->toTree();
+    }
 }
