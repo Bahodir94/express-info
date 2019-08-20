@@ -128,10 +128,10 @@ class HandbookCategoryController extends Controller
         $category = $this->handbookCategoryRepository->update($id, $request);
 
         $parentId = $category->getParentId();
-        if ($parentId)
-            return redirect()->route('admin.handbookcategories.show');
+        if ($parentId != null)
+            return redirect()->route('admin.handbookcategories.show', $parentId);
         else
-            return redirect()->route('admin.handbookCategories.index');
+            return redirect()->route('admin.handbookcategories.index');
     }
 
     /**
@@ -145,7 +145,7 @@ class HandbookCategoryController extends Controller
         $parent = $this->handbookCategoryRepository->delete($id);
 
         if ($parent != null && $this->handbookCategoryRepository->get($parent)->hasCategories())
-            return redirect()->route('admin.handbookcategories.show');
+            return redirect()->route('admin.handbookcategories.show', $parent);
         else
             return redirect()->route('admin.handbookcategories.index');
     }
