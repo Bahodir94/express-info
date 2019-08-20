@@ -35,6 +35,26 @@ class HandbookCategory extends Model
     }
 
     /**
+     * Parent category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function parentCategory()
+    {
+        return $this->hasOne(self::class, 'id', 'parent_id');
+    }
+
+    /**
+     * Check if category has parent category
+     *
+     * @return boolean
+    */
+    public function hasParentCategory()
+    {
+        return $this->parentCategory !== null;
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image
