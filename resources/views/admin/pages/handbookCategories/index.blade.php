@@ -10,7 +10,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Категории справочника</h3>
             <div class="block-options">
-                <a href="{{ route('admin.cgucategories.create') }}" class="btn btn-primary">Создать</a>
+                <a href="{{ route('admin.handbookcategories.create') }}" class="btn btn-primary">Создать</a>
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
             </div>
         </div>
@@ -23,7 +23,7 @@
                             <th class="text-center">Заголовок</th>
                             <th class="text-center">Категории</th>
                             <th class="text-center">Справочники</th>
-                            <th class="text-center">Действия</th>
+                            <th class="text-center" style="width: 15%">Действия</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +33,7 @@
                                 <td class="font-w600">{{ $category->getTitle() }}</td>
                                 <td class="text-center">
                                     @if($category->hasCategories())
-                                        <a href="{{ route('admin.handbookcategories.category', $category->id) }}" class="link-effect">Перейти</a>
+                                        <a href="{{ route('admin.handbookcategories.show', $category->id) }}" class="link-effect">Перейти</a>
                                     @else
                                         Нет
                                     @endif
