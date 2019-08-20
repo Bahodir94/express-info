@@ -42,10 +42,10 @@
                                     Нет
                                 </td>
                                 <td class="text-center">
-                                    <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.handbookcategories.edit', $category->id) }}"><i class="fa fa-edit"></i></a>
-                                    <form method="post" action="{{ route('admin.handbookcategories.destroy', $category->id) }}">
+                                    <a href="{{ route('admin.handbookcategories.edit', $category->id) }}" data-toggle="tooltip" title="Редактировать"><i class="fa fa-edit"></i></a>
+                                    <form method="post" action="{{ route('admin.handbookcategories.destroy', $category->id) }}" class="d-inline">
                                         @csrf
-                                        <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" type="button" data-toggle="tooltip" title="Удалить">
+                                        <button style="border: none; cursor: pointer; background-color: transparent;" class="text-danger" onclick="return confirm('Вы уверены?')" type="button" data-toggle="tooltip" title="Удалить">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>
