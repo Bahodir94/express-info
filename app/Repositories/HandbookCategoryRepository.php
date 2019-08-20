@@ -73,7 +73,7 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
 
         $parentId = $categoryData->get('parent_id');
 
-        if ($parentId != null)
+        if ($parentId != 0)
         {
             $parent = $this->get($parentId);
             $category->appendToNode($parent)->save();
