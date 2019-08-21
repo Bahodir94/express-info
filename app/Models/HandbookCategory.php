@@ -55,6 +55,26 @@ class HandbookCategory extends Model
     }
 
     /**
+     * Category's handbooks
+     *
+     * @return mixed
+    */
+    public function handbooks()
+    {
+        return $this->hasMany(Handbook::class, 'category_id', 'id')->orderBy('position', 'asc');
+    }
+
+    /**
+     * Check if category has handbooks
+     *
+     * @return boolean
+    */
+    public function hasHandbooks()
+    {
+        return $this->handbooks[0] != null;
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image
@@ -75,7 +95,7 @@ class HandbookCategory extends Model
      * @param string $imageName
      * @return string
     */
-    public function generateFileName(string $imageName)
+    private function generateFileName(string $imageName)
     {
         return str_random(20) . $imageName;
     }
@@ -88,7 +108,7 @@ class HandbookCategory extends Model
     public function getImage()
     {
         if ($this->image)
-            return self::$UPLOAD_DIRECTORY . $this->image;
+            return '/' . self::$UPLOAD_DIRECTORY . $this->image;
         else
             return '';
     }
