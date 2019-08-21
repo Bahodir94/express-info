@@ -33,8 +33,6 @@ class CreateHandbooksTable extends Migration
             $table->integer('position')->default(0);
             $table->integer('category_id')->default(0);
             $table->timestamps();
-
-            $table->foreign('category_id')->on('handbook_categories')->onDelete('cascade');
         });
     }
 
