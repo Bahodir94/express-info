@@ -24,5 +24,6 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     // Handbook Category Routes
     Route::resource('/handbookcategories', 'HandbookCategoryController');
     Route::get('/handbookcategories/{id}/removeImage', 'HandbookCategoryController@removeImage')->name('handbookcategories.remove.image');
+    Route::get('/handbookcategories/position', 'HandbookCategoryController@changePosition')->name('handbookcategories.change.position');
 
 });

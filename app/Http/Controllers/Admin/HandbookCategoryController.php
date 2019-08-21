@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 
 class HandbookCategoryController extends Controller
 {
@@ -162,5 +163,21 @@ class HandbookCategoryController extends Controller
         $category->removeImage();
 
         return redirect()->back();
+    }
+
+    /**
+     * Change position for category
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function changePosition(Request $request)
+    {
+        $categoryId = $request->get('id');
+        $position = $request->get('position');
+        if ($this->handbookCategoryRepository->setPosition($categoryId, $position))
+            return Response::make("", 201);
+        else
+            return Response::make("", 400);
     }
 }
