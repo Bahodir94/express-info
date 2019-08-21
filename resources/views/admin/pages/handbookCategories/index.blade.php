@@ -43,15 +43,20 @@
                                 <td class="text-center">
                                     Нет
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center d-flex align-items-center">
                                     <a href="{{ route('admin.handbookcategories.edit', $category->id) }}" data-toggle="tooltip" title="Редактировать"><i class="fa fa-edit"></i></a>
-                                    <form method="post" action="{{ route('admin.handbookcategories.destroy', $category->id) }}" class="d-inline">
+                                    <form method="post" action="{{ route('admin.handbookcategories.destroy', $category->id) }}">
                                         @csrf
                                         @method('delete')
                                         <button style="border: none; cursor: pointer; background-color: transparent;" class="text-danger" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>
+                                    <select name="position" class="position" data-id="{{ $category->id }}">
+                                        @for($i = 0; $i <= count($categories); $i++)
+                                            <option value="{{ $i }}" @if($category->position == $i) selected @endif>{{ $i }}</option>
+                                        @endfor
+                                    </select>
                                 </td>
                             </tr>
                         @endforeach
@@ -73,6 +78,35 @@
             lengthMenu: [[10, 20, 30, 50], [10, 20, 30, 50]],
             autoWidth: true,
             language: ru_datatable
+        });
+
+        $('.position').change(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            let formData = new FormData;
+            formData.append('id', $(this).data('id'));
+            formData.append('position', $(this).val());
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('admin.handbookcategories.change.position') }}',
+                dataType: 'json',
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    $('.position').attr('disabled', 'disabled');
+                },
+                success: function() {
+                    $('.position').removeAttr('disabled', '');
+                },
+                error: function(data) {
+                    console.log(data);
+                    $('.position').removeAttr('disabled', '');
+                }
+            })
         });
     </script>
 @endsection
