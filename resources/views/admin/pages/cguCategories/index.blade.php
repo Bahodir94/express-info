@@ -3,6 +3,9 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
 @endsection
+
+@section('title') ЦГУ категории @endsection
+
 @section('content')
     @include('admin.components.breadcrumb', ['lastTitle' => 'Цгу Категории'])
     <div class="block">
@@ -14,8 +17,9 @@
             </div>
         </div>
         <div class="block-content">
-            <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-full">
-                <thead>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
+                    <thead>
                     <tr>
                         <th class="text-center"></th>
                         <th class="sorting_desc">Заголовок</th>
@@ -23,20 +27,18 @@
                         <th>Сайты</th>
                         <th class="text-center" style="width: 15%;">Действия</th>
                     </tr>
-                </thead>
-                <tbody>
-                @foreach($categories as $category)
-                    <tr>
-                        <td class="text-center">{{ $category->id }}</td>
-                        <td class="font-w600">
-                            {{ $category->getTitle() }}
-                        </td>
-                        <td>
-                            @if($category->hasCategories())
-                                <a href="{{ route('admin.cgucategories.show', $category->id) }}">Перейти</a>
-                            @else
-                                Нет
-                            @endif
+                    </thead>
+                    <tbody>
+                    @foreach($categories as $category)
+                        <tr>
+                            <td class="text-center">{{ $category->id }}</td>
+                            <td class="font-w600">{{ $category->getTitle() }}</td>
+                            <td>
+                                @if($category->hasCategories())
+                                    <a href="{{ route('admin.cgucategories.show', $category->id) }}">Перейти</a>
+                                @else
+                                    Нет
+                                @endif
                         </td>
                         <td>
                             @if($category->hasSites())
@@ -66,7 +68,7 @@
             </table>
         </div>
     </div>
-
+    </div>
 @endsection
 
 @section('js')

@@ -10,7 +10,6 @@
 Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('Admin')->group(function (){
     // Dashboard
     Route::get('/', 'DashboardController@index')->name('index');
-
     // Cgu Site Routes
     Route::resource('/cgusites', 'CguSiteController');
     Route::get('/cgusites/{id}/image', 'CguSiteController@removeImage')->name('cgusites.remove.image');
@@ -25,5 +24,9 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     // Cgu Catalog Routes
     Route::resource('/cgucatalog', 'CguCatalogController');
 
+    // Handbook Category Routes
+    Route::resource('/handbookcategories', 'HandbookCategoryController');
+    Route::get('/handbookcategories/{id}/removeImage', 'HandbookCategoryController@removeImage')->name('handbookcategories.remove.image');
+    Route::post('/handbookcategories/position', 'HandbookCategoryController@changePosition')->name('handbookcategories.change.position');
 
 });

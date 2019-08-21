@@ -31,7 +31,27 @@ class HandbookCategory extends Model
     */
     public function hasCategories()
     {
-        return (isset($this->categories[0])) ? true: false;
+        return isset($this->categories[0]);
+    }
+
+    /**
+     * Parent category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function parentCategory()
+    {
+        return $this->hasOne(self::class, 'id', 'parent_id');
+    }
+
+    /**
+     * Check if category has parent category
+     *
+     * @return boolean
+    */
+    public function hasParentCategory()
+    {
+        return $this->parentCategory !== null;
     }
 
     /**
@@ -58,6 +78,19 @@ class HandbookCategory extends Model
     public function generateFileName(string $imageName)
     {
         return str_random(20) . $imageName;
+    }
+
+    /**
+     * Get image filename
+     *
+     * @return string
+    */
+    public function getImage()
+    {
+        if ($this->image)
+            return self::$UPLOAD_DIRECTORY . $this->image;
+        else
+            return '';
     }
 
     /**
@@ -94,5 +127,15 @@ class HandbookCategory extends Model
     {
         $this->removeImage();
         parent::delete();
+    }
+
+    /**
+     * Get cleand title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return strip_tags($this->ru_title);
     }
 }

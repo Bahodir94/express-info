@@ -4,6 +4,8 @@
 namespace App\Repositories;
 
 
+use phpDocumentor\Reflection\Types\Void_;
+
 interface HandbookCategoryRepositoryInterface
 {
     /**
@@ -25,7 +27,7 @@ interface HandbookCategoryRepositoryInterface
      * Delete a handbook category
      *
      * @param int $id
-     * @return void
+     * @return int
     */
     public function delete(int $id);
 
@@ -52,4 +54,13 @@ interface HandbookCategoryRepositoryInterface
      * @return object
     */
     public function getTree();
+
+    /**
+     * Set position for category
+     *
+     * @param int $categoryId
+     * @param int $position
+     * @return bool
+    */
+    public function setPosition(int $categoryId, int $position);
 }

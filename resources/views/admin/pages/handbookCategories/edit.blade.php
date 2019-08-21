@@ -1,45 +1,29 @@
 @extends('admin.layouts.app')
 
 @section('css')
-
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2-bootstrap.min.css') }}">
-
 @endsection
 
-@section('title') Добавить ЦГУ категорию @endsection
+@section('title')Справочник {{ $category->ru_title }} @endsection
 
 @section('content')
-
     @include('admin.components.breadcrumb', [
         'list' => [
             [
-                'url' => route('admin.cgucategories.index'),
-                'title' => 'Цгу Категории'
+                'url' => route('admin.handbookcategories.index'),
+                'title' => 'Категории справочника'
             ]
         ],
-        'lastTitle' => 'Создание'
+        'lastTitle' => $category->ru_title
     ])
 
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Создание <small>Цгу Категории</small></h3>
-            <div class="block-options">
-                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
-                {{--<button type="button" class="btn-block-option" data-toggle="block-option" data-action="pinned_toggle">--}}
-                {{--<i class="si si-pin"></i>--}}
-                {{--</button>--}}
-                {{--<button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">--}}
-                {{--<i class="si si-refresh"></i>--}}
-                {{--</button>--}}
-                {{--<button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>--}}
-                {{--<button type="button" class="btn-block-option" data-toggle="block-option" data-action="close">--}}
-                {{--<i class="si si-close"></i>--}}
-                {{--</button>--}}
-            </div>
+            <h3 class="block-title">{{ $category->ru_title }}</h3>
         </div>
         <!-- Form -->
-        <form action="{{ route('admin.cgucategories.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.handbookcategories.update', $category->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="block-content">
                 <!-- Simple Wizard -->
@@ -59,7 +43,7 @@
                     <!-- END Step Tabs -->
 
                     <!-- Steps Content -->
-                    <div class="block-content block-content-full tab-content" style="min-height: 265px;">
+                    <div class="block-content block-content-full tab-content">
                         <!-- Step 1 -->
                         <div class="tab-pane active" id="wizard-simple-step1" role="tabpanel">
                             <div class="form-group @error('ru_title') is-invalid @enderror">
@@ -67,7 +51,7 @@
                                 Заголовок
                                 @error('ru_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ old('ru_title') }}">
+                                <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ $category->ru_title }}">
                                 @error('ru_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_slug') is-invalid @enderror">
@@ -75,7 +59,7 @@
                                 Slug
                                 @error('ru_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="ru_slug" name="ru_slug" value="{{ old('ru_slug') }}">
+                                <input class="form-control" type="text" id="ru_slug" name="ru_slug" value="{{ $category->ru_slug }}">
                                 @error('ru_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
@@ -88,7 +72,7 @@
                                 Заголовок
                                 @error('en_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="en_title" name="en_title" value="{{ old('en_title') }}">
+                                <input class="form-control" type="text" id="en_title" name="en_title" value="{{ $category->en_title }}">
                                 @error('en_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('en_slug') is-invalid @enderror">
@@ -96,7 +80,7 @@
                                 Slug
                                 @error('en_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="en_slug" name="en_slug" value="{{ old('en_title') }}">
+                                <input class="form-control" type="text" id="en_slug" name="en_slug" value="{{ $category->en_slug }}">
                                 @error('en_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
@@ -109,7 +93,7 @@
                                 Заголовок
                                 @error('uz_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="uz_title" name="uz_title" value="{{ old('uz_title') }}">
+                                <input class="form-control" type="text" id="uz_title" name="uz_title" value="{{ $category->uz_title }}">
                                 @error('uz_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('uz_slug') is-invalid @enderror">
@@ -117,47 +101,25 @@
                                 Slug
                                 @error('uz_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="uz_slug" name="uz_slug" value="{{ old('uz_slug') }}">
+                                <input class="form-control" type="text" id="uz_slug" name="uz_slug" value="{{ $category->uz_slug }}">
                                 @error('uz_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
                         <!-- END Step 3 -->
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label for="parent_id">Категории</label>
-                                </div>
-                                <div class="col-md-12">
-                                    <select name="parent_id" id="select2" class="form-control">
-                                        <option value="0">-- нет --</option>
-                                        @foreach($categories as $category_list)
-                                            @include('admin.pages.cguCategories.components.category', ['delimiter' => ''])
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="image">Изображение</label>
-                            <input type="file" name="image" class="form-control">
-                        </div>
-
                     </div>
                     <!-- END Steps Content -->
 
                     <!-- Steps Navigation -->
-                    <div class="block-content block-content-sm block-content-full bg-body-light">
+                    <div class="block-content block-content-sm block-content-full">
                         <div class="row">
                             <div class="col-6">
                                 <button type="button" class="btn btn-alt-secondary" data-wizard="prev">
-                                    <i class="fa fa-angle-left mr-5"></i> Previous
+                                    <i class="fa fa-angle-left mr-5"></i> Назад
                                 </button>
                             </div>
                             <div class="col-6 text-right">
                                 <button type="button" class="btn btn-alt-secondary" data-wizard="next">
-                                    Next <i class="fa fa-angle-right ml-5"></i>
+                                    Вперёд <i class="fa fa-angle-right ml-5"></i>
                                 </button>
                                 <button type="submit" class="btn btn-alt-primary d-none" data-wizard="finish">
                                     <i class="fa fa-check mr-5"></i> Submit
@@ -168,17 +130,36 @@
                     <!-- END Steps Navigation -->
                 </div>
                 <!-- END Simple Wizard -->
+                <div class="form-group">
+                    <label for="parent_id">Родительская категория</label>
+                    <select name="parent_id" id="select2" class="form-control">
+                        <option value="0">-- нет --</option>
+                        @foreach($categories as $category_list)
+                            @include('admin.pages.handbookCategories.components.category', ['delimiter' => ''])
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Изображение</label>
+                    @if($category->image != null)
+                        <br>
+                        <img src="{{ $category->getImage() }}" style="width: 200px;" alt="{{ $category->ru_title }}">
+                        <br>
+                        <a href="{{ route('admin.cgucategories.remove.image', $category->id) }}" class="btn btn-danger">Удалить</a>
+                        <br>
+                    @endif
+                    <input type="file" name="image" class="form-control">
+                </div>
             </div>
             <div class="block-content">
                 <div class="block-content text-right pb-10">
-                    <button class="btn btn-success" name="save">Сохранить</button>
-                    <button class="btn btn-success" name="saveQuit">Сохранить и выйти</button>
+                    @method('put')
+                    <button class="btn btn-success" type="submit">Сохранить</button>
                 </div>
             </div>
         </form>
-        <!-- END Form -->
     </div>
-
 @endsection
 
 @section('js')

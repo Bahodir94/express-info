@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 
 class HandbookCategoryController extends Controller
 {
@@ -63,16 +64,22 @@ class HandbookCategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'ru_title' => 'required|unique:cgu_categories|max:255',
-            'en_title' => 'required|unique:cgu_categories|max:255',
-            'uz_title' => 'required|unique:cgu_categories|max:255',
+            'ru_title' => 'required|unique:handbook_categories|max:255',
+            'en_title' => 'required|unique:handbook_categories|max:255',
+            'uz_title' => 'required|unique:handbook_categories|max:255',
         ]);
 
-        $this->handbookCategoryRepository->store($request);
+        $category = $this->handbookCategoryRepository->store($request);
         if ($request->has('saveQuit'))
-            return redirect()->route('admin.handbookCategories.index');
+        {
+            $parent = $category->getParentId();
+            if ($parent != null)
+                return redirect()->route('admin.handbookcategories.show', $parent);
+            else
+                return redirect()->route('admin.handbookcategories.index');
+        }
         else
-            return redirect()->route('admin.handbookCategories.create');
+            return redirect()->route('admin.handbookcategories.create');
     }
 
     /**
@@ -122,10 +129,10 @@ class HandbookCategoryController extends Controller
         $category = $this->handbookCategoryRepository->update($id, $request);
 
         $parentId = $category->getParentId();
-        if ($parentId)
-            return redirect()->route('admin.handbookcategories.show');
+        if ($parentId != null)
+            return redirect()->route('admin.handbookcategories.show', $parentId);
         else
-            return redirect()->route('admin.handbookCategories.index');
+            return redirect()->route('admin.handbookcategories.index');
     }
 
     /**
@@ -139,8 +146,38 @@ class HandbookCategoryController extends Controller
         $parent = $this->handbookCategoryRepository->delete($id);
 
         if ($parent != null && $this->handbookCategoryRepository->get($parent)->hasCategories())
-            return redirect()->route('admin.handbookcategories.show');
+            return redirect()->route('admin.handbookcategories.show', $parent);
         else
-            return redirect()->route('admin.handbookCategories.index');
+            return redirect()->route('admin.handbookcategories.index');
+    }
+
+    /**
+     * Remove image for category
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+    */
+    public function removeImage(int $id)
+    {
+        $category = $this->handbookCategoryRepository->get($id);
+        $category->removeImage();
+
+        return redirect()->back();
+    }
+
+    /**
+     * Change position for category
+     *
+     * @param Request $request
+     * @return Response
+     */
+    public function changePosition(Request $request)
+    {
+        $categoryId = $request->get('id');
+        $position = $request->get('position');
+        if ($this->handbookCategoryRepository->setPosition($categoryId, $position))
+            return Response::create("", 200);
+        else
+            return Response::create("", 400);
     }
 }

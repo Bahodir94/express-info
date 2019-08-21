@@ -34,13 +34,15 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
      * Delete a handbook category
      *
      * @param int $id
-     * @return void
+     * @return int
      * @throws \Exception
      */
     public function delete(int $id)
     {
         $category = $this->get($id);
+        $parentId = $category->getParentId();
         $category->delete();
+        return $parentId;
     }
 
     /**
@@ -71,7 +73,7 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
 
         $parentId = $categoryData->get('parent_id');
 
-        if ($parentId != null)
+        if ($parentId != 0)
         {
             $parent = $this->get($parentId);
             $category->appendToNode($parent)->save();
@@ -88,5 +90,19 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
     public function getTree()
     {
         return HandbookCategory::all()->toTree();
+    }
+
+    /**
+     * Set position for category
+     *
+     * @param int $categoryId
+     * @param int $position
+     * @return bool
+     */
+    public function setPosition(int $categoryId, int $position)
+    {
+        $category = $this->get($categoryId);
+        $category->position = $position;
+        return $category->save();
     }
 }

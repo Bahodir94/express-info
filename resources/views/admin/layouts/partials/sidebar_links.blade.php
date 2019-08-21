@@ -38,4 +38,15 @@
             </li>
         </ul>
     </li>
+    <li>
+        <a href="#" class="nav-submenu" data-toggle="nav-submenu">
+            <i class="si si-list"></i>
+            <span class="sidebar-mini-hide">Справочник</span>
+        </a>
+        <ul>
+            <li>
+                <a href="{{ route('admin.handbookcategories.index') }}">Категории</a>
+            </li>
+        </ul>
+    </li>
 </ul>

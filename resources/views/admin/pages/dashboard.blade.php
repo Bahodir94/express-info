@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
 
+@section('title') Административная панель @endsection
+
 @section('content')
 
     <div class="block">
