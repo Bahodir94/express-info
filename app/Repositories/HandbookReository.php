@@ -38,7 +38,9 @@ class HandbookReository implements HandbookRepositoryInterface
      */
     public function create($handbookData)
     {
-        return Handbook::crete($handbookData->all());
+        $handbook = Handbook::crete($handbookData->all());
+        $handbook->uploadImage($handbookData->file('image'));
+        return $handbook;
     }
 
     /**
@@ -52,6 +54,7 @@ class HandbookReository implements HandbookRepositoryInterface
     {
         $handbook = $this->get($handbookId);
         $handbook->update($handbookData->all());
+        $handbook->uploadImage($handbookData->file('image'));
         return $handbook;
     }
 
