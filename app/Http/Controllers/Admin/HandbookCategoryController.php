@@ -176,8 +176,8 @@ class HandbookCategoryController extends Controller
         $categoryId = $request->get('id');
         $position = $request->get('position');
         if ($this->handbookCategoryRepository->setPosition($categoryId, $position))
-            return Response::make("", 201);
+            return Response::create("", 200);
         else
-            return Response::make("", 400);
+            return Response::create("", 400);
     }
 }
