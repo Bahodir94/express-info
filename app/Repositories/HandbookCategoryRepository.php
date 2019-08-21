@@ -91,4 +91,18 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
     {
         return HandbookCategory::all()->toTree();
     }
+
+    /**
+     * Set position for category
+     *
+     * @param int $categoryId
+     * @param int $position
+     * @return void
+     */
+    public function setPosition(int $categoryId, int $position)
+    {
+        $category = $this->get($categoryId);
+        $category->position = $position;
+        $category->save();
+    }
 }

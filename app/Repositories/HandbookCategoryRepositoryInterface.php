@@ -4,6 +4,8 @@
 namespace App\Repositories;
 
 
+use phpDocumentor\Reflection\Types\Void_;
+
 interface HandbookCategoryRepositoryInterface
 {
     /**
@@ -52,4 +54,13 @@ interface HandbookCategoryRepositoryInterface
      * @return object
     */
     public function getTree();
+
+    /**
+     * Set position for category
+     *
+     * @param int $categoryId
+     * @param int $position
+     * @return void
+    */
+    public function setPosition(int $categoryId, int $position);
 }
