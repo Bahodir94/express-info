@@ -22,6 +22,7 @@ class CreateCguCategoriesTable extends Migration
             $table->string('en_slug')->nullable();
             $table->string('uz_slug')->nullable();
             $table->string('image')->nullable();
+            $table->integer('position')->default(0);
 
             $table->nestedSet();
             $table->timestamps();

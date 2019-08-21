@@ -24,7 +24,7 @@
                         <th class="text-center"></th>
                         <th class="sorting_desc">Заголовок</th>
                         <th>Категории</th>
-                        <th>Справки</th>
+                        <th>Сайты</th>
                         <th class="text-center" style="width: 15%;">Действия</th>
                     </tr>
                     </thead>
@@ -39,28 +39,36 @@
                                 @else
                                     Нет
                                 @endif
-                            </td>
-                            <td>
+                        </td>
+                        <td>
+                            @if($category->hasSites())
+                                <a href="{{ route('admin.cgucategories.sites', $category->id) }}">Перейти</a>
+                            @else
                                 Нет
-                            </td>
-                            <td class="text-center d-flex align-items-center">
-                                <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category->id) }}"><i class="fa fa-edit"></i></a>
-                                <form method="post" action="{{ route('admin.cgucategories.destroy', $category->id) }}">
-                                    @csrf
-                                    @method('delete')
-                                    <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
+                            @endif
+                        </td>
+                        <td class="text-center d-flex align-items-center">
+                            <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category->id) }}"><i class="fa fa-edit"></i></a>
+                            <form method="post" action="{{ route('admin.cgucategories.destroy', $category->id) }}">
+                                @csrf
+                                @method('delete')
+                                <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                            <select name="position" class="position" data-id="{{ $category->id }}">
+                                @for($i = 0; $i <= count($categories); $i++)
+                                    <option value="{{ $i }}" @if($category->position == $i) selected @endif>{{ $i }}</option>
+                                @endfor
+                            </select>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
-
+    </div>
 @endsection
 
 @section('js')
@@ -68,12 +76,41 @@
     <script src="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
     <script>
-        jQuery('.js-dataTable-full').dataTable({
+        $('.js-dataTable-full').dataTable({
             "order": [],
             pageLength: 10,
             lengthMenu: [[10, 20, 30, 50], [10, 20, 30, 50]],
             autoWidth: true,
             language: ru_datatable
         });
+
+        $('.position').change(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var formData = new FormData;
+            formData.append('id', $(this).data('id'));
+            formData.append('position', $(this).val());
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('admin.cgucategories.change.position') }}',
+                dataType: 'json',
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    $('.position').attr('disabled', '');
+                },
+                success: function(data){
+                    console.log(data);
+                    $('.position').removeAttr('disabled', '');
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        })
     </script>
 @endsection

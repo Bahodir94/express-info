@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class CguCategoryController extends Controller
 {
-    protected $category;
+    protected $cguCategoryRepository;
 
     /**
      * CguCategoryController constructor.
@@ -18,7 +18,7 @@ class CguCategoryController extends Controller
      */
     public function __construct(CguCategoryRepositoryInterface $category)
     {
-        $this->category = $category;
+        $this->cguCategoryRepository = $category;
     }
 
     /**
@@ -29,10 +29,19 @@ class CguCategoryController extends Controller
     public function index()
     {
         $data = [
-            'categories' => $this->category->all(),
+            'categories' => $this->cguCategoryRepository->all(),
         ];
 
         return view('admin.pages.cguCategories.index', $data);
+    }
+
+    public function sites($id)
+    {
+        $data = [
+            'category' => $this->cguCategoryRepository->get($id)
+        ];
+
+        return view('admin.pages.cguCategories.sites', $data);
     }
 
 
@@ -52,7 +61,7 @@ class CguCategoryController extends Controller
     public function create()
     {
         $data = [
-            'categories' => CguCategory::all()->toTree()
+            'categories' => $this->cguCategoryRepository->getTree()
         ];
 
 
@@ -78,7 +87,7 @@ class CguCategoryController extends Controller
         ]);
 
 
-        $category = $this->category->store($request);
+        $category = $this->cguCategoryRepository->store($request);
 
         if($request->has('save'))
             return redirect()->route('admin.cgucategories.edit', $category->id);
@@ -95,7 +104,7 @@ class CguCategoryController extends Controller
     public function show($id)
     {
         $data = [
-            'category' => $this->category->get($id),
+            'category' => $this->cguCategoryRepository->get($id),
         ];
 
         return view('admin.pages.cguCategories.category', $data);
@@ -110,8 +119,8 @@ class CguCategoryController extends Controller
     public function edit($id)
     {
         $data = [
-            'categories' => CguCategory::all()->toTree(),
-            'category' => $this->category->get($id)
+            'categories' => $this->cguCategoryRepository->getTree(),
+            'category' => $this->cguCategoryRepository->get($id)
         ];
 
         return view('admin.pages.cguCategories.edit', $data);
@@ -127,13 +136,13 @@ class CguCategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'ru_title' => 'required|unique:cgu_categories|max:255',
-            'en_title' => 'required|unique:cgu_categories|max:255',
-            'uz_title' => 'required|unique:cgu_categories|max:255',
+            'ru_title' => 'required|max:255',
+            'en_title' => 'required|max:255',
+            'uz_title' => 'required|max:255',
             'image'    => 'nullable|image'
         ]);
 
-        $category = $this->category->update($id,$request);
+        $category = $this->cguCategoryRepository->update($id,$request);
 
         if($request->has('save'))
             return redirect()->route('admin.cgucategories.edit', $category->id);
@@ -149,11 +158,21 @@ class CguCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $parent = $this->category->delete($id);
+        $parent = $this->cguCategoryRepository->delete($id);
 
-        if($parent != null && $this->category->get($parent)->hasCategories())
+        if($parent != null && $this->cguCategoryRepository->get($parent)->hasCategories())
             return redirect()->route('admin.cgucategories.show', $parent);
         else
             return redirect()->route('admin.cgucategories.index');
+    }
+
+    public function changePosition(Request $request)
+    {
+        $category = CguCategory::find($request->get('id'));
+        $category->position = $request->get('position');
+        if($category->save())
+            return json_encode(['message' => 'success']);
+        else
+            return json_encode(['message' => 'failed']);
     }
 }

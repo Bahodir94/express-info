@@ -40,7 +40,7 @@
                     <div class="content-header-item">
                         <a class="link-effect font-w700" href="{{ route('admin.index') }}">
                             <i class="si si-fire text-primary"></i>
-                            <span class="font-size-xl text-dual-primary-dark">Express</span><span class="font-size-xl text-primary">Info</span>
+                            <span class="font-size-xl text-dual-primary-dark">Admin</span><span class="font-size-xl text-primary">Panel</span>
                         </a>
                     </div>
                     <!-- END Logo -->

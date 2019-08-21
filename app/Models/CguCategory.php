@@ -16,6 +16,8 @@ class CguCategory extends Model
         'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id'
     ];
 
+    const UPLOAD_IMAGE_DIRECTORY = 'uploads/cgu_categories_image/';
+
     /**
      * Возвращает дочерние объекты категории
      *
@@ -23,12 +25,18 @@ class CguCategory extends Model
      */
     public function categories()
     {
-        return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('id', 'desc');
+        return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('position', 'asc');
     }
 
     /**
-     * Возвращаем родительский объект категории
-     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function sites()
+    {
+        return $this->hasMany(CguSite::class, 'category_id', 'id')->orderBy('position', 'asc');
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function parentCategory()
@@ -44,6 +52,11 @@ class CguCategory extends Model
     public function hasCategories()
     {
         return (isset($this->categories[0])) ? true : false;
+    }
+
+    public function hasSites()
+    {
+        return (isset($this->sites[0])) ? true : false;
     }
 
     /**
@@ -65,7 +78,7 @@ class CguCategory extends Model
 
         $this->removeImage();
         $filename = $this->generateFileName($image->extension());
-        $image->storeAs('uploads/cgu_categories_image', $filename);
+        $image->storeAs(self::UPLOAD_IMAGE_DIRECTORY, $filename);
         $this->saveImageName($filename);
     }
 
@@ -73,7 +86,7 @@ class CguCategory extends Model
 
     public function getImage()
     {
-        return '/uploads/cgu_categories_image/' . $this->image;
+        return '/' . self::UPLOAD_IMAGE_DIRECTORY . $this->image;
     }
 
     /**
@@ -94,7 +107,7 @@ class CguCategory extends Model
     {
         if($this->image != null)
         {
-            Storage::delete('uploads/cgu_categories_image/' . $this->image);
+            Storage::delete(self::UPLOAD_IMAGE_DIRECTORY . $this->image);
             $this->image = null;
             $this->save();
         }
