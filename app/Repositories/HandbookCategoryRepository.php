@@ -97,12 +97,12 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
      *
      * @param int $categoryId
      * @param int $position
-     * @return void
+     * @return bool
      */
     public function setPosition(int $categoryId, int $position)
     {
         $category = $this->get($categoryId);
         $category->position = $position;
-        $category->save();
+        return $category->save();
     }
 }

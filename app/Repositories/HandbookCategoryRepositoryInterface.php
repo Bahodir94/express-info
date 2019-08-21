@@ -60,7 +60,7 @@ interface HandbookCategoryRepositoryInterface
      *
      * @param int $categoryId
      * @param int $position
-     * @return void
+     * @return bool
     */
     public function setPosition(int $categoryId, int $position);
 }
