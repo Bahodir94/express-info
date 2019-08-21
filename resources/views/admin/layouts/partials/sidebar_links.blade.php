@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.cgucategories.index') }}">
+                <a href="{{ route('admin.cgucatalog.index') }}">
                     Цгу фотки или видео
                 </a>
             </li>

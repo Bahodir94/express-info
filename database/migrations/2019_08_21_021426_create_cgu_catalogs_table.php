@@ -15,6 +15,18 @@ class CreateCguCatalogsTable extends Migration
     {
         Schema::create('cgu_catalogs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('ru_title')->nullable();
+            $table->string('en_title')->nullable();
+            $table->string('uz_title')->nullable();
+            $table->longText('ru_description')->nullable();
+            $table->longText('en_description')->nullable();
+            $table->longText('uz_description')->nullable();
+            $table->string('file')->nullable();
+            $table->string('video')->nullable();
+            $table->string('link')->nullable();
+            $table->integer('active')->default(1);
+            $table->integer('position')->default(0);
+            $table->integer('category_id')->default(0);
             $table->timestamps();
         });
     }

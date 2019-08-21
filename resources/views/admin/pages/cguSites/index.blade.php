@@ -29,7 +29,21 @@
                     <tr>
                         <td class="text-center">{{ $site->id }}</td>
                         <td class="font-w600">{{ $site->getTitle() }}</td>
-                        <td>{{ $site->getParentCategoryTitle() }}</td>
+                        <td>
+                            @if($site->hasParentCategory())
+                                @if($site->parentCategory->hasParentCategory())
+                                    <a href="{{ route('admin.cgucategories.show', $site->parentCategory->parentCategory->id) }}">
+                                @else
+                                    <a href="{{ route('admin.cgucategories.index') }}">
+                                @endif
+                            @endif
+                                {{ $site->getParentCategoryTitle() }}
+                            @if($site->hasParentCategory())
+                                @if($site->parentCategory->hasParentCategory())
+                                    </a>
+                                @endif
+                            @endif
+                        </td>
                         <td>{!! $site->getActiveRender() !!}</td>
                         <td class="text-center d-flex align-items-center">
                             <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgusites.edit', $site->id) }}"><i class="fa fa-edit"></i></a>

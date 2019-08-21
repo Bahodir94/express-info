@@ -28,7 +28,9 @@
                 @foreach($categories as $category)
                     <tr>
                         <td class="text-center">{{ $category->id }}</td>
-                        <td class="font-w600">{{ $category->getTitle() }}</td>
+                        <td class="font-w600">
+                            {{ $category->getTitle() }}
+                        </td>
                         <td>
                             @if($category->hasCategories())
                                 <a href="{{ route('admin.cgucategories.show', $category->id) }}">Перейти</a>
