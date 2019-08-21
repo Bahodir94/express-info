@@ -27,7 +27,7 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
      */
     public function all()
     {
-        return HandbookCategory::where('parent_id', null)->orderBy('id', 'desc')->get();
+        return HandbookCategory::where('parent_id', null)->orderBy('position', 'asc')->get();
     }
 
     /**

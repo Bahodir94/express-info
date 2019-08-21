@@ -23,7 +23,7 @@ class HandbookCategory extends Model
     */
     public function categories()
     {
-        return $this->hasMany(self::class, 'parent_id', 'id');
+        return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('position', 'asc');
     }
 
     /**
