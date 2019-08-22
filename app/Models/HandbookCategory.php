@@ -71,7 +71,7 @@ class HandbookCategory extends Model
     */
     public function hasHandbooks()
     {
-        return $this->handbooks[0] != null;
+        return isset($this->handbooks[0]);
     }
 
     /**
