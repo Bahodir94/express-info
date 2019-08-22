@@ -6,6 +6,12 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
+
+    <style>
+        .js-dataTable-full .btn {
+            height: 100%;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -46,14 +52,14 @@
                         @foreach($category->handbooks as $handbook)
                             <tr>
                                 <td class="text-center">
-                                    <img src="{{ $handbook->getImage() }}" alt="{{ $handbook->ru_title }}" class="img-avatar img-avatar48">
+                                    @if($handbook->image)<img src="{{ $handbook->getImage() }}" alt="{{ $handbook->ru_title }}" class="img-avatar img-avatar48"> @else - @endif
                                 </td>
                                 <td class="text-center font-w600">{{ $handbook->ru_title }}</td>
                                 <td class="text-center font-w600">{{ $category->getTitle() }}</td>
                                 <td class="text-center font-w600">-</td>
-                                <td class="text-center font-w600 d-flex align-items-center">
-                                    <a href="{{ route('admin.handbooks.edit') }}" class="btn btn-sm btn-alt-info" data-toggle="tooltip" title="Редактировать"><i class="fa fa-pencil"></i></a>
-                                    <form action="{{ route('admin.handbooks.destroy') }}" method="post">
+                                <td class="text-center font-w600 d-flex align-items-center justify-content-around">
+                                    <a href="{{ route('admin.handbooks.edit', $handbook->id) }}" class="btn btn-sm btn-alt-info" data-toggle="tooltip" title="Редактировать"><i class="fa fa-pencil"></i></a>
+                                    <form action="{{ route('admin.handbooks.destroy', $handbook->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-sm btn-alt-danger" onclick="return confirm('Вы уверены?');">
@@ -61,7 +67,7 @@
                                         </button>
                                     </form>
                                     <select name="position" id="position" class="position">
-                                        @for($i = 0; $i <= count($category->$handbooks); $i++)
+                                        @for($i = 0; $i <= count($category->handbooks); $i++)
                                             <option value="{{ $i }}" @if($handbook->position == $i) selected @endif>{{ $i }}</option>
                                         @endfor
                                     </select>
