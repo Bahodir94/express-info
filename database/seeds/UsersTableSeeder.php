@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
+use App\Models\User;
+use App\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,13 +14,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\User::class, function (Faker $faker){
-            return [
-                'name' => 'Admin',
-                'email' => 'admin@example.com',
-                'isAdmin' => true,
-                'password' => bcrypt('password'),
-            ];
-        });
+        $role_admin = Role::where('name', 'admin')->first();
+
+        $admin_user = new User();
+        $admin_user->name = 'Admin';
+        $admin_user->email = 'admin@example.com';
+        $admin_user->password = Hash::make('example');
+        $admin_user->save();
+        $admin_user->roles()->attach($role_admin);
     }
 }
