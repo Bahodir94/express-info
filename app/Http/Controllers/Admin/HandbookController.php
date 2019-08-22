@@ -49,7 +49,7 @@ class HandbookController extends Controller
             'handbooks' => $this->handbooks->all()
         ];
 
-        return view('admin.handbooks.index', $data);
+        return view('admin.pages.handbooks.index', $data);
     }
 
     /**
@@ -60,10 +60,10 @@ class HandbookController extends Controller
     public function create()
     {
         $data = [
-            '$categories' => $this->handbookCategories->getTree()
+            'categories' => $this->handbookCategories->getTree()
         ];
 
-        return view('admin.handbooks.create', $data);
+        return view('admin.pages.handbooks.create', $data);
     }
 
     /**
@@ -109,7 +109,7 @@ class HandbookController extends Controller
             'categories' => $categories
         ];
 
-        return view('admin.handbooks.edit', $data);
+        return view('admin.pages.handbooks.edit', $data);
     }
 
     /**
@@ -122,9 +122,9 @@ class HandbookController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'ru_title' => 'required|unique:handbooks|max:255',
-            'en_title' => 'required|unique:handbooks|max:255',
-            'uz_title' => 'required|unique:handbooks|max:255'
+            'ru_title' => 'required|max:255',
+            'en_title' => 'required|max:255',
+            'uz_title' => 'required|max:255'
         ]);
         $this->handbooks->update($id, $request);
 
