@@ -12,13 +12,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\User::class, function (Faker $faker){
-            return [
-                'name' => 'Admin',
-                'email' => 'admin@example.com',
-                'isAdmin' => true,
-                'password' => bcrypt('password'),
-            ];
-        });
+        factory(\App\Models\User::class)->create([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'isAdmin' => true,
+            'role_id' => 1,
+            'password' => bcrypt('password'),
+        ]);
     }
 }

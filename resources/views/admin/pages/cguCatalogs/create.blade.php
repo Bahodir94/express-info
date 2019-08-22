@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Создание ЦГУ Каталога')
+@section('title', 'Создание ЦГУ Категории')
 
 @section('css')
 
@@ -9,13 +9,15 @@
 
 @endsection
 
+@section('title') Добавить ЦГУ категорию @endsection
+
 @section('content')
 
     @include('admin.components.breadcrumb', [
         'list' => [
             [
                 'url' => route('admin.cgucatalogs.index'),
-                'title' => 'Цгу Каталог'
+                'title' => 'Цгу Каталоги'
             ]
         ],
         'lastTitle' => 'Создание'
@@ -23,23 +25,13 @@
 
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Создание <small>Цгу Каталог</small></h3>
+            <h3 class="block-title">Создание <small>Цгу Категории</small></h3>
             <div class="block-options">
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
-                {{--<button type="button" class="btn-block-option" data-toggle="block-option" data-action="pinned_toggle">--}}
-                {{--<i class="si si-pin"></i>--}}
-                {{--</button>--}}
-                {{--<button type="button" class="btn-block-option" data-toggle="block-option" data-action="state_toggle" data-action-mode="demo">--}}
-                {{--<i class="si si-refresh"></i>--}}
-                {{--</button>--}}
-                {{--<button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>--}}
-                {{--<button type="button" class="btn-block-option" data-toggle="block-option" data-action="close">--}}
-                {{--<i class="si si-close"></i>--}}
-                {{--</button>--}}
             </div>
         </div>
         <!-- Form -->
-        <form action="{{ route('admin.cgusites.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.cgucatalogs.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="block-content">
                 <!-- Simple Wizard -->
@@ -70,13 +62,13 @@
                                 <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ old('ru_title') }}">
                                 @error('ru_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
-                            <div class="form-group @error('ru_description') is-invalid @enderror">
-                                <label for="ru_title" @error('ru_description') class="col-form-label" @enderror>
-                                Описание
-                                @error('ru_description') <span class="text-danger">*</span> @enderror
+                            <div class="form-group @error('ru_slug') is-invalid @enderror">
+                                <label for="ru_title" @error('ru_slug') class="col-form-label" @enderror>
+                                Slug
+                                @error('ru_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <textarea class="form-control" type="text" id="ru_description" name="ru_description">{{ old('ru_description') }}</textarea>
-                                @error('ru_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                                <input class="form-control" type="text" id="ru_slug" name="ru_slug" value="{{ old('ru_slug') }}">
+                                @error('ru_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
                         <!-- END Step 1 -->
@@ -91,13 +83,13 @@
                                 <input class="form-control" type="text" id="en_title" name="en_title" value="{{ old('en_title') }}">
                                 @error('en_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
-                            <div class="form-group @error('ru_description') is-invalid @enderror">
-                                <label for="ru_title" @error('en_description') class="col-form-label" @enderror>
-                                Описание
-                                @error('en_description') <span class="text-danger">*</span> @enderror
+                            <div class="form-group @error('en_slug') is-invalid @enderror">
+                                <label for="ru_title" @error('en_slug') class="col-form-label" @enderror>
+                                Slug
+                                @error('en_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <textarea class="form-control" type="text" id="en_description" name="en_description">{{ old('en_description') }}</textarea>
-                                @error('en_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                                <input class="form-control" type="text" id="en_slug" name="en_slug" value="{{ old('en_title') }}">
+                                @error('en_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
                         <!-- END Step 2 -->
@@ -112,43 +104,36 @@
                                 <input class="form-control" type="text" id="uz_title" name="uz_title" value="{{ old('uz_title') }}">
                                 @error('uz_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
-                            <div class="form-group @error('ru_description') is-invalid @enderror">
-                                <label for="ru_title" @error('uz_description') class="col-form-label" @enderror>
-                                Описание
-                                @error('uz_description') <span class="text-danger">*</span> @enderror
+                            <div class="form-group @error('uz_slug') is-invalid @enderror">
+                                <label for="ru_title" @error('uz_slug') class="col-form-label" @enderror>
+                                Slug
+                                @error('uz_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <textarea class="form-control" type="text" id="uz_description" name="uz_description">{{ old('uz_description') }}</textarea>
-                                @error('uz_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                                <input class="form-control" type="text" id="uz_slug" name="uz_slug" value="{{ old('uz_slug') }}">
+                                @error('uz_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
                         <!-- END Step 3 -->
 
                         <div class="form-group">
-                            <label for="parent_id">Категории</label>
-                            <select name="category_id" id="select2" class="form-control">
-                                <option value="0">-- нет --</option>
-                                @foreach($categories as $category_list)
-                                    @include('admin.pages.cguSites.components.category', ['delimiter' => ''])
-                                @endforeach
-                            </select>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="parent_id">Категории</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <select name="parent_id" id="select2" class="form-control">
+                                        <option value="0">-- нет --</option>
+                                        @foreach($categories as $category_list)
+                                            @include('admin.pages.cguCategories.components.category', ['delimiter' => ''])
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="image">Изображение</label>
                             <input type="file" name="image" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="image">Ссылка на сайт</label>
-                            <input type="text" name="link" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="image">Активный</label>
-                            <select name="active" class="form-control">
-                                <option value="1" selected>Активный</option>
-                                <option value="0">Не активный</option>
-                            </select>
                         </div>
 
                     </div>
@@ -213,11 +198,8 @@
                     }
                 }
             });
+
             $('#select2').select2();
-
-
         })
-
-
     </script>
 @endsection

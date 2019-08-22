@@ -12,6 +12,7 @@ class CguSite extends Model
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title',
+        'ru_slug', 'en_slug', 'uz_slug',
         'ru_description', 'en_description', 'uz_description',
         'link', 'category_id', 'active'
     ];

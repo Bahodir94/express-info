@@ -18,6 +18,9 @@ class CreateCguCatalogsTable extends Migration
             $table->string('ru_title')->nullable();
             $table->string('en_title')->nullable();
             $table->string('uz_title')->nullable();
+            $table->text('ru_slug')->nullable();
+            $table->text('en_slug')->nullable();
+            $table->text('uz_slug')->nullable();
             $table->longText('ru_description')->nullable();
             $table->longText('en_description')->nullable();
             $table->longText('uz_description')->nullable();

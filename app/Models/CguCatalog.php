@@ -8,11 +8,13 @@ use Illuminate\Support\Facades\Storage;
 
 class CguCatalog extends Model
 {
+
     const UPLOAD_FILE_LENGTH = 20;
     const UPLOAD_FILE_DIRECTORY = 'uploads/cgu_catalogs_files/';
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title',
+        'ru_slug', 'en_slug', 'uz_slug',
         'ru_description', 'en_description', 'uz_description',
         'link', 'active', 'category_id',
     ];
@@ -23,7 +25,7 @@ class CguCatalog extends Model
      */
     public function parentCategory()
     {
-        return $this->belongsTo(CguCategory::class, 'id', 'category_id');
+        return $this->belongsTo(CguCategory::class, 'id', 'id','category_id');
     }
 
     /**
@@ -49,7 +51,7 @@ class CguCatalog extends Model
     {
         if($file == null) return;
 
-        $this->removeImaage();
+        $this->removeImage();
         $filename = $this->generateFilename($file->extension());
         $file->storeAs(self::UPLOAD_FILE_DIRECTORY, $filename);
         $this->saveFileName($filename);

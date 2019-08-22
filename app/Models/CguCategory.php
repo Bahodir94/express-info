@@ -13,7 +13,9 @@ class CguCategory extends Model
     use NodeTrait;
 
     protected $fillable = [
-        'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id'
+        'ru_title', 'en_title', 'uz_title',
+        'ru_slug', 'en_slug', 'uz_slug',
+        'parent_id'
     ];
 
     const UPLOAD_IMAGE_DIRECTORY = 'uploads/cgu_categories_image/';
