@@ -59,9 +59,9 @@ class HandbookCategory extends Model
      *
      * @return mixed
     */
-    public function handbooks()
+    public function companies()
     {
-        return $this->hasMany(Handbook::class, 'category_id', 'id')->orderBy('position', 'asc');
+        return $this->hasMany(Company::class, 'category_id', 'id')->orderBy('position', 'asc');
     }
 
     /**
@@ -69,9 +69,9 @@ class HandbookCategory extends Model
      *
      * @return boolean
     */
-    public function hasHandbooks()
+    public function hasCompanies()
     {
-        return isset($this->handbooks[0]);
+        return isset($this->companies[0]);
     }
 
     /**

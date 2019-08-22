@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHandbooksTable extends Migration
+class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateHandbooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('handbooks', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ru_title')->nullable();
             $table->string('en_title')->nullable();
