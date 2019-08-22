@@ -47,6 +47,9 @@
             <li>
                 <a href="{{ route('admin.handbookcategories.index') }}">Категории</a>
             </li>
+            <li>
+                <a href="{{ route('admin.handbooks.index') }}">Компании</a>
+            </li>
         </ul>
     </li>
 </ul>

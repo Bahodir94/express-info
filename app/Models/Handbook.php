@@ -4,81 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
-use Kalnoy\Nestedset\NodeTrait;
 
-class HandbookCategory extends Model
+class Handbook extends Model
 {
-    use NodeTrait;
-
     protected $fillable = [
-        'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id'
+        'ru_title', 'uz_title', 'en_title',
+        'ru_description', 'uz_description', 'en_description',
+        'url', 'user_id', 'active', 'phone_number', 'geo_location', 'logo_url', 'category_id'
     ];
 
-    private static $UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
+    private static $UPLOAD_DIRECTORY = 'uploads/handbooks/';
 
-    /**
-     * Children categories
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-    */
-    public function categories()
+    public function category()
     {
-        return $this->hasMany(self::class, 'parent_id', 'id')->orderBy('position', 'asc');
-    }
-
-    /**
-     * Check if category has children
-    */
-    public function hasCategories()
-    {
-        return isset($this->categories[0]);
-    }
-
-    /**
-     * Parent category
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function parentCategory()
-    {
-        return $this->hasOne(self::class, 'id', 'parent_id');
-    }
-
-    /**
-     * Check if category has parent category
-     *
-     * @return boolean
-    */
-    public function hasParentCategory()
-    {
-        return $this->parentCategory !== null;
-    }
-
-    /**
-     * Category's handbooks
-     *
-     * @return mixed
-    */
-    public function handbooks()
-    {
-        return $this->hasMany(Handbook::class, 'category_id', 'id')->orderBy('position', 'asc');
-    }
-
-    /**
-     * Check if category has handbooks
-     *
-     * @return boolean
-    */
-    public function hasHandbooks()
-    {
-        return isset($this->handbooks[0]);
+        return $this->hasOne(HandbookCategory::class, 'id', 'category_id');
     }
 
     /**
      * Upload an image and save it in file storage
      *
      * @param $image
-    */
+     */
     public function uploadImage($image)
     {
         if (!$image) return;
@@ -94,7 +40,7 @@ class HandbookCategory extends Model
      *
      * @param string $imageName
      * @return string
-    */
+     */
     private function generateFileName(string $imageName)
     {
         return str_random(20) . $imageName;
@@ -104,7 +50,7 @@ class HandbookCategory extends Model
      * Get image filename
      *
      * @return string
-    */
+     */
     public function getImage()
     {
         if ($this->image)
@@ -117,7 +63,7 @@ class HandbookCategory extends Model
      * Remove an image
      *
      * @return void
-    */
+     */
     public function removeImage()
     {
         if ($this->image) {
@@ -130,7 +76,7 @@ class HandbookCategory extends Model
      *
      * @param string $imageName
      * @return void
-    */
+     */
     private function saveImageName(string $imageName)
     {
         $this->image = $imageName;

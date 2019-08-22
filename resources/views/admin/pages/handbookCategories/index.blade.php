@@ -41,7 +41,12 @@
                                     @endif
                                 </td>
                                 <td class="text-center">
-                                    Нет
+                                    @if ($category->hasHandbooks())
+                                        <a href="{{ route('admin.handbookcategories.handbooks', $category->id) }}"
+                                           class="link-effect">Перейти</a>
+                                    @else
+                                        Нет
+                                    @endif
                                 </td>
                                 <td class="text-center d-flex align-items-center">
                                     <a href="{{ route('admin.handbookcategories.edit', $category->id) }}" data-toggle="tooltip" title="Редактировать"><i class="fa fa-edit"></i></a>

@@ -146,7 +146,7 @@
                         <br>
                         <img src="{{ $category->getImage() }}" style="width: 200px;" alt="{{ $category->ru_title }}">
                         <br>
-                        <a href="{{ route('admin.cgucategories.remove.image', $category->id) }}" class="btn btn-danger">Удалить</a>
+                        <a href="{{ route('admin.handbookcategories.remove.image', $category->id) }}" class="btn btn-danger">Удалить</a>
                         <br>
                     @endif
                     <input type="file" name="image" class="form-control">
