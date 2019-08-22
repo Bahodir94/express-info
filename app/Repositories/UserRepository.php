@@ -89,4 +89,14 @@ class UserRepository implements UserRepositoryInterface
         $role = Role::where('name', 'customer')->first();
         return $role->users;
     }
+
+    /**
+     * Get all roles
+     *
+     * @return array
+     */
+    public function allRoles()
+    {
+        return Role::all();
+    }
 }

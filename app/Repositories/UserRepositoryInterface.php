@@ -62,4 +62,11 @@ interface UserRepositoryInterface
      * @return mixed
     */
     public function getCustomers();
+
+    /**
+     * Get all roles
+     *
+     * @return array
+    */
+    public function allRoles();
 }
