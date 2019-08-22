@@ -25,10 +25,10 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::resource('/handbookcategories', 'HandbookCategoryController');
     Route::get('/handbookcategories/{id}/removeImage', 'HandbookCategoryController@removeImage')->name('handbookcategories.remove.image');
     Route::post('/handbookcategories/position', 'HandbookCategoryController@changePosition')->name('handbookcategories.change.position');
-    Route::get('/handbookcategories/{id}/handvbooks', 'HandbookCategoryController@handbooks')->name('handbookcategories.handbooks');
+    Route::get('/handbookcategories/{id}/handbooks', 'HandbookCategoryController@handbooks')->name('handbookcategories.handbooks');
 
     // Handbook Routes
     Route::resource('/handbooks', 'HandbookController');
     Route::get('/handbooks/{id}/removeImage', 'HandbookController@removeImage')->name('handbooks.remove.image');
-    Route::post('/handbooks/{id}/position', 'HandbookController@changePosition')->name('handbooks.change.position');
+    Route::post('/handbooks/position', 'HandbookController@changePosition')->name('handbooks.change.position');
 });
