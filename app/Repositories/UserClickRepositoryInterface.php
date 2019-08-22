@@ -4,7 +4,7 @@
 namespace App\Repositories;
 
 
-interface UserClickRepositoryIterface
+interface UserClickRepositoryInterface
 {
     /**
      * Save a user click

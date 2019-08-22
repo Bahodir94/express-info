@@ -4,7 +4,7 @@
 namespace App\Repositories;
 
 
-use App\Models\Handbook;
+use App\Models\Company;
 
 interface CompanyRepositoryInterface
 {

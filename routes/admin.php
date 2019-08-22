@@ -25,10 +25,10 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::resource('/cgucatalogs', 'CguCatalogController');
 
     // Handbook Category Routes
-    Route::resource('/hcategories', 'HandbookCategoryController');
-    Route::get('/hcategories/{id}/removeImage', 'HandbookCategoryController@removeImage')->name('handbookcategories.remove.image');
-    Route::post('/hcategories/position', 'HandbookCategoryController@changePosition')->name('handbookcategories.change.position');
-    Route::get('/hcategories/{id}/handbooks', 'HandbookCategoryController@handbooks')->name('handbookcategories.handbooks');
+    Route::resource('/handbookcategories', 'HandbookCategoryController');
+    Route::get('/handbookcategories/{id}/removeImage', 'HandbookCategoryController@removeImage')->name('handbookcategories.remove.image');
+    Route::post('/handbookcategories/position', 'HandbookCategoryController@changePosition')->name('handbookcategories.change.position');
+    Route::get('/handbookcategories/{id}/handbooks', 'HandbookCategoryController@handbooks')->name('handbookcategories.handbooks');
 
     // Handbook Routes
     Route::resource('/companies', 'CompanyController');

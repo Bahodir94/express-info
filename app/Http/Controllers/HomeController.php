@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\UserClickRepositoryIterface;
+use App\Repositories\UserClickRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Helpers\Tracking\Track;
 
@@ -13,7 +13,7 @@ class HomeController extends Controller
     /**
      * UserClick repository
      *
-     * @var UserClickRepositoryIterface
+     * @var UserClickRepositoryInterface
     */
     private $userClicks;
 
@@ -22,7 +22,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct(UserClickRepositoryIterface $userClickRepository)
+    public function __construct(UserClickRepositoryInterface $userClickRepository)
     {
         $this->middleware('auth');
 
