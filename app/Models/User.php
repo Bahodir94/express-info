@@ -52,10 +52,17 @@ class User extends Authenticatable implements MustVerifyEmail
     */
     public function getRole()
     {
-        if (isset($this->roles[0]))
-            return $this->roles[0];
-        else
-            return null;
+        return $this->roles[0];
+    }
+
+    /**
+     * Check if user has any role
+     *
+     * @return boolean
+    */
+    public function hasOneRole()
+    {
+        return isset($this->roles[0]);
     }
 
     /**
