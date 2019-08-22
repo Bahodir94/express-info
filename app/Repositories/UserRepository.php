@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -41,8 +42,15 @@ class UserRepository implements UserRepositoryInterface
     public function create($userData, $userRoleId)
     {
         $role = Role::findOrFail($userRoleId);
-        $user = User::create($userData->all());
+        $data = [
+            'name' => $userData->get('name'),
+            'email' => $userData->get('email'),
+            'password' => Hash::make($userData->get('password'))
+        ];
+        $user = User::create($data);
         $user->roles()->attach($role);
+        $user->uploadImage($userData->file('image'));
+        $user->save();
     }
 
     /**
@@ -54,7 +62,15 @@ class UserRepository implements UserRepositoryInterface
      */
     public function update($userId, $userData)
     {
-        $this->get($userId)->update($userData->all());
+        $data = [
+            'name' => $userData->get('name'),
+            'email' => $userData->get('email'),
+            'password' => Hash::make($userData->get('password'))
+        ];
+        $user = $this->get($userId);
+        $user->update($data);
+        $user->uploadImage($userData->file('image'));
+
     }
 
     /**
