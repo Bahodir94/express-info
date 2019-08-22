@@ -21,6 +21,16 @@ class Company extends Model
     }
 
     /**
+     * User clicks
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function userClicks()
+    {
+        return $this->hasMany(UserClick::class, 'company_id', 'id');
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image
