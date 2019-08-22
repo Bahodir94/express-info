@@ -43,7 +43,7 @@
                                 {{ $catalog->getParentCategoryTitle() }}
                             @if($catalog->hasParentCategory())
                                 @if($catalog->parentCategory->hasParentCategory())
-                                        </a>
+                                    </a>
                                 @endif
                             @endif
                         </td>

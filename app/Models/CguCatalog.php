@@ -56,6 +56,15 @@ class CguCatalog extends Model
     }
 
     /**
+     * @param $ext
+     * @return string
+     */
+    public function generateFilename($ext)
+    {
+        return str_random(self::UPLOAD_FILE_LENGTH . '.' .$ext);
+    }
+
+    /**
      * @param $filemame
      */
     public function saveFileName($filemame)

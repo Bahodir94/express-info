@@ -27,6 +27,7 @@
                         <th class="sorting_desc">Заголовок</th>
                         <th>Категории</th>
                         <th>Сайты</th>
+                        <th>Каталоги</th>
                         <th class="text-center" style="width: 15%;">Действия</th>
                     </tr>
                     </thead>
@@ -48,6 +49,9 @@
                             @else
                                 Нет
                             @endif
+                        </td>
+                        <td>
+                            Нет
                         </td>
                         <td class="text-center d-flex align-items-center justify-content-center">
                             <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category->id) }}"><i class="fa fa-edit"></i></a>
