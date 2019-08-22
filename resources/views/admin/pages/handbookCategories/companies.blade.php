@@ -56,7 +56,7 @@
                                 </td>
                                 <td class="text-center font-w600">{{ $company->ru_title }}</td>
                                 <td class="text-center font-w600">{{ $category->getTitle() }}</td>
-                                <td class="text-center font-w600">-</td>
+                                <td class="text-center font-w600">{{ $company->userClicks()->count() }}</td>
                                 <td class="text-center font-w600 d-flex align-items-center justify-content-around">
                                     <a href="{{ route('admin.companies.edit', $company->id) }}" class="btn btn-sm btn-alt-info" data-toggle="tooltip" title="Редактировать"><i class="fa fa-pencil"></i></a>
                                     <form action="{{ route('admin.companies.destroy', $company->id) }}" method="post">
