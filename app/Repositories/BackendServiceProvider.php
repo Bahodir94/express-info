@@ -27,5 +27,9 @@ class BackendServiceProvider extends ServiceProvider
             'App\Repositories\HandbookCategoryRepositoryInterface',
             'App\Repositories\HandbookCategoryRepository'
         );
+        $this->app->bind(
+            'App\Repositories\HandbookRepositoryInterface',
+            'App\Repositories\HandbookRepository'
+        );
     }
 }
