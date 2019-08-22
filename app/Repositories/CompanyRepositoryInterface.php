@@ -6,7 +6,7 @@ namespace App\Repositories;
 
 use App\Models\Handbook;
 
-interface HandbookRepositoryInterface
+interface CompanyRepositoryInterface
 {
     /**
      * All handbooks

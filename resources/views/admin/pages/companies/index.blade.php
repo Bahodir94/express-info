@@ -19,7 +19,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Компании</h3>
             <div class="block-options">
-                <a href="{{ route('admin.handbooks.create') }}" class="btn btn-primary">Создать</a>
+                <a href="{{ route('admin.companies.create') }}" class="btn btn-primary">Создать</a>
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
             </div>
         </div>
@@ -37,31 +37,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($handbooks as $handbook)
+                        @foreach($companies as $company)
                             <tr>
-                                <td class="text-center font-w600">@if($handbook->image)<img src="{{ $handbook->getImage() }}" alt="{{ $handbook->ru_title }}" class="img-avatar img-avatar48"> @else - @endif</td>
-                                <td class="text-center font-w600">{{ $handbook->getTitle() }}</td>
-                                <td class="text-center font-w600"> - </td>
-                                <td class="text-center font-w600">@if($handbook->category){{ $handbook->category->getTitle() }} @else - @endif</td>
+                                <td class="text-center font-w600">@if($company->image)<img src="{{ $company->getImage() }}" alt="{{ $company->ru_title }}" class="img-avatar img-avatar48"> @else - @endif</td>
+                                <td class="text-center font-w600">{{ $company->getTitle() }}</td>
+                                <td class="text-center font-w600"> {{ $company->userClicks()->count() }} </td>
+                                <td class="text-center font-w600">@if($company->category){{ $company->category->getTitle() }} @else - @endif</td>
                                 <td class="text-center font-w600">
-                                    @if($handbook->active)
+                                    @if($company->active)
                                         <i class="text-success fa fa-check"></i>
                                     @else
                                         <i class="text-danger fa fa-times"></i>
                                     @endif
                                 </td>
                                 <td class="text-center font-w600 d-flex align-items-center justify-content-around">
-                                    <a href="{{ route('admin.handbooks.edit', $handbook->id) }}" class="btn btn-sm btn-alt-info"
+                                    <a href="{{ route('admin.companies.edit', $company->id) }}" class="btn btn-sm btn-alt-info"
                                        data-toggle="tooltip"
                                        title="Редактировать"><i class="fa fa-edit"></i></a>
-                                    <form action="{{ route('admin.handbooks.destroy', $handbook->id) }}" method="post" data-toggle="tooltip" title="Удалить">
+                                    <form action="{{ route('admin.companies.destroy', $company->id) }}" method="post" data-toggle="tooltip" title="Удалить">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-sm btn-alt-delete" onclick="return confirm('Вы уверены?')"><i class="fa fa-trash"></i></button>
                                     </form>
                                     <select name="position" id="position" class="position">
-                                        @for($i = 0; $i <= count($handbooks); $i++)
-                                            <option value="{{ $i }}" @if($handbook->position == $i) selected @endif>{{ $i }}</option>
+                                        @for($i = 0; $i <= count($companies); $i++)
+                                            <option value="{{ $i }}" @if($company->position == $i) selected @endif>{{ $i }}</option>
                                         @endfor
                                     </select>
                                 </td>
@@ -97,7 +97,7 @@
             formData.append('position', $(this).val());
             $.ajax({
                 type: 'POST',
-                url: '{{ route('admin.handbooks.change.position') }}',
+                url: '{{ route('admin.companies.change.position') }}',
                 dataType: 'json',
                 data: formData,
                 processData: false,

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class Handbook extends Model
+class Company extends Model
 {
     protected $fillable = [
         'ru_title', 'uz_title', 'en_title',
@@ -13,11 +13,21 @@ class Handbook extends Model
         'url', 'user_id', 'active', 'phone_number', 'geo_location', 'logo_url', 'category_id'
     ];
 
-    private static $UPLOAD_DIRECTORY = 'uploads/handbooks/';
+    private static $UPLOAD_DIRECTORY = 'uploads/companies/';
 
     public function category()
     {
         return $this->hasOne(HandbookCategory::class, 'id', 'category_id');
+    }
+
+    /**
+     * User clicks
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function userClicks()
+    {
+        return $this->hasMany(UserClick::class, 'company_id', 'id');
     }
 
     /**

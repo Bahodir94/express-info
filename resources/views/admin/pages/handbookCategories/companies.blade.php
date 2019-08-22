@@ -18,23 +18,23 @@
     @include('admin.components.breadcrumb', [
         'list' => [
             [
-                'url' => route('admin.cgucategories.index'),
-                'title' => 'Цгу Категории'
+                'url' => route('admin.handbookscategories.index'),
+                'title' => 'Категории справочника'
             ],
             [
-                'url' => ($category->hasParentCategory()) ? route('admin.cgucategories.show', $category->parentCategory->id) : '',
+                'url' => ($category->hasParentCategory()) ? route('admin.handbookcategories.show', $category->parentCategory->id) : '',
                 'title' => ($category->hasParentCategory()) ? $category->parentCategory->ru_title : ''
             ],
             [
-                'url' => route('admin.cgucategories.show', $category->id),
+                'url' => route('admin.handbookcategories.show', $category->id),
                 'title' => $category->ru_title
             ],
         ],
-        'lastTitle' => 'Справочники'
+        'lastTitle' => 'Компании'
     ])
     <div class="block">
         <div class="block-header block-headder-default">
-            <h3 class="block-title">{{ $category->ru_title }} <small>Справочник</small></h3>
+            <h3 class="block-title">{{ $category->ru_title }} <small>Компании</small></h3>
         </div>
         <div class="block-content">
             <div class="table-responsive">
@@ -49,17 +49,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($category->handbooks as $handbook)
+                        @foreach($category->companies as $company)
                             <tr>
                                 <td class="text-center">
-                                    @if($handbook->image)<img src="{{ $handbook->getImage() }}" alt="{{ $handbook->ru_title }}" class="img-avatar img-avatar48"> @else - @endif
+                                    @if($company->image)<img src="{{ $company->getImage() }}" alt="{{ $company->ru_title }}" class="img-avatar img-avatar48"> @else - @endif
                                 </td>
-                                <td class="text-center font-w600">{{ $handbook->ru_title }}</td>
+                                <td class="text-center font-w600">{{ $company->ru_title }}</td>
                                 <td class="text-center font-w600">{{ $category->getTitle() }}</td>
-                                <td class="text-center font-w600">-</td>
+                                <td class="text-center font-w600">{{ $company->userClicks()->count() }}</td>
                                 <td class="text-center font-w600 d-flex align-items-center justify-content-around">
-                                    <a href="{{ route('admin.handbooks.edit', $handbook->id) }}" class="btn btn-sm btn-alt-info" data-toggle="tooltip" title="Редактировать"><i class="fa fa-pencil"></i></a>
-                                    <form action="{{ route('admin.handbooks.destroy', $handbook->id) }}" method="post">
+                                    <a href="{{ route('admin.companies.edit', $company->id) }}" class="btn btn-sm btn-alt-info" data-toggle="tooltip" title="Редактировать"><i class="fa fa-pencil"></i></a>
+                                    <form action="{{ route('admin.companies.destroy', $company->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button class="btn btn-sm btn-alt-danger" onclick="return confirm('Вы уверены?');">
@@ -67,8 +67,8 @@
                                         </button>
                                     </form>
                                     <select name="position" id="position" class="position">
-                                        @for($i = 0; $i <= count($category->handbooks); $i++)
-                                            <option value="{{ $i }}" @if($handbook->position == $i) selected @endif>{{ $i }}</option>
+                                        @for($i = 0; $i <= count($category->companies); $i++)
+                                            <option value="{{ $i }}" @if($company->position == $i) selected @endif>{{ $i }}</option>
                                         @endfor
                                     </select>
                                 </td>

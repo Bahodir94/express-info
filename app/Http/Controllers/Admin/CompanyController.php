@@ -3,39 +3,39 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Repositories\HandbookCategoryRepositoryInterface;
-use App\Repositories\HandbookRepositoryInterface;
+use App\Repositories\CompanyRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 
-class HandbookController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Handbook Category repository
      *
      * @var HandbookCategoryRepositoryInterface
     */
-    protected $handbookCategories;
+    protected $companyCategories;
 
     /**
      * Handbook repository
      *
-     * @var HandbookRepositoryInterface
+     * @var CompanyRepositoryInterface
     */
-    protected $handbooks;
+    protected $companies;
 
     /**
      * Create a new instance
      *
-     * @param HandbookCategoryRepositoryInterface $handbookCategoryRepository
-     * @param HandbookRepositoryInterface $handbookRepository
+     * @param HandbookCategoryRepositoryInterface $companyCategoryRepository
+     * @param CompanyRepositoryInterface $companyRepository
      * @return void
     */
-    public function __construct(HandbookCategoryRepositoryInterface $handbookCategoryRepository,
-                                HandbookRepositoryInterface $handbookRepository)
+    public function __construct(HandbookCategoryRepositoryInterface $companyCategoryRepository,
+                                CompanyRepositoryInterface $companyRepository)
     {
-        $this->handbookCategories = $handbookCategoryRepository;
-        $this->handbooks = $handbookRepository;
+        $this->companyCategories = $companyCategoryRepository;
+        $this->companies = $companyRepository;
     }
 
     /**
@@ -46,10 +46,10 @@ class HandbookController extends Controller
     public function index()
     {
         $data = [
-            'handbooks' => $this->handbooks->all()
+            'companies' => $this->companies->all()
         ];
 
-        return view('admin.pages.handbooks.index', $data);
+        return view('admin.pages.companies.index', $data);
     }
 
     /**
@@ -60,10 +60,10 @@ class HandbookController extends Controller
     public function create()
     {
         $data = [
-            'categories' => $this->handbookCategories->getTree()
+            'categories' => $this->companyCategories->getTree()
         ];
 
-        return view('admin.pages.handbooks.create', $data);
+        return view('admin.pages.companies.create', $data);
     }
 
     /**
@@ -75,22 +75,22 @@ class HandbookController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'ru_title' => 'required|unique:handbooks|max:255',
-            'en_title' => 'required|unique:handbooks|max:255',
-            'uz_title' => 'required|unique:handbooks|max:255'
+            'ru_title' => 'required|unique:companies|max:255',
+            'en_title' => 'required|unique:companies|max:255',
+            'uz_title' => 'required|unique:companies|max:255'
         ]);
-        $handbook = $this->handbooks->create($request);
+        $company = $this->companies->create($request);
         $categoryId = $request->get('category_id');
         if($categoryId != 0)
         {
-            $position = $this->handbookCategories->get($categoryId)->handbooks()->count();
-            $handbook->position = $position;
-            $handbook->save();
+            $position = $this->companyCategories->get($categoryId)->companies()->count();
+            $company->position = $position;
+            $company->save();
         }
 
         if ($request->has('saveQuit'))
-            return redirect()->route('admin.handbooks.index');
-        return redirect()->route('admin.handbooks.create');
+            return redirect()->route('admin.companies.index');
+        return redirect()->route('admin.companies.create');
     }
 
     /**
@@ -101,15 +101,15 @@ class HandbookController extends Controller
      */
     public function edit($id)
     {
-        $handbook = $this->handbooks->get($id);
-        $categories = $this->handbookCategories->getTree();
+        $company = $this->companies->get($id);
+        $categories = $this->companyCategories->getTree();
 
         $data = [
-            'handbook' => $handbook,
+            'company' => $company,
             'categories' => $categories
         ];
 
-        return view('admin.pages.handbooks.edit', $data);
+        return view('admin.pages.companies.edit', $data);
     }
 
     /**
@@ -126,9 +126,9 @@ class HandbookController extends Controller
             'en_title' => 'required|max:255',
             'uz_title' => 'required|max:255'
         ]);
-        $this->handbooks->update($id, $request);
+        $this->companies->update($id, $request);
 
-        return redirect()->route('admin.handbooks.index');
+        return redirect()->route('admin.companies.index');
     }
 
     /**
@@ -139,37 +139,37 @@ class HandbookController extends Controller
      */
     public function destroy($id)
     {
-        $this->handbooks->delete($id);
+        $this->companies->delete($id);
 
-        return redirect()->route('admin.handbooks.index');
+        return redirect()->route('admin.companies.index');
     }
 
     /**
-     * Change position for handbook
+     * Change position for company
      *
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
     */
     public function changePosition(Request $request)
     {
-        $handbookId = $request->get('id');
+        $companyId = $request->get('id');
         $position = $request->get('position');
-        if ($this->handbooks->setPosition($handbookId, $position))
+        if ($this->companies->setPosition($companyId, $position))
             return Response::create('', 200);
         else
             return Response::create('', 400);
     }
 
     /**
-     * Remove image for handbook
+     * Remove image for company
      *
      * @param int $id
      * @return \Illuminate\Http\Response
     */
     public function removeImage(int $id)
     {
-        $handbook = $this->handbooks->get($id);
-        $handbook->removeImage();
+        $company = $this->companies->get($id);
+        $company->removeImage();
 
         return redirect()->back();
     }

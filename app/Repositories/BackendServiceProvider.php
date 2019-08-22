@@ -33,8 +33,13 @@ class BackendServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
-            'App\Repositories\HandbookRepositoryInterface',
-            'App\Repositories\HandbookRepository'
+            'App\Repositories\CompanyRepositoryInterface',
+            'App\Repositories\CompanyRepository'
+        );
+
+        $this->app->bind(
+            'App\Repositories\UserClickRepositoryInterface',
+            'App\Repositories\UserClickRepository'
         );
     }
 }

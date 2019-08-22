@@ -4,9 +4,9 @@
 namespace App\Repositories;
 
 
-use App\Models\Handbook;
+use App\Models\Company;
 
-class HandbookRepository implements HandbookRepositoryInterface
+class CompanyRepository implements CompanyRepositoryInterface
 {
 
     /**
@@ -16,39 +16,39 @@ class HandbookRepository implements HandbookRepositoryInterface
      */
     public function all()
     {
-        return Handbook::orderBy('position', 'asc')->get();
+        return Company::orderBy('position', 'asc')->get();
     }
 
     /**
-     * Get handbook by id
+     * Get company by id
      *
      * @param int $handbookId
-     * @return Handbook
+     * @return Company
      */
     public function get(int $handbookId)
     {
-        return Handbook::find($handbookId);
+        return Company::find($handbookId);
     }
 
     /**
-     * Create a handbook
+     * Create a company
      *
      * @param \Illuminate\Http\Request $handbookData
-     * @return Handbook
+     * @return Company
      */
     public function create($handbookData)
     {
-        $handbook = Handbook::create($handbookData->all());
+        $handbook = Company::create($handbookData->all());
         $handbook->uploadImage($handbookData->file('image'));
         return $handbook;
     }
 
     /**
-     * Update a handbook
+     * Update a company
      *
      * @param int $handbookId
      * @param \Illuminate\Http\Request $handbookData
-     * @return Handbook
+     * @return Company
      */
     public function update(int $handbookId, $handbookData)
     {
@@ -59,7 +59,7 @@ class HandbookRepository implements HandbookRepositoryInterface
     }
 
     /**
-     * Set position for handbook
+     * Set position for company
      *
      * @param int $handbookId
      * @param int $position
@@ -73,7 +73,7 @@ class HandbookRepository implements HandbookRepositoryInterface
     }
 
     /**
-     * Delete handbook
+     * Delete company
      *
      * @param int $handbookId
      * @return mixed Parent Category
