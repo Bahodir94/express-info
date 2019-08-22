@@ -42,7 +42,7 @@
                                 </td>
                                 <td class="text-center">
                                     @if ($category->hasHandbooks())
-                                        <a href="{{ route('admin.handbookscategories.handbooks') }}"
+                                        <a href="{{ route('admin.handbookcategories.handbooks', $category->id) }}"
                                            class="link-effect">Перейти</a>
                                     @else
                                         Нет
