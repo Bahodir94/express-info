@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Редактирование ЦГУ Сайты')
+@section('title', 'Создание ЦГУ Каталога')
 
 @section('css')
 
@@ -14,8 +14,8 @@
     @include('admin.components.breadcrumb', [
         'list' => [
             [
-                'url' => route('admin.cgucategories.index'),
-                'title' => 'Цгу Сайты'
+                'url' => route('admin.cgucatalogs.index'),
+                'title' => 'Цгу Каталог'
             ]
         ],
         'lastTitle' => 'Создание'
@@ -23,7 +23,7 @@
 
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Редактирование <small>Цгу Сайты</small></h3>
+            <h3 class="block-title">Создание <small>Цгу Каталог</small></h3>
             <div class="block-options">
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
                 {{--<button type="button" class="btn-block-option" data-toggle="block-option" data-action="pinned_toggle">--}}
@@ -39,9 +39,8 @@
             </div>
         </div>
         <!-- Form -->
-        <form action="{{ route('admin.cgusites.update', $site->id) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.cgusites.store') }}" method="post" enctype="multipart/form-data">
             @csrf
-            @method('put')
             <div class="block-content">
                 <!-- Simple Wizard -->
                 <div class="wizard block">
@@ -68,7 +67,7 @@
                                 Заголовок
                                 @error('ru_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ $site->ru_title }}">
+                                <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ old('ru_title') }}">
                                 @error('ru_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_description') is-invalid @enderror">
@@ -76,7 +75,7 @@
                                 Описание
                                 @error('ru_description') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <textarea class="form-control" type="text" id="ru_description" name="ru_description">{{ $site->ru_description }}</textarea>
+                                <textarea class="form-control" type="text" id="ru_description" name="ru_description">{{ old('ru_description') }}</textarea>
                                 @error('ru_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
@@ -89,7 +88,7 @@
                                 Заголовок
                                 @error('en_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="en_title" name="en_title" value="{{ $site->en_title }}">
+                                <input class="form-control" type="text" id="en_title" name="en_title" value="{{ old('en_title') }}">
                                 @error('en_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_description') is-invalid @enderror">
@@ -97,7 +96,7 @@
                                 Описание
                                 @error('en_description') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <textarea class="form-control" type="text" id="en_description" name="en_description">{{ $site->en_description }}</textarea>
+                                <textarea class="form-control" type="text" id="en_description" name="en_description">{{ old('en_description') }}</textarea>
                                 @error('en_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
@@ -110,7 +109,7 @@
                                 Заголовок
                                 @error('uz_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="uz_title" name="uz_title" value="{{ $site->uz_title }}">
+                                <input class="form-control" type="text" id="uz_title" name="uz_title" value="{{ old('uz_title') }}">
                                 @error('uz_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_description') is-invalid @enderror">
@@ -118,7 +117,7 @@
                                 Описание
                                 @error('uz_description') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <textarea class="form-control" type="text" id="uz_description" name="uz_description">{{ $site->uz_description }}</textarea>
+                                <textarea class="form-control" type="text" id="uz_description" name="uz_description">{{ old('uz_description') }}</textarea>
                                 @error('uz_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
@@ -136,26 +135,19 @@
 
                         <div class="form-group">
                             <label for="image">Изображение</label>
-                            @if($site->image != null)
-                                <br>
-                                <img src="{{ $site->getImage() }}" style="width: 200px;" alt="">
-                                <br>
-                                <a href="{{ route('admin.cgusites.remove.image', $site->id) }}" class="btn btn-warning">Удалить</a>
-                                <br>
-                            @endif
                             <input type="file" name="image" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="image">Ссылка на сайт</label>
-                            <input type="text" name="link" class="form-control" value="{{ $site->link }}">
+                            <input type="text" name="link" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="image">Активный</label>
                             <select name="active" class="form-control">
-                                <option value="1" @if($site->active == 1) selected @endif><i class="text-success">Активный</i></option>
-                                <option value="0" @if($site->active == 0) selected @endif><i class="text-danger">Не активный</i></option>
+                                <option value="1" selected>Активный</option>
+                                <option value="0">Не активный</option>
                             </select>
                         </div>
 

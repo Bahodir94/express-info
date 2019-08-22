@@ -2,11 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Repositories\CguCatalogRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CguCatalogController extends Controller
 {
+    protected $catalogRepository;
+
+    /**
+     * CguCatalogController constructor.
+     * @param CguCatalogRepositoryInterface $catalogRepository
+     */
+    public function __construct(CguCatalogRepositoryInterface $catalogRepository)
+    {
+        $this->catalogRepository = $catalogRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +26,11 @@ class CguCatalogController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'catalogs' => $this->catalogRepository->all()
+        ];
+
+        return view('admin.pages.cguCatalogs.index', $data);
     }
 
     /**
@@ -24,7 +40,11 @@ class CguCatalogController extends Controller
      */
     public function create()
     {
-        //
+        $data = [
+            'categories' => $this->catalogRepository->getTree()
+        ];
+
+        return view('admin.pages.cguCatalogs.create', $data);
     }
 
     /**

@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
 
+@section('title', 'Дочерние категории ЦГУ Категории')
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
 @endsection
@@ -12,11 +14,11 @@
                 'title' => 'Цгу Категории'
             ],
             [
-                'url' => ($category->hasParentCategory()) ? route('admin.cgucategories.show', $category->parentCategory->id) : '',
+                'url' => ($category->hasParentCategory()) ? ($category->parentCategory->hasParentCategory()) ? route('admin.cgucategories.show', $category->parentCategory->id) : route('admin.cgucategories.index') : '',
                 'title' => ($category->hasParentCategory()) ? $category->parentCategory->ru_title : ''
             ],
             [
-                'url' => route('admin.cgucategories.show', $category->id),
+                'url' => ($category->hasParentCategory()) ? route('admin.cgucategories.show', $category->id) : route('admin.cgucategories.index'),
                 'title' => $category->ru_title
             ],
         ],
@@ -61,13 +63,13 @@
                                     Нет
                                 @endif
                             </td>
-                            <td class="text-center d-flex align-items-center">
+                            <td class="text-center d-flex align-items-center justify-content-center">
                                 <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category_list->id) }}"><i class="fa fa-edit"></i></a>
                                 <form method="post" action="{{ route('admin.cgucategories.destroy', $category_list->id) }}">
                                     @csrf
                                     @method('delete')
                                     <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
-                                        <i class="fa fa-trash"></i>
+                                        <i class="fa fa-trash text-danger"></i>
                                     </button>
                                 </form>
                                 <select name="position" class="position" data-id="{{ $category_list->id }}">

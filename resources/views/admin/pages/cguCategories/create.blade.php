@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
 
+@section('title', 'Создание ЦГУ Категории')
+
 @section('css')
 
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2.min.css') }}">

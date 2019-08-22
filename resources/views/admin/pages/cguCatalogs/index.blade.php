@@ -1,18 +1,18 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Сайты ЦГУ')
+@section('title', 'ЦГУ Каталоги')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
 @endsection
 
 @section('content')
-    @include('admin.components.breadcrumb', ['lastTitle' => 'Цгу Сайты'])
+    @include('admin.components.breadcrumb', ['lastTitle' => 'Цгу Каталог'])
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Сайты <small>все</small></h3>
+            <h3 class="block-title">Каталог <small>все</small></h3>
             <div class="block-options">
-                <a href="{{ route('admin.cgusites.create') }}" class="btn btn-primary">Создать</a>
+                <a href="{{ route('admin.cgucatalogs.create') }}" class="btn btn-primary">Создать</a>
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
             </div>
         </div>
@@ -28,29 +28,29 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($sites as $site)
+                @foreach($catalogs as $catalog)
                     <tr>
-                        <td class="text-center">{{ $site->id }}</td>
-                        <td class="font-w600">{{ $site->getTitle() }}</td>
+                        <td class="text-center">{{ $catalog->id }}</td>
+                        <td class="font-w600">{{ $catalog->getTitle() }}</td>
                         <td>
-                            @if($site->hasParentCategory())
-                                @if($site->parentCategory->hasParentCategory())
-                                    <a href="{{ route('admin.cgucategories.show', $site->parentCategory->parentCategory->id) }}">
+                            @if($catalog->hasParentCategory())
+                                @if($catalog->parentCategory->hasParentCategory())
+                                    <a href="{{ route('admin.cgucategories.show', $catalog->parentCategory->parentCategory->id) }}">
                                 @else
                                     <a href="{{ route('admin.cgucategories.index') }}">
                                 @endif
                             @endif
-                                {{ $site->getParentCategoryTitle() }}
-                            @if($site->hasParentCategory())
-                                @if($site->parentCategory->hasParentCategory())
-                                    </a>
+                                {{ $catalog->getParentCategoryTitle() }}
+                            @if($catalog->hasParentCategory())
+                                @if($catalog->parentCategory->hasParentCategory())
+                                        </a>
                                 @endif
                             @endif
                         </td>
-                        <td>{!! $site->getActiveRender() !!}</td>
+                        <td>{!! $catalog->getActiveRender() !!}</td>
                         <td class="text-center d-flex align-items-center justify-content-center">
-                            <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgusites.edit', $site->id) }}"><i class="fa fa-edit"></i></a>
-                            <form method="post" action="{{ route('admin.cgusites.destroy', $site->id) }}">
+                            <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucatalogs.edit', $catalog->id) }}"><i class="fa fa-edit"></i></a>
+                            <form method="post" action="{{ route('admin.cgucatalogs.destroy', $catalog->id) }}">
                                 @csrf
                                 @method('delete')
                                 <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">

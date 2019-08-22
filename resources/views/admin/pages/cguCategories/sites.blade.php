@@ -1,8 +1,11 @@
 @extends('admin.layouts.app')
 
+@section('title', 'Сайты ЦГУ Категории')
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
 @endsection
+
 @section('content')
     @include('admin.components.breadcrumb', [
         'list' => [
@@ -48,13 +51,13 @@
                             <td class="font-w600">{{ $site_list->getTitle() }}</td>
                             <td class="font-w600">{{ $site_list->getParentCategoryTitle() }}</td>
                             <td class="font-w600">{!! $site_list->getActiveRender() !!}</td>
-                            <td class="text-center d-flex align-items-center">
+                            <td class="text-center d-flex align-items-center justify-content-center">
                                 <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgusites.edit', $site_list->id) }}"><i class="fa fa-edit"></i></a>
                                 <form method="post" action="{{ route('admin.cgusites.destroy', $site_list->id) }}">
                                     @csrf
                                     @method('delete')
                                     <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
-                                        <i class="fa fa-trash"></i>
+                                        <i class="fa fa-trash text-danger"></i>
                                     </button>
                                 </form>
                                 <select name="position" class="position" data-id="{{ $site_list->id }}">

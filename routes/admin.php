@@ -21,6 +21,9 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::get('/cgucategories/{id}/sites', 'CguCategoryController@sites')->name('cgucategories.sites');
     Route::post('/cgucategories/change/position', 'CguCategoryController@changePosition')->name('cgucategories.change.position');
 
+    // Cgu Catalog Routes
+    Route::resource('/cgucatalogs', 'CguCatalogController');
+
     // Handbook Category Routes
     Route::resource('/handbookcategories', 'HandbookCategoryController');
     Route::get('/handbookcategories/{id}/removeImage', 'HandbookCategoryController@removeImage')->name('handbookcategories.remove.image');
