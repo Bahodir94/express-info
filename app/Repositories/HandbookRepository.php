@@ -6,7 +6,7 @@ namespace App\Repositories;
 
 use App\Models\Handbook;
 
-class HandbookReository implements HandbookRepositoryInterface
+class HandbookRepository implements HandbookRepositoryInterface
 {
 
     /**
@@ -38,7 +38,7 @@ class HandbookReository implements HandbookRepositoryInterface
      */
     public function create($handbookData)
     {
-        $handbook = Handbook::crete($handbookData->all());
+        $handbook = Handbook::create($handbookData->all());
         $handbook->uploadImage($handbookData->file('image'));
         return $handbook;
     }
