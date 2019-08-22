@@ -37,11 +37,11 @@ class CguCategory extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function parentCategory()
     {
-        return $this->hasOne(self::class, 'id', 'parent_id');
+        return $this->belongsTo(self::class, 'id', 'id', 'parent_id');
     }
 
     /**

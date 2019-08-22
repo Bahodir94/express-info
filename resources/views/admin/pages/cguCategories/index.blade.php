@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
 
+@section('title', 'Категории ЦГУ')
+
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
 @endsection
@@ -47,13 +49,13 @@
                                 Нет
                             @endif
                         </td>
-                        <td class="text-center d-flex align-items-center">
+                        <td class="text-center d-flex align-items-center justify-content-center">
                             <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category->id) }}"><i class="fa fa-edit"></i></a>
                             <form method="post" action="{{ route('admin.cgucategories.destroy', $category->id) }}">
                                 @csrf
                                 @method('delete')
                                 <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
-                                    <i class="fa fa-trash"></i>
+                                    <i class="fa fa-trash text-danger"></i>
                                 </button>
                             </form>
                             <select name="position" class="position" data-id="{{ $category->id }}">

@@ -24,7 +24,7 @@ class CreateCguCatalogsTable extends Migration
             $table->string('file')->nullable();
             $table->string('video')->nullable();
             $table->string('link')->nullable();
-            $table->integer('active')->default(1);
+            $table->boolean('active')->default(1);
             $table->integer('position')->default(0);
             $table->integer('category_id')->default(0);
             $table->timestamps();

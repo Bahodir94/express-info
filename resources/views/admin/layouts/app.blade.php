@@ -71,7 +71,7 @@ MAIN CONTENT LAYOUT
     'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
     'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
 -->
-<div id="page-container" class="sidebar-o side-scroll page-header-modern main-content-boxed @if(isset($_COOKIE['adminSidebarColor'])) @if($_COOKIE['adminSidebarColor'] == 'black') sidebar-inverse @endif @endif">
+<div id="page-container" class="@if(isset($_COOKIE['adminSidebarToggle'])) @if($_COOKIE['adminSidebarToggle'] == 'false') sidebar-o @endif @else sidebar-o @endif side-scroll page-header-modern main-content-boxed @if(isset($_COOKIE['adminSidebarColor'])) @if($_COOKIE['adminSidebarColor'] == 'black') sidebar-inverse @endif @endif">
     {{--admin/layouts/partials/aside.blade.php--}}
     @include('admin.layouts.partials.aside')
 

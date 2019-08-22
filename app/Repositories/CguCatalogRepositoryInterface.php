@@ -12,28 +12,28 @@ namespace App\Repositories;
 interface CguCatalogRepositoryInterface
 {
     /**
-     * Get's a category by it's ID
+     * Get's a catalog by it's ID
      *
      * @param int
      */
     public function get($category_id);
 
     /**
-     * Get's all categories.
+     * Get's all catalogs.
      *
      * @return mixed
      */
     public function all();
 
     /**
-     * Deletes a category.
+     * Deletes a catalog.
      *
      * @param int
      */
     public function delete($category_id);
 
     /**
-     * Updates a category.
+     * Updates a catalog.
      *
      * @param int
      * @param object $category_data
@@ -42,7 +42,7 @@ interface CguCatalogRepositoryInterface
 
 
     /**
-     * Store a category
+     * Store a catalog
      *
      * @param object $category_data
      * @return mixed

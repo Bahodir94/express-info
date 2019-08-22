@@ -1,12 +1,12 @@
 <ul class="nav-main">
     <li>
-        <a class="active" href="#">
+        <a class="active" href="{{ route('admin.index') }}">
             <i class="si si-cup"></i>
             <span class="sidebar-mini-hide">Главная</span>
         </a>
     </li>
     <li>
-        <a class="active" href="#" target="_blank">
+        <a class="active" href="/" target="_blank">
             <i class="si si-map"></i>
             <span class="sidebar-mini-hide">На сайт</span>
         </a>
@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.cgucatalog.index') }}">
+                <a href="{{ route('admin.cgucatalogs.index') }}">
                     Цгу фотки или видео
                 </a>
             </li>

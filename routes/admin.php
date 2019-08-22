@@ -22,7 +22,7 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::post('/cgucategories/change/position', 'CguCategoryController@changePosition')->name('cgucategories.change.position');
 
     // Cgu Catalog Routes
-    Route::resource('/cgucatalog', 'CguCatalogController');
+    Route::resource('/cgucatalogs', 'CguCatalogController');
 
     // Handbook Category Routes
     Route::resource('/handbookcategories', 'HandbookCategoryController');
