@@ -10,7 +10,8 @@ class Company extends Model
     protected $fillable = [
         'ru_title', 'uz_title', 'en_title',
         'ru_description', 'uz_description', 'en_description',
-        'url', 'user_id', 'active', 'phone_number', 'geo_location', 'logo_url', 'category_id'
+        'url', 'user_id', 'active', 'phone_number', 'geo_location', 'logo_url', 'category_id',
+        'need_id'
     ];
 
     private static $UPLOAD_DIRECTORY = 'uploads/companies/';
@@ -38,6 +39,16 @@ class Company extends Model
     public function user()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    /**
+     * Need type for this company
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function needType()
+    {
+        return $this->hasOne(NeedType::class, 'id', 'need_id');
     }
 
     /**

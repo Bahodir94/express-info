@@ -118,6 +118,17 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
+                        <select name="need_id" id="needId" class="form-control js-select2">
+                            <option value="0">Нет</option>
+                            @foreach($needs  as $need)
+                                <option value="{{ $need->id }}" @if($company->needType) @if($company->needType->id == $need->id) selected @endif @endif>{{ $need->ru_title }}</option>
+                            @endforeach
+                        </select>
+                        <label for="needId">Тип потребности</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating">
                         <select name="category_id" id="categoryId" class="form-control js-select2">
                             <option value="0">-- нет --</option>
                             @foreach($categories as $category_list)

@@ -45,6 +45,9 @@
         </a>
         <ul>
             <li>
+                <a href="{{ route('admin.needs.index') }}">Типы потребностей</a>
+            </li>
+            <li>
                 <a href="{{ route('admin.handbookcategories.index') }}">Категории</a>
             </li>
             <li>

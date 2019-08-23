@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Repositories\HandbookCategoryRepositoryInterface;
+use App\Repositories\NeedTypeRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
@@ -17,14 +18,24 @@ class HandbookCategoryController extends Controller
     protected $handbookCategoryRepository;
 
     /**
+     * Repository for types of needs
+     *
+     * @var NeedTypeRepositoryInterface
+     */
+    private $needTypesRepository;
+
+    /**
      * Create a new instance
      *
      * @param HandbookCategoryRepositoryInterface $handbookCategoryRepository
+     * @param NeedTypeRepositoryInterface $needTypesRepository
      * @return void
     */
-    public function __construct(HandbookCategoryRepositoryInterface $handbookCategoryRepository)
+    public function __construct(HandbookCategoryRepositoryInterface $handbookCategoryRepository,
+                                NeedTypeRepositoryInterface $needTypesRepository)
     {
         $this->handbookCategoryRepository = $handbookCategoryRepository;
+        $this->needTypesRepository = $needTypesRepository;
     }
 
     /**
@@ -49,7 +60,8 @@ class HandbookCategoryController extends Controller
     public function create()
     {
         $data = [
-            'categories' => $this->handbookCategoryRepository->getTree()
+            'categories' => $this->handbookCategoryRepository->getTree(),
+            'needs' => $this->needTypesRepository->all()
         ];
 
         return view('admin.pages.handbookCategories.create', $data);
@@ -122,7 +134,8 @@ class HandbookCategoryController extends Controller
     {
         $data = [
             'category' => $this->handbookCategoryRepository->get($id),
-            'categories' => $this->handbookCategoryRepository->getTree()
+            'categories' => $this->handbookCategoryRepository->getTree(),
+            'needs' => $this->needTypesRepository->all()
         ];
         return view('admin.pages.handbookCategories.edit', $data);
     }

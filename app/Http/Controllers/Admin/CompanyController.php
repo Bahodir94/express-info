@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\CompanyRepositoryInterface;
+use App\Repositories\NeedTypeRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -33,20 +34,30 @@ class CompanyController extends Controller
     protected $users;
 
     /**
+     * Repository for types of needs
+     *
+     * @var NeedTypeRepositoryInterface
+     */
+    private $needTypesRepository;
+
+    /**
      * Create a new instance
      *
      * @param HandbookCategoryRepositoryInterface $companyCategoryRepository
      * @param CompanyRepositoryInterface $companyRepository
      * @param UserRepositoryInterface $userRepository
+     * @param NeedTypeRepositoryInterface $needTypesRepository
      * @return void
     */
     public function __construct(HandbookCategoryRepositoryInterface $companyCategoryRepository,
                                 CompanyRepositoryInterface $companyRepository,
-                                UserRepositoryInterface $userRepository)
+                                UserRepositoryInterface $userRepository,
+                                NeedTypeRepositoryInterface $needTypesRepository)
     {
         $this->companyCategories = $companyCategoryRepository;
         $this->companies = $companyRepository;
         $this->users = $userRepository;
+        $this->needTypesRepository = $needTypesRepository;
     }
 
     /**
@@ -72,7 +83,8 @@ class CompanyController extends Controller
     {
         $data = [
             'categories' => $this->companyCategories->getTree(),
-            'users' => $this->users->all()
+            'users' => $this->users->all(),
+            'needs' => $this->needTypesRepository->all()
         ];
 
         return view('admin.pages.companies.create', $data);
@@ -119,7 +131,8 @@ class CompanyController extends Controller
         $data = [
             'company' => $company,
             'categories' => $categories,
-            'users' => $this->users->all()
+            'users' => $this->users->all(),
+            'needs' => $this->needTypesRepository->all()
         ];
 
         return view('admin.pages.companies.edit', $data);

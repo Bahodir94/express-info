@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Models\Company;
+use App\Models\NeedType;
 
 class CompanyRepository implements CompanyRepositoryInterface
 {
@@ -22,68 +23,69 @@ class CompanyRepository implements CompanyRepositoryInterface
     /**
      * Get company by id
      *
-     * @param int $handbookId
+     * @param int $companyId
      * @return Company
      */
-    public function get(int $handbookId)
+    public function get(int $companyId)
     {
-        return Company::find($handbookId);
+        return Company::find($companyId);
     }
 
     /**
      * Create a company
      *
-     * @param \Illuminate\Http\Request $handbookData
+     * @param \Illuminate\Http\Request $companyData
      * @return Company
      */
-    public function create($handbookData)
+    public function create($companyData)
     {
-        $handbook = Company::create($handbookData->all());
-        $handbook->uploadImage($handbookData->file('image'));
-        return $handbook;
+        $company = Company::create($companyData->all());
+        $company->uploadImage($companyData->file('image'));
+        $needId = $companyData->get('needId');
+        return $company;
     }
 
     /**
      * Update a company
      *
-     * @param int $handbookId
-     * @param \Illuminate\Http\Request $handbookData
+     * @param int $companyId
+     * @param \Illuminate\Http\Request $companyData
      * @return Company
      */
-    public function update(int $handbookId, $handbookData)
+    public function update(int $companyId, $companyData)
     {
-        $handbook = $this->get($handbookId);
-        $handbook->update($handbookData->all());
-        $handbook->uploadImage($handbookData->file('image'));
-        return $handbook;
+        $company = $this->get($companyId);
+        $company->update($companyData->all());
+        $company->uploadImage($companyData->file('image'));
+        return $company;
     }
 
     /**
      * Set position for company
      *
-     * @param int $handbookId
+     * @param int $companyId
      * @param int $position
      * @return boolean
      */
-    public function setPosition(int $handbookId, int $position)
+    public function setPosition(int $companyId, int $position)
     {
-        $handbook = $this->get($handbookId);
-        $handbook->position = $position;
-        return $handbook->save();
+        $company = $this->get($companyId);
+        $company->position = $position;
+        return $company->save();
     }
 
     /**
      * Delete company
      *
-     * @param int $handbookId
+     * @param int $companyId
      * @return mixed Parent Category
      * @throws \Exception
      */
-    public function delete(int $handbookId)
+    public function delete(int $companyId)
     {
-        $handbook = $this->get($handbookId);
-        $category = $handbook->category;
-        $handbook->delete();
+        $company = $this->get($companyId);
+        $category = $company->category;
+        $company->delete();
         return $category;
     }
 }

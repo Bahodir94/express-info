@@ -108,30 +108,21 @@
                         <!-- END Step 3 -->
                     </div>
                     <!-- END Steps Content -->
-
-                    <!-- Steps Navigation -->
-                    <div class="block-content block-content-sm block-content-full">
-                        <div class="row">
-                            <div class="col-6">
-                                <button type="button" class="btn btn-alt-secondary" data-wizard="prev">
-                                    <i class="fa fa-angle-left mr-5"></i> Назад
-                                </button>
-                            </div>
-                            <div class="col-6 text-right">
-                                <button type="button" class="btn btn-alt-secondary" data-wizard="next">
-                                    Вперёд <i class="fa fa-angle-right ml-5"></i>
-                                </button>
-                                <button type="submit" class="btn btn-alt-primary d-none" data-wizard="finish">
-                                    <i class="fa fa-check mr-5"></i> Submit
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END Steps Navigation -->
                 </div>
                 <!-- END Simple Wizard -->
                 <div class="form-group">
-                    <label for="parent_id">Родительская категория</label>
+                    <div class="form-material floating">
+                        <select name="need_id" id="needId" class="form-control js-select2">
+                            <option value="0" selected>Нет</option>
+                            @foreach($needs as $need)
+                                <option value="{{ $need->id }}">{{ $need->ru_title }}</option>
+                            @endforeach
+                        </select>
+                        <label for="needId">Тип потребности</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="select2">Родительская категория</label>
                     <select name="parent_id" id="select2" class="form-control">
                         <option value="0">-- нет --</option>
                         @foreach($categories as $category_list)

@@ -35,6 +35,7 @@
                     <tr>
                         <th></th>
                         <th class="text-center">Заголовок</th>
+                        <th class="text-center">Тип потребности</th>
                         <th class="text-center">Категории</th>
                         <th class="text-center">Справочники</th>
                         <th class="text-center" style="width: 15%">Действия</th>
@@ -53,7 +54,7 @@
                                 @endif
                             </td>
                             <td class="text-center">
-                                @if ($category->hasHandbooks())
+                                @if ($category->hasCompanies())
                                     <a href="{{ route('admin.handbookcategories.handbooks', $category->id) }}"
                                        class="link-effect">Перейти</a>
                                 @else
