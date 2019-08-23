@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class NeedType extends Model
 {
     protected $fillable = [
-        'ru_title', 'uz_title', 'en_title',
-        'ru_description', 'uz_description', 'en_description',
+        'ru_title', 'uz_title', 'en_title'
     ];
 
     /**

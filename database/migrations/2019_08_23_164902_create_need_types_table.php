@@ -18,9 +18,6 @@ class CreateNeedTypesTable extends Migration
             $table->string('ru_title')->nullable();
             $table->string('en_title')->nullable();
             $table->string('uz_title')->nullable();
-            $table->longText('ru_description')->nullable();
-            $table->longText('en_description')->nullable();
-            $table->longText('uz_description')->nullable();
             $table->timestamps();
         });
     }
