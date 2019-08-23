@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\CompanyRepositoryInterface;
+use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
@@ -18,24 +19,34 @@ class CompanyController extends Controller
     protected $companyCategories;
 
     /**
-     * Handbook repository
+     * Company repository
      *
      * @var CompanyRepositoryInterface
     */
     protected $companies;
 
     /**
+     * User repository
+     *
+     * @var UserRepositoryInterface
+    */
+    protected $users;
+
+    /**
      * Create a new instance
      *
      * @param HandbookCategoryRepositoryInterface $companyCategoryRepository
      * @param CompanyRepositoryInterface $companyRepository
+     * @param UserRepositoryInterface $userRepository
      * @return void
     */
     public function __construct(HandbookCategoryRepositoryInterface $companyCategoryRepository,
-                                CompanyRepositoryInterface $companyRepository)
+                                CompanyRepositoryInterface $companyRepository,
+                                UserRepositoryInterface $userRepository)
     {
         $this->companyCategories = $companyCategoryRepository;
         $this->companies = $companyRepository;
+        $this->users = $userRepository;
     }
 
     /**
@@ -60,7 +71,8 @@ class CompanyController extends Controller
     public function create()
     {
         $data = [
-            'categories' => $this->companyCategories->getTree()
+            'categories' => $this->companyCategories->getTree(),
+            'users' => $this->users->all()
         ];
 
         return view('admin.pages.companies.create', $data);
@@ -106,7 +118,8 @@ class CompanyController extends Controller
 
         $data = [
             'company' => $company,
-            'categories' => $categories
+            'categories' => $categories,
+            'users' => $this->users->all()
         ];
 
         return view('admin.pages.companies.edit', $data);

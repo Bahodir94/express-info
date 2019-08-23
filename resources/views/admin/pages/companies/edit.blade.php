@@ -124,6 +124,7 @@
                                 @include('admin.pages.companies.components.category', ['delimiter' => ''])
                             @endforeach
                         </select>
+                        <label for="categoryId">Категория</label>
                     </div>
                 </div>
                 <div class="form-group">
@@ -141,6 +142,17 @@
                     <div class="form-materil floating">
                         <input type="text" name="logo_url" id="logoUrl" class="form-control" value="{{ $company->logo_url }}">
                         <label for="logoUrl">Ссылка на логотип</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating">
+                        <select name="user_id" id="user_id" class="form-control">
+                            <option value="0">Нет</option>
+                            @foreach($users as $user)
+                                <option value="{{ $user->id }}" @if($company->user) @if($company->user->id == $user->id) selected @endif @endif>{{ $user->name }} - ${{ $user->email }}</option>
+                            @endforeach
+                        </select>
+                        <label for="user_id">Собственник</label>
                     </div>
                 </div>
                 <div class="form-group">
