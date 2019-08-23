@@ -52,4 +52,10 @@
             </li>
         </ul>
     </li>
+    <li>
+        <a href="{{ route('admin.users.index') }}">
+            <i class="si si-user"></i>
+            <span class="sidebar-mini-hide">Пользователи</span>
+        </a>
+    </li>
 </ul>
