@@ -20,6 +20,14 @@ class CreateNeedTypesTable extends Migration
             $table->string('uz_title')->nullable();
             $table->timestamps();
         });
+
+        Schema::table('handbook_categories', function(Blueprint $table) {
+           $table->integer('need_id')->unsigned();
+        });
+
+        Schema::table('companies', function (Blueprint $table) {
+            $table->integer('need_id')->unsigned();
+        });
     }
 
     /**
