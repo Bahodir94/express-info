@@ -31,6 +31,16 @@ class Company extends Model
     }
 
     /**
+     * Creator
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+    */
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image

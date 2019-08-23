@@ -47,6 +47,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * All user's companies
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function companies()
+    {
+        return $this->hasMany(Company::class, 'user_id', 'id');
+    }
+
+    /**
      * Get user role
      *
      * @return Role
