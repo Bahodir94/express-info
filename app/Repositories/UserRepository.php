@@ -44,10 +44,10 @@ class UserRepository implements UserRepositoryInterface
         $role = Role::findOrFail($userRoleId);
         $data = [
             'name' => $userData->get('name'),
-            'email' => $userData->get('email')
+            'email' => $userData->get('email'),
+            'password' => Hash::make($userData->get('password'))
         ];
         $user = User::create($data);
-        $user->savePassword($userData->get('password'));
         $user->roles()->attach($role);
         $user->save();
         if ($userData->file('image'))
