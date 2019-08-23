@@ -59,15 +59,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class="form-group">
-                            <label for="image">Аватар</label>
+                    <div class="col-sm-12 col-md-6 ">
+                        <div class="d-flex align-items-center flex-column">
+                            <label for="image" class="d-block">Аватар</label>
                             @if ($user->image)
                                 <div class="user-image">
                                     <img src="{{ $user->getImage() }}" alt="{{ $user->name }}" class="img-avatar img-avatar48">
                                 </div>
                             @endif
-                            <input type="file" name="image" id="image">
+                            <input type="file" name="image" id="image" class="d-block">
                         </div>
                     </div>
                 </div>
