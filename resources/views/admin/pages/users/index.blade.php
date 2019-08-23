@@ -19,6 +19,9 @@
     <div class="block">
         <div class="block-header block-header-default">
             <h3 class="block-title">Пользователи</h3>
+            <div class="block-options">
+                <a href="{{route('admin.users.create')}}" class="btn btn-alt-success"><i class="fa fa-plus mr-5"></i> Создать</a>
+            </div>
         </div>
         <div class="block-content block-content-full">
             <div class="table-responsive">
