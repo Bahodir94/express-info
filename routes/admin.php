@@ -30,8 +30,12 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::post('/hcategories/position', 'HandbookCategoryController@changePosition')->name('handbookcategories.change.position');
     Route::get('/hcategories/{id}/handbooks', 'HandbookCategoryController@handbooks')->name('handbookcategories.handbooks');
 
-    // Handbook Routes
+    // Companies Routes
     Route::resource('/companies', 'CompanyController');
     Route::get('/companies/{id}/removeImage', 'CompanyController@removeImage')->name('companies.remove.image');
     Route::post('/companies/position', 'CompanyController@changePosition')->name('companies.change.position');
+
+    // Users routes
+    Route::resource('/users', 'UsersController');
+    Route::post('/users/{id}/changePassword', 'UsersController@changePassword')->name('users.change.password');
 });
