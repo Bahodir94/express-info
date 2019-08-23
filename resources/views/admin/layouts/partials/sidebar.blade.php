@@ -53,14 +53,14 @@
             <div class="content-side content-side-full content-side-user px-10 align-parent">
                 <!-- Visible only in mini mode -->
                 <div class="sidebar-mini-visible-b align-v animated fadeIn">
-                    <img class="img-avatar img-avatar32" src="{{ asset('assets/img/avatars/avatar0.jpg') }}" alt="">
+                    <img class="img-avatar img-avatar32" src="{{ auth()->user()->getImage() }}" alt="{{ auth()->user()->name }}">
                 </div>
                 <!-- END Visible only in mini mode -->
 
                 <!-- Visible only in normal mode -->
                 <div class="sidebar-mini-hidden-b text-center">
                     <a class="img-link" href="#">
-                        <img class="img-avatar" src="{{ asset('assets/img/avatars/avatar0.jpg') }}" alt="">
+                        <img class="img-avatar" src="{{ auth()->user()->getImage() }}" alt="{{ auth()->user()->name }}">
                     </a>
                     <ul class="list-inline mt-10">
                         <li class="list-inline-item">

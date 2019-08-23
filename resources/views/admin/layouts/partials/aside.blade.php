@@ -16,7 +16,7 @@
                 <!-- User Info -->
                 <div class="content-header-item">
                     <a class="img-link mr-5" href="#">
-                        <img class="img-avatar img-avatar32" src="{{ asset('assets/img/avatars/avatar0.jpg') }}" alt="">
+                        <img class="img-avatar img-avatar32" src="{{ auth()->user()->getImage() }}" alt="{{ auth()->user()->name }}">
                     </a>
                     <a class="align-middle link-effect text-primary-dark font-w600" href="#">{{ \Auth::user()->name }}</a>
                 </div>
