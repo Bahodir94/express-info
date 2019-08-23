@@ -2,6 +2,11 @@
 
 @section('title', 'Добавить пользователя')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2-bootstrap.min.css') }}">
+@endsection
+
 @section('content')
     @include('admin.components.breadcrumb', [
         'list' => [
@@ -52,7 +57,7 @@
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group">
                             <div class="form-material floating">
-                                <select name="roleId" id="roleId" class="form-control">
+                                <select name="roleId" id="roleId" class="form-control js-select2">
                                     <option value="0" selected>Нет</option>
                                     @foreach($roles as $role)
                                         <option value="{{ $role->id }}">{{ $role->description }}</option>
@@ -63,10 +68,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="form-group">
-                        <label for="image">Аватар</label>
-                        <input type="file" name="image" id="image">
+                        <label for="image" class="text-center d-block">Аватар</label>
+                        <input type="file" name="image" id="image" class="d-block">
                     </div>
                 </div>
                 <div class="block-content mb-10">
@@ -78,4 +83,12 @@
             </form>
         </div>
     </div>
+@endsection
+@section('js')
+    <script src="{{ asset('assets/js/plugins/select2/select2.full.min.js') }}"></script>
+    <script>
+        jQuery(function() {
+            Codebase.helper('select2');
+        });
+    </script>
 @endsection

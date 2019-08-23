@@ -176,3 +176,12 @@
         </form>
     </div>
 @endsection
+@section('js')
+    <script src="{{ asset('assets/js/plugins/select2/select2.full.min.js') }}"></script>
+    <script>
+        jQuery(function() {
+            Codebase.helper('select2');
+        });
+    </script>
+@endsection
+

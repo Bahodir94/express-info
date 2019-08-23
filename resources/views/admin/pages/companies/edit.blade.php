@@ -118,7 +118,7 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
-                        <select name="category_id" id="categoryId" class="form-control">
+                        <select name="category_id" id="categoryId" class="form-control js-select2">
                             <option value="0">-- нет --</option>
                             @foreach($categories as $category_list)
                                 @include('admin.pages.companies.components.category', ['delimiter' => ''])
@@ -146,10 +146,10 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
-                        <select name="user_id" id="user_id" class="form-control">
+                        <select name="user_id" id="user_id" class="form-control js-select2">
                             <option value="0">Нет</option>
                             @foreach($users as $user)
-                                <option value="{{ $user->id }}" @if($company->user) @if($company->user->id == $user->id) selected @endif @endif>{{ $user->name }} - ${{ $user->email }}</option>
+                                <option value="{{ $user->id }}" @if($company->user) @if($company->user->id == $user->id) selected @endif @endif>{{ $user->name }} - {{ $user->email }}</option>
                             @endforeach
                         </select>
                         <label for="user_id">Собственник</label>
@@ -184,4 +184,13 @@
             </div>
         </form>
     </div>
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/js/plugins/select2/select2.full.min.js') }}"></script>
+    <script>
+        jQuery(function() {
+            Codebase.helper('select2');
+        });
+    </script>
 @endsection
