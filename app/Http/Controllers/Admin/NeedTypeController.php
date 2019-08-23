@@ -83,7 +83,7 @@ class NeedTypeController extends Controller
             'need' => $this->needTypesRepository->get($id)
         ];
 
-        return view('admin.pages.needs.edit');
+        return view('admin.pages.needs.edit', $data);
     }
 
     /**
