@@ -17,7 +17,7 @@ class NeedType extends Model
      */
     public function companies()
     {
-        return $this->hasMany(Company::class);
+        return $this->hasMany(Company::class, 'need_id', 'id');
     }
 
     /**
@@ -27,6 +27,6 @@ class NeedType extends Model
     */
     public function categories()
     {
-        return $this->hasMany(HandbookCategory::class);
+        return $this->hasMany(HandbookCategory::class, 'need_id', 'id');
     }
 }

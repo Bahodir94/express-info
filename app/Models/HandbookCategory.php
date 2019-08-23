@@ -11,7 +11,8 @@ class HandbookCategory extends Model
     use NodeTrait;
 
     protected $fillable = [
-        'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id'
+        'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id',
+        'need_id'
     ];
 
     private static $UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
@@ -77,11 +78,11 @@ class HandbookCategory extends Model
     /**
      * Get type of need for this category
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function needType()
     {
-        return $this->belongsTo(NeedType::class);
+        return $this->hasOne(NeedType::class, 'id', 'need_id');
     }
 
     /**
