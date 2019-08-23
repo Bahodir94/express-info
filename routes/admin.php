@@ -39,6 +39,6 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::post('/companies/position', 'CompanyController@changePosition')->name('companies.change.position');
 
     // Users routes
-    Route::resource('/users', 'UsersController');
-    Route::post('/users/{id}/changePassword', 'UsersController@changePassword')->name('users.change.password');
+    Route::resource('/users', 'UserController');
+    Route::post('/users/{id}/changePassword', 'UserController@changePassword')->name('users.change.password');
 });
