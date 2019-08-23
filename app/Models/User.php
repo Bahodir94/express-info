@@ -164,7 +164,7 @@ class User extends Authenticatable implements MustVerifyEmail
         if ($this->image)
             return '/' . self::$UPLOAD_DIRECTORY . $this->image;
         else
-            return '';
+            return asset('assets/img/avatars/avatar15.jpg');
     }
 
     /**
