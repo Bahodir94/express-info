@@ -41,6 +41,16 @@ class Company extends Model
     }
 
     /**
+     * Need type for this company
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+    */
+    public function needType()
+    {
+        return $this->belongsTo(NeedType::class);
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image

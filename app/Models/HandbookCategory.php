@@ -75,6 +75,16 @@ class HandbookCategory extends Model
     }
 
     /**
+     * Get type of need for this category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function needType()
+    {
+        return $this->belongsTo(NeedType::class);
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image
