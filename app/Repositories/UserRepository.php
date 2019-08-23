@@ -50,10 +50,7 @@ class UserRepository implements UserRepositoryInterface
         $user = User::create($data);
         $user->roles()->attach($role);
         $user->save();
-        if ($userData->file('image'))
-            $user->uploadImage($userData->file('image'));
-        else
-            $user->setDefaultAvatar();
+        $user->uploadImage($userData->file('image'));
     }
 
     /**
@@ -72,7 +69,6 @@ class UserRepository implements UserRepositoryInterface
         $user = $this->get($userId);
         $user->update($data);
         $user->uploadImage($userData->file('image'));
-
     }
 
     /**
