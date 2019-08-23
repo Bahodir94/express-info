@@ -25,7 +25,7 @@
 
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Создание <small>Цгу Категории</small></h3>
+            <h3 class="block-title">Создание <small>Цгу Каталоги</small></h3>
             <div class="block-options">
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
             </div>
@@ -70,6 +70,14 @@
                                 <input class="form-control" type="text" id="ru_slug" name="ru_slug" value="{{ old('ru_slug') }}">
                                 @error('ru_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
+                            <div class="form-group @error('ru_slug') is-invalid @enderror">
+                                <label for="ru_title" @error('ru_description') class="col-form-label" @enderror>
+                                Описание
+                                @error('ru_description') <span class="text-danger">*</span> @enderror
+                                </label>
+                                <textarea class="form-control" type="text" id="ru_description" name="ru_description">{{ old('ru_description') }}</textarea>
+                                @error('ru_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
                         </div>
                         <!-- END Step 1 -->
 
@@ -90,6 +98,14 @@
                                 </label>
                                 <input class="form-control" type="text" id="en_slug" name="en_slug" value="{{ old('en_title') }}">
                                 @error('en_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
+                            <div class="form-group @error('ru_slug') is-invalid @enderror">
+                                <label for="ru_title" @error('en_description') class="col-form-label" @enderror>
+                                Описание
+                                @error('en_description') <span class="text-danger">*</span> @enderror
+                                </label>
+                                <textarea class="form-control" type="text" id="en_description" name="en_description">{{ old('en_description') }}</textarea>
+                                @error('en_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
                         <!-- END Step 2 -->
@@ -112,28 +128,70 @@
                                 <input class="form-control" type="text" id="uz_slug" name="uz_slug" value="{{ old('uz_slug') }}">
                                 @error('uz_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
+                            <div class="form-group @error('ru_slug') is-invalid @enderror">
+                                <label for="ru_title" @error('uz_description') class="col-form-label" @enderror>
+                                Описание
+                                @error('uz_description') <span class="text-danger">*</span> @enderror
+                                </label>
+                                <textarea class="form-control" type="text" id="uz_description" name="uz_description">{{ old('uz_description') }}</textarea>
+                                @error('uz_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
                         </div>
                         <!-- END Step 3 -->
 
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <label for="parent_id">Ссылка на сайт</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="link" value="{{ old('link') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
                                     <label for="parent_id">Категории</label>
                                 </div>
                                 <div class="col-md-12">
-                                    <select name="parent_id" id="select2" class="form-control">
+                                    <select name="category_id" id="select2" class="form-control">
                                         <option value="0">-- нет --</option>
                                         @foreach($categories as $category_list)
-                                            @include('admin.pages.cguCategories.components.category', ['delimiter' => ''])
+                                            @include('admin.pages.cguCatalogs.components.category', ['delimiter' => ''])
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="parent_id">Активность</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <select name="parent_id" id="select2" class="form-control">
+                                        <option value="1" selected>Активен</option>
+                                        <option value="0">Не активен</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="parent_id">Ссылка на видео с ютуб</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="video" value="{{ old('video') }}">
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="form-group">
-                            <label for="image">Изображение</label>
-                            <input type="file" name="image" class="form-control">
+                            <label for="image">Файл</label>
+                            <label for="image">Файл</label>
+                            <input type="file" name="file" class="form-control">
                         </div>
 
                     </div>
@@ -144,7 +202,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <button type="button" class="btn btn-alt-secondary" data-wizard="prev">
-                                    <i class="fa fa-angle-left mr-5"></i> Previous
+                                    <i class="fa fa-angle-left mr-5"></i> Предедущее
                                 </button>
                             </div>
                             <div class="col-6 text-right">
@@ -152,7 +210,7 @@
                                     Next <i class="fa fa-angle-right ml-5"></i>
                                 </button>
                                 <button type="submit" class="btn btn-alt-primary d-none" data-wizard="finish">
-                                    <i class="fa fa-check mr-5"></i> Submit
+                                    <i class="fa fa-check mr-5"></i> Следующее
                                 </button>
                             </div>
                         </div>

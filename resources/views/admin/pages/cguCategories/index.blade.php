@@ -51,7 +51,11 @@
                             @endif
                         </td>
                         <td>
-                            Нет
+                            @if($category->hasFiles())
+                                <a href="{{ route('admin.cgucategories.files', $category->id) }}">Перейти</a>
+                            @else
+                                Нет
+                            @endif
                         </td>
                         <td class="text-center d-flex align-items-center justify-content-center">
                             <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category->id) }}"><i class="fa fa-edit"></i></a>

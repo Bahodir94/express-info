@@ -1,11 +1,11 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Дочерние категории ЦГУ Категории')
+@section('title', 'Сайты ЦГУ Категории')
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.css') }}">
 @endsection
-@section('title')ЦГУ {{ $category->ru_title }} @endsection
+
 @section('content')
     @include('admin.components.breadcrumb', [
         'list' => [
@@ -14,7 +14,7 @@
                 'title' => 'Цгу Категории'
             ],
             [
-                'url' => ($category->hasParentCategory()) ? ($category->parentCategory->hasParentCategory()) ? route('admin.cgucategories.show', $category->parentCategory->id) : route('admin.cgucategories.index') : '',
+                'url' => ($category->hasParentCategory()) ? route('admin.cgucategories.show', $category->parentCategory->id) : '',
                 'title' => ($category->hasParentCategory()) ? $category->parentCategory->ru_title : ''
             ],
             [
@@ -22,7 +22,7 @@
                 'title' => $category->ru_title
             ],
         ],
-        'lastTitle' => 'Дочерние категории'
+        'lastTitle' => 'Дочерние сайты'
     ])
     <div class="block">
         <div class="block-header block-header-default">
@@ -39,50 +39,30 @@
                     <th class="text-center"></th>
                     <th class="sorting_desc">Заголовок</th>
                     <th>Категории</th>
-                    <th>Сайты</th>
-                    <th>Каталоги</th>
+                    <th>Активность</th>
                     <th class="text-center" style="width: 15%;">Действия</th>
                 </tr>
                 </thead>
                 <tbody>
-                @if($category->categories != null)
-                    @foreach($category->categories as $category_list)
+                @if($category->hasFiles())
+                    @foreach($category->files as $file_list)
                         <tr>
-                            <td class="text-center">{{ $category_list->id }}</td>
-                            <td class="font-w600">{{ $category_list->getTitle() }}</td>
-                            <td>
-                                @if($category_list->hasCategories())
-                                    <a href="{{ route('admin.cgucategories.show', $category_list->id) }}">Перейти</a>
-                                @else
-                                    Нет
-                                @endif
-                            </td>
-                            <td>
-                                @if($category_list->hasSites())
-                                    <a href="{{ route('admin.cgucategories.sites', $category_list->id) }}">Перейти</a>
-                                @else
-                                    Нет
-                                @endif
-                            </td>
-                            <td>
-                                @if($category_list->hasFiles())
-                                    <a href="{{ route('admin.cgucategories.files', $category_list->id) }}">Перейти</a>
-                                @else
-                                    Нет
-                                @endif
-                            </td>
+                            <td class="text-center">{{ $file_list->id }}</td>
+                            <td class="font-w600">{{ $file_list->getTitle() }}</td>
+                            <td class="font-w600">{{ strip_tags($category->ru_title) }}</td>
+                            <td class="font-w600">{!! $file_list->getActiveRender() !!}</td>
                             <td class="text-center d-flex align-items-center justify-content-center">
-                                <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category_list->id) }}"><i class="fa fa-edit"></i></a>
-                                <form method="post" action="{{ route('admin.cgucategories.destroy', $category_list->id) }}">
+                                <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucatalogs.edit', $file_list->id) }}"><i class="fa fa-edit"></i></a>
+                                <form method="post" action="{{ route('admin.cgucatalogs.destroy', $file_list->id) }}">
                                     @csrf
                                     @method('delete')
                                     <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
                                         <i class="fa fa-trash text-danger"></i>
                                     </button>
                                 </form>
-                                <select name="position" class="position" data-id="{{ $category_list->id }}">
-                                    @for($i = 0; $i <= count($category->categories); $i++)
-                                        <option value="{{ $i }}" @if($category_list->position == $i) selected @endif>{{ $i }}</option>
+                                <select name="position" class="position" data-id="{{ $file_list->id }}">
+                                    @for($i = 0; $i <= count($category->files); $i++)
+                                        <option value="{{ $i }}" @if($file_list->position == $i) selected @endif>{{ $i }}</option>
                                     @endfor
                                 </select>
                             </td>
@@ -119,7 +99,7 @@
             formData.append('position', $(this).val());
             $.ajax({
                 type: 'POST',
-                url: '{{ route('admin.cgucategories.change.position') }}',
+                url: '{{ route('admin.cgucatalogs.change.position') }}',
                 dataType: 'json',
                 data: formData,
                 processData: false,

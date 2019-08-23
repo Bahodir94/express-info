@@ -31,6 +31,26 @@ class CguCategory extends Model
     }
 
     /**
+     * Get files
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function files()
+    {
+        return $this->hasMany(CguCatalog::class, 'category_id', 'id')->orderBy('position', 'asc');
+    }
+
+    /**
+     * Check for files
+     *
+     * @return bool
+     */
+    public function hasFiles()
+    {
+        return (isset($this->files[0])) ? true : false;
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function sites()
@@ -99,7 +119,7 @@ class CguCategory extends Model
      */
     public function generateFileName($ext)
     {
-        return str_random(20) . $ext;
+        return str_random(20) . '.' . $ext;
     }
 
     /**

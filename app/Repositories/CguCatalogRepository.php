@@ -16,13 +16,18 @@ class CguCatalogRepository implements CguCatalogRepositoryInterface
 {
 
     /**
-     * Get's a catalog by it's ID
-     *
-     * @param int
+     * @param $catalog_id
+     * @return mixed
      */
-    public function get($category_id)
+    public function get($catalog_id)
     {
-        // TODO: Implement get() method.
+        return CguCatalog::find($catalog_id);
+    }
+
+    public function removeFile($id)
+    {
+        $catalog = $this->get($id);
+        $catalog->removeFile();
     }
 
     /**
@@ -40,31 +45,39 @@ class CguCatalogRepository implements CguCatalogRepositoryInterface
      *
      * @param int
      */
-    public function delete($category_id)
+    public function delete($catalog_data)
     {
-        // TODO: Implement delete() method.
+        $catalog = $this->get($catalog_data);
+        $catalog->remove();
     }
 
+
     /**
-     * Updates a catalog.
-     *
-     * @param int
-     * @param object $category_data
+     * @param $catalog_id
+     * @param object $catalog_data
+     * @return mixed
      */
-    public function update($category_id, object $category_data)
+    public function update($catalog_id, object $catalog_data)
     {
-        // TODO: Implement update() method.
+        $catalog = $this->get($catalog_id);
+        $catalog->update($catalog_data->all());
+        $catalog->uploadFile($catalog_data->file('file'));
+
+        return $catalog;
     }
 
     /**
      * Store a catalog
      *
-     * @param object $category_data
+     * @param object $catalog_data
      * @return mixed
      */
-    public function store(object $category_data)
+    public function store(object $catalog_data)
     {
-        // TODO: Implement store() method.
+        $catalog = CguCatalog::create($catalog_data->all());
+        $catalog->uploadFile($catalog_data->file('file'));
+
+        return $catalog;
     }
 
     public function getTree()

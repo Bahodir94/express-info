@@ -111,6 +111,21 @@ class CguCategoryController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function files($id)
+    {
+        $data = [
+            'category' => $this->cguCategoryRepository->get($id),
+        ];
+
+        return view('admin.pages.cguCategories.files', $data);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

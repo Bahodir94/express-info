@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\CguCatalog;
 use App\Repositories\CguCatalogRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -55,7 +56,18 @@ class CguCatalogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'ru_title' => 'required|unique:cgu_catalogs|max:255',
+            'en_title' => 'required|unique:cgu_catalogs|max:255',
+            'uz_title' => 'required|unique:cgu_catalogs|max:255',
+        ]);
+
+        $catalog = $this->catalogRepository->store($request);
+
+        if($request->has('save'))
+            return redirect()->route('admin.cgucatalogs.edit', $catalog->id);
+        else
+            return redirect()->route('admin.cgucatalogs.index');
     }
 
     /**
@@ -77,7 +89,12 @@ class CguCatalogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = [
+            'catalog' => $this->catalogRepository->get($id),
+            'categories' => $this->catalogRepository->getTree()
+        ];
+
+        return view('admin.pages.cguCatalogs.edit', $data);
     }
 
     /**
@@ -89,7 +106,18 @@ class CguCatalogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'ru_title' => 'required|max:255',
+            'en_title' => 'required|max:255',
+            'uz_title' => 'required|max:255',
+        ]);
+
+        $catalog = $this->catalogRepository->update($id, $request);
+
+        if($request->has('save'))
+            return redirect()->route('admin.cgucatalogs.edit', $catalog->id);
+        else
+            return redirect()->route('admin.cgucatalogs.index');
     }
 
     /**
@@ -100,6 +128,29 @@ class CguCatalogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->catalogRepository->delete($id);
+
+        return redirect()->route('admin.cgucatalogs.index');
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function removeFile($id)
+    {
+        $this->catalogRepository->removeFile($id);
+
+        return redirect()->route('admin.cgucatalogs.edit', $id);
+    }
+
+    public function changePosition(Request $request)
+    {
+        $catalog = $this->catalogRepository->get($request->get('id'));
+        $catalog->position = $request->get('position');
+        if($catalog->save())
+            return json_encode(['status' => 'success']);
+        else
+            return json_encode(['status' => 'failed']);
     }
 }

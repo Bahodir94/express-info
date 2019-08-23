@@ -12,17 +12,20 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::get('/', 'DashboardController@index')->name('index');
     // Cgu Site Routes
     Route::resource('/cgusites', 'CguSiteController');
-    Route::get('/cgusites/{id}/image', 'CguSiteController@removeImage')->name('cgusites.remove.image');
+    Route::get('/cgusites/{id}/removeimage', 'CguSiteController@removeImage')->name('cgusites.remove.image');
     Route::post('/cgusites/change/position', 'CguSiteController@changePosition')->name('cgusites.change.position');
 
     // Cgu Category Routes
     Route::resource('/cgucategories', 'CguCategoryController');
-    Route::get('/cgucategories/{id}/image', 'CguCategoryController@removeImage')->name('cgucategories.remove.image');
+    Route::get('/cgucategories/{id}/removeimage', 'CguCategoryController@removeImage')->name('cgucategories.remove.image');
     Route::get('/cgucategories/{id}/sites', 'CguCategoryController@sites')->name('cgucategories.sites');
+    Route::get('/cgucategories/{id}/files', 'CguCategoryController@files')->name('cgucategories.files');
     Route::post('/cgucategories/change/position', 'CguCategoryController@changePosition')->name('cgucategories.change.position');
 
     // Cgu Catalog Routes
     Route::resource('/cgucatalogs', 'CguCatalogController');
+    Route::get('/cgucatalogs/{id}/removefile', 'CguCatalogController@removeFile')->name('cgucatalogs.remove.file');
+    Route::post('/cgucatalogs/change/position', 'CguCatalogController@changePosition')->name('cgucatalogs.change.position');
 
     // Handbook Category Routes
     Route::resource('/handbookcategories', 'HandbookCategoryController');
