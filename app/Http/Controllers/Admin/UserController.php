@@ -123,4 +123,23 @@ class UserController extends Controller
 
         return redirect()->route('admin.users.index');
     }
+
+    /**
+     * Change user's password
+     *
+     * @param Request $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function changePassword(Request $request, int $id)
+    {
+        $request->validate([
+            'newPassword' => 'required',
+            'confirmPassword' => 'required|same:newPassword'
+        ]);
+        $user = $this->usersRepository->get($id);
+        $newPassword = $request->get('newPassword');
+        $user->savePassword($newPassword);
+        return redirect()->back()->with('change_password_success', 'Пароль успешно изменён');
+    }
 }
