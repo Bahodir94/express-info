@@ -80,6 +80,15 @@
             <h3 class="block-title">Изменить пароль</h3>
         </div>
         <div class="block-content">
+            @if(session('change_password_success'))
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h3 class="alert-heading font-size-h4 font-w400">Успешно!</h3>
+                    <p class="mb-0">{{ session('change_password_success') }}</p>
+                </div>
+            @endif
             <form action="{{ route('admin.users.change.password', $user->id) }}" method="post">
                 @csrf
                 <div class="row">
