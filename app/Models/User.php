@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class User extends Authenticatable implements MustVerifyEmail
@@ -168,4 +169,17 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->image = $imageName;
         $this->save();
     }
+
+    /**
+     * Save password for the user
+     *
+     * @param string $password
+     * @return void
+    */
+    public function savePassword(string $password)
+    {
+        $this->password = Hash::make($password);
+        $this->save();
+    }
+
 }
