@@ -54,7 +54,7 @@
                             <div class="form-material floating">
                                 <label for="roleId">Роль</label>
                                 <select name="roleId" id="roleId">
-                                    <option value="0">Нет</option>
+                                    <option value="0" selected>Нет</option>
                                     @foreach($roles as $role)
                                         <option value="{{ $role->id }}">{{ $role->descripton }}</option>
                                     @endforeach
