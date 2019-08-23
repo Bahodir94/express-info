@@ -15,14 +15,10 @@ class CheckAdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(\Auth::check()):
-            if(\Auth::user()->isAdmin || \Auth::user()->role_id == 1):
+        $user = auth()->user();
+        if ($user)
+            if ($user->hasRole('admin'))
                 return $next($request);
-            else:
-                return redirect('/');
-            endif;
-        else:
-            return redirect('/');
-        endif;
+        return redirect('/');
     }
 }
