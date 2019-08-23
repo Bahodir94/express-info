@@ -17,8 +17,9 @@
             <h3 class="block-title">{{ $user->name }} <small>Редактировать</small></h3>
         </div>
         <div class="block-content">
-            <form action="{{ route('admin.users.update'), $user->id }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('admin.users.update', $user->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
+                @method('put')
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group @error('name') is-invalid @enderror">
@@ -43,13 +44,13 @@
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group">
                             <div class="form-material floating">
-                                <label for="roleId">Роль</label>
-                                <select name="roleId" id="roleId">
+                                <select name="roleId" id="roleId" class="form-control">
                                     <option value="0">Нет</option>
                                     @foreach($roles as $role)
-                                        <option value="{{ $role->id }}" @if($user->hasRole()) @if($user->getRole()->id == $role->id) selected @endif @endif>{{ $role->descripton }}</option>
+                                        <option value="{{ $role->id }}" @if($user->hasOneRole()) @if($user->getRole()->id == $role->id) selected @endif @endif>{{ $role->description }}</option>
                                     @endforeach
                                 </select>
+                                <label for="roleId">Роль</label>
                             </div>
                         </div>
                     </div>
@@ -80,8 +81,9 @@
         </div>
         <div class="block-content">
             <form action="{{ route('admin.users.change.password', $user->id) }}" method="post">
+                @csrf
                 <div class="row">
-                    <div class="co-sm-12">
+                    <div class="col-sm-12">
                         <div class="form-group @error('newPassword') is-invalid @enderror">
                             <div class="form-material floating">
                                 <label for="newPassword">Новый пароль</label>
@@ -90,7 +92,7 @@
                             @error('newPassword') <div class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                         </div>
                     </div>
-                    <div class="co-sm-12">
+                    <div class="col-sm-12">
                         <div class="form-group">
                             <div class="form-material floating @error('confirmPassword') is-invalid @enderror">
                                 <label for="confirmPassword">Подтвердите пароль</label>

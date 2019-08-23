@@ -52,13 +52,13 @@
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group">
                             <div class="form-material floating">
-                                <label for="roleId">Роль</label>
-                                <select name="roleId" id="roleId">
+                                <select name="roleId" id="roleId" class="form-control">
                                     <option value="0" selected>Нет</option>
                                     @foreach($roles as $role)
-                                        <option value="{{ $role->id }}">{{ $role->descripton }}</option>
+                                        <option value="{{ $role->id }}">{{ $role->description }}</option>
                                     @endforeach
                                 </select>
+                                <label for="roleId">Роль</label>
                             </div>
                         </div>
                     </div>
