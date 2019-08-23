@@ -50,7 +50,10 @@ class UserRepository implements UserRepositoryInterface
         $user->savePassword($userData->get('password'));
         $user->roles()->attach($role);
         $user->save();
-        $user->uploadImage($userData->file('image'));
+        if ($userData->file('image'))
+            $user->uploadImage($userData->file('image'));
+        else
+            $user->setDefaultAvatar();
     }
 
     /**

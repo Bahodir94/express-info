@@ -123,6 +123,17 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Set default user avatar
+     *
+     * @return void
+    */
+    public function setDefaultAvatar()
+    {
+        $this->image = 'avatar0.jpg';
+        $this->save();
+    }
+
+    /**
      * Generate filename for image
      *
      * @param string $imageName
