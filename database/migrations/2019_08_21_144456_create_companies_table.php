@@ -22,6 +22,7 @@ class CreateCompaniesTable extends Migration
             $table->longText('en_description')->nullable();
             $table->longText('uz_description')->nullable();
             $table->string('image')->nullable();
+            $table->string('bad_quality_image')->nullable();
             $table->string('logo_url')->nullable();
             $table->string('url')->nullable();
             $table->integer('user_id')->unsigned()->default(0);
