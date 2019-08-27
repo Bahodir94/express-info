@@ -38,7 +38,7 @@ class ServiceRepository implements ServiceRepositoryInterface
      */
     public function create($serviceData)
     {
-        Service::create($serviceData);
+        Service::create($serviceData->all());
     }
 
     /**
