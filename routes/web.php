@@ -18,6 +18,4 @@ Route::get('/', function () {
 include __DIR__ . '/admin.php';
 include __DIR__ . '/front.php';
 
-Auth::routes(['verify' => true]);
-
 Route::get('/home', 'HomeController@index')->name('home');
