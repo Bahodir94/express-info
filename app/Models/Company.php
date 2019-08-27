@@ -57,6 +57,14 @@ class Company extends Model
     }
 
     /**
+     * Company's services
+    */
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image

@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\Company;
 use App\Models\NeedType;
+use App\Models\Service;
 
 class CompanyRepository implements CompanyRepositoryInterface
 {
@@ -41,7 +42,8 @@ class CompanyRepository implements CompanyRepositoryInterface
     {
         $company = Company::create($companyData->all());
         $company->uploadImage($companyData->file('image'));
-        $needId = $companyData->get('needId');
+        $services = $companyData->get('services');
+        $company->services()->attach($services);
         return $company;
     }
 
@@ -57,6 +59,9 @@ class CompanyRepository implements CompanyRepositoryInterface
         $company = $this->get($companyId);
         $company->update($companyData->all());
         $company->uploadImage($companyData->file('image'));
+        $company->services()->detach();
+        $services = $companyData->get('services');
+        $company->services()->attach($services);
         return $company;
     }
 

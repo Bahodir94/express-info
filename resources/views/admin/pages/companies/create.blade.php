@@ -126,13 +126,23 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
-                        <select name="category_id" id="categoryId" class="form-control">
+                        <select name="category_id" id="categoryId" class="form-control js-select2">
                             <option value="0">-- нет --</option>
                             @foreach($categories as $category_list)
                                 @include('admin.pages.companies.components.category', ['delimiter' => ''])
                             @endforeach
                         </select>
                         <label for="categoryId">Категория</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating">
+                        <select name="services[]" id="services" class="form-control js-select2" multiple="multiple">
+                            @foreach($services as $service)
+                                <option value="{{ $service->id }}">{{ $service->ru_title }}</option>
+                            @endforeach
+                        </select>
+                        <label for="services">Предоставляемые услуги</label>
                     </div>
                 </div>
                 <div class="form-group">
