@@ -195,7 +195,7 @@ class CompanyController extends Controller
     public function removeImage(int $id)
     {
         $company = $this->companies->get($id);
-        $company->removeImage();
+        $company->removeImages();
 
         return redirect()->back();
     }
