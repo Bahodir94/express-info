@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -68,10 +69,19 @@ class Company extends Model
         $filename = $this->generateFileName($image->extension());
         $badImagefilename = $this->generateFileName($image->extension());
         $image->storeAs(self::UPLOAD_DIRECTORY, $filename);
+        $this->createDirectory();
         $img = Image::make(public_path() . '/' . self::UPLOAD_DIRECTORY . $filename);
         $img->save(public_path() . '/' . self::UPLOAD_BAD_QUALITY_IMAGE_DIRECTORY . $badImagefilename, 10);
         $this->saveImageName($filename);
         $this->savePoorImageName($badImagefilename);
+    }
+
+    public function createDirectory()
+    {
+        if(!File::exists(public_path() . '/' . self::UPLOAD_BAD_QUALITY_IMAGE_DIRECTORY))
+        {
+            File::makeDirectory(public_path() . '/' . self::UPLOAD_BAD_QUALITY_IMAGE_DIRECTORY, 0777, true, true);
+        }
     }
 
     /**
