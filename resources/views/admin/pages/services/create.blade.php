@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    Добавить компанию
+    Добавить услугу
 @endsection
 
 @section('css')
@@ -23,7 +23,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Добавить услугу</h3>
         </div>
-        <form action="{{ route('admin.companies.store') }}" method="post">
+        <form action="{{ route('admin.services.store') }}" method="post">
             @csrf
             <div class="block-content">
                 <div class="wizard-block">
