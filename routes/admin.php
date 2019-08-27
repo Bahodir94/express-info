@@ -45,3 +45,7 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     // Type of needs routes
     Route::resource('/needs', 'NeedTypeController');
 });
+
+Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
+    Auth::routes(['verify' => true]);
+});
