@@ -44,6 +44,9 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
 
     // Type of needs routes
     Route::resource('/needs', 'NeedTypeController');
+
+    // Services routes
+    Route::resource('/services', 'ServiceController');
 });
 
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
