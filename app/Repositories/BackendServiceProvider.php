@@ -51,5 +51,10 @@ class BackendServiceProvider extends ServiceProvider
             'App\Repositories\NeedTypeRepositoryInterface',
             'App\Repositories\NeedTypeRepository'
         );
+
+        $this->app->bind(
+            'App\Repositories\ServiceRepositoryInterface',
+            'App\Repositories\ServiceRepository'
+        );
     }
 }

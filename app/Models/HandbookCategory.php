@@ -86,6 +86,16 @@ class HandbookCategory extends Model
     }
 
     /**
+     * Category's services
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'category_id', 'id');
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image
