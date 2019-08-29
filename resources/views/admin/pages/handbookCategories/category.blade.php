@@ -35,7 +35,7 @@
                     <tr>
                         <th></th>
                         <th class="text-center">Заголовок</th>
-                        <th class="text-center">Тип потребности</th>
+                        <th class="text-center">Потребность</th>
                         <th class="text-center">Категории</th>
                         <th class="text-center">Справочники</th>
                         <th class="text-center" style="width: 15%">Действия</th>
@@ -46,6 +46,7 @@
                         <tr>
                             <td class="text-center">{{ $category->id }}</td>
                             <td class="font-w600">{{ $category->getTitle() }}</td>
+                            <td class="text-center">@if($category->needType) {{ $category->needType->ru_title }} @endif</td>
                             <td class="text-center">
                                 @if($category->hasCategories())
                                     <a href="{{ route('admin.handbookcategories.show', $category->id) }}" class="link-effect">Перейти</a>
@@ -55,7 +56,7 @@
                             </td>
                             <td class="text-center">
                                 @if ($category->hasCompanies())
-                                    <a href="{{ route('admin.handbookcategories.handbooks', $category->id) }}"
+                                    <a href="{{ route('admin.handbookcategories.companies', $category->id) }}"
                                        class="link-effect">Перейти</a>
                                 @else
                                     Нет

@@ -18,7 +18,7 @@
     @include('admin.components.breadcrumb', [
         'list' => [
             [
-                'url' => route('admin.handbookscategories.index'),
+                'url' => route('admin.handbookcategories.index'),
                 'title' => 'Категории справочника'
             ],
             [

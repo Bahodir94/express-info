@@ -177,7 +177,7 @@ class Company extends Model
      */
     public function delete()
     {
-        $this->removeImage();
+        $this->removeImages();
         parent::delete();
     }
 
