@@ -17,7 +17,6 @@ class CguSite extends Model
         'link', 'category_id', 'active'
     ];
 
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

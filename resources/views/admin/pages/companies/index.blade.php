@@ -39,7 +39,8 @@
                     <tbody>
                         @foreach($companies as $company)
                             <tr>
-                                <td class="text-center font-w600">@if($company->image)<img src="{{ $company->getImage() }}" alt="{{ $company->ru_title }}" class="img-avatar img-avatar48"> @else - @endif</td>
+                                <td class="text-center font-w600">{{ $company->id }}</td>
+{{--                                <td class="text-center font-w600">@if($company->image)<img src="{{ $company->getImage() }}" alt="{{ $company->ru_title }}" class="img-avatar img-avatar48"> @else - @endif</td>--}}
                                 <td class="text-center font-w600">{{ $company->getTitle() }}</td>
                                 <td class="text-center font-w600"> {{ $company->userClicks()->count() }} </td>
                                 <td class="text-center font-w600">@if($company->category){{ $company->category->getTitle() }} @else - @endif</td>

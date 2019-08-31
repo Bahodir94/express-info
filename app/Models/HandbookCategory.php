@@ -15,7 +15,7 @@ class HandbookCategory extends Model
         'need_id'
     ];
 
-    private static $UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
+    const UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
 
     /**
      * Children categories
@@ -106,7 +106,7 @@ class HandbookCategory extends Model
 
         $this->removeImage();
         $filename = $this->generateFileName($image->extension());
-        $image->storeAs(self::$UPLOAD_DIRECTORY, $filename);
+        $image->storeAs(self::UPLOAD_DIRECTORY, $filename);
         $this->saveImageName($filename);
     }
 
@@ -129,7 +129,7 @@ class HandbookCategory extends Model
     public function getImage()
     {
         if ($this->image)
-            return '/' . self::$UPLOAD_DIRECTORY . $this->image;
+            return '/' . self::UPLOAD_DIRECTORY . $this->image;
         else
             return '';
     }
@@ -142,7 +142,7 @@ class HandbookCategory extends Model
     public function removeImage()
     {
         if ($this->image) {
-            Storage::delete(self::$UPLOAD_DIRECTORY . $this->image);
+            Storage::delete(self::UPLOAD_DIRECTORY . $this->image);
         }
     }
 
