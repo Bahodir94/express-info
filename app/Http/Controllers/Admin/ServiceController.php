@@ -125,4 +125,17 @@ class ServiceController extends Controller
 
         return redirect()->route('admin.services.index');
     }
+
+    /**
+     * Remove image action
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+    */
+    public function removeImage(int $id)
+    {
+        $service = $this->services->get($id);
+        $service->removeImage();
+        return redirect()->back();
+    }
 }
