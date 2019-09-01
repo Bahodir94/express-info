@@ -101,6 +101,17 @@
                         <label for="categoryId">Категория</label>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="image">Изображение</label>
+                    @if($service->image != null)
+                        <br>
+                        <img src="{{ $service->getImage() }}" style="width: 200px;" alt="{{ $service->ru_title }}">
+                        <br>
+                        <a href="{{ route('admin.services.remove.image', $service->id) }}" class="btn btn-danger">Удалить</a>
+                        <br>
+                    @endif
+                    <input type="file" name="image" class="form-control">
+                </div>
             </div>
             <div class="block-content mb-10">
                 <div class="block-content text-right pb-10">

@@ -100,6 +100,10 @@
                         <label for="categoryId">Категория</label>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="image">Изображение</label>
+                    <input type="file" name="image" class="form-control">
+                </div>
             </div>
             <div class="block-content mb-10">
                 <div class="block-content text-right pb-10">
