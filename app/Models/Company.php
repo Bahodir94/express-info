@@ -65,6 +65,17 @@ class Company extends Model
     }
 
     /**
+     * Check if company has service
+     *
+     * @param int $serviceId
+     * @return boolean
+    */
+    public function hasService(int $serviceId)
+    {
+        return null !== $this->services()->find($serviceId);
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image
