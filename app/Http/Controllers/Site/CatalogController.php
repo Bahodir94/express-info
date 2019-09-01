@@ -55,12 +55,11 @@ class CatalogController extends Controller
     */
     public function index()
     {
-        $needs = $this->needs->all();
         $favoritesCategories = $this->categories->getFavoriteCategories();
         $parentCategories = $this->categories->all();
 
-        return view('site.pages.catalog.index', compact('needs',
-            'favoritesCategories', 'parentCategories'));
+        return view('site.pages.catalog.index', compact('favoritesCategories',
+            'parentCategories'));
     }
 
     /**
