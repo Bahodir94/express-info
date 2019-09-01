@@ -105,4 +105,14 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
         $category->position = $position;
         return $category->save();
     }
+
+    /**
+     * Get favorites categories
+     *
+     * @return array
+     */
+    public function getFavoriteCategories()
+    {
+        return HandbookCategory::where('favorite', true)->orderBy('position', 'asc')->get();
+    }
 }
