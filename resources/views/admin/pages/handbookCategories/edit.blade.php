@@ -142,6 +142,12 @@
                     @endif
                     <input type="file" name="image" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label class="css-control css-control-primary css-checkbox">
+                        <input type="checkbox" name="favorite" id="favorite" class="css-control-input" @if($category->favorite) checked @endif>
+                        <span class="css-control-indicator">Добавить в избранные (отобразится на главной странице)</span>
+                    </label>
+                </div>
             </div>
             <div class="block-content">
                 <div class="block-content text-right pb-10">
