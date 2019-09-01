@@ -51,10 +51,10 @@
         </div>
         <a href="#offcanvas" class="coloroff uk-hidden-large" data-uk-offcanvas><i class="fa fa-bars"></i></a>
         <a href="#" class=" uk-navbar-brend uk-navbar-center uk-hidden-large  uk-hidden-small"><img src="{{ asset('assets/img/Image 19.svg') }}" alt=""></a>
-        <div class="rig uk-navbar-right">
-            <a class="autprization" href=""><span><img src="{{ asset('assets/img/user.svg') }}" alt=""></span> Вход</a>
-            <a href="">Регистрация</a>
-        </div>
+{{--        <div class="rig uk-navbar-right">--}}
+{{--            <a class="autprization" href=""><span><img src="{{ asset('assets/img/user.svg') }}" alt=""></span> Вход</a>--}}
+{{--            <a href="">Регистрация</a>--}}
+{{--        </div>--}}
     </nav>
 </header>
 <!-- Mobile menu -->
@@ -88,12 +88,6 @@
     </div>
 </div>
 <!-- Mobile menu end -->
-
-@yield('search')
-
-@yield('heading')
-
-@include('site.components.services')
 
 @yield('content')
 
