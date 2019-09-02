@@ -76,7 +76,7 @@ class HandbookCategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'ru_title' => 'required|unique:handbook_categories|max:255',
+            'ru_title' => 'required|max:255',
         ]);
 
         $category = $this->handbookCategoryRepository->store($request);
