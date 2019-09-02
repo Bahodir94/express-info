@@ -49,13 +49,18 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
      * Update a handbook category
      *
      * @param int $categoryId
-     * @param object $categoryData
+     * @param \Illuminate\Http\Request $categoryData
      * @return \App\Models\HandbookCategory
      */
     public function update(int $categoryId, $categoryData)
     {
         $category = $this->get($categoryId);
         $category->update($categoryData->all());
+        if ($categoryData->has('favorite'))
+            $category->favorite = true;
+        else
+            $category->favorite = false;
+        $category->save();
         $category->uploadImage($categoryData->file('image'));
         return $category;
     }
@@ -63,12 +68,17 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
     /**
      * Store a handbook category
      *
-     * @param object $categoryData
+     * @param \Illuminate\Http\Request $categoryData
      * @return \App\Models\HandbookCategory
      */
     public function store($categoryData)
     {
         $category = HandbookCategory::create($categoryData->all());
+        if ($categoryData->has('favorite'))
+            $category->favorite = true;
+        else
+            $category->favorite = false;
+        $category->save();
         $category->uploadImage($categoryData->file('image'));
 
         $parentId = $categoryData->get('parent_id');
