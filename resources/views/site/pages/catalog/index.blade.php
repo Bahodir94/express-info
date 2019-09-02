@@ -14,7 +14,7 @@
                     <a href="{{ route('site.catalog.category', $category->id) }}">
                         <div class="card">
                             <div class="card_img">
-                                <img src="{{ $category->getImage() }}" alt="{{ $category->getTitle() }}">
+                                <img src="{{ $category->getImage() }}" alt="">
                             </div>
                             <p>
                                 {!! $category->ru_title !!}
@@ -33,7 +33,7 @@
                     <a href="{{ route('site.catalog.category', $category->id) }}" class="item">
                         <div class="item_icon">
                             <div class="item_circle"><img src="{{ $category->getImage() }}"
-                                                          alt="{{ $category->getTitle() }}"></div>
+                                                          alt=""></div>
                         </div>
                         <div class="item_text">
                             <p style="font-weight: bold;">{!!  $category->ru_title !!}</p>

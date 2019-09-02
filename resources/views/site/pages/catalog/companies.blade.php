@@ -11,7 +11,7 @@
     <div class="uk-container uk-container-large uk-container-center">
         <div class="wrapper">
             <div class="wrapper_title">
-                <h3>{{ $category->ru_title }}</h3>
+                <h3>{{ $category->getTitle() }}</h3>
             </div>
             @if ($category->services()->count() > 0)
                 <div class="sorting">
@@ -23,7 +23,7 @@
                                 @foreach($category->services as $service)
                                     @if ($service->companies()->count() > 0)
                                         <li>
-                                            <a href="{{ route('site.catalog.category', ['id' => $category->id, 'service' => $service->id]) }}">{{ $service->ru_title }}</a>
+                                            <a href="{{ route('site.catalog.category', [$category->id, 'service' => $service->id]) }}">{{ $service->ru_title }}</a>
                                         </li>
                                     @endif
                                 @endforeach
@@ -40,14 +40,14 @@
             <div class="plus_img">
                 <img src="{{ asset('assets/img/left-arrow.svg') }}" alt="Go back">
             </div>
-            <a href="{{ $category->hasParent() ? route('site.catalog.category', $category->parent_id) : route('site.catalog.index') }}">
+            <a href="{{ $category->hasParentCategory() ? route('site.catalog.category', $category->parent_id) : route('site.catalog.index') }}">
                 <p>Назад</p>
             </a>
         </div>
         @foreach($category->categories as $child)
             <div class="plus_item">
                 <div class="plus_img">
-                    <img src="{{ $child->getImage() }}" alt="{{ $child->getTitle() }}">
+                    <img src="{{ $child->getImage() }}" alt="">
                 </div>
                 <a href="{{ route('site.catalog.category', $child->id) }}">
                     <p>{{ $child->ru_title }} <span>({{ $child->companies()->count() }})</span></p>
@@ -63,7 +63,7 @@
                     <div class="inner">
                         <div class="header_logo">
                             <div class="inner_logo">
-                                <img src="{{ $company->getImage() }}" alt="{{ $company->ru_title }}">
+                                <img src="{{ $company->getImage() }}" alt="">
                             </div>
                         </div>
                         <div class="inner_tages">

@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Banner -->
-    <div class="banner">
+    <div class="banner" style="background-image: url({{ asset('assets/img/a3e020abb83a5d95bbdce5ef77dff132.png') }})">
         <div class="uk-container uk-container-large uk-container-center container">
             <div class="contact_info">
                 <div class="contact_logo">

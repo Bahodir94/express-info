@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <title>
-        @yield('title') - Ayko
+        @yield('title') | Ayko
     </title>
 </head>
 <body>
@@ -24,7 +24,7 @@
         <a href="#" class=" uk-navbar-brend uk-visible-large"><img src="{{ asset('assets/img/Image 19.svg') }}" alt="Ayko Logo"></a>
         <div class="uk-navbar-center uk-visible-large">
             <ul class="uk-navbar-nav">
-                <li ><a href="">Главная</a></li>
+                <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
                 @foreach($needs as $need)
                     <li class="uk-parent" data-uk-dropdown="{pos:'bottom-center'}">
                         <a href="#">{{ $need->ru_title }}</a>
@@ -51,10 +51,10 @@
         </div>
         <a href="#offcanvas" class="coloroff uk-hidden-large" data-uk-offcanvas><i class="fa fa-bars"></i></a>
         <a href="#" class=" uk-navbar-brend uk-navbar-center uk-hidden-large  uk-hidden-small"><img src="{{ asset('assets/img/Image 19.svg') }}" alt=""></a>
-{{--        <div class="rig uk-navbar-right">--}}
-{{--            <a class="autprization" href=""><span><img src="{{ asset('assets/img/user.svg') }}" alt=""></span> Вход</a>--}}
-{{--            <a href="">Регистрация</a>--}}
-{{--        </div>--}}
+        <div class="rig uk-navbar-right">
+            <a class="autprization" href=""><span><img src="{{ asset('assets/img/user.svg') }}" alt=""></span> Вход</a>
+            <a href="">Регистрация</a>
+        </div>
     </nav>
 </header>
 <!-- Mobile menu -->
