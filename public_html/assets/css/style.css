@@ -623,6 +623,10 @@ footer .uk-container:after, .uk-container:before{
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
+.inner_logo img {
+    max-height: 100%;
+}
+
 .inner .dots{
     display: flex;
     width: 21px;
