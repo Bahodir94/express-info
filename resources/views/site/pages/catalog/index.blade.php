@@ -16,9 +16,9 @@
                             <div class="card_img">
                                 <img src="{{ $category->getImage() }}" alt="{{ $category->getTitle() }}">
                             </div>
-                            <h2>
-                                {{ $category->ru_title }}
-                            </h2>
+                            <p>
+                                {!! $category->ru_title !!}
+                            </p>
                         </div>
                     </a>
                 </li>
