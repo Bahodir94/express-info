@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 include __DIR__ . '/admin.php';
 include __DIR__ . '/front.php';
 
-Auth::routes(['verify' => true]);
+Route::get('/categories_table', 'TestController@categoriesTable');
+Route::get('/companies_table', 'TestController@companiesTable');
+Route::get('/images', 'TestController@cguCategoriesTable');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'HomeController@index')->name('home');

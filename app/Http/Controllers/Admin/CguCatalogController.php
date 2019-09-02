@@ -144,6 +144,10 @@ class CguCatalogController extends Controller
         return redirect()->route('admin.cgucatalogs.edit', $id);
     }
 
+    /**
+     * @param Request $request
+     * @return string
+     */
     public function changePosition(Request $request)
     {
         $catalog = $this->catalogRepository->get($request->get('id'));

@@ -139,6 +139,19 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <div class="form-material floating">
+                        <select name="services[]" id="services" class="form-control js-select2" multiple="multiple">
+                            @php
+                            $serviceIds = $company->services()->pluck('service_id')->toArray()
+                            @endphp
+                            @foreach($services as $service)
+                                <option value="{{ $service->id }}" @if(in_array($service->id, $serviceIds)) selected @endif>{{ $service->ru_title }}</option>
+                            @endforeach
+                        </select>
+                        <label for="services">Предоставляемые услуги</label>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="image">Изображение</label>
                     @if($company->image != null)
                         <br>

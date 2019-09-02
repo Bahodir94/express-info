@@ -12,8 +12,8 @@
         </a>
     </li>
     <li class="nav-main-heading">
-        <span class="sidebar-mini-visible">HD</span>
-        <span class="sidebar-mini-hidden">Heading</span>
+        <span class="sidebar-mini-visible">Р</span>
+        <span class="sidebar-mini-hidden">Разделы</span>
     </li>
     <li>
         <a class="nav-submenu" data-toggle="nav-submenu" href="#">
@@ -46,6 +46,9 @@
         <ul>
             <li>
                 <a href="{{ route('admin.needs.index') }}">Типы потребностей</a>
+            </li>
+            <li>
+                <a href="{{ route('admin.services.index') }}">Услуги</a>
             </li>
             <li>
                 <a href="{{ route('admin.handbookcategories.index') }}">Категории</a>

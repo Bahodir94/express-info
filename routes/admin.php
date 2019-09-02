@@ -31,7 +31,7 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::resource('/handbookcategories', 'HandbookCategoryController');
     Route::get('/handbookcategories/{id}/removeImage', 'HandbookCategoryController@removeImage')->name('handbookcategories.remove.image');
     Route::post('/handbookcategories/position', 'HandbookCategoryController@changePosition')->name('handbookcategories.change.position');
-    Route::get('/handbookcategories/{id}/handbooks', 'HandbookCategoryController@handbooks')->name('handbookcategories.handbooks');
+    Route::get('/handbookcategories/{id}/companies', 'HandbookCategoryController@companies')->name('handbookcategories.companies');
 
     // Companies Routes
     Route::resource('/companies', 'CompanyController');
@@ -44,4 +44,12 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
 
     // Type of needs routes
     Route::resource('/needs', 'NeedTypeController');
+
+    // Services routes
+    Route::resource('/services', 'ServiceController');
+    Route::get('/services/{id}/removeImage', 'ServiceController@removeImage')->name('services.remove.image');
+});
+
+Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
+    Auth::routes(['verify' => true]);
 });

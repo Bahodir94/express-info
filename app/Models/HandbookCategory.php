@@ -12,10 +12,10 @@ class HandbookCategory extends Model
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id',
-        'need_id'
+        'need_id', 'favorite'
     ];
 
-    private static $UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
+    const UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
 
     /**
      * Children categories
@@ -86,6 +86,16 @@ class HandbookCategory extends Model
     }
 
     /**
+     * Category's services
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+    public function services()
+    {
+        return $this->hasMany(Service::class, 'category_id', 'id');
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image
@@ -96,7 +106,7 @@ class HandbookCategory extends Model
 
         $this->removeImage();
         $filename = $this->generateFileName($image->extension());
-        $image->storeAs(self::$UPLOAD_DIRECTORY, $filename);
+        $image->storeAs(self::UPLOAD_DIRECTORY, $filename);
         $this->saveImageName($filename);
     }
 
@@ -119,7 +129,7 @@ class HandbookCategory extends Model
     public function getImage()
     {
         if ($this->image)
-            return '/' . self::$UPLOAD_DIRECTORY . $this->image;
+            return '/' . self::UPLOAD_DIRECTORY . $this->image;
         else
             return '';
     }
@@ -132,7 +142,7 @@ class HandbookCategory extends Model
     public function removeImage()
     {
         if ($this->image) {
-            Storage::delete(self::$UPLOAD_DIRECTORY . $this->image);
+            Storage::delete(self::UPLOAD_DIRECTORY . $this->image);
         }
     }
 

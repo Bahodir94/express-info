@@ -19,6 +19,6 @@ class CheckAdminMiddleware
         if ($user)
             if ($user->hasRole('admin'))
                 return $next($request);
-        return redirect('/');
+        return redirect()->route('admin.login');
     }
 }

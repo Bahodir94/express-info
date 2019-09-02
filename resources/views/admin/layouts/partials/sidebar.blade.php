@@ -73,9 +73,12 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a class="link-effect text-dual-primary-dark" href="#">
-                                <i class="si si-logout"></i>
-                            </a>
+                            <form action="{{ route('admin.logout') }}" method="post">
+                                @csrf
+                                <button class="link-effect text-dual-primary-dark" style="background-color: transparent; border: none;">
+                                    <i class="si si-logout"></i>
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>

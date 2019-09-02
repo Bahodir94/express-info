@@ -63,4 +63,11 @@ interface HandbookCategoryRepositoryInterface
      * @return bool
     */
     public function setPosition(int $categoryId, int $position);
+
+    /**
+     * Get favorites categories
+     *
+     * @return array
+    */
+    public function getFavoriteCategories();
 }

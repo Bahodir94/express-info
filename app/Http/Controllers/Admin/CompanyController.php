@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\CompanyRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
+use App\Repositories\ServiceRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -41,23 +42,33 @@ class CompanyController extends Controller
     private $needTypesRepository;
 
     /**
+     * Repository of services
+     *
+     * @var ServiceRepositoryInterface
+    */
+    private $services;
+
+    /**
      * Create a new instance
      *
      * @param HandbookCategoryRepositoryInterface $companyCategoryRepository
      * @param CompanyRepositoryInterface $companyRepository
      * @param UserRepositoryInterface $userRepository
      * @param NeedTypeRepositoryInterface $needTypesRepository
+     * @param ServiceRepositoryInterface $servicesRepository
      * @return void
     */
     public function __construct(HandbookCategoryRepositoryInterface $companyCategoryRepository,
                                 CompanyRepositoryInterface $companyRepository,
                                 UserRepositoryInterface $userRepository,
-                                NeedTypeRepositoryInterface $needTypesRepository)
+                                NeedTypeRepositoryInterface $needTypesRepository,
+                                ServiceRepositoryInterface $servicesRepository)
     {
         $this->companyCategories = $companyCategoryRepository;
         $this->companies = $companyRepository;
         $this->users = $userRepository;
         $this->needTypesRepository = $needTypesRepository;
+        $this->services = $servicesRepository;
     }
 
     /**
@@ -84,7 +95,8 @@ class CompanyController extends Controller
         $data = [
             'categories' => $this->companyCategories->getTree(),
             'users' => $this->users->all(),
-            'needs' => $this->needTypesRepository->all()
+            'needs' => $this->needTypesRepository->all(),
+            'services' => $this->services->all()
         ];
 
         return view('admin.pages.companies.create', $data);
@@ -132,7 +144,8 @@ class CompanyController extends Controller
             'company' => $company,
             'categories' => $categories,
             'users' => $this->users->all(),
-            'needs' => $this->needTypesRepository->all()
+            'needs' => $this->needTypesRepository->all(),
+            'services' => $this->services->all()
         ];
 
         return view('admin.pages.companies.edit', $data);
@@ -195,7 +208,7 @@ class CompanyController extends Controller
     public function removeImage(int $id)
     {
         $company = $this->companies->get($id);
-        $company->removeImage();
+        $company->removeImages();
 
         return redirect()->back();
     }

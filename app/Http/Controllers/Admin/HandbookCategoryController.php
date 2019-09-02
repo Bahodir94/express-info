@@ -110,18 +110,18 @@ class HandbookCategoryController extends Controller
     }
 
     /**
-     * Display category handbooks
+     * Display category companies
      *
      * @param int $id Category Id
      * @return \Illuminate\Http\Response
     */
-    public function handbooks(int $id)
+    public function companies(int $id)
     {
         $data = [
             'category' => $this->handbookCategoryRepository->get($id)
         ];
 
-        return view('admin.pages.handbookCategories.handbooks', $data);
+        return view('admin.pages.handbookCategories.companies', $data);
     }
 
     /**

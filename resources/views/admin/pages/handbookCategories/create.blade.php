@@ -130,10 +130,15 @@
                         @endforeach
                     </select>
                 </div>
-
                 <div class="form-group">
                     <label for="image">Изображение</label>
                     <input type="file" name="image" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="css-control css-control-primary css-checkbox">
+                        <input type="checkbox" name="favorite" id="favorite" class="css-control-input">
+                        <span class="css-control-indicator">Добавить в избранные (отобразится на главной странице)</span>
+                    </label>
                 </div>
             </div>
             <div class="block-content">

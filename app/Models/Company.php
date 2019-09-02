@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
+
 
 class Company extends Model
 {
@@ -14,7 +17,9 @@ class Company extends Model
         'need_id'
     ];
 
-    private static $UPLOAD_DIRECTORY = 'uploads/companies/';
+    const UPLOAD_DIRECTORY = 'uploads/companies/';
+
+    const UPLOAD_BAD_QUALITY_IMAGE_DIRECTORY = 'uploads/bad_quality_companies/';
 
     public function category()
     {
@@ -52,6 +57,25 @@ class Company extends Model
     }
 
     /**
+     * Company's services
+    */
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
+
+    /**
+     * Check if company has service
+     *
+     * @param int $serviceId
+     * @return boolean
+    */
+    public function hasService(int $serviceId)
+    {
+        return null !== $this->services()->find($serviceId);
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image
@@ -60,10 +84,23 @@ class Company extends Model
     {
         if (!$image) return;
 
-        $this->removeImage();
+        $this->removeImages();
         $filename = $this->generateFileName($image->extension());
-        $image->storeAs(self::$UPLOAD_DIRECTORY, $filename);
+        $badImagefilename = $this->generateFileName($image->extension());
+        $image->storeAs(self::UPLOAD_DIRECTORY, $filename);
+        $this->createDirectory();
+        $img = Image::make(public_path() . '/' . self::UPLOAD_DIRECTORY . $filename);
+        $img->save(public_path() . '/' . self::UPLOAD_BAD_QUALITY_IMAGE_DIRECTORY . $badImagefilename, 10);
         $this->saveImageName($filename);
+        $this->savePoorImageName($badImagefilename);
+    }
+
+    public function createDirectory()
+    {
+        if(!File::exists(public_path() . '/' . self::UPLOAD_BAD_QUALITY_IMAGE_DIRECTORY))
+        {
+            File::makeDirectory(public_path() . '/' . self::UPLOAD_BAD_QUALITY_IMAGE_DIRECTORY, 0777, true, true);
+        }
     }
 
     /**
@@ -74,7 +111,7 @@ class Company extends Model
      */
     private function generateFileName(string $imageName)
     {
-        return str_random(20) . $imageName;
+        return str_random(20) . '.' .  $imageName;
     }
 
     /**
@@ -85,7 +122,20 @@ class Company extends Model
     public function getImage()
     {
         if ($this->image)
-            return '/' . self::$UPLOAD_DIRECTORY . $this->image;
+            return '/' . self::UPLOAD_DIRECTORY . $this->image;
+        else
+            return '';
+    }
+
+    /**
+     * Get poor image
+     *
+     * @return string
+     */
+    public function getPoorImage()
+    {
+        if ($this->bad_quality_image)
+            return '/' . self::UPLOAD_BAD_QUALITY_IMAGE_DIRECTORY . $this->bad_quality_image;
         else
             return '';
     }
@@ -95,14 +145,19 @@ class Company extends Model
      *
      * @return void
      */
-    public function removeImage()
+    public function removeImages()
     {
+        if ($this->bad_quality_image) {
+            Storage::delete(self::UPLOAD_BAD_QUALITY_IMAGE_DIRECTORY . $this->bad_quality_image);
+            $this->savePoorImageName('');
+        }
         if ($this->image) {
-            Storage::delete(self::$UPLOAD_DIRECTORY . $this->image);
+            Storage::delete(self::UPLOAD_DIRECTORY . $this->image);
+            $this->saveImageName('');
         }
     }
 
-    /**
+        /**
      * Save an image name to the database
      *
      * @param string $imageName
@@ -115,6 +170,17 @@ class Company extends Model
     }
 
     /**
+     * Save poor quality image name
+     *
+     * @param string $imageName
+     */
+    private function savePoorImageName(string $imageName)
+    {
+        $this->bad_quality_image = $imageName;
+        $this->save();
+    }
+
+    /**
      * Override delete method to delete image too
      *
      * @return void
@@ -122,7 +188,7 @@ class Company extends Model
      */
     public function delete()
     {
-        $this->removeImage();
+        $this->removeImages();
         parent::delete();
     }
 
