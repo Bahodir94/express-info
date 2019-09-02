@@ -21,7 +21,7 @@
 
 <header>
     <nav class="uk-navbar">
-        <a href="#" class=" uk-navbar-brend uk-visible-large"><img src="{{ asset('asstes/img/Image 19.svg') }}" alt="Ayko Logo"></a>
+        <a href="#" class=" uk-navbar-brend uk-visible-large"><img src="{{ asset('assets/img/Image 19.svg') }}" alt="Ayko Logo"></a>
         <div class="uk-navbar-center uk-visible-large">
             <ul class="uk-navbar-nav">
                 <li ><a href="">Главная</a></li>
