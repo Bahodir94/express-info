@@ -210,6 +210,9 @@ form input::placeholder{
     box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
     background: white;
 }
+.item_circle img {
+    width: 70%;
+}
 .item .item_text{
     display: flex;
     flex-direction: column;
@@ -327,6 +330,9 @@ footer .uk-container:after, .uk-container:before{
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.1);
+}
+.plus_img img {
+    width: 65%;
 }
 .capsule_item{
     display: flex;
