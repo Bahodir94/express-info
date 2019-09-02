@@ -116,13 +116,10 @@ class TestController extends Controller
         {
             if($category->image != null)
             {
-                File::copy(public_path() . '/uploads2/' . $category->image, public_path() . '/' . Company::UPLOAD_DIRECTORY . $category->image);
                 try{
-                    $image = Image::make(public_path() . '/uploads2/' . $category->image);
-                    $image->save(public_path() . '/' . Company::UPLOAD_BAD_QUALITY_IMAGE_DIRECTORY . $category->image, 10);
-                    $category->bad_quality_image = $category->image;
-                    $category->save();
-                }catch (\Exception $e){
+                File::copy(public_path() . '/uploads2/' . $category->image, public_path() . '/' . Company::UPLOAD_DIRECTORY . $category->image);
+                }
+                catch (\Exception $e) {
 
                 }
             }
