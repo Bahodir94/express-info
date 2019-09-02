@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <title>
-        @yield('title') | Ayko
+        @yield('title') | Tezinfo
     </title>
 </head>
 <body>
