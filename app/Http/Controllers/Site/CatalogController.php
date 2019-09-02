@@ -73,11 +73,11 @@ class CatalogController extends Controller
     {
         $category = $this->categories->get($id);
         $descendantsCategories = $category->descendants;
-        $companies = [];
+        $companies = collect();
         $resultCompanies = [];
-        array_push($companies, $category->companies);
+        $companies = $companies->merge($category->companies);
         foreach ($descendantsCategories as $descendantsCategory)
-            array_push($companies, $descendantsCategory->companies);
+            $companies = $companies->merge($descendantsCategory->companies);
         if ($request->has('service'))
         {
             $serviceId = $request->get('service');
