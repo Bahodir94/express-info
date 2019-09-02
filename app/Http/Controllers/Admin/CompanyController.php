@@ -112,8 +112,6 @@ class CompanyController extends Controller
     {
         $request->validate([
             'ru_title' => 'required|unique:companies|max:255',
-            'en_title' => 'required|unique:companies|max:255',
-            'uz_title' => 'required|unique:companies|max:255'
         ]);
         $company = $this->companies->create($request);
         $categoryId = $request->get('category_id');
@@ -162,8 +160,6 @@ class CompanyController extends Controller
     {
         $request->validate([
             'ru_title' => 'required|max:255',
-            'en_title' => 'required|max:255',
-            'uz_title' => 'required|max:255'
         ]);
         $this->companies->update($id, $request);
 

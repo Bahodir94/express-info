@@ -77,8 +77,6 @@ class HandbookCategoryController extends Controller
     {
         $request->validate([
             'ru_title' => 'required|unique:handbook_categories|max:255',
-            'en_title' => 'required|unique:handbook_categories|max:255',
-            'uz_title' => 'required|unique:handbook_categories|max:255',
         ]);
 
         $category = $this->handbookCategoryRepository->store($request);
@@ -151,8 +149,6 @@ class HandbookCategoryController extends Controller
     {
         $request->validate([
             'ru_title' => 'required|max:255',
-            'en_title' => 'required|max:255',
-            'uz_title' => 'required|max:255',
         ]);
         $category = $this->handbookCategoryRepository->update($id, $request);
 
