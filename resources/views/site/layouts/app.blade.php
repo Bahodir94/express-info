@@ -21,7 +21,7 @@
 
 <header>
     <nav class="uk-navbar">
-        <a href="#" class=" uk-navbar-brend uk-visible-large"><img src="{{ asset('assets/img/Image 19.svg') }}" alt="Ayko Logo"></a>
+        <a href="#" class="uk-navbar-brand uk-visible-large">Tezinfo</a>
         <div class="uk-navbar-center uk-visible-large">
             <ul class="uk-navbar-nav">
                 <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
