@@ -145,7 +145,7 @@
                 <div class="form-group">
                     <label class="css-control css-control-primary css-checkbox">
                         <input type="checkbox" name="favorite" id="favorite" class="css-control-input" @if($category->favorite) checked @endif>
-                        <span class="css-control-indicator">Добавить в избранные (отобразится на главной странице)</span>
+                        <span class="css-control-indicator">Избранное</span>
                     </label>
                 </div>
             </div>

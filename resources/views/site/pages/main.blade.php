@@ -64,7 +64,7 @@
 		</div>
 	</div>
 </div>
-<div class="mobile_main_bg">
+<div class="mobile_main_bg" style="background-image: url({{ asset('assets/img/mobile_main_bg.jpg') }})">
 	<div class="mobile_main_bg_white">
 		<div class="mobile_main_header">
 			<!-- <img src="/uploads/mobile_logo.png" alt="" class="mobile_main_header_logo"> -->
@@ -114,7 +114,7 @@
 					<div class="mobile_main_item_outer">
 						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewbox="0 0 173.20508075688772 200"><path fill="#8BC34A" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
 						<div class="mobile_main_item_inner">
-							<a href="{{route('site.catalog.categories')}}" class="mobile_main_item_inner_link">
+							<a href="{{route('site.catalog.index')}}" class="mobile_main_item_inner_link">
 								<img src="{{ asset('assets/img/business.png') }}" alt="Bussines Info" class="mobile_main_item_icon">
 								<!-- <img src="/uploads/mobile_item_logo_1.png" alt="" class="mobile_main_item_icon"> -->
 							</a>

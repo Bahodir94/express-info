@@ -20,12 +20,11 @@ class HomeController extends Controller
     /**
      * Create a new controller instance.
      *
+     * @param UserClickRepositoryInterface $userClickRepository
      * @return void
      */
     public function __construct(UserClickRepositoryInterface $userClickRepository)
     {
-        $this->middleware('auth');
-
         $this->userClicks = $userClickRepository;
     }
 

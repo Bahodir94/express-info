@@ -6,7 +6,7 @@
  * Time: 16:42
  */
 
-Route::middleware('NeedsList')->name('site.')->namespace('Site')->group(function() {
+Route::middleware('needsList')->name('site.')->namespace('Site')->group(function() {
     // Catalog routes
     Route::get('/catalog', 'CatalogController@index')->name('catalog.index');
     Route::get('/catalog/category/{id}', 'CatalogController@category')->name('catalog.category');
