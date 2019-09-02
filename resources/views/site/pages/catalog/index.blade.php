@@ -37,7 +37,7 @@
                         </div>
                         <div class="item_text">
                             <p style="font-weight: bold;">{!!  $category->ru_title !!}</p>
-                            <p>{{ implode(', ',  $category->categories()->count() ? $category->categories()->limit(5)->pluck('ru_title')->toArray() : $category->companies()->limit(5)->pluck('ru_title')->toArray()) }}</p>
+                            <p>{{ implode(', ', $category->categories()->limit(5)->pluck('ru_title')->toArray() }}</p>
                         </div>
                     </a>
                 </li>
