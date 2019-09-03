@@ -18,6 +18,7 @@ Route::get('/categories_table', 'TestController@categoriesTable');
 Route::get('/companies_table', 'TestController@companiesTable');
 Route::get('/images', 'TestController@cguCategoriesTable');
 Route::get('/cguFiles', 'TestController@cguCatalogsTable');
+Route::get('/cguCatalogFiles', 'TestController@cguCatalogFiles');
 
 
 Route::get('/', 'HomeController@index')->name('home');

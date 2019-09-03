@@ -163,4 +163,21 @@ class TestController extends Controller
             }
         }
     }
+    public function cguCatalogFiles()
+    {
+        foreach(CguCatalog::all() as $catalog)
+        {
+            if ($catalog->file != null)
+            {
+                try {
+                    File::copy(public_path() . '/uploads/' . $catalog->file, 
+                               public_path() . '/' . CguCatalog::UPLOAD_DIRECTORY . $catalog->file);
+                }
+                catch (\Exception $e)
+                {
+
+                }
+            }
+        }
+    }
 }
