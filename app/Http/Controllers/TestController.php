@@ -138,7 +138,7 @@ class TestController extends Controller
         $categories = $arr[1];
 
         foreach($catalogs as $catalog)
-        {
+	 {
             $newCatalog = CguCatalog::create([
                 'ru_title' => $catalog->ru_title,
                 'en_title' => $catalog->en_title,
