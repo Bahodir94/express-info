@@ -146,7 +146,7 @@ class TestController extends Controller
                 'ru_description' => $catalog->ru_description,
                 'en_description' => $catalog->en_description,
                 'uz_description' => $catalog->uz_description,
-                'image' => $catalog->image,
+                'file' => $catalog->image,
                 'video' => $catalog->video,
                 'active' => $catalog->active,
                 'link' => $catalog->link,
