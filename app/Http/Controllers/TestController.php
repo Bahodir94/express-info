@@ -154,7 +154,9 @@ class TestController extends Controller
             {
                 if ($catalog->category_id == $category->id)
                 {
-                    $parentCategory = CguCategory::where('ru_title', 'like', '%' . $category->ru_title . '%')->first();
+			$parentCategory = CguCategory::where('ru_title', 'like', '%' . $category->ru_title . '%')->first();
+		    if (!$parentCategory)
+	      	        continue;
                     $newCatalog->category_id = $parentCategory->id;
                     $newCatalog->save();
                 }
