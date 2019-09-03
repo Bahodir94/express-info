@@ -33,19 +33,7 @@
                         <td class="text-center">{{ $site->id }}</td>
                         <td class="font-w600">{{ $site->getTitle() }}</td>
                         <td>
-                            @if($site->hasParentCategory())
-                                @if($site->parentCategory->hasParentCategory())
-                                    <a href="{{ route('admin.cgucategories.show', $site->parentCategory->parentCategory->id) }}">
-                                @else
-                                    <a href="{{ route('admin.cgucategories.index') }}">
-                                @endif
-                            @endif
-                                {{ $site->getParentCategoryTitle() }}
-                            @if($site->hasParentCategory())
-                                @if($site->parentCategory->hasParentCategory())
-                                    </a>
-                                @endif
-                            @endif
+                            {{ $site->getParentCategoryTitle() }}
                         </td>
                         <td>{!! $site->getActiveRender() !!}</td>
                         <td class="text-center d-flex align-items-center justify-content-center">
