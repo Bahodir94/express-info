@@ -146,10 +146,10 @@ class TestController extends Controller
                 'ru_description' => $catalog->ru_description,
                 'en_description' => $catalog->en_description,
                 'uz_description' => $catalog->uz_description,
-                'file' => $catalog->image,
                 'video' => $catalog->video,
                 'active' => $catalog->active,
             ]);
+            $newCatalog->file = $catalog->image;
             foreach($categories as $category)
             {
                 if ($catalog->category_id == $category->id)
