@@ -149,7 +149,6 @@ class TestController extends Controller
                 'file' => $catalog->image,
                 'video' => $catalog->video,
                 'active' => $catalog->active,
-                'link' => $catalog->link,
             ]);
             foreach($categories as $category)
             {
