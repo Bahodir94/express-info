@@ -88,7 +88,7 @@ class CguCategoryController extends Controller
         $category = $this->cguCategoryRepository->store($request);
 
         if($request->has('save'))
-            return redirect()->route('admin.cgucategories.edit', $category->id);
+            return redirect()->route('admin.cgucategories.create');
         else
             return redirect()->route('admin.cgucategories.index');
     }

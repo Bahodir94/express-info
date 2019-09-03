@@ -67,7 +67,7 @@ class CguSiteController extends Controller
         $site = $this->siteRepository->store($request);
 
         if($request->has('save'))
-            return redirect()->route('admin.cgusites.edit', $site->id);
+            return redirect()->route('admin.cgusites.create');
         else
             return redirect()->route('admin.cgusites.index');
     }

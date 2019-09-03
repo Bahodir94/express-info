@@ -59,7 +59,7 @@ class CguCatalogController extends Controller
         $catalog = $this->catalogRepository->store($request);
 
         if($request->has('save'))
-            return redirect()->route('admin.cgucatalogs.edit', $catalog->id);
+            return redirect()->route('admin.cgucatalogs.create');
         else
             return redirect()->route('admin.cgucatalogs.index');
     }
