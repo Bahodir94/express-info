@@ -56,12 +56,6 @@ class CguCatalogController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'ru_title' => 'required|unique:cgu_catalogs|max:255',
-            'en_title' => 'required|unique:cgu_catalogs|max:255',
-            'uz_title' => 'required|unique:cgu_catalogs|max:255',
-        ]);
-
         $catalog = $this->catalogRepository->store($request);
 
         if($request->has('save'))
@@ -106,12 +100,6 @@ class CguCatalogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'ru_title' => 'required|max:255',
-            'en_title' => 'required|max:255',
-            'uz_title' => 'required|max:255',
-        ]);
-
         $catalog = $this->catalogRepository->update($id, $request);
 
         if($request->has('save'))

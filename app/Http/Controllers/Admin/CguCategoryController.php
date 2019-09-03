@@ -78,8 +78,6 @@ class CguCategoryController extends Controller
     {
         $request->validate([
             'ru_title' => 'required|unique:cgu_categories|max:255',
-            'en_title' => 'required|unique:cgu_categories|max:255',
-            'uz_title' => 'required|unique:cgu_categories|max:255',
             'image'    => 'nullable|image',
 //            'ru_slug' => 'unique:cgu_categories|max:255',
 //            'en_slug' => 'unique:cgu_categories|max:255',
@@ -152,8 +150,6 @@ class CguCategoryController extends Controller
     {
         $request->validate([
             'ru_title' => 'required|max:255',
-            'en_title' => 'required|max:255',
-            'uz_title' => 'required|max:255',
             'image'    => 'nullable|image'
         ]);
 
