@@ -17,6 +17,7 @@ include __DIR__ . '/front.php';
 Route::get('/categories_table', 'TestController@categoriesTable');
 Route::get('/companies_table', 'TestController@companiesTable');
 Route::get('/images', 'TestController@cguCategoriesTable');
+Route::get('/cguFiles', 'TestController@cguCatalogsTable');
 
 
 Route::get('/', 'HomeController@index')->name('home');

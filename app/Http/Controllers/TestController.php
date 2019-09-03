@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\HandbookCategory;
+use App\Models\CguCategory;
+use App\Models\CguCatalog;
 use Dropbox\Exception;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\Request;
@@ -121,6 +123,41 @@ class TestController extends Controller
                 }
                 catch (\Exception $e) {
 
+                }
+            }
+        }
+    }
+
+    public function cguCatalogsTable()
+    {
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET', 'http://publicservice.uz/api/cguCatalogs');
+
+        $arr = json_decode($res->getBody()->getContents());
+        $catalogs = $arr[0];
+        $categories = $arr[1];
+
+        foreach($catalogs as $catalog)
+        {
+            $newCatalog = CguCatalog::create([
+                'ru_title' => $catalog->ru_title,
+                'en_title' => $catalog->en_title,
+                'uz_title' => $catalog->uz_title,
+                'ru_description' => $catalog->ru_description,
+                'en_description' => $catalog->en_description,
+                'uz_description' => $catalog->uz_description,
+                'image' => $catalog->image,
+                'video' => $catalog->video,
+                'active' => $catalog->active,
+                'link' => $catalog->link,
+            ]);
+            foreach($categories as $category)
+            {
+                if ($catalog->category_id == $category->id)
+                {
+                    $parentCategory = CguCategory::where('ru_title', 'like', '%' . $category->ru_title . '%')->first();
+                    $newCatalog->category_id = $parentCategory->id;
+                    $newCatalog->save();
                 }
             }
         }
