@@ -98,7 +98,7 @@ class CguSiteController extends Controller
             'categories' => $this->siteRepository->getCategoriesTree()
         ];
 
-        return view('admin.pages.cgusites.edit', $data);
+        return view('admin.pages.cguSites.edit', $data);
     }
 
     /**
