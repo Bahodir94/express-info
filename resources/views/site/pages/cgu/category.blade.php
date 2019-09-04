@@ -79,7 +79,7 @@
                     @if($file->video == '')
                         @if(strpos($file->getFileType(), 'image') !== false)
                             <a href="{{ $file->getFileUrl() }}" data-fancybox="images" data-caption="" class="main_item_img">
-                                <img class="lazy" src="{{ $file->getUrl() }}" style="width: 100%;" alt="">
+                                <img class="lazy" src="{{ $file->getFileUrl() }}" style="width: 100%;" alt="">
                             </a>
                             <p class="main_item_p">{!! $file->ru_title !!}</p>
                         @elseif(strpos($file->getFileType(), 'video') !== false)
