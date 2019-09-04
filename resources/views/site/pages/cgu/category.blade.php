@@ -59,8 +59,8 @@
                 @endforeach
             @endif
             @if($category->hasSites())
-                @foreach($category->sites()->orderBy('position', 'asc')->get() as $catalog)
-                    <a @if($catalog->video != '') href="{{ $catalog->video }}" @endif class="categories_item categories_item2">
+		@foreach($category->sites()->orderBy('position', 'asc')->get() as $catalog)
+                    <a @if($catalog->link != '') href="{{ $catalog->link }}" @endif class="categories_item categories_item2">
                         <div class="categories_item_inner">
                             <div class="categories_item_icon">
                                 <img class="lazy" data-src="{{ $catalog->getImage() }}" alt="">

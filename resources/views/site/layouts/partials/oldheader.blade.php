@@ -2,7 +2,7 @@
 <!-- Header -->
 <header class="main_header">
     <div class="mobile_search">
-        <form class="mobile_search_from" action="{{ route('home.search') }}" method="POST" style="width: 100%;">
+        <form class="mobile_search_from" action="#" method="POST" style="width: 100%;">
             @csrf
             <button class="mobile_search_btn mobile_search_close_btn" type="button">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">
@@ -80,24 +80,6 @@
             <div class="hidden_back" style="display: none;"></div>
             <ul class="nav header_nav main_nav">
                 <button class="mob_nav_close"></button>
-                <!-- <li class="nav-item">
-                    <a class="nav-link active" href="/"><h5 class="m-0">Главная</h5></a>
-                </li> -->
-            <!--                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home.categories') }}"><h5 class="m-0">Справочник</h5></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><h5 class="m-0">Гос. услуги</h5></a>
-                </li> -->
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="/"><h5 class="m-0">Вариант 1</h5></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/var2"><h5 class="m-0">Вариант 2</h5></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/var3"><h5 class="m-0">Вариант 3</h5></a>
-                </li> -->
             </ul>
             <!--             <p class="main_header_number">
                             Отдел рекламы: <a href="tel:">(90) 940 36-66</a>
