@@ -18,6 +18,7 @@
     ])
     <form action="{{ route('admin.menu.update', $menu->id) }}" method="post" enctype="multipart/form-data">
         @csrf
+        @method('put')
         <input type="hidden" name="need_id" value="{{ $menu->need_id }}">
         <div class="block">
             <div class="block-header block-header-default">
