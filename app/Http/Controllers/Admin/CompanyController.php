@@ -79,7 +79,7 @@ class CompanyController extends Controller
     public function index()
     {
         $data = [
-            'companies' => $this->companies->all()
+            'companies' => $this->companies->all(10)
         ];
 
         return view('admin.pages.companies.index', $data);

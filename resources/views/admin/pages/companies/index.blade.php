@@ -24,8 +24,9 @@
             </div>
         </div>
         <div class="block-content">
+            {{ $companies->links('vendor.pagination.pagination') }}
             <div class="table-responsive">
-                <table class="table table-stripped table-bordered table-vcenter js-dataTable-full">
+                <table class="table table-stripped table-bordered table-vcenter">
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 50px"><i class="fa fa-image"></i></th>
@@ -71,6 +72,7 @@
                     </tbody>
                 </table>
             </div>
+            {{ $companies->links('vendor.pagination.pagination') }}
         </div>
     </div>
 @endsection

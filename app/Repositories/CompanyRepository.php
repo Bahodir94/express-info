@@ -14,11 +14,15 @@ class CompanyRepository implements CompanyRepositoryInterface
     /**
      * All handbooks
      *
+     * @param mixed $paginate
      * @return mixed
      */
-    public function all()
+    public function all($paginate = null)
     {
-        return Company::orderBy('position', 'asc')->get();
+        if ($paginate)
+            return Company::orderBy('position', 'asc')->paginate($paginate);
+        else
+            return Company::orderBy('position', 'asc')->get();
     }
 
     /**
