@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Repositories\MenuRepositoryInterface;
+use App\Repositories\NeedTypeRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,17 +16,27 @@ class MenuItemController extends Controller
     */
     private $menuItems;
 
+    /**
+     * Repository for type of needs
+     *
+     * @var NeedTypeRepositoryInterface
+    */
+    private $needs;
 
     /**
      * Create a new controller instance
      *
      * @param MenuRepositoryInterface $menuRepository
+     * @param NeedTypeRepositoryInterface $needsRepository
      * @return void
     */
-    public function __construct(MenuRepositoryInterface $menuRepository)
+    public function __construct(MenuRepositoryInterface $menuRepository,
+                                NeedTypeRepositoryInterface $needsRepository)
     {
         $this->menuItems = $menuRepository;
+        $this->needs = $needsRepository;
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -35,9 +46,12 @@ class MenuItemController extends Controller
      */
     public function create(Request $request)
     {
-        $data = [];
-        if ($request->has('needId'))
-            array_push($data, $request->get('needId'));
+        $needId = $request->get('needId', '1');
+        $need = $this->needs->get($needId);
+        $data = [
+            'needId' => $needId,
+            'need' => $need
+        ];
         return view('admin.pages.menu.create', $data);
     }
 
@@ -105,5 +119,19 @@ class MenuItemController extends Controller
     {
         $needId = $this->menuItems->delete($id);
         return redirect()->route('admin.needs.menu', $needId);
+    }
+
+    /**
+     * Remove image for menu item
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function removeImage(int $id)
+    {
+        $menu = $this->menuItems->get($id);
+        $menu->removeImage();
+
+        return redirect()->back();
     }
 }
