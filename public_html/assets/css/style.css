@@ -1075,6 +1075,7 @@ footer .uk-container:after, .uk-container:before{
     left: -25px;
     right: 0;
     top: 0;
+    width:15%;
 }
 .dropdown_wrapper a{
     font-size: 14px;
