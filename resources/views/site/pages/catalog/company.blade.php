@@ -26,15 +26,15 @@
     <div class="payment">
         <div class="uk-continer uk-container-large uk-container-center container">
             <div class="payment_wrapper">
-{{--                <div class="payment_list">--}}
-{{--                    <ul>--}}
-{{--                        <li><a href="">Click</a></li>--}}
-{{--                        <li><a href="">Payme</a></li>--}}
-{{--                        <li><a href="">UzCard</a></li>--}}
-{{--                        <li><a href="">Humo</a></li>--}}
-{{--                        <li><a href="">Работают круглосуточно</a></li>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
+                <div class="payment_list">
+                    <ul>
+                        <li><a href="">Click</a></li>
+                        <li><a href="">Payme</a></li>
+                        <li><a href="">UzCard</a></li>
+                        <li><a href="">Humo</a></li>
+                        <li><a href="">Работают круглосуточно</a></li>
+                    </ul>
+                </div>
                 <div class="soc">
                     <ul>
                         <span>Соц сети</span>
