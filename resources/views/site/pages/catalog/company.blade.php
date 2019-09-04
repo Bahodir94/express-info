@@ -80,6 +80,7 @@
                 <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @endforeach
             <li><a href="{{ route('site.catalog.category', $company->category->id) }}">{{ $company->category->getTitle() }}</a></li>
+            <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             <li>{{ $company->getTitle() }}</li>
         </ul>
     </div>
