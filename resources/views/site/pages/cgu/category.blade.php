@@ -74,7 +74,7 @@
                     </a>
                 @endforeach
             @endif
-            @foreach($files as $file)
+	     @foreach($files as $file)
                 <div class="main_item" style="background-color: transparent;box-shadow: none;display: flex;padding: 0;">
                     @if($file->video == '')
                         @if(strpos($file->getFileType(), 'image') !== false)

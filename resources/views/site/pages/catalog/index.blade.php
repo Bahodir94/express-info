@@ -45,8 +45,8 @@
                         <div class="item_text">
                             <h2><a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a></h2>
                             <p>
-                                @foreach ($category->categories()->limit(5)->pluck('ru_title')->toArray() as $child)
-                                    <a href="{{ route('site.catalog.category', $child->id) }}">{!! $child->ru_title !!}</a>
+                                @foreach ($category->categories()->limit(5)->get() as $child)
+                                    <a href="{{ route('site.catalog.category', $child->id) }}">{!! $child->ru_title !!},</a>
                                 @endforeach
                             </p>
                         </div>
