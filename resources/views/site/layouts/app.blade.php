@@ -7,8 +7,6 @@
     @yield('meta')
     <link rel="stylesheet" href="{{ asset('assets/css/uikit.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
@@ -16,72 +14,87 @@
     <title>
         @yield('title') | Tezinfo
     </title>
+
+    <script src="{{ asset('assets/js/uikit.min.js') }}"></script>
+    <script src="{{ asset('assets/js/uikit-icons.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 </head>
 <body>
 
+<!-- Header Menu -->
 <header>
-    <nav class="uk-navbar">
-        <a href="#" class="uk-navbar-brand uk-visible-large">Tezinfo</a>
-        <div class="uk-navbar-center uk-visible-large">
-            <ul class="uk-navbar-nav">
-                <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
-                @foreach($needs as $need)
-                    <li class="uk-parent" data-uk-dropdown="{pos:'bottom-center'}">
-                        <a href="#">{{ $need->ru_title }}</a>
-                        <div class="uk-dropdown uk-dropdown-width-4" data-uk-dropdown="{delay: 500}">
-                            <div class="uk-grid uk-dropdown-grid">
-                                @foreach($need->menuItems as $menu)
-                                    <div class="uk-width-1-4">
-                                        <ul class="uk-nav">
-                                            <div class="dropdown_wrapper">
-                                                <img src="{{ $menu->getImage() }}" alt="">
-                                                <a href="#">{{ $menu->ru_title }}</a>
-                                            </div>
-                                            @foreach($menu->categories as $category)
-                                                <li><a href="{{ route('site.catalog.category', $category->id) }}">{{ $category->ru_title }}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-        <a href="#offcanvas" class="coloroff uk-hidden-large" data-uk-offcanvas><i class="fa fa-bars"></i></a>
-        <a href="#" class=" uk-navbar-brend uk-navbar-center uk-hidden-large  uk-hidden-small"><img src="{{ asset('assets/img/Image 19.svg') }}" alt=""></a>
-        <div class="rig uk-navbar-right">
-            <a class="autprization" href=""><span><img src="{{ asset('assets/img/user.svg') }}" alt=""></span> Вход</a>
-            <a href="">Регистрация</a>
-        </div>
-    </nav>
-</header>
-<!-- Mobile menu -->
-<div id="offcanvas" class="uk-offcanvas">
-    <div class="uk-offcanvas-bar" data-uk-offcanvas="{mode:'slide'}">
-        <ul class="uk-nav uk-nav-offcanvas">
-            <li ><a href="">Главная</a></li>
-            @foreach($needs as $need)
-                <li class="uk-parent" data-uk-dropdown="{pos:'bottom-center'}">
-                    <a href="#">{{ $need->ru_title }}</a>
-                    <div class="uk-dropdown uk-dropdown-width-4" data-uk-dropdown="{delay: 500}">
-                        <div class="uk-grid uk-dropdown-grid">
-                            @foreach($need->menuItems as $menu)
-                                <div class="uk-width-1-4">
-                                    <ul class="uk-nav">
-                                        <div class="dropdown_wrapper">
-                                            <img src="{{ $menu->getImage() }}" alt="">
-                                            <a href="#">{{ $menu->ru_title }}</a>
+    <div class="uk-container uk-container-expand uk-container-center">
+        <nav class="uk-navbar">
+            <div class="content-header-item uk-visible-large">
+                <a class="link-effect font-w700" href="{{ route('home') }}">
+                    <span class="icon">
+                        <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                    </span>
+                    <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
+                </a>
+            </div>
+            <div class="uk-navbar-center uk-visible-large">
+                <ul class="uk-navbar-nav">
+                    <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
+                    @foreach ($needs as $need)
+                        <li class="uk-parent">
+                            <a href="#">{{ $need->ru_title }}</a>
+                            <div class="uk-dropdown uk-dropdown-width-4" data-uk-dropdown="{delay: 500}">
+                                <div class=" uk-dropdown-grid uk-grid-collapse" uk-grid>
+                                    @foreach ($need->menuItems as $menu)
+                                        <div class="uk-width-1-4 padding-15">
+                                            <ul class="uk-nav">
+                                                <div class="dropdown_wrapper">
+                                                    <img src="{{ $menu->getImage() }}" alt="">
+                                                    <a href="#">{{ $menu->ru_title }}</a>
+                                                </div>
+                                                @foreach ($menu->categories as $category)
+                                                    <li><a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a></li>
+                                                @endforeach
+                                            </ul>
                                         </div>
-                                        @foreach($menu->categories as $category)
-                                            <li><a href="{{ route('site.catalog.category', $category->id) }}">{{ $category->ru_title }}</a></li>
-                                        @endforeach
-                                    </ul>
+                                    @endforeach
                                 </div>
-                            @endforeach
-                        </div>
-                    </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <button type="button" class="menu-button uk-hidden-large" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
+
+            <div class="content-header-item uk-hidden-large  uk-hidden-small">
+                <a class="link-effect font-w700" href="{{ route('home') }}">
+                    <i class="si si-fire text-primary"></i>
+                    <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
+                </a>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- Header Menu end-->
+
+<!-- Mobile menu -->
+<div id="offcanvas-slide" uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav uk-nav-default" uk-nav>
+            <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
+            @foreach($needs as $need)
+                <li class="uk-parent">
+                    <a href="#">{{ $need->ru_title }}</a>
+                    <ul class="uk-nav-sub">
+                        @foreach ($need->menuItems as $menu)
+                            <li>
+                                <a href="#">{{ $menu->ru_title }}</a>
+                                <ul class="uk-nav-sub">
+                                    @foreach ($menu->categories as $category)
+                                        <li><a href="{{ route('site.catalog.category', $category->id) }}">{{ $category->getTitle() }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
+                    </ul>
                 </li>
             @endforeach
         </ul>
