@@ -114,11 +114,13 @@
                     <div class="form-material floating">
                         <select name="need_id" id="needId" class="form-control js-select2">
                             <option value="0">Нет</option>
-                            @foreach($needs  as $need)
-                                <option value="{{ $need->id }}" @if($category->needType) @if($category->needType->id == $need->id) selected @endif @endif>{{ $need->ru_title }}</option>
+                            @foreach($needs as $need)
+                                @foreach($need->menuItems as $menu)
+                                    <option value="{{ $menu->id }}" @if ($category->menu_id == $menu->id) selected @endif> {{ $need->ru_title }} - {{ $menu->ru_title }}</option>
+                                @endforeach
                             @endforeach
                         </select>
-                        <label for="needId">Тип потребности</label>
+                        <label for="needId">Родительский элемент меню</label>
                     </div>
                 </div>
                 <div class="form-group">

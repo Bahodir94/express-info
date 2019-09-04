@@ -115,10 +115,12 @@
                         <select name="need_id" id="needId" class="form-control js-select2">
                             <option value="0" selected>Нет</option>
                             @foreach($needs as $need)
-                                <option value="{{ $need->id }}">{{ $need->ru_title }}</option>
+                                @foreach($need->menuItems as $menu)
+                                    <option value="{{ $menu->id }}">{{ $need->ru_title }} - {{ $menu->ru_title }}</option>
+                                @endforeach
                             @endforeach
                         </select>
-                        <label for="needId">Тип потребности</label>
+                        <label for="needId">Родительский элемент меню</label>
                     </div>
                 </div>
                 <div class="form-group">
