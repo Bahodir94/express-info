@@ -384,7 +384,7 @@ small{
     margin: 0;
 
     padding: 0;
-    letter-spacing: 2.6px;
+    letter-spacing: 1px;
 
 
 }
@@ -405,7 +405,7 @@ small{
     margin: 0;
 
     padding: 0;
-
+	letter-spacing: 8px;
 }
 
 .main_nav{}
@@ -1779,7 +1779,7 @@ small{
 
 	width: 100%;
 
-	background-image: url("../img/mobile_main_bg.jpg");
+	background-image: url("/uploads/mobile_main_bg.jpg");
 
 	background-position: bottom;
 
@@ -1886,6 +1886,7 @@ small{
 	margin: 0;
 
 	padding: 0;
+	letter-spacing: 7px;
 
 }
 .mobile_main_header_logo_text_small{
@@ -4065,6 +4066,7 @@ small{
 	.main_header_logo_text_small{
 
 		font-size: 9px;
+		letter-spacing: 4px;
 
 	}
 
