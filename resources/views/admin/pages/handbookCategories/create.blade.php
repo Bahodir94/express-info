@@ -112,7 +112,7 @@
                 <!-- END Simple Wizard -->
                 <div class="form-group">
                     <div class="form-material floating">
-                        <select name="need_id" id="needId" class="form-control js-select2">
+                        <select name="menu_id" id="menuId" class="form-control js-select2">
                             <option value="0" selected>Нет</option>
                             @foreach($needs as $need)
                                 @foreach($need->menuItems as $menu)
@@ -120,7 +120,7 @@
                                 @endforeach
                             @endforeach
                         </select>
-                        <label for="needId">Родительский элемент меню</label>
+                        <label for="menuId">Родительский элемент меню</label>
                     </div>
                 </div>
                 <div class="form-group">
