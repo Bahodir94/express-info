@@ -1,9 +1,9 @@
 <!-- Search section -->
-<div class="uk-container uk-container-large uk-container-center uk-margin-top">
-    <form action="#" class="uk-center">
+<div class="uk-container uk-container-expand uk-container-center">
+    <form action="" class="uk-center">
         <div class="position">
-            <i class="fa fa-search"></i>
-            <input type="text" placeholder="Поиск в TezInfo">
+            <img src="{{ asset('assets/img/search (1).svg') }}" alt="">
+            <input type="text" placeholder="Поиск в Айко">
         </div>
     </form>
 </div>

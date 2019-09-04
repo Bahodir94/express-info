@@ -5,41 +5,52 @@
 @section('content')
     @include('site.components.search')
 
+    <!-- Line -->
     <hr class="new">
+    <!-- Line end -->
 
-    <div class="slider uk-container uk-container-center uk-margin-top">
-        <ul class="slider_wrapper">
-            @foreach($favoritesCategories as $category)
-                <li class="slide">
-                    <a href="{{ route('site.catalog.category', $category->id) }}">
+    <!-- Favorites Category -->
+    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center uk-slider">
+        <div class="uk-container uk-container-expand uk-container-center gutter" uk-slider="autoplay: true; autoplay-interval: 5000;">
+            <ul class="uk-slider-items uk-child-width-auto uk-grid-large">
+                @foreach ($favoritesCategories as $category)
+                    <li class="slide">
                         <div class="card">
                             <div class="card_img">
                                 <img src="{{ $category->getImage() }}" alt="">
                             </div>
-                            <p>
-                                {!! $category->ru_title !!}
-                            </p>
+                            <h2>
+                                <a href="{{ route('site.catalog.category', $category->id) }}">
+                                    {{ $category->getTitle() }}
+                                </a>
+                            </h2>
                         </div>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
     </div>
+    <!-- Favorites Category end-->
 
-    <div class="uk-container uk-container-large uk-margin uk-container-center margin">
-        <ul class="uk-grid uk-grid-width-1-1 uk-grid-width-small-1-2  uk-grid-width-medium-1-2 uk-grid-width-large-1-3" data-uk-grid-margin>
+    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center">
+        <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid-margin>
             @foreach($parentCategories as $category)
-                <li class="uk-container-center uk-margin-large-bottom">
-                    <a href="{{ route('site.catalog.category', $category->id) }}" class="item">
+                <li class="uk-container-center uk-margin-medium-bottom">
+                    <div class="item">
                         <div class="item_icon">
-                            <div class="item_circle"><img src="{{ $category->getImage() }}"
-                                                          alt=""></div>
+                            <div class="item_circle">
+                                <img src="{{ $category->getImage() }}" alt="">
+                            </div>
                         </div>
                         <div class="item_text">
-                            <p style="font-weight: bold;">{!!  $category->ru_title !!}</p>
-                            <p>{{ implode(', ', $category->categories()->limit(5)->pluck('ru_title')->toArray()) }}</p>
+                            <h2><a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a></h2>
+                            <p>
+                                @foreach ($category->categories()->limit(5)->pluck('ru_title')->toArray() as $child)
+                                    <a href="{{ route('site.catalog.category', $child->id) }}">{!! $child->ru_title !!}</a>
+                                @endforeach
+                            </p>
                         </div>
-                    </a>
+                    </div>
                 </li>
             @endforeach
         </ul>
