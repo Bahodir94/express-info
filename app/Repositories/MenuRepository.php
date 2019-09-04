@@ -49,10 +49,13 @@ class MenuRepository implements MenuRepositoryInterface
      *
      * @param int $id
      * @throws \Exception
+     * @return int
      */
     public function delete(int $id)
     {
         $menuItem = $this->get($id);
+        $needId = $menuItem->need_id;
         $menuItem->delete();
+        return $needId;
     }
 }

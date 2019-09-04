@@ -31,6 +31,7 @@ interface MenuRepositoryInterface {
      * Delete a menu item
      *
      * @param int $id
+     * @return int
     */
     public function delete(int $id);
 }
