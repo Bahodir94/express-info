@@ -11,6 +11,8 @@ class Service extends Model
         'ru_title', 'en_title', 'uz_title', 'category_id'
     ];
 
+    const UPLOAD_DIRECTORY = "uploads/services_image/";
+
     /**
      * Get all companies
     */
@@ -52,7 +54,7 @@ class Service extends Model
      */
     private function generateFileName(string $imageName)
     {
-        return str_random(20) . $imageName;
+        return str_random(20) . '.' . $imageName;
     }
 
     /**
