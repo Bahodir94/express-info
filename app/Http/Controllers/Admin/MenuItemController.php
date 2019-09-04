@@ -74,7 +74,7 @@ class MenuItemController extends Controller
         if ($request->has('saveQuit'))
             return redirect()->route('admin.needs.menu', $needId);
         else
-            return redirect()->route('admin.menu.create');
+            return redirect()->route('admin.menu.create', ['needId' => $needId]);
     }
 
     /**
