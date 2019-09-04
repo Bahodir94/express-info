@@ -10,8 +10,8 @@
                 'title' => 'Потребности'
             ],
             [
-                'url' => route('admin.needs.menu', $needId),
-                'title' => $need->ru_title
+                'url' => route('admin.needs.menu', $menu->need_id),
+                'title' => $menu->needType->ru_title
             ]
         ],
         'lastTitle' => $menu->ru_title
@@ -21,7 +21,7 @@
         <input type="hidden" name="need_id" value="{{ $menu->need_id }}">
         <div class="block">
             <div class="block-header block-header-default">
-                <h3 class="block-title">{{ $menu->ru_title }} <small>{{ $need->ru_title }}</small></h3>
+                <h3 class="block-title">{{ $menu->ru_title }} <small>{{ $menu->needType->ru_title }}</small></h3>
                 <div class="block-options">
                     <button class="btn btn-sm btn-alt-success" type="submit"><i class="fa fa-check"></i> Сохранить</button>
                     <button class="btn btn-sm btn-alt-success" type="submit" name="saveQuit"><i class="fa fa-check"></i> Сохранить и выйти</button>
