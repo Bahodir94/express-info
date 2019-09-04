@@ -1,4 +1,4 @@
-@extends('front.layouts.app')
+@extends('site.layouts.old')
 
 @section('css')
     <style>
