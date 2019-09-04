@@ -18,6 +18,7 @@
                 @foreach($needs as $need)
                     <li class="list-group-item d-flex justify-content-between align-items-center">{{ $need->ru_title }}
                         <span class="d-flex">
+                            <a href="{{ route('admin.needs.menu', $need->id) }}" class="btn btn-sm btn-alt-info mr-10" data-toggle="tooltip" title="Элементы меню"><i class="fa fa-list"></i></a>
                             <a href="{{ route('admin.needs.edit', $need->id) }}" data-toggle="tooltip" title="Редактировать"
                                class="btn btn-sm btn-alt-info mr-10"><i class="fa fa-edit"></i></a>
                             <form action="{{ route('admin.needs.destroy', $need->id) }}" method="post">
