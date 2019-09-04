@@ -11,9 +11,10 @@ interface CompanyRepositoryInterface
     /**
      * All handbooks
      *
+     * @param mixed $paginate
      * @return mixed
     */
-    public function all();
+    public function all($paginate=null);
 
     /**
      * Get handbook by id
