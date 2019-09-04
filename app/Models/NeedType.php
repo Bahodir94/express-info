@@ -27,6 +27,6 @@ class NeedType extends Model
     */
     public function menuItems()
     {
-        return $this->hasMany(\MenuItem::class, 'need_id', 'id');
+        return $this->hasMany(MenuItem::class, 'need_id', 'id');
     }
 }
