@@ -119,7 +119,7 @@ class TestController extends Controller
             if($category->image != null)
             {
                 try{
-                File::copy(public_path() . '/uploads2/' . $category->image, public_path() . '/' . Company::UPLOAD_DIRECTORY . $category->image);
+                File::copy(public_path() . '/uploads2/' . $category->image, public_path() . '/' . Company::UPLOAD_FILE_DIRECTORY . $category->image);
                 }
                 catch (\Exception $e) {
 
@@ -171,7 +171,7 @@ class TestController extends Controller
             {
                 try {
                     File::copy(public_path() . '/uploads/' . $catalog->file, 
-                               public_path() . '/' . CguCatalog::UPLOAD_DIRECTORY . $catalog->file);
+                               public_path() . '/' . CguCatalog::UPLOAD_FILE_DIRECTORY . $catalog->file);
                 }
                 catch (\Exception $e)
                 {
