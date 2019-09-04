@@ -21,12 +21,12 @@ class NeedType extends Model
     }
 
     /**
-     * Get all categories for this need type
+     * Menu Items for this type of
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
     */
-    public function categories()
+    public function menuItems()
     {
-        return $this->hasMany(HandbookCategory::class, 'need_id', 'id');
+        return $this->hasMany(\MenuItem::class, 'need_id', 'id');
     }
 }

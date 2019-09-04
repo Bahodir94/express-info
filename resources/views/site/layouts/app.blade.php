@@ -30,15 +30,15 @@
                         <a href="#">{{ $need->ru_title }}</a>
                         <div class="uk-dropdown uk-dropdown-width-4" data-uk-dropdown="{delay: 500}">
                             <div class="uk-grid uk-dropdown-grid">
-                                @foreach($need->categories as $category)
+                                @foreach($need->menuItems as $menu)
                                     <div class="uk-width-1-4">
                                         <ul class="uk-nav">
                                             <div class="dropdown_wrapper">
-                                                <img src="{{ $category->getImage() }}" alt="{{ $category->getTitle() }}">
-                                                <a href="@if($category->hasCategories()) {{ route('site.catalog.category', $category->id) }} @else # @endif">{{ $category->ru_title }}</a>
+                                                <img src="{{ $menu->getImage() }}" alt="">
+                                                <a href="#">{{ $menu->ru_title }}</a>
                                             </div>
-                                            @foreach($category->categories as $child)
-                                                <li><a href="{{ route('site.catalog.category', $child->id) }}">{{ $child->ru_title }}</a></li>
+                                            @foreach($menu->categories as $category)
+                                                <li><a href="{{ route('site.catalog.category', $category->id) }}">{{ $category->ru_title }}</a></li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -67,15 +67,15 @@
                     <a href="#">{{ $need->ru_title }}</a>
                     <div class="uk-dropdown uk-dropdown-width-4" data-uk-dropdown="{delay: 500}">
                         <div class="uk-grid uk-dropdown-grid">
-                            @foreach($need->categories as $category)
+                            @foreach($need->menuItems as $menu)
                                 <div class="uk-width-1-4">
                                     <ul class="uk-nav">
                                         <div class="dropdown_wrapper">
-                                            <img src="{{ $category->getImage() }}" alt="{{ $category->getTitle() }}">
-                                            <a href="@if($category->hasCategories()) {{ route('site.catalog.category', $category->id) }} @else # @endif">{{ $category->ru_title }}</a>
+                                            <img src="{{ $menu->getImage() }}" alt="">
+                                            <a href="#">{{ $menu->ru_title }}</a>
                                         </div>
-                                        @foreach($category->categories as $child)
-                                            <li><a href="{{ route('site.catalog.category', $child->id) }}">{{ $child->ru_title }}</a></li>
+                                        @foreach($menu->categories as $category)
+                                            <li><a href="{{ route('site.catalog.category', $category->id) }}">{{ $category->ru_title }}</a></li>
                                         @endforeach
                                     </ul>
                                 </div>

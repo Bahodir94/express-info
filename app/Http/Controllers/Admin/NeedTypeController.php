@@ -113,4 +113,16 @@ class NeedTypeController extends Controller
 
         return redirect()->route('admin.needs.index');
     }
+
+    /**
+     * Show menu for type of need
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+    */
+    public function menu(int $id)
+    {
+        $need = $this->needTypesRepository->get($id);
+        return view('admin.pages.needs.menu', compact('need'));
+    }
 }
