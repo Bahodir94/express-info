@@ -77,16 +77,16 @@
 	     @foreach($files as $file)
                 <div class="main_item" style="background-color: transparent;box-shadow: none;display: flex;padding: 0;">
                     @if($file->video == '')
-                        @if($file->getFileType() == 'image')
+                        @if(strpos($file->getFileType(), 'image') !== false)
                             <a href="{{ $file->getUrl() }}" data-fancybox="images" data-caption="" class="main_item_img">
                                 <img class="lazy" src="{{ $file->getUrl() }}" style="width: 100%;" alt="">
                             </a>
                             <p class="main_item_p">{!! $file->ru_title !!}</p>
-                        @elseif($file->getFileType() == 'video')
+                        @elseif(strpos($file->getFileType(), 'video') !== false)
                             <video preload="metadata" controls style="width: 100%;" alt="" style="width: 100%;">
                                 <source src="{{ $file->getUrl() }}" type="video/mp4">
                             </video>
-                        @elseif($file->getFileType() == 'application')
+                        @elseif(strpos($file->getFileType(), 'application') !== false)
                             <a href="{{ $file->getUrl() }}" target="_blank">
                                 <div class="main_item_icon">
                                     <img src="{{ asset('assets/img/pdf-icon.png') }}" alt="">
