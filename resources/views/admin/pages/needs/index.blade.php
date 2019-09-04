@@ -20,7 +20,7 @@
                         <span class="d-flex">
                             <a href="{{ route('admin.needs.edit', $need->id) }}" data-toggle="tooltip" title="Редактировать"
                                class="btn btn-sm btn-alt-info mr-10"><i class="fa fa-edit"></i></a>
-                            <form action="{{ route('admin.needs.destroy') }}" method="post">
+                            <form action="{{ route('admin.needs.destroy', $need->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button data-toggle="tooltip" onclick="return confirm('Вы уверены?')" title="Удалить" class="btn btn-sm btn-alt-danger"><i class="fa fa-trash"></i></button>
