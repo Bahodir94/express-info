@@ -44,6 +44,9 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
 
     // Type of needs routes
     Route::resource('/needs', 'NeedTypeController');
+    Route::get('/needs/{id}/menu', 'NeedTypeController@menu')->name('needs.menu');
+    Route::resource('/menu', 'MenuItemController');
+    Route::get('/menu/{id}/removeImage', 'MenuItemController@removeImage')->name('menu.remove.image');
 
     // Services routes
     Route::resource('/services', 'ServiceController');
