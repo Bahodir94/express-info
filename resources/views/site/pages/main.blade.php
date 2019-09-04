@@ -194,16 +194,16 @@
 	</div>
 
 	<div class="mobile_main_links">
-		<div class="mobile_main_links_inner">
+		<div class="mobile_main_links_inner d-flex justify-content-center">
 			<a href="#" class="mobile_main_links_inner_btn mobile_main_links_inner_btn_contacts">
 				Наши Контакты
 			</a>
-			<a href="#" class="mobile_main_links_inner_btn">
+			<!--<a href="#" class="mobile_main_links_inner_btn">
 				Информация ЦГУ
 			</a>
 			<a href="#" class="mobile_main_links_inner_btn">
 				Реклама в ЦГУ
-			</a>
+			</a>-->
 		</div>
 	</div>
 </div>
