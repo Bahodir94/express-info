@@ -111,7 +111,7 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'ru_title' => 'required|unique:companies|max:255',
+            'ru_title' => 'required|max:255',
         ]);
         $company = $this->companies->create($request);
         $categoryId = $request->get('category_id');

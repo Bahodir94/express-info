@@ -3,7 +3,7 @@
     <form action="" class="uk-center">
         <div class="position">
             <img src="{{ asset('assets/img/search (1).svg') }}" alt="">
-            <input type="text" placeholder="Поиск в Айко">
+            <input type="text" placeholder="Поиск в TezInfo">
         </div>
     </form>
 </div>
