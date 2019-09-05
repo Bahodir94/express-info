@@ -85,14 +85,6 @@
     <script src="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
     <script>
-        jQuery('.js-dataTable-full').dataTable({
-            "order": [],
-            pageLength: 10,
-            lengthMenu: [[10, 20, 30, 50], [10, 20, 30, 50]],
-            autoWidth: true,
-            language: ru_datatable
-        });
-
         $('.position').change(function() {
             $.ajaxSetup({
                 headers: {
@@ -120,6 +112,13 @@
                     $('.position').removeAttr('disabled', '');
                 }
             })
+        });
+        jQuery('.js-dataTable-full').dataTable({
+            "order": [],
+            pageLength: 10,
+            lengthMenu: [[10, 20, 30, 50], [10, 20, 30, 50]],
+            autoWidth: true,
+            language: ru_datatable
         });
     </script>
 @endsection

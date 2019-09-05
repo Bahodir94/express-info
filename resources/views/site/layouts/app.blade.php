@@ -121,10 +121,5 @@
     </div>
 </footer>
 <!-- Footer end -->
-
-<script src="{{ asset('assets/js/jquery.js') }}"></script>
-<script src="{{ asset('assets/js/uikit.min.js') }}"></script>
-<script src="{{ asset('assets/js/slick.min.js') }}"></script>
-<script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 </html>
