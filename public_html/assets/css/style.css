@@ -789,7 +789,8 @@ footer .uk-container:after, .uk-container:before{
 }
 .contact_info .contact_logo{
     width: 184px;
-    height: 78px;
+    /* height: 78px; */
+    padding: 5px;
     background: white;
     display: flex;
     align-items: center;
@@ -799,6 +800,9 @@ footer .uk-container:after, .uk-container:before{
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+}
+.contact_info .contact_logo img{
+    height: 100px;
 }
 .contact_info .contact_title{
     margin-top: 11px;

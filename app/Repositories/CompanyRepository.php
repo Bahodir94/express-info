@@ -97,4 +97,20 @@ class CompanyRepository implements CompanyRepositoryInterface
         $company->delete();
         return $category;
     }
+
+    /**
+     * Seacrh company by name
+     * 
+     * @param string $query
+     * @param int $paginate 
+     * @return array
+    */
+    public function search(string $query, $paginate=None)
+    {
+        $queryResult = Company::where('ru_title', 'like', '%' . $query . '%');
+        if ($paginate)
+            return $queryResult->paginate($paginate);
+        else
+            return $queryResult->get();
+    }
 }

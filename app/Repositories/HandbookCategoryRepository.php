@@ -125,4 +125,19 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
     {
         return HandbookCategory::where('favorite', true)->orderBy('position', 'asc')->get();
     }
+
+    /**
+     * Seacrh categories
+     * 
+     * @param string $query
+     * @param boolean $findOne
+     * @return mixed
+     */
+    public function seacrh(string $query, $findOne=false)
+    {
+        if ($findOne)
+            return HandbookCategory::where('ru_title', $query)->first();
+        else
+            return HandbookCategory::where('ru_title', 'like', "%$query%")->get();
+    }
 }

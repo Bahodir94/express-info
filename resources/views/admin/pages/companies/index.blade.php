@@ -19,6 +19,9 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Компании</h3>
             <div class="block-options">
+                <form action="" method="post">
+                    <input type="search" name="searchQuery" id="searchQuery" placeholder="Поиск" class="form-control">
+                </form>
                 <a href="{{ route('admin.companies.create') }}" class="btn btn-primary">Создать</a>
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
             </div>

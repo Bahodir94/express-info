@@ -12,7 +12,7 @@ interface CompanyRepositoryInterface
      * All handbooks
      *
      * @param mixed $paginate
-     * @return mixed
+     * @return array
     */
     public function all($paginate=null);
 
@@ -20,7 +20,7 @@ interface CompanyRepositoryInterface
      * Get handbook by id
      *
      * @param int $handbookId
-     * @return Handbook
+     * @return Company
     */
     public function get(int $handbookId);
 
@@ -28,7 +28,7 @@ interface CompanyRepositoryInterface
      * Create a handbook
      *
      * @param \Illuminate\Http\Request $handbookData
-     * @return Handbook
+     * @return Company
     */
     public function create($handbookData);
 
@@ -37,7 +37,7 @@ interface CompanyRepositoryInterface
      *
      * @param int $handbookId
      * @param \Illuminate\Http\Request $handbookData
-     * @return Handbook
+     * @return Company
     */
     public function update(int $handbookId, $handbookData);
 
@@ -57,4 +57,12 @@ interface CompanyRepositoryInterface
      * @return int
     */
     public function delete(int $handbookId);
+
+    /**
+     * Seacrh company by name
+     * 
+     * @param string $query
+     * @return array
+    */
+    public function search(string $query);
 }
