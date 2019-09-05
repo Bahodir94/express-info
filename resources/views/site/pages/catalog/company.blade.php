@@ -24,7 +24,7 @@
     <!-- Banner end-->
 
     <div class="payment">
-        <div class="uk-continer uk-container-large uk-container-center container">
+        <div class="uk-continer uk-container-expand uk-container-center">
             <div class="payment_wrapper">
                 <div class="payment_list">
                     <ul>

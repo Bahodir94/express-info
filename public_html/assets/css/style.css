@@ -1290,7 +1290,7 @@ footer .uk-container:after, .uk-container:before{
     .plus_img{
         padding: 10px;
     }
-    plus_item a{
+    .plus_item a{
         font-size: 8px;
     }
     .plus_img img{
@@ -1309,6 +1309,14 @@ footer .uk-container:after, .uk-container:before{
     .card_img{
         width: 38px;
         height: 38px;
+    }
+    .payment_list ul li a{
+        margin-right: 5px;
+        margin-left: 5px;
+        font-size: 12px;
+    }
+    .soc ul{
+        padding-top: 10px;
     }
     .card  h2{
         font-size: 13px;
