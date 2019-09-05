@@ -70,4 +70,13 @@ interface HandbookCategoryRepositoryInterface
      * @return array
     */
     public function getFavoriteCategories();
+
+    /**
+     * Seacrh categories
+     * 
+     * @param string $query
+     * @param boolean $findOne
+     * @return mixed
+     */
+    public function seacrh(string $query, $findOne);
 }
