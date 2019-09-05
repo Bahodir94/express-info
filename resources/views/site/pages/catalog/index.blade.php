@@ -15,16 +15,14 @@
             <ul class="uk-slider-items uk-child-width-auto uk-grid-large">
                 @foreach ($favoritesCategories as $category)
                     <li class="slide">
-                        <div class="card">
+                        <a href="{{ route('site.catalog.category', $category->id) }}" class="card">
                             <div class="card_img">
                                 <img src="{{ $category->getImage() }}" alt="">
                             </div>
                             <h2>
-                                <a href="{{ route('site.catalog.category', $category->id) }}">
-                                    {{ $category->getTitle() }}
-                                </a>
+                                {{ $category->getTitle() }}
                             </h2>
-                        </div>
+                        </a>
                     </li>
                 @endforeach
             </ul>

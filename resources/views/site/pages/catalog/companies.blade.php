@@ -41,24 +41,20 @@
     <div class="uk-container uk-container-expand uk-margin-small uk-margin-medium-bottom">
         <div class="uk-child-width-auto uk-child-width-auto@m uk-grid-small" uk-grid>
             <div>
-                <div class="plus_item">
+                <a class="plus_item" href="{{ $category->hasParentCategory() ? route('site.catalog.category', $category->parent_id) : route('site.catalog.index') }}">
                     <div class="plus_img">
                         <img src="{{ asset('assets/img/left-arrow.svg') }}" alt="Go back">
                     </div>
-                    <a href="{{ $category->hasParentCategory() ? route('site.catalog.category', $category->parent_id) : route('site.catalog.index') }}">
-                        <p>Назад</p>
-                    </a>
-                </div>
+                    <p>Назад</p>
+                </a>
             </div>
             @foreach($category->categories as $child)
                 <div>
-                    <div class="plus_item">
+                    <div class="plus_item" href="{{ route('site.catalog.category', $child->id) }}">
                         <div class="plus_img">
                             <img src="{{ $child->getImage() }}" alt="">
                         </div>
-                        <a href="{{ route('site.catalog.category', $child->id) }}">
-                            <p>{{ $child->ru_title }} <span>({{ $child->companies()->count() }})</span></p>
-                        </a>
+                        <p>{{ $child->ru_title }} <span>({{ $child->companies()->count() }})</span></p>
                     </div>
                 </div>
             @endforeach
@@ -69,7 +65,7 @@
             <div class="uk-grid uk-grid-medium  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-4@l">
             @foreach($companies as $company)
                 <div  class="uk-container-center">
-                    <div class="inner">
+                    <a class="inner" href="{{ route('site.catalog.company', $company->id) }}">
                         <div class="header_logo">
                             <div class="inner_logo">
                                 <img src="{{ $company->getImage() }}" alt="">
@@ -77,7 +73,7 @@
                         </div>
                         <div class="inner_tages">
                             <div class="title">
-                                <h2><a href="{{ route('site.catalog.company', $company->id) }}">{{ $company->ru_title }}</a></h2>
+                                <h2>{{ $company->ru_title }}</h2>
                             </div>
                         </div>
                         <div class="description">
@@ -88,7 +84,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                    </div>
+                    </a>
                 </div>
             @endforeach
         </div>
