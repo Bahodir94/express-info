@@ -19,7 +19,8 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Компании</h3>
             <div class="block-options">
-                <form action="" method="post">
+                <form action="" method="post" style="display: inline-block;">
+                    @csrf
                     <input type="search" name="searchQuery" id="searchQuery" placeholder="Поиск" class="form-control">
                 </form>
                 <a href="{{ route('admin.companies.create') }}" class="btn btn-primary">Создать</a>
