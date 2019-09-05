@@ -80,7 +80,7 @@ class CompanyController extends Controller
     public function index(Request $request)
     {
         if ($request->has('searchQuery'))
-            $companies = $this->companies->search($request->get('seacrhQuery'), 10);
+            $companies = $this->companies->search($request->get('searchQuery'), 10);
         else
             $companies = $this->companies->all(10);
 
