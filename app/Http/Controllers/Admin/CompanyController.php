@@ -74,12 +74,18 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->has('searchQuery'))
+            $companies = $this->companies->search($request->get('seacrhQuery'), 10);
+        else
+            $companies = $this->companies->all(10);
+
         $data = [
-            'companies' => $this->companies->all(10)
+            'companies' => $companies
         ];
 
         return view('admin.pages.companies.index', $data);
