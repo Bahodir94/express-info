@@ -19,6 +19,7 @@
     <script src="{{ asset('assets/js/uikit.min.js') }}"></script>
     <script src="{{ asset('assets/js/uikit-icons.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
 </head>
 <body>
@@ -120,10 +121,5 @@
     </div>
 </footer>
 <!-- Footer end -->
-
-<script src="{{ asset('assets/js/jquery.js') }}"></script>
-<script src="{{ asset('assets/js/uikit.min.js') }}"></script>
-<script src="{{ asset('assets/js/slick.min.js') }}"></script>
-<script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 </html>
