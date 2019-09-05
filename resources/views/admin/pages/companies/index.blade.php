@@ -61,7 +61,7 @@
                                         @method('delete')
                                         <button class="btn btn-sm btn-alt-delete" onclick="return confirm('Вы уверены?')"><i class="fa fa-trash"></i></button>
                                     </form>
-                                    <select name="position" id="position" class="position">
+                                    <select name="position" id="position" class="position" data-id="{{ $company->id }}">
                                         @for($i = 0; $i <= count($companies); $i++)
                                             <option value="{{ $i }}" @if($company->position == $i) selected @endif>{{ $i }}</option>
                                         @endfor

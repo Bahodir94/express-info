@@ -66,7 +66,7 @@
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>
-                                    <select name="position" id="position" class="position">
+                                    <select name="position" id="position" class="position" data-id="{{ $company->id }}">
                                         @for($i = 0; $i <= count($category->companies); $i++)
                                             <option value="{{ $i }}" @if($company->position == $i) selected @endif>{{ $i }}</option>
                                         @endfor
@@ -79,4 +79,36 @@
             </div>
         </div>
     </div>
+    @endsection
+    @section('js')
+        <script src="{{ asset('assets/js/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <script>
+        jQuery('.js-dataTable-full').dataTable({                                               "order": [],
+            pageLength: 10,                                                                    lengthMenu: [[10, 20, 30, 50], [10, 20, 30, 50]],
+            autoWidth: true,                                                                   language: ru_datatable
+        });                                                                                $('.position').change(function() {
+            $.ajaxSetup({                                                                          headers: {                                                                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')                   }
+            });                                                                                let formData = new FormData;
+            formData.append('id', $(this).data('id'));
+            formData.append('position', $(this).val());
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('admin.companies.change.position') }}',
+                dataType: 'json',                                                                  data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {                                                               $('.position').attr('disabled', 'disabled');
+                },
+                success: function() {
+                    $('.position').removeAttr('disabled', '');
+                },
+                error: function(data) {
+                    console.log(data);
+                    $('.position').removeAttr('disabled', '');
+                }
+            })
+        });
+    </script>
 @endsection
