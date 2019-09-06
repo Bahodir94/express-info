@@ -6,6 +6,7 @@ use App\Models\Company;
 use App\Models\HandbookCategory;
 use App\Models\CguCategory;
 use App\Models\CguCatalog;
+use App\Models\CguSite;
 use Dropbox\Exception;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\Request;
@@ -165,17 +166,17 @@ class TestController extends Controller
     }
     public function cguCatalogFiles()
     {
-        foreach(CguCatalog::all() as $catalog)
+        $category = CguCategory::find(51);
+        $companyDirectory = public_path() . '/' . Company::UPLOAD_DIRECTORY;
+        $siteDirectory = public_path() . '/' . CguSite::UPLOAD_FILE_PATH;
+        foreach ($categoy->sites as $site)
         {
-            if ($catalog->file != null)
+            if ($site->image)
             {
                 try {
-                    File::copy(public_path() . '/uploads/' . $catalog->file, 
-                               public_path() . '/' . CguCatalog::UPLOAD_FILE_DIRECTORY . $catalog->file);
-                }
-                catch (\Exception $e)
-                {
-
+                    File::copy($companyDirectory . $site->image, $siteDirectory . $site->image);
+                } catch (\Exception $e) {
+                    //throw $th;
                 }
             }
         }
