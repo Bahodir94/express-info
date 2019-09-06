@@ -57,7 +57,7 @@
                             <img src="{{ $child->getImage() }}" alt="">
                         </div>
                         <a href="{{ route('site.catalog.category', $child->id) }}">
-                            <p>{{ $child->ru_title }} <span>({{ $child->companies()->count() }})</span></p>
+                            <p>{{ $child->ru_title }} <span>({{ $child->getAllCompaniesCount() }})</span></p>
                         </a>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
     </div>
 
     <div class="uk-container uk-container-center uk-container-expand uk-margin-top">
-            <div class="uk-grid uk-grid-medium  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-4@l">
+            <div class="uk-grid uk-grid-match uk-grid-medium  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-4@l">
             @foreach($companies as $company)
                 <div  class="uk-container-center">
                     <div class="inner">

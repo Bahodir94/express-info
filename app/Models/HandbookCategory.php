@@ -126,4 +126,17 @@ class HandbookCategory extends Model
     {
         return strip_tags($this->ru_title);
     }
+
+    /**
+     * Get descendants companies count
+     *
+     * @return int
+    */
+    public function getAllCompaniesCount()
+    {
+        $companyCount = $this->companies()->count();
+        foreach ($this->descendants as $child)
+            $companyCount += $child->companies()->count();
+        return $companyCount;
+    }
 }
