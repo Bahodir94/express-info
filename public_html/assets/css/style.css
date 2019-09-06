@@ -805,16 +805,12 @@ footer .uk-container:after, .uk-container:before{
     background-size: cover;
 }
 .contact_info{
-    margin-top: 40px;
+/*    margin-top: 40px;*/
 }
 .contact_info .contact_logo{
     width: 184px;
-    /* height: 78px; */
     padding: 5px;
     background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -822,7 +818,9 @@ footer .uk-container:after, .uk-container:before{
     -o-border-radius: 5px;
 }
 .contact_info .contact_logo img{
-    height: 100px;
+    height: 80px;
+    width: 100%;
+    object-fit: contain;
 }
 .contact_info .contact_title{
     margin-top: 11px;
@@ -856,7 +854,10 @@ footer .uk-container:after, .uk-container:before{
     -ms-border-radius: 25px;
     -o-border-radius: 25px;
     margin-right: 10px; 
+    text-decoration: none !important;
 }
+
+
 .contact_phone .phone p{
     padding-left: 11px;
     margin: 0;
@@ -874,6 +875,15 @@ footer .uk-container:after, .uk-container:before{
     -moz-border-radius: 25px;
     -ms-border-radius: 25px;
     -o-border-radius: 25px;
+    text-decoration: none !important;
+}
+.contact_phone .site span{
+    padding-left: 11px;
+    margin: 0;
+    color: #ffffff;
+    font-size: 14px;
+    font-family: "montserrat";
+    font-weight: 500;
 }
 .contact_phone .site a{
     padding-left: 11px;

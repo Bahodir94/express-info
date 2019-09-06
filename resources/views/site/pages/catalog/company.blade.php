@@ -5,18 +5,39 @@
 @section('content')
     <!-- Banner -->
     <div class="banner" style="background-image: url({{ asset('assets/img/a3e020abb83a5d95bbdce5ef77dff132.png') }})">
-        <div class="uk-container uk-container-expand main-container uk-container-center">
-            <div class="contact_info">
-                <div class="contact_logo">
-                    <img src="{{ $company->getImage() }}" alt="">
-                </div>
-                <div class="contact_title">
-                    <h3>{{ $company->ru_title }}</h3>
-                    <p>{{ $company->category->ru_title }}</p>
-                </div>
-                <div class="contact_phone">
-                    <div class="phone"><img src="{{ asset('assets/img/Path 1211.svg') }}" alt=""> <p>{{ $company->phone_number }}</p></div>
-                    @if ($company->url && $company->url != '') <div class="site"> <img src="{{ asset('assets/img/Group 77.svg') }}" alt=""> <a href="{{ $company->url }}" target="_blank">{{ parse_url($company->url, PHP_URL_HOST) }}</a></div> @endif
+        <div class="uk-section-small	">
+            <div class="uk-container uk-container-expand main-container uk-container-center">
+                <div class="contact_info">
+                    <div class="contact_logo">
+                        <img src="{{ $company->getImage() }}" alt="">
+                    </div>
+                    <div class="contact_title">
+                        <h3>{{ $company->ru_title }}</h3>
+                        <p>{{ $company->category->ru_title }}</p>
+                    </div>
+                    <div class="uk-grid-collapse uk-grid contact_phone" uk-grid>
+                    <div class="uk-first-column">
+                        <a class="phone" href="tel:{{ $company->phone_number }}" target="_blank">
+                            <img src="{{ asset('assets/img/Path 1211.svg') }}" alt=""> 
+                            <p>
+                                {{ $company->phone_number }}
+                            </p>
+                        </a>
+                    </div>
+                    <div>
+                        @if ($company->url && $company->url != '')
+                            <a class="site" href="{{ $company->url }}" target="_blank">
+                                
+                                <img src="{{ asset('assets/img/Group 77.svg') }}" alt=""> 
+                                <span>
+                                    {{ parse_url($company->url, PHP_URL_HOST) }}
+                                </span>
+                                
+                            </a>
+                        @endif
+                    </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
