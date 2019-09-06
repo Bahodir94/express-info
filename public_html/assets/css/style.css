@@ -253,6 +253,8 @@ form input::placeholder{
     height: 33px;
     width: 33px;
     min-width: 33px;
+    min-height: 33px;
+    object-fit: contain;
 }
 .item .item_text{
     display: flex;
