@@ -16,6 +16,8 @@
                 @foreach ($favoritesCategories as $category)
                     <li class="slide">
                         <div class="card">
+                            <a href="{{ route('site.catalog.category', $category->id) }}">
+                                
                             <div class="card_img">
                                 <img src="{{ $category->getImage() }}" alt="">
                             </div>
@@ -24,6 +26,7 @@
                                     {{ $category->getTitle() }}
                                 </a>
                             </h2>
+                            </a>
                         </div>
                     </li>
                 @endforeach
