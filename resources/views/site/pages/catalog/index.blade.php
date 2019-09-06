@@ -35,7 +35,7 @@
         <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid-margin>
             @foreach($parentCategories as $category)
                 <li class="uk-container-center uk-margin-medium-bottom">
-                    <div class="item">
+                    <div class="item uk-flex-middle">
                         <div class="item_icon">
                             <div class="item_circle">
                                 <img src="{{ $category->getImage() }}" alt="">

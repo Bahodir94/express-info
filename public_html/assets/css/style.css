@@ -229,10 +229,24 @@ form input::placeholder{
 
 .item{
     display: flex;
-    box-shadow: 3px 4px 7px rgba(0, 0, 0, 0.23);
     border-radius: 0 15px 15px 0;
     background: white;
+    
+/*
+    
+box-shadow: 0 8px 40px -6px rgba(105,104,178,.18);
+*/
+    box-shadow: 2px 2px 4px rgba(0,0,0,.15), 4px 10px 15px rgba(0,0,0,.1);
+
+
+    transition: all .3s cubic-bezier(.2, .5, .3, 1);
 }
+div.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 65px rgba(0,0,0,0.12);
+}
+
+
 .item .item_icon{
     display: block;
     align-items: center;
@@ -257,11 +271,9 @@ form input::placeholder{
     object-fit: contain;
 }
 .item .item_text{
-    display: flex;
-    flex-direction: column;
+
     text-align: left;
     padding: 15px 21px;
-    justify-content: space-between;
     background: white;
     border-radius: 25px;
 }
@@ -270,6 +282,7 @@ form input::placeholder{
     font-weight: 600;
     line-height: 20px;
     margin: 0;
+    margin-bottom: 14px;
 }
 .item .item_text p{
     height: 34px;
@@ -287,6 +300,12 @@ form input::placeholder{
     color: #102840;
     text-decoration: none;
 }
+.item a:hover{
+
+    color: #42a5f5;
+    text-decoration: none;
+}
+
 .item .arrow{
     position: absolute;
     top: 0;
