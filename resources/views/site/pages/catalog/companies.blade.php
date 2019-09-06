@@ -57,7 +57,7 @@
                             <img src="{{ $child->getImage() }}" alt="">
                         </div>
                         <a href="{{ route('site.catalog.category', $child->id) }}">
-                            <p>{{ $child->ru_title }} <span>({{ $child->companies()->count() }})</span></p>
+                            <p>{{ $child->ru_title }} <span>({{ $child->getAllCompaniesCount() }})</span></p>
                         </a>
                     </div>
                 </div>
