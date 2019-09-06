@@ -47,11 +47,11 @@
                         <div class="tab-pane active" id="wizard-simple-step1" role="tabpanel">
                             <div class="form-group @error('ru_title') is-invalid @enderror">
                                 <div class="form-material floating">
-                                    <label for="ru_title" @error('ru_title') class="col-form-label" @enderror>
+                                    <label for="ruTitle" @error('ru_title') class="col-form-label" @enderror>
                                     Заголовок
                                     @error('ru_title') <span class="text-danger">*</span> @enderror
                                     </label>
-                                    <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ $company->ru_title }}">
+                                    <input class="form-control" type="text" id="ruTitle" name="ru_title" value="{{ $company->ru_title }}">
                                 </div>
                                 @error('ru_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
@@ -69,11 +69,11 @@
                         <!-- Step 2 -->
                         <div class="tab-pane" id="wizard-simple-step2" role="tabpanel">
                             <div class="form-group @error('en_title') is-invalid @enderror">
-                                <label for="uz_title" @error('en_title') class="col-form-label" @enderror>
+                                <label for="enTitle" @error('en_title') class="col-form-label" @enderror>
                                 Заголовок
                                 @error('en_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="en_title" name="en_title" value="{{ $company->en_title }}">
+                                <input class="form-control" type="text" id="enTitle" name="en_title" value="{{ $company->en_title }}">
                                 @error('en_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('en_description') is-invalid @enderror">
@@ -90,11 +90,11 @@
                         <!-- Step 3 -->
                         <div class="tab-pane" id="wizard-simple-step3" role="tabpanel">
                             <div class="form-group @error('uz_title') is-invalid @enderror">
-                                <label for="uz_title" @error('uz_title') class="col-form-label" @enderror>
+                                <label for="uzTitle" @error('uz_title') class="col-form-label" @enderror>
                                 Заголовок
                                 @error('uz_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="uz_title" name="uz_title" value="{{ $company->uz_title }}">
+                                <input class="form-control" type="text" id="uzTitle" name="uz_title" value="{{ $company->uz_title }}">
                                 @error('uz_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('uz_description') is-invalid @enderror">
@@ -190,14 +190,14 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
-                        <label for="">Номер телефона</label>
-                        <input type="text" name="phone_number" id="phone_number" class="form-control" value="{{ $company->phone_number }}">
+                        <label for="phoneNumber">Номер телефона</label>
+                        <input type="text" name="phone_number" id="phoneNumber" class="form-control" value="{{ $company->phone_number }}">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
-                        <label for="">Геолокация</label>
-                        <input type="text" name="geo_location" class="form-control" value="{{ $company->geo_location }}">
+                        <label for="geolocation">Геолокация</label>
+                        <input type="text" name="geo_location" id="geolocation" class="form-control" value="{{ $company->geo_location }}">
                     </div>
                 </div>
             </div>
