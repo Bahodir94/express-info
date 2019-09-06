@@ -46,11 +46,11 @@
                         <div class="tab-pane active" id="wizard-simple-step1" role="tabpanel">
                             <div class="form-group @error('ru_title') is-invalid @enderror">
                                 <div class="form-material floating">
+                                    <input class="form-control" type="text" id="ruTitle" name="ru_title" value="{{ old('ru_title') }}">
                                     <label for="ruTitle" @error('ru_title') class="col-form-label" @enderror>
                                     Заголовок
                                     @error('ru_title') <span class="text-danger">*</span> @enderror
                                     </label>
-                                    <input class="form-control" type="text" id="ruTitle" name="ru_title" value="{{ old('ru_title') }}">
                                 </div>
                                 @error('ru_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
@@ -67,11 +67,11 @@
                         <div class="tab-pane" id="wizard-simple-step2" role="tabpanel">
                             <div class="form-group @error('en_title') is-invalid @enderror">
                                 <div class="form-material floating">
+                                    <input class="form-control" type="text" id="en_title" name="enTitle" value="{{ old('en_title') }}">
                                     <label for="enTitle" @error('en_title') class="col-form-label" @enderror>
                                     Заголовок
                                     @error('en_title') <span class="text-danger">*</span> @enderror
                                     </label>
-                                    <input class="form-control" type="text" id="en_title" name="enTitle" value="{{ old('en_title') }}">
                                 </div>
                                 @error('en_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
@@ -88,11 +88,11 @@
                         <div class="tab-pane" id="wizard-simple-step3" role="tabpanel">
                             <div class="form-group @error('uz_title') is-invalid @enderror">
                                 <div class="form-material floating">
+                                    <input class="form-control" type="text" id="uzTitle" name="uz_title" value="{{ old('uz_title') }}">
                                     <label for="uzTitle" @error('uz_title') class="col-form-label" @enderror>
                                     Заголовок
                                     @error('uz_title') <span class="text-danger">*</span> @enderror
                                     </label>
-                                    <input class="form-control" type="text" id="uzTitle" name="uz_title" value="{{ old('uz_title') }}">
                                 </div>
                                 @error('uz_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
@@ -177,14 +177,14 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
-                        <label for="phoneNumber">Номер телефона</label>
                         <input type="text" name="phone_number" id="phoneNumber" class="form-control" value="{{ old('phone_number') }}">
+                        <label for="phoneNumber">Номер телефона</label>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
-                        <label for="geolocation">Геолокация</label>
                         <input type="text" id="geolocation" name="geo_location" class="form-control" value="{{ old('geo_location') }}">
+                        <label for="geolocation">Геолокация</label>
                     </div>
                 </div>
             </div>
