@@ -19,9 +19,9 @@
                     <div class="uk-first-column">
                         <a class="phone" href="tel:{{ $company->phone_number }}" target="_blank">
                             <img src="{{ asset('assets/img/Path 1211.svg') }}" alt=""> 
-                            <p>
+                            <span>
                                 {{ $company->phone_number }}
-                            </p>
+                            </span>
                         </a>
                     </div>
                     <div>

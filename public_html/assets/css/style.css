@@ -840,11 +840,12 @@ footer .uk-container:after, .uk-container:before{
     margin-top: 2px;
     color: #fff;
 }
-.contact_phone{
-    display: flex;
-    justify-content: space-between;
-}
-.contact_phone .phone{
+
+
+
+
+
+.contact_phone div a {
     padding: 8px 18px;
     display: flex;
     background: rgba(73, 76, 81, 0.746);
@@ -856,9 +857,14 @@ footer .uk-container:after, .uk-container:before{
     margin-right: 10px; 
     text-decoration: none !important;
 }
+.contact_phone div a:hover{
+    box-shadow: 2px 2px 4px rgba(0,0,0,.15), 4px 10px 15px rgba(0,0,0,.1);
+    transition: all .3s cubic-bezier(.2, .5, .3, 1);
+    transform: translateY(-2px);
+}
 
 
-.contact_phone .phone p{
+.contact_phone div a span{
     padding-left: 11px;
     margin: 0;
     color: #ffffff;
@@ -866,34 +872,12 @@ footer .uk-container:after, .uk-container:before{
     font-family: "montserrat";
     font-weight: 500;
 }
-.contact_phone .site{
-    padding: 8px 18px;
-    display: flex;
-    background: rgba(73, 76, 81, 0.746);
-    border-radius: 25px;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    -ms-border-radius: 25px;
-    -o-border-radius: 25px;
-    text-decoration: none !important;
-}
-.contact_phone .site span{
-    padding-left: 11px;
-    margin: 0;
-    color: #ffffff;
-    font-size: 14px;
-    font-family: "montserrat";
-    font-weight: 500;
-}
-.contact_phone .site a{
-    padding-left: 11px;
-    text-decoration: none;
-    margin: 0;
-    color: #ffffff;
-    font-size: 14px;
-    font-family: "montserrat";
-    font-weight: 500;
-}
+
+
+
+
+
+
 .payment_wrapper{
     width: 100%;
     display: flex;
@@ -1373,18 +1357,13 @@ footer .uk-container:after, .uk-container:before{
     .capsule_item{
         margin-bottom: 15px;
     }
-    .contact_phone .phone{
+    .contact_phone div a{
         padding: 8px 10px;
     }
-    .contact_phone .phone p{
-        font-size: 9px;
+    .contact_phone div a span{
+        font-size: 12px;
     }
-    .contact_phone .site{
-        padding: 8px 10px;
-    }
-    .contact_phone .site a{
-        font-size: 9px;
-    }
+
 }
 @media screen and (max-width: 320px) {
     form input{
