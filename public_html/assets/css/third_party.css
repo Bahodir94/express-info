@@ -2370,7 +2370,9 @@ small{
 
 	margin: 10px 0;
 
-    padding: 7px 1px;
+	padding: 7px 1px;
+	
+	opacity: 0;
 
 }
 
