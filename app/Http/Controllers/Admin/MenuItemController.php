@@ -99,7 +99,7 @@ class MenuItemController extends Controller
     {
         $menu = $this->menuItems->get($id);
         $categoriesIdsArray = $menu->getCategoriesIdsAsArray();
-        $categories = $this->categories->all()
+        $categories = $this->categories->all();
 
         return view('admin.pages.menu.edit', compact('menu', 'categoriesIdsArray', 'categories'));
     }
