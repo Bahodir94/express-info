@@ -24,6 +24,13 @@ interface HandbookCategoryRepositoryInterface
     public function all();
 
     /**
+     * Get all categories without tree
+     *
+     * @return array
+     */
+    public function allWithoutTree();
+
+    /**
      * Delete a handbook category
      *
      * @param int $id
