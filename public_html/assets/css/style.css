@@ -1208,9 +1208,6 @@ footer .uk-container:after, .uk-container:before{
 
 
 @media screen and (max-width: 4800px){
-    .uk-hidden-large{
-        display: none;
-    }
     .uk-dropdown-stack .uk-dropdown-grid>* {
         width: 25%!important;
     }
@@ -1223,9 +1220,6 @@ footer .uk-container:after, .uk-container:before{
 }
 
 @media screen and (max-width: 1200px) {
-    .uk-hidden-large{
-        display: none;
-    }
     .uk-navbar-nav  .uk-dropdown{
         left: -251px !important;
     }
@@ -1245,12 +1239,6 @@ footer .uk-container:after, .uk-container:before{
     .wrapper .sorting{
         width: 55%;  
     }
-    .uk-visible-large{
-         display: block;
-    }
-    .uk-hidden-large{
-        display: none;
-    }
 }
 @media screen and (max-width: 992px) {
 /*
@@ -1267,12 +1255,6 @@ footer .uk-container:after, .uk-container:before{
         flex-direction: column;
         text-align: center;
         /* margin-bottom: 100px !important; */
-    }
-    .uk-visible-large{
-        display: none;
-    }
-    .uk-hidden-large{
-        display: block;
     }
 }
 @media screen and (max-width: 768px) {
@@ -1309,9 +1291,6 @@ footer .uk-container:after, .uk-container:before{
 @media screen and (max-width: 576px) {
     .payment_list ul{
         flex-wrap: wrap;
-    }
-    .uk-hidden-small{
-        display: none;
     }
     .plus_img{
         padding: 10px;
