@@ -106,7 +106,7 @@
 -->
         
         <ul class="cat-tab" uk-tab>
-            <li class="uk-active">
+            <li>
                 <a href="{{ $category->hasParentCategory() ? route('site.catalog.category', $category->parent_id) : route('site.catalog.index') }}">
                     <span uk-icon="arrow-left"></span>
                     <span>Назад</span>
