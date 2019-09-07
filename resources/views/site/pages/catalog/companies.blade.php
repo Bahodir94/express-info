@@ -139,15 +139,15 @@
                             <div class="title">
                                 <h2><a href="{{ route('site.catalog.company', $company->id) }}">{{ $company->ru_title }}</a></h2>
                             </div>
-                            <!--<div class="tags">
-                                <ol>
-                                    <li>Работают до 24:00</li>
-                                    <li>Терминал</li>
-                                    <li>Есть доставка</li>
-                                    <li>Click</li>
-                                    <li>PayMe</li>
-                                </ol>
-                            </div> -->
+                            @if ($company->hasAdvantages())
+                                <div class="tags">
+                                    <ol>
+                                        @foreach ($company->advantagesAsArray() as $advantage)
+                                            <li>{{ $advantage }}</li>
+                                        @endforeach
+                                    </ol>
+                                </div>
+                            @endif
                         </div>
                         <div class="description">
                             <p>{!! $company->category->ru_title !!}</p>
