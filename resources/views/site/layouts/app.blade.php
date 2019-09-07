@@ -101,7 +101,7 @@
                 <div class="uk-modal-dialog uk-modal-body">
                     <div class="container-pop">
                         <h2>
-                            <img src="images/phone-receiver.png" alt="">
+                            <img src="{{ asset('assets/img/phone-receiver.png') }}" alt="">
                             размещение web сайтов и рекламы в цгу:
                         </h2>
                         <div class="phone-numbers">
