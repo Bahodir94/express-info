@@ -42,7 +42,7 @@
                     @foreach ($needs as $need)
                         <li class="uk-parent">
                             <a href="#">{{ $need->ru_title }}</a>
-                            <div class="code-dropdown uk-dropdown uk-dropdown-width-4" data-uk-dropdown="{delay: 500}">
+                            <div class="uk-dropdown uk-dropdown-width-4" data-uk-dropdown="{delay: 500}">
                                 <div class=" uk-dropdown-grid uk-grid-collapse" uk-grid>
                                     @foreach ($need->menuItems as $menu)
                                         <div class="uk-width-1-4 padding-15">

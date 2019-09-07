@@ -316,8 +316,7 @@ box-shadow: 0 8px 40px -6px rgba(105,104,178,.18);
 }
 div.item:hover {
     transform: translateY(-5px);
-/*    box-shadow: 0 30px 65px rgba(0,0,0,0.12);*/
-    box-shadow: 2px 2px 8px rgba(0,0,0,.1), 4px 10px 30px rgba(0,0,0,.07);
+    box-shadow: 0 30px 65px rgba(0,0,0,0.12);
 }
 
 
@@ -1164,7 +1163,7 @@ footer .uk-container:after, .uk-container:before{
     font-family: 'montserrat';
     color: #707070;
 }
-.code-dropdown{
+.uk-dropdown{
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     transition:all 0.5s;
@@ -1199,13 +1198,13 @@ footer .uk-container:after, .uk-container:before{
 .uk-nav li a:hover{
     color: #243c535b;
 }
-.code-dropdown:not(.code-dropdown-stack)>.code-dropdown-grid>[class*=uk-width-]:nth-child(n+2){
+.uk-dropdown:not(.uk-dropdown-stack)>.uk-dropdown-grid>[class*=uk-width-]:nth-child(n+2){
     border:none;
 }
-.code-dropdown-width-4:not(.code-dropdown-stack){
+.uk-dropdown-width-4:not(.uk-dropdown-stack){
     width: 962px;
 }
-.code-dropdown .uk-nav{
+.uk-dropdown .uk-nav{
     margin: 0;
     margin-bottom: 50px;
 }
@@ -1262,7 +1261,7 @@ footer .uk-container:after, .uk-container:before{
     font-size: 20px;
     padding-left: 20px;
 }
-.code-dropdown{
+.uk-dropdown{
     padding: 40px 34px 40px 52px;
 }
 /*
@@ -1274,28 +1273,15 @@ footer .uk-container:after, .uk-container:before{
 .padding-left{
     padding-left: 30px;
 }
-.code-dropdown{
+.uk-dropdown{
     width: 962px;
 }
 
-.cat-tab a{
-    text-transform: none !important;
-    color: #888;
-}
-cat-tab a:hover {
-    color: #555;
-}
-.cat-tab a span.countcat {
-    padding-left: 3px;
-    opacity: 0.8;
-}
-.cat-tab img{
-    height: 20px;
-    margin-right: 10px;
-}
+
+
 
 @media screen and (max-width: 4800px){
-    .code-dropdown-stack .code-dropdown-grid>* {
+    .uk-dropdown-stack .uk-dropdown-grid>* {
         width: 25%!important;
     }
     
@@ -1307,11 +1293,11 @@ cat-tab a:hover {
 }
 
 @media screen and (max-width: 1200px) {
-    .uk-navbar-nav  .code-dropdown{
+    .uk-navbar-nav  .uk-dropdown{
         left: -251px !important;
     }
 }
-.uk-navbar-nav li .code-dropdown{
+.uk-navbar-nav li .uk-dropdown{
     left: -200px !important;
     top: 46px !important;
 } 
@@ -1333,7 +1319,7 @@ cat-tab a:hover {
         flex-direction: column;
     }
 */
-    .code-dropdown-width-4:not(.code-dropdown-stack){
+    .uk-dropdown-width-4:not(.uk-dropdown-stack){
         width: 200px;
         top: 100px !important;
         left: 0 !important;
