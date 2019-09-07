@@ -112,7 +112,7 @@
                     <div class="form-material floating">
                         <select name="categories" id="categories" class="form-control js-select2" multiple="multiple">
                             @foreach($categories as $category)
-                                <option value="{{ $category->id }}" @if(in_array($category->id, categoriesIdsArray)) selected @endif>{{ $category->getTitle() }}</option>
+                                <option value="{{ $category->id }}" @if(in_array($category->id, $categoriesIdsArray)) selected @endif>{{ $category->getTitle() }}</option>
                             @endforeach
                         </select>
                         <label for="categories">Категории</label>
