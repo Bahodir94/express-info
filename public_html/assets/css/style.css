@@ -122,7 +122,40 @@ header{
     height: 23px;
     min-width: 23px;
 }
-
+.container-pop{
+    display: flex;
+    flex-direction: column;
+}
+.container-pop a{
+    text-decoration: none;
+}
+.container-pop a:hover{
+    color: #42a5f5;
+}
+.container-pop h2{
+    font-size: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.container-pop img{
+    width: 53px;
+    height: 53px;
+    min-width: 53px;
+}
+.contacts_popup_inner_link{
+    display: block;
+    /* width: 100%; */
+    font-family: "Montserrat";
+    font-size: 22px;
+    color: black;
+    text-align: center;
+    margin: 0;
+    padding: 7px 15px;
+}
+.phone-numbers{
+    display: flex;
+    flex-direction: column;
+}
 /* iconify-icon{
     font-family: simple-line-icons;
     speak: none;
