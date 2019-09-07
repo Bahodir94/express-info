@@ -42,7 +42,7 @@ class MenuItem extends Model
      */
     public function getCategoriesIdsAsArray()
     {
-        return $this->categories()->pluck('id')->toArray();
+        return $this->categories()->lists('id');
     }
 
     public function delete()
