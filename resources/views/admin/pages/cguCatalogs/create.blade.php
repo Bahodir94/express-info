@@ -55,27 +55,27 @@
                         <!-- Step 1 -->
                         <div class="tab-pane active" id="wizard-simple-step1" role="tabpanel">
                             <div class="form-group @error('ru_title') is-invalid @enderror">
-                                <label for="ru_title" @error('ru_title') class="col-form-label" @enderror>
+                                <input class="form-control" type="text" id="ruTitle" name="ru_title" value="{{ old('ru_title') }}">
+                                <label for="ruTitle" @error('ru_title') class="col-form-label" @enderror>
                                 Заголовок
                                 @error('ru_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="ru_title" name="ru_title" value="{{ old('ru_title') }}">
                                 @error('ru_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_slug') is-invalid @enderror">
-                                <label for="ru_title" @error('ru_slug') class="col-form-label" @enderror>
+                                <input class="form-control" type="text" id="ru_slug" name="ru_slug" value="{{ old('ru_slug') }}">
+                                <label for="ru_slug" @error('ru_slug') class="col-form-label" @enderror>
                                 Slug
                                 @error('ru_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="ru_slug" name="ru_slug" value="{{ old('ru_slug') }}">
                                 @error('ru_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_slug') is-invalid @enderror">
-                                <label for="ru_title" @error('ru_description') class="col-form-label" @enderror>
+                                <textarea class="form-control" type="text" id="ru_description" name="ru_description">{{ old('ru_description') }}</textarea>
+                                <label for="ru_description" @error('ru_description') class="col-form-label" @enderror>
                                 Описание
                                 @error('ru_description') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <textarea class="form-control" type="text" id="ru_description" name="ru_description">{{ old('ru_description') }}</textarea>
                                 @error('ru_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
@@ -84,27 +84,27 @@
                         <!-- Step 2 -->
                         <div class="tab-pane" id="wizard-simple-step2" role="tabpanel">
                             <div class="form-group @error('en_title') is-invalid @enderror">
-                                <label for="uz_title" @error('en_title') class="col-form-label" @enderror>
+                                <input class="form-control" type="text" id="en_title" name="en_title" value="{{ old('en_title') }}">
+                                <label for="en_title" @error('en_title') class="col-form-label" @enderror>
                                 Заголовок
                                 @error('en_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="en_title" name="en_title" value="{{ old('en_title') }}">
                                 @error('en_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('en_slug') is-invalid @enderror">
-                                <label for="ru_title" @error('en_slug') class="col-form-label" @enderror>
+                                <input class="form-control" type="text" id="en_slug" name="en_slug" value="{{ old('en_title') }}">
+                                <label for="en_slug" @error('en_slug') class="col-form-label" @enderror>
                                 Slug
                                 @error('en_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="en_slug" name="en_slug" value="{{ old('en_title') }}">
                                 @error('en_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_slug') is-invalid @enderror">
-                                <label for="ru_title" @error('en_description') class="col-form-label" @enderror>
+                                <textarea class="form-control" type="text" id="en_description" name="en_description">{{ old('en_description') }}</textarea>
+                                <label for="en_description" @error('en_description') class="col-form-label" @enderror>
                                 Описание
                                 @error('en_description') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <textarea class="form-control" type="text" id="en_description" name="en_description">{{ old('en_description') }}</textarea>
                                 @error('en_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
@@ -113,23 +113,23 @@
                         <!-- Step 3 -->
                         <div class="tab-pane" id="wizard-simple-step3" role="tabpanel">
                             <div class="form-group @error('uz_title') is-invalid @enderror">
+                                <input class="form-control" type="text" id="uz_title" name="uz_title" value="{{ old('uz_title') }}">
                                 <label for="uz_title" @error('uz_title') class="col-form-label" @enderror>
                                 Заголовок
                                 @error('uz_title') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="uz_title" name="uz_title" value="{{ old('uz_title') }}">
                                 @error('uz_title') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('uz_slug') is-invalid @enderror">
-                                <label for="ru_title" @error('uz_slug') class="col-form-label" @enderror>
+                                <input class="form-control" type="text" id="uz_slug" name="uz_slug" value="{{ old('uz_slug') }}">
+                                <label for="uz_slug" @error('uz_slug') class="col-form-label" @enderror>
                                 Slug
                                 @error('uz_slug') <span class="text-danger">*</span> @enderror
                                 </label>
-                                <input class="form-control" type="text" id="uz_slug" name="uz_slug" value="{{ old('uz_slug') }}">
                                 @error('uz_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_slug') is-invalid @enderror">
-                                <label for="ru_title" @error('uz_description') class="col-form-label" @enderror>
+                                <label for="uz_description" @error('uz_description') class="col-form-label" @enderror>
                                 Описание
                                 @error('uz_description') <span class="text-danger">*</span> @enderror
                                 </label>
