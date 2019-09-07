@@ -100,9 +100,9 @@ class HandbookCategory extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function menu()
+    public function menus()
     {
-        return $this->hasOne(MenuItem::class, 'id', 'menu_id');
+        return $this->belongsToMany(MenuItem::class, 'categories_menus', 'category_id', 'menu_id');
     }
 
     /**
