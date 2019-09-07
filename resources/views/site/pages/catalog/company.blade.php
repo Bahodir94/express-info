@@ -46,7 +46,6 @@
 
     <div class="payment">
         <div class="uk-container uk-container-expand uk-container-center">
-                <div class="payment_list">
             <div class="uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-grid uk-grid-stack " uk-grid="">
                 <div>
                     <div class="payment_list">
