@@ -71,6 +71,12 @@
                     <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                 </a>
             </div>
+            <!-- <a href="#" class="uk-navbar-brend uk-navbar-center uk-hidden-large  uk-hidden-small"><img src="images/Image 19.svg" alt=""></a> -->
+
+            <!-- <div class="rig uk-navbar-right">
+                <a class="autprization" href=""><span><img src="images/user.svg" alt=""></span> Вход</a>
+                <a href="">Регистрация</a>
+            </div> -->
         </nav>
     </div>
 </header>
@@ -108,12 +114,12 @@
 
 <!-- Footer -->
 <footer>
-    <div class=" uk-container-large  uk-container-center">
+    <div class="uk-container uk-container-expand  uk-container-center">
         <div class="footer_info">
             <ul class="soc">
-                <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                <li><a href=""><i class="fa fa-youtube-play"></i></a></li>
-                <li><a href=""><i class="fa fa-paper-plane"></i></a></li>
+                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fa fa-youtube-play"></i></a></li>
+                    <li><a href=""><i class="fa fa-paper-plane"></i></a></li>
             </ul>
             <p>Создано в <a href="https://vid.uz/">VID</a></p>
             <p>©Права защищены</p>

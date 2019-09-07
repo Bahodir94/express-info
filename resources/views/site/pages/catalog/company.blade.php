@@ -116,6 +116,158 @@
         </div>
     </div>
     <!-- Main Info -->
+    <!-- Delivery Settings -->
+<!-- <div class="uk-container uk-container-expand uk-container-center  margin-top2">
+        <div class="unwrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle">
+            <div class="sorting uk-grid-small uk-flex-middle">
+                <p>Сортировать по типу перевозок:</p>
+                <div class="center_item">
+                    <img src="images/flats.svg" alt="">
+                    <a href="#">
+                        <p>Городские</p>
+                    </a>
+                </div>
+                <div class="center_item">
+                    <img src="images/planet-earth-1.svg" alt="">
+                    <a href="#">
+                        <p>Международные </p>
+                    </a>
+                </div>
+                <div class="buttons">
+                    <a href="#" class="setting_button right"> <i class="fa fa-bars"></i></a>
+                    <a href="#" class="setting_button left"> <i class="fa fa-th-large"></i></a>
+                </div>
+            </div>
+        </div>
+</div> -->
+<!-- Delivery Settings -->
+
+<!-- Content
+<div class="uk-container uk-container-expand uk-container-center  uk-margin-top">
+        <ul class="uk-grid uk-grid-medium  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-4@l" uk-grid data-uk-grid-margin>
+            <li class="uk-container-center" >
+                <div class="price_card">
+                    <div class="price_pic">
+                        <div class="inner_logo">
+                            <img src="images/photo_2019-08-21 15.44.08.svg" alt="">
+                        </div>
+                        <div class="price">
+                            <p>1 200 000 сум</p>
+                            <span>скачать коммерческое</span>
+                            <ul>
+                                <li><img src="images/planet-earth-1.svg" alt=""></li>
+                                <li><img src="images/flats.svg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="price_wrapper">
+                        <div class="price_tages">
+                                <div class="title">
+                                    <span>Категория</span>
+                                    <h2><a href="page2.html">Наименование Услуги</a> </h2>
+                                </div>
+                        </div>
+                        <div class="hr"></div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et doloremagnaaliquyam erat, sed diam voluptua. At vero eos et accusam et justo</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="uk-container-center" >
+                <div class="price_card">
+                    <div class="price_pic">
+                        <div class="inner_logo">
+                            <img src="images/photo_2019-08-21 15.44.08.svg" alt="">
+                        </div>
+                        <div class="price">
+                            <p>1 200 000 сум</p>
+                            <span>скачать коммерческое</span>
+                            <ul>
+                                <li><img src="images/planet-earth-1.svg" alt=""></li>
+                                <li><img src="images/flats.svg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="price_wrapper">
+                        <div class="price_tages">
+                                <div class="title">
+                                    <span>Категория</span>
+                                    <h2><a href="page2.html">Наименование Услуги</a> </h2>
+                                </div>
+                        </div>
+                        <div class="hr"></div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et doloremagnaaliquyam erat, sed diam voluptua. At vero eos et accusam et justo</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="uk-container-center" >
+                <div class="price_card">
+                    <div class="price_pic">
+                        <div class="inner_logo">
+                            <img src="images/photo_2019-08-21 15.44.08.svg" alt="">
+                        </div>
+                        <div class="price">
+                            <p>1 200 000 сум</p>
+                            <span>скачать коммерческое</span>
+                            <ul>
+                                <li><img src="images/planet-earth-1.svg" alt=""></li>
+                                <li><img src="images/flats.svg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="price_wrapper">
+                        <div class="price_tages">
+                                <div class="title">
+                                    <span>Категория</span>
+                                    <h2><a href="page2.html">Наименование Услуги</a> </h2>
+                                </div>
+                        </div>
+                        <div class="hr"></div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et doloremagnaaliquyam erat, sed diam voluptua. At vero eos et accusam et justo</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="uk-container-center" >
+                <div class="price_card">
+                    <div class="price_pic">
+                        <div class="inner_logo">
+                            <img src="images/photo_2019-08-21 15.44.08.svg" alt="">
+                        </div>
+                        <div class="price">
+                            <p>1 200 000 сум</p>
+                            <span>скачать коммерческое</span>
+                            <ul>
+                                <li><img src="images/planet-earth-1.svg" alt=""></li>
+                                <li><img src="images/flats.svg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="price_wrapper">
+                        <div class="price_tages">
+                                <div class="title">
+                                    <span>Категория</span>
+                                    <h2><a href="page2.html">Наименование Услуги</a> </h2>
+                                </div>
+                        </div>
+                        <div class="hr"></div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et doloremagnaaliquyam erat, sed diam voluptua. At vero eos et accusam et justo</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+</div>
+Content end-->
 
     <div class="uk-container uk-container-expand uk-container-center container uk-margin-top">
         <ul class="sequence">
