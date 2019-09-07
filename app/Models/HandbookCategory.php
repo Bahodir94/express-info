@@ -12,7 +12,7 @@ class HandbookCategory extends Model
     use Image;
 
     protected $fillable = [
-        'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id', 'menu_id'
+        'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id'
     ];
 
     const UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
@@ -100,9 +100,9 @@ class HandbookCategory extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function menu()
+    public function menus()
     {
-        return $this->hasOne(MenuItem::class, 'id', 'menu_id');
+        return $this->belongsToMany(MenuItem::class, 'categories_menus', 'category_id', 'menu_id');
     }
 
     /**

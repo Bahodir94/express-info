@@ -2,6 +2,11 @@
 
 @section('title', 'Добавить меню')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2-bootstrap.min.css') }}">
+@endsection
+
 @section('content')
     @include('admin.components.breadcrumb', [
         'list' => [
@@ -92,10 +97,28 @@
                     <!-- END Steps Content -->
                 </div>
                 <div class="form-group">
+                    <div class="form-material floating">
+                        <select name="categories[]" id="categories" class="form-control js-select2" multiple="multiple">
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->getTitle() }}</option>
+                            @endforeach
+                        </select>
+                        <label for="categories">Категории</label>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="image">Изображение</label>
                     <input type="file" name="image" class="form-control">
                 </div>
             </div>
         </div>
     </form>
+@endsection
+@section('js')
+    <script src="{{ asset('assets/js/plugins/select2/select2.full.min.js') }}"></script>
+    <script>
+        jQuery(function() {
+            Codebase.helper('select2');
+        });
+    </script>
 @endsection
