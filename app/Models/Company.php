@@ -217,7 +217,7 @@ class Company extends Model
      *
      * @return  boolean
      */
-    public function hasAdvatages()
+    public function hasAdvantages()
     {
         return !empty($this->advantages);
     }
