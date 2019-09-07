@@ -82,7 +82,7 @@
             <div class="contact">
                 <button uk-toggle ="target:#phone" type="button" class="contact-buttons">
                     <div class="contact_img">
-                        <img src="{{ asset('assets/img/ads.png') }}" alt="">
+                        <img src="{{ asset('assets/img/phone-receiver.png') }}" alt="">
                     </div>
                     <h2>
                         Контакты
