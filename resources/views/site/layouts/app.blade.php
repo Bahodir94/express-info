@@ -82,7 +82,7 @@
             <div class="contact">
                 <button uk-toggle ="target:#phone" type="button" class="contact-buttons">
                     <div class="contact_img">
-                        <img src="images/phone-receiver.png" alt="">
+                        <img src="{{ asset('assets/img/ads.png') }}" alt="">
                     </div>
                     <h2>
                         Контакты
@@ -90,7 +90,7 @@
                 </button>
                 <a href="{{ route('home.cgu.ad') }}" class="contact-buttons">
                     <div class="contact_img">
-                        <img src="images/ads.png" alt="">
+                        <img src="{{ assets('assets/img/ads.png') }}" alt="">
                     </div>
                     <h2>
                         Реклама в Цгу
