@@ -14,7 +14,7 @@ class Company extends Model
         'ru_title', 'uz_title', 'en_title',
         'ru_description', 'uz_description', 'en_description',
         'url', 'user_id', 'active', 'phone_number', 'geo_location', 'logo_url', 'category_id',
-        'need_id'
+        'need_id', 'advantages', 'telegram_link', 'facebook_link', 'instagram_link'
     ];
 
     const UPLOAD_DIRECTORY = 'uploads/companies/';
@@ -200,5 +200,92 @@ class Company extends Model
     public function getTitle()
     {
         return strip_tags($this->ru_title);
+    }
+
+    /**
+     * Check if company has advantages or any social link
+     *
+     * @return boolean
+     */
+    public function hasAdvantagesOrAnySocialLink()
+    {
+        return !empty($this->advantages) or (!empty($this->telegram_link) or !empty($this->instagram_link) or !empty($this->facebook_link));
+    }
+
+    /**
+     * Check if company has advantages
+     *
+     * @return  boolean
+     */
+    public function hasAdvatages()
+    {
+        return !empty($this->advantages);
+    }
+
+    /**
+     * Check if company has concrete social link
+     *
+     * @param string $socialName Name of social web
+     *
+     * @return boolean
+     */
+    public function hasSocialLink(string $socialName)
+    {
+        if ($socialName == 'telegram')
+            return !empty($this->telegram_link);
+        if ($socialName == 'instagram')
+            return !empty($this->instagram_link);
+        if ($socialName == 'facebook')
+            return !empty($this->facebook_link);
+    }
+
+    /**
+     * Check if company has geolocation
+     *
+     * @return boolean
+     */
+    public function hasGeolocation()
+    {
+        return !empty($this->geo_position_x) and !empty($this->geo_position_y);
+    }
+
+    /**
+     * Check if company has address
+     *
+     * @return boolean
+     */
+    public function hasAddress()
+    {
+        return !empty($this->address);
+    }
+
+    /**
+     * Check if company has phone number
+     *
+     * @return boolean
+     */
+    public function hasPhoneNumber()
+    {
+        return !empty($this->phone_number);
+    }
+
+    /**
+     * Check if company has url
+     *
+     * @return boolean
+     */
+    public function hasUrl()
+    {
+        return !empty($this->url);
+    }
+
+    /**
+     * Get advantages as array
+     *
+     * @return array Array of advantages
+     */
+    public function advantagesAsArray()
+    {
+        return explode(', ', $this->advantages);
     }
 }
