@@ -79,6 +79,48 @@
                 <a class="autprization" href=""><span><img src="images/user.svg" alt=""></span> Вход</a>
                 <a href="">Регистрация</a>
             </div> -->
+            <div class="contact">
+                <button uk-toggle ="target:#phone" type="button" class="contact-buttons">
+                    <div class="contact_img">
+                        <img src="images/phone-receiver.png" alt="">
+                    </div>
+                    <h2>
+                        Контакты
+                    </h2>
+                </button>
+                <a href="" class="contact-buttons">
+                    <div class="contact_img">
+                        <img src="images/ads.png" alt="">
+                    </div>
+                    <h2>
+                        Реклама в Цгу
+                    </h2>
+                </a>
+            </div>
+            <div id="phone" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body">
+                    <div class="container-pop">
+                        <h2>
+                            <img src="images/phone-receiver.png" alt="">
+                            размещение web сайтов и рекламы в цгу:
+                        </h2>
+                        <div class="phone-numbers">
+                                <a href="tel:+998953411717" class="contacts_popup_inner_link">
+                                    +99895 341 17 17
+                                </a>
+                                <a href="tel:+998954781717" class="contacts_popup_inner_link">
+                                    +99895 478 17 17
+                                </a>
+                                <a href="tel:+998954761717" class="contacts_popup_inner_link">
+                                    +99895 476 17 17
+                                </a>
+                                <a href="tel:+998954791717" class="contacts_popup_inner_link">
+                                    +99895 479 17 17
+                                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </nav>
     </div>
 </header>
