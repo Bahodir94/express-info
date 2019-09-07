@@ -28,7 +28,7 @@
 <header>
     <div class="uk-container uk-container-expand uk-container-center">
         <nav class="uk-navbar">
-            <div class="content-header-item uk-visible@l">
+            <div class="content-header-item uk-visible@m">
                 <a class="link-effect font-w700" href="{{ route('home') }}">
                     <span class="icon">
                         <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
@@ -36,7 +36,7 @@
                     <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                 </a>
             </div>
-            <div class="uk-navbar-center uk-visible@l">
+            <div class="uk-navbar-center uk-visible@m">
                 <ul class="uk-navbar-nav">
                     <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
                     @foreach ($needs as $need)
@@ -63,9 +63,9 @@
                     @endforeach
                 </ul>
             </div>
-            <button type="button" class="menu-button uk-hidden@l" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
+            <button type="button" class="menu-button uk-hidden@m" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
 
-            <div class="content-header-item uk-hidden@l	uk-hidden@s">
+            <div class="content-header-item uk-hidden@m">
                 <a class="link-effect font-w700" href="{{ route('home') }}">
                     <span class="icon">
                         <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
