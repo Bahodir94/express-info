@@ -90,7 +90,7 @@
                 </button>
                 <a href="{{ route('home.cgu.ad') }}" class="contact-buttons">
                     <div class="contact_img">
-                        <img src="{{ asset('assets/img/ads.png') }}" alt="">
+                        <img src="{{ asset('assets/img/photo228.png') }}" alt="">
                     </div>
                     <h2>
                         Реклама в Цгу

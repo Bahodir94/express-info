@@ -111,19 +111,6 @@
                 </div>
                 <!-- END Simple Wizard -->
                 <div class="form-group">
-                    <div class="form-material floating">
-                        <select name="menu_id" id="menuId" class="form-control js-select2">
-                            <option value="0" selected>Нет</option>
-                            @foreach($needs as $need)
-                                @foreach($need->menuItems as $menu)
-                                    <option value="{{ $menu->id }}">{{ $need->ru_title }} - {{ $menu->ru_title }}</option>
-                                @endforeach
-                            @endforeach
-                        </select>
-                        <label for="menuId">Родительский элемент меню</label>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label for="select2">Родительская категория</label>
                     <select name="parent_id" id="select2" class="form-control">
                         <option value="0">-- нет --</option>
