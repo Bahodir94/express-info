@@ -67,7 +67,9 @@
 
             <div class="content-header-item uk-hidden@l	uk-hidden@s">
                 <a class="link-effect font-w700" href="{{ route('home') }}">
-                    <i class="si si-fire text-primary"></i>
+                    <span class="icon">
+                        <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                    </span>
                     <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                 </a>
             </div>
