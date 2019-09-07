@@ -31,6 +31,16 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
     }
 
     /**
+     * Get all categories without tree
+     *
+     * @return array
+     */
+    public function allWithoutTree()
+    {
+        return HandbookCategory::all();
+    }
+
+    /**
      * Delete a handbook category
      *
      * @param int $id

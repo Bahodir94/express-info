@@ -62,7 +62,7 @@ class MenuItemController extends Controller
         $data = [
             'needId' => $needId,
             'need' => $need,
-            'categories' => $this->categories->all()
+            'categories' => $this->categories->allWithoutTree()
         ];
         return view('admin.pages.menu.create', $data);
     }
@@ -99,7 +99,7 @@ class MenuItemController extends Controller
     {
         $menu = $this->menuItems->get($id);
         $categoriesIdsArray = $menu->getCategoriesIdsAsArray();
-        $categories = $this->categories->all();
+        $categories = $this->categories->allWithoutTree();
 
         return view('admin.pages.menu.edit', compact('menu', 'categoriesIdsArray', 'categories'));
     }
