@@ -28,8 +28,8 @@
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group @error('name') is-invalid @enderror">
                             <div class="form-material floating">
-                                <label for="name">Имя пользователя</label>
                                 <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control">
+                                <label for="name">Имя пользователя</label>
                             </div>
                             @error('name') <div class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                         </div>
@@ -37,8 +37,8 @@
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group @error('email') is-invalid @enderror">
                             <div class="form-material floating">
-                                <label for="email">Email</label>
                                 <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}">
+                                <label for="email">Email</label>
                             </div>
                             @error('email') <div class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                         </div>
@@ -48,8 +48,8 @@
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group @error('password') is-invalid @enderror">
                             <div class="form-material floating">
-                                <label for="password">Пароль</label>
                                 <input type="password" name="password" id="passwrod" class="form-control">
+                                <label for="password">Пароль</label>
                             </div>
                             @error('password') <div class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                         </div>
