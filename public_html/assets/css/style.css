@@ -1290,6 +1290,7 @@ cat-tab a:hover {
     margin-right: 10px;
 }
 
+
 @media screen and (max-width: 4800px){
     .code-dropdown-stack .code-dropdown-grid>* {
         width: 25%!important;
