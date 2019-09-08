@@ -80,6 +80,15 @@
     <div class="uk-container uk-container-expand uk-margin-small uk-margin-medium-bottom">
 <!--
         <div class="uk-child-width-auto uk-child-width-auto@m uk-grid-small" uk-grid>
+             <div>
+                        <div class="uk-card uk-card-default uk-card-body">Item</div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">Item</div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default uk-card-body">Item</div>
+                </div> 
             <div>
                 <div class="plus_item">
                     <div class="plus_img">
@@ -103,8 +112,8 @@
                 </div>
             @endforeach
         </div>
--->
         
+-->
         <ul class="cat-tab uk-tab" >
             <li class="uk-active">
                 <a href="{{ $category->hasParentCategory() ? route('site.catalog.category', $category->parent_id) : route('site.catalog.index') }}">
@@ -143,7 +152,6 @@
                 </div>
             </li>
 -->
-        </ul>
         <!-- <div class="uk-margin text-left">
             <div uk-grid class="uk-grid-magrin uk-grid-stack">
                 <div class="uk-width-1-1@m">
@@ -162,13 +170,11 @@
                             <div class="inner_logo">
                                 <img src="{{ $company->getImage() }}" alt="">
                             </div>
-<!--
                             <ul class="dots">
                                 <li></li>
                                 <li></li>
                                 <li></li>
                             </ul>
--->
                         </div>
                         <div class="inner_tages">
                             <div class="title">
