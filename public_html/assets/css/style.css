@@ -313,7 +313,7 @@ box-shadow: 0 8px 40px -6px rgba(105,104,178,.18);
 }
 div.item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 30px 65px rgba(0,0,0,0.12);
+    box-shadow: 2px 2px 8px rgba(0,0,0,.1), 4px 10px 30px rgba(0,0,0,.07);
 }
 
 
