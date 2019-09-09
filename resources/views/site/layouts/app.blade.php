@@ -36,7 +36,7 @@
                     <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                 </a>
             </div>
-            <div class="uk-navbar-center uk-visible@m">
+            <div class="uk-visible@m">
                 <ul class="uk-navbar-nav">
                     <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
                     @foreach ($needs as $need)

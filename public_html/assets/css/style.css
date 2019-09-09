@@ -21,7 +21,7 @@ header{
 
 }
 .uk-navbar-nav>li{
-    padding: 0 10px;
+    padding: 0 15.2px;
 }
 .uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle{
     min-height: 42px;
@@ -90,15 +90,15 @@ header{
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin-right: 7px;
+    margin-right: 10px;
     background: white;
     border: none;
 }
 .contact-buttons h2{
     display: block;
-    font-size: 11px;
+    font-size: 12px;
     text-align: center;
-    padding-left: 8px;
+    padding-left: 10px;
     font-family: 'Open Sans';
     font-weight: 600;
     color: black;
@@ -112,7 +112,7 @@ header{
     border-radius: 50%;
     box-shadow: 0 0 4px rgba(0,0,0,0.4);
     background: white;
-    padding: 7px;
+    padding: 10px;
 }
 .contact_img img{
     width: 23px;
@@ -1309,7 +1309,7 @@ cat-tab a:hover {
     }
 }
 .uk-navbar-nav li .code-dropdown{
-    left: -200px !important;
+    left: 305px !important;
     top: 46px !important;
 } 
 @media screen and (max-width: 1024px) {
