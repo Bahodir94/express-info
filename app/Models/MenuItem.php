@@ -13,7 +13,7 @@ class MenuItem extends Model
         'ru_title', 'en_title', 'uz_title', 'need_id'
     ];
 
-    const UPLOAD_DIRECTORY = 'uploads/menu_items_images';
+    const UPLOAD_DIRECTORY = 'uploads/menu_items_images/';
 
     /**
      * Type of need
