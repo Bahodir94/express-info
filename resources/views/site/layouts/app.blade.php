@@ -43,24 +43,22 @@
                         <li class="uk-parent">
                             <a href="#">{{ $need->ru_title }}</a>
                             <div class="code-dropdown uk-dropdown uk-dropdown-width-4 uk-dropdown-stack uk-dropdown-bottom-left" data-uk-dropdown="{delay: 500}" style="left: 108.65625px; top: 32px;">
-                                <div class="uk-grid-collapse uk-grid uk-child-width-1-4" uk-grid="">
-                                    <div class="uk-dropdown uk-dropdown-width-4" data-uk-dropdown="{delay: 500}">
-                                        <div class=" uk-dropdown-grid uk-grid-collapse" uk-grid>
-                                            @foreach ($need->menuItems as $menu)
-                                            <div class="padding-15 ">
-                                                <ul class="uk-nav">
-                                                    <div class="dropdown_wrapper">
-                                                        <img src="{{ $menu->getImage() }}" alt="">
-                                                        <a href="">{{ $menu->ru_title }}</a>
-                                                    </div>
-                                                    @foreach ($menu->categories as $category)
-                                                    <li><a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a></li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                            @endforeach
+                                <div class="uk-grid-collapse uk-grid uk-child-width-1-4" uk-grid>
+                                    @foreach ($need->menuItems as $menu)
+                                        <div class="padding-15 ">
+                                            <ul class="uk-nav">
+                                                <div class="dropdown_wrapper">
+                                                    <img src="{{ $menu->getImage() }}" alt="">
+                                                    <a href="">{{ $menu->ru_title }}</a>
+                                                </div>
+                                                @foreach ($menu->categories as $category)
+                                                    <li>
+                                                        <a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </li>
