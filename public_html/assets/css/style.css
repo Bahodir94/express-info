@@ -1304,13 +1304,11 @@ cat-tab a:hover {
 }
 
 @media screen and (max-width: 1200px) {
-    .uk-navbar-nav  .code-dropdown{
-        left: -251px !important;
-    }
 }
 .uk-navbar-nav li .code-dropdown{
-    left: 305px !important;
-    top: 46px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 66px !important;
 } 
 @media screen and (max-width: 1024px) {
     .uk-navbar-nav>li{
