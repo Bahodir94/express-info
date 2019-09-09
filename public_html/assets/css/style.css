@@ -89,9 +89,6 @@ header{
 .contact-buttons{
     display: flex;
     align-items: center;
-    padding: 0 4px;
-    /* box-shadow: 0 0 3px rgba(0,0,0,0.4); */
-    border-radius: 10px;
     cursor: pointer;
     margin-right: 10px;
     background: white;
@@ -1163,7 +1160,7 @@ footer .uk-container:after, .uk-container:before{
     font-family: 'montserrat';
     color: #707070;
 }
-.uk-dropdown{
+.code-dropdown{
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     transition:all 0.5s;
@@ -1198,13 +1195,13 @@ footer .uk-container:after, .uk-container:before{
 .uk-nav li a:hover{
     color: #243c535b;
 }
-.uk-dropdown:not(.uk-dropdown-stack)>.uk-dropdown-grid>[class*=uk-width-]:nth-child(n+2){
+.code-dropdown:not(.code-dropdown-stack)>.code-dropdown-grid>[class*=uk-width-]:nth-child(n+2){
     border:none;
 }
-.uk-dropdown-width-4:not(.uk-dropdown-stack){
+.code-dropdown-width-4:not(.code-dropdown-stack){
     width: 962px;
 }
-.uk-dropdown .uk-nav{
+.code-dropdown .uk-nav{
     margin: 0;
     margin-bottom: 50px;
 }
@@ -1261,7 +1258,7 @@ footer .uk-container:after, .uk-container:before{
     font-size: 20px;
     padding-left: 20px;
 }
-.uk-dropdown{
+.code-dropdown{
     padding: 40px 34px 40px 52px;
 }
 /*
@@ -1273,15 +1270,29 @@ footer .uk-container:after, .uk-container:before{
 .padding-left{
     padding-left: 30px;
 }
-.uk-dropdown{
+.code-dropdown{
     width: 962px;
 }
 
-
+.cat-tab a{
+    text-transform: none !important;
+    color: #888;
+}
+cat-tab a:hover {
+    color: #555;
+}
+.cat-tab a span.countcat {
+    padding-left: 3px;
+    opacity: 0.8;
+}
+.cat-tab img{
+    height: 20px;
+    margin-right: 10px;
+}
 
 
 @media screen and (max-width: 4800px){
-    .uk-dropdown-stack .uk-dropdown-grid>* {
+    .code-dropdown-stack .code-dropdown-grid>* {
         width: 25%!important;
     }
     
@@ -1293,12 +1304,12 @@ footer .uk-container:after, .uk-container:before{
 }
 
 @media screen and (max-width: 1200px) {
-    .uk-navbar-nav  .uk-dropdown{
+    .uk-navbar-nav  .code-dropdown{
         left: -251px !important;
     }
 }
-.uk-navbar-nav li .uk-dropdown{
-    left: -200px !important;
+.uk-navbar-nav li .code-dropdown{
+    left: 305px !important;
     top: 46px !important;
 } 
 @media screen and (max-width: 1024px) {
@@ -1319,7 +1330,7 @@ footer .uk-container:after, .uk-container:before{
         flex-direction: column;
     }
 */
-    .uk-dropdown-width-4:not(.uk-dropdown-stack){
+    .code-dropdown-width-4:not(.code-dropdown-stack){
         width: 200px;
         top: 100px !important;
         left: 0 !important;
