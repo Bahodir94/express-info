@@ -44,6 +44,7 @@
     <!-- Banner end-->
 
     @if ($company->hasAdvantagesOrAnySocialLink())
+<section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="payment">
         <div class="uk-container uk-container-expand uk-container-center">
             <div class="uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-grid uk-grid-stack " uk-grid="">
@@ -88,7 +89,7 @@
             </div>
         </div>
     </div>
-
+</section>
     <hr class="new">
     @endif
 
@@ -277,7 +278,7 @@
         </ul>
 </div>
 Content end-->
-
+<section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="uk-container uk-container-expand uk-container-center container uk-margin-top">
         <ul class="sequence">
             <li><a href="{{ route('site.catalog.index') }}">Главная</a></li>
@@ -291,4 +292,5 @@ Content end-->
             <li>{{ $company->getTitle() }}</li>
         </ul>
     </div>
+</section>
 @endsection
