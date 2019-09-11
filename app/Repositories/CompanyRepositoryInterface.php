@@ -60,9 +60,10 @@ interface CompanyRepositoryInterface
 
     /**
      * Seacrh company by name
-     * 
+     *
      * @param string $query
+     * @param null $paginate
      * @return array
-    */
-    public function search(string $query, $paginate=None);
+     */
+    public function search(string $query, $paginate = null);
 }

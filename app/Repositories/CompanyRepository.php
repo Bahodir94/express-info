@@ -99,13 +99,13 @@ class CompanyRepository implements CompanyRepositoryInterface
     }
 
     /**
-     * Seacrh company by name
+     * Search company by name
      * 
      * @param string $query
      * @param int $paginate 
      * @return array
     */
-    public function search(string $query, $paginate=None)
+    public function search(string $query, $paginate = null)
     {
         $queryResult = Company::where('ru_title', 'like', '%' . $query . '%');
         if ($paginate)
