@@ -129,6 +129,6 @@ class CatalogController extends Controller
             $data['categories'] = $categories;
             $data['companies'] = $companies;
         }
-        return view('site.pages.search', $data);
+        return view('site.pages.catalog.search', $data);
     }
 }
