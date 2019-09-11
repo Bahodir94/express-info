@@ -125,10 +125,10 @@ class CatalogController extends Controller
 	$categories = $this->categories->search($query);
 	$companies = $this->companies->search($query);
 	if ($categories->count() > 0  and $companies->count() == 0)
-    {
         foreach ($categories as $category)
             $companies = $companies->merge($category->companies);
-    }
+	if ($companies->count() == 0 and $categories->count() == 1 and $categories[0]->hasCategories())
+        $companies = $categories[0]->getAllCompaniesFromDescendingCategories();
 	$data['categories'] = $categories;
 	$data['companies'] = $companies;
         return view('site.pages.catalog.search', $data);
