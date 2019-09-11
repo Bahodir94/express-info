@@ -64,5 +64,5 @@ interface CompanyRepositoryInterface
      * @param string $query
      * @return array
     */
-    public function search(string $query);
+    public function search(string $query, $paginate=None);
 }
