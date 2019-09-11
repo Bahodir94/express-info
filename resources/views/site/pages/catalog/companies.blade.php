@@ -48,7 +48,7 @@
 </div> -->
 
 <!-- Search settings end -->
-
+<section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="uk-container uk-container-expand uk-container-center">
         <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle" uk-grid>
             <div class="wrapper_title">
@@ -76,7 +76,7 @@
             @endif
         </div>
     </div>
-
+</section>
     <div class="uk-container uk-container-expand uk-margin-small uk-margin-medium-bottom">
 <!--
         <div class="uk-child-width-auto uk-child-width-auto@m uk-grid-small" uk-grid>
@@ -160,7 +160,7 @@
             </div>
         </div> -->
     </div>
-
+<section class="uk-section-xsmall">
     <div class="uk-container uk-container-center uk-container-expand uk-margin-top">
             <div class="uk-grid uk-grid-match uk-grid-medium  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-4@l">
             @foreach($companies as $company)
@@ -203,7 +203,9 @@
             @endforeach
         </div>
     </div>
+</section>
 
+<section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="uk-container uk-container-expand uk-container-center container uk-margin-top">
         <ul class="sequence">
             <li><a href="{{ route('site.catalog.index') }}">Главная</a></li>
@@ -215,4 +217,6 @@
             <li>{{ $category->getTitle() }}</li>
         </ul>
     </div>
+</section>
+
 @endsection

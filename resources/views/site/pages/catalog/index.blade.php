@@ -10,6 +10,7 @@
     <!-- Line end -->
 
     <!-- Favorites Category -->
+<section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="uk-container uk-container-expand uk-margin-medium uk-container-center uk-slider">
         <div class="uk-container uk-container-expand uk-container-center gutter" uk-slider="autoplay: true; autoplay-interval: 5000;">
             <ul class="uk-slider-items uk-child-width-auto uk-grid-large uk-grid">
@@ -33,7 +34,9 @@
             </ul>
         </div>
     </div>
+</section>
     <!-- Favorites Category end-->
+<section class="uk-section-xsmall">
     <div class="uk-container uk-container-expand uk-margin-medium uk-container-center">
         <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid-margin>
             @foreach($parentCategories as $category)
@@ -57,4 +60,5 @@
             @endforeach
         </ul>
     </div>
+</section>
 @endsection
