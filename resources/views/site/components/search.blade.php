@@ -5,7 +5,7 @@
             @csrf
             <div class="position">
                 <img src="{{ asset('assets/img/search (1).svg') }}" alt="">
-                <input type="text" placeholder="Поиск в TezInfo">
+                <input type="text" name="query" placeholder="Поиск в TezInfo">
             </div>
         </form>
     </div>
