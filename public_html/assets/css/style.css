@@ -858,7 +858,7 @@ footer .uk-container:after, .uk-container:before{
     margin-right: 17px;
     color: #102840;
     font-size: 18px;
-    font-family: 'opensans';
+    /* font-family: 'opensans'; */
     font-weight: 400;
     margin-top: 10px; 
 }
