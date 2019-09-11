@@ -31,6 +31,16 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
     }
 
     /**
+     * Get all categories without tree
+     *
+     * @return array
+     */
+    public function allWithoutTree()
+    {
+        return HandbookCategory::all();
+    }
+
+    /**
      * Delete a handbook category
      *
      * @param int $id
@@ -128,12 +138,12 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
 
     /**
      * Seacrh categories
-     * 
+     *
      * @param string $query
      * @param boolean $findOne
      * @return mixed
      */
-    public function seacrh(string $query, $findOne=false)
+    public function search(string $query, $findOne = false)
     {
         if ($findOne)
             return HandbookCategory::where('ru_title', $query)->first();

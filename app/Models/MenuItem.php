@@ -13,7 +13,7 @@ class MenuItem extends Model
         'ru_title', 'en_title', 'uz_title', 'need_id'
     ];
 
-    const UPLOAD_DIRECTORY = 'uploads/menu_items_images';
+    const UPLOAD_DIRECTORY = 'uploads/menu_items_images/';
 
     /**
      * Type of need
@@ -32,7 +32,17 @@ class MenuItem extends Model
      */
     public function categories()
     {
-        return $this->hasMany(HandbookCategory::class, 'menu_id', 'id');
+        return $this->belongsToMany(HandbookCategory::class, 'categories_menus', 'menu_id', 'category_id');
+    }
+
+    /**
+     * Get array of attached categories ids
+     *
+     * @return array
+     */
+    public function getCategoriesIdsAsArray()
+    {
+        return $this->categories()->pluck('handbook_categories.id')->toArray();
     }
 
     public function delete()

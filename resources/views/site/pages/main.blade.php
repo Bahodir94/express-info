@@ -120,7 +120,7 @@
 						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewbox="0 0 173.20508075688772 200"><path fill="#8BC34A" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
 						<div class="mobile_main_item_inner">
 							<a href="{{route('site.catalog.index')}}" class="mobile_main_item_inner_link">
-								<img src="{{ asset('assets/img/business.png') }}" alt="Bussines Info" class="mobile_main_item_icon">
+								<img src="{{ asset('assets/img/2.png') }}" alt="Bussines Info" class="mobile_main_item_icon">
 								<!-- <img src="/uploads/mobile_item_logo_1.png" alt="" class="mobile_main_item_icon"> -->
 							</a>
 						</div>
@@ -131,8 +131,8 @@
 					<div class="mobile_main_item_outer">
 						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewbox="0 0 173.20508075688772 200"><path fill="#20C2CC" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
 						<div class="mobile_main_item_inner">
-							<a href="https://davxizmat.its.uz" class="mobile_main_item_inner_link">
-								<img src="{{ asset('assets/img/mobile_item_logo_2.png') }}" alt="" class="mobile_main_item_icon">
+							<a href="http://futurenet.uz/" class="mobile_main_item_inner_link">
+								<img src="{{ asset('assets/img/futurenet.png') }}" alt="" class="mobile_main_item_icon">
 							</a>
 						</div>
 					</div>
@@ -167,8 +167,7 @@
 						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewbox="0 0 173.20508075688772 200"><path fill="#0B72C6" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
 						<div class="mobile_main_item_inner">
 							<a href="{{ route('home.cgu.info.category', 30) }}" class="mobile_main_item_inner_link">
-								<img src="{{ asset('assets/img/publicinfo.png') }}" alt="" class="mobile_main_item_icon" style="height: 80px;">
-								<p class="category-name">Public Info</p>
+								<img src="{{ asset('assets/img/1.png') }}" alt="" class="mobile_main_item_icon">
 							</a>
 						</div>
 					</div>
@@ -178,8 +177,7 @@
 						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewbox="0 0 173.20508075688772 200"><path fill="#F9690E" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
 						<div class="mobile_main_item_inner">
 							<a href="{{ route('home.cgu.info.category', 31) }}" class="mobile_main_item_inner_link">
-								<img src="{{ asset('assets/img/mediainfo.png') }}" alt="" style="height: 80px;" class="mobile_main_item_icon">
-								<p class="category-name">Media Info</p>
+								<img src="{{ asset('assets/img/3.png') }}" alt="" class="mobile_main_item_icon">
 							</a>
 						</div>
 					</div>

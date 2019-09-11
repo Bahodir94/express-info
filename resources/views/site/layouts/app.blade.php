@@ -28,7 +28,7 @@
 <header>
     <div class="uk-container uk-container-expand uk-container-center">
         <nav class="uk-navbar">
-            <div class="content-header-item uk-visible-large">
+            <div class="content-header-item uk-visible@m">
                 <a class="link-effect font-w700" href="{{ route('home') }}">
                     <span class="icon">
                         <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
@@ -36,23 +36,25 @@
                     <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                 </a>
             </div>
-            <div class="uk-navbar-center uk-visible-large">
+            <div class="uk-visible@m">
                 <ul class="uk-navbar-nav">
                     <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
                     @foreach ($needs as $need)
                         <li class="uk-parent">
                             <a href="#">{{ $need->ru_title }}</a>
-                            <div class="uk-dropdown uk-dropdown-width-4" data-uk-dropdown="{delay: 500}">
-                                <div class=" uk-dropdown-grid uk-grid-collapse" uk-grid>
+                            <div class="code-dropdown uk-dropdown uk-dropdown-width-4 uk-dropdown-stack uk-dropdown-bottom-left" data-uk-dropdown="{delay: 500}" style="left: 108.65625px; top: 32px;">
+                                <div class="uk-grid-collapse uk-grid uk-child-width-1-4" uk-grid>
                                     @foreach ($need->menuItems as $menu)
-                                        <div class="uk-width-1-4 padding-15">
+                                        <div class="padding-15 ">
                                             <ul class="uk-nav">
                                                 <div class="dropdown_wrapper">
                                                     <img src="{{ $menu->getImage() }}" alt="">
-                                                    <a href="#">{{ $menu->ru_title }}</a>
+                                                    <a href="">{{ $menu->ru_title }}</a>
                                                 </div>
                                                 @foreach ($menu->categories as $category)
-                                                    <li><a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a></li>
+                                                    <li>
+                                                        <a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a>
+                                                    </li>
                                                 @endforeach
                                             </ul>
                                         </div>
@@ -63,13 +65,63 @@
                     @endforeach
                 </ul>
             </div>
-            <button type="button" class="menu-button uk-hidden-large" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
+            <button type="button" class="menu-button uk-hidden@m" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
 
-            <div class="content-header-item uk-hidden-large  uk-hidden-small">
+            <div class="content-header-item uk-hidden@m">
                 <a class="link-effect font-w700" href="{{ route('home') }}">
-                    <i class="si si-fire text-primary"></i>
+                    <span class="icon">
+                        <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                    </span>
                     <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                 </a>
+            </div>
+            <!-- <a href="#" class="uk-navbar-brend uk-navbar-center uk-hidden-large  uk-hidden-small"><img src="images/Image 19.svg" alt=""></a> -->
+
+            <!-- <div class="rig uk-navbar-right">
+                <a class="autprization" href=""><span><img src="images/user.svg" alt=""></span> Вход</a>
+                <a href="">Регистрация</a>
+            </div> -->
+            <div class="contact">
+                <button uk-toggle ="target:#phone" type="button" class="contact-buttons">
+                    <div class="contact_img">
+                        <img src="{{ asset('assets/img/phone-receiver.png') }}" alt="">
+                    </div>
+                    <h2>
+                        Контакты
+                    </h2>
+                </button>
+                <a href="{{ route('home.cgu.ad') }}" class="contact-buttons">
+                    <div class="contact_img">
+                        <img src="{{ asset('assets/img/photo228.png') }}" alt="">
+                    </div>
+                    <h2>
+                        Реклама в Цгу
+                    </h2>
+                </a>
+            </div>
+            <div id="phone" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body">
+                    <div class="container-pop">
+                        <h2>
+                            <img src="{{ asset('assets/img/phone-receiver.png') }}" alt="">
+                            размещение web сайтов и рекламы в цгу:
+                        </h2>
+                        <div class="phone-numbers">
+                                <a href="tel:+998953411717" class="contacts_popup_inner_link">
+                                    +99895 341 17 17
+                                </a>
+                                <a href="tel:+998954781717" class="contacts_popup_inner_link">
+                                    +99895 478 17 17
+                                </a>
+                                <a href="tel:+998954761717" class="contacts_popup_inner_link">
+                                    +99895 476 17 17
+                                </a>
+                                <a href="tel:+998954791717" class="contacts_popup_inner_link">
+                                    +99895 479 17 17
+                                </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
     </div>
@@ -108,12 +160,12 @@
 
 <!-- Footer -->
 <footer>
-    <div class=" uk-container-large  uk-container-center">
+    <div class="uk-container uk-container-expand  uk-container-center">
         <div class="footer_info">
             <ul class="soc">
-                <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                <li><a href=""><i class="fa fa-youtube-play"></i></a></li>
-                <li><a href=""><i class="fa fa-paper-plane"></i></a></li>
+                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fa fa-youtube-play"></i></a></li>
+                    <li><a href=""><i class="fa fa-paper-plane"></i></a></li>
             </ul>
             <p>Создано в <a href="https://vid.uz/">VID</a></p>
             <p>©Права защищены</p>

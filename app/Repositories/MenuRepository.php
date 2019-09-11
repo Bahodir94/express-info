@@ -29,6 +29,8 @@ class MenuRepository implements MenuRepositoryInterface
     {
         $newMenuItem = MenuItem::create($menuData->all());
         $newMenuItem->uploadImage($menuData->file('image'));
+        $categoriesIds = $menuData->get('categories');
+        $newMenuItem->categories()->attach($categoriesIds);
     }
 
     /**
@@ -42,6 +44,8 @@ class MenuRepository implements MenuRepositoryInterface
         $menuItem = $this->get($id);
         $menuItem->update($menuData->all());
         $menuItem->uploadImage($menuData->file('image'));
+        $menuItem->categories()->detach();
+        $menuItem->categories()->attach($menuData->get('categories'));
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Repositories\MenuRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
+use App\Repositories\HandbookCategoryRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -24,17 +25,27 @@ class MenuItemController extends Controller
     private $needs;
 
     /**
+     * Repository for categories
+     *
+     * @var HandbookCategoryRepositoryInterface
+     */
+    private $categories;
+
+    /**
      * Create a new controller instance
      *
      * @param MenuRepositoryInterface $menuRepository
      * @param NeedTypeRepositoryInterface $needsRepository
+     * @param HandbookCategoryRepositoryInterface $categoryRepository
      * @return void
     */
     public function __construct(MenuRepositoryInterface $menuRepository,
-                                NeedTypeRepositoryInterface $needsRepository)
+                                NeedTypeRepositoryInterface $needsRepository,
+                                HandbookCategoryRepositoryInterface $categoryRepository)
     {
         $this->menuItems = $menuRepository;
         $this->needs = $needsRepository;
+        $this->categories = $categoryRepository;
     }
 
 
@@ -50,7 +61,8 @@ class MenuItemController extends Controller
         $need = $this->needs->get($needId);
         $data = [
             'needId' => $needId,
-            'need' => $need
+            'need' => $need,
+            'categories' => $this->categories->allWithoutTree()
         ];
         return view('admin.pages.menu.create', $data);
     }
@@ -86,8 +98,10 @@ class MenuItemController extends Controller
     public function edit($id)
     {
         $menu = $this->menuItems->get($id);
+        $categoriesIdsArray = $menu->getCategoriesIdsAsArray();
+        $categories = $this->categories->allWithoutTree();
 
-        return view('admin.pages.menu.edit', compact('menu'));
+        return view('admin.pages.menu.edit', compact('menu', 'categoriesIdsArray', 'categories'));
     }
 
     /**

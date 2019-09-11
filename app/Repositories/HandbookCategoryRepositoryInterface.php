@@ -24,6 +24,13 @@ interface HandbookCategoryRepositoryInterface
     public function all();
 
     /**
+     * Get all categories without tree
+     *
+     * @return array
+     */
+    public function allWithoutTree();
+
+    /**
      * Delete a handbook category
      *
      * @param int $id
@@ -73,10 +80,10 @@ interface HandbookCategoryRepositoryInterface
 
     /**
      * Seacrh categories
-     * 
+     *
      * @param string $query
      * @param boolean $findOne
      * @return mixed
      */
-    public function seacrh(string $query, $findOne);
+    public function search(string $query, $findOne = false);
 }
