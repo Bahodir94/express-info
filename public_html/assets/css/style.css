@@ -748,6 +748,9 @@ footer .uk-container:after, .uk-container:before{
     display: flex; 
     flex-wrap: wrap;
 }
+.innerlink{
+    text-decoration: none;
+}
 .inner{
     padding: 25px;
     flex-direction: column;
