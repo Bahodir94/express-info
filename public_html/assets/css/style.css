@@ -313,7 +313,7 @@ box-shadow: 0 8px 40px -6px rgba(105,104,178,.18);
 }
 div.item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 30px 65px rgba(0,0,0,0.12);
+    box-shadow: 2px 2px 8px rgba(0,0,0,.1), 4px 10px 30px rgba(0,0,0,.07);
 }
 
 
@@ -858,7 +858,7 @@ footer .uk-container:after, .uk-container:before{
     margin-right: 17px;
     color: #102840;
     font-size: 18px;
-    font-family: 'opensans';
+    /* font-family: 'opensans'; */
     font-weight: 400;
     margin-top: 10px; 
 }
@@ -1304,13 +1304,11 @@ cat-tab a:hover {
 }
 
 @media screen and (max-width: 1200px) {
-    .uk-navbar-nav  .code-dropdown{
-        left: -251px !important;
-    }
 }
 .uk-navbar-nav li .code-dropdown{
-    left: 305px !important;
-    top: 46px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 66px !important;
 } 
 @media screen and (max-width: 1024px) {
     .uk-navbar-nav>li{
