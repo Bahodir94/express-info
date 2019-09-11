@@ -111,21 +111,24 @@ class CatalogController extends Controller
 
     /**
      * Seacrh companies or/and categories
-     * 
+     *
      * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request)
     {
-        if (!$request->has('query'))
-            return json_encode(['error' => 'No query string']);
         $query = $request->get('query');
         $category = $this->categories->search($query, $findOne = true);
+        $data = [];
         if ($category)
-            return json_encode(['companies' => $category->companies()->get()->toArray()]);
-        $categories = $this->categories->seacrh($query);
-        $companies = $this->companies->search($query);
-        return json_encode(['categories' => $categories->toArray(), 
-                            'companies' => $companies->toArray()]);
+            $data['category'] = $category;
+        else
+        {
+            $categories = $this->categories->search($query);
+            $companies = $this->companies->search($query);
+            $data['categories'] = $categories;
+            $data['companies'] = $companies;
+        }
+        return view('site.pages.search', $data);
     }
 }
