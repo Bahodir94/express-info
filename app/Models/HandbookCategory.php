@@ -139,4 +139,17 @@ class HandbookCategory extends Model
             $companyCount += $child->companies()->count();
         return $companyCount;
     }
+
+    /**
+     * Get all descendants companies
+     *
+     * @return array
+    */
+    public function getAllCompaniesFromDescendingCategories()
+    {
+        $categories = $this->descendants()->pluck('id');
+        $categories[] = $this->getKey();
+        
+        return Company::whereIn('category_id', $categories)->get();
+    }
 }
