@@ -119,11 +119,11 @@ class CatalogController extends Controller
     {
         $query = $request->get('query');
         $category = $this->categories->search($query, $findOne = true);
-        $data = [];
         if ($category)
-            $data['category'] = $category;
+            return redirect()->route('site.catalog.category', $category->id);
         else
         {
+            $data = [];
             $categories = $this->categories->search($query);
             $companies = $this->companies->search($query);
             $data['categories'] = $categories;
