@@ -26,7 +26,10 @@
 
   
     
-<!-- Header Menu -->
+<!-- Header Menu -->               
+
+
+   
 
 
     
@@ -35,13 +38,20 @@
         <div class="uk-container uk-container-expand">
             <nav uk-navbar class="uk-navbar">
                 <div class="uk-navbar-left">
-                    <a class="uk-navbar-item uk-logo link-effect font-w700" href="{{ route('home') }}">
-                        <span class="icon">
-                            <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
-                        </span>
-                        <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
-                        <!--<img src="/site/images/yootheme-logo.svg" width="134" height="30" alt="YOOtheme Logo" uk-svg="" hidden="true">-->
+                    <div class="uk-navbar-item  content-header-item uk-hidden@m">
+                        <a class="link-effect font-w700" href="{{ route('home') }}">
+                            <span class="icon">
+                                <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                            </span>
+                            <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
+                        </a>
+                    </div>
+<!--
+                    <a class="uk-navbar-item uk-logo " href="{{ route('home') }}">
+                        <img src="/site/images/yootheme-logo.svg" width="134" height="30" alt="YOOtheme Logo" uk-svg="" hidden="true">
                     </a>
+-->
+                    <button type="button" class="menu-button uk-hidden@m" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav uk-visible@m">
@@ -71,6 +81,14 @@
                         </li>
                     @endforeach
                 </ul>
+                    <div class="content-header-item uk-hidden@m">
+                        <a class="link-effect font-w700" href="{{ route('home') }}">
+                            <span class="icon">
+                                <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                            </span>
+                            <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
+                        </a>
+                    </div>
                     <div class="uk-navbar-item uk-visible@m">
                         @include('site.components.search')
                        
@@ -141,16 +159,7 @@
 </div>
 <div class="uk-sticky-placeholder" ></div>
     
-               <button type="button" class="menu-button uk-hidden@m" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
 
-            <div class="content-header-item uk-hidden@m">
-                <a class="link-effect font-w700" href="{{ route('home') }}">
-                    <span class="icon">
-                        <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
-                    </span>
-                    <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
-                </a>
-            </div>
     
     
 <!--
