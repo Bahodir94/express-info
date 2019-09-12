@@ -24,20 +24,27 @@
 </head>
 <body>
 
+  
+    
 <!-- Header Menu -->
-<header>
-    <div class="uk-container uk-container-expand uk-container-center">
-        <nav class="uk-navbar">
-            <div class="content-header-item uk-visible@m">
-                <a class="link-effect font-w700" href="{{ route('home') }}">
-                    <span class="icon">
-                        <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
-                    </span>
-                    <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
-                </a>
-            </div>
-            <div class="uk-visible@m">
-                <ul class="uk-navbar-nav">
+
+
+    
+<div uk-sticky="media: 960; show-on-up: true; animation: uk-animation-slide-top; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;" class="uk-sticky" style="">
+    <div class="uk-navbar-container">
+        <div class="uk-container uk-container-expand">
+            <nav uk-navbar class="uk-navbar">
+                <div class="uk-navbar-left">
+                    <a class="uk-navbar-item uk-logo link-effect font-w700" href="{{ route('home') }}">
+                        <span class="icon">
+                            <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                        </span>
+                        <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
+                        <!--<img src="/site/images/yootheme-logo.svg" width="134" height="30" alt="YOOtheme Logo" uk-svg="" hidden="true">-->
+                    </a>
+                </div>
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav uk-visible@m">
                     <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
                     @foreach ($needs as $need)
                         <li class="uk-parent">
@@ -64,23 +71,26 @@
                         </li>
                     @endforeach
                 </ul>
-            </div>
-            <button type="button" class="menu-button uk-hidden@m" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
+                    <div class="uk-navbar-item uk-visible@m">
+                        @include('site.components.search')
+                       
+                    </div>
 
-            <div class="content-header-item uk-hidden@m">
-                <a class="link-effect font-w700" href="{{ route('home') }}">
-                    <span class="icon">
-                        <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
-                    </span>
-                    <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
-                </a>
-            </div>
-            <!-- <a href="#" class="uk-navbar-brend uk-navbar-center uk-hidden-large  uk-hidden-small"><img src="images/Image 19.svg" alt=""></a> -->
 
-            <!-- <div class="rig uk-navbar-right">
-                <a class="autprization" href=""><span><img src="images/user.svg" alt=""></span> Вход</a>
-                <a href="">Регистрация</a>
-            </div> -->
+
+<!--
+                <div class="uk-grid-medium uk-child-width-auto uk-flex-middle uk-grid uk-grid-stack" uk-grid="margin: uk-margin-small-top">
+                    <div class="uk-first-column">
+                        <div class="uk-panel edj" id="module-193">
+    
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+-->
+                </div>
+<!--
             <div class="contact">
                 <button uk-toggle ="target:#phone" type="button" class="contact-buttons">
                     <div class="contact_img">
@@ -123,9 +133,55 @@
                     </div>
                 </div>
             </div>
+-->
         </nav>
+            
+        </div>
     </div>
-</header>
+</div>
+<div class="uk-sticky-placeholder" ></div>
+    
+               <button type="button" class="menu-button uk-hidden@m" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
+
+            <div class="content-header-item uk-hidden@m">
+                <a class="link-effect font-w700" href="{{ route('home') }}">
+                    <span class="icon">
+                        <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                    </span>
+                    <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
+                </a>
+            </div>
+    
+    
+<!--
+    <div class="uk-container uk-flex uk-flex-middle  ">
+        
+        <div class="uk-margin-auto-left">
+            <div class="uk-grid-medium uk-child-width-auto uk-flex-middle uk-grid uk-grid-stack" uk-grid="margin: uk-margin-small-top">
+              <div class="uk-first-column">
+                <div class="uk-panel" >
+                    <div class="custom">
+                        <ul class="uk-grid-medium uk-flex-inline uk-flex-middle uk-flex-nowrap uk-grid  uk-grid-divider">
+
+                          <li>
+                            <h6><a class="el-link uk-link-heading" href="https://t.me/Grand_Broker_Trade"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512.004 512.004" style="margin-right: 10px; enable-background:new 0 0 512.004 512.004;" xml:space="preserve" width="20" height="20">
+            <path fill="#4a494c" d="M508.194,20.517c-4.43-4.96-11.42-6.29-17.21-3.76l-482,211c-5.34,2.34-8.85,7.57-8.98,13.41  c-0.13,5.83,3.14,11.21,8.38,13.79l115.09,56.6l28.68,172.06c0.93,6.53,6.06,11.78,12.74,12.73c4.8,0.69,9.57-1,12.87-4.4  l90.86-90.86l129.66,92.62c4.16,2.96,9.52,3.61,14.24,1.74c4.73-1.87,8.19-6.02,9.19-11.01l90-451  C512.604,28.967,511.454,24.177,508.194,20.517z M135.354,283.967l-84.75-41.68l334.82-146.57L135.354,283.967z M182.294,328.557  l-13.95,69.75l-15.05-90.3l183.97-138.49l-150.88,151.39C184.264,323.027,182.854,325.787,182.294,328.557z M191.424,435.857  l15.74-78.67l36.71,26.22L191.424,435.857z M396.834,455.797l-176.73-126.23l252.47-253.31L396.834,455.797z"></path>
+            </svg>+998 99 485 9525</a></h6>
+
+                          </li>
+  
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+ 
+        
+    </div>
+-->
+
+
 <!-- Header Menu end-->
 
 <!-- Mobile menu -->

@@ -4,7 +4,6 @@
 
 @section('content')
 
-    @include('site.components.search')
 
     <!-- Line -->
     <hr class="new">
@@ -152,6 +151,7 @@
                 </div>
             </li>
 -->
+        </ul>
         <!-- <div class="uk-margin text-left">
             <div uk-grid class="uk-grid-magrin uk-grid-stack">
                 <div class="uk-width-1-1@m">
