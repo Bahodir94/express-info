@@ -170,11 +170,11 @@
                             <div class="inner_logo">
                                 <img src="{{ $company->getImage() }}" alt="">
                             </div>
-                            <ul class="dots">
+                            <!-- <ul class="dots">
                                 <li></li>
                                 <li></li>
                                 <li></li>
-                            </ul>
+                            </ul> -->
                         </div>
                         <div class="inner_tages">
                             <div class="title">
