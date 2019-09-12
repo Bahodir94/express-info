@@ -83,9 +83,7 @@
                 </ul>
                     <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" href="#offcanvas" uk-navbar-toggle-icon="" uk-toggle=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></a>
                     <div class="uk-navbar-item uk-visible@m">
-                        @if (!Request::is('catalog/search'))
-                            @include('site.components.search')
-                        @endif
+                        @include('site.components.search')
                        
                     </div>
 
@@ -231,9 +229,7 @@
             @endforeach
           
         </ul>
-        @if (!Request::is('catalog/search'))
-            @include('site.components.search')
-        @endif
+        @include('site.components.search')
         <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="https://yootheme.com/signup">Разместить рекламу</a>
         
         <hr class="uk-margin-medium">
