@@ -7,7 +7,7 @@
 
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-expand uk-container-center">
-        <form action="{{ route('site.catalog.search') }}"  class="uk-center vid-form">
+        <form action="{{ route('site.catalog.search') }}" method='post' class="uk-center vid-form">
             @csrf
             <div class="position">
                 <img src="{{ asset('assets/img/search (1).svg') }}" alt="">
