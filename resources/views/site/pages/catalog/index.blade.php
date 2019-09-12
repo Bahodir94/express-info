@@ -3,11 +3,6 @@
 @section('title', 'Каталог')
 
 @section('content')
-    @include('site.components.search')
-
-    <!-- Line -->
-    <hr class="new">
-    <!-- Line end -->
 
     <!-- Favorites Category -->
 <section class="uk-section-xsmall uk-padding-remove-vertical">

@@ -111,21 +111,26 @@ class CatalogController extends Controller
 
     /**
      * Seacrh companies or/and categories
-     * 
+     *
      * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request)
     {
-        if (!$request->has('query'))
-            return json_encode(['error' => 'No query string']);
         $query = $request->get('query');
-        $category = $this->categories->search($query, $findOne = true);
+	$category = $this->categories->search($query, $findOne = true);
         if ($category)
-            return json_encode(['companies' => $category->companies()->get()->toArray()]);
-        $categories = $this->categories->seacrh($query);
-        $companies = $this->companies->search($query);
-        return json_encode(['categories' => $categories->toArray(), 
-                            'companies' => $companies->toArray()]);
+	    return redirect()->route('site.catalog.category', $category->id);
+	$data = [];
+	$categories = $this->categories->search($query);
+	$companies = $this->companies->search($query);
+	if ($categories->count() > 0  and $companies->count() == 0)
+        foreach ($categories as $category)
+            $companies = $companies->merge($category->companies);
+	if ($companies->count() == 0 and $categories->count() == 1 and $categories[0]->hasCategories())
+        $companies = $categories[0]->getAllCompaniesFromDescendingCategories();
+	$data['categories'] = $categories;
+	$data['companies'] = $companies;
+        return view('site.pages.catalog.search', $data);
     }
 }
