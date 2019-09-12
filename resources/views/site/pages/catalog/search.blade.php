@@ -3,7 +3,19 @@
 @section('title', 'Результаты поиска')
 
 @section('content')
-    @include('site.components.search')
+    
+
+<section class="uk-section-xsmall">
+    <div class="uk-container uk-container-expand uk-container-center">
+        <form action="{{ route('site.catalog.search') }}"  class="uk-center vid-form">
+            @csrf
+            <div class="position">
+                <img src="{{ asset('assets/img/search (1).svg') }}" alt="">
+                <input type="text" name="query" placeholder="Поиск в TezInfo">
+            </div>
+        </form>
+    </div>
+</section>
 
     <!-- Line -->
     <hr class="new">

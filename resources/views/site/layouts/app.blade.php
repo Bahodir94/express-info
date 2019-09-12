@@ -7,9 +7,8 @@
     @yield('meta')
     <link rel="stylesheet" href="{{ asset('assets/css/uikit.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap&subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
     <title>
@@ -38,7 +37,7 @@
         <div class="uk-container uk-container-expand">
             <nav uk-navbar class="uk-navbar">
                 <div class="uk-navbar-left">
-                    <div class="uk-navbar-item  content-header-item uk-hidden@m">
+                    <div class="uk-navbar-item  content-header-item ">
                         <a class="link-effect font-w700" href="{{ route('home') }}">
                             <span class="icon">
                                 <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
@@ -51,10 +50,11 @@
                         <img src="/site/images/yootheme-logo.svg" width="134" height="30" alt="YOOtheme Logo" uk-svg="" hidden="true">
                     </a>
 -->
-                    <button type="button" class="menu-button uk-hidden@m" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
+
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav uk-visible@m">
+                        <!--class="uk-active"-->
                     <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
                     @foreach ($needs as $need)
                         <li class="uk-parent">
@@ -81,14 +81,7 @@
                         </li>
                     @endforeach
                 </ul>
-                    <div class="content-header-item uk-hidden@m">
-                        <a class="link-effect font-w700" href="{{ route('home') }}">
-                            <span class="icon">
-                                <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
-                            </span>
-                            <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
-                        </a>
-                    </div>
+                    <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" href="#offcanvas" uk-navbar-toggle-icon="" uk-toggle=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></a>
                     <div class="uk-navbar-item uk-visible@m">
                         @include('site.components.search')
                        
@@ -194,31 +187,64 @@
 <!-- Header Menu end-->
 
 <!-- Mobile menu -->
-<div id="offcanvas-slide" uk-offcanvas="overlay: true">
-    <div class="uk-offcanvas-bar">
-        <button class="uk-offcanvas-close" type="button" uk-close></button>
-        <ul class="uk-nav uk-nav-default" uk-nav>
+    
+<div id="offcanvas" uk-offcanvas="flip: true; overlay: true" class="uk-offcanvas vid-offcanvas" >
+    <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+        <div class="uk-margin-bottom content-header-item ">
+            <a class="link-effect font-w700" href="{{ route('home') }}">
+                <span class="icon">
+                    <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                </span>
+                <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
+            </a>
+<!--
+            <a class="uk-logo" href="{{ route('home') }}">
+                <img src="" width="134" height="30" alt="Project Logo" hidden="true">
+            </a>
+-->
+        </div>
+        
+
+        
+        <ul class="uk-margin-small-bottom uk-nav-primary uk-nav-parent-icon" uk-nav="multiple: true">
+            <!--class="uk-active"-->
             <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
             @foreach($needs as $need)
-                <li class="uk-parent">
-                    <a href="#">{{ $need->ru_title }}</a>
-                    <ul class="uk-nav-sub">
-                        @foreach ($need->menuItems as $menu)
-                            <li>
-                                <a href="#">{{ $menu->ru_title }}</a>
-                                <ul class="uk-nav-sub">
-                                    @foreach ($menu->categories as $category)
-                                        <li><a href="{{ route('site.catalog.category', $category->id) }}">{{ $category->getTitle() }}</a></li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
+            <li class="uk-parent">
+                <a href="#">{{ $need->ru_title }}</a>
+                <ul class="uk-nav-sub uk-nav-parent-icon" uk-nav="multiple: true">
+
+                    @foreach ($need->menuItems as $menu)
+                        <li class="uk-parent" >
+                            <a href="#">{{ $menu->ru_title }}</a>
+                            <ul class="uk-nav-sub">
+                                @foreach ($menu->categories as $category)
+                                    <li><a href="{{ route('site.catalog.category', $category->id) }}">{{ $category->getTitle() }}</a></li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @endforeach
+                </ul>
+            </li>
             @endforeach
+          
+        </ul>
+        @include('site.components.search')
+        <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="https://yootheme.com/signup">Разместить рекламу</a>
+        
+        <hr class="uk-margin-medium">
+        <h3 class="uk-h4 uk-margin-remove-top uk-margin-small-bottom">Documentation</h3>
+
+        <ul class="uk-nav uk-nav-default uk-margin-small-bottom">
+            <li><a href="https://yootheme.com/support/yootheme-pro">YOOtheme Pro</a></li>
+            <li><a href="https://yootheme.com/support/warp">Warp Themes</a></li>
+            <li><a href="https://yootheme.com/support/widgetkit">Widgetkit</a></li>
+            <li><a href="https://yootheme.com/support/zoo">ZOO</a></li>
         </ul>
     </div>
-</div>
+</div>    
+    
+
 <!-- Mobile menu end -->
 
 @yield('content')

@@ -1,7 +1,7 @@
 <!-- Search section -->
 
 
-<form action="{{ route('site.catalog.search') }}" method="post" class="uk-grid-small" uk-grid>
+<form action="{{ route('site.catalog.search') }}" method="post" class="uk-grid-collapse" uk-grid>
     <div class="">
         <div class="uk-inline">
             @csrf
@@ -10,21 +10,13 @@
 
         </div>
     </div>
-    <button class="uk-button uk-button-primary">Искать</button>
-</form>
-<!--
-
-
-<section class="uk-section-xsmall">
-    <div class="uk-container uk-container-expand uk-container-center">
-        <form action=""  class="uk-center">
-            
-            <div class="position">
-                <img src="{{ asset('assets/img/search (1).svg') }}" alt="">
-                <input type="text" name="query" placeholder="Поиск в TezInfo">
-            </div>
-        </form>
+     <div class="uk-visible@m" >
+        <button class="uk-button uk-button-primary ">Искать</button>
     </div>
-</section>
--->
+    <div class="uk-width-1-1 uk-hidden@m" >
+        <button class="uk-button uk-button-primary uk-width-1-1@m">Искать</button>
+    </div>
+
+</form>
+
 <!-- Search section end -->

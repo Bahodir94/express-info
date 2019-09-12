@@ -1,4 +1,9 @@
-*{margin: 0; padding: 0; font-family: 'Open Sans'; }
+*{
+    margin: 0; 
+    padding: 0;
+    font-family: 'montserrat','Roboto',sans-serif ; 
+}
+
 body{
     margin: 0;
     background: #F8F9FB;
@@ -38,7 +43,6 @@ header{
     color: #546678;
     font-size: 15px;
     text-transform: capitalize;
-    font-family: 'montserrat';
     font-weight: 600;
     padding: 0;
 }
@@ -54,14 +58,12 @@ header{
 .rig a{
     color: black;
     font-size: 12px;
-    font-family: 'montserrat';
     font-weight: 600;
     text-decoration: none;
 }
 .rig .autprization{
     color: black;
     font-size: 12px;
-    font-family: 'montserrat';
     font-weight: 600;
     display: block;
     display: flex;
@@ -99,7 +101,6 @@ header{
     font-size: 12px;
     text-align: center;
     padding-left: 10px;
-    font-family: 'Open Sans';
     font-weight: 600;
     color: black;
     text-transform: uppercase;
@@ -212,8 +213,7 @@ header{
     background: #fff;
     z-index: 981;
 }
-/*
-form{
+form.vid-form{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -221,36 +221,33 @@ form{
     margin-bottom: 43px !important;
     margin: 10px 0 !important;
 }
-form .position{
+form.vid-form .position{
     display: flex;
     align-items: center;
     justify-content: center;
 }
-form .position img{
+form.vid-form .position img{
     font-size: 23px;
     color: black;
     margin-right: 12px;
 }
-form input{
+form.vid-form input{
     color: black;
     width: 310px;
     border: none;
     font-size: 37px;
     font-weight: 400;
-    font-family: 'montserrat';
     background: #F8F9FB;
 }
-form input:focus{
+form.vid-form input:focus{
     border: none;
     outline: none;
 }
-form input::placeholder{
+form.vid-form input::placeholder{
     color: #707070;
     font-size: 37px;
     font-weight: 400;
-    font-family: 'montserrat';
 }
-*/
 /* Search  end*/
 
 /* Aauto Slider */
@@ -293,7 +290,7 @@ form input::placeholder{
     font-size: 15px;
     text-align: center;
     padding-left: 15px;
-    font-family: 'Open Sans';
+
     font-weight: 600;
     color: black;
     margin: 0;
@@ -410,7 +407,6 @@ footer .footer_info .soc{
     margin-top: 15px;
 }
 footer{
-    font-family: 'Lato';
     font-weight: 400;
     font-size: 16px;
     color: #FFFFFF;
@@ -813,7 +809,6 @@ footer .uk-container:after, .uk-container:before{
 .title h2 a{
     text-decoration: none;
     font-size: 20px;
-    font-family: 'montserrat';
     font-weight: 500;
     color: #060606;
 }
@@ -831,7 +826,6 @@ footer .uk-container:after, .uk-container:before{
 .inner_tages .tags ol li{
     margin-left: 20px;
     color: #B5B5B5;
-    font-family: 'montserrat';
     font-size: 11px;
 }
 .inner .hr{
@@ -984,7 +978,6 @@ footer .uk-container:after, .uk-container:before{
     margin-right: 15px;
     margin-left: 15px;
     font-size: 14px;
-    font-family: 'montserrat';
     color: black;
     font-weight: 500;
     text-decoration: none;
@@ -1130,14 +1123,12 @@ footer .uk-container:after, .uk-container:before{
 .price_card   .price p{
     font-size:14px;
     font-weight: 700;
-    font-family: 'montserrat'; 
     color: #4F9C34;
     margin: 0;
 }
 .price_card   .price span{
     font-size: 10px;
     font-weight: 700;
-    font-family: 'montserrat'; 
 }
 .price_card   .price ul{
     display: flex;
@@ -1148,7 +1139,7 @@ footer .uk-container:after, .uk-container:before{
 .price_tags .title span{
     font-size: 8px;
     font-weight: 600;
-    font-family: 'montserrat'; 
+
     color: #6F6F6F;
 }
 .price_card .price_wrapper{
@@ -1160,14 +1151,12 @@ footer .uk-container:after, .uk-container:before{
 .price_card .title h2 a{
     font-size: 18px;
     font-weight: 500;
-    font-family: 'montserrat';
     color: #060606;
 }
 .description p{
     font-size: 12px;
     font-weight: 500;
     line-height: 15px;
-    font-family: 'montserrat';
     color: #707070;
 }
 .code-dropdown{
@@ -1193,7 +1182,7 @@ footer .uk-container:after, .uk-container:before{
 .uk-nav li a{
     font-size: 12px;
     font-weight: 400;
-    font-family: "Open Sans";
+
     color: #102840;
     opacity: 0.7;
     transition: all 0.3s;
@@ -1245,11 +1234,48 @@ footer .uk-container:after, .uk-container:before{
 /* .uk-offcanvas-bar{
     background: white;
 } */
-.uk-offcanvas-bar li a{
-    font-size: 15px;
-    text-transform: capitalize;
-    font-family: 'montserrat';
-    font-weight: 600;
+
+.uk-nav-parent-icon>.uk-parent>a::after {
+background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23666%22%20stroke-width%3D%221.1%22%20points%3D%2210%201%204%207%2010%2013%22%20%2F%3E%0A%3C%2Fsvg%3E")!important ;
+}
+.uk-nav-parent-icon>.uk-parent.uk-open>a::after{
+background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23666%22%20stroke-width%3D%221.1%22%20points%3D%221%204%207%2010%2013%204%22%20%2F%3E%0A%3C%2Fsvg%3E")!important;
+}
+.vid-offcanvas .uk-offcanvas-bar .uk-form-icon{
+    color: #999!important;
+}
+.vid-offcanvas .uk-offcanvas-bar .uk-input{
+    background: #fff;
+    color: #777;
+    background-clip: padding-box;
+    border-color: rgba(255,255,255,.2);
+    border: 1px solid #e5e5e5;
+}
+.vid-offcanvas .uk-offcanvas-bar .uk-input:focus{
+    border-color: #1e87f0;
+    color: #666;
+}
+.vid-offcanvas.uk-offcanvas-overlay::before {
+    background: rgba(0,0,0,0.7);
+}
+.vid-offcanvas .uk-offcanvas-bar .uk-button-primary {
+    background-color: #1e87f0;
+    color: #fff;
+    border: 1px solid transparent;
+}
+.vid-offcanvas .uk-offcanvas-bar {
+    width: 300px;
+    padding: 30px 30px;
+    background: #fff;
+}
+.vid-offcanvas .uk-offcanvas-bar li a{
+    font-size: 18.5px;
+    line-height: 1.6;
+    color: #999 !important;
+    padding: 3px 0;
+}
+.vid-offcanvas .uk-offcanvas-bar h3.uk-h4{
+    color: #999;
 }
 .uk-parent .uk-open{
     background: white;
