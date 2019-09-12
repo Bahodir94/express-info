@@ -165,7 +165,6 @@
             <div class="uk-grid uk-grid-match uk-grid-medium  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-4@l">
             @foreach($companies as $company)
                 <div  class="uk-container-center">
-                <a href="{{ route('site.catalog.company', $company->id) }}" class="innerlink">
                     <div class="inner">
                         <div class="header_logo">
                             <div class="inner_logo">
@@ -200,7 +199,6 @@
                             </ul>
                         </div>
                     </div>
-                </a>
                 </div>
             @endforeach
         </div>
