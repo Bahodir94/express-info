@@ -22,16 +22,23 @@
     <script src="{{ asset('assets/js/script.js') }}"></script>
 </head>
 <body>
+
   
     
 <!-- Header Menu -->               
+
+
+   
+
+
+    
 <div uk-sticky="media: 960; show-on-up: true; animation: uk-animation-slide-top; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;" class="uk-sticky" style="">
     <div class="uk-navbar-container">
         <div class="uk-container uk-container-expand">
             <nav uk-navbar class="uk-navbar">
                 <div class="uk-navbar-left">
                     <div class="uk-navbar-item  content-header-item ">
-                        <a class="link-effect font-w700" href="{{ route('home') }}">
+                        <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                             <span class="icon">
                                 <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                             </span>
@@ -39,7 +46,7 @@
                         </a>
                     </div>
 <!--
-                    <a class="uk-navbar-item uk-logo " href="{{ route('home') }}">
+                    <a class="uk-navbar-item uk-logo " href="{{ route('site.catalog.index') }}">
                         <img src="/site/images/yootheme-logo.svg" width="134" height="30" alt="YOOtheme Logo" uk-svg="" hidden="true">
                     </a>
 -->
@@ -74,27 +81,12 @@
                         </li>
                     @endforeach
                 </ul>
-<<<<<<< HEAD
-            </div>
-            <button type="button" class="menu-button uk-hidden@m" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
-
-            <div class="content-header-item uk-hidden@m">
-                <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
-                    <span class="icon">
-                        <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
-                    </span>
-                    <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
-                </a>
-            </div>
-            <!-- <a href="#" class="uk-navbar-brend uk-navbar-center uk-hidden-large  uk-hidden-small"><img src="images/Image 19.svg" alt=""></a> -->
-=======
                     <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" href="#offcanvas" uk-navbar-toggle-icon="" uk-toggle=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></a>
                     <div class="uk-navbar-item uk-visible@m">
                         @include('site.components.search')
                        
                     </div>
 
->>>>>>> 2b36701dbaeb3e87aa5a06067f3b29cf027b6982
 
 
 <!--
@@ -199,14 +191,14 @@
 <div id="offcanvas" uk-offcanvas="flip: true; overlay: true" class="uk-offcanvas vid-offcanvas" >
     <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
         <div class="uk-margin-bottom content-header-item ">
-            <a class="link-effect font-w700" href="{{ route('home') }}">
+            <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                 <span class="icon">
                     <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                 </span>
                 <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
             </a>
 <!--
-            <a class="uk-logo" href="{{ route('home') }}">
+            <a class="uk-logo" href="{{ route('site.catalog.index') }}">
                 <img src="" width="134" height="30" alt="Project Logo" hidden="true">
             </a>
 -->
