@@ -29,7 +29,7 @@
     <div class="uk-container uk-container-expand uk-container-center">
         <nav class="uk-navbar">
             <div class="content-header-item uk-visible@m">
-                <a class="link-effect font-w700" href="{{ route('home') }}">
+                <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                     <span class="icon">
                         <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                     </span>
@@ -68,7 +68,7 @@
             <button type="button" class="menu-button uk-hidden@m" uk-toggle="target: #offcanvas-slide" ><i class="fa fa-bars"></i></button>
 
             <div class="content-header-item uk-hidden@m">
-                <a class="link-effect font-w700" href="{{ route('home') }}">
+                <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                     <span class="icon">
                         <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                     </span>
