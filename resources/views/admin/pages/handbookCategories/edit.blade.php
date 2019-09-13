@@ -137,6 +137,25 @@
                         <span class="css-control-indicator"></span>Избранное (отобразиться на главной)
                     </label>
                 </div>
+                <h3 class="font-size-h3 font-w600 my-20">SEO</h3>
+                <div class="form-group">
+                    <div class="form-material floating form-material-primary">
+                        <input type="text" name="meta_title" id="meta_title" value="{{ $category->meta_title }}" class="form-control">
+                        <label for="meta_title">Мета тег title</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating form-material-primary">
+                        <input type="text" name="meta_description" id="meta_description" value="{{ $category->meta_description }}" class="form-control">
+                        <label for="meta_description">Мета тег description</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating form-material-primary">
+                        <input type="text" name="meta_keywords" id="meta_keywords" value="{{ $category->meta_keywords }}" class="form-control">
+                        <label for="meta_keywords">Мета тег keywords</label>
+                    </div>
+                </div>
             </div>
             <div class="block-content">
                 <div class="block-content text-right pb-10">
