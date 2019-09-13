@@ -2,6 +2,14 @@
 
 @section('title', $company->getTitle())
 
+@section('meta')
+
+    <meta name="title" content="{{ $company->meta_title }}">
+    <meta name="description" content="{{ $company->meta_description }}">
+    <meta name="keywords" content="{{ $company->meta_keywords }}">
+
+@endsection
+
 @section('content')
     <!-- Banner -->
     <div class="banner" style="background-image: url({{ asset('assets/img/a3e020abb83a5d95bbdce5ef77dff132.png') }})">

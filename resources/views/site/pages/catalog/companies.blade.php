@@ -2,6 +2,14 @@
 
 @section('title', $category->getTitle())
 
+@section('meta')
+
+    <meta name="title" content="{{ $category->meta_title }}">
+    <meta name="description" content="{{ $category->meta_description }}">
+    <meta name="keywords" content="{{ $category->meta_keywords }}">
+
+@endsection
+
 @section('content')
 
 
