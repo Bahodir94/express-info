@@ -102,7 +102,7 @@
 
 </head>
 <body>
-@include('site.layouts.partials.oldheader')
+@include('site.layouts.partials.old.header')
 
 <!-- Main Container -->
 <main class="main_container">
@@ -112,7 +112,7 @@
 </main>
 <!-- END Main Container -->
 
-@include('site.layouts.partials.oldfooter')
+@include('site.layouts.partials.old.footer')
 
 <!-- Codebase Core JS -->
 <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
