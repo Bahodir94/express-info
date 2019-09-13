@@ -8,10 +8,9 @@
 
 Route::middleware('needsList')->name('site.')->namespace('Site')->group(function() {
     // Catalog routes
-    Route::get('/catalog', 'CatalogController@index')->name('catalog.index');
-    Route::get('/catalog/category/{id}', 'CatalogController@category')->name('catalog.category');
-    Route::get('/catalog/company/{id}', 'CatalogController@company')->name('catalog.company');
-    Route::post('/catalog/search', 'CatalogController@search')->name('catalog.search');
+    Route::get('/', 'CatalogController@index')->name('catalog.index');
+    Route::get('/category/{id}', 'CatalogController@category')->name('catalog.category');
+    Route::get('/company/{id}', 'CatalogController@company')->name('catalog.company');
 });
 
 

@@ -18,11 +18,11 @@ class CguSite extends Model
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function parentCategory()
     {
-        return $this->belongsTo(CguCategory::class, 'id', 'id', 'category_id');
+        return $this->hasOne(CguCategory::class, 'id', 'category_id');
     }
 
     /**

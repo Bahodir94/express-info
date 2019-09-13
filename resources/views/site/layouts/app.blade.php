@@ -38,7 +38,7 @@
             <nav uk-navbar class="uk-navbar">
                 <div class="uk-navbar-left">
                     <div class="uk-navbar-item  content-header-item ">
-                        <a class="link-effect font-w700" href="{{ route('home') }}">
+                        <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                             <span class="icon">
                                 <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                             </span>
@@ -46,7 +46,7 @@
                         </a>
                     </div>
 <!--
-                    <a class="uk-navbar-item uk-logo " href="{{ route('home') }}">
+                    <a class="uk-navbar-item uk-logo " href="{{ route('site.catalog.index') }}">
                         <img src="/site/images/yootheme-logo.svg" width="134" height="30" alt="YOOtheme Logo" uk-svg="" hidden="true">
                     </a>
 -->
@@ -191,14 +191,14 @@
 <div id="offcanvas" uk-offcanvas="flip: true; overlay: true" class="uk-offcanvas vid-offcanvas" >
     <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
         <div class="uk-margin-bottom content-header-item ">
-            <a class="link-effect font-w700" href="{{ route('home') }}">
+            <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                 <span class="icon">
                     <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                 </span>
                 <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
             </a>
 <!--
-            <a class="uk-logo" href="{{ route('home') }}">
+            <a class="uk-logo" href="{{ route('site.catalog.index') }}">
                 <img src="" width="134" height="30" alt="Project Logo" hidden="true">
             </a>
 -->
