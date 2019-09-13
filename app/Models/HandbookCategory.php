@@ -12,7 +12,8 @@ class HandbookCategory extends Model
     use Image;
 
     protected $fillable = [
-        'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id'
+        'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id',
+        'meta_title', 'meta_description', 'meta_keywords'
     ];
 
     const UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
