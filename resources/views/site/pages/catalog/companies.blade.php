@@ -5,10 +5,6 @@
 @section('content')
 
 
-    <!-- Line -->
-    <hr class="new">
-    <!-- Line end -->
-
     <!-- Search settings -->
 
 <!-- <div class="my-container">

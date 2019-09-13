@@ -118,19 +118,19 @@ class CatalogController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('query');
-	$category = $this->categories->search($query, $findOne = true);
-        if ($category)
-	    return redirect()->route('site.catalog.category', $category->id);
-	$data = [];
-	$categories = $this->categories->search($query);
-	$companies = $this->companies->search($query);
-	if ($categories->count() > 0  and $companies->count() == 0)
-        foreach ($categories as $category)
-            $companies = $companies->merge($category->companies);
-	if ($companies->count() == 0 and $categories->count() == 1 and $categories[0]->hasCategories())
-        $companies = $categories[0]->getAllCompaniesFromDescendingCategories();
-	$data['categories'] = $categories;
-	$data['companies'] = $companies;
+	    $category = $this->categories->search($query, $findOne = true);
+	    if ($category)
+	        return redirect()->route('site.catalog.category', $category->id);
+	    $data = [];
+	    $categories = $this->categories->search($query);
+	    $companies = $this->companies->search($query);
+	    if ($categories->count() > 0  and $companies->count() == 0)
+            foreach ($categories as $category)
+                $companies = $companies->merge($category->companies);
+	    if ($companies->count() == 0 and $categories->count() == 1 and $categories[0]->hasCategories())
+            $companies = $categories[0]->getAllCompaniesFromDescendingCategories();
+	    $data['categories'] = $categories;
+	    $data['companies'] = $companies;
         return view('site.pages.catalog.search', $data);
     }
 }
