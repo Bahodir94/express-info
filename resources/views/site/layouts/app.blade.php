@@ -410,7 +410,7 @@
               
             <img width="80" class="el-image uk-text-muted" alt="" uk-svg="" uk-img="" src="" hidden="true">
                 <div class="uk-text-muted content-header-item ">
-                    <a class="link-effect font-w700" href="{{ route('home') }}">
+                    <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                         <span class="icon">
                             <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                         </span>
