@@ -200,6 +200,25 @@
                         <label for="geolocation">Геолокация</label>
                     </div>
                 </div>
+                <h3 class="font-size-h3 font-w600 my-20">SEO</h3>
+                <div class="form-group">
+                    <div class="form-material floating form-material-primary">
+                        <input type="text" name="meta_title" id="meta_title" value="{{ $company->meta_title }}" class="form-control">
+                        <label for="meta_title">Мета тег title</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating form-material-primary">
+                        <input type="text" name="meta_description" id="meta_description" value="{{ $company->meta_description }}" class="form-control">
+                        <label for="meta_description">Мета тег description</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating form-material-primary">
+                        <input type="text" name="meta_keywords" id="meta_keywords" value="{{ $company->meta_keywords }}" class="form-control">
+                        <label for="meta_keywords">Мета тег keywords</label>
+                    </div>
+                </div>
             </div>
             <div class="block-content mb-10">
                 <div class="block-content text-right pb-10">

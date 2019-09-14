@@ -1,6 +1,20 @@
 @extends('site.layouts.app')
 
-@section('title', $company->getTitle())
+@section('title')
+    @if(empty($company->meta_title))
+        {{ $company->getTitle() }}
+    @else
+        {{ $company->meta_title }}
+    @endif
+@endsection
+
+@section('meta')
+
+    <meta name="title" content="{{ $company->meta_title }}">
+    <meta name="description" content="{{ $company->meta_description }}">
+    <meta name="keywords" content="{{ $company->meta_keywords }}">
+
+@endsection
 
 @section('content')
     <!-- Banner -->
