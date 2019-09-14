@@ -63,20 +63,13 @@ class MigrateCguToHandbook extends Command
                     $this->error("Site $site not found!");
                     continue;
                 }
-                $newCompany = Company::create([
-                    'ru_title' => $cguSite->ru_title,
-                    'ru_description' => $cguSite->ru_description,
-                    'url' => $cguSite->link,
-                    'category_id' => $categoryId
-                ]);
-                if ($cguSite->image) {
-                    try {
-                        File::copy($siteDirectory . $cguSite->image, $companyDirectory . $cguSite->image);
-                    } catch(\Exception $e) {
-                        $this->error("Error: $e");
-                    }
+                $company = Company::where('ru_title', 'like', "%$site%");
+                if (!$company) {
+                    $this->error("Company $site not found!");
+                    continue;
                 }
-                $this->info('Done!');
+                $company->image = $cguSite->image;
+                $company->save();
             }
         }
     }
