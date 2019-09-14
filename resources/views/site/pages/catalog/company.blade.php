@@ -1,6 +1,12 @@
 @extends('site.layouts.app')
 
-@section('title', $company->getTitle())
+@section('title')
+    @if(empty($company->meta_title))
+        {{ $company->getTitle() }}
+    @else
+        {{ $company->meta_title }}
+    @endif
+@endsection
 
 @section('meta')
 
