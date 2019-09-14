@@ -133,7 +133,11 @@ class CompanyRepository implements CompanyRepositoryInterface
     }
 
     private static function generateSlug(Company $company) {
-        $company->ru_slug = Str::slug($company->ru_title);
+        $slug = Str::slug($company->ru_title);
+        $existCount = Company::where('ru_slug', $slug)->count();
+        if ($existCount > 0)
+            $slug .= "-$existCount";
+        $company->ru_slug = $slug;
         $company->save();
     }
 }

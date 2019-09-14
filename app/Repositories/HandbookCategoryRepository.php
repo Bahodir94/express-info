@@ -170,7 +170,11 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
     }
 
     private static function generateSlug(HandbookCategory $category) {
-        $category->ru_slug = Str::slug($category->ru_title);
+        $slug = Str::slug($category->ru_title);
+        $existCount = HandbookCategory::where('ru_slug', $slug)->count();
+        if ($existCount > 0)
+            $slug .= "-$existCount";
+        $category->ru_slug = $slug;
         $category->save();
     }
 }

@@ -85,7 +85,11 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
 
     private static function generateSlug(NeedType $needType)
     {
-        $needType->ru_slug = Str::slug($needType->ru_title);
+        $slug = Str::slug($needType->ru_title);
+        $existCount = NeedType::where('ru_slug', $slug);
+        if ($existCount > 0)
+            $slug .= "-$existCount";
+        $needType->ru_slug = $slug;
         $needType->save();
     }
 }
