@@ -66,12 +66,19 @@ class CatalogController extends Controller
      * Show concrete category
      *
      * @param Request $request
-     * @param int $id
+     * @param string $slug
      * @return \Illuminate\Http\Response
     */
-    public function category(Request $request, int $id)
+    public function category(Request $request, string $slug)
     {
-        $category = $this->categories->get($id);
+        if (is_numeric($slug))
+        {
+            $id = intval($slug);
+            $category = $this->categories->get($id);
+            return redirect()->route('site.catalog.category', $category->ru_slug);
+        }
+
+        $category = $this->categories->getBySlug($slug);
         $descendantsCategories = $category->descendants;
         $companies = collect();
         $resultCompanies = [];
@@ -99,12 +106,19 @@ class CatalogController extends Controller
     /**
      * Show company page
      *
-     * @param int $id
+     * @param string $slug
      * @return \Illuminate\Http\Response
     */
-    public function company(int $id)
+    public function company(string $slug)
     {
-        $company = $this->companies->get($id);
+        if (is_numeric($slug))
+        {
+            $id = intval($slug);
+            $company = $this->companies->get($id);
+            return redirect()->route('site.catalog.company', $company->ru_slug);
+        }
+
+        $company = $this->companies->getBySlug($slug);
 
         return view('site.pages.catalog.company', compact('company'));
     }
