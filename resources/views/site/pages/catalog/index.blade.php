@@ -15,7 +15,7 @@
                 @foreach ($favoritesCategories as $category)
                     <li class="slide">
                         <div class="card">
-                            <a href="{{ route('site.catalog.category', $category->id) }}">
+                            <a href="{{ route('site.catalog.category', $category->ru_slug) }}">
                                 
                             <div class="card_img">
                                 <img src="{{ $category->getImage() }}" alt="">
@@ -57,10 +57,10 @@
                             </div>
                         </div>
                         <div class="item_text">
-                            <h2><a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a></h2>
+                            <h2><a href="{{ route('site.catalog.category', $category->ru_slug) }}">{!! $category->ru_title !!}</a></h2>
                             <p>
                                 @foreach ($category->categories()->limit(5)->get() as $child)
-                                    <a href="{{ route('site.catalog.category', $child->id) }}">{!! $child->ru_title !!},</a>
+                                    <a href="{{ route('site.catalog.category', $child->ru_slug) }}">{!! $child->ru_title !!},</a>
                                 @endforeach
                             </p>
                         </div>

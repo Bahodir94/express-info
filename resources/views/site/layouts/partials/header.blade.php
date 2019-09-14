@@ -43,7 +43,7 @@
                                                     </div>
                                                     @foreach ($menu->categories as $category)
                                                         <li>
-                                                            <a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a>
+                                                            <a href="{{ route('site.catalog.category', $category->ru_slug) }}">{!! $category->ru_title !!}</a>
                                                         </li>
                                                     @endforeach
                                                 </ul>

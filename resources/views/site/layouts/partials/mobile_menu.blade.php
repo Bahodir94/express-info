@@ -28,7 +28,7 @@
                                 <a href="#">{{ $menu->ru_title }}</a>
                                 <ul class="uk-nav-sub">
                                     @foreach ($menu->categories as $category)
-                                        <li><a href="{{ route('site.catalog.category', $category->id) }}">{{ $category->getTitle() }}</a></li>
+                                        <li><a href="{{ route('site.catalog.category', $category->ru_slug) }}">{{ $category->getTitle() }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>

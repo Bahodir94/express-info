@@ -75,7 +75,7 @@
                             @foreach($category->services as $service)
                                 @if ($service->companies()->count() > 0)
                                     <li>
-                                        <a href="{{ route('site.catalog.category', [$category->id, 'service' => $service->id]) }}">{{ $service->ru_title }}</a>
+                                        <a href="{{ route('site.catalog.category', [$category->ru_slug, 'service' => $service->id]) }}">{{ $service->ru_title }}</a>
                                     </li>
                                 @endif
                             @endforeach
@@ -114,7 +114,7 @@
                         <div class="plus_img">
                             <img src="{{ $child->getImage() }}" alt="">
                         </div>
-                        <a href="{{ route('site.catalog.category', $child->id) }}">
+                        <a href="{{ route('site.catalog.category', $child->ru_slug) }}">
                             <p>{{ $child->ru_title }} <span>({{ $child->getAllCompaniesCount() }})</span></p>
                         </a>
                     </div>
@@ -134,7 +134,7 @@
             @foreach($category->categories as $child)
                 <li>
                 
-                        <a href="{{ route('site.catalog.category', $child->id) }}">
+                        <a href="{{ route('site.catalog.category', $child->ru_slug) }}">
                             <div class="uk-flex uk-flex-middle">
                                 <span><img src="{{ $child->getImage() }}" alt=""></span>
                                 <span>{{ $child->ru_title }} </span>
@@ -188,7 +188,7 @@
                         </div>
                         <div class="inner_tages">
                             <div class="title">
-                                <h2><a href="{{ route('site.catalog.company', $company->id) }}">{{ $company->ru_title }}</a></h2>
+                                <h2><a href="{{ route('site.catalog.company', $company->ru_slug) }}">{{ $company->ru_title }}</a></h2>
                             </div>
                             @if ($company->hasAdvantages())
                                 <div class="tags">
