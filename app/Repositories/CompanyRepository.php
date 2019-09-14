@@ -113,4 +113,17 @@ class CompanyRepository implements CompanyRepositoryInterface
         else
             return $queryResult->get();
     }
+
+    /**
+     * Get company by slug
+     *
+     * @param string $slug
+     * @return Company
+     */
+    public function getBySlug(string $slug)
+    {
+        $company = Company::where('ru_slug', $slug)->first();
+        abort_if($company, 404);
+        return $company;
+    }
 }

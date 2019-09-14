@@ -150,4 +150,17 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
         else
             return HandbookCategory::where('ru_title', 'like', "%$query%")->get();
     }
+
+    /**
+     * Get category by slug
+     *
+     * @param string $slug
+     * @return \App\Models\HandbookCategory
+     */
+    public function getBySlug(string $slug)
+    {
+        $category = HandbookCategory::where('ru_slug', $slug)->first();
+        abort_if(!$category, 404);
+        return $category;
+    }
 }

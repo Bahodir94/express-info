@@ -25,6 +25,14 @@ interface CompanyRepositoryInterface
     public function get(int $handbookId);
 
     /**
+     * Get company by slug
+     *
+     * @param string $slug
+     * @return Company
+    */
+    public function getBySlug(string $slug);
+
+    /**
      * Create a handbook
      *
      * @param \Illuminate\Http\Request $handbookData

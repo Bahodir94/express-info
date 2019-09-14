@@ -63,4 +63,17 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
     {
         NeedType::destroy($id);
     }
+
+    /**
+     * Get type of needs by slug
+     *
+     * @param string $slug
+     * @return NeedType
+     */
+    public function getBySlug(string $slug)
+    {
+        $needType = NeedType::where('ru_slug', $slug)->first();
+        abort_if(!$needType, 404);
+        return $needType;
+    }
 }
