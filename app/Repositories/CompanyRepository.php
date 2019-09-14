@@ -128,7 +128,7 @@ class CompanyRepository implements CompanyRepositoryInterface
     public function getBySlug(string $slug)
     {
         $company = Company::where('ru_slug', $slug)->first();
-        abort_if($company, 404);
+        abort_if(!$company, 404);
         return $company;
     }
 }
