@@ -58,7 +58,7 @@ class MigrateCguToHandbook extends Command
         foreach ($sites as $categoryId => $sites) {
             foreach ($sites as $site) {
                 $this->info("Migrating $site to category $categoryId");
-                $cguSite = CguSite::where('ru_title', 'like', "%$site%");
+                $cguSite = CguSite::where('ru_title', 'like', "%$site%")->first();
                 if (!$cguSite) {
                     $this->error("Site $site not found!");
                     continue;
