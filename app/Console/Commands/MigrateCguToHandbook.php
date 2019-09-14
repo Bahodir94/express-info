@@ -63,7 +63,7 @@ class MigrateCguToHandbook extends Command
                     $this->error("Site $site not found!");
                     continue;
                 }
-                $company = Company::where('ru_title', 'like', "%$site%");
+                $company = Company::where('ru_title', 'like', "%$site%")->first();
                 if (!$company) {
                     $this->error("Company $site not found!");
                     continue;
