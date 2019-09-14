@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\HandbookCategory;
+use Illuminate\Support\Str;
 
 
 class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
@@ -66,6 +67,8 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
     {
         $category = $this->get($categoryId);
         $category->update($categoryData->all());
+        if (empty($categoryData->get('ru_slug')))
+            self::generateSlug($category);
         if ($categoryData->has('favorite'))
             $category->favorite = true;
         else
@@ -89,6 +92,8 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
         else
             $category->favorite = false;
         $category->save();
+        if (empty($categoryData->get('ru_slug')))
+            self::generateSlug($category);
         $category->uploadImage($categoryData->file('image'));
 
         $parentId = $categoryData->get('parent_id');
@@ -162,5 +167,10 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
         $category = HandbookCategory::where('ru_slug', $slug)->first();
         abort_if(!$category, 404);
         return $category;
+    }
+
+    private static function generateSlug(HandbookCategory $category) {
+        $category->ru_slug = Str::slug($category->ru_title);
+        $category->save();
     }
 }

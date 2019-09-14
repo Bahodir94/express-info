@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Models\NeedType;
+use Illuminate\Support\Str;
 
 class NeedTypeRepository implements NeedTypeRepositoryInterface
 {
@@ -38,7 +39,9 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
      */
     public function create($needTypeData)
     {
-        NeedType::create($needTypeData->all());
+        $needType = NeedType::create($needTypeData->all());
+        if (empty($needType->ru_slug))
+            self::generateSlug($needType);
     }
 
     /**
@@ -50,7 +53,10 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
      */
     public function update($id, $needTypeData)
     {
-        $this->get($id)->update($needTypeData->all());
+        $needType = $this->get($id);
+        $needType->update($needTypeData->all());
+        if (empty($needType->ru_slug))
+            self::generateSlug($needType);
     }
 
     /**
@@ -75,5 +81,11 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
         $needType = NeedType::where('ru_slug', $slug)->first();
         abort_if(!$needType, 404);
         return $needType;
+    }
+
+    private static function generateSlug(NeedType $needType)
+    {
+        $needType->ru_slug = Str::slug($needType->ru_title);
+        $needType->save();
     }
 }

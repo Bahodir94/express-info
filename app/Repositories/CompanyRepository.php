@@ -7,6 +7,7 @@ namespace App\Repositories;
 use App\Models\Company;
 use App\Models\NeedType;
 use App\Models\Service;
+use Illuminate\Support\Str;
 
 class CompanyRepository implements CompanyRepositoryInterface
 {
@@ -45,6 +46,8 @@ class CompanyRepository implements CompanyRepositoryInterface
     public function create($companyData)
     {
         $company = Company::create($companyData->all());
+        if (empty($companyData->get('ru_slug')))
+            self::generateSlug($company);
         $company->uploadImage($companyData->file('image'));
         $services = $companyData->get('services');
         $company->services()->attach($services);
@@ -62,6 +65,8 @@ class CompanyRepository implements CompanyRepositoryInterface
     {
         $company = $this->get($companyId);
         $company->update($companyData->all());
+        if (empty($companyData->get('ru_slug')))
+            self::generateSlug($company);
         $company->uploadImage($companyData->file('image'));
         $company->services()->detach();
         $services = $companyData->get('services');
@@ -125,5 +130,10 @@ class CompanyRepository implements CompanyRepositoryInterface
         $company = Company::where('ru_slug', $slug)->first();
         abort_if($company, 404);
         return $company;
+    }
+
+    private static function generateSlug(Company $company) {
+        $company->ru_slug = Str::slug($company->ru_title);
+        $company->save();
     }
 }
