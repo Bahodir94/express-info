@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Components\Slug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -10,6 +11,8 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class Company extends Model
 {
+    use Slug;
+
     protected $fillable = [
         'ru_title', 'uz_title', 'en_title',
         'ru_description', 'uz_description', 'en_description',

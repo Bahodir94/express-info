@@ -68,7 +68,7 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
         $category = $this->get($categoryId);
         $category->update($categoryData->all());
         if (empty($categoryData->get('ru_slug')))
-            self::generateSlug($category);
+            $category->generateSlug();
         if ($categoryData->has('favorite'))
             $category->favorite = true;
         else
@@ -93,7 +93,7 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
             $category->favorite = false;
         $category->save();
         if (empty($categoryData->get('ru_slug')))
-            self::generateSlug($category);
+            $category->generateSlug();
         $category->uploadImage($categoryData->file('image'));
 
         $parentId = $categoryData->get('parent_id');
@@ -167,14 +167,5 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
         $category = HandbookCategory::where('ru_slug', $slug)->first();
         abort_if(!$category, 404);
         return $category;
-    }
-
-    private static function generateSlug(HandbookCategory $category) {
-        $slug = Str::slug($category->ru_title);
-        $existCount = HandbookCategory::where('ru_slug', $slug)->count();
-        if ($existCount > 0)
-            $slug .= "-$existCount";
-        $category->ru_slug = $slug;
-        $category->save();
     }
 }

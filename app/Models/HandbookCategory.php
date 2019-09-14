@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Components\Image;
+use App\Models\Components\Slug;
 use Illuminate\Database\Eloquent\Model;
 use Kalnoy\Nestedset\NodeTrait;
 
@@ -10,6 +11,7 @@ class HandbookCategory extends Model
 {
     use NodeTrait;
     use Image;
+    use Slug;
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id',

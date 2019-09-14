@@ -41,7 +41,7 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
     {
         $needType = NeedType::create($needTypeData->all());
         if (empty($needType->ru_slug))
-            self::generateSlug($needType);
+            $needType->generateSlug();
     }
 
     /**
@@ -56,7 +56,7 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
         $needType = $this->get($id);
         $needType->update($needTypeData->all());
         if (empty($needType->ru_slug))
-            self::generateSlug($needType);
+            $needType->generateSlug();
     }
 
     /**
@@ -81,15 +81,5 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
         $needType = NeedType::where('ru_slug', $slug)->first();
         abort_if(!$needType, 404);
         return $needType;
-    }
-
-    private static function generateSlug(NeedType $needType)
-    {
-        $slug = Str::slug($needType->ru_title);
-        $existCount = NeedType::where('ru_slug', $slug);
-        if ($existCount > 0)
-            $slug .= "-$existCount";
-        $needType->ru_slug = $slug;
-        $needType->save();
     }
 }

@@ -47,7 +47,7 @@ class CompanyRepository implements CompanyRepositoryInterface
     {
         $company = Company::create($companyData->all());
         if (empty($companyData->get('ru_slug')))
-            self::generateSlug($company);
+            $company->generateSlug();
         $company->uploadImage($companyData->file('image'));
         $services = $companyData->get('services');
         $company->services()->attach($services);
@@ -66,7 +66,7 @@ class CompanyRepository implements CompanyRepositoryInterface
         $company = $this->get($companyId);
         $company->update($companyData->all());
         if (empty($companyData->get('ru_slug')))
-            self::generateSlug($company);
+            $company->generateSlug();
         $company->uploadImage($companyData->file('image'));
         $company->services()->detach();
         $services = $companyData->get('services');
@@ -130,14 +130,5 @@ class CompanyRepository implements CompanyRepositoryInterface
         $company = Company::where('ru_slug', $slug)->first();
         abort_if($company, 404);
         return $company;
-    }
-
-    private static function generateSlug(Company $company) {
-        $slug = Str::slug($company->ru_title);
-        $existCount = Company::where('ru_slug', $slug)->count();
-        if ($existCount > 0)
-            $slug .= "-$existCount";
-        $company->ru_slug = $slug;
-        $company->save();
     }
 }
