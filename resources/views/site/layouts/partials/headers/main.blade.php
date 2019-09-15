@@ -28,14 +28,7 @@
 
                     <div class="uk-navbar-right">
                         <div class="uk-navbar-item uk-hidden@m ">
-<!--                            #### Mobile Search -->
-                            <form class="header_top_right_search_btn ">
-                                <div class="uk-inline">
-                                    <span class="uk-form-icon" uk-icon="icon: search"></span>
-                                    <input id="search-input" class="header_top_right_search_btn_bar uk-input" name="search_bar" type="search">
-                                </div>
-                            </form>
-<!--                            #### Mobile Search - END -->
+                            @include('site.layouts.partials.mobile_search')
                         </div>
                         <div class="show-hed-search uk-navbar-item uk-visible@m">
                             @include('site.components.search')
