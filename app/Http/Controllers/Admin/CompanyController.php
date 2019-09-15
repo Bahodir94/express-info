@@ -79,17 +79,13 @@ class CompanyController extends Controller
      */
     public function index(Request $request)
     {
-        $paginate = true;
-        if ($request->has('searchQuery')) {
-            $companies = $this->companies->search($request->get('searchQuery'));
-            $paginate = false;
-        }
+        if ($request->has('searchQuery'))
+            $companies = $this->companies->search($request->get('searchQuery'), 10);
         else
             $companies = $this->companies->all(10);
 
         $data = [
-            'companies' => $companies,
-            'paginate' => $paginate
+            'companies' => $companies
         ];
 
         return view('admin.pages.companies.index', $data);
