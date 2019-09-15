@@ -26,7 +26,7 @@
                                 <img src="{{ $category->getImage() }}" alt="">
                             </div>
                             <h2>
-                                <a href="{{ route('site.catalog.category', $category->id) }}">
+                                <a href="{{ route('site.catalog.category', $category->getAncestorsSlugs()) }}">
                                     {{ $category->getTitle() }}
                                 </a>
                             </h2>
