@@ -96,10 +96,10 @@
                         <div class="uk-grid-collapse uk-child-width-expand@s uk-grid" uk-grid="">
 
                             <div class="uk-first-column">
-                                <input class="el-input uk-input" type="email" name="email" placeholder="Email address" required="">
+                                <input class="el-input uk-input srh-input" type="email" name="email" placeholder="Email address" required="">
                             </div>
                             <div class="uk-width-auto@s">
-                                <button class="el-button uk-button uk-button-primary" type="submit">Подписаться</button>
+                                <button class="el-button uk-button uk-button-primary  srh-but" type="submit">Подписаться</button>
                             </div>
 
                         </div>

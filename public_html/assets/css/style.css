@@ -1815,3 +1815,8 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
 .vid-offcanvas .uk-navbar-nav>li>a {
     color: #333 !important;
 }
+
+
+.uk-section-secondary {
+    background: #394461;
+}
