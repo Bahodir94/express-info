@@ -3,9 +3,6 @@
 
 namespace App\Repositories;
 
-
-use phpDocumentor\Reflection\Types\Void_;
-
 interface HandbookCategoryRepositoryInterface
 {
     /**
@@ -15,6 +12,14 @@ interface HandbookCategoryRepositoryInterface
      * @return \App\Models\HandbookCategory
     */
     public function get(int $id);
+
+    /**
+     * Get category by slug
+     *
+     * @param string $slug
+     * @return \App\Models\HandbookCategory
+    */
+    public function getBySlug(string $slug);
 
     /**
      * Gets all handbook categories

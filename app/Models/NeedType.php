@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\Components\Slug;
 use Illuminate\Database\Eloquent\Model;
 
 class NeedType extends Model
 {
+    use Slug;
+
     protected $fillable = [
-        'ru_title', 'uz_title', 'en_title'
+        'ru_title', 'uz_title', 'en_title',
+        'meta_title', 'meta_description', 'meta_keywords',
+        'ru_slug', 'en_slug', 'uz_slug'
     ];
 
     /**

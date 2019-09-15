@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Components\Slug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -10,9 +11,12 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class Company extends Model
 {
+    use Slug;
+
     protected $fillable = [
         'ru_title', 'uz_title', 'en_title',
         'ru_description', 'uz_description', 'en_description',
+        'ru_slug', 'en_slug', 'uz_slug',
         'url', 'user_id', 'active', 'phone_number', 'geo_location', 'logo_url', 'category_id',
         'need_id', 'advantages', 'telegram_link', 'facebook_link', 'instagram_link',
         'meta_title', 'meta_description', 'meta_keywords'
@@ -288,5 +292,18 @@ class Company extends Model
     public function advantagesAsArray()
     {
         return explode(', ', $this->advantages);
+    }
+
+    /**
+     * Get ancestors slugs as url param
+     *
+     * @return string
+    */
+    public function getAncestorsSlugs()
+    {
+        $category = $this->category;
+        $categoriesSlugs = $category->getAncestorsSlugs();
+        $slugs = $categoriesSlugs . "/$this->ru_slug";
+        return $slugs;
     }
 }

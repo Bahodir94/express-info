@@ -24,6 +24,14 @@ interface NeedTypeRepositoryInterface
     public function get($id);
 
     /**
+     * Get type of needs by slug
+     *
+     * @param string $slug
+     * @return NeedType
+    */
+    public function getBySlug(string $slug);
+
+    /**
      * Create a type of need
      *
      * @param \Illuminate\Http\Request $needTypeData

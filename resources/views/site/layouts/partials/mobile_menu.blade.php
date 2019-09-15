@@ -30,7 +30,7 @@
             <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
             @foreach($needs as $need)
                 <li class="uk-parent">
-                    <a href="#">{{ $need->ru_title }}</a>
+                    <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
                     <ul class="uk-nav-sub uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
 
                         @foreach ($need->menuItems as $menu)
@@ -38,7 +38,7 @@
                                 <a href="#">{{ $menu->ru_title }}</a>
                                 <ul class="uk-nav-sub uk-list">
                                     @foreach ($menu->categories as $category)
-                                        <li><a href="{{ route('site.catalog.category', $category->id) }}">{{ $category->getTitle() }}</a></li>
+                                        <li><a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{{ $category->getTitle() }}</a></li>
                                     @endforeach
                                 </ul>
                             </li>

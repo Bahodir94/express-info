@@ -79,7 +79,7 @@
                             @foreach($category->services as $service)
                                 @if ($service->companies()->count() > 0)
                                     <li>
-                                        <a href="{{ route('site.catalog.category', [$category->id, 'service' => $service->id]) }}">{{ $service->ru_title }}</a>
+                                        <a href="{{ route('site.catalog.main', [$category->id, 'service' => $service->id]) }}">{{ $service->ru_title }}</a>
                                     </li>
                                 @endif
                             @endforeach
@@ -107,7 +107,7 @@
                     <div class="plus_img">
                         <img src="{{ asset('assets/img/left-arrow.svg') }}" alt="Go back">
                     </div>
-                    <a href="{{ $category->hasParentCategory() ? route('site.catalog.category', $category->parent_id) : route('site.catalog.index') }}">
+                    <a href="{{ $category->hasParentCategory() ? route('site.catalog.main', $category->parent_id) : route('site.catalog.index') }}">
                         <p>Назад</p>
                     </a>
                 </div>
@@ -118,7 +118,7 @@
                         <div class="plus_img">
                             <img src="{{ $child->getImage() }}" alt="">
                         </div>
-                        <a href="{{ route('site.catalog.category', $child->id) }}">
+                        <a href="{{ route('site.catalog.main', $child->id) }}">
                             <p>{{ $child->ru_title }} <span>({{ $child->getAllCompaniesCount() }})</span></p>
                         </a>
                     </div>
@@ -129,7 +129,7 @@
 -->
         <ul class="cat-tab uk-tab" >
             <li class="uk-active">
-                <a href="{{ $category->hasParentCategory() ? route('site.catalog.category', $category->parent_id) : route('site.catalog.index') }}">
+                <a href="{{ $category->hasParentCategory() ? route('site.catalog.main', $category->parent->getAncestorsSlugs()) : route('site.catalog.index') }}">
                     <span uk-icon="arrow-left"></span>
                     <span>Назад</span>
                 </a>
@@ -138,7 +138,7 @@
             @foreach($category->categories as $child)
                 <li>
                 
-                        <a href="{{ route('site.catalog.category', $child->id) }}">
+                        <a href="{{ route('site.catalog.main', $child->getAncestorsSlugs()) }}">
                             <div class="uk-flex uk-flex-middle">
 <!--                                <span><img src="{{ $child->getImage() }}" alt=""></span>-->
                                 <span>{{ $child->ru_title }} </span>
@@ -192,7 +192,7 @@
                         </div>
                         <div class="inner_tages">
                             <div class="title">
-                                <h2 class="uk-margin-remove-bottom	"><a href="{{ route('site.catalog.company', $company->id) }}">{{ $company->ru_title }}</a></h2>
+                                <h2 class="uk-margin-remove-bottom	"><a href="{{ route('site.catalog.main', $company->getAncestorsSlugs()) }}">{{ $company->ru_title }}</a></h2>
                                                             
                                 @if ($company->hasUrl())
                                 <span class="link">
@@ -245,7 +245,7 @@
             <li><a href="{{ route('site.catalog.index') }}">Главная</a></li>
             <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @foreach ($category->ancestors as $parentCategory)
-                <li><a href="{{ route('site.catalog.category', $parentCategory->id) }}">{{ $parentCategory->getTitle() }}</a></li>
+                <li><a href="{{ route('site.catalog.main', $parentCategory->getAncestorsSlugs()) }}">{{ $parentCategory->getTitle() }}</a></li>
                 <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @endforeach
             <li>{{ $category->getTitle() }}</li>

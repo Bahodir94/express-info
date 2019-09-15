@@ -63,14 +63,80 @@ class CatalogController extends Controller
     }
 
     /**
-     * Show concrete type of need
+     * Action for catalog
      *
-     * @param int $id
+     * @param Request $request
+     * @param string $params
      * @return \Illuminate\Http\Response
     */
-    public function need(int $id)
+    public function catalog(Request $request, string $params)
     {
-        $need = $this->needs->get($id);
+        $paramsArray = explode('/', trim($params, '/'));
+        $slug = end($paramsArray);
+
+        $need = $this->needs->getBySlug($slug);
+        if ($need)
+            return $this->processNeed($need);
+        $category = $this->categories->getBySlug($slug);
+        if ($category)
+            return $this->processCategory($request, $category);
+        $company = $this->companies->getBySlug($slug);
+        if ($company)
+            return $this->processCompany($company);
+        abort(404);
+    }
+
+    private function processNeed($need)
+    {
+        return view('site.pages.catalog.need', compact('need'));
+    }
+
+    private function processCategory(Request $request, $category)
+    {
+        $descendantsCategories = $category->descendants;
+        $companies = collect();
+        $resultCompanies = [];
+        $companies = $companies->merge($category->companies);
+        foreach ($descendantsCategories as $descendantsCategory)
+            $companies = $companies->merge($descendantsCategory->companies);
+        if ($request->has('service'))
+        {
+            $serviceId = $request->get('service');
+            foreach ($companies as $company)
+                if ($company->hasService($serviceId))
+                    array_push($resultCompanies, $company);
+        }
+        else
+            $resultCompanies = $companies;
+
+        $data = [
+            'category' => $category,
+            'companies' => $resultCompanies
+        ];
+
+        return view('site.pages.catalog.companies', $data);
+    }
+
+    private function processCompany($company)
+    {
+        return view('site.pages.catalog.company', compact('company'));
+    }
+
+    /**
+     * Show concrete type of need
+     *
+     * @param string $needSlug
+     * @return \Illuminate\Http\Response
+    */
+    public function need(string $needSlug)
+    {
+        if (is_numeric($needSlug))
+        {
+            $id = intval($needSlug);
+            $need = $this->needs->get($id);
+            return redirect()->route('site.catalog.need', $need->ru_slug);
+        }
+        $need = $this->needs->getBySlug($needSlug);
 
         return view('site.pages.catalog.need', compact('need'));
     }
@@ -79,12 +145,21 @@ class CatalogController extends Controller
      * Show concrete category
      *
      * @param Request $request
-     * @param int $id
+     * @param string $categoryParams
      * @return \Illuminate\Http\Response
     */
-    public function category(Request $request, int $id)
+    public function category(Request $request, string $categoryParams)
     {
-        $category = $this->categories->get($id);
+        $categoriesArray = explode('/', trim($categoryParams, '/'));
+        $slug = end($categoriesArray);
+        if (is_numeric($slug))
+        {
+            $id = intval($slug);
+            $category = $this->categories->get($id);
+            return redirect()->route('site.catalog.category', $category->ru_slug);
+        }
+
+        $category = $this->categories->getBySlug($slug);
         $descendantsCategories = $category->descendants;
         $companies = collect();
         $resultCompanies = [];
@@ -112,12 +187,21 @@ class CatalogController extends Controller
     /**
      * Show company page
      *
-     * @param int $id
+     * @param string $companyParams
      * @return \Illuminate\Http\Response
     */
-    public function company(int $id)
+    public function company(string $companyParams)
     {
-        $company = $this->companies->get($id);
+        $categoriesArray = explode('/', trim($companyParams, '/'));
+        $slug = end($categoriesArray);
+        if (is_numeric($slug))
+        {
+            $id = intval($slug);
+            $company = $this->companies->get($id);
+            return redirect()->route('site.catalog.company', $company->ru_slug);
+        }
+
+        $company = $this->companies->getBySlug($slug);
 
         return view('site.pages.catalog.company', compact('company'));
     }
