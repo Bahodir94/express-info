@@ -35,7 +35,7 @@
                         <li ><a href="">Войти</a></li>
                     </ul>
                     <div class="uk-navbar-nav">
-                    <a class="uk-button uk-button-primary " href="#">Добавить компанию</a>
+                    <a class="uk-button uk-button-primary uk-visible@m " href="#">Добавить компанию</a>
                     </div>
                     <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" href="#offcanvas" uk-navbar-toggle-icon="" uk-toggle=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></a>
                     
@@ -110,7 +110,7 @@
 <!--  top: 0; bottom: #offset; offset: 75; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;  -->
 <!--  top: 0; offset: 75; media: 960; show-on-up: true; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;  -->
     
-<div uk-sticky="animation: uk-animation-slide-top; top: 0; offset: 75; media: 960; show-on-up: true; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;" class="header andir" style="">
+<div uk-sticky="animation: uk-animation-slide-top; top: 0; offset: 75; media: 960; show-on-up: true; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;" class="header andir uk-visible@m" style="">
     <div class="uk-navbar-container " style="">
         <div class="uk-container uk-container-expand">
             <nav uk-navbar class="uk-navbar header-bottom">
