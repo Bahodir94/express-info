@@ -56,7 +56,7 @@ class MigrateCguToHandbook extends Command
         $mediaCategories = $mediaInfo->descendants()->pluck('id');
         $mediaCategories[] = $mediaInfo->getKey();
 
-        $categories = array_merge($publicCategories, $mediaCategories);
+        $categories = array_merge($publicCategories->toArray(), $mediaCategories->toArray());
         $sites = CguSite::whereIn('category_id', $categories)->get();
 
         $this->info('Starting migration...');
