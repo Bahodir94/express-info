@@ -9,30 +9,34 @@
                 </span>
                 <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
             </a>
-            
-            <ul class="uk-navbar-nav uk-visible@m">
-<!--                        <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>-->
-                <li ><a href="#">Регистрация</a></li>
-                <li ><a href="">Войти</a></li>
-            </ul>
+            <nav class="uk-navbar-container vid-bar" uk-navbar>
+                <div class="uk-navbar-left">
+
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href="#">Регистрация</a></li>
+                        <li ><a href="">Войти</a></li>
+                    </ul>
+
+                </div>
+            </nav>
         <!--
             <a class="uk-logo" href="{{ route('site.catalog.index') }}">
                 <img src="" width="134" height="30" alt="Project Logo" hidden="true">
             </a>
 -->
         </div>
-        <ul class="uk-margin-small-bottom uk-nav-primary uk-nav-parent-icon" uk-nav="multiple: true">
+        <ul class="uk-margin-small-bottom uk-nav-primary uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
             <!--class="uk-active"-->
             <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
             @foreach($needs as $need)
                 <li class="uk-parent">
                     <a href="#">{{ $need->ru_title }}</a>
-                    <ul class="uk-nav-sub uk-nav-parent-icon" uk-nav="multiple: true">
+                    <ul class="uk-nav-sub uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
 
                         @foreach ($need->menuItems as $menu)
                             <li class="uk-parent" >
                                 <a href="#">{{ $menu->ru_title }}</a>
-                                <ul class="uk-nav-sub">
+                                <ul class="uk-nav-sub uk-list">
                                     @foreach ($menu->categories as $category)
                                         <li><a href="{{ route('site.catalog.category', $category->ru_slug) }}">{{ $category->getTitle() }}</a></li>
                                     @endforeach
@@ -59,3 +63,21 @@
 
 
 <!-- Mobile menu end -->
+
+
+<!-- Fixed Button and Offcanvas -->
+<a href="#fixedbutton" uk-toggle class="button_wrapper uk-position-fixed uk-position-center-left" uk-icon="cog"></a>
+<div id="fixedbutton"  uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+        <div class="continer-title">
+            <h3 class="offcanvas_title"><span uk-icon="cog"></span>Lorem ipsum dolor sit amet.</h3>
+        </div>
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-list padding-top uk-list-divider">
+            <li><a href="">List item 1</a></li>
+            <li><a href="">List item 2</a></li>
+            <li><a href="">List item 3</a></li>
+        </ul>
+    </div>
+</div>
+<!-- Fixed Button and Offcanvas -->

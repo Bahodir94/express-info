@@ -63,7 +63,7 @@
 <!-- Search settings end -->
 <section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="uk-container uk-container-expand uk-container-center">
-        <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle" uk-grid>
+        <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
             <div class="wrapper_title">
                 <h3>{{ $category->getTitle() }}</h3>
             </div>
@@ -136,17 +136,17 @@
             </li>
             
             @foreach($category->categories as $child)
-                @if ($child->getAllCompaniesCount() > 0)
-                    <li>
+                <li>
+                
                         <a href="{{ route('site.catalog.category', $child->id) }}">
                             <div class="uk-flex uk-flex-middle">
-                                <span><img src="{{ $child->getImage() }}" alt=""></span>
+<!--                                <span><img src="{{ $child->getImage() }}" alt=""></span>-->
                                 <span>{{ $child->ru_title }} </span>
                                 <span class="countcat">({{ $child->getAllCompaniesCount() }})</span>
                             </div>
                         </a>
-                    </li>
-                @endif
+                   
+                </li>
             @endforeach
             
 <!--
@@ -176,7 +176,7 @@
     </div>
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-center uk-container-expand uk-margin-top">
-            <div uk-grid class="uk-grid uk-grid-match uk-grid-small  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l">
+            <div uk-grid class="uk-grid uk-grid-match uk-grid-small uk-child-width-1-2 uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l">
             @foreach($companies as $company)
                 <div  class="uk-container-center">
                     <div class="inner">
