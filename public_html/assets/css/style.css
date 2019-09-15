@@ -1369,7 +1369,7 @@ cat-tab a:hover {
     }
     
 }
-@media screen and (max-width: 1920px){
+@media screen and (max-width: 1600px){
     /* .item .item_icon{
         width: 200px;
     } */
@@ -1394,7 +1394,7 @@ cat-tab a:hover {
         width: 55%;  
     }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 960px) {
 /*
     .payment_wrapper{
         flex-direction: column;
@@ -1442,7 +1442,7 @@ cat-tab a:hover {
         padding-left:15px; 
     }
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 640px) {
     .payment_list ul{
         flex-wrap: wrap;
     }
@@ -1461,6 +1461,9 @@ cat-tab a:hover {
     .plus_item a p {
         font-size: 12px;
         font-weight: 700 !important;
+    }
+    .inner {
+    padding: 15px;
     }
     
 }
@@ -1721,7 +1724,7 @@ cat-tab a:hover {
 
   box-sizing: border-box;
   border: none;
-  border-radius: 30px;
+    border-radius: 50%;
   -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
