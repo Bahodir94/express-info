@@ -1724,7 +1724,7 @@ cat-tab a:hover {
 
   box-sizing: border-box;
   border: none;
-  border-radius: 30px;
+    border-radius: 50%;
   -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
