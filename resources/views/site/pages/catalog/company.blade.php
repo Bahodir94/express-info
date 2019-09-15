@@ -115,15 +115,14 @@
     <div class="uk-container uk-container-expand uk-container-center margin-top text_info">
         
         <div class="" uk-grid>
-<!-- ############################ ЗДЕСЬ МНЕ НУЖНО ОБЕРНУТЬ В КОНТЕЙНЕР -->
-            <div class="uk-width-expand@m">
-                <h2>Информация</h2>
-                <div class="">
-                    
-                    <p>{{ $company->ru_description }}</p>
+            @if (!empty($company->ru_description))
+                <div class="uk-width-expand@m">
+                    <h2>Информация</h2>
+                    <div>
+                        <p>{{ $company->ru_description }}</p>
+                    </div>
                 </div>
-            </div>
-<!-- ############################### КОНЕЦ КОНТЕЙНЕРА-->
+            @endif
             <div class="uk-width-1-3">
                 <div>
 <!--                @l uk-width-2-5@m uk-width-2-5@s -->
