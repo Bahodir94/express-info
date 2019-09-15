@@ -65,12 +65,18 @@ class CatalogController extends Controller
     /**
      * Show concrete type of need
      *
-     * @param int $id
+     * @param string $slug
      * @return \Illuminate\Http\Response
     */
-    public function need(int $id)
+    public function need(string $slug)
     {
-        $need = $this->needs->get($id);
+        if (is_numeric($slug))
+        {
+            $id = intval($slug);
+            $need = $this->needs->get($id);
+            return redirect()->route('site.catalog.need', $need->ru_slug);
+        }
+        $need = $this->needs->getBySlug($slug);
 
         return view('site.pages.catalog.need', compact('need'));
     }
