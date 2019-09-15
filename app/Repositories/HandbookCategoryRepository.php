@@ -165,7 +165,6 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
     public function getBySlug(string $slug)
     {
         $category = HandbookCategory::where('ru_slug', $slug)->first();
-        abort_if(!$category, 404);
         return $category;
     }
 }

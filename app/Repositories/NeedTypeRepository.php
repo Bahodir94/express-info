@@ -79,7 +79,6 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
     public function getBySlug(string $slug)
     {
         $needType = NeedType::where('ru_slug', $slug)->first();
-        abort_if(!$needType, 404);
         return $needType;
     }
 }
