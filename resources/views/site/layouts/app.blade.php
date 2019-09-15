@@ -24,7 +24,7 @@
 <body>
 
   
-@include('site.layouts.partials.header')
+@yield('header')
 
 @include('site.layouts.partials.mobile_menu')
 

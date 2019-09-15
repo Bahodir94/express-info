@@ -16,6 +16,10 @@
 
 @endsection
 
+@section('header')
+    @include('site.layouts.partials.headers.default')
+@endsection
+
 @section('content')
     <!-- Banner -->
     <div class="banner" style="background-image: url({{ asset('assets/img/a3e020abb83a5d95bbdce5ef77dff132.png') }})">
@@ -109,18 +113,16 @@
 
     <!-- Main Info -->
     <div class="uk-container uk-container-expand uk-container-center margin-top text_info">
-        <h2>Информация</h2>
+        
         <div class="" uk-grid>
-            
-            <div class="uk-width-expand@m">
-                <div class="">
-                    
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-
-
-                        {{ $company->ru_description }}</p>
+            @if (!empty($company->ru_description))
+                <div class="uk-width-expand@m">
+                    <h2>Информация</h2>
+                    <div>
+                        <p>{{ $company->ru_description }}</p>
+                    </div>
                 </div>
-            </div>
+            @endif
             <div class="uk-width-1-3">
                 <div>
 <!--                @l uk-width-2-5@m uk-width-2-5@s -->

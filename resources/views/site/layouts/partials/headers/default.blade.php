@@ -28,14 +28,9 @@
 
                     <div class="uk-navbar-right">
                         <div class="uk-navbar-item uk-hidden@m ">
-                            <form class="header_top_right_search_btn ">
-                                <div class="uk-inline">
-                                    <span class="uk-form-icon" uk-icon="icon: search"></span>
-                                    <input id="search-input" class="header_top_right_search_btn_bar uk-input" name="search_bar" type="search">
-                                </div>
-                            </form>
+                            @include('site.layouts.partials.mobile_search')
                         </div>
-                        <div class="show-hed-search uk-navbar-item uk-visible@m">
+                        <div class="uk-navbar-item uk-visible@m">
                             @include('site.components.search')
                         </div>
                         <ul class="uk-navbar-nav uk-visible@m">
@@ -102,19 +97,6 @@
         </div>
 
 
-    </div>
-    <div class="header" >
-        <div class="uk-navbar-container ">
-            <div class="uk-container uk-container-expand">
-                <nav uk-navbar class="uk-navbar header-search">
-                    <div class="uk-navbar-center">
-                        <div class="uk-navbar-item uk-visible@m">
-                            @include('site.components.search')
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
     </div>
     <!--  top: 0; bottom: #offset; offset: 75; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;  -->
     <!--  top: 0; offset: 75; media: 960; show-on-up: true; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;  -->

@@ -6,12 +6,12 @@
         <div class="uk-inline">
             @csrf
             <a class="uk-form-icon" href="#" uk-icon="icon: search"></a>
-            <input class="uk-input" type="text" name="query">
+            <input class="uk-input uk-width-xlarge srh-input" type="text" name="query">
 
         </div>
     </div>
      <div class="uk-visible@m" >
-        <button class="uk-button uk-button-primary ">Искать</button>
+        <button class="uk-button uk-button-primary srh-but ">Искать</button>
     </div>
     <div class="uk-width-1-1 uk-hidden@m" >
         <button class="uk-button uk-button-primary uk-width-1-1@m">Искать</button>

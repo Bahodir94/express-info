@@ -2,16 +2,21 @@
 
 @section('title', 'Каталог')
 
+@section('header')
+    @include('site.layouts.partials.headers.main')
+@endsection
+
 @section('content')
 
 
 
 
     <!-- Favorites Category -->
-<section class="uk-section-xsmall uk-padding-remove-vertical">
+<section class="uk-section-xsmall ">
     <div class="uk-container uk-container-expand uk-margin-medium uk-container-center uk-slider">
         <div class="uk-container uk-container-expand uk-container-center gutter" uk-slider="autoplay: true; autoplay-interval: 5000;">
             <ul class="uk-slider-items uk-child-width-auto uk-grid-large uk-grid">
+
                 @foreach ($favoritesCategories as $category)
                     <li class="slide">
                         <div class="card">
