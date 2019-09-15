@@ -245,7 +245,7 @@
             <li><a href="{{ route('site.catalog.index') }}">Главная</a></li>
             <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @foreach ($category->ancestors as $parentCategory)
-                <li><a href="{{ route('site.catalog.category', $parentCategory->id) }}">{{ $parentCategory->getTitle() }}</a></li>
+                <li><a href="{{ route('site.catalog.category', $parentCategory->getAncestorsSlugs()) }}">{{ $parentCategory->getTitle() }}</a></li>
                 <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @endforeach
             <li>{{ $category->getTitle() }}</li>

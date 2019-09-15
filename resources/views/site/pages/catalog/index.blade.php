@@ -65,7 +65,7 @@
                             <h2><a href="{{ route('site.catalog.category', $category->ru_slug) }}">{!! $category->ru_title !!}</a></h2>
                             <p>
                                 @foreach ($category->categories()->limit(5)->get() as $child)
-                                    <a href="{{ route('site.catalog.category', $child->ru_slug) }}">{!! $child->ru_title !!},</a>
+                                    <a href="{{ route('site.catalog.category', $child->getAncestorsSlugs()) }}">{!! $child->ru_title !!},</a>
                                 @endforeach
                             </p>
                         </div>
