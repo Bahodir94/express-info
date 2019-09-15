@@ -967,7 +967,7 @@ footer .uk-container:after, .uk-container:before{
 }
 
 .uk-parent .uk-open{
-    background: none;
+    background: none !important;
 }
 
 
@@ -1355,7 +1355,7 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
     text-transform: none !important;
     color: #888;
 }
-cat-tab a:hover {
+.cat-tab a:hover {
     color: #555;
 }
 .cat-tab a span.countcat {
@@ -1797,7 +1797,7 @@ cat-tab a:hover {
 .uk-light #search-input.uk-input:focus{    padding-left: 40px!important;
 }
 .uk-offcanvas-bar a{
-    color: #000;
+    /* color: #000; */
 }
 .uk-offcanvas-bar .text-dual-primary-dark{
     color: #000 !important;
