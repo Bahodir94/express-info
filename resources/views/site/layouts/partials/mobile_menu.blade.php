@@ -9,6 +9,12 @@
                 </span>
                 <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
             </a>
+            
+            <ul class="uk-navbar-nav uk-visible@m">
+<!--                        <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>-->
+                <li ><a href="#">Регистрация</a></li>
+                <li ><a href="">Войти</a></li>
+            </ul>
         <!--
             <a class="uk-logo" href="{{ route('site.catalog.index') }}">
                 <img src="" width="134" height="30" alt="Project Logo" hidden="true">
@@ -37,17 +43,16 @@
                 </li>
             @endforeach
         </ul>
-        @include('site.components.search')
-        <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="https://yootheme.com/signup">Разместить рекламу</a>
+        
+        <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Разместить рекламу</a>
 
         <hr class="uk-margin-medium">
-        <h3 class="uk-h4 uk-margin-remove-top uk-margin-small-bottom">Documentation</h3>
+        <h3 class="uk-h4 uk-margin-remove-top uk-margin-small-bottom">Полезная информация</h3>
 
         <ul class="uk-nav uk-nav-default uk-margin-small-bottom">
-            <li><a href="https://yootheme.com/support/yootheme-pro">YOOtheme Pro</a></li>
-            <li><a href="https://yootheme.com/support/warp">Warp Themes</a></li>
-            <li><a href="https://yootheme.com/support/widgetkit">Widgetkit</a></li>
-            <li><a href="https://yootheme.com/support/zoo">ZOO</a></li>
+            <li><a href="#">Помощь FAQ</a></li>
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Блог</a></li>
         </ul>
     </div>
 </div>

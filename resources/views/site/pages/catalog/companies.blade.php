@@ -172,7 +172,7 @@
     </div>
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-center uk-container-expand uk-margin-top">
-            <div class="uk-grid uk-grid-match uk-grid-medium  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l">
+            <div uk-grid class="uk-grid uk-grid-match uk-grid-small  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l">
             @foreach($companies as $company)
                 <div  class="uk-container-center">
                     <div class="inner">

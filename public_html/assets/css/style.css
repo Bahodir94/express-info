@@ -1675,3 +1675,69 @@ cat-tab a:hover {
     line-height: 1.7 !important;
     margin: 0 !important;
 }
+
+.uk-light #search-input.uk-input {
+    padding-left: 0px!important;
+}
+.header_top_right_search_btn{
+  display: inline-block;
+  /* height: 50px; */
+  /* top: -15px;
+  right: 140px;
+  bottom: 0; */
+  border-radius: 30px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0;
+}
+.header_top_right_search_btn_bar{
+  width: 40px;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  font-family: "Montserrat";
+  font-size: 17px;
+
+  box-sizing: border-box;
+  border: none;
+  border-radius: 30px;
+  -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+  margin: 0;
+  padding: 10px 30px 10px 10px;
+}
+.header_top_right_search_btn_bar::-webkit-input-placeholder { /* Chrome */
+    font-family: "Montserrat";
+  font-size: 17px;
+    color: #e5e5e5;
+}
+.header_top_right_search_btn_bar:-ms-input-placeholder { /* IE 10+ */
+    font-family: "Montserrat";
+  font-size: 17px;
+  color: #e5e5e5;
+}
+.header_top_right_search_btn_bar::-moz-placeholder { /* Firefox 19+ */
+    opacity: 1;
+    font-family: "Montserrat";
+  font-size: 17px;
+  color: #e5e5e5;
+}
+.header_top_right_search_btn_bar:-moz-placeholder { /* Firefox 4 - 18 */
+    opacity: 1;
+    font-family: "Montserrat";
+  font-size: 17px;
+  color: #e5e5e5;
+}
+.header_top_right_search_btn_bar:focus{
+  width: 150px;
+  border: 1px solid #e5e5e5; 
+    outline: none;
+    background: transparent;
+    padding-left: 40px;
+}
+
+
+.uk-light #search-input.uk-input:focus{    padding-left: 40px!important;
+}
