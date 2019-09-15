@@ -155,4 +155,16 @@ class HandbookCategory extends Model
         
         return Company::whereIn('category_id', $categories)->get();
     }
+
+    /**
+     * Get all ancestors slugs as url param
+     *
+     * @return string
+    */
+    public function getAncestorsSlugs()
+    {
+        $slugs = $this->ancestors()->pluck('ru_slug');
+        $slugs[] = $this->ru_slug;
+        return implode("/", $slugs);
+    }
 }

@@ -293,4 +293,17 @@ class Company extends Model
     {
         return explode(', ', $this->advantages);
     }
+
+    /**
+     * Get ancestors slugs as url param
+     *
+     * @return string
+    */
+    public function getAncestorsSlugs()
+    {
+        $category = $this->category;
+        $categoriesSlugs = $category->getAncestorsSlugs();
+        $slugs = $categoriesSlugs . "/$this->ru_slug";
+        return $slugs;
+    }
 }
