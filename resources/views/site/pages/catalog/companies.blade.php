@@ -172,7 +172,7 @@
     </div>
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-center uk-container-expand uk-margin-top">
-            <div class="uk-grid uk-grid-match uk-grid-medium  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-4@l">
+            <div class="uk-grid uk-grid-match uk-grid-medium  uk-child-width-1-2@s uk-child-width-1-4@m uk-child-width-1-5@l">
             @foreach($companies as $company)
                 <div  class="uk-container-center">
                     <div class="inner">
@@ -188,8 +188,28 @@
                         </div>
                         <div class="inner_tages">
                             <div class="title">
-                                <h2><a href="{{ route('site.catalog.company', $company->id) }}">{{ $company->ru_title }}</a></h2>
+                                <h2 class="uk-margin-remove-bottom	"><a href="{{ route('site.catalog.company', $company->id) }}">{{ $company->ru_title }}</a></h2>
+                                                            
+                                @if ($company->hasUrl())
+                                <span class="link">
+                                    <a href="{{ $company->url }}" target="_blank">
+                                        {{ parse_url($company->url, PHP_URL_HOST) }}
+                                    </a>
+                                </span>
+                                @endif
                             </div>
+
+                                
+                            
+<!--
+                                <div class="tags">    
+                                    <ol>
+                                       
+                                            <li>Коньтетн</li><li>Коньтетн</li><li>Коньтетн</li><li>Коньтетн</li>
+                                        
+                                    </ol>
+                                </div>
+-->
                             @if ($company->hasAdvantages())
                                 <div class="tags">
                                     <ol>

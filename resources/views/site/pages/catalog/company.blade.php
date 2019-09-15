@@ -109,18 +109,17 @@
 
     <!-- Main Info -->
     <div class="uk-container uk-container-expand uk-container-center margin-top text_info">
-        <h2>Информация</h2>
+        
         <div class="" uk-grid>
-            
+<!-- ############################ ЗДЕСЬ МНЕ НУЖНО ОБЕРНУТЬ В КОНТЕЙНЕР -->
             <div class="uk-width-expand@m">
+                <h2>Информация</h2>
                 <div class="">
                     
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-
-
-                        {{ $company->ru_description }}</p>
+                    <p>{{ $company->ru_description }}</p>
                 </div>
             </div>
+<!-- ############################### КОНЕЦ КОНТЕЙНЕРА-->
             <div class="uk-width-1-3">
                 <div>
 <!--                @l uk-width-2-5@m uk-width-2-5@s -->
