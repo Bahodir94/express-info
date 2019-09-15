@@ -165,6 +165,6 @@ class HandbookCategory extends Model
     {
         $slugs = $this->ancestors()->pluck('ru_slug');
         $slugs[] = $this->ru_slug;
-        return implode("/", $slugs);
+        return implode("/", $slugs->toArray());
     }
 }
