@@ -16,6 +16,10 @@
 
 @endsection
 
+@section('header')
+    @include('site.layouts.partials.headers.default')
+@endsection
+
 @section('content')
     <!-- Banner -->
     <div class="banner" style="background-image: url({{ asset('assets/img/a3e020abb83a5d95bbdce5ef77dff132.png') }})">
