@@ -1746,7 +1746,7 @@ cat-tab a:hover {
 }
 .header_top_right_search_btn_bar{
   width: 40px;
-    height: 100%;
+    height: 40px;
     justify-content: center;
     align-items: center;
   font-family: "Montserrat";
@@ -1754,7 +1754,7 @@ cat-tab a:hover {
 
   box-sizing: border-box;
   border: none;
-    border-radius: 50px;
+/*    border-radius: 50px;*/
   -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
