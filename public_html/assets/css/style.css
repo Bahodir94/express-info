@@ -1754,7 +1754,7 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
 
   box-sizing: border-box;
   border: none;
-    border-radius: 50%;
+    border-radius: 50px;
   -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
