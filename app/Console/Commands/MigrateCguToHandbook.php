@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 
 use App\Models\CguSite;
-use App\Models\HandbookCategory;
+use App\Models\CguCategory;
 use Illuminate\Support\Facades\File;
 use App\Models\Company;
 
@@ -42,35 +42,45 @@ class MigrateCguToHandbook extends Command
      */
     public function handle()
     {
-        $this->info('Collecting information...');
-        $sites = [326 => ['Официальный Портал Президента Республики Узбекистан', 'Правительственный Портал   Республики Узбекистан', 'Сенат Олий Мажлиса Республики Узбекистан', 'Законодательная Палата Олий Мажлиса Республики Узбекистан', 'Уполномоченный Олий Мажлис Республики Узбекистан по Правам Человека (Омбудсман)', 'Хокимият г.Ташкента'],
-                    327 => ['Министерство Юстиции Республики Узбекистан', 'Генеральная Прокуратура Республики Узбекистан', 'Министерство Внутренних Дел Республики Узбекистан', 'Государственный Налоговый Комитет Республики Узбекистан', 'Государственный Таможенный Комитет Республики Узбекистан'],
-                    328 => ['Министерство Культуры Республики Узбекистан', 'Министерство Дошкольного Образования Республики Узбекистан', 'Министерство Высшего и Среднего Специального Образования Республики Узбекистан', 'Министерство Народного Образования Республики Узбекистан', 'Министерство Физической Культуры и Спорта Республики Узбекистан'],
-                    329 => ['Министерство Занятости и Трудовых Отношений Республики Узбекистан', 'Агентство Внешней Трудовой Миграции Республики Узбекистан'],
-                    330 => ['Министерство Здравоохранения Республики Узбекистан', 'Государственный Комитет Ветеринарии Республики Узбекистан'],
-                    331 => ['Министерство Жилищно-Коммунального Хозяйства Республики Узбекистан', 'Узбекэнерго'],
-                    332 => ['Министерство по Развитию Информационных Технологий и Коммуникаций Республики Узбекистан', 'MUIC', 'UNICON'],
-                    333 => ['Министерство Финансов Республики Узбекистан', 'Государственный Комитет Республики Узбекистан по Статистике', 'Министерство по Инвестициям и Внешней Торговли Республики Узбекистан', 'Министерство Иностранных Дел Республики Узбекистан', 'Государственный Комитет Республики Узбекистан по Развитию Туризма'],
-                    335 => ['Министерство Строительства Республики Узбекистан', 'Государственный Комитет Республики Узбекистан по Земельным Ресурсам, Геодезии, Картографии и Государственному Кадастру', 'Государственный Комитет Республики Узбекистан по Геологии и Минеральным Ресурсам', 'Министерство Водного Хозяйства Республики Узбекистан', 'Государственный Комитет Лесного Хозяйства Республики Узбекистан', 'Государственный Комитет Республики Узбекистан по Экологии и Охране Окружающей Среды']];
         $companyDirectory = public_path() . '/' . Company::UPLOAD_DIRECTORY;
         $siteDirectory = public_path() . '/' . CguSite::UPLOAD_FILE_PATH;
-        $this->info('Begin migration...');
-        foreach ($sites as $categoryId => $sites) {
-            foreach ($sites as $site) {
-                $this->info("Migrating $site to category $categoryId");
-                $cguSite = CguSite::where('ru_title', 'like', "%$site%")->first();
-                if (!$cguSite) {
-                    $this->error("Site $site not found!");
-                    continue;
+
+        $publicInfo = CguCategory::find(30);
+        $mediaInfo = CguCategory::find(31);
+
+        $this->info('Collecting data...');
+
+        $publicCategories = $publicInfo->descendants()->pluck('id');
+        $publicCategories[] = $publicInfo->getKey();
+
+        $mediaCategories = $mediaInfo->descendants()->pluck('id');
+        $mediaCategories[] = $mediaInfo->getKey();
+
+        $categories = array_merge($publicCategories, $mediaCategories);
+        $sites = CguSite::whereIn('category_id', $categories)->get();
+
+        $this->info('Starting migration...');
+
+        foreach ($sites as $site)
+        {
+            $this->info("Migrating site $site->ru_title into companies");
+            $newCompany = Company::create([
+                'ru_title' => $site->ru_title,
+                'ru_description' => $site->ru_description,
+                'active' => $site->active,
+                'url' => $site->link
+            ]);
+            if ($site->image)
+            {
+                $newCompany->image = $site->image;
+                try {
+                    File::copy($siteDirectory . $site->image, $companyDirectory . $site->image);
+                } catch (\Exception $e) {
+                    $this->error($e);
                 }
-                $company = Company::where('ru_title', 'like', "%$site%")->first();
-                if (!$company) {
-                    $this->error("Company $site not found!");
-                    continue;
-                }
-                $company->image = $cguSite->image;
-                $company->save();
+                $newCompany->save();
             }
+            $this->info('Done!');
         }
     }
 }
