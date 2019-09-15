@@ -12,21 +12,7 @@
     <div class="uk-container uk-container-expand uk-margin-medium uk-container-center uk-slider">
         <div class="uk-container uk-container-expand uk-container-center gutter" uk-slider="autoplay: true; autoplay-interval: 5000;">
             <ul class="uk-slider-items uk-child-width-auto uk-grid-large uk-grid">
-                    <li class="slide">
-                        <div class="card">
-                            <a class="uk-link-text" href="http://publicservice.uz/">
-                                
-                            <div class="card_img">
-                                <img src="/assets/img/public_black.svg" uk-svg height="33" alt="">
-                            </div>
-                            <h2>
-                                <a href="http://publicservice.uz/">
-                                    Public Service
-                                </a>
-                            </h2>
-                            </a>
-                        </div>
-                    </li>
+
                 @foreach ($favoritesCategories as $category)
                     <li class="slide">
                         <div class="card">
