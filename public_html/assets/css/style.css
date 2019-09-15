@@ -1586,11 +1586,14 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
 
 .show-hed-search {
     opacity: 0;
+    display: none;
     transition: all .9s cubic-bezier(.2, .5, .3, 1);
 }
 
 .uk-sticky-below .show-hed-search {
     opacity: 1;
+    display: block;
+    transition: all .9s cubic-bezier(.2, .5, .3, 1);
 }
 
 .show-hed{

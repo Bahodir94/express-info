@@ -124,27 +124,33 @@
                             <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
                             @foreach ($needs as $need)
                                 <li class="uk-parent">
-                                    <a href="{{ route('site.catalog.need', $need->id) }}">{{ $need->ru_title }}</a>
-                                    <div class="code-dropdown uk-dropdown uk-dropdown-width-4 uk-dropdown-stack uk-dropdown-bottom-left" data-uk-dropdown="{delay: 500}" style="left: 108.65625px; top: 32px;">
-                                        <div class="uk-grid-collapse uk-grid uk-child-width-1-4" uk-grid>
-                                            @foreach ($need->menuItems as $menu)
-                                                <div class="padding-15 ">
-                                                    <ul class="uk-nav">
-                                                        <div class="dropdown_wrapper">
-                                                            <img src="{{ $menu->getImage() }}" alt="">
-                                                            <a href="">{{ $menu->ru_title }}</a>
-                                                        </div>
-                                                        @foreach ($menu->categories as $category)
-                                                            <li>
-                                                                <a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            @endforeach
+                                        <a href="{{ route('site.catalog.need', $need->id) }}">{{ $need->ru_title }}</a>
+                                        <div uk-dropdown="delay-show: 250;" class="code-dropdown">
+                                            <div class=" uk-grid-collapse uk-grid uk-child-width-1-4 " uk-grid>
+                                                @foreach ($need->menuItems as $menu)
+                                                    <div class="padding-15 ">
+                                                        <ul class="uk-nav">
+                                                            <div class="dropdown_wrapper">
+                                                                <img src="{{ $menu->getImage() }}" alt="">
+                                                                <a href="">{{ $menu->ru_title }}</a>
+                                                            </div>
+                                                            @foreach ($menu->categories as $category)
+                                                                <li>
+                                                                    <a href="{{ route('site.catalog.category', $category->id) }}">{!! $category->ru_title !!}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                         </div>
+<!--
+                                    <div class="code-dropdown uk-dropdown uk-dropdown-width-4 uk-dropdown-stack uk-dropdown-bottom-left" data-uk-dropdown="animation: uk-animation-slide-top-small; duration: 400; delay-show: 250" >
+              
                                     </div>
+-->
                                 </li>
+        
                             @endforeach
                         </ul>
                     </div>
