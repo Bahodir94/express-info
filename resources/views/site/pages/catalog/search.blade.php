@@ -8,23 +8,6 @@
 
 @section('content')
     
-
-<section class="uk-section-xsmall">
-    <div class="uk-container uk-container-expand uk-container-center">
-        <form action="{{ route('site.catalog.search') }}" method='post' class="uk-center vid-form">
-            @csrf
-            <div class="position">
-                <img src="{{ asset('assets/img/search (1).svg') }}" alt="">
-                <input type="text" name="query" placeholder="Поиск в TezInfo">
-            </div>
-        </form>
-    </div>
-</section>
-
-    <!-- Line -->
-    <hr class="new">
-    <!-- Line end -->
-
     @if ($categories->count() > 0)
         <div class="uk-container uk-container-expand uk-margin-medium uk-container-center">
             <div class="wrapper_title">
