@@ -1365,6 +1365,31 @@ cat-tab a:hover {
 }
 
 
+/* Fixed Header */
+.button_wrapper{
+    padding: 10px;
+    background: #2E2E2E;
+    border-radius: 0 10px 10px 0;
+    text-decoration: none;
+    color: white;
+}
+.button_wrapper:hover{
+    color: white;
+}
+.continer-title{
+    position: absolute;
+    width: 260px;
+    top: 10px;
+    left: 40px;
+}
+.padding-top{
+    padding-top:45px;
+}
+.offcanvas_title span{
+    padding-right: 5px;
+}
+/* Fixed Header end */
+
 @media screen and (max-width: 4800px){
     .code-dropdown-stack .code-dropdown-grid>* {
         width: 25%!important;
