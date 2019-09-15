@@ -11,6 +11,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::get('/', 'CatalogController@index')->name('catalog.index');
     Route::get('/category/{id}', 'CatalogController@category')->name('catalog.category');
     Route::get('/company/{id}', 'CatalogController@company')->name('catalog.company');
+    Route::get('/need/{id}', 'CatalogController@need')->name('catalog.need');
     Route::post('/search', 'CatalogController@search')->name('catalog.search');
 });
 
