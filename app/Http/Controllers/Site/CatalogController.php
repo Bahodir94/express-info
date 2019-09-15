@@ -71,7 +71,7 @@ class CatalogController extends Controller
     */
     public function category(Request $request, string $params)
     {
-        $categoriesArray = str_split('/', trim($params, '/'));
+        $categoriesArray = split('/', trim($params, '/'));
         $slug = end($categoriesArray);
         if (is_numeric($slug))
         {
@@ -113,7 +113,7 @@ class CatalogController extends Controller
     */
     public function company(string $params)
     {
-        $categoriesArray = str_split('/', trim($params, '/'));
+        $categoriesArray = split('/', trim($params, '/'));
         $slug = end($categoriesArray);
         if (is_numeric($slug))
         {
