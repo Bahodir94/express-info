@@ -1756,6 +1756,7 @@ cat-tab a:hover {
 }
 .header_top_right_search_btn_bar:focus{
   width: 150px;
+    border-radius: 30px;
   border: 1px solid #e5e5e5; 
     outline: none;
     background: transparent;
