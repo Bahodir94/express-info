@@ -70,7 +70,9 @@
                                 @endif
                             </div>
                             <div class="description">
-                                <p>{!! $company->category->ru_title !!}</p>
+                                @if ($company->category)
+                                    <p>{!! $company->category->ru_title !!}</p>
+                                @endif
                                 <ul>
                                     @foreach($company->services as $service)
                                         <li><img src="{{ $service->getImage() }}" alt=""></li>
