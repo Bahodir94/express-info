@@ -77,7 +77,9 @@
                     </tbody>
                 </table>
             </div>
-            {{ $companies->links('vendor.pagination.pagination') }}
+                @if ($paginate)
+                    {{ $companies->links('vendor.pagination.pagination') }}
+                @endif
         </div>
     </div>
 @endsection
