@@ -65,18 +65,18 @@ class CatalogController extends Controller
     /**
      * Show concrete type of need
      *
-     * @param string $slug
+     * @param string $needSlug
      * @return \Illuminate\Http\Response
     */
-    public function need(string $slug)
+    public function need(string $needSlug)
     {
-        if (is_numeric($slug))
+        if (is_numeric($needSlug))
         {
-            $id = intval($slug);
+            $id = intval($needSlug);
             $need = $this->needs->get($id);
             return redirect()->route('site.catalog.need', $need->ru_slug);
         }
-        $need = $this->needs->getBySlug($slug);
+        $need = $this->needs->getBySlug($needSlug);
 
         return view('site.pages.catalog.need', compact('need'));
     }
@@ -85,12 +85,12 @@ class CatalogController extends Controller
      * Show concrete category
      *
      * @param Request $request
-     * @param string $params
+     * @param string $categoryParams
      * @return \Illuminate\Http\Response
     */
-    public function category(Request $request, string $params)
+    public function category(Request $request, string $categoryParams)
     {
-        $categoriesArray = explode('/', trim($params, '/'));
+        $categoriesArray = explode('/', trim($categoryParams, '/'));
         $slug = end($categoriesArray);
         if (is_numeric($slug))
         {
@@ -127,12 +127,12 @@ class CatalogController extends Controller
     /**
      * Show company page
      *
-     * @param string $params
+     * @param string $companyParams
      * @return \Illuminate\Http\Response
     */
-    public function company(string $params)
+    public function company(string $companyParams)
     {
-        $categoriesArray = explode('/', trim($params, '/'));
+        $categoriesArray = explode('/', trim($companyParams, '/'));
         $slug = end($categoriesArray);
         if (is_numeric($slug))
         {
