@@ -16,6 +16,10 @@
 
 @endsection
 
+@section('header')
+    @include('site.layouts.partials.headers.default')
+@endsection
+
 @section('content')
 
 

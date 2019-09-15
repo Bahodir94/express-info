@@ -2,6 +2,10 @@
 
 @section('title', 'Каталог')
 
+@section('header')
+    @include('site.layouts.partials.headers.main')
+@endsection
+
 @section('content')
 
 
