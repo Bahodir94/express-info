@@ -63,6 +63,19 @@ class CatalogController extends Controller
     }
 
     /**
+     * Show concrete type of need
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+    */
+    public function need(int $id)
+    {
+        $need = $this->needs->get($id);
+
+        return view('site.pages.catalog.need', compact('need'));
+    }
+
+    /**
      * Show concrete category
      *
      * @param Request $request
