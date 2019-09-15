@@ -138,7 +138,7 @@
             @foreach($category->categories as $child)
                 <li>
                 
-                        <a href="{{ route('site.catalog.category', $child->id) }}">
+                        <a href="{{ route('site.catalog.category', $child->getAncestorsSlugs()) }}">
                             <div class="uk-flex uk-flex-middle">
 <!--                                <span><img src="{{ $child->getImage() }}" alt=""></span>-->
                                 <span>{{ $child->ru_title }} </span>
@@ -192,7 +192,7 @@
                         </div>
                         <div class="inner_tages">
                             <div class="title">
-                                <h2 class="uk-margin-remove-bottom	"><a href="{{ route('site.catalog.company', $company->id) }}">{{ $company->ru_title }}</a></h2>
+                                <h2 class="uk-margin-remove-bottom	"><a href="{{ route('site.catalog.company', $company->getAncestorsSlugs()) }}">{{ $company->ru_title }}</a></h2>
                                                             
                                 @if ($company->hasUrl())
                                 <span class="link">
