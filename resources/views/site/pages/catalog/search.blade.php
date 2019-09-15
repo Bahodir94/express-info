@@ -3,7 +3,7 @@
 @section('title', 'Результаты поиска')
 
 @section('header')
-    @include('site.layouts.partials.headers.default')
+    @include('site.layouts.partials.headers.main')
 @endsection
 
 @section('content')
