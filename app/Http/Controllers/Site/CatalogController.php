@@ -66,11 +66,13 @@ class CatalogController extends Controller
      * Show concrete category
      *
      * @param Request $request
-     * @param string $slug
+     * @param string $params
      * @return \Illuminate\Http\Response
     */
-    public function category(Request $request, string $slug)
+    public function category(Request $request, string $params)
     {
+        $categoriesArray = str_split('/', trim($params, '/'));
+        $slug = end($categoriesArray);
         if (is_numeric($slug))
         {
             $id = intval($slug);
@@ -106,11 +108,13 @@ class CatalogController extends Controller
     /**
      * Show company page
      *
-     * @param string $slug
+     * @param string $params
      * @return \Illuminate\Http\Response
     */
-    public function company(string $slug)
+    public function company(string $params)
     {
+        $categoriesArray = str_split('/', trim($params, '/'));
+        $slug = end($categoriesArray);
         if (is_numeric($slug))
         {
             $id = intval($slug);
