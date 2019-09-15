@@ -966,9 +966,6 @@ footer .uk-container:after, .uk-container:before{
     font-weight: 500;
 }
 
-.uk-parent .uk-open{
-    background: none !important;
-}
 
 
 
@@ -1713,6 +1710,7 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
 }
 .ad-v6.uk-light .uk-navbar-nav>li>a {
     color: rgb(255, 255, 255);
+    background: transparent;
 }
 .ad-v6.uk-light .uk-button-primary {
     background-color: #39446140;
