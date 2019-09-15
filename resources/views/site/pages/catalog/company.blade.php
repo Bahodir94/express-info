@@ -300,10 +300,10 @@ Content end-->
             <li><a href="{{ route('site.catalog.index') }}">Главная</a></li>
             <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @foreach ($company->category->ancestors as $parentCategory)
-                <li><a href="{{ route('site.catalog.category', $parentCategory->getAncestorsSlugs()) }}">{{ $parentCategory->getTitle() }}</a></li>
+                <li><a href="{{ route('site.catalog.main', $parentCategory->getAncestorsSlugs()) }}">{{ $parentCategory->getTitle() }}</a></li>
                 <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @endforeach
-            <li><a href="{{ route('site.catalog.category', $company->category->getAncestorsSlugs()) }}">{{ $company->category->getTitle() }}</a></li>
+            <li><a href="{{ route('site.catalog.main', $company->category->getAncestorsSlugs()) }}">{{ $company->category->getTitle() }}</a></li>
             <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             <li>{{ $company->getTitle() }}</li>
         </ul>

@@ -124,7 +124,7 @@
                             <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
                             @foreach ($needs as $need)
                                 <li class="uk-parent">
-                                    <a href="{{ route('site.catalog.need', $need->ru_slug) }}">{{ $need->ru_title }}</a>
+                                    <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
                                     <div class="code-dropdown uk-dropdown uk-dropdown-width-4 uk-dropdown-stack uk-dropdown-bottom-left" data-uk-dropdown="{delay: 500}" style="left: 108.65625px; top: 32px;">
                                         <div class="uk-grid-collapse uk-grid uk-child-width-1-4" uk-grid>
                                             @foreach ($need->menuItems as $menu)
@@ -136,7 +136,7 @@
                                                         </div>
                                                         @foreach ($menu->categories as $category)
                                                             <li>
-                                                                <a href="{{ route('site.catalog.category', $category->getAncestorsSlugs()) }}">{!! $category->ru_title !!}</a>
+                                                                <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{!! $category->ru_title !!}</a>
                                                             </li>
                                                         @endforeach
                                                     </ul>

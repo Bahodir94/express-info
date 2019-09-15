@@ -23,10 +23,10 @@
                                 </div>
                             </div>
                             <div class="item_text">
-                                <h2><a href="{{ route('site.catalog.category', $category->getAncestorsSlugs()) }}">{!! $category->ru_title !!}</a></h2>
+                                <h2><a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{!! $category->ru_title !!}</a></h2>
                                 <p>
                                     @foreach ($category->categories()->limit(5)->get() as $child)
-                                        <a href="{{ route('site.catalog.category', $child->getAncestorsSlugs()) }}">{!! $child->ru_title !!},</a>
+                                        <a href="{{ route('site.catalog.main', $child->getAncestorsSlugs()) }}">{!! $child->ru_title !!},</a>
                                     @endforeach
                                 </p>
                             </div>
@@ -57,7 +57,7 @@
                             </div>
                             <div class="inner_tages">
                                 <div class="title">
-                                    <h2><a href="{{ route('site.catalog.company', $company->getAncestorsSlugs()) }}">{{ $company->ru_title }}</a></h2>
+                                    <h2><a href="{{ route('site.catalog.main', $company->getAncestorsSlugs()) }}">{{ $company->ru_title }}</a></h2>
                                 </div>
                                 @if ($company->hasAdvantages())
                                     <div class="tags">

@@ -63,6 +63,66 @@ class CatalogController extends Controller
     }
 
     /**
+     * Action for catalog
+     *
+     * @param Request $request
+     * @param string $params
+     * @return \Illuminate\Http\Response
+    */
+    public function catalog(Request $request, string $params)
+    {
+        $paramsArray = explode('/', trim($params, '/'));
+        $slug = end($paramsArray);
+
+        $need = $this->needs->getBySlug($slug);
+        if ($need)
+            return $this->processNeed($need);
+        $category = $this->categories->getBySlug($slug);
+        if ($category)
+            return $this->processCategory($request, $category);
+        $company = $this->companies->getBySlug($slug);
+        if ($company)
+            return $this->processCompany($company);
+        abort(404);
+    }
+
+    private function processNeed($need)
+    {
+        return view('site.pages.catalog.need', compact('need'));
+    }
+
+    private function processCategory(Request $request, $category)
+    {
+        $descendantsCategories = $category->descendants;
+        $companies = collect();
+        $resultCompanies = [];
+        $companies = $companies->merge($category->companies);
+        foreach ($descendantsCategories as $descendantsCategory)
+            $companies = $companies->merge($descendantsCategory->companies);
+        if ($request->has('service'))
+        {
+            $serviceId = $request->get('service');
+            foreach ($companies as $company)
+                if ($company->hasService($serviceId))
+                    array_push($resultCompanies, $company);
+        }
+        else
+            $resultCompanies = $companies;
+
+        $data = [
+            'category' => $category,
+            'companies' => $resultCompanies
+        ];
+
+        return view('site.pages.catalog.companies', $data);
+    }
+
+    private function processCompany($company)
+    {
+        return view('site.pages.catalog.company', compact('company'));
+    }
+
+    /**
      * Show concrete type of need
      *
      * @param string $needSlug
