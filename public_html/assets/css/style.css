@@ -819,6 +819,9 @@ footer .uk-container:after, .uk-container:before{
     margin: 5px 0;
 }
 */
+.title h2 {
+    line-height: 1;
+}
 .title h2 a{
     text-decoration: none;
     font-size: 20px;
@@ -964,7 +967,7 @@ footer .uk-container:after, .uk-container:before{
 }
 
 .uk-parent .uk-open{
-    background: none;
+    background: none !important;
 }
 
 
@@ -1352,7 +1355,7 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
     text-transform: none !important;
     color: #888;
 }
-cat-tab a:hover {
+.cat-tab a:hover {
     color: #555;
 }
 .cat-tab a span.countcat {
@@ -1364,6 +1367,31 @@ cat-tab a:hover {
     margin-right: 10px;
 }
 
+
+/* Fixed Header */
+.button_wrapper{
+    padding: 10px;
+    background: #2E2E2E;
+    border-radius: 0 10px 10px 0;
+    text-decoration: none;
+    color: white;
+}
+.button_wrapper:hover{
+    color: white;
+}
+.continer-title{
+    position: absolute;
+    width: 260px;
+    top: 10px;
+    left: 40px;
+}
+.padding-top{
+    padding-top:45px;
+}
+.offcanvas_title span{
+    padding-right: 5px;
+}
+/* Fixed Header end */
 
 @media screen and (max-width: 4800px){
     .code-dropdown-stack .code-dropdown-grid>* {
@@ -1718,7 +1746,7 @@ cat-tab a:hover {
 }
 .header_top_right_search_btn_bar{
   width: 40px;
-    height: 100%;
+    height: 40px;
     justify-content: center;
     align-items: center;
   font-family: "Montserrat";
@@ -1726,7 +1754,7 @@ cat-tab a:hover {
 
   box-sizing: border-box;
   border: none;
-    border-radius: 50%;
+/*    border-radius: 50px;*/
   -webkit-transition: all 0.25s ease-in-out;
     -moz-transition: all 0.25s ease-in-out;
     -o-transition: all 0.25s ease-in-out;
@@ -1769,7 +1797,7 @@ cat-tab a:hover {
 .uk-light #search-input.uk-input:focus{    padding-left: 40px!important;
 }
 .uk-offcanvas-bar a{
-    color: #000;
+    /* color: #000; */
 }
 .uk-offcanvas-bar .text-dual-primary-dark{
     color: #000 !important;

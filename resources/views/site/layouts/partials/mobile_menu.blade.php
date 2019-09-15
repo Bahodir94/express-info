@@ -63,3 +63,21 @@
 
 
 <!-- Mobile menu end -->
+
+
+<!-- Fixed Button and Offcanvas -->
+<a href="#fixedbutton" uk-toggle class="button_wrapper uk-position-fixed uk-position-center-left" uk-icon="cog"></a>
+<div id="fixedbutton"  uk-offcanvas="overlay: true">
+    <div class="uk-offcanvas-bar">
+        <div class="continer-title">
+            <h3 class="offcanvas_title"><span uk-icon="cog"></span>Lorem ipsum dolor sit amet.</h3>
+        </div>
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-list padding-top uk-list-divider">
+            <li><a href="">List item 1</a></li>
+            <li><a href="">List item 2</a></li>
+            <li><a href="">List item 3</a></li>
+        </ul>
+    </div>
+</div>
+<!-- Fixed Button and Offcanvas -->
