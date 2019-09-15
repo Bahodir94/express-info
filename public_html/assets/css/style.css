@@ -768,7 +768,7 @@ footer .uk-container:after, .uk-container:before{
     transition: all .3s cubic-bezier(.2, .5, .3, 1);
     background: white;
     border-radius: 5px;
-    margin-bottom: 34px !important;
+    margin-bottom: 20px !important;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
@@ -1819,4 +1819,7 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
 
 .uk-section-secondary {
     background: #394461;
+}
+.home .inner {
+    padding: 20px;
 }
