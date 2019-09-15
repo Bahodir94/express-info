@@ -63,7 +63,7 @@
 <!-- Search settings end -->
 <section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="uk-container uk-container-expand uk-container-center">
-        <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle" uk-grid>
+        <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
             <div class="wrapper_title">
                 <h3>{{ $category->getTitle() }}</h3>
             </div>
