@@ -27,7 +27,9 @@
             </div>
         </div>
         <div class="block-content">
-            {{ $companies->links('vendor.pagination.pagination') }}
+            @if ($paginate)
+                {{ $companies->links('vendor.pagination.pagination') }}
+            @endif
             <div class="table-responsive">
                 <table class="table table-stripped table-bordered table-vcenter">
                     <thead>
