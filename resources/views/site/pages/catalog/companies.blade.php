@@ -136,17 +136,17 @@
             </li>
             
             @foreach($category->categories as $child)
-                @if ($child->getAllCompaniesCount() > 0)
-                    <li>
+                <li>
+                
                         <a href="{{ route('site.catalog.category', $child->id) }}">
                             <div class="uk-flex uk-flex-middle">
-                                <span><img src="{{ $child->getImage() }}" alt=""></span>
+<!--                                <span><img src="{{ $child->getImage() }}" alt=""></span>-->
                                 <span>{{ $child->ru_title }} </span>
                                 <span class="countcat">({{ $child->getAllCompaniesCount() }})</span>
                             </div>
                         </a>
-                    </li>
-                @endif
+                   
+                </li>
             @endforeach
             
 <!--
