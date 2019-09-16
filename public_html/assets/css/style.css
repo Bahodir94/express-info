@@ -1728,13 +1728,21 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
     margin-top: -5px;
 }
 .link a{
-    color: #1e87f0;
+    background: gray;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 15px;
     vertical-align: middle;
-    padding: 0 !important;
+    /* padding: 0 !important; */
     display: inline-block;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.7 !important;
-    margin: 0 !important;
+    /* margin: 7px !important; */
+    margin-top: 5px;
+    text-decoration:none;
+}
+.link a:hover{
+    background: #1e87f0;
 }
 
 .uk-light #search-input.uk-input {

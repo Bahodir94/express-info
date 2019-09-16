@@ -199,7 +199,7 @@
                                 @if ($company->hasUrl())
                                 <span class="link">
                                     <a href="{{ $company->url }}" target="_blank">
-                                        {{ parse_url($company->url, PHP_URL_HOST) }}
+                                        Перейти на сайт <span uk-icon="icon: chevron-right"></span>
                                     </a>
                                 </span>
                                 @endif
