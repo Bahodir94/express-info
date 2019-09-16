@@ -105,7 +105,7 @@ class CatalogController extends Controller
         return view('site.pages.catalog.need', compact('need'));
     }
 
-    private function processMenuItem($menuIten)
+    private function processMenuItem($menuItem)
     {
         return view('site.pages.catalog.menuItem', compact('menuItem'));
     }
