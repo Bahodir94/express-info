@@ -55,7 +55,7 @@
     <div class="uk-container uk-container-expand uk-margin-medium uk-container-center">
         <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid-margin>
             @foreach($parentCategories as $category)
-                <li class="uk-container-center uk-margin-medium-bottom">
+                <li class="uk-container-center uk-margin-medium-bottom" @if($category->id == 324) style="display: none" @endif>
                     <div class="item uk-flex-middle">
                         <div class="item_icon">
                             <div class="item_circle">
