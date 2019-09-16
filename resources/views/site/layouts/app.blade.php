@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
     <title>
-        @yield('title') | Tezinfo
+        @yield('title') | Porta
     </title>
 
     <script src="{{ asset('assets/js/uikit.min.js') }}"></script>

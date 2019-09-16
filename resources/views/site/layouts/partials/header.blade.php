@@ -15,7 +15,7 @@
                                 <span class="icon">
                                     <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                                 </span>
-                                <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
+                                <span class="font-size-xl text-dual-primary-dark"></span><span class="font-size-xl text-primary">Porta</span>
                             </a>
                         </div>
                     <!--
