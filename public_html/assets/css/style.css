@@ -1439,6 +1439,10 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
         text-align: center;
         /* margin-bottom: 100px !important; */
     }
+    .continer-title{
+        width: 225px;
+        left: 20px;
+    }
 }
 @media screen and (max-width: 768px) {
     .sorting{
@@ -1724,11 +1728,11 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
     margin-top: -5px;
 }
 .link a{
-    color: #757575;
+    color: #1e87f0;
     vertical-align: middle;
     padding: 0 !important;
     display: inline-block;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.7 !important;
     margin: 0 !important;
 }
