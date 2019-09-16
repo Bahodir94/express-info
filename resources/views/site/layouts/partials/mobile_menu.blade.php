@@ -12,18 +12,16 @@
             <nav class="uk-navbar-container vid-bar" uk-navbar>
                 <div class="uk-navbar-left">
 
+<!--
                     <ul class="uk-navbar-nav">
                         <li class="uk-active"><a href="#">Регистрация</a></li>
                         <li ><a href="">Войти</a></li>
                     </ul>
+-->
 
                 </div>
             </nav>
-        <!--
-            <a class="uk-logo" href="{{ route('site.catalog.index') }}">
-                <img src="" width="134" height="30" alt="Project Logo" hidden="true">
-            </a>
--->
+
         </div>
         <ul class="uk-margin-small-bottom uk-nav-primary uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
             <!--class="uk-active"-->
@@ -48,6 +46,7 @@
             @endforeach
         </ul>
         
+<!--
         <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Разместить рекламу</a>
 
         <hr class="uk-margin-medium">
@@ -58,6 +57,7 @@
             <li><a href="#">О нас</a></li>
             <li><a href="#">Блог</a></li>
         </ul>
+-->
     </div>
 </div>
 

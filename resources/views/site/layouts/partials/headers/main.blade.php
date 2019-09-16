@@ -33,11 +33,12 @@
                         <div class="show-hed-search uk-navbar-item uk-visible@m">
                             @include('site.components.search')
                         </div>
+<!--
                         <ul class="uk-navbar-nav uk-visible@m">
-    <!--                        <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>-->
                             <li ><a href="#">Регистрация</a></li>
                             <li ><a href="">Войти</a></li>
                         </ul>
+-->
                         <div class="uk-navbar-nav">
                         <a class="uk-button uk-button-primary uk-visible@m " href="#">Добавить компанию</a>
                         </div>

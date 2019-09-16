@@ -182,7 +182,9 @@
                     <div class="inner">
                         <div class="header_logo">
                             <div class="inner_logo">
+                                <a href="{{ route('site.catalog.main', $company->getAncestorsSlugs()) }}">
                                 <img src="{{ $company->getImage() }}" alt="">
+                                </a>
                             </div>
                             <!-- <ul class="dots">
                                 <li></li>

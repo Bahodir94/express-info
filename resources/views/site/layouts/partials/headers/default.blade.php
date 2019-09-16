@@ -18,11 +18,6 @@
                                 <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                             </a>
                         </div>
-                    <!--
-                        <a class="uk-navbar-item uk-logo " href="{{ route('site.catalog.index') }}">
-                            <img src="/site/images/yootheme-logo.svg" width="134" height="30" alt="YOOtheme Logo" uk-svg="" hidden="true">
-                        </a>
-    -->
 
                     </div>
 
@@ -33,11 +28,12 @@
                         <div class="uk-navbar-item uk-visible@m">
                             @include('site.components.search')
                         </div>
+<!--
                         <ul class="uk-navbar-nav uk-visible@m">
-    <!--                        <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>-->
                             <li ><a href="#">Регистрация</a></li>
                             <li ><a href="">Войти</a></li>
                         </ul>
+-->
                         <div class="uk-navbar-nav">
                         <a class="uk-button uk-button-primary uk-visible@m " href="#">Добавить компанию</a>
                         </div>
@@ -47,50 +43,7 @@
 
 
                     </div>
-                <!--
-                <div class="contact">
-                    <button uk-toggle ="target:#phone" type="button" class="contact-buttons">
-                        <div class="contact_img">
-                            <img src="{{ asset('assets/img/phone-receiver.png') }}" alt="">
-                        </div>
-                        <h2>
-                            Контакты
-                        </h2>
-                    </button>
-                    <a href="{{ route('home.cgu.ad') }}" class="contact-buttons">
-                        <div class="contact_img">
-                            <img src="{{ asset('assets/img/photo228.png') }}" alt="">
-                        </div>
-                        <h2>
-                            Реклама в Цгу
-                        </h2>
-                    </a>
-                </div>
-                <div id="phone" uk-modal>
-                    <div class="uk-modal-dialog uk-modal-body">
-                        <div class="container-pop">
-                            <h2>
-                                <img src="{{ asset('assets/img/phone-receiver.png') }}" alt="">
-                                размещение web сайтов и рекламы в цгу:
-                            </h2>
-                            <div class="phone-numbers">
-                                    <a href="tel:+998953411717" class="contacts_popup_inner_link">
-                                        +99895 341 17 17
-                                    </a>
-                                    <a href="tel:+998954781717" class="contacts_popup_inner_link">
-                                        +99895 478 17 17
-                                    </a>
-                                    <a href="tel:+998954761717" class="contacts_popup_inner_link">
-                                        +99895 476 17 17
-                                    </a>
-                                    <a href="tel:+998954791717" class="contacts_popup_inner_link">
-                                        +99895 479 17 17
-                                    </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    -->
+
                 </nav>
 
             </div>
