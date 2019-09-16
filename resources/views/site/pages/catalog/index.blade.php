@@ -11,6 +11,78 @@
 
 
 
+
+    <!-- Favorites Category -->
+<section class="uk-section-xsmall ">
+    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center uk-slider">
+        <div class="uk-container uk-container-expand uk-container-center gutter" uk-slider="autoplay: true; autoplay-interval: 5000;">
+            <ul class="uk-slider-items uk-child-width-auto uk-grid-large uk-grid">
+
+                @foreach ($favoritesCategories as $category)
+                    <li class="slide">
+                        <div class="card">
+                            <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">
+                                
+                            <div class="card_img">
+                                <img src="{{ $category->getImage() }}" alt="">
+                            </div>
+                            <h2>
+                                <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">
+                                    {{ $category->getTitle() }}
+                                </a>
+                            </h2>
+                            </a>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    <!-- Favorites Category end-->
+
+
+
+
+
+
+<section class="uk-section-xsmall">
+    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center">
+        <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid-margin>
+            @foreach($parentCategories as $category)
+                <li class="uk-container-center uk-margin-medium-bottom">
+                    <div class="item uk-flex-middle">
+                        <div class="item_icon">
+                            <div class="item_circle">
+                                <img src="{{ $category->getImage() }}" alt="">
+                            </div>
+                        </div>
+                        <div class="item_text">
+                            <h2><a href="{{ route('site.catalog.main', $category->ru_slug) }}">{!! $category->ru_title !!}</a></h2>
+                            <p>
+                                @foreach ($category->categories()->limit(5)->get() as $child)
+                                    <a href="{{ route('site.catalog.main', $child->getAncestorsSlugs()) }}">{!! $child->ru_title !!},</a>
+                                @endforeach
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+</section>
+@endsection
+
+<!-- Slider Favorite Companies -->
+
+
+<!--
+
 <div class="uk-section uk-flex uk-flex-middle" uk-height-viewport="offset-top: true; offset-bottom: 20;" style="min-height: calc((100vh - 80px) - 20vh);">
 
     <div class="uk-width-1-1">
@@ -136,7 +208,6 @@
 
 
 
-            <!--
                                         <div class="tags">    
                                             <ol>
 
@@ -144,7 +215,7 @@
 
                                             </ol>
                                         </div>
-            -->
+
                                                             </div>
                                 <div class="description">
                                     <p>Фитнес залы</p>
@@ -183,69 +254,7 @@
 
 </div>
 
-
-    <!-- Favorites Category -->
-<section class="uk-section-xsmall ">
-    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center uk-slider">
-        <div class="uk-container uk-container-expand uk-container-center gutter" uk-slider="autoplay: true; autoplay-interval: 5000;">
-            <ul class="uk-slider-items uk-child-width-auto uk-grid-large uk-grid">
-
-                @foreach ($favoritesCategories as $category)
-                    <li class="slide">
-                        <div class="card">
-                            <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">
-                                
-                            <div class="card_img">
-                                <img src="{{ $category->getImage() }}" alt="">
-                            </div>
-                            <h2>
-                                <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">
-                                    {{ $category->getTitle() }}
-                                </a>
-                            </h2>
-                            </a>
-                        </div>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-</section>
+-->
 
 
-
-
-
-    <!-- Favorites Category end-->
-
-
-
-
-
-
-<section class="uk-section-xsmall">
-    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center">
-        <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid-margin>
-            @foreach($parentCategories as $category)
-                <li class="uk-container-center uk-margin-medium-bottom">
-                    <div class="item uk-flex-middle">
-                        <div class="item_icon">
-                            <div class="item_circle">
-                                <img src="{{ $category->getImage() }}" alt="">
-                            </div>
-                        </div>
-                        <div class="item_text">
-                            <h2><a href="{{ route('site.catalog.main', $category->ru_slug) }}">{!! $category->ru_title !!}</a></h2>
-                            <p>
-                                @foreach ($category->categories()->limit(5)->get() as $child)
-                                    <a href="{{ route('site.catalog.main', $child->getAncestorsSlugs()) }}">{!! $child->ru_title !!},</a>
-                                @endforeach
-                            </p>
-                        </div>
-                    </div>
-                </li>
-            @endforeach
-        </ul>
-    </div>
-</section>
-@endsection
+<!-- Slider Favorite Companies End -->
