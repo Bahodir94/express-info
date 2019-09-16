@@ -21,6 +21,17 @@ class MenuRepository implements MenuRepositoryInterface
     }
 
     /**
+     * Get Menu item by slug
+     *
+     * @param string $slug
+     * @return MenuItem
+     */
+    public function getBySlug(string $slug)
+    {
+        return MenuItem::where('ru_slug', $slug)->first();
+    }
+
+    /**
      * Create a menu item
      *
      * @param \Illuminate\Http\Request $menuData

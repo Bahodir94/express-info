@@ -10,7 +10,8 @@ class MenuItem extends Model
     use Image;
 
     protected $fillable = [
-        'ru_title', 'en_title', 'uz_title', 'need_id'
+        'ru_title', 'en_title', 'uz_title', 'need_id',
+        'ru_slug', 'en_slug', 'uz_slug',
     ];
 
     const UPLOAD_DIRECTORY = 'uploads/menu_items_images/';
