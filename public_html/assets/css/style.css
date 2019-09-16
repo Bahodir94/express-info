@@ -783,7 +783,7 @@ footer .uk-container:after, .uk-container:before{
     justify-content: space-between;
     max-height: 81px;
 }
-.inner .inner_logo{
+.inner .inner_logo a{
     height: 80px;
     padding: 5px;
     display: flex;
@@ -1841,7 +1841,7 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
     padding: 20px;
 }
 .off-top{
-    height: 80px;
+    /* height: 80px; */
     background: #333d57;
 }
 .off-top .content-header-item{
