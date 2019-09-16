@@ -1373,6 +1373,7 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
     border-radius: 0 10px 10px 0;
     text-decoration: none;
     color: white;
+    z-index: 90;
 }
 .button_wrapper:hover{
     color: white;
@@ -1822,4 +1823,17 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
 }
 .home .inner {
     padding: 20px;
+}
+.off-top{
+    height: 80px;
+    background: #333d57;
+}
+.off-top .content-header-item{
+    margin-top: -30px;
+}
+.off-bot{
+    margin-top: 80px;
+
+    background: #485679;
+    
 }

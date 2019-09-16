@@ -20,14 +20,17 @@
                         </div>
 
                     </div>
+                    <div class="uk-navbar-center">
+                        <div class="uk-navbar-item uk-visible@m">
+                            @include('site.components.search')
+                        </div>
+                    </div>
 
                     <div class="uk-navbar-right">
                         <div class="uk-navbar-item uk-hidden@m ">
                             @include('site.layouts.partials.mobile_search')
                         </div>
-                        <div class="uk-navbar-item uk-visible@m">
-                            @include('site.components.search')
-                        </div>
+
 <!--
                         <ul class="uk-navbar-nav uk-visible@m">
                             <li ><a href="#">Регистрация</a></li>
@@ -48,13 +51,6 @@
 
             </div>
         </div>
-
-
-    </div>
-    <!--  top: 0; bottom: #offset; offset: 75; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;  -->
-    <!--  top: 0; offset: 75; media: 960; show-on-up: true; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;  -->
-
-    <div uk-sticky="animation: uk-animation-slide-top; top: 0; offset: 75; media: 960; show-on-up: true; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;" class="header andir uk-visible@m" style="">
         <div class="uk-navbar-container " style="">
             <div class="uk-container uk-container-expand">
                 <nav uk-navbar class="uk-navbar header-bottom">
@@ -84,11 +80,7 @@
                                                 @endforeach
                                             </div>
                                         </div>
-<!--
-                                    <div class="code-dropdown uk-dropdown uk-dropdown-width-4 uk-dropdown-stack uk-dropdown-bottom-left" data-uk-dropdown="animation: uk-animation-slide-top-small; duration: 400; delay-show: 250" >
-              
-                                    </div>
--->
+
                                 </li>
                             @endforeach
                         </ul>
@@ -96,7 +88,16 @@
                 </nav>
             </div>
         </div>
+
     </div>
+    <!--  top: 0; bottom: #offset; offset: 75; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;  -->
+    <!--  top: 0; offset: 75; media: 960; show-on-up: true; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;  -->
+
+<!--
+    <div uk-sticky="animation: uk-animation-slide-top; top: 0; offset: 75; media: 960; show-on-up: true; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;" class="header andir uk-visible@m" style="">
+
+    </div>
+-->
 </div>
 
 <!--show-hed-search-->

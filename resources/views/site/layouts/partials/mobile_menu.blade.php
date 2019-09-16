@@ -66,18 +66,96 @@
 
 
 <!-- Fixed Button and Offcanvas -->
-<a href="#fixedbutton" uk-toggle class="button_wrapper uk-position-fixed uk-position-center-left" uk-icon="cog"></a>
+<a href="#fixedbutton" uk-toggle class="button_wrapper uk-position-fixed uk-position-center-left">
+<img src="/assets/img/hex.svg" uk-svg="" height="40"></a>
 <div id="fixedbutton"  uk-offcanvas="overlay: true">
-    <div class="uk-offcanvas-bar">
-        <div class="continer-title">
-            <h3 class="offcanvas_title"><span uk-icon="cog"></span>Lorem ipsum dolor sit amet.</h3>
+    <div class="uk-offcanvas-bar off-top">
+        <div class="content-header-item">
+          <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
+                <span class="icon">
+                    <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                </span>
+                <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
+            </a>
+                
+            <button class="uk-offcanvas-close" type="button" uk-close></button>
         </div>
-        <button class="uk-offcanvas-close" type="button" uk-close></button>
-        <ul class="uk-list padding-top uk-list-divider">
-            <li><a href="">List item 1</a></li>
-            <li><a href="">List item 2</a></li>
-            <li><a href="">List item 3</a></li>
-        </ul>
+    </div>
+    <div class="uk-offcanvas-bar off-bot uk-offcanvas-bar-animation uk-offcanvas-slide">
+            <button class="uk-offcanvas-close" type="button" style="display:none;" uk-close></button>
+
+
+        <div>
+            
+        
+            <ul class="uk-list padding-top uk-list">
+                <li><a href="#">
+                    <div class="uk-margin uk-text-left@m uk-text-center uk-panel" >
+                        <div class="uk-child-width-expand uk-grid uk-grid-small" uk-grid="">
+                            <div class="uk-width-auto uk-first-column"> 
+                                <span uk-icon="icon: check;ratio: 1.4" class="el-image uk-icon">
+                                    
+                                </span> 
+                            </div>
+                            <div class="">
+                                <div class="el-title uk-margin uk-h5">Public Service </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </a></li>
+                      <li><a href="#">
+                    <div class="uk-margin uk-text-left@m uk-text-center uk-panel" >
+                        <div class="uk-child-width-expand uk-grid uk-grid-small" uk-grid="">
+                            <div class="uk-width-auto uk-first-column"> 
+                                <span uk-icon="icon: check;ratio: 1.4" class="el-image uk-icon">
+                                    
+                                </span> 
+                            </div>
+                            <div class="">
+                                <div class="el-title uk-margin uk-h5">О проекте</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </a></li>
+                      <li><a href="#">
+                    <div class="uk-margin uk-text-left@m uk-text-center uk-panel" >
+                        <div class="uk-child-width-expand uk-grid uk-grid-small" uk-grid="">
+                            <div class="uk-width-auto uk-first-column"> 
+                                <span uk-icon="icon: check;ratio: 1.4" class="el-image uk-icon">
+                                    
+                                </span> 
+                            </div>
+                            <div class="">
+                                <div class="el-title uk-margin uk-h5">Разместить рекламу </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </a></li>
+            </ul>
+        </div>
+<!--
+        <div>
+            <h3>Категории</h3>
+            <ul class="uk-list padding-top uk-list-divider">
+                <li><a href="#">Porta</a></li>
+                <li><a href="">Public Service</a></li>
+                <li><a href="">List item 3</a></li>
+            </ul>
+        </div>
+-->
+        
+        
+        
     </div>
 </div>
+
+
+
+
+
+
+
 <!-- Fixed Button and Offcanvas -->
