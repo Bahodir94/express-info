@@ -11,11 +11,11 @@
                 <nav uk-navbar class="uk-navbar header-top">
                     <div class="uk-navbar-left">
                         <div class="uk-navbar-item  content-header-item ">
-                            <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
+                            <a class="link-effect font-w700" href="{{ route('home') }}">
                                 <span class="icon">
                                     <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                                 </span>
-                                <span class="font-size-xl text-dual-primary-dark"></span><span class="font-size-xl text-primary">Porta</span>
+                                <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                             </a>
                         </div>
                     <!--

@@ -6,10 +6,12 @@
  * Time: 16:42
  */
 
+Route::get('/','HomeController@index')->name('home');
+
 Route::middleware('needsList')->name('site.')->namespace('Site')->group(function() {
     // Catalog routes
-    Route::get('/', 'CatalogController@index')->name('catalog.index');
-    Route::get('/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
+    Route::get('/catalog/', 'CatalogController@index')->name('catalog.index');
+    Route::get('/catalog/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
     Route::post('/search', 'CatalogController@search')->name('catalog.search');
 });
 
