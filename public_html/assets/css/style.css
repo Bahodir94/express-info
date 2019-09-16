@@ -783,7 +783,7 @@ footer .uk-container:after, .uk-container:before{
     justify-content: space-between;
     max-height: 81px;
 }
-.inner .inner_logo{
+.inner .inner_logo a{
     height: 80px;
     padding: 5px;
     display: flex;
