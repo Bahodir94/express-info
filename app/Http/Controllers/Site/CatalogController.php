@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Repositories\CompanyRepositoryInterface;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
+use App\Repositories\MenuRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -32,20 +33,30 @@ class CatalogController extends Controller
     private $companies;
 
     /**
+     * Menu items repository
+     *
+     * @var MenuRepositoryInterface
+     */
+    private $menus;
+
+    /**
      * Create a new controller instance
      *
      * @param NeedTypeRepositoryInterface $needsRepository
      * @param HandbookCategoryRepositoryInterface $categoriesRepository
      * @param CompanyRepositoryInterface $companyRepository
+     * @param MenuRepositoryInterface $menuRepository
      * @return void
     */
     public function __construct(NeedTypeRepositoryInterface $needsRepository,
                                 HandbookCategoryRepositoryInterface $categoriesRepository,
-                                CompanyRepositoryInterface $companyRepository)
+                                CompanyRepositoryInterface $companyRepository,
+                                MenuRepositoryInterface $menuRepository)
     {
         $this->needs = $needsRepository;
         $this->categories = $categoriesRepository;
         $this->companies = $companyRepository;
+        $this->menus = $menuRepository;
     }
 
     /**
@@ -77,6 +88,9 @@ class CatalogController extends Controller
         $need = $this->needs->getBySlug($slug);
         if ($need)
             return $this->processNeed($need);
+        $menuItem = $this->menus->getBySlug($slug);
+        if ($menuItem)
+            return $this->processMenuItem($menuItem);
         $category = $this->categories->getBySlug($slug);
         if ($category)
             return $this->processCategory($request, $category);
@@ -89,6 +103,11 @@ class CatalogController extends Controller
     private function processNeed($need)
     {
         return view('site.pages.catalog.need', compact('need'));
+    }
+
+    private function processMenuItem($menuIten)
+    {
+        return view('site.pages.catalog.menuItem', compact('menuItem'));
     }
 
     private function processCategory(Request $request, $category)

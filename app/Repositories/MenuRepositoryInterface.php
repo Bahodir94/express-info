@@ -13,6 +13,14 @@ interface MenuRepositoryInterface {
     public function get(int $id);
 
     /**
+     * Get Menu item by slug
+     *
+     * @param string $slug
+     * @return MenuItem
+     */
+    public function getBySlug(string $slug);
+
+    /**
      * Create a menu item
      *
      * @param \Illuminate\Http\Request $menuData
