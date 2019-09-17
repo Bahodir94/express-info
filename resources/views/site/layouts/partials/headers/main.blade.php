@@ -11,7 +11,7 @@
                 <nav uk-navbar class="uk-navbar header-top">
                     <div class="uk-navbar-left">
                         <div class="uk-navbar-item  content-header-item ">
-                            <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
+                            <a class="link-effect font-w700" href="http://tezinfo.uz">
                                 <span class="icon">
                                     <img src="/assets/img/hex.svg" uk-svg="" height="40">
                                 </span>

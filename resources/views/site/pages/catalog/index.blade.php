@@ -307,7 +307,7 @@
                     <li class="slide">
                         <div>
 						<img src="/assets/img/comb1.svg" uk-svg class="uk-preserve" height="200">
-						<div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+						<div class="mobile_main_item_inner uk-position-center" >
 							<a href="http://porta.uz" class="mobile_main_item_inner_link">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
 							</a>
@@ -317,7 +317,7 @@
                     <li class="slide">
                         <div>
 						<img src="/assets/img/comb2.svg" uk-svg class="uk-preserve" height="200">
-						<div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+						<div class="mobile_main_item_inner uk-position-center" >
 							<a href="http://porta.uz" class="mobile_main_item_inner_link">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
 							</a>
@@ -327,7 +327,7 @@
                     <li class="slide">
                         <div>
 						<img src="/assets/img/comb3.svg" uk-svg class="uk-preserve" height="200">
-						<div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+						<div class="mobile_main_item_inner uk-position-center" >
 							<a href="http://porta.uz" class="mobile_main_item_inner_link">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
 							</a>
@@ -337,7 +337,7 @@
                     <li class="slide">
                         <div>
 						<img src="/assets/img/comb1.svg" uk-svg class="uk-preserve" height="200">
-						<div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+						<div class="mobile_main_item_inner uk-position-center" >
 							<a href="http://porta.uz" class="mobile_main_item_inner_link">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
 							</a>
@@ -347,7 +347,7 @@
                     <li class="slide">
                         <div>
 						<img src="/assets/img/comb2.svg" uk-svg class="uk-preserve" height="200">
-						<div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+						<div class="mobile_main_item_inner uk-position-center" >
 							<a href="http://porta.uz" class="mobile_main_item_inner_link">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
 							</a>
@@ -357,7 +357,7 @@
                     <li class="slide">
                         <div>
 						<img src="/assets/img/comb3.svg" uk-svg class="uk-preserve" height="200">
-						<div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+						<div class="mobile_main_item_inner uk-position-center" >
 							<a href="http://porta.uz" class="mobile_main_item_inner_link">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
 							</a>

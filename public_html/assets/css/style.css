@@ -1806,7 +1806,7 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
   color: #e5e5e5;
 }
 .header_top_right_search_btn_bar:focus{
-  width: 150px;
+  width: 105px;
     border-radius: 30px;
   border: 1px solid #e5e5e5; 
     outline: none;
