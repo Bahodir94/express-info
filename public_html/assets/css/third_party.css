@@ -1829,7 +1829,12 @@ small{
 	display: none;
 
 }
-
+.underlogo{
+	display: inline-block;
+    width: 80px;
+    margin: 0;
+    padding: 10px 10px 10px 0;
+}
 .mobile_main_header_logo{
 
 	display: flex;
@@ -1838,7 +1843,7 @@ small{
 
 	justify-content: flex-start; */
 
-	width: 230px;
+	/* width: 230px; */
 
 	margin: 0;
 

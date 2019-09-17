@@ -74,7 +74,7 @@
 		<div class="mobile_main_header">
 			<!-- <img src="/uploads/mobile_logo.png" alt="" class="mobile_main_header_logo"> -->
 			<div class="mobile_main_header_logo">
-				<a href="http://tezinfo.uz/">
+				<a href="http://tezinfo.uz/" class="underlogo">
 					<img src="{{ asset('assets/img/logo.png') }}" alt="">
 				</a>
 				<div class="mobile_main_header_logo_text" style="width:100%">
