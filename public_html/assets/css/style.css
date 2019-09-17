@@ -1926,3 +1926,12 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
     background-color: #DD7F7C!important;
 }
 
+ul.slide-ttg li:first-child .uk-svg {
+    fill: #42a5f5;
+}
+ul.slide-ttg li:nth-child(3n+2) .uk-svg {
+    fill: #DDDC7C !important;
+}
+ul.slide-ttg li:nth-child(3n) .uk-svg{
+    fill: #DD7F7C!important;
+}
