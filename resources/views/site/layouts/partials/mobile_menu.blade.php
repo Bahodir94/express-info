@@ -46,7 +46,9 @@
             @endforeach
             <li><a href="http://porta.uz/government-resources">Госс-порталы</a></li>
         </ul>
-        
+        <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Реклама в ЦГУ</a>
+        <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Контакты</a>
+
 <!--
         <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Разместить рекламу</a>
 
