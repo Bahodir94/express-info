@@ -196,7 +196,7 @@
                             <div class="title">
                                 <h2 class="uk-margin-remove-bottom	"><a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif">{{ $company->ru_title }}</a></h2>
 
-                                @if ($company->hasUrl())
+                                @if ($company->hasUrl() and $company->show_page)
                                 <span class="link">
                                     <a href="{{ $company->url }}" target="_blank">
                                         Перейти на сайт <span uk-icon="icon: chevron-right"></span>
