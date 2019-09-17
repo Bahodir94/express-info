@@ -101,7 +101,7 @@
                     </div>
                     <div>
                         <div class="uk-card uk-card-default uk-card-body">Item</div>
-                </div> 
+                </div>
             <div>
                 <div class="plus_item">
                     <div class="plus_img">
@@ -125,7 +125,7 @@
                 </div>
             @endforeach
         </div>
-        
+
 -->
         <ul class="cat-tab uk-tab" >
             <li class="uk-active">
@@ -134,10 +134,10 @@
                     <span>Назад</span>
                 </a>
             </li>
-            
+
             @foreach($category->categories as $child)
                 <li>
-                
+
                         <a href="{{ route('site.catalog.main', $child->getAncestorsSlugs()) }}">
                             <div class="uk-flex uk-flex-middle">
 <!--                                <span><img src="{{ $child->getImage() }}" alt=""></span>-->
@@ -145,10 +145,10 @@
                                 <span class="countcat">({{ $child->getAllCompaniesCount() }})</span>
                             </div>
                         </a>
-                   
+
                 </li>
             @endforeach
-            
+
 <!--
             <li>
                 <a href="#">More <span class="uk-margin-small-left" uk-icon="icon: triangle-down"></span></a>
@@ -169,8 +169,8 @@
         <!-- <div class="uk-margin text-left">
             <div uk-grid class="uk-grid-magrin uk-grid-stack">
                 <div class="uk-width-1-1@m">
-                    
-                </div> 
+
+                </div>
             </div>
         </div> -->
     </div>
@@ -194,8 +194,8 @@
                         </div>
                         <div class="inner_tages">
                             <div class="title">
-                                <h2 class="uk-margin-remove-bottom	"><a href="{{ route('site.catalog.main', $company->getAncestorsSlugs()) }}">{{ $company->ru_title }}</a></h2>
-                                                            
+                                <h2 class="uk-margin-remove-bottom	"><a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif">{{ $company->ru_title }}</a></h2>
+
                                 @if ($company->hasUrl())
                                 <span class="link">
                                     <a href="{{ $company->url }}" target="_blank">
@@ -205,14 +205,14 @@
                                 @endif
                             </div>
 
-                                
-                            
+
+
 <!--
-                                <div class="tags">    
+                                <div class="tags">
                                     <ol>
-                                       
+
                                             <li>Коньтетн</li><li>Коньтетн</li><li>Коньтетн</li><li>Коньтетн</li>
-                                        
+
                                     </ol>
                                 </div>
 -->
