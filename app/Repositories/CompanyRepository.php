@@ -76,15 +76,15 @@ class CompanyRepository implements CompanyRepositoryInterface
         $company = $this->get($companyId);
         $company->update($companyData->all());
         if ($companyData->has('favourite'))
-        {
             $company->favourite = true;
-            $company->save();
-        }
+        else
+            $company->favourite = false;
+        $company->save();
         if ($companyData->has('showPage'))
-        {
             $company->show_page = true;
-            $company->save();
-        }
+         else
+            $company->show_page = false;
+        $company->save();
         if (empty($companyData->get('ru_slug')))
             $company->generateSlug();
         $company->uploadImage($companyData->file('image'));
