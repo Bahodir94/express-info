@@ -46,6 +46,16 @@ class CompanyRepository implements CompanyRepositoryInterface
     public function create($companyData)
     {
         $company = Company::create($companyData->all());
+        if ($companyData->has('favourite'))
+        {
+            $company->favourite = true;
+            $company->save();
+        }
+        if ($companyData->has('showPage'))
+        {
+            $company->show_page = true;
+            $company->save();
+        }
         if (empty($companyData->get('ru_slug')))
             $company->generateSlug();
         $company->uploadImage($companyData->file('image'));
@@ -65,6 +75,16 @@ class CompanyRepository implements CompanyRepositoryInterface
     {
         $company = $this->get($companyId);
         $company->update($companyData->all());
+        if ($companyData->has('favourite'))
+        {
+            $company->favourite = true;
+            $company->save();
+        }
+        if ($companyData->has('showPage'))
+        {
+            $company->show_page = true;
+            $company->save();
+        }
         if (empty($companyData->get('ru_slug')))
             $company->generateSlug();
         $company->uploadImage($companyData->file('image'));
@@ -105,9 +125,9 @@ class CompanyRepository implements CompanyRepositoryInterface
 
     /**
      * Search company by name
-     * 
+     *
      * @param string $query
-     * @param int $paginate 
+     * @param int $paginate
      * @return array
     */
     public function search(string $query, $paginate = null)
