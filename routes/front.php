@@ -14,7 +14,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
 });
 
 
-Route::get('/cgu-info', 'Site\CguController@cguInfo')->name('home.cgu.info');
-Route::get('/cgu-info/{id}', 'Site\CguController@cguCategory')->name('home.cgu.info.category');
-Route::get('/cgu-ad', 'Site\CguController@cguAd')->name('home.cgu.ad');
-Route::get('/cgu-ad/{id}', 'Site\CguController@cguCategory')->name('home.cgu.ad.category');
+Route::get('/cgu/info', 'Site\CguController@cguInfo')->name('home.cgu.info');
+Route::get('/cgu/info/{id}', 'Site\CguController@cguCategory')->name('home.cgu.info.category');
+Route::get('/cgu/ad', 'Site\CguController@cguAd')->name('home.cgu.ad');
+Route::get('/cgu/ad/{id}', 'Site\CguController@cguCategory')->name('home.cgu.ad.category');
