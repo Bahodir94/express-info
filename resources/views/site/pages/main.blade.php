@@ -74,11 +74,13 @@
 		<div class="mobile_main_header">
 			<!-- <img src="/uploads/mobile_logo.png" alt="" class="mobile_main_header_logo"> -->
 			<div class="mobile_main_header_logo">
-				<!-- <img src="{{ asset('assets/img/log.png') }}" alt=""> -->
+				<a href="http://tezinfo.uz/">
+					<img src="{{ asset('assets/img/logo.png') }}" alt="">
+				</a>
 				<div class="mobile_main_header_logo_text" style="width:100%">
-					<h1 class="mobile_main_header_logo_text_title" style="text-transform: uppercase;">
+					<a href="http://porta.uz/" class="mobile_main_header_logo_text_title" style="text-transform: uppercase;">
 						Tezinfo.uz
-					</h1>
+					</a>
 					<h1 class="mobile_main_header_logo_text_small">
 						<span style="letter-spacing: 2.2px;">ЭКСПРЕСС ИНФО ПОРТАЛ</span><br>
 						<span style="letter-spacing: 3.7px;">EXPRESS INFO PORTAL</span>
