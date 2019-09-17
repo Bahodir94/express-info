@@ -117,6 +117,18 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="css-control css-control-primary css-checkbox">
+                        <input type="checkbox" name="favourite" id="favourite" class="css-control-input" @if ($company->favourite) checked @endif>
+                        <span class="css-control-indicator"></span>Избранное (отобразиться на главной)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="css-control css-control-primary css-checkbox">
+                        <input type="checkbox" name="showPage" id="showPage" class="css-control-input" @if ($company->show_page) checked @endif>
+                        <span class="css-control-indicator"></span>Отображать собственную страницу компании в справочнике (в ином случае будет просто ссылка на сайт компании)
+                    </label>
+                </div>
+                <div class="form-group">
                     <div class="form-material floating">
                         <select name="need_id" id="needId" class="form-control js-select2">
                             <option value="0">Нет</option>
@@ -163,12 +175,6 @@
                     <input type="file" name="image" class="form-control">
                 </div>
                 <div class="form-group">
-                    <div class="form-materil floating">
-                        <input type="text" name="logo_url" id="logoUrl" class="form-control" value="{{ $company->logo_url }}">
-                        <label for="logoUrl">Ссылка на логотип</label>
-                    </div>
-                </div>
-                <div class="form-group">
                     <div class="form-material floating">
                         <select name="user_id" id="user_id" class="form-control js-select2">
                             <option value="0">Нет</option>
@@ -192,12 +198,6 @@
                     <div class="form-material floating">
                         <input type="text" name="phone_number" id="phoneNumber" class="form-control" value="{{ $company->phone_number }}">
                         <label for="phoneNumber">Номер телефона</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-material floating">
-                        <input type="text" name="geo_location" id="geolocation" class="form-control" value="{{ $company->geo_location }}">
-                        <label for="geolocation">Геолокация</label>
                     </div>
                 </div>
                 <h3 class="font-size-h3 font-w600 my-20">SEO</h3>

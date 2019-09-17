@@ -114,6 +114,18 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="css-control css-control-primary css-checkbox">
+                        <input type="checkbox" name="favourite" id="favourite" class="css-control-input">
+                        <span class="css-control-indicator"></span>Избранное (отобразиться на главной)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="css-control css-control-primary css-checkbox">
+                        <input type="checkbox" name="showPage" id="showPage" class="css-control-input" checked>
+                        <span class="css-control-indicator"></span>Отображать собственную страницу компании в справочнике (в ином случае будет просто ссылка на сайт компании)
+                    </label>
+                </div>
+                <div class="form-group">
                     <div class="form-material floating">
                         <select name="need_id" id="needId" class="form-control js-select2">
                             <option value="0" selected>Нет</option>
@@ -151,12 +163,6 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
-                        <input type="text" name="logo_url" id="logoUrl" class="form-control" value="{{ old('logo_url') }}">
-                        <label for="logoUrl">Ссылка на логотип</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-material floating">
                         <select name="user_id" id="user_id" class="form-control">
                             <option value="0">Нет</option>
                             @foreach($users as $user)
@@ -173,12 +179,6 @@
                             <option value="0">Нет</option>
                         </select>
                         <label for="active">Активный</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-material floating">
-                        <input type="text" name="phone_number" id="phoneNumber" class="form-control" value="{{ old('phone_number') }}">
-                        <label for="phoneNumber">Номер телефона</label>
                     </div>
                 </div>
                 <div class="form-group">
