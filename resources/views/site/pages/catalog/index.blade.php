@@ -11,11 +11,395 @@
 
 
 
+<section class="uk-section-xsmall">
+    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center sot-body">
+        <div class="honeycombs honeycombs-wrapper">
+            <div class="honeycombs-inner-wrapper vid-height uk-visible@m">
+
+                <div class="comb-container">
+
+
+                    <div class="comb row3">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="comb-container">
+
+
+                    <div class="comb row2">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>                
+                <div class="comb-container">
+
+
+                    <div class="comb row1">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="comb-container">
+
+
+                    <div class="comb row2">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="comb-container">
+
+
+                    <div class="comb row3">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="comb-container">
+
+
+                    <div class="comb row1">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="comb-container">
+
+
+                    <div class="comb row2">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="comb-container" style="display:none;">
+
+
+                    <div class="comb row3">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="comb-container" style="display:none;">
+
+ 
+                    <div class="comb row3">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="comb-container" style="display:none;">
+
+
+    <div class="comb row3">
+    <div class="hex_l" style="width: 180px; height: 155.885px;">
+      <div class="hex_r" style="width: 180px; height: 155.885px;">
+        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+          <div class="inner_span">
+            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+                <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+
+
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+                <div class="comb-container" style="display:none;">
+
+
+    <div class="comb row3">
+    <div class="hex_l" style="width: 180px; height: 155.885px;">
+      <div class="hex_r" style="width: 180px; height: 155.885px;">
+        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+          <div class="inner_span">
+            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+                <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+
+
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+                <div class="comb-container" style="display:none;">
+
+
+                    <div class="comb row3">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="comb-container" style="display:none;">
+
+
+    <div class="comb row3">
+    <div class="hex_l" style="width: 180px; height: 155.885px;">
+    <div class="hex_r" style="width: 180px; height: 155.885px;">
+    <div class="hex_inner" style="width: 180px; height: 155.885px;">
+    <div class="inner_span">
+    <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+    <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+
+
+    </a>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+                <div class="comb-container" style="display:none;">
+
+
+                    <div class="comb row3">
+                    <div class="hex_l" style="width: 180px; height: 155.885px;">
+                      <div class="hex_r" style="width: 180px; height: 155.885px;">
+                        <div class="hex_inner" style="width: 180px; height: 155.885px;">
+                          <div class="inner_span">
+                            <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+							
+                            
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+</div>
+        </div>
+</div>
+<!--
+    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center ">
+        <div class=" gutter" uk-slider="autoplay: true; autoplay-interval: 5000;">
+            <ul class="uk-slider-items uk-child-width-auto uk-grid-large uk-grid">
+
+                    <li class="slide">
+                        <div>
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewBox="0 0 173.20508075688772 200"><path fill="#8BC34A" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
+						<div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+							<a href="http://porta.uz" class="mobile_main_item_inner_link">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
+							</a>
+						</div>
+					</div>
+                    </li>
+                    <li class="slide">
+                        <div>
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewBox="0 0 173.20508075688772 200"><path fill="#8BC34A" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
+						<div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+							<a href="http://porta.uz" class="mobile_main_item_inner_link">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
+							</a>
+						</div>
+					</div>
+                    </li>
+                    <li class="slide">
+        <div>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewBox="0 0 173.20508075688772 200"><path fill="#8BC34A" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
+        <div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+            <a href="http://porta.uz" class="mobile_main_item_inner_link">
+                <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
+            </a>
+        </div>
+    </div>
+    </li>
+                    <li class="slide">
+        <div>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewBox="0 0 173.20508075688772 200"><path fill="#8BC34A" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
+        <div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+            <a href="http://porta.uz" class="mobile_main_item_inner_link">
+                <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
+            </a>
+        </div>
+    </div>
+    </li>
+                    <li class="slide">
+        <div>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewBox="0 0 173.20508075688772 200"><path fill="#8BC34A" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
+        <div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+            <a href="http://porta.uz" class="mobile_main_item_inner_link">
+                <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
+            </a>
+        </div>
+    </div>
+    </li>
+                    <li class="slide">
+        <div>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewBox="0 0 173.20508075688772 200"><path fill="#8BC34A" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
+        <div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+            <a href="http://porta.uz" class="mobile_main_item_inner_link">
+                <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
+            </a>
+        </div>
+    </div>
+    </li>
+                    <li class="slide">
+                        <div>
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewBox="0 0 173.20508075688772 200"><path fill="#8BC34A" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
+						<div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+							<a href="http://porta.uz" class="mobile_main_item_inner_link">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
+							</a>
+						</div>
+					</div>
+                    </li>
+                    <li class="slide">
+                        <div>
+						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="174" height="200" viewBox="0 0 173.20508075688772 200"><path fill="#8BC34A" d="M77.94228634059948 4.999999999999999Q86.60254037844386 0 95.26279441628824 4.999999999999999L164.54482671904333 45Q173.20508075688772 50 173.20508075688772 60L173.20508075688772 140Q173.20508075688772 150 164.54482671904333 155L95.26279441628824 195Q86.60254037844386 200 77.94228634059948 195L8.660254037844387 155Q0 150 0 140L0 60Q0 50 8.660254037844387 45Z"></path></svg>
+						<div class="mobile_main_item_inner uk-position-center" style="margin-left: 30px;">
+							<a href="http://porta.uz" class="mobile_main_item_inner_link">
+								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon" style="height: 120px;">
+							</a>
+						</div>
+					</div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+-->
+    
+    
+</section>
+
 
     <!-- Favorites Category -->
+<!--
 <section class="uk-section-xsmall ">
-    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center uk-slider">
-        <div class="uk-container uk-container-expand uk-container-center gutter" uk-slider="autoplay: true; autoplay-interval: 5000;">
+    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center ">
+        <div class=" gutter" uk-slider="autoplay: true; autoplay-interval: 5000;">
             <ul class="uk-slider-items uk-child-width-auto uk-grid-large uk-grid">
 
                 @foreach ($favoritesCategories as $category)
@@ -39,6 +423,7 @@
         </div>
     </div>
 </section>
+-->
 
 
 

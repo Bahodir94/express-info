@@ -11,16 +11,21 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap&subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/honeycombs.css') }}">
     <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
     <title>
         @yield('title') | Porta
     </title>
 
+
+    
+    
     <script src="{{ asset('assets/js/uikit.min.js') }}"></script>
     <script src="{{ asset('assets/js/uikit-icons.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
     <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script src="{{ asset('assets/js/honeycombs.js') }}"></script>
 </head>
 <body>
 

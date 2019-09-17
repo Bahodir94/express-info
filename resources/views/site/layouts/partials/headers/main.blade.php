@@ -13,10 +13,11 @@
                         <div class="uk-navbar-item  content-header-item ">
                             <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                                 <span class="icon">
-                                    <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                                    <img src="/assets/img/hex.svg" uk-svg="" height="40">
                                 </span>
-                                <span class="font-size-xl text-dual-primary-dark"></span><span class="font-size-xl text-primary">Porta</span>
+                                <span class="font-size-xl text-dual-primary-dark">TezInfo</span><span class="font-size-xl text-primary">.uz</span>
                             </a>
+                            
                         </div>
                     <!--
                         <a class="uk-navbar-item uk-logo " href="{{ route('site.catalog.index') }}">
@@ -63,6 +64,19 @@
        <div class="uk-navbar-container " style="">
             <div class="uk-container uk-container-expand">
                 <nav uk-navbar class="uk-navbar header-bottom">
+                    <div class="uk-navbar-left">
+                        <div class="uk-navbar-item  content-header-item ">
+                            <span class="font-size-xl text-dual-primary-dark">Express Info</span><span class="font-size-xl text-primary"> Portal</span>
+                        </div>
+                    </div>
+                    <!--
+                        <a class="uk-navbar-item uk-logo " href="{{ route('site.catalog.index') }}">
+                            <img src="/site/images/yootheme-logo.svg" width="134" height="30" alt="YOOtheme Logo" uk-svg="" hidden="true">
+                        </a>
+
+
+                 
+    -->
                     <div class="uk-navbar-center">
                         <ul class="uk-navbar-nav uk-visible@m">
                             <!--class="uk-active"-->
