@@ -48,11 +48,36 @@
                         </ul>
 -->
                         <div class="uk-navbar-nav">
-                        <a class="uk-button uk-button-primary uk-visible@m " href="#">Добавить компанию</a>
+                            <a class="uk-button uk-button-primary uk-visible@m " href="#">Реклама в ЦГУ</a>
+                        </div>
+                        <div class="uk-navbar-nav ">
+                            <a class="uk-button uk-button-primary uk-margin-left uk-visible@m"  uk-toggle ="target:#phone" href="#">Контакты</a>
                         </div>
                         <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" href="#offcanvas" uk-navbar-toggle-icon="" uk-toggle=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></a>
 
-
+                        <div id="phone" uk-modal>
+                            <div class="uk-modal-dialog uk-modal-body">
+                                <div class="container-pop">
+                                    <h2>
+                                        размещение web сайтов и рекламы в цгу:
+                                    </h2>
+                                    <div class="phone-numbers">
+                                            <a href="tel:+998953411717" class="contacts_popup_inner_link">
+                                                +99895 341 17 17
+                                            </a>
+                                            <a href="tel:+998954781717" class="contacts_popup_inner_link">
+                                                +99895 478 17 17
+                                            </a>
+                                            <a href="tel:+998954761717" class="contacts_popup_inner_link">
+                                                +99895 476 17 17
+                                            </a>
+                                            <a href="tel:+998954791717" class="contacts_popup_inner_link">
+                                                +99895 479 17 17
+                                            </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
                     </div>
@@ -61,7 +86,7 @@
 
             </div>
         </div>
-       <div class="uk-navbar-container " style="">
+       <div class="uk-navbar-container uk-visible@m" style="">
             <div class="uk-container uk-container-expand">
                 <nav uk-navbar class="uk-navbar header-bottom">
                     <div class="uk-navbar-left">

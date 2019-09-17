@@ -46,7 +46,32 @@
             @endforeach
             <li><a href="http://porta.uz/government-resources">Госс-порталы</a></li>
         </ul>
+        <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Реклама в ЦГУ</a>
+        <a  uk-toggle ="target:#phone" class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Контакты</a>
         
+        <div id="phone" uk-modal>
+            <div class="uk-modal-dialog uk-modal-body">
+                            <div class="container-pop">
+                                <h2>
+                                    размещение web сайтов и рекламы в цгу:
+                                </h2>
+                                <div class="phone-numbers">
+                                        <a href="tel:+998953411717" class="contacts_popup_inner_link">
+                                            +99895 341 17 17
+                                        </a>
+                                        <a href="tel:+998954781717" class="contacts_popup_inner_link">
+                                            +99895 478 17 17
+                                        </a>
+                                        <a href="tel:+998954761717" class="contacts_popup_inner_link">
+                                            +99895 476 17 17
+                                        </a>
+                                        <a href="tel:+998954791717" class="contacts_popup_inner_link">
+                                            +99895 479 17 17
+                                        </a>
+                                </div>
+                            </div>
+            </div>
+        </div>
 <!--
         <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Разместить рекламу</a>
 
