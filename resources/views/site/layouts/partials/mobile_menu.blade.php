@@ -67,6 +67,7 @@
 
 
 <!-- Fixed Button and Offcanvas -->
+<!--
 <a href="#fixedbutton" uk-toggle class="button_wrapper uk-position-fixed uk-position-center-left">
 <img src="/assets/img/hex.svg" uk-svg="" height="40"></a>
 <div id="fixedbutton"  uk-offcanvas="overlay: true">
@@ -137,6 +138,7 @@
                     </a></li>
             </ul>
         </div>
+-->
 <!--
         <div>
             <h3>Категории</h3>
