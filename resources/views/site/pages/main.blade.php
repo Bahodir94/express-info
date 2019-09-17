@@ -196,10 +196,10 @@
 			<a href="#" class="mobile_main_links_inner_btn mobile_main_links_inner_btn_contacts">
 				Наши Контакты
 			</a>
-			<a href="#" class="mobile_main_links_inner_btn">
+			<a href="http://porta.uz/cgu-info" class="mobile_main_links_inner_btn">
 				Информация ЦГУ
 			</a>
-			<a href="#" class="mobile_main_links_inner_btn">
+			<a href="http://porta.uz/cgu-ad" class="mobile_main_links_inner_btn">
 				Реклама в ЦГУ
 			</a>
 		</div>
