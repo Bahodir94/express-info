@@ -109,7 +109,7 @@
 
                                 </li>
                             @endforeach
-                            <li><a href="http://porta.uz/government-resources">Госс-порталы</a></li>
+                            <li><a href="http://porta.uz/government-resources">Гос. порталы</a></li>
                         </ul>
                     </div>
                 </nav>
