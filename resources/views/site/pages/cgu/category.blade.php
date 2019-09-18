@@ -37,6 +37,10 @@
     <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/third_party.css') }}?ver=107">
 @endsection
 
+@section('header')
+    @include('site.layouts.partials.headers.default')
+@endsection
+
 @section('content')
 
     <div class="container">
