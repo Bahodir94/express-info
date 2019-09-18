@@ -1,4 +1,4 @@
-@extends('site.layouts.old')
+@extends('site.layouts.app')
 
 @section('css')
     <style>
