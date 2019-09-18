@@ -116,7 +116,7 @@
 
                   </div>
                 </div>
-                <div class="comb-container">
+                <div class="comb-container" style="display:none;">
 
 
                     <div class="comb row1">
@@ -136,7 +136,7 @@
 
                   </div>
                 </div>
-                <div class="comb-container">
+                <div class="comb-container" style="display:none;">
 
 
                     <div class="comb row2">
@@ -237,8 +237,6 @@
   </div>
 </div>
                 <div class="comb-container" style="display:none;">
-
-
                     <div class="comb row3">
                     <div class="hex_l" style="width: 180px; height: 155.885px;">
                       <div class="hex_r" style="width: 180px; height: 155.885px;">
@@ -264,11 +262,11 @@
     <div class="hex_r" style="width: 180px; height: 155.885px;">
     <div class="hex_inner" style="width: 180px; height: 155.885px;">
     <div class="inner_span">
-    <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
-    <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+      <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+      <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
 
 
-    </a>
+      </a>
     </div>
     </div>
     </div>
@@ -285,9 +283,8 @@
                         <div class="hex_inner" style="width: 180px; height: 155.885px;">
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
-								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+								            <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+
                             </a>
                           </div>
                         </div>
@@ -297,8 +294,6 @@
                   </div>
                 </div>
 
-</div>
-        </div>
 </div>
     <div class="uk-container uk-container-expand uk-margin-medium uk-container-center ">
         <div class=" gutter uk-hidden@m" uk-slider="autoplay: true; autoplay-interval: 5000;">
