@@ -12,9 +12,9 @@
 
 
 <section class="uk-section-xsmall">
-    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center sot-body">
+    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center sot-body uk-visible@m">
         <div class="honeycombs honeycombs-wrapper">
-            <div class="honeycombs-inner-wrapper vid-height uk-visible@m">
+            <div class="honeycombs-inner-wrapper  ">
 
                 <div class="comb-container">
 
@@ -116,7 +116,7 @@
 
                   </div>
                 </div>
-                <div class="comb-container" style="display:none;">
+                <div class="comb-container" >
 
 
                     <div class="comb row1">
@@ -136,7 +136,7 @@
 
                   </div>
                 </div>
-                <div class="comb-container" style="display:none;">
+                <div class="comb-container" >
 
 
                     <div class="comb row2">
@@ -156,7 +156,7 @@
 
                   </div>
                 </div>
-                <div class="comb-container" style="display:none;">
+                <div class="comb-container" >
 
 
                     <div class="comb row3">
@@ -176,7 +176,7 @@
 
                   </div>
                 </div>
-                <div class="comb-container" style="display:none;">
+                <div class="comb-container" >
 
  
                     <div class="comb row3">
@@ -196,7 +196,7 @@
 
                   </div>
                 </div>
-                <div class="comb-container" style="display:none;">
+                <div class="comb-container" >
 
 
     <div class="comb row3">
@@ -216,7 +216,7 @@
 
   </div>
 </div>
-                <div class="comb-container" style="display:none;">
+                <div class="comb-container" >
 
 
     <div class="comb row3">
@@ -236,7 +236,7 @@
 
   </div>
 </div>
-                <div class="comb-container" style="display:none;">
+                <div class="comb-container" >
                     <div class="comb row3">
                     <div class="hex_l" style="width: 180px; height: 155.885px;">
                       <div class="hex_r" style="width: 180px; height: 155.885px;">
@@ -254,7 +254,7 @@
 
                   </div>
                 </div>
-                <div class="comb-container" style="display:none;">
+                <div class="comb-container" >
 
 
     <div class="comb row3">
@@ -297,8 +297,8 @@
 </div>
         </div>
     </div>
-    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center ">
-        <div class=" gutter uk-hidden@m" uk-slider="autoplay: true; autoplay-interval: 5000;">
+    <div class="uk-container uk-container-expand uk-margin-medium uk-container-center uk-hidden@m">
+        <div class=" gutter " uk-slider="autoplay: true; autoplay-interval: 5000;">
             <ul class="uk-slider-items uk-child-width-auto uk-grid-large uk-grid slide-ttg ">
 
                     <li class="slide">
