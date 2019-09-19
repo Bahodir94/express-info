@@ -24,8 +24,8 @@
                           <div class="hex_r" style="width: 180px; height: 155.885px;">
                             <div class="hex_inner" style="width: 180px; height: 155.885px;">
                               <div class="inner_span">
-                                <a href="@if ($company->show_page) {{ route('site.catalog.company', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif" class="mobile_main_item_inner_link uk-position-cover">
-                                    <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
+                                <a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif" class="mobile_main_item_inner_link uk-position-cover">
+                                    <img src="{{ $company->getImage() }}" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
 
 
                                 </a>
