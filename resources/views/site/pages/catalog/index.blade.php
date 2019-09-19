@@ -33,7 +33,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="uk-border-circle uk-box-shadow-xlarge uk-position-cover hex-bot" style="">
+                        <div class="uk-border-circle uk-box-shadow-large uk-position-cover hex-bot" style="">
                         </div>
 
                   </div>
