@@ -17,11 +17,11 @@
                                 <span class="font-size-xl text-dual-primary-dark">TezInfo</span><span class="font-size-xl text-primary">.uz</span>
                             </a>
 
-                            
-                            
-                            
-                            
-                            
+
+
+
+
+
                         </div>
                     <!--
                         <a class="uk-navbar-item uk-logo " href="{{ route('site.catalog.index') }}">
@@ -51,7 +51,7 @@
                             <a class="uk-button uk-button-primary uk-visible@m " href="#">Добавить компанию</a>
                         </div>
                         <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" href="#offcanvas" uk-navbar-toggle-icon="" uk-toggle=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></a>
-                        
+
                     </div>
 
                 </nav>
@@ -65,7 +65,10 @@
                         <ul class="uk-navbar-nav uk-visible@m">
                             <!--class="uk-active"-->
                             <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
-                            @foreach ($needs as $index => $need)
+                            @foreach ($needs as $need)
+                                @if (!empty($need->url))
+                                    <li><a href="{{ $need->url }}">{{ $need->ru_title }}</a></li>
+                                @else
                                 <li class="uk-parent">
                                     <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
                                     <!--uk-dropdown="delay-show: 250;"-->
@@ -89,6 +92,7 @@
                                         </div>
                                     </div>
                                 </li>
+                                @endif
                             @endforeach
                         </ul>
                     </div>

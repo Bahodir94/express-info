@@ -26,7 +26,10 @@
         <ul class="uk-margin-small-bottom uk-nav-primary uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
             <!--class="uk-active"-->
             <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
-            @foreach ($needs as $index => $need)
+            @foreach ($needs as $need)
+                @if (!empty($need->url))
+                    <li><a href="{{ $need->url }}">{{ $need->ru_title }}</a></li>
+                @else
                 <li class="uk-parent">
                     <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
                     <ul class="uk-nav-sub uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
@@ -42,7 +45,7 @@
                         @endforeach
                     </ul>
                 </li>
- 
+                @endif
             @endforeach
         </ul>
         <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Добавить компанию</a>

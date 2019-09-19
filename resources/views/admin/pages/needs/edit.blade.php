@@ -86,6 +86,12 @@
                     </div>
                     <!-- END Steps Content -->
                 </div>
+                <div class="form-group">
+                    <div class="form-material floating">
+                        <input type="text" name="url" id="url" class="form-control" value="{{ $need->url }}">
+                        <label for="url">Ссылка (если установлена, выпадающее меню показано не будет)</label>
+                    </div>
+                </div>
             </div>
         </div>
     </form>

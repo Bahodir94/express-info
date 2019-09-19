@@ -17,11 +17,11 @@
                                 <span class="font-size-xl text-dual-primary-dark">TezInfo</span><span class="font-size-xl text-primary">.uz</span>
                             </a>
 
-                            
-                            
-                            
-                            
-                            
+
+
+
+
+
                         </div>
                     <!--
                         <a class="uk-navbar-item uk-logo " href="{{ route('site.catalog.index') }}">
@@ -80,12 +80,15 @@
                         <ul class="uk-navbar-nav uk-visible@m">
                             <!--class="uk-active"-->
                             <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
-                            @foreach ($needs as $index => $need)
+                            @foreach ($needs as $need)
+                                @if (!empty($need->url))
+                                    <li><a href="{{$need->url}}">{{ $need->ru_title }}</a></li>
+                                @else
                                 <li class="uk-parent">
                                     <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
                                     <!--uk-dropdown="delay-show: 250;"-->
                                     <div uk-dropdown class="code-dropdown">
-                                        
+
                                         <div class=" uk-grid-collapse uk-grid uk-child-width-1-4 " uk-grid>
                                             @foreach ($need->menuItems as $menu)
                                                 <div class="padding-15 ">
@@ -105,7 +108,7 @@
                                         </div>
                                     </div>
                                 </li>
-
+                                @endif
                             @endforeach
                         </ul>
                     </div>
