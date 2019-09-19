@@ -68,9 +68,10 @@ class CatalogController extends Controller
     {
         $favoritesCategories = $this->categories->getFavoriteCategories();
         $parentCategories = $this->categories->all();
+        $favouritesCompanies = $this->companies->getFavourites();
 
         return view('site.pages.catalog.index', compact('favoritesCategories',
-            'parentCategories'));
+            'parentCategories', 'favouritesCompanies'));
     }
 
     /**

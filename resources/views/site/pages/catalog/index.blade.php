@@ -15,6 +15,7 @@
     <div class="uk-container uk-container-expand uk-margin-medium uk-container-center sot-body uk-visible@m">
         <div class="honeycombs honeycombs-wrapper">
             <div class="honeycombs-inner-wrapper  ">
+              @foreach ($favouritesCompanies as $company)
                 <div class="comb-container">
 
 
@@ -23,7 +24,7 @@
                           <div class="hex_r" style="width: 180px; height: 155.885px;">
                             <div class="hex_inner" style="width: 180px; height: 155.885px;">
                               <div class="inner_span">
-                                <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
+                                <a href="@if ($company->show_page) {{ route('site.catalog.company', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif" class="mobile_main_item_inner_link uk-position-cover">
                                     <img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
 
 
@@ -36,8 +37,9 @@
                         </div>
 
                   </div>
-                    
+
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
