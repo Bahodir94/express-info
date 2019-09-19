@@ -17,7 +17,7 @@ class NeedsList
      */
     public function handle($request, Closure $next)
     {
-        $needs = NeedType::all();
+        $needs = NeedType::orderBy('position', 'asc')->get();
         View::share('needs', $needs);
         return $next($request);
     }
