@@ -26,11 +26,10 @@
         <ul class="uk-margin-small-bottom uk-nav-primary uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
             <!--class="uk-active"-->
             <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
-            @foreach($needs as $need)
+            @foreach ($needs as $index => $need)
                 <li class="uk-parent">
                     <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
                     <ul class="uk-nav-sub uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
-
                         @foreach ($need->menuItems as $menu)
                             <li class="uk-parent" >
                                 <a href="#">{{ $menu->ru_title }}</a>
@@ -43,12 +42,14 @@
                         @endforeach
                     </ul>
                 </li>
+                @if ($index == 1)
+                    <li><a href="http://porta.uz/government-resources">Порталы</a></li>
+                @endif
             @endforeach
-            <li><a href="http://porta.uz/government-resources">Госс-порталы</a></li>
         </ul>
         <a class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Реклама в ЦГУ</a>
         <a  uk-toggle ="target:#phone" class="uk-button uk-button-primary uk-button-large uk-margin-top" href="#">Контакты</a>
-        
+
         <div id="phone" uk-modal>
             <div class="uk-modal-dialog uk-modal-body">
                             <div class="container-pop">
@@ -104,7 +105,7 @@
                 </span>
                 <span class="font-size-xl text-dual-primary-dark"></span><span class="font-size-xl text-primary">Porta</span>
             </a>
-                
+
             <button class="uk-offcanvas-close" type="button" uk-close></button>
         </div>
     </div>
@@ -113,53 +114,53 @@
 
 
         <div>
-            
-        
+
+
             <ul class="uk-list padding-top uk-list">
                 <li><a href="#">
                     <div class="uk-margin uk-text-left@m uk-text-center uk-panel" >
                         <div class="uk-child-width-expand uk-grid uk-grid-small" uk-grid="">
-                            <div class="uk-width-auto uk-first-column"> 
+                            <div class="uk-width-auto uk-first-column">
                                 <span uk-icon="icon: check;ratio: 1.4" class="el-image uk-icon">
-                                    
-                                </span> 
+
+                                </span>
                             </div>
                             <div class="">
                                 <div class="el-title uk-margin uk-h5">Public Service </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     </a></li>
                       <li><a href="#">
                     <div class="uk-margin uk-text-left@m uk-text-center uk-panel" >
                         <div class="uk-child-width-expand uk-grid uk-grid-small" uk-grid="">
-                            <div class="uk-width-auto uk-first-column"> 
+                            <div class="uk-width-auto uk-first-column">
                                 <span uk-icon="icon: check;ratio: 1.4" class="el-image uk-icon">
-                                    
-                                </span> 
+
+                                </span>
                             </div>
                             <div class="">
                                 <div class="el-title uk-margin uk-h5">О проекте</div>
                             </div>
                         </div>
                     </div>
-                    
+
                     </a></li>
                       <li><a href="#">
                     <div class="uk-margin uk-text-left@m uk-text-center uk-panel" >
                         <div class="uk-child-width-expand uk-grid uk-grid-small" uk-grid="">
-                            <div class="uk-width-auto uk-first-column"> 
+                            <div class="uk-width-auto uk-first-column">
                                 <span uk-icon="icon: check;ratio: 1.4" class="el-image uk-icon">
-                                    
-                                </span> 
+
+                                </span>
                             </div>
                             <div class="">
                                 <div class="el-title uk-margin uk-h5">Разместить рекламу </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     </a></li>
             </ul>
         </div>
@@ -174,9 +175,9 @@
             </ul>
         </div>
 -->
-        
-        
-        
+
+
+
     </div>
 </div>
 

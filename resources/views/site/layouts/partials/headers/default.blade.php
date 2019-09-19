@@ -14,7 +14,7 @@
                             <a class="link-effect font-w700" href="http://tezinfo.uz">
                                 <span class="icon">
                                     <img src="/assets/img/hex.svg" uk-svg="" height="40">
-                               
+
                                 </span>
                                 <span class="font-size-xl text-dual-primary-dark">TezInfo</span><span class="font-size-xl text-primary">.uz</span>
                             </a>
@@ -90,32 +90,33 @@
                         <ul class="uk-navbar-nav uk-visible@m">
                             <!--class="uk-active"-->
                             <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
-                            @foreach ($needs as $need)
+                            @foreach ($needs as $index => $need)
                                 <li class="uk-parent">
-                                        <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
-                                        <div uk-dropdown="delay-show: 250;" class="code-dropdown">
-                                            <div class=" uk-grid-collapse uk-grid uk-child-width-1-4 " uk-grid>
-                                                @foreach ($need->menuItems as $menu)
-                                                    <div class="padding-15 ">
-                                                        <ul class="uk-nav">
-                                                            <div class="dropdown_wrapper">
-                                                                <img src="{{ $menu->getImage() }}" alt="">
-                                                                <a href="">{{ $menu->ru_title }}</a>
-                                                            </div>
-                                                            @foreach ($menu->categories as $category)
-                                                                <li>
-                                                                    <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{!! $category->ru_title !!}</a>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
-                                                @endforeach
-                                            </div>
+                                    <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
+                                    <div uk-dropdown="delay-show: 250;" class="code-dropdown">
+                                        <div class=" uk-grid-collapse uk-grid uk-child-width-1-4 " uk-grid>
+                                            @foreach ($need->menuItems as $menu)
+                                                <div class="padding-15 ">
+                                                    <ul class="uk-nav">
+                                                        <div class="dropdown_wrapper">
+                                                            <img src="{{ $menu->getImage() }}" alt="">
+                                                            <a href="">{{ $menu->ru_title }}</a>
+                                                        </div>
+                                                        @foreach ($menu->categories as $category)
+                                                            <li>
+                                                                <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{!! $category->ru_title !!}</a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endforeach
                                         </div>
-
+                                    </div>
                                 </li>
+                                @if ($index == 1)
+                                    <li><a href="http://porta.uz/government-resources">Порталы</a></li>
+                                @endif
                             @endforeach
-                            <li><a href="http://porta.uz/government-resources">Гос. порталы</a></li>
                         </ul>
                     </div>
                 </nav>
