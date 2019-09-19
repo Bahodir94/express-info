@@ -7,7 +7,7 @@
 <div class="uk-light ad-v6">
     <div uk-sticky="animation: uk-animation-slide-top; media: 960; show-on-up: true; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;" class="uk-sticky header" style="">
         <div class="uk-navbar-container">
-            <div class="uk-container uk-container-expand">
+            <div class="uk-container uk-container-xlarge">
                 <nav uk-navbar class="uk-navbar header-top">
                     <div class="uk-navbar-left">
                         <div class="uk-navbar-item  content-header-item ">
@@ -65,7 +65,7 @@
             </div>
         </div>
        <div class="uk-navbar-container uk-visible@m" style="">
-            <div class="uk-container uk-container-expand">
+            <div class="uk-container uk-container-xlarge">
                 <nav uk-navbar class="uk-navbar header-bottom">
 
                     <!--

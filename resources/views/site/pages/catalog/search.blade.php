@@ -9,7 +9,7 @@
 @section('content')
     
     @if ($categories->count() > 0)
-        <div class="uk-container uk-container-expand uk-margin-medium uk-container-center">
+        <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center">
             <div class="wrapper_title">
                 <h3>Найденные категории</h3>
             </div>
@@ -37,7 +37,7 @@
         </div>
     @endif
     @if ($companies->count() > 0)
-        <div class="uk-container uk-container-center uk-container-expand uk-margin-top">
+        <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
             <div class="wrapper_title">
                 <h3>Найденные компании</h3>
             </div>

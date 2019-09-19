@@ -24,7 +24,7 @@
     <!-- Banner -->
     <div class="banner" style="background-image: url({{ asset('assets/img/a3e020abb83a5d95bbdce5ef77dff132.png') }})">
         <div class="uk-section-small	">
-            <div class="uk-container uk-container-expand main-container uk-container-center">
+            <div class="uk-container uk-container-xlarge main-container uk-container-center">
                 <div class="contact_info">
                     <div class="contact_logo">
                         <img src="{{ $company->getImage() }}" alt="">
@@ -64,7 +64,7 @@
     @if ($company->hasAdvantagesOrAnySocialLink())
 <section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="payment">
-        <div class="uk-container uk-container-expand uk-container-center">
+        <div class="uk-container uk-container-xlarge uk-container-center">
             <div class="uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-grid uk-grid-stack " uk-grid="">
                 <div>
                     <div class="payment_list">
@@ -112,7 +112,7 @@
     @endif
 
     <!-- Main Info -->
-    <div class="uk-container uk-container-expand uk-container-center margin-top text_info">
+    <div class="uk-container uk-container-xlarge uk-container-center margin-top text_info">
         
         <div class="" uk-grid>
             @if (!empty($company->ru_description))
@@ -295,7 +295,7 @@
 </div>
 Content end-->
 <section class="uk-section-xsmall uk-padding-remove-vertical">
-    <div class="uk-container uk-container-expand uk-container-center container uk-margin-top">
+    <div class="uk-container uk-container-xlarge uk-container-center container uk-margin-top">
         <ul class="sequence">
             <li><a href="{{ route('site.catalog.index') }}">Главная</a></li>
             <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>

@@ -62,7 +62,7 @@
 
 <!-- Search settings end -->
 <section class="uk-section-xsmall uk-padding-remove-vertical">
-    <div class="uk-container uk-container-expand uk-container-center">
+    <div class="uk-container uk-container-xlarge uk-container-center">
         <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
             <div class="wrapper_title">
                 <h3>{{ $category->getTitle() }}</h3>
@@ -90,7 +90,7 @@
         </div>
     </div>
 </section>
-    <div class="uk-container uk-container-expand uk-margin-small uk-margin-medium-bottom">
+    <div class="uk-container uk-container-xlarge uk-margin-small uk-margin-medium-bottom">
 <!--
         <div class="uk-child-width-auto uk-child-width-auto@m uk-grid-small" uk-grid>
              <div>
@@ -175,7 +175,7 @@
         </div> -->
     </div>
 <section class="uk-section-xsmall">
-    <div class="uk-container uk-container-center uk-container-expand uk-margin-top">
+    <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
             <div uk-grid class="uk-grid uk-grid-match uk-grid-small uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-4@m uk-child-width-1-5@l">
             @foreach($companies as $company)
                 <div  class="uk-container-center">
@@ -242,7 +242,7 @@
 </section>
 
 <section class="uk-section-xsmall uk-padding-remove-vertical">
-    <div class="uk-container uk-container-expand uk-container-center container uk-margin-top">
+    <div class="uk-container uk-container-xlarge uk-container-center container uk-margin-top">
         <ul class="sequence">
             <li><a href="{{ route('site.catalog.index') }}">Главная</a></li>
             <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
