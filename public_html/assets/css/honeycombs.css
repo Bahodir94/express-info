@@ -18,7 +18,7 @@
     display: inline-block;
     width: 700px;
     position: relative;
-    margin-bottom: -180px;
+
 }
 
 .honeycombs .hex_l,
@@ -238,7 +238,7 @@ background-color: #102840;
     z-index: 0;
 }
 
-@media screen and (max-width: 1347px) {
+@media screen and (min-width: 1347px) {
     .honeycombs .honeycombs-inner-wrapper {
              margin-bottom: -180px; 
     }
