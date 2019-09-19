@@ -38,6 +38,16 @@ class CompanyRepository implements CompanyRepositoryInterface
     }
 
     /**
+    * Get favourites companies
+    *
+    * @return array
+    */
+    public function getFavourites()
+    {
+        return Company::where('favourite', true)->orderBy('position', 'asc')->get();
+    }
+
+    /**
      * Create a company
      *
      * @param \Illuminate\Http\Request $companyData

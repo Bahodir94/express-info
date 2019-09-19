@@ -33,6 +33,13 @@ interface CompanyRepositoryInterface
     public function getBySlug(string $slug);
 
     /**
+    * Get favourites companies
+    *
+    * @return array
+    */
+    public function getFavourites();
+
+    /**
      * Create a handbook
      *
      * @param \Illuminate\Http\Request $handbookData
