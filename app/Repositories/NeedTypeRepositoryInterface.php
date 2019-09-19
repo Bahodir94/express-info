@@ -24,6 +24,14 @@ interface NeedTypeRepositoryInterface
     public function get($id);
 
     /**
+     * Change position
+     *
+     * @param int $id
+     * @param int $position
+     */
+    public function changePosition(int $id, int $position);
+
+    /**
      * Get type of needs by slug
      *
      * @param string $slug

@@ -32,6 +32,19 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
     }
 
     /**
+     * Change position
+     *
+     * @param int $id
+     * @param int $position
+     */
+    public function changePosition(int $id, int $position) 
+    {
+        $need = $this->get($id);
+        $need->position = position;
+        $need->save();
+    }
+
+    /**
      * Create a type of need
      *
      * @param \Illuminate\Http\Request $needTypeData
