@@ -182,7 +182,7 @@
                     <div class="inner">
                         <div class="header_logo">
                             <div class="inner_logo">
-                                <a href="{{ route('site.catalog.main', $company->getAncestorsSlugs()) }}">
+                                <a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif">
                                 <img src="{{ $company->getImage() }}" alt="">
                                 </a>
                             </div>
