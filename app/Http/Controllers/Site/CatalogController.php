@@ -236,7 +236,7 @@ class CatalogController extends Controller
         $query = $request->get('query');
 	    $category = $this->categories->search($query, $findOne = true);
 	    if ($category)
-	        return redirect()->route('site.catalog.category', $category->id);
+	        return redirect()->route('site.catalog.main', $category->getAncestorsSlugs());
 	    $data = [];
 	    $categories = $this->categories->search($query);
 	    $companies = $this->companies->search($query);
