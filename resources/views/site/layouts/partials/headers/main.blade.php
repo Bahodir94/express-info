@@ -11,13 +11,17 @@
                 <nav uk-navbar class="uk-navbar header-top">
                     <div class="uk-navbar-left">
                         <div class="uk-navbar-item  content-header-item ">
-                            <a class="link-effect font-w700" href="http://tezinfo.uz">
-                                <span class="icon">
-                                    <img src="/assets/img/hex.svg" uk-svg="" height="40">
+                            <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">               <span class="icon">
+                                    <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                                 </span>
                                 <span class="font-size-xl text-dual-primary-dark">TezInfo</span><span class="font-size-xl text-primary">.uz</span>
                             </a>
 
+                            
+                            
+                            
+                            
+                            
                         </div>
                     <!--
                         <a class="uk-navbar-item uk-logo " href="{{ route('site.catalog.index') }}">
@@ -48,36 +52,10 @@
                         </ul>
 -->
                         <div class="uk-navbar-nav">
-                            <a class="uk-button uk-button-primary uk-visible@m " href="#">Реклама в ЦГУ</a>
+                            <a class="uk-button uk-button-primary uk-visible@m " href="#">Добавить компанию</a>
                         </div>
-                        <div class="uk-navbar-nav ">
-                            <a class="uk-button uk-button-primary uk-margin-left uk-visible@m"  uk-toggle ="target:#phone" href="#">Контакты</a>
-                        </div>
-                        <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" href="#offcanvas" uk-navbar-toggle-icon="" uk-toggle=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></a>
 
-                        <div id="phone" uk-modal>
-                            <div class="uk-modal-dialog uk-modal-body">
-                                <div class="container-pop">
-                                    <h2>
-                                        размещение web сайтов и рекламы в цгу:
-                                    </h2>
-                                    <div class="phone-numbers">
-                                            <a href="tel:+998953411717" class="contacts_popup_inner_link">
-                                                +99895 341 17 17
-                                            </a>
-                                            <a href="tel:+998954781717" class="contacts_popup_inner_link">
-                                                +99895 478 17 17
-                                            </a>
-                                            <a href="tel:+998954761717" class="contacts_popup_inner_link">
-                                                +99895 476 17 17
-                                            </a>
-                                            <a href="tel:+998954791717" class="contacts_popup_inner_link">
-                                                +99895 479 17 17
-                                            </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" href="#offcanvas" uk-navbar-toggle-icon="" uk-toggle=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></a>
 
 
                     </div>
@@ -89,11 +67,7 @@
        <div class="uk-navbar-container uk-visible@m" style="">
             <div class="uk-container uk-container-expand">
                 <nav uk-navbar class="uk-navbar header-bottom">
-                    <div class="uk-navbar-left">
-                        <div class="uk-navbar-item  content-header-item ">
-                            <span class="font-size-xl text-dual-primary-dark">Express Info</span><span class="font-size-xl text-primary"> Portal</span>
-                        </div>
-                    </div>
+
                     <!--
                         <a class="uk-navbar-item uk-logo " href="{{ route('site.catalog.index') }}">
                             <img src="/site/images/yootheme-logo.svg" width="134" height="30" alt="YOOtheme Logo" uk-svg="" hidden="true">
@@ -109,7 +83,9 @@
                             @foreach ($needs as $index => $need)
                                 <li class="uk-parent">
                                     <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
-                                    <div uk-dropdown="delay-show: 250;" class="code-dropdown">
+                                    <!--uk-dropdown="delay-show: 250;"-->
+                                    <div uk-dropdown class="code-dropdown">
+                                        
                                         <div class=" uk-grid-collapse uk-grid uk-child-width-1-4 " uk-grid>
                                             @foreach ($need->menuItems as $menu)
                                                 <div class="padding-15 ">
@@ -129,9 +105,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                @if ($index == 1)
-                                    <li><a href="http://porta.uz/government-resources">Порталы</a></li>
-                                @endif
+
                             @endforeach
                         </ul>
                     </div>
