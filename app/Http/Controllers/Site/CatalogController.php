@@ -247,6 +247,7 @@ class CatalogController extends Controller
             $companies = $categories[0]->getAllCompaniesFromDescendingCategories();
 	    $data['categories'] = $categories;
 	    $data['companies'] = $companies;
+	    $data['queryString'] = $query;
         return view('site.pages.catalog.search', $data);
     }
 }
