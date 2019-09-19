@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Repositories\NeedTypeRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 
 class NeedTypeController extends Controller
 {
@@ -124,5 +125,19 @@ class NeedTypeController extends Controller
     {
         $need = $this->needTypesRepository->get($id);
         return view('admin.pages.needs.menu', compact('need'));
+    }
+
+    /**
+     * Change position for type of need
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+    */
+    public function changePosition(Request $request)
+    {
+        $needId = $request->get('id');
+        $position = $request->get('position');
+        $this->needTypesRepository->changePosition($needId, $position);
+        return Response::create('', 200);
     }
 }

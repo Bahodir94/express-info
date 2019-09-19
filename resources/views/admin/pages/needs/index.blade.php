@@ -26,10 +26,47 @@
                                 @method('delete')
                                 <button data-toggle="tooltip" onclick="return confirm('Вы уверены?')" title="Удалить" class="btn btn-sm btn-alt-danger"><i class="fa fa-trash"></i></button>
                             </form>
+                            <select name="position" id="position" class="position" data-id="{{ $need->id }}">
+                                @for($i = 0; $i <= count($needs); $i++)
+                                    <option value="{{ $i }}" @if($need->position == $i) selected @endif>{{ $i }}</option>
+                                @endfor
+                            </select>
                         </span>
                     </li>
                 @endforeach
             </ul>
         </div>
     </div>
+@endsection
+@section('js')
+    <script>
+        $('.position').change(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            let formData = new FormData;
+            formData.append('id', $(this).data('id'));
+            formData.append('position', $(this).val());
+            $.ajax({
+                type: 'POST',
+                url: '{{ route('admin.needs.change.position') }}',
+                dataType: 'json',
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    $('.position').attr('disabled', 'disabled');
+                },
+                success: function() {
+                    $('.position').removeAttr('disabled', '');
+                },
+                error: function(data) {
+                    console.log(data);
+                    $('.position').removeAttr('disabled', '');
+                }
+            })
+        });
+    </script>
 @endsection
