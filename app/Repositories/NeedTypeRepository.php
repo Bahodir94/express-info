@@ -40,7 +40,7 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
     public function changePosition(int $id, int $position)
     {
         $need = $this->get($id);
-        $need->position = position;
+        $need->position = $position;
         $need->save();
     }
 
