@@ -1929,3 +1929,7 @@ ul.slide-ttg li:nth-child(3n+2) .uk-svg {
 ul.slide-ttg li:nth-child(3n) .uk-svg{
     fill: #DD7F7C!important;
 }
+.uk-container-xlarge{
+    max-width: 1440;
+    box-sizing: border-box;
+}

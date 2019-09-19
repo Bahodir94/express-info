@@ -173,21 +173,3 @@
     </div>
 
 </div>
-
-<!--
-
-<footer>
-    <div class="uk-container uk-container-expand  uk-container-center">
-        <div class="footer_info">
-            <ul class="soc">
-                    <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                    <li><a href=""><i class="fa fa-youtube-play"></i></a></li>
-                    <li><a href=""><i class="fa fa-paper-plane"></i></a></li>
-            </ul>
-            <p>Создано в <a href="https://vid.uz/">VID</a></p>
-            <p>©Права защищены</p>
-        </div>
-    </div>
-</footer>
--->
-<!-- Footer end -->

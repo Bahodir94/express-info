@@ -17,7 +17,8 @@
 .honeycombs .honeycombs-inner-wrapper {
   display: inline-block;
   width: 700px;
-  position: relative
+  position: relative;
+    height: 400px;
 }
 
 .honeycombs .hex_l,
