@@ -6,7 +6,7 @@
         <div class="uk-inline">
             @csrf
             <a class="uk-form-icon" href="#" uk-icon="icon: search"></a>
-            <input class="uk-input uk-width-xlarge srh-input" type="text" name="query" @isset($queryString) value="{{ $queryString }}" @endisset>
+            <input class="uk-input uk-width-xlarge srh-input" type="text" required name="query" @isset($queryString) value="{{ $queryString }}" @endisset>
 
         </div>
     </div>
