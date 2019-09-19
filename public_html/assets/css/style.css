@@ -186,7 +186,7 @@ header{
     align-items: center;
 }
 .icon{
-    font-size: 16px;
+    font-size: 18px;
     padding-right: 4px;
     display: flex;
     align-content: center;
@@ -827,7 +827,7 @@ footer .uk-container:after, .uk-container:before{
 }
 .title h2 a{
     text-decoration: none;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 500;
     line-height: 4px;
     color: #060606;
@@ -1735,21 +1735,17 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
     margin-top: -5px;
 }
 .link a{
-    background: gray;
-    padding: 5px 10px;
-    color: white;
-    border-radius: 15px;
+
+    color: #1e87f0;
     vertical-align: middle;
-    /* padding: 0 !important; */
+     padding: 0 !important; 
     display: inline-block;
-    font-size: 14px;
+    font-size: 15px;
+    margin: 0 !important;
     line-height: 1.7 !important;
-    /* margin: 7px !important; */
-    margin-top: 5px;
-    text-decoration:none;
 }
 .link a:hover{
-    background: #1e87f0;
+
 }
 
 .uk-light #search-input.uk-input {
