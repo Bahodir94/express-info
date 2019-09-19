@@ -17,7 +17,7 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
      */
     public function all()
     {
-        return NeedType::all();
+        return NeedType::orderBy('position', 'asc')->get();
     }
 
     /**
@@ -37,7 +37,7 @@ class NeedTypeRepository implements NeedTypeRepositoryInterface
      * @param int $id
      * @param int $position
      */
-    public function changePosition(int $id, int $position) 
+    public function changePosition(int $id, int $position)
     {
         $need = $this->get($id);
         $need->position = position;
