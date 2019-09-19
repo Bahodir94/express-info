@@ -154,14 +154,14 @@ background-color: #102840;
 */
 
 .comb.row3 .inner_span {
-    background-color: #42a5f5;
+    background-color: #fff;
     transition: all .3s cubic-bezier(.2, .5, .3, 1);
     cursor: pointer;
 
 }
 
 .comb.row3:hover .inner_span {
-    background-color: #2287f1;
+    background-color: #f8f9fb;
 }
 
 .comb.row4 .inner_span {
