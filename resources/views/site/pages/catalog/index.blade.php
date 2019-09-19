@@ -26,8 +26,8 @@
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+
+
                             </a>
                           </div>
                         </div>
@@ -46,8 +46,8 @@
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+
+
                             </a>
                           </div>
                         </div>
@@ -55,7 +55,7 @@
                     </div>
 
                   </div>
-                </div>                
+                </div>
                 <div class="comb-container">
 
 
@@ -66,8 +66,8 @@
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+
+
                             </a>
                           </div>
                         </div>
@@ -86,8 +86,8 @@
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+
+
                             </a>
                           </div>
                         </div>
@@ -106,8 +106,8 @@
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+
+
                             </a>
                           </div>
                         </div>
@@ -126,8 +126,8 @@
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+
+
                             </a>
                           </div>
                         </div>
@@ -146,8 +146,8 @@
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+
+
                             </a>
                           </div>
                         </div>
@@ -166,8 +166,8 @@
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+
+
                             </a>
                           </div>
                         </div>
@@ -178,7 +178,7 @@
                 </div>
                 <div class="comb-container" >
 
- 
+
                     <div class="comb row3">
                     <div class="hex_l" style="width: 180px; height: 155.885px;">
                       <div class="hex_r" style="width: 180px; height: 155.885px;">
@@ -186,8 +186,8 @@
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+
+
                             </a>
                           </div>
                         </div>
@@ -244,8 +244,8 @@
                           <div class="inner_span">
                             <a href="http://porta.uz" class="mobile_main_item_inner_link uk-position-cover">
 								<img src="http://tezinfo.uz/assets/img/2.png" alt="Bussines Info" class="mobile_main_item_icon uk-position-center" style="height: 130px;object-fit: contain;">
-							
-                            
+
+
                             </a>
                           </div>
                         </div>
@@ -361,12 +361,12 @@
 						</div>
 					</div>
                     </li>
-                
+
             </ul>
         </div>
     </div>
-    
-    
+
+
 </section>
 
 
@@ -381,7 +381,7 @@
                     <li class="slide">
                         <div class="card">
                             <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">
-                                
+
                             <div class="card_img">
                                 <img src="{{ $category->getImage() }}" alt="">
                             </div>
@@ -415,7 +415,7 @@
     <div class="uk-container uk-container-expand uk-margin-medium uk-container-center">
         <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid-margin>
             @foreach($parentCategories as $category)
-                <li class="uk-container-center uk-margin-medium-bottom" @if($category->id == 324) style="display: none" @endif>
+                <li class="uk-container-center uk-margin-medium-bottom">
                     <div class="item uk-flex-middle">
                         <div class="item_icon">
                             <div class="item_circle">
@@ -568,7 +568,7 @@
 
 
 
-                                        <div class="tags">    
+                                        <div class="tags">
                                             <ol>
 
                                                     <li>Коньтетн</li><li>Коньтетн</li><li>Коньтетн</li><li>Коньтетн</li>
