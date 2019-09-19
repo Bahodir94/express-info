@@ -1930,6 +1930,6 @@ ul.slide-ttg li:nth-child(3n) .uk-svg{
     fill: #DD7F7C!important;
 }
 .uk-container-xlarge{
-    max-width: 1440;
+    max-width: 1440px;
     box-sizing: border-box;
 }
