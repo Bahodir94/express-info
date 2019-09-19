@@ -14,7 +14,7 @@
                             <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">               <span class="icon">
                                     <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
                                 </span>
-                                <span class="font-size-xl text-dual-primary-dark">TezInfo</span><span class="font-size-xl text-primary">.uz</span>
+                                <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                             </a>
 
 
