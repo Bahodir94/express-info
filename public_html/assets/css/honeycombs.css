@@ -15,10 +15,10 @@
 }
 
 .honeycombs .honeycombs-inner-wrapper {
-  display: inline-block;
-  width: 700px;
-  position: relative;
-    height: 400px;
+    display: inline-block;
+    width: 700px;
+    position: relative;
+    margin-bottom: -180px;
 }
 
 .honeycombs .hex_l,
