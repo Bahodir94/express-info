@@ -28,7 +28,6 @@
             text-transform: uppercase;
         }
     </style>
-    <link rel="stylesheet" id="css-main" href="{{ asset('assets/css/codebase.min.css') }}?ver=1">
     <link rel="stylesheet" href="{{ asset('assets/js/plugins/select2/select2.min.css') }}?ver=1">
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
     <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
@@ -41,7 +40,8 @@
 
 
 @section('content')
-    <div class="container">
+    <section class="uk-section-xsmall">
+        <div class="uk-container uk-container-expand uk-margin-medium uk-container-center">
         <div class="block-content categories_breadcrump m-0 py-10">
 
             <a href="#" onclick="window.history.back();return false;" class="categories_back_btn">Назад</a>
@@ -116,6 +116,7 @@
             @endif
         </div>
     </div>
+    </section>
 
 
 
