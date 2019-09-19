@@ -224,3 +224,12 @@ background-color: #102840;
     margin-left: 15px;
     height: 155.885px;
 }
+.mobile_main_item_icon {
+    height: 80px;
+    object-fit: contain;
+}
+.hex-bot {
+    width: 156px;
+    margin-left: 12px;
+    z-index: 0;
+}
