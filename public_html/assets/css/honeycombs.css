@@ -237,3 +237,9 @@ background-color: #102840;
     margin-left: 12px;
     z-index: 0;
 }
+
+@media screen and (max-width: 1347px) {
+    .honeycombs .honeycombs-inner-wrapper {
+             margin-bottom: -180px; 
+    }
+}
