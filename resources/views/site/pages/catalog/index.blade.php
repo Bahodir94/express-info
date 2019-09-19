@@ -295,6 +295,8 @@
                 </div>
 
 </div>
+        </div>
+    </div>
     <div class="uk-container uk-container-expand uk-margin-medium uk-container-center ">
         <div class=" gutter uk-hidden@m" uk-slider="autoplay: true; autoplay-interval: 5000;">
             <ul class="uk-slider-items uk-child-width-auto uk-grid-large uk-grid slide-ttg ">
