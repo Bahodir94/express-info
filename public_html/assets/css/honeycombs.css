@@ -226,8 +226,10 @@ background-color: #102840;
     height: 155.885px;
 }
 .mobile_main_item_icon {
-    height: 80px;
-    object-fit: contain;
+    width: 120px;
+    max-height: 80px;
+    height: 100%;
+    object-fit: contain !important;
 }
 .hex-bot {
     width: 156px;
