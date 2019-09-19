@@ -27,6 +27,7 @@
 }
 
 .honeycombs .hex_l {
+    z-index: 1;
   -ms-transform: rotate(60deg);
   transform: rotate(60deg)
 }
@@ -83,7 +84,7 @@
 
 .comb {
   position: absolute;
-  display: inline-block
+  display: inline-block;    z-index: 1;
 }
 
 .comb .inner-text-description-long,
