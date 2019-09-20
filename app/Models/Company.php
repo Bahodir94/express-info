@@ -302,7 +302,7 @@ class Company extends Model
     public function getAncestorsSlugs()
     {
         $category = $this->category;
-        $categoriesSlugs = ($category) ? $category->getAncestorsSlugs(); : '';
+        $categoriesSlugs = ($category) ? $category->getAncestorsSlugs() : '';
         $slugs = $categoriesSlugs . "/$this->ru_slug";
         return $slugs;
     }
