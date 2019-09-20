@@ -1,34 +1,9 @@
-<!DOCTYPE html>
-<!-- saved from url=(0021)http://localhost/pub/ -->
-<html lang="ru-ru" dir="ltr" vocab="http://schema.org/"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="http://localhost/pub/templates/yootheme/vendor/yootheme/theme-joomla/assets/images/favicon.png">
-        <link rel="apple-touch-icon-precomposed" href="http://localhost/pub/templates/yootheme/vendor/yootheme/theme-joomla/assets/images/apple-touch-icon.png">
-        
-	<!--<base href="http://localhost/pub/">--><base href=".">
-	<meta name="author" content="Super User">
-	<meta name="generator" content="Joomla! - Open Source Content Management">
-	<title>Home</title>
-	<link href="./Home_files/theme.9.css" rel="stylesheet" id="theme-style-css">
-	<script src="./Home_files/jquery.min.js"></script><style type="text/css">
-:root #content > #right > .dose > .dosesingle,
-:root #content > #center > .dose > .dosesingle
-{ display: none !important; }</style>
-	<script src="./Home_files/jquery-noconflict.js"></script>
-	<script src="./Home_files/jquery-migrate.min.js"></script>
-	<script src="./Home_files/uikit.min.js"></script>
-	<script src="./Home_files/uikit-icons.min.js"></script>
-	<script src="./Home_files/theme.js"></script>
-	<script>
-document.addEventListener('DOMContentLoaded', function() {
-Array.prototype.slice.call(document.querySelectorAll('a span[id^="cloak"]')).forEach(function(span) {
-    span.innerText = span.textContent;
-});
-});
-var $theme = {};
-	</script>
-	<script>try { /* Source: https://www.jqueryscript.net/demo/jQuery-Plugin-For-Responsive-Hexagon-Grid-Layout-Honeycombs/homeycombs/js/jquery.homeycombs.js
+@extends('site.layouts.static')
+
+@section('title' '<<< Title Here >>>')
+
+@section('headerjs')
+  <script>try { /* Source: https://www.jqueryscript.net/demo/jQuery-Plugin-For-Responsive-Hexagon-Grid-Layout-Honeycombs/homeycombs/js/jquery.homeycombs.js
 Forked and changed by Anand Graves.
 */
 
@@ -276,181 +251,102 @@ jQuery(document).ready(function($) {
   $('.honeycombs').honeycombs();
 });
  } catch (e) { console.error('Custom Theme JS Code: ', e); }</script>
+@endsection
 
-    </head>
-    <body class="" cz-shortcut-listen="true">
-
-        
-        
-        <div class="tm-page">
-
-                        
-
-
-
-
-            
-            
-
-            
-            
-
-            <!-- Builder #page -->
-
-
-<div class="uk-section-muted uk-section uk-section-xlarge">
-    
-        
-        
-        
-            
-            <div class="uk-container"><div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid="">
-<div class="uk-width-1-1@m uk-first-column">
-    
-        
-            
-            
-                <div class="uk-text-muted uk-margin">Hire Me</div>
-<div class="uk-heading-small uk-margin-remove-top">Для размещения вашей компании<br class="uk-visible@l">в справочнике TezInfo, свяжитесь<br class="uk-visible@l">с нами по номеру, <span id="cloakf881cf6bae2a20b8839750fe77dd6007"><a href="tel:+998953411717">+99895 341 1717</a></span></div>
-            
-        
-    
-</div>
-</div></div>
-            
-        
-    
-</div><div class="uk-section-default" tm-header-transparent="dark" tm-header-transparent-placeholder="">
-        <div data-src="/pub/images/yootheme/home-bg.svg" uk-img="" class="uk-background-norepeat uk-background-cover uk-background-top-center uk-section uk-section-large uk-padding-remove-top" style="background-image: url(&quot;http://localhost/pub/images/yootheme/home-bg.svg&quot;);">    
-        
-        
-        
-            
-            <div class="uk-container"><div class="tm-header-placeholder uk-margin-remove-adjacent" style="height: 160px;"></div><div class="uk-grid-large uk-grid-margin-large uk-grid uk-grid-stack" uk-grid="">
-
-
-<div class="uk-width-expand@s uk-flex-first@s uk-first-column">
-    
-        
-            
-            
+@section('content')
+  <div class="uk-section-muted uk-section uk-section-xlarge">
+            <div class="uk-container">
+              <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid="">
+                <div class="uk-width-1-1@m uk-first-column">
+                  <div class="uk-text-muted uk-margin">Hire Me</div>
+                  <div class="uk-heading-small uk-margin-remove-top">
+                    Для размещения вашей компании<br class="uk-visible@l">в справочнике TezInfo, свяжитесь<br class="uk-visible@l">с нами по номеру, <span id="cloakf881cf6bae2a20b8839750fe77dd6007"><a href="tel:+998953411717">+99895 341 1717</a></span>
+                  </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+      <div class="uk-section-default" tm-header-transparent="dark" tm-header-transparent-placeholder="">
+        <div data-src="/pub/images/yootheme/home-bg.svg" uk-img="" class="uk-background-norepeat uk-background-cover uk-background-top-center uk-section uk-section-large uk-padding-remove-top" style="background-image: url(&quot;http://localhost/pub/images/yootheme/home-bg.svg&quot;);">
+          <div class="uk-container">
+            <div class="tm-header-placeholder uk-margin-remove-adjacent" style="height: 160px;"></div>
+            <div class="uk-grid-large uk-grid-margin-large uk-grid uk-grid-stack" uk-grid="">
+              <div class="uk-width-expand@s uk-flex-first@s uk-first-column">
+                <h1 class="uk-heading-xlarge">Центр Государственных Услуг</h1>
+                <div class="uk-text-lead uk-margin-large">
+                  <p class="uk-margin-medium-bottom">Вы так же можете ознакомиться с информацией, о размещении рекламы в центре госсударственных услуг. </p>
+                </div>
+              </div>
+            </div>
+            <div class="uk-margin-xlarge uk-grid" uk-grid="">
+              <div class="uk-width-expand@s uk-first-column">
+                <h2 class="uk-h4 uk-heading-bullet uk-margin-medium">Реклама в гос-услугах</h2>
+                <ul class="uk-list uk-list-large">        
+                  <li class="el-item">
+                    <div class="el-content uk-panel">
+                      <a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Реклама на стойках для баннеров</a>
+                    </div>
+                  </li>
+                  <li class="el-item">
+                    <div class="el-content uk-panel">
+                      <a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Флаера на инфо стендах и реклама на флаерах</a>
+                    </div>
+                  </li>
+                  <li class="el-item">
+                    <div class="el-content uk-panel">
+                      <a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Реклама на планшете
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="uk-width-expand@s">
+                <h2 class="uk-h4 uk-heading-bullet uk-margin-medium">Upcoming Talks</h2>
+                <ul class="uk-list uk-list-large">        
+                  <li class="el-item">
+                    <div class="el-content uk-panel">
+                      <a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Ролики на ТВ</a>
+                    </div>
+                  </li>
+                  <li class="el-item">
+                    <div class="el-content uk-panel">
+                      <a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Реклама на пакетах
+                      </a>
+                    </div>
+                  </li>
+                  <li class="el-item">
+                    <div class="el-content uk-panel">
+                      <a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Проведение промо-акции
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+                <div class="uk-margin-medium">
                 
-<h1 class="uk-heading-xlarge">Центр Государственных Услуг</h1><div class="uk-text-lead uk-margin-large"><p class="uk-margin-medium-bottom">Вы так же можете ознакомиться с информацией, о размещении рекламы в центре госсударственных услуг. </p>
-
-</div>
-            
-        
-    
-</div>
-</div><div class="uk-margin-xlarge uk-grid" uk-grid="">
-<div class="uk-width-expand@s uk-first-column">
-    
-        
-            
-            
-                
-<h2 class="uk-h4 uk-heading-bullet uk-margin-medium">        Реклама в гос-услугах    </h2>
-<ul class="uk-list uk-list-large">        <li class="el-item">
-    <div class="el-content uk-panel"><a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Реклама на стойках для баннеров</a></div></li>
-        <li class="el-item">
-    <div class="el-content uk-panel"><a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Флаера на инфо стендах и реклама на флаерах</a></div></li>
-        <li class="el-item">
-    <div class="el-content uk-panel"><a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Реклама на планшете
-</a></div></li>
-    </ul>
-
-
-
-            
-        
-    
-</div>
-
-<div class="uk-width-expand@s">
-    
-        
-            
-            
-                
-<h2 class="uk-h4 uk-heading-bullet uk-margin-medium">        Upcoming Talks    </h2>
-<ul class="uk-list uk-list-large">        <li class="el-item">
-    <div class="el-content uk-panel"><a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Ролики на ТВ
-
-</a></div></li>
-        <li class="el-item">
-    <div class="el-content uk-panel"><a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Реклама на пакетах
-
-</a></div></li>
-        <li class="el-item">
-    <div class="el-content uk-panel"><a href="http://localhost/pub/#" uk-scroll="" class="el-link uk-link-text">Проведение промо-акции
-
-</a></div></li>
-    </ul>
-
-<div class="uk-margin-medium">
-    
-    
-        
-        
-
-
-
-        
-    
-    
-</div>
-
-            
-        
-    
-</div>
-
-<div class="uk-width-expand@s">
-    
-        
-            
-            
-                
-<h2 class="uk-h4 uk-heading-bullet uk-margin-medium">        Latest Posts    </h2>
-<ul class="uk-list uk-list-large uk-width-medium">        <li class="el-item">
-    <div class="el-content uk-panel"><a href="http://localhost/pub/index.php/blog/10-how-to-create-web-animations-with-only-html-and-css" class="el-link uk-link-text">Визитки
-
-</a></div></li>
-        <li class="el-item">
-    <div class="el-content uk-panel"><a href="http://localhost/pub/index.php/blog/11-a-guide-to-using-filters-in-vue-js" class="el-link uk-link-text">Реклама на кулерах
-
-</a></div></li>
-        <li class="el-item">
-    <div class="el-content uk-panel"></div></li>
-    </ul>
-
-
-
-            
-        
-    
-</div>
-</div></div>
-            
-        
+                </div>
+              </div>
+              <div class="uk-width-expand@s">              
+                <h2 class="uk-h4 uk-heading-bullet uk-margin-medium">Latest Posts</h2>
+                <ul class="uk-list uk-list-large uk-width-medium">        
+                  <li class="el-item">
+                    <div class="el-content uk-panel">
+                      <a href="http://localhost/pub/index.php/blog/10-how-to-create-web-animations-with-only-html-and-css" class="el-link uk-link-text">Визитки
+                      </a>
+                    </div>
+                  </li>
+                  <li class="el-item">
+                    <div class="el-content uk-panel">
+                      <a href="http://localhost/pub/index.php/blog/11-a-guide-to-using-filters-in-vue-js" class="el-link uk-link-text">Реклама на кулерах
+                      </a>
+                    </div>
+                  </li>
+                  <li class="el-item">
+                    <div class="el-content uk-panel"></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-    
-</div>
-
-
-            
-            
-
-            <!-- Builder #footer -->
-
-
-
-
-        </div>
-
-        
-        
-
-    
-
-</body></html>
+      </div>
+@endsection
