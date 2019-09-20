@@ -35,7 +35,7 @@
                     <ul class="uk-nav-sub uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
                         @foreach ($need->menuItems as $menu)
                             <li class="uk-parent" >
-                                <a href="#">{{ $menu->ru_title }}</a>
+                                <a href="{{ route('site.catalog.main', $menu->ru_slug) }}">{{ $menu->ru_title }}</a>
                                 <ul class="uk-nav-sub uk-list">
                                     @foreach ($menu->categories as $category)
                                         <li><a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{{ $category->getTitle() }}</a></li>

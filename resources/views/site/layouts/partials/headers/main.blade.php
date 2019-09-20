@@ -11,7 +11,7 @@
                 <nav uk-navbar class="uk-navbar header-top">
                     <div class="uk-navbar-left">
                         <div class="uk-navbar-item  content-header-item ">
-                            <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">        
+                            <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                                 <span class="icon">
                                 <img src="/assets/img/hex.svg" uk-svg="" height="40">
                                     <!--<iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>-->
@@ -97,7 +97,7 @@
                                                     <ul class="uk-nav">
                                                         <div class="dropdown_wrapper">
                                                             <img src="{{ $menu->getImage() }}" alt="">
-                                                            <a href="">{{ $menu->ru_title }}</a>
+                                                            <a href="{{ route('site.catalog.main', $menu->ru_slug) }}">{{ $menu->ru_title }}</a>
                                                         </div>
                                                         @foreach ($menu->categories as $category)
                                                             <li>

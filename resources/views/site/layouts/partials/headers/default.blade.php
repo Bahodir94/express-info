@@ -79,7 +79,7 @@
                                                     <ul class="uk-nav">
                                                         <div class="dropdown_wrapper">
                                                             <img src="{{ $menu->getImage() }}" alt="">
-                                                            <a href="">{{ $menu->ru_title }}</a>
+                                                            <a href="{{ route('site.catalog.main', $menu->ru_slug) }}">{{ $menu->ru_title }}</a>
                                                         </div>
                                                         @foreach ($menu->categories as $category)
                                                             <li>
