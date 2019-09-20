@@ -355,7 +355,7 @@ div.item:hover {
 .item .item_text{
 
     text-align: left;
-    /* padding: 15px 21px; */
+    padding: 15px 21px; 
     background: white;
     border-radius: 25px;
 }
