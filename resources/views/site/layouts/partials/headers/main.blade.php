@@ -11,8 +11,10 @@
                 <nav uk-navbar class="uk-navbar header-top">
                     <div class="uk-navbar-left">
                         <div class="uk-navbar-item  content-header-item ">
-                            <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">               <span class="icon">
-                                    <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                            <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">        
+                                <span class="icon">
+                                <img src="/assets/img/hex.svg" uk-svg="" height="40">
+                                    <!--<iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>-->
                                 </span>
                                 <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                             </a>

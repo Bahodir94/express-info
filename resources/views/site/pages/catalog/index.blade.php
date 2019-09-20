@@ -122,9 +122,9 @@
 
 
 
-<section class="uk-section-xsmall">
+<section class="uk-section-xsmall home-cat">
     <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center">
-        <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l uk-child-width-1-4@xl" data-uk-grid-margin>
+        <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l" data-uk-grid-margin>
             @foreach($parentCategories as $category)
                 <li class="uk-container-center uk-margin-medium-bottom">
                     <div class="item uk-flex-middle">

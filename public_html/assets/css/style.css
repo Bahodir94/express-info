@@ -1933,3 +1933,7 @@ ul.slide-ttg li:nth-child(3n) .uk-svg{
     max-width: 1440px;
     box-sizing: border-box;
 }
+.home-cat {
+    z-index: 2;
+    position: relative;
+}
