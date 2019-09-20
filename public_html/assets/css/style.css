@@ -1937,3 +1937,8 @@ ul.slide-ttg li:nth-child(3n) .uk-svg{
     z-index: 2;
     position: relative;
 }
+.fav_mob {
+    height: 100%;
+    max-height: 50px;
+    object-fit: contain;
+}
