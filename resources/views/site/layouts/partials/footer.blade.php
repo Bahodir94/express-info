@@ -42,6 +42,14 @@
                         </div>
                     </div>
                 </div>
+                <h3 class="uk-h4 uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">Наши контакты</h3>
+                <div class="el-content uk-panel uk-margin">
+                    <ul class="uk-list">
+                        <li><a href="tel:5551234678">+ 998 97 424 7788</a></li>
+                        <li><span id="cloak6c8ef0a6f6e9d35741343e2a56340158"><a href="mailto:mail@example.com">info@site.uz</a></span></li>
+                    </ul>
+
+                </div>
             </div>
             <div class="uk-width-xlarge@m">
                 <div class="uk-margin uk-text-left@s uk-text-center">
@@ -75,6 +83,12 @@
                                         </li>
                                         <li>
                                             <a href="#" class="el-link uk-link-reset">О нас</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="el-link uk-link-reset">Рекламодателям</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="el-link uk-link-reset">Добавить компанию</a>
                                         </li>
                                     </ul>
                                 </div>
