@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use App\Models\Components\Image;
+use App\Models\Components\Slug;
 use Illuminate\Database\Eloquent\Model;
 
 class MenuItem extends Model
 {
     use Image;
+    use Slug;
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title', 'need_id',
