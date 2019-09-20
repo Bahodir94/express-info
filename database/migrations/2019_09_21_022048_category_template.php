@@ -14,7 +14,7 @@ class CategoryTemplate extends Migration
     public function up()
     {
         Schema::table('handbook_categories', function(Blueprint $table) {
-            $table->string('template')->nullable();
+            $table->string('template')->default('default');
         });
     }
 
