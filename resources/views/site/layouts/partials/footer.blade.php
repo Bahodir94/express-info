@@ -17,6 +17,7 @@
                                 </svg>
                             </a>
                         </div>
+<!--
                         <div>
                             <a class="el-link uk-icon-button uk-icon" href="http://youtube.com" uk-icon="icon: youtube;">
                                 <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="youtube">
@@ -31,6 +32,7 @@
                                 </svg>
                             </a>
                         </div>
+-->
                         <div>
                             <a class="el-link uk-icon-button uk-icon" href="http://instagram.com" uk-icon="icon: instagram;">
                                 <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="instagram">
@@ -43,10 +45,10 @@
                     </div>
                 </div>
                 <h3 class="uk-h4 uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">Наши контакты</h3>
-                <div class="el-content uk-panel uk-margin">
+                <div class="el-content uk-panel uk-margin uk-text-left@s uk-text-center">
                     <ul class="uk-list">
-                        <li><a href="tel:5551234678">+ 998 97 424 7788</a></li>
-                        <li><span id="cloak6c8ef0a6f6e9d35741343e2a56340158"><a href="mailto:mail@example.com">info@site.uz</a></span></li>
+                        <li><a class="el-link uk-link-reset" href="tel:5551234678">+ 998 97 424 7788</a></li>
+                        <li><a class="el-link uk-link-reset" href="mailto:mail@example.com">mail@tezinfo.uz</a></li>
                     </ul>
 
                 </div>
@@ -75,6 +77,7 @@
 
                                 <div class="el-content uk-panel uk-margin-top">
                                     <ul class="uk-list">
+<!--
                                         <li>
                                             <a href="#" class="el-link uk-link-reset">Блог</a>
                                         </li>
@@ -84,6 +87,7 @@
                                         <li>
                                             <a href="#" class="el-link uk-link-reset">О нас</a>
                                         </li>
+-->
                                         <li>
                                             <a href="#" class="el-link uk-link-reset">Рекламодателям</a>
                                         </li>
@@ -103,23 +107,22 @@
 
             <div class="uk-width-expand@m">
 
-                <h3 class="uk-h4 uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">        Рассылка    </h3>
+                <h3 class="uk-h4 uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">
+                    Рассылка
+                </h3>
                 <div class="uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">
-                    <form class="uk-form uk-panel js-form-newsletter" method="post" action="/themes/joomla/2018/trek/index.php?p=theme%2Fnewsletter%2Fsubscribe&amp;option=com_ajax&amp;style=9">
+                    <form class="uk-form uk-panel js-form-newsletter" method="post" action="">
 
-                        <div class="uk-grid-collapse uk-child-width-expand@s uk-grid" uk-grid="">
+                        <div class="uk-grid-collapse uk-grid" uk-grid="">
 
-                            <div class="uk-first-column">
-                                <input class="el-input uk-input srh-input" type="email" name="email" placeholder="Email address" required="">
+                            <div class=" uk-width-auto uk-width-expand@s uk-margin-auto-left">
+                                <input class="el-input uk-input srh-input" type="email" name="email" placeholder="Почтовый адресс" required="">
                             </div>
-                            <div class="uk-width-auto@s">
+                            <div class="uk-width-auto uk-margin-auto-right">
                                 <button class="el-button uk-button uk-button-primary  srh-but" type="submit">Подписаться</button>
                             </div>
 
                         </div>
-
-                        <input type="hidden" name="settings" value="71BXTsydrHMqLF0t/XXHvw==.aDVYa3VXQzdRejJRQXYrbUpuRHZLUG82aUFaQVlSQXZETWo3bEJGcGxGbHBJbGhPSUROU0p5UFdGa1R3ME94b0ZJZG9MTUJxeTVIdmpxT2VNZCtKZXd3TzlvYWlhb1l4OTdkNVhzQ1VLekVHYkNBZExhQWx2WGpHbFNEYUdsNExpL1NhQzJUQ3RzUG04L0JCOE1sNC8xZ2plOWR5ZE1pdVlsa0ZDZmMreENHUkpFT1VDK1JybW04WGRpWkNSaWVkYm4wWFE5a0dNRVhYMDErdms2amhMUDFvL08wTGxYVkkvOXNDM3laZ0hyU3VVb1dJTUJKYnlSc0gyK3NUK0VPQ0NIT1hhNmJNOUk5ZUtsQ3loMXl6Q3czcFdTaG82WmQrWjk1cExqYWlhamc9.NjUyNTJmNGFhY2UwMzUwZThkOTQxN2E4MTkyY2QxODdlYjlhYzA3OTU3ZjZlYTA1MWM2MzUzOWQ4MmEzMzFjZg==">
-                        <div class="message uk-margin uk-hidden"></div>
 
                     </form>
 
@@ -130,14 +133,14 @@
     </div>
 
 </div>
-<div class="uk-section-muted uk-section uk-section-xsmall">
+<div class="uk-section-muted uk-section uk-section-xsmall ux-footer">
 
     <div class="uk-container uk-container-xlarge">
         <div class="uk-grid-margin uk-grid" uk-grid="">
             <div class="uk-grid-item-match uk-flex-middle uk-width-expand@m uk-first-column">
 
                 <div class="uk-panel uk-width-1-1">
-                    <div class="uk-text-meta uk-margin uk-text-left@m">© 2019 Создано в <a href="https://vid.uz/">vid.uz</a>. Все права защищены</div>
+                    <div class="uk-text-meta uk-margin uk-text-left@m uk-text-center">© 2019 Создано в <a href="https://vid.uz/">vid.uz</a>. Все права защищены</div>
                 </div>
 
             </div>
@@ -146,7 +149,7 @@
 
                 <div class="uk-panel uk-width-1-1">
 
-                    <div class="uk-margin uk-text-center@m uk-text-left" uk-scrollspy="target: [uk-scrollspy-class];">
+                    <div class="uk-margin uk-text-center" uk-scrollspy="target: [uk-scrollspy-class];">
 
 
                         <img width="80" class="el-image uk-text-muted" alt="" uk-svg="" uk-img="" src="" hidden="true">
@@ -166,6 +169,7 @@
 
             </div>
 
+<!--
             <div class="uk-grid-item-match uk-flex-middle uk-width-expand@m">
 
                 <div class="uk-panel uk-width-1-1">
@@ -173,9 +177,9 @@
                     <div class="uk-text-right@m uk-text-left">
                         <ul class="uk-margin-remove-bottom uk-subnav uk-flex-right@m uk-flex-left" uk-margin="">
                             <li class="el-item uk-first-column">
-                                <a class="el-link" href="/themes/joomla/2019/craft/index.php/contact/terms-of-service">Пользовательское соглашение</a></li>
+                                <a class="el-link" href="#">Пользовательское соглашение</a></li>
                             <li class="el-item">
-                                <a class="el-link" href="/themes/joomla/2019/craft/index.php/contact/imprint">Контакты</a></li>
+                                <a class="el-link" href="#">Контакты</a></li>
                         </ul>
 
                     </div>
@@ -183,6 +187,7 @@
                 </div>
 
             </div>
+-->
         </div>
     </div>
 

@@ -1942,3 +1942,6 @@ ul.slide-ttg li:nth-child(3n) .uk-svg{
     max-height: 50px;
     object-fit: contain;
 }
+.ux-footer .text-dual-primary-dark{
+    color: #394461!important;
+}
