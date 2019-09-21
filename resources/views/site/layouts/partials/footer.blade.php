@@ -47,8 +47,11 @@
                 <h3 class="uk-h4 uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">Наши контакты</h3>
                 <div class="el-content uk-panel uk-margin uk-text-left@s uk-text-center">
                     <ul class="uk-list">
-                        <li><a class="el-link uk-link-reset" href="tel:5551234678">+ 998 97 424 7788</a></li>
-                        <li><a class="el-link uk-link-reset" href="mailto:mail@example.com">mail@tezinfo.uz</a></li>
+                        <li><a class="el-link uk-link-reset" href="tel:+99895 341 17 17">+99895 341 17 17</a></li>
+                        <li><a class="el-link uk-link-reset" href="tel:+99895 478 17 17">+99895 478 17 17</a></li>
+                        <li><a class="el-link uk-link-reset" href="tel:+99895 476 17 17">+99895 476 17 17</a></li>
+                        <li><a class="el-link uk-link-reset" href="tel:+99895 479 17 17">+99895 479 17 17</a></li>
+                        <!-- <li><a class="el-link uk-link-reset" href="mailto:mail@example.com">mail@tezinfo.uz</a></li> -->
                     </ul>
 
                 </div>
