@@ -137,10 +137,14 @@ class HandbookCategoryController extends Controller
      */
     public function edit($id)
     {
+        $templateFiles = Storage::disk('catalog_templates')->allFiles();
+        $templateStrings = array();
+        foreach ($templateFiles as $file)
+            array_push($templateStrings, explode('.', $file)[0]);
         $data = [
             'category' => $this->handbookCategoryRepository->get($id),
             'categories' => $this->handbookCategoryRepository->getTree(),
-            'needs' => $this->needTypesRepository->all()
+            'templates' => $templateStrings
         ];
         return view('admin.pages.handbookCategories.edit', $data);
     }
