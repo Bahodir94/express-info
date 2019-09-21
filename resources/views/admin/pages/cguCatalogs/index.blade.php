@@ -12,7 +12,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">ЦГУ <small>Файлы</small></h3>
             <div class="block-options">
-                <a href="{{ route('admin.cgucatalogs.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus"></i>Добавить</a>
+                <a href="{{ route('admin.cgucatalogs.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus mr-5"></i>Добавить</a>
             </div>
         </div>
         <div class="block-content">
@@ -40,7 +40,7 @@
                             <form method="post" action="{{ route('admin.cgucatalogs.destroy', $catalog->id) }}">
                                 @csrf
                                 @method('delete')
-                                <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" class="btn btn-sm btn-alt-delete" data-toggle="tooltip" title="Удалить">
+                                <button onclick="return confirm('Вы уверены?')" class="btn btn-sm btn-alt-danger" data-toggle="tooltip" title="Удалить">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </form>

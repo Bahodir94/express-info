@@ -22,7 +22,7 @@
                 <form action="" method="get" style="display: inline-block;">
                     <input type="search" name="searchQuery" id="searchQuery" placeholder="Поиск" class="form-control">
                 </form>
-                <a href="{{ route('admin.companies.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus"></i> Добавить</a>
+                <a href="{{ route('admin.companies.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus mr-5"></i>Добавить</a>
             </div>
         </div>
         <div class="block-content">
@@ -60,7 +60,7 @@
                                     <form action="{{ route('admin.companies.destroy', $company->id) }}" method="post" data-toggle="tooltip" title="Удалить">
                                         @csrf
                                         @method('delete')
-                                        <button class="btn btn-sm btn-alt-delete" onclick="return confirm('Вы уверены?')"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-alt-danger" onclick="return confirm('Вы уверены?')"><i class="fa fa-trash"></i></button>
                                     </form>
                                     <select name="position" id="position" class="position" data-id="{{ $company->id }}">
                                         @for($i = 0; $i <= count($companies); $i++)

@@ -12,7 +12,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Справочник <small>Категории</small></h3>
             <div class="block-options">
-                <a href="{{ route('admin.handbookcategories.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus"></i> Добавить</a>
+                <a href="{{ route('admin.handbookcategories.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus mr-5"></i>Добавить</a>
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
             </div>
         </div>
@@ -55,7 +55,7 @@
                                     <form method="post" action="{{ route('admin.handbookcategories.destroy', $category->id) }}">
                                         @csrf
                                         @method('delete')
-                                        <button style="border: none; cursor: pointer; background-color: transparent;" class="btn btn-sm btn-alt-delete" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
+                                        <button style="border: none; cursor: pointer; background-color: transparent;" class="btn btn-sm btn-alt-danger" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>
