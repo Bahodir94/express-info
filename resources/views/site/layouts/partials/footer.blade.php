@@ -49,7 +49,7 @@
                     <ul class="uk-list">
 
                         <li><a class="el-link uk-link-reset" href="tel:+998953411717">+998 95 341 1717</a></li>
-                        <li><a class="el-link uk-link-reset" href="tel:+998953411717">+998 95 341 1717</a></li>
+                        <li><a class="el-link uk-link-reset" href="tel:+998954781717">+998 95 478 1717</a></li>
                         <li><a class="el-link uk-link-reset" href="mailto:mail@tezinfo.uz">mail@tezinfo.uz</a></li>
                         <!-- <li><a class="el-link uk-link-reset" href="mailto:mail@example.com">mail@tezinfo.uz</a></li> -->
 
@@ -115,14 +115,14 @@
                     Рассылка
                 </h3>
                 <div class="uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">
-                    <form class="uk-form uk-panel js-form-newsletter" method="post" action="">
+                    <form class="uk-form uk-panel js-form-newsletter mail-form" method="post" action="">
 
                         <div class="uk-grid-collapse uk-grid" uk-grid="">
 
-                            <div class=" uk-width-auto uk-width-expand@s uk-margin-auto-left">
-                                <input class="el-input uk-input srh-input" type="email" name="email" placeholder="Почтовый адресс" required="">
+                            <div class="uk-width-expand@s uk-margin-auto-left">
+                                <input class="el-input uk-input srh-input" type="email" name="email" placeholder="Почтовый адрес" required="">
                             </div>
-                            <div class="uk-width-auto uk-margin-auto-right">
+                            <div class="uk-width-auto@s uk-margin-auto-right">
                                 <button class="el-button uk-button uk-button-primary  srh-but" type="submit">Подписаться</button>
                             </div>
 
@@ -160,7 +160,7 @@
                         <div class="uk-text-muted content-header-item ">
                             <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                         <span class="icon">
-                            <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                            <img src="/assets/img/hex.svg" width="35" height="35" alt="TezInfo Logo" uk-svg="" hidden="true">
                         </span>
                                 <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                             </a>

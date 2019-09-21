@@ -1503,7 +1503,13 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
         font-weight: 700 !important;
     }
     .inner {
-    padding: 15px;
+        padding: 15px;
+    }
+    .mail-form .srh-but{
+        border-radius: 0px 0px 5px 5px;
+    }
+    .mail-form .srh-input{
+         border-radius: 5px 5px 0px 0px;
     }
     
 }
@@ -1958,4 +1964,7 @@ ul.slide-ttg li:nth-child(3n) .uk-svg{
 }
 .ux-footer .text-dual-primary-dark{
     color: #394461!important;
+}
+.mail-form .srh-but{
+    width: 100%;
 }
