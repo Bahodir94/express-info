@@ -11,7 +11,7 @@
                 <div class="uk-margin uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">
                     <div class="uk-child-width-1-4 uk-flex-left@s uk-flex-center uk-grid" uk-grid="">
                         <div class="uk-first-column">
-                            <a class="el-link uk-icon-button uk-icon" href="http://facebook.com" uk-icon="icon: facebook;">
+                            <a class="el-link uk-icon-button uk-icon" href="http://facebook.com/tezinfo" uk-icon="icon: facebook;">
                                 <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="facebook">
                                     <path d="M11,10h2.6l0.4-3H11V5.3c0-0.9,0.2-1.5,1.5-1.5H14V1.1c-0.3,0-1-0.1-2.1-0.1C9.6,1,8,2.4,8,5v2H5.5v3H8v8h3V10z"></path>
                                 </svg>
@@ -47,8 +47,8 @@
                 <h3 class="uk-h4 uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">Наши контакты</h3>
                 <div class="el-content uk-panel uk-margin uk-text-left@s uk-text-center">
                     <ul class="uk-list">
-                        <li><a class="el-link uk-link-reset" href="tel:5551234678">+ 998 97 424 7788</a></li>
-                        <li><a class="el-link uk-link-reset" href="mailto:mail@example.com">mail@tezinfo.uz</a></li>
+                        <li><a class="el-link uk-link-reset" href="tel:+998953411717">+998 95 341 1717</a></li>
+                        <li><a class="el-link uk-link-reset" href="mailto:mail@tezinfo.uz">mail@tezinfo.uz</a></li>
                     </ul>
 
                 </div>

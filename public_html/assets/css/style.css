@@ -1248,6 +1248,9 @@ footer .uk-container:after, .uk-container:before{
     color: #102840;
     margin-bottom: 12px;
 }
+.dropdown_wrapper a:hover{
+    color: #42A5F5;
+}
 .uk-container-large {
     max-width: 1283px;
     box-sizing: border-box;
@@ -1734,6 +1737,14 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
 .ad-v6.uk-light .uk-button-primary {
     background-color: #39446140;
 }
+.ad-v6.uk-light .uk-button-primary {
+    background-color: #39446140;
+}
+.ad-v6.uk-light .uk-button-primary:hover {
+    background-color: #39446130;
+    color: white
+}
+
 .link {
     margin-top: -5px;
 }

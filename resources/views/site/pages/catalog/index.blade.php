@@ -12,7 +12,7 @@
 
 
 <section class="uk-section-xsmall">
-    <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center sot-body uk-visible@m">
+    <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center sot-body uk-visible@l">
         <div class="honeycombs honeycombs-wrapper">
             <div class="honeycombs-inner-wrapper  ">
               @foreach ($favouritesCompanies as $company)
@@ -43,7 +43,7 @@
             </div>
         </div>
     </div>
-    <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center uk-hidden@m">
+    <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center uk-hidden@l">
         <div class=" gutter " uk-slider="autoplay: true; autoplay-interval: 5000;">
             <ul class="uk-slider-items uk-child-width-auto uk-grid-large uk-grid slide-ttg ">
                     @foreach ($favouritesCompanies as $company)
