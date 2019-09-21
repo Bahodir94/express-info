@@ -183,7 +183,7 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
-                        <input type="text" name="phone_number" id="phoneNumber" class="form-control" value="{{ $company->phone_number }}">
+                        <input type="text" name="phone_number" id="phoneNumber" class="form-control" value="{{ old('phone_number') }}">
                         <label for="phoneNumber">Номер телефона</label>
                     </div>
                 </div>
