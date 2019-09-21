@@ -13,7 +13,6 @@
             <h3 class="block-title">Справочник <small>Категории</small></h3>
             <div class="block-options">
                 <a href="{{ route('admin.handbookcategories.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus mr-5"></i>Добавить</a>
-                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
             </div>
         </div>
         <div class="block-content">
