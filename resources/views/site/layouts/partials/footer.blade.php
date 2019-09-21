@@ -49,7 +49,7 @@
                     <ul class="uk-list">
 
                         <li><a class="el-link uk-link-reset" href="tel:+998953411717">+998 95 341 1717</a></li>
-                        <li><a class="el-link uk-link-reset" href="tel:+998953411717">+998 95 341 1717</a></li>
+                        <li><a class="el-link uk-link-reset" href="tel:+998954781717">+998 95 478 1717</a></li>
                         <li><a class="el-link uk-link-reset" href="mailto:mail@tezinfo.uz">mail@tezinfo.uz</a></li>
                         <!-- <li><a class="el-link uk-link-reset" href="mailto:mail@example.com">mail@tezinfo.uz</a></li> -->
 
