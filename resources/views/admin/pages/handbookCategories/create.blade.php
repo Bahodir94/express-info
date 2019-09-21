@@ -141,6 +141,17 @@
                         <span class="css-control-indicator"></span>Избранное (отобразиться на главной)
                     </label>
                 </div>
+                <h3 class="font-size-h3 font-w600 my-20">Design</h3>
+                <div class="form-group">
+                    <div class="form-material floating">
+                        <select name="template" id="template" class="form-control js-select2">
+                            @foreach($templates as $template)
+                                <option value="{{ $template }}">{{ $template }}</option>
+                            @endforeach
+                        </select>
+                        <label for="template">Шаблон</label>
+                    </div>
+                </div>
                 <h3 class="font-size-h3 font-w600 my-20">SEO</h3>
                 <div class="form-group">
                     <div class="form-material floating form-material-primary">
@@ -199,5 +210,10 @@
 
             $('#select2').select2();
         })
+    </script>
+    <script>
+        jQuery(function() {
+            Codebase.helper('select2');
+        });
     </script>
 @endsection

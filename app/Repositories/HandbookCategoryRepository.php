@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\HandbookCategory;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 
@@ -75,6 +76,14 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
             $category->favorite = false;
         $category->save();
         $category->uploadImage($categoryData->file('image'));
+
+        $template = $categoryData->get('template');
+        if (Storage::disk('catalog_templates')->exists($template . '.blade.php'))
+            $category->template = $template;
+        else
+            $category->template = 'default';
+        $category->save();
+
         return $category;
     }
 
@@ -103,6 +112,12 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
             $parent = $this->get($parentId);
             $category->appendToNode($parent)->save();
         }
+
+        $template = $categoryData->get('template');
+        if (Storage::disk('catalog_templates')->exists($template . '.blade.php'))
+            $category->template = $template;
+        else
+            $category->template = 'default';
 
         return $category;
     }

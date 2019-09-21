@@ -7,6 +7,7 @@ use App\Repositories\NeedTypeRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Storage;
 
 class HandbookCategoryController extends Controller
 {
@@ -59,9 +60,15 @@ class HandbookCategoryController extends Controller
      */
     public function create()
     {
+        $templateFiles = Storage::disk('catalog_templates')->allFiles();
+        $templateStrings = array();
+        foreach ($templateFiles as $file)
+            array_push($templateStrings, explode('.', $file)[0]);
+
         $data = [
             'categories' => $this->handbookCategoryRepository->getTree(),
-            'needs' => $this->needTypesRepository->all()
+            'needs' => $this->needTypesRepository->all(),
+            'templates' => $templateStrings
         ];
 
         return view('admin.pages.handbookCategories.create', $data);
@@ -130,10 +137,14 @@ class HandbookCategoryController extends Controller
      */
     public function edit($id)
     {
+        $templateFiles = Storage::disk('catalog_templates')->allFiles();
+        $templateStrings = array();
+        foreach ($templateFiles as $file)
+            array_push($templateStrings, explode('.', $file)[0]);
         $data = [
             'category' => $this->handbookCategoryRepository->get($id),
             'categories' => $this->handbookCategoryRepository->getTree(),
-            'needs' => $this->needTypesRepository->all()
+            'templates' => $templateStrings
         ];
         return view('admin.pages.handbookCategories.edit', $data);
     }

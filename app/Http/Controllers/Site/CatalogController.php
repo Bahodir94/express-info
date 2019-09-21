@@ -134,7 +134,7 @@ class CatalogController extends Controller
             'companies' => $resultCompanies
         ];
 
-        return view('site.pages.catalog.companies', $data);
+        return view("site.templates.categories.$category->template", $data);
     }
 
     private function processCompany($company)
