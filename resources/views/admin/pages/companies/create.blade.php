@@ -183,8 +183,8 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
-                        <input type="text" id="geolocation" name="geo_location" class="form-control" value="{{ old('geo_location') }}">
-                        <label for="geolocation">Геолокация</label>
+                        <input type="text" name="phone_number" id="phoneNumber" class="form-control" value="{{ old('phone_number') }}">
+                        <label for="phoneNumber">Номер телефона</label>
                     </div>
                 </div>
                 <h3 class="font-size-h3 font-w600 my-20">SEO</h3>

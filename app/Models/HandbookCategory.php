@@ -15,7 +15,7 @@ class HandbookCategory extends Model
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id',
-        'meta_title', 'meta_description', 'meta_keywords'
+        'meta_title', 'meta_description', 'meta_keywords', 'template' 
     ];
 
     const UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
@@ -152,7 +152,7 @@ class HandbookCategory extends Model
     {
         $categories = $this->descendants()->pluck('id');
         $categories[] = $this->getKey();
-        
+
         return Company::whereIn('category_id', $categories)->get();
     }
 

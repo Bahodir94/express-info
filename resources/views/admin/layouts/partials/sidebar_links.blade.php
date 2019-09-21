@@ -28,12 +28,12 @@
             </li>
             <li>
                 <a href="{{ route('admin.cgucatalogs.index') }}">
-                    Цгу файлы или видео
+                    Файлы
                 </a>
             </li>
             <li>
                 <a href="{{ route('admin.cgusites.index') }}">
-                    Цгу сайты
+                    Сайты
                 </a>
             </li>
         </ul>
@@ -45,16 +45,16 @@
         </a>
         <ul>
             <li>
-                <a href="{{ route('admin.needs.index') }}">Типы потребностей</a>
-            </li>
-            <li>
-                <a href="{{ route('admin.services.index') }}">Услуги</a>
+                <a href="{{ route('admin.needs.index') }}">Главное меню</a>
             </li>
             <li>
                 <a href="{{ route('admin.handbookcategories.index') }}">Категории</a>
             </li>
             <li>
                 <a href="{{ route('admin.companies.index') }}">Компании</a>
+            </li>
+            <li>
+                <a href="{{ route('admin.services.index') }}">Услуги</a>
             </li>
         </ul>
     </li>
