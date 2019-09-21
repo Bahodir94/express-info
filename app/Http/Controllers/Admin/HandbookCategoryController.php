@@ -60,7 +60,7 @@ class HandbookCategoryController extends Controller
      */
     public function create()
     {
-        $templateFiles = Storage::disk('categories_templates')->allFiles();
+        $templateFiles = Storage::disk('catalog_templates')->allFiles();
         $templateStrings = array();
         foreach ($templateFiles as $file)
             array_push($templateStrings, explode('.', $file)[0]);
