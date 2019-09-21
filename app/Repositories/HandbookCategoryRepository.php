@@ -78,11 +78,15 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
         $category->uploadImage($categoryData->file('image'));
 
         $template = $categoryData->get('template');
-        if (Storage::disk('catalog_templates')->exists($template . '.blade.php'))
-            $category->template = $template;
-        else
-            $category->template = 'default';
+        if (!Storage::disk('catalog_templates')->exists($template . '.blade.php'))
+            $template = 'default';
+        $category->template = $template;
         $category->save();
+        foreach ($category->descendants as $descendant)
+        {
+            $descendant->template = $template;
+            $descendant->save();
+        }
 
         return $category;
     }
@@ -114,10 +118,15 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
         }
 
         $template = $categoryData->get('template');
-        if (Storage::disk('catalog_templates')->exists($template . '.blade.php'))
-            $category->template = $template;
-        else
-            $category->template = 'default';
+        if (!Storage::disk('catalog_templates')->exists($template . '.blade.php'))
+            $template = 'default';
+        $category->template = $template;
+        $category->save();
+        foreach ($category->descendants as $descendant)
+        {
+            $descendant->template = $template;
+            $descendant->save();
+        }
 
         return $category;
     }
