@@ -120,7 +120,7 @@
                         <div class="uk-grid-collapse uk-grid" uk-grid="">
 
                             <div class=" uk-width-auto uk-width-expand@s uk-margin-auto-left">
-                                <input class="el-input uk-input srh-input" type="email" name="email" placeholder="Почтовый адресс" required="">
+                                <input class="el-input uk-input srh-input" type="email" name="email" placeholder="Почтовый адрес" required="">
                             </div>
                             <div class="uk-width-auto uk-margin-auto-right">
                                 <button class="el-button uk-button uk-button-primary  srh-but" type="submit">Подписаться</button>
@@ -160,7 +160,7 @@
                         <div class="uk-text-muted content-header-item ">
                             <a class="link-effect font-w700" href="{{ route('site.catalog.index') }}">
                         <span class="icon">
-                            <iconify-icon data-icon="simple-line-icons:fire"></iconify-icon>
+                            <img src="/assets/img/hex.svg" width="35" height="35" alt="TezInfo Logo" uk-svg="" hidden="true">
                         </span>
                                 <span class="font-size-xl text-dual-primary-dark">Tez</span><span class="font-size-xl text-primary">Info</span>
                             </a>
