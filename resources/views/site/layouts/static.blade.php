@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>@yield('title')</title>
+	<title>@yield('title') | TezInfo</title>
 	<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
   <style type="text/css">
     :root #content > #right > .dose > .dosesingle,
@@ -24,7 +24,7 @@ var $theme = {};
 </head>
   <body>
     <div class="tm-page">
-      @yield('content')      
+      @yield('content')
     </div>
   </body>
 </html>

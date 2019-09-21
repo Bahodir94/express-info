@@ -20,12 +20,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/apple-touch-icon-180x180.png') }}">
     <!-- END Icons -->
     <title>
-        @yield('title') | Porta
+        @yield('title') | TezInfo
     </title>
 
 
-    
-    
+
+
     <script src="{{ asset('assets/js/uikit.min.js') }}"></script>
     <script src="{{ asset('assets/js/uikit-icons.min.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
@@ -35,7 +35,7 @@
 </head>
 <body>
 
-  
+
 @yield('header')
 
 @include('site.layouts.partials.mobile_menu')
