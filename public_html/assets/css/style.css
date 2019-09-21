@@ -267,6 +267,7 @@ form.vid-form input::placeholder{
 } */
 .slide a{
     text-decoration: none;
+    text-align: center;
 }
 
 /* Aauto Slider end */
@@ -1534,10 +1535,12 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
         flex-wrap: wrap;
         background: none;
     }
+/*
     .slide{
         width: 200px;
         padding-left:10px; 
     }
+*/
     .capsule_item{
         margin-bottom: 15px;
     }
