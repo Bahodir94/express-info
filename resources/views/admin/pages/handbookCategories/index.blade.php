@@ -10,7 +10,7 @@
     @include('admin.components.breadcrumb', ['lastTitle' => 'Катеогрии справочника'])
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Категории справочника</h3>
+            <h3 class="block-title">Справочник <small>Категории</small></h3>
             <div class="block-options">
                 <a href="{{ route('admin.handbookcategories.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus"></i> Добавить</a>
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>

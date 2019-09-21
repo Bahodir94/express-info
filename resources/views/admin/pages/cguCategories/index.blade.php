@@ -14,7 +14,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">ЦГУ <small>Категории</small></h3>
             <div class="block-options">
-                <a href="{{ route('admin.cgucategories.create') }}" class="btn btn-alt-primary"><i class="si si-plus"></i>Добавить</a>
+                <a href="{{ route('admin.cgucategories.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus"></i>Добавить</a>
             </div>
         </div>
         <div class="block-content">

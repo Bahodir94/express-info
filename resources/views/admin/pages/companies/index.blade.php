@@ -17,7 +17,7 @@
     @include('admin.components.breadcrumb', ['lastTitle' => 'Компании'])
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Компании</h3>
+            <h3 class="block-title">Справочник <small>Компании</small></h3>
             <div class="block-options">
                 <form action="" method="get" style="display: inline-block;">
                     <input type="search" name="searchQuery" id="searchQuery" placeholder="Поиск" class="form-control">

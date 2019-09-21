@@ -28,7 +28,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">{{ $category->getTitle() }} <small>сайты</small></h3>
             <div class="block-options">
-                <a href="{{ route('admin.cgucategories.create') }}" class="btn btn-alt-primary"><i class="si si-plus"></i>Добавить</a>
+                <a href="{{ route('admin.cgucategories.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus"></i>Добавить</a>
             </div>
         </div>
         <div class="block-content">
@@ -37,7 +37,7 @@
                 <tr>
                     <th class="text-center"></th>
                     <th class="sorting_desc">Заголовок</th>
-                    <th>Категории</th>
+                    <th>Категория</th>
                     <th>Активность</th>
                     <th class="text-center" style="width: 15%;">Действия</th>
                 </tr>
