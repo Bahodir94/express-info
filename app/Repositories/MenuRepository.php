@@ -42,6 +42,8 @@ class MenuRepository implements MenuRepositoryInterface
         $newMenuItem->uploadImage($menuData->file('image'));
         $categoriesIds = $menuData->get('categories');
         $newMenuItem->categories()->attach($categoriesIds);
+        if (empty($menuData->get('ru_slug')))
+            $newMenuItem->generateSlug();
     }
 
     /**
@@ -57,6 +59,8 @@ class MenuRepository implements MenuRepositoryInterface
         $menuItem->uploadImage($menuData->file('image'));
         $menuItem->categories()->detach();
         $menuItem->categories()->attach($menuData->get('categories'));
+        if (empty($menuData->get('ru_slug')))
+            $newMenuItem->generateSlug();
     }
 
     /**
