@@ -45,11 +45,11 @@
     </div>
     <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center uk-hidden@l">
         <div class=" gutter " uk-slider="autoplay: true; autoplay-interval: 5000;">
-            <ul class="uk-slider-items uk-child-width-1-3 uk-grid-large uk-grid slide-ttg ">
+            <ul class="uk-slider-items uk-child-width-1-3 slide-ttg ">
                     @foreach ($favouritesCompanies as $company)
                     <li class="">
                         <a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif" class="">
-                            <img src="{{ $company->getImage() }}" alt="{{ $company->getTitle() }}" class="fav_mob uk-position-center" >
+                            <img src="{{ $company->getImage() }}" alt="{{ $company->getTitle() }}" class="fav_mob" >
                         </a>
                     </li>
                     @endforeach
