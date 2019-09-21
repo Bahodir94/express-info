@@ -115,14 +115,14 @@
                     Рассылка
                 </h3>
                 <div class="uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">
-                    <form class="uk-form uk-panel js-form-newsletter" method="post" action="">
+                    <form class="uk-form uk-panel js-form-newsletter mail-form" method="post" action="">
 
                         <div class="uk-grid-collapse uk-grid" uk-grid="">
 
-                            <div class=" uk-width-auto uk-width-expand@s uk-margin-auto-left">
+                            <div class="uk-width-expand@s uk-margin-auto-left">
                                 <input class="el-input uk-input srh-input" type="email" name="email" placeholder="Почтовый адрес" required="">
                             </div>
-                            <div class="uk-width-auto uk-margin-auto-right">
+                            <div class="uk-width-auto@s uk-margin-auto-right">
                                 <button class="el-button uk-button uk-button-primary  srh-but" type="submit">Подписаться</button>
                             </div>
 
