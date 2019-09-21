@@ -67,7 +67,7 @@
                                     <ul class="uk-list">
                                         @foreach($needs as $need)
                                             <li>
-                                                <a href="/themes/joomla/2018/trek/index.php/routes" class="el-link uk-link-reset">{{ $need->ru_title }}</a>
+                                                <a href="{{ route('site.catalog.main', $need->ru_slug) }}" class="el-link uk-link-reset">{{ $need->ru_title }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
