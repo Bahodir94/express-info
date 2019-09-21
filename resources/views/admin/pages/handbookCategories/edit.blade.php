@@ -207,4 +207,9 @@
             $('#select2').select2();
         })
     </script>
+    <script>
+        jQuery(function() {
+            Codebase.helper('select2');
+        });
+    </script>
 @endsection
