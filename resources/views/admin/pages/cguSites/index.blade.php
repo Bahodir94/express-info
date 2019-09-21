@@ -7,13 +7,12 @@
 @endsection
 
 @section('content')
-    @include('admin.components.breadcrumb', ['lastTitle' => 'Цгу Сайты'])
+    @include('admin.components.breadcrumb', ['lastTitle' => 'Сайты ЦГУ'])
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Сайты <small>все</small></h3>
+            <h3 class="block-title">ЦГУ <small>Сайты</small></h3>
             <div class="block-options">
-                <a href="{{ route('admin.cgusites.create') }}" class="btn btn-primary">Создать</a>
-                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
+                <a href="{{ route('admin.cgusites.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus mr-5"></i>Добавить</a>
             </div>
         </div>
         <div class="block-content">
@@ -36,13 +35,13 @@
                             {{ $site->getParentCategoryTitle() }}
                         </td>
                         <td>{!! $site->getActiveRender() !!}</td>
-                        <td class="text-center d-flex align-items-center justify-content-center">
-                            <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgusites.edit', $site->id) }}"><i class="fa fa-edit"></i></a>
+                        <td class="text-center d-flex align-items-center justify-content-around">
+                            <a data-toggle="tooltip" title="Редактировать" class="btn btn-sm btn-alt-info" href="{{ route('admin.cgusites.edit', $site->id) }}"><i class="fa fa-edit"></i></a>
                             <form method="post" action="{{ route('admin.cgusites.destroy', $site->id) }}">
                                 @csrf
                                 @method('delete')
-                                <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
-                                    <i class="fa fa-trash text-danger"></i>
+                                <button class="btn btn-sm btn-alt-danger" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
+                                    <i class="fa fa-trash"></i>
                                 </button>
                             </form>
                         </td>

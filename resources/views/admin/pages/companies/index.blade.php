@@ -17,13 +17,12 @@
     @include('admin.components.breadcrumb', ['lastTitle' => 'Компании'])
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Компании</h3>
+            <h3 class="block-title">Справочник <small>Компании</small></h3>
             <div class="block-options">
                 <form action="" method="get" style="display: inline-block;">
                     <input type="search" name="searchQuery" id="searchQuery" placeholder="Поиск" class="form-control">
                 </form>
-                <a href="{{ route('admin.companies.create') }}" class="btn btn-primary">Создать</a>
-                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
+                <a href="{{ route('admin.companies.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus mr-5"></i>Добавить</a>
             </div>
         </div>
         <div class="block-content">
@@ -35,8 +34,7 @@
                     <thead>
                         <tr>
                             <th class="text-center" style="width: 50px"><i class="fa fa-image"></i></th>
-                            <th class="text-center">Заголовок</th>
-                            <th class="text-center">Кол-во кликов</th>
+                            <th class="text-center">Название</th>
                             <th class="text-center">Категория</th>
                             <th class="text-center">Активность</th>
                             <th class="text-center" style="width: 50px">Действия</th>
@@ -45,10 +43,8 @@
                     <tbody>
                         @foreach($companies as $company)
                             <tr>
-                                <td class="text-center font-w600">{{ $company->id }}</td>
-{{--                                <td class="text-center font-w600">@if($company->image)<img src="{{ $company->getImage() }}" alt="{{ $company->ru_title }}" class="img-avatar img-avatar48"> @else - @endif</td>--}}
+                                <td class="text-center font-w600">@if($company->image)<img src="{{ $company->getImage() }}" alt="{{ $company->ru_title }}" class="img-avatar img-avatar48"> @else {{ $company->id }} @endif</td>
                                 <td class="text-center font-w600">{{ $company->getTitle() }}</td>
-                                <td class="text-center font-w600"> {{ $company->userClicks()->count() }} </td>
                                 <td class="text-center font-w600">@if($company->category){{ $company->category->getTitle() }} @else - @endif</td>
                                 <td class="text-center font-w600">
                                     @if($company->active)
@@ -64,7 +60,7 @@
                                     <form action="{{ route('admin.companies.destroy', $company->id) }}" method="post" data-toggle="tooltip" title="Удалить">
                                         @csrf
                                         @method('delete')
-                                        <button class="btn btn-sm btn-alt-delete" onclick="return confirm('Вы уверены?')"><i class="fa fa-trash"></i></button>
+                                        <button class="btn btn-sm btn-alt-danger" onclick="return confirm('Вы уверены?')"><i class="fa fa-trash"></i></button>
                                     </form>
                                     <select name="position" id="position" class="position" data-id="{{ $company->id }}">
                                         @for($i = 0; $i <= count($companies); $i++)

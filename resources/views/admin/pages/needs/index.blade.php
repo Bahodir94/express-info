@@ -10,7 +10,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Типы потребностей</h3>
             <div class="block-options">
-                <a href="{{ route('admin.needs.create') }}" class="btn btn-alt-success"><i class="fa fa-plus mr-5"></i> Добавить</a>
+                <a href="{{ route('admin.needs.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus"></i> Добавить</a>
             </div>
         </div>
         <div class="block-content">
