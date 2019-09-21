@@ -1,6 +1,6 @@
 @extends('site.layouts.static')
 
-@section('title' '<<< Title Here >>>')
+@section('title', '<<< Title Here >>>')
 
 @section('headerjs')
   <script>try { /* Source: https://www.jqueryscript.net/demo/jQuery-Plugin-For-Responsive-Hexagon-Grid-Layout-Honeycombs/homeycombs/js/jquery.homeycombs.js
