@@ -12,7 +12,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Категории справочника</h3>
             <div class="block-options">
-                <a href="{{ route('admin.handbookcategories.create') }}" class="btn btn-primary">Создать</a>
+                <a href="{{ route('admin.handbookcategories.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus"></i> Добавить</a>
                 <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
             </div>
         </div>
@@ -25,7 +25,7 @@
                             <th class="text-center">Заголовок</th>
                             <th class="text-center">Потребность</th>
                             <th class="text-center">Категории</th>
-                            <th class="text-center">Справочники</th>
+                            <th class="text-center">Компании</th>
                             <th class="text-center" style="width: 15%">Действия</th>
                         </tr>
                     </thead>
@@ -37,7 +37,7 @@
                                 <td class="text-center">@if($category->needType) {{ $category->needType->ru_title }} @endif</td>
                                 <td class="text-center">
                                     @if($category->hasCategories())
-                                        <a href="{{ route('admin.handbookcategories.show', $category->id) }}" class="link-effect">Перейти</a>
+                                        <a href="{{ route('admin.handbookcategories.show', $category->id) }}" class="btn btn-sm btn-alt-primary">Посмотреть</a>
                                     @else
                                         Нет
                                     @endif
@@ -45,17 +45,17 @@
                                 <td class="text-center">
                                     @if ($category->hasCompanies())
                                         <a href="{{ route('admin.handbookcategories.companies', $category->id) }}"
-                                           class="link-effect">Перейти</a>
+                                           class="btn btn-sm btn-alt-primary">Посмотреть</a>
                                     @else
                                         Нет
                                     @endif
                                 </td>
                                 <td class="text-center d-flex align-items-center">
-                                    <a href="{{ route('admin.handbookcategories.edit', $category->id) }}" data-toggle="tooltip" title="Редактировать"><i class="fa fa-edit"></i></a>
+                                    <a href="{{ route('admin.handbookcategories.edit', $category->id) }}" data-toggle="tooltip" title="Редактировать" class="btn btn-sm btn-alt-info"><i class="fa fa-edit"></i></a>
                                     <form method="post" action="{{ route('admin.handbookcategories.destroy', $category->id) }}">
                                         @csrf
                                         @method('delete')
-                                        <button style="border: none; cursor: pointer; background-color: transparent;" class="text-danger" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
+                                        <button style="border: none; cursor: pointer; background-color: transparent;" class="btn btn-sm btn-alt-delete" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                     </form>

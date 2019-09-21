@@ -26,10 +26,9 @@
     ])
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Категории <small>главные</small></h3>
+            <h3 class="block-title">{{ $category->getTitle() }} <small>Вложенные</small></h3>
             <div class="block-options">
-                <a href="{{ route('admin.cgucategories.create') }}" class="btn btn-primary">Создать</a>
-                <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
+                <a href="{{ route('admin.cgucategories.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus"></i> Добавить</a>
             </div>
         </div>
         <div class="block-content">
@@ -40,7 +39,7 @@
                     <th class="sorting_desc">Заголовок</th>
                     <th>Категории</th>
                     <th>Сайты</th>
-                    <th>Каталоги</th>
+                    <th>Файлы</th>
                     <th class="text-center" style="width: 15%;">Действия</th>
                 </tr>
                 </thead>
@@ -52,32 +51,32 @@
                             <td class="font-w600">{{ $category_list->getTitle() }}</td>
                             <td>
                                 @if($category_list->hasCategories())
-                                    <a href="{{ route('admin.cgucategories.show', $category_list->id) }}">Перейти</a>
+                                    <a href="{{ route('admin.cgucategories.show', $category_list->id) }}" class="btn btn-sm btn-alt-primary">Посмотреть</a>
                                 @else
                                     Нет
                                 @endif
                             </td>
                             <td>
                                 @if($category_list->hasSites())
-                                    <a href="{{ route('admin.cgucategories.sites', $category_list->id) }}">Перейти</a>
+                                    <a href="{{ route('admin.cgucategories.sites', $category_list->id) }}" class="btn btn-sm btn-alt-primary">Посмотреть</a>
                                 @else
                                     Нет
                                 @endif
                             </td>
                             <td>
                                 @if($category_list->hasFiles())
-                                    <a href="{{ route('admin.cgucategories.files', $category_list->id) }}">Перейти</a>
+                                    <a href="{{ route('admin.cgucategories.files', $category_list->id) }}" class="btn btn-sm btn-alt-primary">Посмотреть</a>
                                 @else
                                     Нет
                                 @endif
                             </td>
-                            <td class="text-center d-flex align-items-center justify-content-center">
-                                <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.cgucategories.edit', $category_list->id) }}"><i class="fa fa-edit"></i></a>
+                            <td class="text-center d-flex align-items-center justify-content-around">
+                                <a data-toggle="tooltip" title="Редактировать" class="btn btn-sm btn-alt-info" href="{{ route('admin.cgucategories.edit', $category_list->id) }}"><i class="fa fa-edit"></i></a>
                                 <form method="post" action="{{ route('admin.cgucategories.destroy', $category_list->id) }}">
                                     @csrf
                                     @method('delete')
-                                    <button style="border: none;background-color: transparent;" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
-                                        <i class="fa fa-trash text-danger"></i>
+                                    <button class="btn btn-sm btn-alt-delete" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
+                                        <i class="fa fa-trash"></i>
                                     </button>
                                 </form>
                                 <select name="position" class="position" data-id="{{ $category_list->id }}">
