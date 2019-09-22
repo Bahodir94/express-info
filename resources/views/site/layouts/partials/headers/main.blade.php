@@ -55,7 +55,7 @@
                         </ul>
 -->
                         <div class="uk-navbar-nav">
-                            <a class="uk-button uk-button-primary uk-visible@m " href="#">Добавить компанию</a>
+                            <a class="uk-button uk-button-primary uk-visible@m " href="http://price.tezinfo.uz">Добавить компанию</a>
                         </div>
 
                         <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" href="#offcanvas" uk-navbar-toggle-icon="" uk-toggle=""><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="navbar-toggle-icon"><rect y="9" width="20" height="2"></rect><rect y="3" width="20" height="2"></rect><rect y="15" width="20" height="2"></rect></svg></a>

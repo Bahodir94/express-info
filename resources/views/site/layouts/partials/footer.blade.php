@@ -34,7 +34,7 @@
                         </div>
 -->
                         <div>
-                            <a class="el-link uk-icon-button uk-icon" href="http://instagram.com" uk-icon="icon: instagram;">
+                            <a class="el-link uk-icon-button uk-icon" href="http://instagram.com/tezinfo.uz" uk-icon="icon: instagram;">
                                 <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" data-svg="instagram">
                                     <path d="M13.55,1H6.46C3.45,1,1,3.44,1,6.44v7.12c0,3,2.45,5.44,5.46,5.44h7.08c3.02,0,5.46-2.44,5.46-5.44V6.44 C19.01,3.44,16.56,1,13.55,1z M17.5,14c0,1.93-1.57,3.5-3.5,3.5H6c-1.93,0-3.5-1.57-3.5-3.5V6c0-1.93,1.57-3.5,3.5-3.5h8 c1.93,0,3.5,1.57,3.5,3.5V14z"></path>
                                     <circle cx="14.87" cy="5.26" r="1.09"></circle>
@@ -93,10 +93,10 @@
                                         </li>
 -->
                                         <li>
-                                            <a href="#" class="el-link uk-link-reset">Рекламодателям</a>
+                                            <a href="http://price.tezinfo.uz" class="el-link uk-link-reset">Рекламодателям</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="el-link uk-link-reset">Добавить компанию</a>
+                                            <a href="http://price.tezinfo.uz" class="el-link uk-link-reset">Добавить компанию</a>
                                         </li>
                                     </ul>
                                 </div>
