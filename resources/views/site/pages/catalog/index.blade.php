@@ -43,7 +43,7 @@
             </div>
         </div>
     </div>
-    <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center uk-hidden@l">
+    <div class="uk-container uk-container-xlarge uk-container-center uk-hidden@l">
         <div class=" gutter " uk-slider="autoplay: true; autoplay-interval: 5000;">
             <ul class="uk-slider-items uk-child-width-1-3 slide-ttg ">
                     @foreach ($favouritesCompanies as $company)
