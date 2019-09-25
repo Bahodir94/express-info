@@ -25,7 +25,7 @@ class CguCatalog extends Model
         'ru_title', 'en_title', 'uz_title',
         'ru_slug', 'en_slug', 'uz_slug',
         'ru_description', 'en_description', 'uz_description',
-        'link', 'active', 'category_id', 'video'
+        'link', 'active', 'category_id', 'video', 'handbook_category_id'
     ];
 
 
@@ -47,6 +47,16 @@ class CguCatalog extends Model
     public function hasParentCategory()
     {
         return ($this->parentCategory != null) ? true : false;
+    }
+
+    /**
+     * Get related handbook category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function handbookCategory()
+    {
+        return $this->hasOne(HandbookCategory::class, 'id', 'handbook_category_id');
     }
 
     /**

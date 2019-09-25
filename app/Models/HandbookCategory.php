@@ -15,7 +15,7 @@ class HandbookCategory extends Model
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id',
-        'meta_title', 'meta_description', 'meta_keywords', 'template' 
+        'meta_title', 'meta_description', 'meta_keywords', 'template'
     ];
 
     const UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
@@ -106,6 +106,16 @@ class HandbookCategory extends Model
     public function menus()
     {
         return $this->belongsToMany(MenuItem::class, 'categories_menus', 'category_id', 'menu_id');
+    }
+
+    /**
+     * CGU Files for this category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cguFiles()
+    {
+        return $this->hasMany(CguCatalog::class, 'handbook_category_id', 'id');
     }
 
     /**
