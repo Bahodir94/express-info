@@ -11,5 +11,9 @@
 |
 */
 
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
+
 include __DIR__ . '/admin.php';
 include __DIR__ . '/front.php';
