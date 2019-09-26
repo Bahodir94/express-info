@@ -14,7 +14,7 @@ class CguFilesCategoryId extends Migration
     public function up()
     {
         Schema::table('cgu_catalogs', function (Blueprint $table) {
-            $table->integet('handbook_category_id')->nullable()->unsigned();
+            $table->integer('handbook_category_id')->nullable()->unsigned();
         });
     }
 
