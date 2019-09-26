@@ -119,6 +119,16 @@ class HandbookCategory extends Model
     }
 
     /**
+     * Check if category has CGU file
+     *
+     * @return boolean
+     */
+    public function hasCguFiles()
+    {
+        return $this->cguFiles()->count() > 0;
+    }
+
+    /**
      * Override delete method to delete image too
      *
      * @return void
