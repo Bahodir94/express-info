@@ -360,6 +360,12 @@ div.item:hover {
     background: white;
     border-radius: 25px;
 }
+.main_item_img img{
+    object-fit: cover;
+    max-height: 200px;
+    width: 130px !important;
+    height: 130px !important;
+}
 .item .item_text h2{
     font-size: 18px;
     font-weight: 600;
