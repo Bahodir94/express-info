@@ -360,13 +360,13 @@ div.item:hover {
     background: white;
     border-radius: 25px;
 }
-.main_item_img{
+.main_item_icon{
     width: 100%;
     overflow: hidden;
     padding-top: 21px;
     padding-bottom: 5px;
 }
-.main_item_img img{
+.main_item_icon img{
     object-fit: cover;
     max-height: 200px;
     width: 130px !important;
