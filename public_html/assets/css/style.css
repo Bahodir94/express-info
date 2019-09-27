@@ -1327,17 +1327,17 @@ background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%2
 .vid-offcanvas .uk-offcanvas-bar ul.uk-nav-primary li a{
     font-size: 16px;
     line-height: 1.6;
-    color: #555 !important;
+    color: #333 !important;
     padding: 3px 0;
 }
 .vid-offcanvas .uk-offcanvas-bar ul.uk-nav-primary li.uk-parent ul.uk-nav li a{
     font-size: 14px;
-    color: #777
+    color: #555
         !important;
 }
 .vid-offcanvas .uk-offcanvas-bar ul.uk-nav-primary li.uk-parent ul.uk-nav li.uk-parent ul.uk-nav-sub li a {
     font-size: 12px;
-    color: #999
+    color: #777
         !important;
     
 }
