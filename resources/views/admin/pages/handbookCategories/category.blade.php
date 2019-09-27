@@ -35,7 +35,7 @@
                         <th></th>
                         <th class="text-center">Заголовок</th>
                         <th class="text-center">Категории</th>
-                        <th class="text-center">Комапнии</th>
+                        <th class="text-center">Компании</th>
                         <th class="text-center" style="width: 15%">Действия</th>
                     </tr>
                     </thead>
