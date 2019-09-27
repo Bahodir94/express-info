@@ -269,6 +269,7 @@
             @endforeach
             @if($category->hasCguFiles())
                 @foreach($category->cguFiles as $file)
+                <div class="uk-container-center">
                     <div class="main_item" style="background-color: transparent;box-shadow: none;display: flex;padding: 0;">
                         @if($file->video == '')
                             @if(strpos($file->getFileType(), 'image') !== false)
@@ -298,6 +299,7 @@
                                     frameborder="0" allowfullscreen="1"></iframe>
                         @endif
                     </div>
+                </div>
                 @endforeach
             @endif
         </div>
