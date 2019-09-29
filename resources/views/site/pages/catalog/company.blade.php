@@ -119,7 +119,7 @@
                 <div class="uk-width-expand@m">
                     <h2>Информация</h2>
                     <div>
-                        <p>{{ $company->ru_description }}</p>
+                        <p>{!! $company->ru_description !!}</p>
                     </div>
                 </div>
             @endif
