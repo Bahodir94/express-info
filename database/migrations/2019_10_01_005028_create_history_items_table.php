@@ -15,7 +15,6 @@ class CreateHistoryItemsTable extends Migration
     {
         Schema::create('history_items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
             $table->string('type');
             $table->string('meta');
             $table->string('user_id');
