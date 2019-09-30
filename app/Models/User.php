@@ -128,6 +128,18 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Create history item for user
+     *
+     * @param string $type
+     * @param string $meta
+     * @return void
+     */
+    public function addHistoryItem(string $type, string $meta)
+    {
+        $this->history()->create(['type' => $type, 'meta' => $meta]);
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image
