@@ -306,4 +306,20 @@ class Company extends Model
         $slugs = $categoriesSlugs . "/$this->ru_slug";
         return $slugs;
     }
+
+    /**
+     * Create meta information in string
+     *
+     * @return string
+    */
+    public function createMetaInformation()
+    {
+        return "id=$this->id&ru_title=$this->ru_title&en_title=$this->en_title&uz_title=$this->uz_title
+        &ru_slug=$this->ru_slug&en_slug=$this->en_slug
+        &ru_description=$this->ru_description&uz_description=$this->uz_description&en_description=$this->en_description
+        &url=$this->url&phone_number=$this->phone_number&category_id=$this->category_id&advantages=$this->advantages
+        &user_id=$this->user_id&telegram_link=$this->telegram_link&facebook_link=$this->facebook_link&instagram_link=$this->instagram_link
+        &active=$this->active&meta_title=$this->meta_title&meta_description=$this->meta_description&meta_keywords=$this->meta_keywords
+        &show_page=$this->show_page";
+    }
 }
