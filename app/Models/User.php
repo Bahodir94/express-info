@@ -118,6 +118,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Get history of user's actions
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+    public function history()
+    {
+        return $this->hasMany(HistoryItem::class, 'user_id', 'id');
+    }
+
+    /**
      * Upload an image and save it in file storage
      *
      * @param $image
