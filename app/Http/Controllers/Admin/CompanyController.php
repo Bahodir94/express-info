@@ -132,6 +132,8 @@ class CompanyController extends Controller
             $company->position = $position;
             $company->save();
         }
+        $companyMeta = $company->createMetaInformation();
+        $user = auth()->user()->addHistoryItem('company.create', $companyMeta);
 
         if ($request->has('saveQuit'))
             return redirect()->route('admin.companies.index');
@@ -172,7 +174,10 @@ class CompanyController extends Controller
         $request->validate([
             'ru_title' => 'required|max:255',
         ]);
-        $this->companies->update($id, $request);
+        $company = $this->companies->update($id, $request);
+
+        $companyMeta = $company->createMetaInformation();
+        auth()->user()->addHistoryItem('company.update', $companyMeta);
 
         return redirect()->route('admin.companies.index');
     }
@@ -185,7 +190,10 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
+        $company = $this->companies->get($id);
+        $companyMeta = $company->createMetaInformation();
         $this->companies->delete($id);
+        auth()->user()->addHistoryItem('company.delete', $companyMeta);
 
         return redirect()->route('admin.companies.index');
     }
