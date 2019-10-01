@@ -87,6 +87,8 @@ class HandbookCategoryController extends Controller
         ]);
 
         $category = $this->handbookCategoryRepository->store($request);
+        $categoryMeta = $category->createMetaInformation();
+        auth()->user()->addHistoryItem('category.create', $categoryMeta);
         if ($request->has('saveQuit'))
         {
             $parent = $category->getParentId();
@@ -162,6 +164,8 @@ class HandbookCategoryController extends Controller
             'ru_title' => 'required|max:255',
         ]);
         $category = $this->handbookCategoryRepository->update($id, $request);
+        $categoryMeta = $category->createMetaInformation();
+        auth()->user()->addHistoryItem('category.update', $categoryMeta);
 
         $parentId = $category->getParentId();
         if ($parentId != null)
@@ -178,6 +182,9 @@ class HandbookCategoryController extends Controller
      */
     public function destroy($id)
     {
+        $categoryMeta = $this->handbookCategoryRepository->get($id)->createMetaInformation();
+        auth()->user()->addHistoryItem('category.delete', $categoryMeta);
+
         $parent = $this->handbookCategoryRepository->delete($id);
 
         if ($parent != null && $this->handbookCategoryRepository->get($parent)->hasCategories())
