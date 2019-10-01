@@ -132,7 +132,7 @@
             {{ $history->links('vendor.pagination.pagination') }}
             <ul class="list-group list-group-flush mb-20">
                 @foreach($history as $historyItem)
-                    <li class="list-group-item d-flex justify-content-between align-items-center"><small>{!! $historyItem->getTitle() !!}</small>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">{!! $historyItem->getTitle() !!}
                     <span class="badge badge-primary badge-pill">{{ $historyItem->created_at }}</span></li>
                 @endforeach
             </ul>
