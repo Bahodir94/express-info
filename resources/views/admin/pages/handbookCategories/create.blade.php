@@ -83,7 +83,7 @@
                             </div>
                             <div class="form-group @error('en_slug') is-invalid @enderror">
                                 <div class="form-material floating">
-                                    <input class="form-control" type="text" id="en_slug" name="en_slug" value="{{ old('en_title') }}">
+                                    <input class="form-control" type="text" id="en_slug" name="en_slug" value="{{ old('en_slug') }}">
                                     <label for="en_slug" @error('en_slug') class="col-form-label" @enderror>
                                     Slug
                                     @error('en_slug') <span class="text-danger">*</span> @enderror
