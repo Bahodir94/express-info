@@ -133,7 +133,7 @@ class CompanyController extends Controller
             $company->save();
         }
         $companyMeta = $company->createMetaInformation();
-        $user = auth()->user()->addHistoryItem('company.create', $companyMeta);
+        auth()->user()->addHistoryItem('company.create', $companyMeta);
 
         if ($request->has('saveQuit'))
             return redirect()->route('admin.companies.index');
