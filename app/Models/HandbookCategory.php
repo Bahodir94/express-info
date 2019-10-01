@@ -187,4 +187,18 @@ class HandbookCategory extends Model
         $slugs[] = $this->ru_slug;
         return implode("/", $slugs->toArray());
     }
+
+    /**
+     * Create category's meta information as parsable string
+     *
+     * @return string
+    */
+    public function createMetaInformation()
+    {
+        return "id=$this->id&ru_title=$this->ru_title&en_title=$this->en_title&uz_title=$this->uz_title
+        &ru_slug=$this->ru_slug&en_slug=$this->en_slug
+        &parent_id=$this->parent_id
+        &meta_title=$this->meta_title&meta_description=$this->meta_description&meta_keywords=$this->meta_keywords
+        &template=$this->template";
+    }
 }
