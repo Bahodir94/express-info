@@ -16,6 +16,12 @@ Route::view('/advertising/tablets-ad', 'site.pages.static.tablets_ad');
 Route::view('/advertising/tv-videos', 'site.pages.static.tv_videos');
 Route::view('/advertising/visit-card', 'site.pages.static.visit_card');
 
+Route::redirect('/dosug', '/leisure');
+Route::redirect('/magaziny', '/the-shops');
+Route::redirect('/uslugi', '/Services');
+Route::redirect('/dlya-biznesa', '/for-business');
+Route::redirect('/servisy', '/for-citizens');
+
 Route::middleware('needsList')->namespace('Site')->group(function() {
 	Route::get('/cgu-info', 'CguController@cguInfo')->name('home.cgu.info');
 	Route::get('/cgu-info/{id}', 'CguController@cguCategory')->name('home.cgu.info.category');
