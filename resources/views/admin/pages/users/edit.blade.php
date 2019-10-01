@@ -125,7 +125,7 @@
         </div>
     </div>
     <div class="block">
-        <div class="block--header">
+        <div class="block-header block-header-default">
             <h3 class="block-title">История действий</h3>
         </div>
         <div class="block-content">
