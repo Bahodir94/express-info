@@ -84,9 +84,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $user = $this->usersRepository->get($id);
+        $userHistory = $user->history()->orderByDesc('created_at')->paginate(20);
         $data = [
-            'user' => $this->usersRepository->get($id),
-            'roles' => $this->usersRepository->allRoles()
+            'user' => $user,
+            'roles' => $this->usersRepository->allRoles(),
+            'history' => $userHistory
         ];
 
         return view('admin.pages.users.edit', $data);

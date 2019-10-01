@@ -124,6 +124,20 @@
             </form>
         </div>
     </div>
+    <div class="block">
+        <div class="block--header">
+            <h3 class="block-title">История действий</h3>
+        </div>
+        <div class="block-content">
+            {{ $history->links('vendor.pagination.pagination') }}
+            <ul class="list-group list-group-flush mb-20">
+                @foreach($history as $historyItem)
+                    <li class="list-group-item d-flex justify-content-between align-items-center"><small>{!! $historyItem->getTitle() !!}</small>
+                    <span class="badge badge-primary badge-pill">{{ $historyItem->created_at }}</span></li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
 @endsection
 @section('js')
     <script src="{{ asset('assets/js/plugins/select2/select2.full.min.js') }}"></script>
