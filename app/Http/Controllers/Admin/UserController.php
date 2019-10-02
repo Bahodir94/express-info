@@ -144,4 +144,36 @@ class UserController extends Controller
         $user->savePassword($newPassword);
         return redirect()->back()->with('change_password_success', 'Пароль успешно изменён');
     }
+
+    /**
+     * Show user's statics
+     *
+     * @param Request $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+    */
+    public function userStatistics(Request $request, int $id)
+    {
+        $user = $this->usersRepository->get($id);
+        $paginate = true;
+        if ($request->hasAny(['start_date', 'end_date']))
+        {
+            $query = $user->history();
+            $query->when($request->has('start_date'), function ($q, $start_date) {
+                return $q->whereDate('created_at', '>', $start_date);
+            });
+            $query->when($request->has('end_date'), function ($q, $end_date) {
+                return $q->whereDate('created_at', '<', $end_date);
+            });
+            $paginate = false;
+            $history = $query->get();
+            $companiesCount = $query->whereIn('type', 'company')->count();
+            $allCompaniesCount = $user->history()->whereIn('type', 'company')->count();
+            return view('admin.pages.users.statistics', compact('user', 'paginate', 'history', 'companiesCount', 'allCompaniesCount'));
+        } else {
+            $history = $user->history()->orderByDesc('created_at')->paginate(20);
+            $allCompaniesCount = $user->history()->whereIn('type', 'company')->count();
+            return view('admin.pages.users.statistics', compact('user', 'paginate', 'history', 'allCompaniesCount'));
+        }
+    }
 }
