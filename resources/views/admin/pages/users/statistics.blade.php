@@ -40,12 +40,12 @@
                     <div class="block-content">
                         <div class="d-flex justify-content-center align-items-center mb-30">
                             <div class="input-daterange input-group js-datapicker-enabled" data-date-format="yyyy-mm-dd" data-week-start="1" data-autoclose="true" data-today-highlight="true">
-                                <input type="text" name="start_date" id="start_date" class="form-control"
+                                <input type="date" name="start_date" id="start_date" class="form-control"
                                        placeholder="От" data-autoclose="true" data-today-highlight="true">
                                 <div class="input-group-prepend input-group-append">
                                     <span class="input-group-text font-w600">До</span>
                                 </div>
-                                <input type="text" name="end_date" id="end_date" class="form-control"
+                                <input type="date" name="end_date" id="end_date" class="form-control"
                                        placeholder="До" data-autoclose="true" data-today-highlight="true">
                             </div>
                         </div>
