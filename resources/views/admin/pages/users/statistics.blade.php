@@ -43,7 +43,7 @@
                             <div class="input-daterange input-group js-datapicker-enabled" data-date-format="yyyy-mm-dd" data-week-start="1" data-autoclose="true" data-today-highlight="true">
                                 <input type="date" name="start_date" id="start_date" class="form-control"
                                        placeholder="От" data-autoclose="true" data-today-highlight="true" @isset($startDate) value="{{ $startDate }}" @endisset>
-                                <div class="input-group-prepend input-group-append">
+                                <div class="px-30 d-flex align-items-center">
                                     <span class="input-group-text font-w600">До</span>
                                 </div>
                                 <input type="date" name="end_date" id="end_date" class="form-control"
