@@ -158,7 +158,7 @@ class UserController extends Controller
         $paginate = true;
         if ($request->hasAny(['start_date', 'end_date']))
         {
-            $query = $user->history()->whereIn('type', 'company');
+            $query = $user->history()->where('type','LIKE', 'company');
             $query->when(!empty($request->get('start_date')), function ($q, $start_date) {
                 return $q->whereDate('created_at', '>', $start_date);
             });
@@ -168,11 +168,11 @@ class UserController extends Controller
             $paginate = false;
             $history = $query->get();
             $companiesCount = $query->count();
-            $allCompaniesCount = $user->history()->whereIn('type', 'company')->count();
+            $allCompaniesCount = $user->history()->where('type', '=', 'company.create')->count();
             return view('admin.pages.users.statistics', compact('user', 'paginate', 'history', 'companiesCount', 'allCompaniesCount'));
         } else {
             $history = $user->history()->orderByDesc('created_at')->paginate(20);
-            $allCompaniesCount = $user->history()->whereIn('type', 'company')->count();
+            $allCompaniesCount = $user->history()->where('type', '=', 'company.create')->count();
             return view('admin.pages.users.statistics', compact('user', 'paginate', 'history', 'allCompaniesCount'));
         }
     }
