@@ -158,7 +158,7 @@ class UserController extends Controller
         $paginate = true;
         if ($request->has(['start_date', 'end_date']))
         {
-            $query = $user->history()->where('type','LIKE', 'company%');
+            $query = $user->history()->where('type','=', 'company.create');
             $startDate = $request->get('start_date');
             $endDate = $request->get('end_date');
             if (!empty($startDate))
