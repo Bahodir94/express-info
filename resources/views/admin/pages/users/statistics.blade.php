@@ -19,7 +19,7 @@
             </div>
         @endisset
         <div class="@if (isset($companiesCount)) col-6 @else col-12 @endif">
-            <a href="javascript:void(0)" class="block block-link-shadow text-right">
+            <a href="javascript:void(0)" class="block block-link-shadow text-center">
                 <div class="block-content block-content-full clearfix">
                     <div class="font-size-h3 font-w600">{{ $allCompaniesCount }}</div>
                     <div class="font-size-sm font-w600 text-uppercase text-muted">Компаний за весь период</div>
@@ -38,8 +38,8 @@
                         </div>
                     </div>
                     <div class="block-content">
-                        <div class="d-flex justify-content-center align-items-center">
-                            <div class="input-datarange input-group js-datapicker-enabled" data-date-format="yyyy-mm-dd" data-week-start="1" data-autoclose="true" data-today-highlight="true">
+                        <div class="d-flex justify-content-center align-items-center mb-30">
+                            <div class="input-daterange input-group js-datapicker-enabled" data-date-format="yyyy-mm-dd" data-week-start="1" data-autoclose="true" data-today-highlight="true">
                                 <input type="text" name="start_date" id="start_date" class="form-control"
                                        placeholder="От" data-autoclose="true" data-today-highlight="true">
                                 <div class="input-group-prepend input-group-append">
@@ -54,32 +54,30 @@
             </form>
         </div>
     </div>
-    <div class="row js-appear-enabled animated fadeIn" data-toggle="appear">
-        <div class="block">
-            <div class="block-header block-header-default">
-                <h3 class="block-title">{{ $user->name }} <small>Статистика</small></h3>
-            </div>
-            <div class="block-content block-content-full">
-                <ul class="list-group list-group-flush mb-20">
-                    @foreach($history as $historyItem)
-                        <li class="list-group-item d-flex justify-content-between align-items-center"><span>{!! $historyItem->getTitle() !!}</span>
-                            <span class="badge badge-primary badge-pill">{{ $historyItem->created_at }}</span></li>
-                    @endforeach
-                </ul>
-                @if ($paginate)
-                    {{ $history->links('vendor.pagination.pagination') }}
-                @endif
-            </div>
+    <div class="block">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">{{ $user->name }} <small>Статистика</small></h3>
+        </div>
+        <div class="block-content block-content-full">
+            <ul class="list-group list-group-flush mb-20">
+                @foreach($history as $historyItem)
+                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>{!! $historyItem->getTitle() !!}</span>
+                        <span class="badge badge-primary badge-pill">{{ $historyItem->created_at }}</span></li>
+                @endforeach
+            </ul>
+            @if ($paginate)
+                {{ $history->links('vendor.pagination.pagination') }}
+            @endif
         </div>
     </div>
 @endsection
 
 @section('js')
+    <script src="{{ asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.ru.min.js') }}" charset="UTF-8"></script>
-    <script src="{{ asset('assets/js/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js') }}" charset="UTF-8"></script>
     <script>
         jQuery(function() {
-            Codebase.helpers(['datepicker'])
+            Codebase.helpers(['datepicker']);
         });
     </script>
 @endsection

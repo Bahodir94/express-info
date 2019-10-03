@@ -125,7 +125,7 @@
         </div>
     </div>
     <a href="{{ route('admin.users.statistics', $user->id) }}" class="block block-link-shadow">
-        <div class="block-content block-content-full my-30">
+        <div class="block-content block-content-full my-50">
             <div class="font-size-h3 font-w600 text-center">Посмотреть статистику действий</div>
         </div>
     </a>
