@@ -35,6 +35,7 @@
                         <h3 class="block-title">Фильтр</h3>
                         <div class="block-options">
                             <button class="btn btn-alt-primary btn-sm" type="submit"><i class="fa fa-check"></i> Применить</button>
+                            <a href="{{ route('admin.users.statistics', $user->id) }}" class="btn btn-alt-warning btn-sm"><i class="fa fa-refresh"></i> Сбросить</a>
                         </div>
                     </div>
                     <div class="block-content">
@@ -56,7 +57,7 @@
     </div>
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">{{ $user->name }} <small>Статистика</small></h3>
+            <h3 class="block-title">{{ $user->name }} <small>статистика</small></h3>
         </div>
         <div class="block-content block-content-full">
             <ul class="list-group list-group-flush mb-20">
