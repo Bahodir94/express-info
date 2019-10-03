@@ -124,13 +124,11 @@
             </form>
         </div>
     </div>
-    <div class="row">
-        <a href="{{ route('admin.users.statistics', $user->id) }}" class="block block-link-shadow text-center">
-            <div class="block-content block-content-full my-30">
-                <div class="font-size-h3 font-w600">Посмотреть статистику действий</div>
-            </div>
-        </a>
-    </div>
+    <a href="{{ route('admin.users.statistics', $user->id) }}" class="block block-link-shadow">
+        <div class="block-content block-content-full my-30">
+            <div class="font-size-h3 font-w600 text-center">Посмотреть статистику действий</div>
+        </div>
+    </a>
 @endsection
 @section('js')
     <script src="{{ asset('assets/js/plugins/select2/select2.full.min.js') }}"></script>
