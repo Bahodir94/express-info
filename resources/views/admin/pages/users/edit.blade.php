@@ -124,19 +124,12 @@
             </form>
         </div>
     </div>
-    <div class="block">
-        <div class="block-header block-header-default">
-            <h3 class="block-title">История действий</h3>
-        </div>
-        <div class="block-content">
-            {{ $history->links('vendor.pagination.pagination') }}
-            <ul class="list-group list-group-flush mb-20">
-                @foreach($history as $historyItem)
-                    <li class="list-group-item d-flex justify-content-between align-items-center"><span>{!! $historyItem->getTitle() !!}</span>
-                    <span class="badge badge-primary badge-pill">{{ $historyItem->created_at }}</span></li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="row">
+        <a href="{{ route('admin.users.statistics', $user->id) }}" class="block block-link-shadow text-center">
+            <div class="block-content block-content-full my-30">
+                <div class="font-size-h3 font-w600">Посмотреть статистику действий</div>
+            </div>
+        </a>
     </div>
 @endsection
 @section('js')

@@ -41,6 +41,7 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     // Users routes
     Route::resource('/users', 'UserController');
     Route::post('/users/{id}/changePassword', 'UserController@changePassword')->name('users.change.password');
+    Route::get('/users/{id}/statistics', 'UserController@userStatistics')->name('users.statistics');
 
     // Type of needs routes
     Route::resource('/needs', 'NeedTypeController');
