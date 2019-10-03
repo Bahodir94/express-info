@@ -162,9 +162,9 @@ class UserController extends Controller
             $startDate = $request->get('start_date');
             $endDate = $request->get('end_date');
             if (!empty($startDate))
-                $query->whereDate('created_at', '>=', $startDate.'23:59:59');
+                $query->whereDate('created_at', '>=', $startDate.' 00:00:00');
             if (!empty($endDate))
-                $query->whereDate('created_at', '<=', $endDate.'23:59:59');
+                $query->whereDate('created_at', '<=', $endDate.' 23:59:59');
             $paginate = false;
             $history = $query->get();
             $companiesCount = $query->count();
