@@ -160,10 +160,10 @@ class UserController extends Controller
         {
             $query = $user->history()->where('type','LIKE', 'company');
             $query->when(!empty($request->get('start_date')), function ($q, $start_date) {
-                return $q->whereDate('created_at', '=', $start_date.'23:59:59');
+                return $q->whereDate('created_at', '>=', $start_date.'23:59:59');
             });
             $query->when(!empty($request->get('end_date')), function ($q, $end_date) {
-                return $q->whereDate('created_at', '=', $end_date.'23:59:59');
+                return $q->whereDate('created_at', '<=', $end_date.'23:59:59');
             });
             $paginate = false;
             $history = $query->get();
