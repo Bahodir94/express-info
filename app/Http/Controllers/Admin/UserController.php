@@ -159,10 +159,10 @@ class UserController extends Controller
         if ($request->hasAny(['start_date', 'end_date']))
         {
             $query = $user->history()->whereIn('type', 'company');
-            $query->when($request->has('start_date'), function ($q, $start_date) {
+            $query->when(!empty($request->get('start_date')), function ($q, $start_date) {
                 return $q->whereDate('created_at', '>', $start_date);
             });
-            $query->when($request->has('end_date'), function ($q, $end_date) {
+            $query->when(!empty($request->get('end_date')), function ($q, $end_date) {
                 return $q->whereDate('created_at', '<', $end_date);
             });
             $paginate = false;
