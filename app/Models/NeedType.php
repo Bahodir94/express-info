@@ -35,4 +35,14 @@ class NeedType extends Model
     {
         return $this->hasMany(MenuItem::class, 'need_id', 'id');
     }
+
+    /**
+     * Get cleand title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return strip_tags($this->ru_title);
+    }
 }
