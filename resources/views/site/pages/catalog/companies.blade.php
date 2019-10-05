@@ -21,7 +21,7 @@
 @endsection
 
 @section('css')
-    @if (category->hasCguFiles())
+    @if ($category->hasCguFiles())
         <style>
             .main_item_img{
                 width: 100%;
