@@ -11,8 +11,8 @@
 @section('meta')
 
     <meta name="title" content="@if(empty($need->meta_title)) {{ $need->getTitle() }} в Ташкенте @else {{ $need->meta_title }} @endif">
-    <meta name="description" content="{{ $category->meta_description }}">
-    <meta name="keywords" content="{{ $category->meta_keywords }}">
+    <meta name="description" content="{{ $need->meta_description }}">
+    <meta name="keywords" content="{{ $need->meta_keywords }}">
 
 @endsection
 
