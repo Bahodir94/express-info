@@ -145,9 +145,9 @@ class HandbookCategory extends Model
      *
      * @return string
      */
-    public function getTitle($defaultTemplate = false)
+    public function getTitle()
     {
-        return $defaultTemplate ? strip_tags($this->ru_title).' в Ташкенте' : strip_tags($this->ru_title);
+        return strip_tags($this->ru_title);
     }
 
     /**

@@ -2,7 +2,7 @@
 
 @section('title')
     @if(empty($category->meta_title))
-        {{ $category->getTitle() }}
+        {{ $category->getTitle() }} в Ташкенте
     @else
         {{ $category->meta_title }}
     @endif
@@ -10,7 +10,7 @@
 
 @section('meta')
 
-    <meta name="title" content="{{ $category->meta_title }}">
+    <meta name="title" content="@if(empty($category->meta_title)) {{ $category->getTitle() }} в Ташкенте @else {{ $category->meta_title }} @endif">
     <meta name="description" content="{{ $category->meta_description }}">
     <meta name="keywords" content="{{ $category->meta_keywords }}">
 

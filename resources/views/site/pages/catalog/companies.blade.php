@@ -2,7 +2,7 @@
 
 @section('title')
     @if(empty($category->meta_title))
-        {{ $category->getTitle($defaultTemplate = true) }}
+        {{ $category->getTitle() }}
     @else
         {{ $category->meta_title }}
     @endif
