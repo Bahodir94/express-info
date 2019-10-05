@@ -2,7 +2,7 @@
 
 @section('title')
     @if(empty($category->meta_title))
-        {{ $category->getTitle() }} в Ташкенте
+        {{ $category->getTitle($defaultTemplate = true) }}
     @else
         {{ $category->meta_title }}
     @endif
