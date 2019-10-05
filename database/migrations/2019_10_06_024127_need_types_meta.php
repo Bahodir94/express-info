@@ -13,11 +13,6 @@ class NeedTypesMeta extends Migration
      */
     public function up()
     {
-        Schema::table('need_types', function (Blueprint $table) {
-            $table->string('meta_title')->nullable();
-            $table->string('meta_description')->nullable();
-            $table->string('meta_keywords')->nullable();
-        });
         Schema::table('menu_items', function (Blueprint $table) {
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
@@ -32,12 +27,6 @@ class NeedTypesMeta extends Migration
      */
     public function down()
     {
-        Schema::table('need_types', function (Blueprint $table) {
-            $table->dropColumn('meta_title');
-            $table->dropColumn('meta_description');
-            $table->dropColumn('meta_keywords');
-        });
-
         Schema::table('menu_items', function (Blueprint $table) {
             $table->dropColumn('meta_title');
             $table->dropColumn('meta_description');
