@@ -122,6 +122,25 @@
                         <label for="url">Ссылка (если установлена, выпадающее меню показано не будет)</label>
                     </div>
                 </div>
+                <h3 class="font-size-h3 font-w600 my-20">SEO</h3>
+                <div class="form-group">
+                    <div class="form-material floating form-material-primary">
+                        <input type="text" name="meta_title" id="meta_title" value="{{ $need->meta_title }}" class="form-control">
+                        <label for="meta_title">Мета тег title</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating form-material-primary">
+                        <input type="text" name="meta_description" id="meta_description" value="{{ $need->meta_description) }}" class="form-control">
+                        <label for="meta_description">Мета тег description</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating form-material-primary">
+                        <input type="text" name="meta_keywords" id="meta_keywords" value="{{ $need->meta_keywords }}" class="form-control">
+                        <label for="meta_keywords">Мета тег keywords</label>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
