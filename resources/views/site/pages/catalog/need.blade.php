@@ -1,6 +1,20 @@
 @extends('site.layouts.app')
 
-@section('title', $need->ru_title)
+@section('title')
+    @if(empty($need->meta_title))
+        {{ $need->getTitle() }} в Ташкенте
+    @else
+        {{ $need->meta_title }}
+    @endif
+@endsection
+
+@section('meta')
+
+    <meta name="title" content="@if(empty($need->meta_title)) {{ $need->getTitle() }} в Ташкенте @else {{ $need->meta_title }} @endif">
+    <meta name="description" content="{{ $category->meta_description }}">
+    <meta name="keywords" content="{{ $category->meta_keywords }}">
+
+@endsection
 
 @section('header')
     @include('site.layouts.partials.headers.default')

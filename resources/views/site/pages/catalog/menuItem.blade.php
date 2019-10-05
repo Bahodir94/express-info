@@ -1,9 +1,23 @@
 @extends('site.layouts.app')
 
-@section('title', $menuItem->ru_title)
+@section('title')
+    @if(empty($menuItem->meta_title))
+        {{ $menuItem->getTitle() }} в Ташкенте
+    @else
+        {{ $menuItem->meta_title }}
+    @endif
+@endsection
 
 @section('header')
     @include('site.layouts.partials.headers.default')
+@endsection
+
+@section('meta')
+
+    <meta name="title" content="@if(empty($menuItem->meta_title)) {{ $menuItem->getTitle() }} в Ташкенте @else {{ $menuItem->meta_title }} @endif">
+    <meta name="description" content="{{ $menuItem->meta_description }}">
+    <meta name="keywords" content="{{ $menuItem->meta_keywords }}">
+
 @endsection
 
 @section('content')
