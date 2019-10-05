@@ -131,7 +131,7 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating form-material-primary">
-                        <input type="text" name="meta_description" id="meta_description" value="{{ $need->meta_description) }}" class="form-control">
+                        <input type="text" name="meta_description" id="meta_description" value="{{ $need->meta_description }}" class="form-control">
                         <label for="meta_description">Мета тег description</label>
                     </div>
                 </div>
