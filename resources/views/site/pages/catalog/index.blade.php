@@ -1,6 +1,10 @@
 @extends('site.layouts.app')
 
-@section('title', 'Каталог')
+@section('title', 'Справочник Ташкента / Узбекистана | Справочник предприятий Ташкента / Узбекистана')
+
+@section('meta')
+    <meta name="title" content="Справочник Ташкента / Узбекистана | Справочник предприятий Ташкента / Узбекистана">
+@endsection
 
 @section('header')
     @include('site.layouts.partials.headers.main')
@@ -53,7 +57,7 @@
                         </a>
                     </li>
                     @endforeach
-                    
+
 
             </ul>
         </div>
