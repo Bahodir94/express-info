@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-    <title>Вход | ExpressInfo</title>
+    <title>Вход | TezInfo</title>
 
-    <meta name="description" content="Административная панель ExpressInfo">
+    <meta name="description" content="Административная панель TezInfo">
     <meta name="author" content="VID">
     <meta name="robots" content="noindex, nofollow">
 
@@ -45,9 +45,9 @@
                         <div class="px-30 py-10">
                             <a class="link-effect font-w700" href="#">
                                 <i class="si si-fire"></i>
-                                <span class="font-size-xl text-primary-dark">Express</span><span class="font-size-xl">Info</span>
+                                <span class="font-size-xl text-primary-dark">Tez</span><span class="font-size-xl">Info</span>
                             </a>
-                            <h1 class="h3 font-w700 mt-30 mb-10">Добро пожаловать в административную панель ExpressInfo</h1>
+                            <h1 class="h3 font-w700 mt-30 mb-10">Добро пожаловать в административную панель TezInfo</h1>
                             <h2 class="h5 font-w400 text-muted mb-0">Пожалуйста, войдите</h2>
                         </div>
                         <!-- END Header -->
