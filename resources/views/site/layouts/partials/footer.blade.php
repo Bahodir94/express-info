@@ -3,7 +3,7 @@
 
 <div class="uk-section-secondary uk-section uk-section-large" uk-scrollspy="target: [uk-scrollspy-class]; cls: uk-animation-slide-left-small; delay: false;">
 
-    <div class="uk-container uk-container-xlarge">
+    <div class="uk-container uk-container-large">
 
         <div class="uk-grid-large uk-margin-xlarge uk-grid" uk-grid="">
             <div class="uk-width-medium@m uk-first-column">
@@ -139,7 +139,7 @@
 </div>
 <div class="uk-section-muted uk-section uk-section-xsmall ux-footer">
 
-    <div class="uk-container uk-container-xlarge">
+    <div class="uk-container uk-container-large">
         <div class="uk-grid-margin uk-grid" uk-grid="">
             <div class="uk-grid-item-match uk-flex-middle uk-width-expand@m uk-first-column">
 
