@@ -21,7 +21,9 @@ Route::redirect('/magaziny', '/the-shops');
 Route::redirect('/uslugi', '/Services');
 Route::redirect('/dlya-biznesa', '/for-business');
 Route::redirect('/servisy', '/for-citizens');
-Route::redirect('/ban2', '/');
+Route::namespace('Site')->group(function() {
+    Route::get('/ban{id}', 'BannerController@index');
+});
 
 Route::middleware('needsList')->namespace('Site')->group(function() {
 	Route::get('/cgu-info', 'CguController@cguInfo')->name('home.cgu.info');
