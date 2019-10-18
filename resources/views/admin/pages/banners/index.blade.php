@@ -13,7 +13,7 @@
                 <a href="javascript:void(0)" class="block block-link-shadow text-center">
                     <div class="block-content block-content-full">
                         <div class="font-size-sm font-w600 text-uppercase text-muted">{{ $banner->name }}</div>
-                        <div class="font-size-h3 font-w600">{{ $banner->clicks }}</div>
+                        <div class="font-size-h3 font-w600">{{ $banner->clicks }} переходов</div>
                     </div>
                 </a>
             </div>
