@@ -64,4 +64,10 @@
             <span class="sidebar-mini-hide">Пользователи</span>
         </a>
     </li>
+    <li>
+        <a href="{{ route('admin.banners.index') }}">
+            <i class="fa fa-newspaper-o"></i>
+            <span class="sidebar-mini-hide">Баннеры</span>
+        </a>
+    </li>
 </ul>
