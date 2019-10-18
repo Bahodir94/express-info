@@ -53,6 +53,9 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     // Services routes
     Route::resource('/services', 'ServiceController');
     Route::get('/services/{id}/removeImage', 'ServiceController@removeImage')->name('services.remove.image');
+
+    // Banners routes
+    Route::resource('/banners', 'BannerController');
 });
 
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
