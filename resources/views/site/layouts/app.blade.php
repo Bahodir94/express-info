@@ -9,7 +9,7 @@
     
     
     <link rel="shortcut icon" type="image/png" href="https://via.placeholder.com/16x16" >
-
+    <link rel="stylesheet" href="{{ asset('assets/css/uikit.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.css') }}">
