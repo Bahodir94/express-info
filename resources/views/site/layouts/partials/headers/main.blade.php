@@ -24,7 +24,7 @@
                     <li class="uk-parent">
                         <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
                         <!--uk-dropdown="delay-show: 250;"-->
-                        <div class="uk-dark code-dropdown uk-dropdown uk-overflow-auto uk-dropdown-bottom-center" uk-dropdown="pos: bottom-justify; animation: uk-animation-slide-top-small; duration: 1000">
+                        <div class="uk-background-secondary code-dropdown uk-dropdown uk-overflow-auto uk-dropdown-bottom-center" uk-dropdown="pos: bottom-justify; animation: uk-animation-slide-top-small; duration: 1000">
                             <div class=" uk-grid-collapse uk-grid uk-child-width-1-4 " uk-grid>
                                 <!-- class="uk-nav uk-navbar-dropdown-nav"-->
                             @foreach ($need->menuItems as $menu)
