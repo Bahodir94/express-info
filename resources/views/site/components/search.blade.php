@@ -1,22 +1,13 @@
 <!-- Search section -->
-
-
-<form action="{{ route('site.catalog.search') }}" method="post" class="uk-grid-collapse" uk-grid>
-    <div class="">
-        <div class="uk-inline">
-            @csrf
-            <a class="uk-form-icon" href="#" uk-icon="icon: search"></a>
-            <input class="uk-input uk-width-xlarge srh-input" type="text" required name="query" @isset($queryString) value="{{ $queryString }}" @endisset>
-
-        </div>
+<form action="{{ route('site.catalog.search') }}" method="post" class="uk-grid-collapse uk-width-3-4@m uk-margin-medium-top" data-uk-grid data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 200; repeat: true">
+    <div class="uk-width-expand">
+        @csrf
+        <input class="uk-input uk-form-large uk-border-remove-right" type="text" placeholder="Найти вашего исполнителя" required name="query" @isset($queryString) value="{{ $queryString }}" @endisset>
     </div>
-     <div class="uk-visible@m" >
-        <button class="uk-button uk-button-primary srh-but ">Искать</button>
+    <div class="uk-width-auto">
+        <button class="uk-button uk-button-large uk-button-success-outline">Искать</button>
     </div>
-    <div class="uk-width-1-1 uk-hidden@m" >
-        <button class="uk-button uk-button-primary uk-width-1-1@m">Искать</button>
-    </div>
-
 </form>
 
 <!-- Search section end -->
+   

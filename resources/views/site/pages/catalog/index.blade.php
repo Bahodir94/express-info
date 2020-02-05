@@ -16,62 +16,67 @@
 
 
 <section class="uk-section-xsmall">
-    <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center sot-body uk-visible@l">
-        <div class="honeycombs honeycombs-wrapper">
-            <div class="honeycombs-inner-wrapper  ">
-              @foreach ($favouritesCompanies as $company)
-                <div class="comb-container">
-
-
-                    <div class="comb row3">
-                        <div class="hex_l" style="width: 180px; height: 155.885px;">
-                          <div class="hex_r" style="width: 180px; height: 155.885px;">
-                            <div class="hex_inner" style="width: 180px; height: 155.885px;">
-                              <div class="inner_span">
-                                <a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif" class="mobile_main_item_inner_link uk-position-cover">
-                                    <img src="{{ $company->getImage() }}" alt="{{ $company->getTitle() }}" class="mobile_main_item_icon uk-position-center" >
-
-
-                                </a>
-                              </div>
+    <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
+            <div data-uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-gridl">
+            @foreach ($favouritesCompanies as $company)
+                <div>
+                    <div class="uk-card uk-card-small uk-card-border">
+                        <div class="uk-card-media-top uk-position-relative uk-light">
+                            <img src="{{ $company->getImage() }}" alt="Course Title">
+                            <div class="uk-position-cover uk-overlay-xlight"></div>
+                            <div class="uk-position-top-left">
+                                <span class="uk-text-bold uk-text-price uk-text-small">$27.00</span>
                             </div>
-                          </div>
+    <!-- ### Favorites
+                        <div class="uk-position-top-right">
+                            <a href="#" class="uk-icon-button uk-like uk-position-z-index uk-position-relative" data-uk-icon="heart"></a>
+                        </div>            
+    -->
                         </div>
-                        <div class="uk-border-circle uk-box-shadow-large uk-position-cover hex-bot" style="">
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title uk-margin-small-bottom">{{ $company->ru_title }}</h3>
+                            <div class="uk-text-muted uk-text-small">{!! $company->category->ru_title !!}</div>
+
+                            <ul>
+                                @foreach($company->services as $service)
+                                    <li><img src="{{ $service->getImage() }}" alt=""></li>
+                                @endforeach
+                            </ul>
+                            @if ($company->hasUrl() and $company->show_page)
+                            <span class="link">
+                                <a href="{{ $company->url }}" target="_blank">
+                                     {{ parse_url($company->url, PHP_URL_HOST) }}
+                                </a>
+                            </span>
+                            @endif
+                            @if ($company->hasAdvantages())
+                                <div class="tags">
+                                    <ol>
+                                        @foreach ($company->advantagesAsArray() as $advantage)
+                                            <li>{{ $advantage }}</li>
+                                        @endforeach
+                                    </ol>
+                                </div>
+                            @endif
+    <!-- ### Rating
+                            <div class="uk-text-muted uk-text-small uk-rating uk-margin-small-top">
+                                <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.75"></span>
+                                <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.75"></span>
+                                <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.75"></span>
+                                <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.75"></span>
+                                <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.75"></span>
+                                <span class="uk-margin-small-left uk-text-bold">5.0</span>
+                                <span>(324)</span>
+                            </div>
+    -->
                         </div>
-
-                  </div>
-
+                        <a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif" class="uk-position-cover"></a>
+                    </div>
                 </div>
-                @endforeach
-            </div>
+            @endforeach
         </div>
     </div>
-    <div class="uk-container uk-container-xlarge uk-container-center uk-hidden@l">
-        <div class=" gutter " uk-slider="autoplay: true; autoplay-interval: 5000;">
-            <ul class="uk-slider-items uk-child-width-1-3 slide-ttg ">
-                    @foreach ($favouritesCompanies as $company)
-                    <li class="">
-                        <a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif" class="">
-                            <img src="{{ $company->getImage() }}" alt="{{ $company->getTitle() }}" class="fav_mob" >
-                        </a>
-                    </li>
-                    @endforeach
-
-
-            </ul>
-        </div>
-    </div>
-
-
 </section>
-
-
-
-
-
-
-
 
 <section class="uk-section-xsmall home-cat">
     <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center">

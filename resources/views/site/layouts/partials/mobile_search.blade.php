@@ -1,9 +1,6 @@
-<!--                            #### Mobile Search -->
-<form class="header_top_right_search_btn" action="{{ route('site.catalog.search') }}" method="post">
+<!-- #### Nav Search -->
+<form class="uk-search uk-search-navbar uk-width-1-1" action="{{ route('site.catalog.search') }}" method="post">
     @csrf
-    <div class="uk-inline">
-        <span class="uk-form-icon" uk-icon="icon: search"></span>
-        <input id="search-input" required class="header_top_right_search_btn_bar uk-input uk-border-circle" name="query" type="search" @isset($queryString) value="{{ $queryString }}" @endisset>
-    </div>
+    <input id="search-input" required class="uk-search-input uk-text-demi-bold" name="query" type="search" placeholder="Поиск..." autofocus @isset($queryString) value="{{ $queryString }}" @endisset>
 </form>
-<!--                            #### Mobile Search - END -->
+<!-- #### Nav Search - END -->
