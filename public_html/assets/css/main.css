@@ -10971,3 +10971,11 @@ footer .uk-subnav > * {
     margin: auto;
     z-index: 145;
 }
+.code-drop {
+    width: 150px;
+}
+.code-mage {
+    object-fit: scale-down;
+    width: 100%;
+    height: 200px;
+}

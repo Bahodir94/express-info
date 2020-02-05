@@ -22,7 +22,7 @@
                 <div>
                     <div class="uk-card uk-card-small uk-card-border">
                         <div class="uk-card-media-top uk-position-relative uk-light">
-                            <img src="{{ $company->getImage() }}" alt="Course Title">
+                            <img uk-img height="200" src="{{ $company->getImage() }}" class="code-mage" alt="Course Title">
                             <div class="uk-position-cover uk-overlay-xlight"></div>
                             <div class="uk-position-top-left">
                                 <span class="uk-text-bold uk-text-price uk-text-small">$27.00</span>

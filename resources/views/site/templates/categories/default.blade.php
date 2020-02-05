@@ -206,70 +206,65 @@
     </div>
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
-            <div uk-grid class="uk-grid uk-grid-match uk-grid-small uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-4@m uk-child-width-1-5@l">
+        <div uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-grid">
             @foreach($companies as $company)
-                <div  class="uk-container-center">
-                    <div class="inner">
-                        <div class="header_logo">
-                            <div class="inner_logo">
-                                <a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif">
-                                <img src="{{ $company->getImage() }}" alt="">
-                                </a>
-                            </div>
-                            <!-- <ul class="dots">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul> -->
+            <div>
+                <div class="uk-card uk-card-small uk-card-border">
+                    <div class="uk-card-media-top uk-position-relative uk-light">
+                        <img uk-img height="200" src="{{ $company->getImage() }}" class="code-mage" alt="Course Title">
+                        <div class="uk-position-cover uk-overlay-xlight"></div>
+                        <div class="uk-position-top-left">
+                            <span class="uk-text-bold uk-text-price uk-text-small">$27.00</span>
                         </div>
-                        <div class="inner_tages">
-                            <div class="title">
-                                <h2 class="uk-margin-remove-bottom	"><a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif">{{ $company->ru_title }}</a></h2>
-
-                                @if ($company->hasUrl() and $company->show_page)
-                                <span class="link">
-                                    <a href="{{ $company->url }}" target="_blank">
-                                         {{ parse_url($company->url, PHP_URL_HOST) }}
-                                    </a>
-                                </span>
-                                @endif
-                            </div>
-
-
-
-<!--
-                                <div class="tags">
-                                    <ol>
-
-                                            <li>Коньтетн</li><li>Коньтетн</li><li>Коньтетн</li><li>Коньтетн</li>
-
-                                    </ol>
-                                </div>
+<!-- ### Favorites
+                    <div class="uk-position-top-right">
+                        <a href="#" class="uk-icon-button uk-like uk-position-z-index uk-position-relative" data-uk-icon="heart"></a>
+                    </div>            
 -->
-                            @if ($company->hasAdvantages())
-                                <div class="tags">
-                                    <ol>
-                                        @foreach ($company->advantagesAsArray() as $advantage)
-                                            <li>{{ $advantage }}</li>
-                                        @endforeach
-                                    </ol>
-                                </div>
-                            @endif
-                        </div>
-                        <div class="description">
-                            <p>{!! $company->category->ru_title !!}</p>
-                            <ul>
-                                @foreach($company->services as $service)
-                                    <li><img src="{{ $service->getImage() }}" alt=""></li>
-                                @endforeach
-                            </ul>
-                        </div>
                     </div>
+                    <div class="uk-card-body">
+                        <h3 class="uk-card-title uk-margin-small-bottom">{{ $company->ru_title }}</h3>
+                        <div class="uk-text-muted uk-text-small">{!! $company->category->ru_title !!}</div>
+                       
+                        <ul>
+                            @foreach($company->services as $service)
+                                <li><img src="{{ $service->getImage() }}" alt=""></li>
+                            @endforeach
+                        </ul>
+                        @if ($company->hasUrl() and $company->show_page)
+                        <span class="link">
+                            <a href="{{ $company->url }}" target="_blank">
+                                 {{ parse_url($company->url, PHP_URL_HOST) }}
+                            </a>
+                        </span>
+                        @endif
+                        @if ($company->hasAdvantages())
+                            <div class="tags">
+                                <ol>
+                                    @foreach ($company->advantagesAsArray() as $advantage)
+                                        <li>{{ $advantage }}</li>
+                                    @endforeach
+                                </ol>
+                            </div>
+                        @endif
+<!-- ### Rating
+                        <div class="uk-text-muted uk-text-small uk-rating uk-margin-small-top">
+                            <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.75"></span>
+                            <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.75"></span>
+                            <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.75"></span>
+                            <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.75"></span>
+                            <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.75"></span>
+                            <span class="uk-margin-small-left uk-text-bold">5.0</span>
+                            <span>(324)</span>
+                        </div>
+-->
+                    </div>
+                    <a href="@if ($company->show_page) {{ route('site.catalog.main', $company->getAncestorsSlugs()) }} @else {{ $company->url }} @endif" class="uk-position-cover"></a>
                 </div>
+            </div>
             @endforeach
             @if($category->hasCguFiles())
                 @foreach($category->cguFiles as $file)
-                <div class="uk-container-center">
                     <div class="main_item" style="background-color: transparent;box-shadow: none;display: flex;padding: 0;">
                         @if($file->video == '')
                             @if(strpos($file->getFileType(), 'image') !== false)
@@ -299,7 +294,6 @@
                                     frameborder="0" allowfullscreen="1"></iframe>
                         @endif
                     </div>
-                </div>
                 @endforeach
             @endif
         </div>

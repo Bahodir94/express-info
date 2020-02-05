@@ -55,7 +55,7 @@
 	        <div class="uk-navbar-right">
 	          <div>
 	            <a class="uk-navbar-toggle" uk-icon="icon: search" href="#"></a>
-	            <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+	            <div class="code-drop uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
                     @include('site.layouts.partials.mobile_search')
 	            </div>
 	          </div>
