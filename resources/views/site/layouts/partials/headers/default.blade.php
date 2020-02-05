@@ -6,7 +6,7 @@
 	        <div class="uk-navbar-left">
 	          <a class="uk-navbar-item uk-logo" href="{{ route('site.catalog.index') }}">vid</a>
 	        </div>
-	        <div class="uk-navbar-center">
+	        <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav uk-visible@m">
                     <!--class="uk-active"-->
                     <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>

@@ -27,7 +27,7 @@
         @yield('title') | TezInfo
     </title>
     <script src="{{ asset('assets/js/uikit.js') }}"></script>
-
+    <script src="{{ asset('assets/js/uikit-icons.min.js') }}"></script>
 </head>
 <body>
     @yield('header')
