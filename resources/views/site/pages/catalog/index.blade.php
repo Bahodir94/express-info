@@ -17,7 +17,7 @@
 
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
-            <div data-uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-gridl">
+            <div uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-gridl">
             @foreach ($favouritesCompanies as $company)
                 <div>
                     <div class="uk-card uk-card-small uk-card-border">
@@ -80,7 +80,7 @@
 
 <section class="uk-section-xsmall home-cat">
     <div class="uk-container uk-container-xlarge uk-margin-medium uk-container-center">
-        <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l" data-uk-grid-margin>
+        <ul class="uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-3@l" uk-grid>
             @foreach($parentCategories as $category)
                 <li class="uk-container-center uk-margin-medium-bottom">
                     <div class="item uk-flex-middle">

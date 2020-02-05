@@ -206,7 +206,7 @@
     </div>
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
-        <div data-uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-gridl">
+        <div uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-gridl">
             @foreach($companies as $company)
             <div>
                 <div class="uk-card uk-card-small uk-card-border">
