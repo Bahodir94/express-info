@@ -22,44 +22,216 @@
 
 @section('content')
     <!-- Banner -->
-    <div class="banner" style="background-image: url({{ asset('assets/img/a3e020abb83a5d95bbdce5ef77dff132.png') }})">
-        <div class="uk-section-small	">
-            <div class="uk-container uk-container-xlarge main-container uk-container-center">
-                <div class="contact_info">
-                    <div class="contact_logo">
-                        <img src="{{ $company->getImage() }}" alt="">
-                    </div>
-                    <div class="contact_title">
-                        <h3>{{ $company->ru_title }}</h3>
-                        <p>{{ $company->category->ru_title }}</p>
-                    </div>
-                    <div class="uk-grid-collapse uk-grid contact_phone" uk-grid>
-                        @if ($company->hasPhoneNumber())
-                        <div class="uk-first-column">
-                            <a class="phone" href="tel:{{ $company->phone_number }}" target="_blank">
-                                <img src="{{ asset('assets/img/Path 1211.svg') }}" alt="">
-                                <span>
-                                    {{ $company->phone_number }}
-                                </span>
-                            </a>
+
+<header id="header" class="uk-background-cover uk-background-norepeat uk-background-center-center uk-background-blend-soft-light uk-background-primary" 
+  style="background-image: url(https://via.placeholder.com/1600x800);">
+	<div class="uk-container uk-container-large uk-light" uk-height-viewport="offset-top: true">
+		<div uk-grid uk-height-viewport="offset-top: true">
+			<div class="uk-header-left uk-section uk-visible@m uk-flex uk-flex-bottom">
+				<div class="uk-text-xsmall uk-text-bold">
+					<a class="hvr-back" href="#course" uk-scroll="offset: 80"><span class="uk-margin-small-right" 
+						data-uk-icon="arrow-left"></span>Прокрутить вниз</a>
+				</div>
+			</div>
+			<div class="uk-width-expand@m uk-section">
+                <div class="uk-margin-top">          
+                  <div class="uk-grid-large" uk-grid uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 200; repeat: true">
+                        <div class="uk-width-1-2@m">
+                          <h1 class="uk-heading-medium uk-margin-remove-top uk-letter-spacing-xl">{{ $company->ru_title }}</h1>
+                            <p class="uk-text-lead">{{ $company->category->ru_title }}</p>
+                          <a href="sign-up.html" class="uk-button uk-button-large uk-button-success-outline">Связаться</a>
+                                    </div>
+                        <div class="uk-width-1-2@m uk-text-large uk-flex uk-flex-middle">
+                            @if (!empty($company->ru_description))
+                                <div>
+                                    {!! $company->ru_description !!}
+                                </div>
+                            @endif
                         </div>
-                        @endif
-                        @if ($company->hasUrl())
-                        <div>
-                            <a class="site" href="{{ $company->url }}" target="_blank">
-                                <img src="{{ asset('assets/img/Group 77.svg') }}" alt="">
-                                <span>
-                                    {{ parse_url($company->url, PHP_URL_HOST) }}
-                                </span>
-                            </a>
-                        </div>
-                        @endif
                     </div>
+				</div>
+				<div class="uk-margin-xlarge-top">
+<!--
+          <div class="uk-course-pricing" 
+            data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 400; repeat: true">
+            <div class="uk-grid-large uk-grid-match" data-uk-grid>
+              <div class="uk-width-1-5@l">
+                <h3>Choose <mark>pricing</mark> options</h3>
+              </div>
+              <div class="uk-width-expand@s">
+                <div class="uk-card uk-border-secondary-xlarge uk-card-body uk-flex uk-flex-column">
+                  <h3 class="uk-h2 uk-text-success uk-margin-remove">$19.99
+                    <del class="uk-margin-small-left uk-text-small uk-text-muted">$39.99</del>
+                  </h3>
+                  <ul class="uk-list uk-list-bullet uk-text-small uk-text-demi-bold uk-margin-auto-bottom">
+                    <li>Formulate alternative and big quality professional ideas</li>
+                    <li>Readiness and quality evolve installed super base ideas</li>
+                  </ul>
+                  <a href="sign-up.html" class="uk-button uk-button-large uk-button-success uk-width-1-1 uk-margin-auto-top">Sign up now</a>
                 </div>
+              </div>
+              <div class="uk-width-expand@s">
+                <div class="uk-card uk-border-secondary-xlarge uk-card-body">
+                  <h3 class="uk-h2 uk-text-success uk-margin-remove">$49.99
+                    <del class="uk-margin-small-left uk-text-small uk-text-muted">$99.99</del>
+                  </h3>
+                  <ul class="uk-list uk-list-bullet uk-text-small uk-text-demi-bold">
+                    <li>Meadiness and evolve quality installed space rocket ideas</li>
+                    <li>Avolve installed base quality ideas visvis business processes</li>
+                    <li>Tonotonectally alternative incubate quality products</li>
+                  </ul>
+                  <a href="sign-up.html" class="uk-button uk-button-large uk-button-success uk-width-1-1 uk-margin-large-top">Sign up now</a>
+                </div>
+              </div>
             </div>
+          </div>
+-->
+				</div>
+			</div>
+			<div class="uk-header-right uk-section uk-visible@m uk-flex uk-flex-right uk-flex-bottom">
+				<div>
+					<ul class="uk-subnav uk-text-xsmall uk-text-bold">
+						<li><a class="uk-link-border" href="#" target="_blank">facebook</a></li>
+						<li><a class="uk-link-border" href="#" target="_blank">twitter</a></li>
+						<li><a class="uk-link-border" href="#" target="_blank">instagram</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<div id="course" class="uk-section">
+  <div class="uk-container uk-margin-pricing-offset">
+    <div class="uk-grid-large" data-uk-grid>
+      <div class="uk-width-expand@m">
+        <div class="uk-article">
+          <h2>Описание</h2>
+            @if (!empty($company->ru_description))
+                <div>
+                    {!! $company->ru_description !!}
+                </div>
+            @endif
+
+
+          <h2 class="uk-margin-large-top">FAQ</h2>
+          <ul class="uk-margin-top" data-uk-accordion="multiple: true">
+            <li class="uk-open">
+              <a class="uk-accordion-title" href="#">What is User Experience Design?<span class="uk-align-right uk-margin-remove-bottom">28:56</span></a>
+              <div class="uk-accordion-content">
+                <table class="uk-table uk-table-justify uk-table-middle uk-table-divider">
+                  <tbody>
+                    <tr class="uk-text-primary">
+                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson" data-uk-toggle>Introduction: a UXD Parable</a></td>
+                      <td><span data-uk-icon="unlock"></span></td>
+                      <td class="uk-table-shrink">04:24</td>
+                    </tr>
+                    <tr class="uk-text-primary">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson" data-uk-toggle>What UXD Isn't</a></td>
+                      <td><span data-uk-icon="unlock"></span></td>
+                      <td>04:24</td>
+                    </tr>
+                    <tr class="uk-text-muted">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Why Should We Care About UXD?</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td>04:24</td>
+                    </tr>
+                    <tr class="uk-text-muted">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>The Elements of User Experience</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td>04:24</td>
+                    </tr>                    
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            <li>
+              <a class="uk-accordion-title" href="#">Understanding the Elements of User Experience<span class="uk-align-right uk-margin-remove-bottom">19:26</span></a>
+              <div class="uk-accordion-content">
+                <table class="uk-table uk-table-justify uk-table-middle uk-table-divider">
+                  <tbody>
+                    <tr class="uk-text-muted">
+                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>The Elements of User Experience</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td class="uk-table-shrink">04:24</td>
+                    </tr>
+                    <tr class="uk-text-muted">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Exploring the Elements of User Experience</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td>04:24</td>
+                    </tr>
+                    <tr class="uk-text-muted">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>How the Elements Work Together</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td>04:24</td>
+                    </tr>
+                    <tr class="uk-text-muted">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Identifying Business Goals</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td>04:24</td>
+                    </tr>                    
+                  </tbody>
+                </table>
+              </div>
+            </li>
+          </ul>
+
+      
         </div>
+      </div>
+      <div class="uk-width-1-3@m">
+        <div>
+          <div>
+            <h3>Цена, Условия, Контакты</h3>
+            <ul class="uk-list uk-margin-small-top">
+              <li><span class="uk-margin-small-right" data-uk-icon="clock"></span>
+                        @if ($company->hasPhoneNumber())
+                            <a class="uk-link-reset" uk-icon="icon: receiver" href="tel:{{ $company->phone_number }}" target="_blank">
+                                    {{ $company->phone_number }}
+                            </a>
+                        @endif
+                </li>
+              <li><span class="uk-margin-small-right" data-uk-icon="unlock"></span>
+               @if ($company->hasUrl())
+                    <a class="uk-link-reset" uk-icon="icon: world" href="{{ $company->url }}" target="_blank">
+                            {{ parse_url($company->url, PHP_URL_HOST) }}
+                    </a>
+                @endif
+                </li>
+              <li><span class="uk-margin-small-right" data-uk-icon="tablet"></span>Access on mobile</li>
+              <li><span class="uk-margin-small-right" data-uk-icon="file-text"></span>Certificate of completion</li>
+              <li><span class="uk-margin-small-right" data-uk-icon="file-pdf"></span>Worksheet downloads</li>
+              <li><span class="uk-margin-small-right" data-uk-icon="question"></span>Questions answered by tutor</li>
+              <li><span class="uk-margin-small-right" data-uk-icon="future"></span>Future course updates</li>
+            </ul>
+          </div>			
+          <h3 class="uk-margin-large-top">Tags</h3>
+          <div data-uk-margin>
+            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">UX</span></a>
+            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">Design</span></a>
+            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">UI</span></a>
+            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">Experience</span></a>          
+          </div>
+          <h3 class="uk-margin-large-top">Share Course</h3>
+          <div class="uk-margin">
+            <div data-uk-grid class="uk-child-width-auto uk-grid-small">
+              <div>
+                <a href="#" data-uk-icon="icon: facebook" class="uk-icon-button facebook" target="_blank"></a>
+              </div>
+              <div>
+                <a href="#" data-uk-icon="icon: linkedin" class="uk-icon-button linkedin" target="_blank"></a>
+              </div>
+              <div>
+                <a href="#" data-uk-icon="icon: twitter" class="uk-icon-button twitter" target="_blank"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Banner end-->
+  </div>
+</div>
+
+
 
     @if ($company->hasAdvantagesOrAnySocialLink())
 <section class="uk-section-xsmall uk-padding-remove-vertical">
@@ -115,14 +287,7 @@
     <div class="uk-container uk-container-xlarge uk-container-center margin-top text_info">
 
         <div class="" uk-grid>
-            @if (!empty($company->ru_description))
-                <div class="uk-width-expand@m">
-                    <h2>Информация</h2>
-                    <div>
-                        <p>{!! $company->ru_description !!}</p>
-                    </div>
-                </div>
-            @endif
+
             <div class="uk-width-1-3">
                 <div>
 <!--                @l uk-width-2-5@m uk-width-2-5@s -->

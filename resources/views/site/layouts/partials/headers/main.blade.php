@@ -3,7 +3,7 @@
 
 <header class="uk-cover-container uk-background-cover uk-background-norepeat uk-background-center-center" 
   style="background-image: url(https://via.placeholder.com/1600x900);">
-  <video src="" data-uk-cover></video>
+  <video src="" uk-cover></video>
   <div class="uk-overlay uk-position-cover uk-overlay-video"></div>
 	<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; 
 	  cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 500">
@@ -68,23 +68,22 @@
 	    </div>
 	  </nav>
 	</div>
-	<div class="uk-container uk-container-large uk-light" data-uk-height-viewport="offset-top: true">
-		<div data-uk-grid data-uk-height-viewport="offset-top: true">
+	<div class="uk-container uk-container-large uk-light" uk-height-viewport="offset-top: true">
+		<div uk-grid uk-height-viewport="offset-top: true">
 			<div class="uk-header-left uk-section uk-visible@m uk-flex uk-flex-bottom">
 				<div class="uk-text-xsmall uk-text-bold">
-					<a class="hvr-back" href="#about" data-uk-scroll="offset: 80"><span class="uk-margin-small-right" 
-						data-uk-icon="arrow-left"></span>Прокрутить вниз</a>
+					<a class="hvr-back" href="#about" uk-scroll="offset: 80"><span class="uk-margin-small-right" uk-icon="icon: arrow-left" ></span>Прокрутить вниз</a>
 				</div>
 			</div>
 			<div class="uk-width-expand@m uk-section uk-flex uk-flex-column">
 				<div class="uk-margin-auto-top uk-margin-auto-bottom">
-					<h1 class="uk-heading-medium uk-margin-remove-top uk-letter-spacing-xl" data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">
+					<h1 class="uk-heading-medium uk-margin-remove-top uk-letter-spacing-xl" uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">
                         <mark>Площадка</mark> где вы сможете найти <mark>толковых людей,</mark> готовых помочь <mark>вашему бизнесу.</mark></h1>
                     @include('site.components.search')
 				</div>
 				<div class="uk-margin-auto-top" 
-					data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 400; repeat: true">
-					<div class="uk-child-width-1-2@s uk-grid-large uk-margin-medium-top" data-uk-grid>
+					uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 400; repeat: true">
+					<div class="uk-child-width-1-2@s uk-grid-large uk-margin-medium-top" uk-grid>
 						<div>
 							<h4 class="uk-margin-remove">
                                 Выберите из более чем NNNN компаний </h4>
