@@ -23,8 +23,8 @@
                             @foreach ($need->menuItems as $menu)
                                 <div class="padding-15 ">
                                     <ul class="uk-nav">
-                                        <div class="dropdown_wrapper">
-                                            <img src="{{ $menu->getImage() }}" alt="">
+                                        <div class="dropdown_wrapper uk-margin" >
+<!--                                            <img src="{{ $menu->getImage() }}" alt="">-->
                                             <a href="{{ route('site.catalog.main', $menu->ru_slug) }}">{{ $menu->ru_title }}</a>
                                         </div>
                                         @foreach ($menu->categories as $category)
@@ -52,7 +52,7 @@
                     @include('site.layouts.partials.mobile_search')
 	            </div>
 	          </div>
-	          <div class="uk-navbar-item">
+	          <div class="uk-navbar-item uk-visible@m">
 	            <div><a class="uk-button uk-button-success-outline" href="#">Добавить компанию</a></div>
 	          </div>          
 	          <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" uk-toggle><span uk-icon="icon: menu" ></span></a>

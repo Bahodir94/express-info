@@ -36,18 +36,19 @@
 			<div class="uk-width-expand@m uk-section">
                 <div class="uk-margin-top">          
                   <div class="uk-grid-large" uk-grid uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 200; repeat: true">
-                        <div class="uk-width-1-2@m">
+                        <div class="">
                           <h1 class="uk-heading-medium uk-margin-remove-top uk-letter-spacing-xl">{{ $company->ru_title }}</h1>
                             <p class="uk-text-lead">{{ $company->category->ru_title }}</p>
-                          <a href="sign-up.html" class="uk-button uk-button-large uk-button-success-outline">Связаться</a>
-                                    </div>
-                        <div class="uk-width-1-2@m uk-text-large uk-flex uk-flex-middle">
-                            @if (!empty($company->ru_description))
-                                <div>
-                                    {!! $company->ru_description !!}
-                                </div>
+                            @if ($company->hasPhoneNumber())
+                          <a href="tel:{{ $company->phone_number }}" class="uk-button uk-button-large uk-button-success-outline">Связаться</a>
                             @endif
+                                    </div>
+                                
+<!--
+                        <div class="uk-width-1-2@m uk-text-large uk-flex uk-flex-middle">
+        
                         </div>
+-->
                     </div>
 				</div>
 				<div class="uk-margin-xlarge-top">
@@ -113,8 +114,9 @@
             @endif
 
 
-          <h2 class="uk-margin-large-top">FAQ</h2>
+          <div class="uk-visible@m"><h2 class="uk-margin-large-top">FAQ</h2>
           <ul class="uk-margin-top" data-uk-accordion="multiple: true">
+              
             <li class="uk-open">
               <a class="uk-accordion-title" href="#">What is User Experience Design?<span class="uk-align-right uk-margin-remove-bottom">28:56</span></a>
               <div class="uk-accordion-content">
@@ -174,6 +176,7 @@
               </div>
             </li>
           </ul>
+            </div>
 
       
         </div>
@@ -183,20 +186,22 @@
           <div>
             <h3>Цена, Условия, Контакты</h3>
             <ul class="uk-list uk-margin-small-top">
-              <li><span class="uk-margin-small-right" data-uk-icon="clock"></span>
-                        @if ($company->hasPhoneNumber())
-                            <a class="uk-link-reset" uk-icon="icon: receiver" href="tel:{{ $company->phone_number }}" target="_blank">
+                @if ($company->hasPhoneNumber())
+              <li><span class="uk-margin-small-right" uk-icon="icon: receiver"></span>
+                        
+                            <a class="uk-link-reset"  href="tel:{{ $company->phone_number }}" target="_blank">
                                     {{ $company->phone_number }}
                             </a>
-                        @endif
+                        
                 </li>
-              <li><span class="uk-margin-small-right" data-uk-icon="unlock"></span>
-               @if ($company->hasUrl())
-                    <a class="uk-link-reset" uk-icon="icon: world" href="{{ $company->url }}" target="_blank">
-                            {{ parse_url($company->url, PHP_URL_HOST) }}
-                    </a>
                 @endif
-                </li>
+                @if ($company->hasUrl())
+                  <li><span class="uk-margin-small-right" uk-icon="icon: world"></span>
+                        <a class="uk-link-reset"  href="{{ $company->url }}" target="_blank">
+                                {{ parse_url($company->url, PHP_URL_HOST) }}
+                        </a>
+                    </li>
+                 @endif
               <li><span class="uk-margin-small-right" data-uk-icon="tablet"></span>Access on mobile</li>
               <li><span class="uk-margin-small-right" data-uk-icon="file-text"></span>Certificate of completion</li>
               <li><span class="uk-margin-small-right" data-uk-icon="file-pdf"></span>Worksheet downloads</li>
@@ -225,6 +230,69 @@
               </div>
             </div>
           </div>
+          <div class="uk-hidden@m"><h2 class="uk-margin-large-top">FAQ</h2>
+          <ul class="uk-margin-top" data-uk-accordion="multiple: true">
+              
+            <li class="uk-open">
+              <a class="uk-accordion-title" href="#">What is User Experience Design?<span class="uk-align-right uk-margin-remove-bottom">28:56</span></a>
+              <div class="uk-accordion-content">
+                <table class="uk-table uk-table-justify uk-table-middle uk-table-divider">
+                  <tbody>
+                    <tr class="uk-text-primary">
+                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson" data-uk-toggle>Introduction: a UXD Parable</a></td>
+                      <td><span data-uk-icon="unlock"></span></td>
+                      <td class="uk-table-shrink">04:24</td>
+                    </tr>
+                    <tr class="uk-text-primary">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson" data-uk-toggle>What UXD Isn't</a></td>
+                      <td><span data-uk-icon="unlock"></span></td>
+                      <td>04:24</td>
+                    </tr>
+                    <tr class="uk-text-muted">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Why Should We Care About UXD?</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td>04:24</td>
+                    </tr>
+                    <tr class="uk-text-muted">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>The Elements of User Experience</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td>04:24</td>
+                    </tr>                    
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            <li>
+              <a class="uk-accordion-title" href="#">Understanding the Elements of User Experience<span class="uk-align-right uk-margin-remove-bottom">19:26</span></a>
+              <div class="uk-accordion-content">
+                <table class="uk-table uk-table-justify uk-table-middle uk-table-divider">
+                  <tbody>
+                    <tr class="uk-text-muted">
+                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>The Elements of User Experience</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td class="uk-table-shrink">04:24</td>
+                    </tr>
+                    <tr class="uk-text-muted">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Exploring the Elements of User Experience</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td>04:24</td>
+                    </tr>
+                    <tr class="uk-text-muted">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>How the Elements Work Together</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td>04:24</td>
+                    </tr>
+                    <tr class="uk-text-muted">
+                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Identifying Business Goals</td>
+                      <td><span data-uk-icon="lock"></span></td>
+                      <td>04:24</td>
+                    </tr>                    
+                  </tbody>
+                </table>
+              </div>
+            </li>
+          </ul>
+            </div>
         </div>
       </div>
     </div>

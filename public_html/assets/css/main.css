@@ -10980,3 +10980,10 @@ footer .uk-subnav > * {
     width: 100%;
     height: 200px;
 }
+.dropdown_wrapper a {    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #ef4660 !important;
+    text-decoration: none;
+    transition: all 0.3s;
+    padding: 0 10px;
+}
