@@ -1,0 +1,6 @@
+.uk-logo {
+	z-index: 1;
+}
+.uk-grid-divider>:not(.uk-first-column)::before {
+	width: 1px;
+}
