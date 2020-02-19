@@ -9,7 +9,29 @@
 @endsection
 
 @section('meta')
-
+<style>
+.sequence{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 83px 0;
+    flex-wrap: wrap;
+    
+}
+.sequence li{
+    margin-right: 17px;
+    color: #102840;
+    font-size: 18px;
+    /* font-family: 'opensans'; */
+    font-weight: 400;
+    margin-top: 10px; 
+}
+.sequence li a{
+    color: #102840;
+    text-decoration: none;
+}
+</style>
     <meta name="title" content="@if(empty($company->meta_title)) {{ $company->getTitle() }} в Ташкенте @else {{ $company->meta_title }} @endif">
     <meta name="description" content="{{ $company->meta_description }}">
     <meta name="keywords" content="{{ $company->meta_keywords }}">
@@ -22,9 +44,9 @@
 
 @section('content')
     <!-- Banner -->
-
+<div itemtype="http://schema.org/Product" itemscope>
 <header id="header" class="uk-background-cover uk-background-norepeat uk-background-center-center uk-background-blend-soft-light uk-background-primary" 
-  style="background-image: url(https://via.placeholder.com/1600x800);">
+  >
 	<div class="uk-container uk-container-large uk-light" uk-height-viewport="offset-top: true">
 		<div uk-grid uk-height-viewport="offset-top: true">
 			<div class="uk-header-left uk-section uk-visible@m uk-flex uk-flex-bottom">
@@ -37,7 +59,7 @@
                 <div class="uk-margin-top">          
                   <div class="uk-grid-large" uk-grid uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 200; repeat: true">
                         <div class="">
-                          <h1 class="uk-heading-medium uk-margin-remove-top uk-letter-spacing-xl">{{ $company->ru_title }}</h1>
+                          <h1 class="uk-heading-medium uk-margin-remove-top uk-letter-spacing-xl" itemprop="name" >{{ $company->ru_title }}</h1>
                             <p class="uk-text-lead">{{ $company->category->ru_title }}</p>
                             @if ($company->hasPhoneNumber())
                           <a href="tel:{{ $company->phone_number }}" class="uk-button uk-button-large uk-button-success-outline">Связаться</a>
@@ -109,74 +131,26 @@
           <h2>Описание</h2>
             @if (!empty($company->ru_description))
                 <div>
-                    {!! $company->ru_description !!}
+                    <span itemprop="description">{!! $company->ru_description !!}</span>
                 </div>
             @endif
 
 
-          <div class="uk-visible@m"><h2 class="uk-margin-large-top">FAQ</h2>
-          <ul class="uk-margin-top" data-uk-accordion="multiple: true">
-              
-            <li class="uk-open">
-              <a class="uk-accordion-title" href="#">What is User Experience Design?<span class="uk-align-right uk-margin-remove-bottom">28:56</span></a>
-              <div class="uk-accordion-content">
-                <table class="uk-table uk-table-justify uk-table-middle uk-table-divider">
-                  <tbody>
-                    <tr class="uk-text-primary">
-                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson" data-uk-toggle>Introduction: a UXD Parable</a></td>
-                      <td><span data-uk-icon="unlock"></span></td>
-                      <td class="uk-table-shrink">04:24</td>
-                    </tr>
-                    <tr class="uk-text-primary">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson" data-uk-toggle>What UXD Isn't</a></td>
-                      <td><span data-uk-icon="unlock"></span></td>
-                      <td>04:24</td>
-                    </tr>
-                    <tr class="uk-text-muted">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Why Should We Care About UXD?</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td>04:24</td>
-                    </tr>
-                    <tr class="uk-text-muted">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>The Elements of User Experience</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td>04:24</td>
-                    </tr>                    
-                  </tbody>
-                </table>
+          <div class="uk-visible" class="uk-margin-large-top" itemscope itemtype="https://schema.org/FAQPage"><h2 >FAQ</h2>
+          <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <ul class="uk-margin-top" data-uk-accordion="multiple: true" >
+            <li >
+             <span itemprop="name" class="uk-accordion-title">What is User Experience Design?</span>
+              <div class="uk-accordion-content" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+               <p class="uk-text-muted" itemprop="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
               </div>
             </li>
-            <li>
-              <a class="uk-accordion-title" href="#">Understanding the Elements of User Experience<span class="uk-align-right uk-margin-remove-bottom">19:26</span></a>
-              <div class="uk-accordion-content">
-                <table class="uk-table uk-table-justify uk-table-middle uk-table-divider">
-                  <tbody>
-                    <tr class="uk-text-muted">
-                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>The Elements of User Experience</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td class="uk-table-shrink">04:24</td>
-                    </tr>
-                    <tr class="uk-text-muted">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Exploring the Elements of User Experience</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td>04:24</td>
-                    </tr>
-                    <tr class="uk-text-muted">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>How the Elements Work Together</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td>04:24</td>
-                    </tr>
-                    <tr class="uk-text-muted">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Identifying Business Goals</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td>04:24</td>
-                    </tr>                    
-                  </tbody>
-                </table>
-              </div>
-            </li>
+            </div>
+           
+        
           </ul>
             </div>
+           
 
       
         </div>
@@ -184,8 +158,23 @@
       <div class="uk-width-1-3@m">
         <div>
           <div>
-            <h3>Цена, Условия, Контакты</h3>
-            <ul class="uk-list uk-margin-small-top">
+              <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
+        <meta itemprop="reviewCount" content="89" />
+        <meta itemprop="ratingValue" content="4.4" />
+      </div>
+            <h3>Цена и Контакты</h3>
+            <ul class="uk-list uk-margin-small-top" itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+                <link itemprop="url" href="Дима" />
+        <meta itemprop="availability" content="InStock" />
+        <meta itemprop="priceValidUntil" content="2022-12-05" />
+        
+                <li>
+                        
+                            <a class="uk-link-reset"  href="tel:{{ $company->phone_number }}" target="_blank">
+                                    Дима Цена: <span itemprop="Price">27.00</span><span  itemprop="priceCurrency" content="SUM"> сум</span>
+                            </a>
+                        
+                </li>
                 @if ($company->hasPhoneNumber())
               <li><span class="uk-margin-small-right" uk-icon="icon: receiver"></span>
                         
@@ -194,6 +183,7 @@
                             </a>
                         
                 </li>
+            <!--    
                 @endif
                 @if ($company->hasUrl())
                   <li><span class="uk-margin-small-right" uk-icon="icon: world"></span>
@@ -202,11 +192,7 @@
                         </a>
                     </li>
                  @endif
-              <li><span class="uk-margin-small-right" data-uk-icon="tablet"></span>Access on mobile</li>
-              <li><span class="uk-margin-small-right" data-uk-icon="file-text"></span>Certificate of completion</li>
-              <li><span class="uk-margin-small-right" data-uk-icon="file-pdf"></span>Worksheet downloads</li>
-              <li><span class="uk-margin-small-right" data-uk-icon="question"></span>Questions answered by tutor</li>
-              <li><span class="uk-margin-small-right" data-uk-icon="future"></span>Future course updates</li>
+             !-->
             </ul>
           </div>			
           <h3 class="uk-margin-large-top">Tags</h3>
@@ -230,69 +216,7 @@
               </div>
             </div>
           </div>
-          <div class="uk-hidden@m"><h2 class="uk-margin-large-top">FAQ</h2>
-          <ul class="uk-margin-top" data-uk-accordion="multiple: true">
-              
-            <li class="uk-open">
-              <a class="uk-accordion-title" href="#">What is User Experience Design?<span class="uk-align-right uk-margin-remove-bottom">28:56</span></a>
-              <div class="uk-accordion-content">
-                <table class="uk-table uk-table-justify uk-table-middle uk-table-divider">
-                  <tbody>
-                    <tr class="uk-text-primary">
-                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson" data-uk-toggle>Introduction: a UXD Parable</a></td>
-                      <td><span data-uk-icon="unlock"></span></td>
-                      <td class="uk-table-shrink">04:24</td>
-                    </tr>
-                    <tr class="uk-text-primary">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span><a href="#lesson" data-uk-toggle>What UXD Isn't</a></td>
-                      <td><span data-uk-icon="unlock"></span></td>
-                      <td>04:24</td>
-                    </tr>
-                    <tr class="uk-text-muted">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Why Should We Care About UXD?</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td>04:24</td>
-                    </tr>
-                    <tr class="uk-text-muted">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>The Elements of User Experience</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td>04:24</td>
-                    </tr>                    
-                  </tbody>
-                </table>
-              </div>
-            </li>
-            <li>
-              <a class="uk-accordion-title" href="#">Understanding the Elements of User Experience<span class="uk-align-right uk-margin-remove-bottom">19:26</span></a>
-              <div class="uk-accordion-content">
-                <table class="uk-table uk-table-justify uk-table-middle uk-table-divider">
-                  <tbody>
-                    <tr class="uk-text-muted">
-                      <td class="uk-table-expand"><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>The Elements of User Experience</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td class="uk-table-shrink">04:24</td>
-                    </tr>
-                    <tr class="uk-text-muted">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Exploring the Elements of User Experience</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td>04:24</td>
-                    </tr>
-                    <tr class="uk-text-muted">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>How the Elements Work Together</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td>04:24</td>
-                    </tr>
-                    <tr class="uk-text-muted">
-                      <td><span class="uk-margin-small-right" data-uk-icon="play-circle"></span>Identifying Business Goals</td>
-                      <td><span data-uk-icon="lock"></span></td>
-                      <td>04:24</td>
-                    </tr>                    
-                  </tbody>
-                </table>
-              </div>
-            </li>
-          </ul>
-            </div>
+        
         </div>
       </div>
     </div>
@@ -529,17 +453,23 @@
 Content end-->
 <section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="uk-container uk-container-xlarge uk-container-center container uk-margin-top">
-        <ul class="sequence">
-            <li><a href="{{ route('site.catalog.index') }}">Главная</a></li>
+        <ul class="sequence" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem"><a  href="{{ route('site.catalog.index') }}" itemprop="item"><span itemprop="name"><meta itemprop="position" content="1" />Главная</span></a></li>
             <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @foreach ($company->category->ancestors as $parentCategory)
-                <li><a href="{{ route('site.catalog.main', $parentCategory->getAncestorsSlugs()) }}">{{ $parentCategory->getTitle() }}</a></li>
+                <li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem"><a href="{{ route('site.catalog.main', $parentCategory->getAncestorsSlugs()) }}" itemprop="item"><span itemprop="name"><meta itemprop="position" content="2" />{{ $parentCategory->getTitle() }}</span></a></li>
                 <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @endforeach
-            <li><a href="{{ route('site.catalog.main', $company->category->getAncestorsSlugs()) }}">{{ $company->category->getTitle() }}</a></li>
+            <li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem"><a itemprop="item" href="{{ route('site.catalog.main', $company->category->getAncestorsSlugs()) }}"><span itemprop="name"><meta itemprop="position" content="3" />{{ $company->category->getTitle() }}</span></a></li>
             <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
-            <li>{{ $company->getTitle() }}</li>
+            <li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem"><span itemprop="name"><meta itemprop="position" content="4" />{{ $company->getTitle() }}</span></li>
         </ul>
+    
+    </div>
     </div>
 </section>
 @endsection

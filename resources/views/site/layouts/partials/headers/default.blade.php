@@ -48,12 +48,12 @@
 	        <div class="uk-navbar-right">
 	          <div>
 	            <a class="uk-navbar-toggle" uk-icon="icon: search" href="#"></a>
-	            <div class="code-drop uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+	            <div class="code-drop uk-drop" uk-drop="mode: click; pos: bottom-left; offset: 0">
                     @include('site.layouts.partials.mobile_search')
 	            </div>
 	          </div>
 	          <div class="uk-navbar-item uk-visible@m">
-	            <div><a class="uk-button uk-button-success-outline" href="#">Добавить компанию</a></div>
+	            <div><a rel="nofollow" target="_blank" class="uk-button uk-button-success-outline" href="#">Добавить компанию</a></div>
 	          </div>          
 	          <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" uk-toggle><span uk-icon="icon: menu" ></span></a>
 	        </div>

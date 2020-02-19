@@ -2,7 +2,7 @@
 
 
 <header class="uk-cover-container uk-background-cover uk-background-norepeat uk-background-center-center" 
-  style="background-image: url(https://via.placeholder.com/1600x900);">
+  >
   <video src="" uk-cover></video>
   <div class="uk-overlay uk-position-cover uk-overlay-video"></div>
 	<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; 
@@ -36,7 +36,7 @@
                                         </div>
                                         @foreach ($menu->categories as $category)
                                             <li>
-                                                <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{!! $category->ru_title !!}</a>
+                                                <a style="color:#fff" href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{!! $category->ru_title !!}</a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -55,12 +55,12 @@
 	        <div class="uk-navbar-right">
 	          <div>
 	            <a class="uk-navbar-toggle" uk-icon="icon: search" href="#"></a>
-	            <div class="code-drop uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+	            <div class="code-drop uk-drop" uk-drop="mode: click; pos:bottom-left; offset: 0">
                     @include('site.layouts.partials.mobile_search')
 	            </div>
 	          </div>
 	          <div class="uk-navbar-item uk-visible@m">
-	            <div><a class="uk-button uk-button-success-outline" href="#">Добавить компанию</a></div>
+	            <div><a rel="nofollow" class="uk-button uk-button-success-outline" href="#">Добавить компанию</a></div>
 	          </div>          
 	          <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" uk-toggle><span uk-icon="icon: menu" ></span></a>
 	        </div>
@@ -77,7 +77,7 @@
 			</div>
 			<div class="uk-width-expand@m uk-section uk-flex uk-flex-column">
 				<div class="uk-margin-auto-top uk-margin-auto-bottom">
-					<h1 class="uk-heading-medium uk-margin-remove-top uk-letter-spacing-xl" uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">
+					<h1 class="uk-heading-easy uk-margin-remove-top uk-letter-spacing-xl" uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">
                         <mark>Площадка</mark> где вы сможете найти <mark>толковых людей,</mark> готовых помочь <mark>вашему бизнесу.</mark></h1>
                     @include('site.components.search')
 				</div>
@@ -99,9 +99,9 @@
 			<div class="uk-header-right uk-section uk-visible@m uk-flex uk-flex-right uk-flex-bottom">
 				<div>
 					<ul class="uk-subnav uk-text-xsmall uk-text-bold">
-						<li><a class="uk-link-border" href="#" target="_blank">facebook</a></li>
-						<li><a class="uk-link-border" href="#" target="_blank">twitter</a></li>
-						<li><a class="uk-link-border" href="#" target="_blank">instagram</a></li>
+						<li><a rel="nofollow" class="uk-link-border" href="#" target="_blank">facebook</a></li>
+						<li><a rel="nofollow" class="uk-link-border" href="#" target="_blank">twitter</a></li>
+						<li><a rel="nofollow" class="uk-link-border" href="#" target="_blank">instagram</a></li>
 					</ul>
 				</div>
 			</div>

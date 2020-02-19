@@ -1,5 +1,27 @@
-@extends('site.layouts.app')
 
+<style>
+.sequence{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 83px 0;
+    flex-wrap: wrap;
+    
+}
+.sequence li{
+    margin-right: 17px;
+    color: #102840;
+    font-size: 18px;
+    /* font-family: 'opensans'; */
+    font-weight: 400;
+    margin-top: 10px; 
+}
+.sequence li a{
+    color: #102840;
+    text-decoration: none;
+}</style>
+@extends('site.layouts.app')
 @section('title')
     @if(empty($category->meta_title))
         {{ $category->getTitle() }} в Ташкенте
@@ -7,15 +29,11 @@
         {{ $category->meta_title }}
     @endif
 @endsection
-
 @section('meta')
-
     <meta name="title" content="@if(empty($category->meta_title)) {{ $category->getTitle() }} в Ташкенте @else {{ $category->meta_title }} @endif">
     <meta name="description" content="{{ $category->meta_description }}">
     <meta name="keywords" content="{{ $category->meta_keywords }}">
-
 @endsection
-
 @section('css')
     @if ($category->hasCguFiles())
         <style>
@@ -32,7 +50,6 @@
                 height: 130px !important;
             }
             .main_item{
-
                 display: flex;
                 flex-flow: column;
             }
@@ -45,16 +62,11 @@
         </style>
     @endif
 @endsection
-
 @section('header')
     @include('site.layouts.partials.headers.default')
 @endsection
-
 @section('content')
-
-
     <!-- Search settings -->
-
 <!-- <div class="my-container">
     <div class="capsule_item">
         <div class="capsule_img">
@@ -89,7 +101,6 @@
         </a>
     </div>
 </div> -->
-
 <!-- Search settings end -->
 <section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="uk-container uk-container-xlarge uk-container-center">
@@ -155,7 +166,6 @@
                 </div>
             @endforeach
         </div>
-
 -->
         <ul class="cat-tab uk-tab" >
             <li class="uk-active">
@@ -164,10 +174,8 @@
                     <span>Назад</span>
                 </a>
             </li>
-
             @foreach($category->categories as $child)
                 <li>
-
                         <a href="{{ route('site.catalog.main', $child->getAncestorsSlugs()) }}">
                             <div class="uk-flex uk-flex-middle">
 <!--                                <span><img src="{{ $child->getImage() }}" alt=""></span>-->
@@ -175,10 +183,8 @@
                                 <span class="countcat">({{ $child->getAllCompaniesCount() }})</span>
                             </div>
                         </a>
-
                 </li>
             @endforeach
-
 <!--
             <li>
                 <a href="#">More <span class="uk-margin-small-left" uk-icon="icon: triangle-down"></span></a>
@@ -199,7 +205,6 @@
         <!-- <div class="uk-margin text-left">
             <div uk-grid class="uk-grid-magrin uk-grid-stack">
                 <div class="uk-width-1-1@m">
-
                 </div>
             </div>
         </div> -->
@@ -209,12 +214,12 @@
         <div uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-grid">
             @foreach($companies as $company)
             <div>
-                <div class="uk-card uk-card-small uk-card-border">
+                <div class="uk-card uk-card-small uk-card-border" itemscope itemtype="http://schema.org/Product">
                     <div class="uk-card-media-top uk-position-relative uk-light">
-                        <img uk-img height="200" src="{{ $company->getImage() }}" class="code-mage" alt="Course Title">
+                        <img itemprop="image" uk-img height="200" src="{{ $company->getImage() }}" class="code-mage" alt="Course Title">
                         <div class="uk-position-cover uk-overlay-xlight"></div>
-                        <div class="uk-position-top-left">
-                            <span class="uk-text-bold uk-text-price uk-text-small">$27.00</span>
+                        <div class="uk-position-top-left" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
+                            <span class="uk-text-bold uk-text-price uk-text-small" itemprop="lowPrice">27.00</span><span class="uk-text-bold uk-text-price uk-text-small" itemprop="priceCurrency" content="SUM">сум</span>
                         </div>
 <!-- ### Favorites
                     <div class="uk-position-top-right">
@@ -223,8 +228,8 @@
 -->
                     </div>
                     <div class="uk-card-body">
-                        <h3 class="uk-card-title uk-margin-small-bottom">{{ $company->ru_title }}</h3>
-                        <div class="uk-text-muted uk-text-small">{!! $company->category->ru_title !!}</div>
+                        <h3 itemprop="name" class="uk-card-title uk-margin-small-bottom">{{ $company->ru_title }}</h3>
+                        <div itemprop="category" class="uk-text-muted uk-text-small">{!! $company->category->ru_title !!}</div>
                        
                         <ul>
                             @foreach($company->services as $service)
@@ -299,19 +304,20 @@
         </div>
     </div>
 </section>
-
 <section class="uk-section-xsmall uk-padding-remove-vertical">
     <div class="uk-container uk-container-xlarge uk-container-center container uk-margin-top">
-        <ul class="sequence">
-            <li><a href="{{ route('site.catalog.index') }}">Главная</a></li>
-            <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
+        <ul class="sequence" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem"><a itemprop="item" href="{{ route('site.catalog.index') }}"><span itemprop="name"><meta itemprop="position" content="1" />Главная</span></a></li>
+            <li ><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @foreach ($category->ancestors as $parentCategory)
-                <li><a href="{{ route('site.catalog.main', $parentCategory->getAncestorsSlugs()) }}">{{ $parentCategory->getTitle() }}</a></li>
+                <li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem"><a itemprop="item" href="{{ route('site.catalog.main', $parentCategory->getAncestorsSlugs()) }}"><span itemprop="name"><meta itemprop="position" content="2" />{{ $parentCategory->getTitle() }}</span></a></li>
                 <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
             @endforeach
-            <li>{{ $category->getTitle() }}</li>
+            <li itemprop="itemListElement" itemscope
+      itemtype="http://schema.org/ListItem"><span itemprop="name"><meta itemprop="position" content="3" />{{ $category->getTitle() }}</span></li>
         </ul>
     </div>
 </section>
-
 @endsection
