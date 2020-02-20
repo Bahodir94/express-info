@@ -19,7 +19,8 @@ class Company extends Model
         'ru_slug', 'en_slug', 'uz_slug',
         'url', 'user_id', 'active', 'phone_number', 'geo_location', 'logo_url', 'category_id',
         'need_id', 'advantages', 'telegram_link', 'facebook_link', 'instagram_link',
-        'meta_title', 'meta_description', 'meta_keywords', 'show_page'
+        'meta_title', 'meta_description', 'meta_keywords', 'show_page',
+        'price'
     ];
 
     const UPLOAD_DIRECTORY = 'uploads/companies/';
