@@ -19,6 +19,7 @@ Route::view('/home', 'studio.home');
 Route::view('/site', 'studio.site.index');
 Route::view('/site/lange', 'studio.site.landing');
 Route::view('/site/internet-magazin', 'studio.site.eshop');
+Route::view('/site/korp', 'studio.site.korp');
 
 Route::redirect('/dosug', '/leisure');
 Route::redirect('/magaziny', '/the-shops');
