@@ -139,6 +139,12 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
+                        <input type="text" name="price" id="price" class="form-control" value="{{ old('price') }}">
+                        <label for="price">Цена</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating">
                         <input type="text" name="url" id="url" value="{{ old('url') }}" class="form-control">
                         <label for="url">Ссылка на сайт</label>
                     </div>
