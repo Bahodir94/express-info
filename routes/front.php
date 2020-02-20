@@ -18,6 +18,7 @@ Route::view('/advertising/visit-card', 'site.pages.static.visit_card');
 Route::view('/home', 'studio.home');
 Route::view('/site', 'studio.site.index');
 Route::view('/site/lange', 'studio.site.landing');
+Route::view('/site/internet-magazin', 'studio.site.eshop');
 
 Route::redirect('/dosug', '/leisure');
 Route::redirect('/magaziny', '/the-shops');
