@@ -17,7 +17,7 @@
     padding: 0;
     margin: 83px 0;
     flex-wrap: wrap;
-    
+
 }
 .sequence li{
     margin-right: 17px;
@@ -25,7 +25,7 @@
     font-size: 18px;
     /* font-family: 'opensans'; */
     font-weight: 400;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 .sequence li a{
     color: #102840;
@@ -45,18 +45,18 @@
 @section('content')
     <!-- Banner -->
 <div itemtype="http://schema.org/Product" itemscope>
-<header id="header" class="uk-background-cover uk-background-norepeat uk-background-center-center uk-background-blend-soft-light uk-background-primary" 
+<header id="header" class="uk-background-cover uk-background-norepeat uk-background-center-center uk-background-blend-soft-light uk-background-primary"
   >
 	<div class="uk-container uk-container-large uk-light" uk-height-viewport="offset-top: true">
 		<div uk-grid uk-height-viewport="offset-top: true">
 			<div class="uk-header-left uk-section uk-visible@m uk-flex uk-flex-bottom">
 				<div class="uk-text-xsmall uk-text-bold">
-					<a class="hvr-back" href="#course" uk-scroll="offset: 80"><span class="uk-margin-small-right" 
+					<a class="hvr-back" href="#course" uk-scroll="offset: 80"><span class="uk-margin-small-right"
 						data-uk-icon="arrow-left"></span>Прокрутить вниз</a>
 				</div>
 			</div>
 			<div class="uk-width-expand@m uk-section">
-                <div class="uk-margin-top">          
+                <div class="uk-margin-top">
                   <div class="uk-grid-large" uk-grid uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 200; repeat: true">
                         <div class="">
                           <h1 class="uk-heading-medium uk-margin-remove-top uk-letter-spacing-xl" itemprop="name" >{{ $company->ru_title }}</h1>
@@ -65,17 +65,17 @@
                           <a href="tel:{{ $company->phone_number }}" class="uk-button uk-button-large uk-button-success-outline">Связаться</a>
                             @endif
                                     </div>
-                                
+
 <!--
                         <div class="uk-width-1-2@m uk-text-large uk-flex uk-flex-middle">
-        
+
                         </div>
 -->
                     </div>
 				</div>
 				<div class="uk-margin-xlarge-top">
 <!--
-          <div class="uk-course-pricing" 
+          <div class="uk-course-pricing"
             data-uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 400; repeat: true">
             <div class="uk-grid-large uk-grid-match" data-uk-grid>
               <div class="uk-width-1-5@l">
@@ -145,23 +145,23 @@
         <meta itemprop="availability" content="InStock" />
         <meta itemprop="priceValidUntil" content="2022-12-05" />
           <li>
-                  <span class="uk-margin-small-right" >Цена:</span><span class="uk-margin-small-right" itemprop="Price">27.00</span><span class="uk-margin-small-right" itemprop="priceCurrency" content="SUM">сум</span>
+                  <span class="uk-margin-small-right" >Цена:</span><span class="uk-margin-small-right" itemprop="Price">{{ number_format($company->price, 0, ',', ' ') }}</span><span class="uk-margin-small-right" itemprop="priceCurrency" content="SUM">сум</span>
 
                 </li>
-               
+
                 @if ($company->hasPhoneNumber())
               <li><span class="uk-margin-small-right" uk-icon="icon: receiver"></span>
-                        
+
                             <a class="uk-link-reset"  href="tel:{{ $company->phone_number }}" target="_blank">
                                     {{ $company->phone_number }}
                             </a>
-                        
+
                 </li>@endif
-                
-                   
-            
-            <!--    
-                
+
+
+
+            <!--
+
                 @if ($company->hasUrl())
                   <li><span class="uk-margin-small-right" uk-icon="icon: world"></span>
                         <a class="uk-link-reset"  href="{{ $company->url }}" target="_blank">
@@ -173,10 +173,10 @@
             </ul>
           </div>
 
-         
-           
 
-      
+
+
+
         </div>
       </div>
       <div class="uk-width-1-3@m">
@@ -191,16 +191,16 @@
               </div>
             </li>
             </div>
-           
-        
+
+
           </ul>
-            </div>			
+            </div>
           <h3 class="uk-margin-large-top">Tags</h3>
           <div data-uk-margin>
             <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">UX</span></a>
             <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">Design</span></a>
             <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">UI</span></a>
-            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">Experience</span></a>          
+            <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">Experience</span></a>
           </div>
           <h3 class="uk-margin-large-top">Share Course</h3>
           <div class="uk-margin">
@@ -216,7 +216,7 @@
               </div>
             </div>
           </div>
-        
+
         </div>
       </div>
     </div>
@@ -468,7 +468,7 @@ Content end-->
             <li itemprop="itemListElement" itemscope
       itemtype="http://schema.org/ListItem"><span itemprop="name"><meta itemprop="position" content="4" />{{ $company->getTitle() }}</span></li>
         </ul>
-    
+
     </div>
     </div>
 </section>
