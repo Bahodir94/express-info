@@ -7,7 +7,7 @@
     padding: 0;
     margin: 83px 0;
     flex-wrap: wrap;
-    
+
 }
 .sequence li{
     margin-right: 17px;
@@ -15,7 +15,7 @@
     font-size: 18px;
     /* font-family: 'opensans'; */
     font-weight: 400;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 .sequence li a{
     color: #102840;
@@ -219,18 +219,18 @@
                         <img itemprop="image" uk-img height="200" src="{{ $company->getImage() }}" class="code-mage" alt="Course Title">
                         <div class="uk-position-cover uk-overlay-xlight"></div>
                         <div class="uk-position-top-left" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
-                            <span class="uk-text-bold uk-text-price uk-text-small" itemprop="lowPrice">27.00</span><span class="uk-text-bold uk-text-price uk-text-small" itemprop="priceCurrency" content="SUM">сум</span>
+                            <span class="uk-text-bold uk-text-price uk-text-small" itemprop="lowPrice">{{ number_format($company->price, 0, ',', ' ') }}</span><span class="uk-text-bold uk-text-price uk-text-small" itemprop="priceCurrency" content="SUM">сум</span>
                         </div>
 <!-- ### Favorites
                     <div class="uk-position-top-right">
                         <a href="#" class="uk-icon-button uk-like uk-position-z-index uk-position-relative" data-uk-icon="heart"></a>
-                    </div>            
+                    </div>
 -->
                     </div>
                     <div class="uk-card-body">
                         <h3 itemprop="name" class="uk-card-title uk-margin-small-bottom">{{ $company->ru_title }}</h3>
                         <div itemprop="category" class="uk-text-muted uk-text-small">{!! $company->category->ru_title !!}</div>
-                       
+
                         <ul>
                             @foreach($company->services as $service)
                                 <li><img src="{{ $service->getImage() }}" alt=""></li>
