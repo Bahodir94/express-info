@@ -84,14 +84,15 @@
 				<div class="uk-margin-auto-top" 
 					uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 400; repeat: true">
 					<div class="uk-child-width-1-2@s uk-grid-large uk-margin-medium-top" uk-grid>
+						
 						<div>
-							<h4 class="uk-margin-remove">
-                                Выберите из более чем NNNN компаний </h4>
-							<p class="uk-margin-xsmall-top uk-text-small uk-text-muted uk-text-bold">Distinctively recaptiualize scalable potentialities through scalable web services.</p>
+							<h4 class="uk-margin-remove">Все в одном сайте</h4>
+							<p class="uk-margin-xsmall-top uk-text-small uk-text-muted uk-text-bold">Найди компанию или фрилансера в сфере интернет и наружной рекламы, разработки сайтов и мобильных приложений, юридической помощи и бухгалтерии и многом другом</p>
 						</div>
 						<div>
-							<h4 class="uk-margin-remove">Study online at your own pace</h4>
-							<p class="uk-margin-xsmall-top uk-text-small uk-text-muted uk-text-bold">Assertively actualize goal-oriented models whereas world-class e-services.</p>
+							<h4 class="uk-margin-remove">
+                                Большой выбор</h4>
+							<p class="uk-margin-xsmall-top uk-text-small uk-text-muted uk-text-bold">Выберите более чем из 500 компаний и фрилансеров. Отфильтруй по цене и найди самое выгодное предложение</p>
 						</div>
 					</div>
 				</div>

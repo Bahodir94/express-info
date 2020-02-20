@@ -1,4 +1,4 @@
-<!-- Footer -->
+а<!-- Footer -->
 
 
 <div class="uk-section-secondary uk-section uk-section-large" uk-scrollspy="target: [uk-scrollspy-class]; cls: uk-animation-slide-left-small; delay: false;">
@@ -149,9 +149,9 @@
 
             </div>
 
-            <div class="uk-grid-item-match uk-flex-middle uk-width-medium@m">
+         <!--    <div class="uk-grid-item-match uk-flex-middle uk-width-medium@m">
 
-                <div class="uk-panel uk-width-1-1">
+               <div class="uk-panel uk-width-1-1">
 
                     <div class="uk-margin uk-text-center" uk-scrollspy="target: [uk-scrollspy-class];">
 
@@ -171,7 +171,7 @@
 
                 </div>
 
-            </div>
+            </div> -->
 
 <!--
             <div class="uk-grid-item-match uk-flex-middle uk-width-expand@m">

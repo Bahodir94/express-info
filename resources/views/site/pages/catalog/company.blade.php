@@ -134,8 +134,53 @@
                     <span itemprop="description">{!! $company->ru_description !!}</span>
                 </div>
             @endif
+ <div>
+              <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
+        <meta itemprop="reviewCount" content="89" />
+        <meta itemprop="ratingValue" content="4.4" />
+      </div>
+            <h3>Цена и Контакты</h3>
+            <ul class="uk-list uk-margin-small-top" itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+                <link itemprop="url" href="Дима" />
+        <meta itemprop="availability" content="InStock" />
+        <meta itemprop="priceValidUntil" content="2022-12-05" />
+          <li>
+                  <span class="uk-margin-small-right" >Цена:</span><span class="uk-margin-small-right" itemprop="Price">27.00</span><span class="uk-margin-small-right" itemprop="priceCurrency" content="SUM">сум</span>
 
+                </li>
+               
+                @if ($company->hasPhoneNumber())
+              <li><span class="uk-margin-small-right" uk-icon="icon: receiver"></span>
+                        
+                            <a class="uk-link-reset"  href="tel:{{ $company->phone_number }}" target="_blank">
+                                    {{ $company->phone_number }}
+                            </a>
+                        
+                </li>@endif
+                
+                   
+            
+            <!--    
+                
+                @if ($company->hasUrl())
+                  <li><span class="uk-margin-small-right" uk-icon="icon: world"></span>
+                        <a class="uk-link-reset"  href="{{ $company->url }}" target="_blank">
+                                {{ parse_url($company->url, PHP_URL_HOST) }}
+                        </a>
+                    </li>
+                 @endif
+             !-->
+            </ul>
+          </div>
 
+         
+           
+
+      
+        </div>
+      </div>
+      <div class="uk-width-1-3@m">
+        <div>
           <div class="uk-visible" class="uk-margin-large-top" itemscope itemtype="https://schema.org/FAQPage"><h2 >FAQ</h2>
           <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <ul class="uk-margin-top" data-uk-accordion="multiple: true" >
@@ -149,52 +194,7 @@
            
         
           </ul>
-            </div>
-           
-
-      
-        </div>
-      </div>
-      <div class="uk-width-1-3@m">
-        <div>
-          <div>
-              <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
-        <meta itemprop="reviewCount" content="89" />
-        <meta itemprop="ratingValue" content="4.4" />
-      </div>
-            <h3>Цена и Контакты</h3>
-            <ul class="uk-list uk-margin-small-top" itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
-                <link itemprop="url" href="Дима" />
-        <meta itemprop="availability" content="InStock" />
-        <meta itemprop="priceValidUntil" content="2022-12-05" />
-        
-                <li>
-                        
-                            <a class="uk-link-reset"  href="tel:{{ $company->phone_number }}" target="_blank">
-                                    Дима Цена: <span itemprop="Price">27.00</span><span  itemprop="priceCurrency" content="SUM"> сум</span>
-                            </a>
-                        
-                </li>
-                @if ($company->hasPhoneNumber())
-              <li><span class="uk-margin-small-right" uk-icon="icon: receiver"></span>
-                        
-                            <a class="uk-link-reset"  href="tel:{{ $company->phone_number }}" target="_blank">
-                                    {{ $company->phone_number }}
-                            </a>
-                        
-                </li>
-            <!--    
-                @endif
-                @if ($company->hasUrl())
-                  <li><span class="uk-margin-small-right" uk-icon="icon: world"></span>
-                        <a class="uk-link-reset"  href="{{ $company->url }}" target="_blank">
-                                {{ parse_url($company->url, PHP_URL_HOST) }}
-                        </a>
-                    </li>
-                 @endif
-             !-->
-            </ul>
-          </div>			
+            </div>			
           <h3 class="uk-margin-large-top">Tags</h3>
           <div data-uk-margin>
             <a class="uk-display-inline-block" href="#"><span class="uk-label uk-label-light">UX</span></a>

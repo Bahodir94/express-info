@@ -1,11 +1,13 @@
 @extends('site.layouts.app')
 
-@section('title', 'Справочник Ташкента / Узбекистана | Справочник предприятий Ташкента / Узбекистана')
+@section('title', 'Фриланс биржа узбекистана | Сайт для фрилансера и компаний')
 
 @section('meta')
-    <meta name="title" content="Справочник Ташкента / Узбекистана | Справочник предприятий Ташкента / Узбекистана">
+    <meta name="title" content="фриланс биржа узбекистана | фрилансер сайт">
 @endsection
-
+@section('meta')
+    <meta name="description" content="Каталог фриланс услуг и услуг компаний по продвижению бизнеса. Интернет реклама в Ташкенте. Создание сайта в Ташкенте. Реклама в метро в Ташкенте. Наружная реклама в Ташкенте и многое другое">
+@endsection
 @section('header')
     @include('site.layouts.partials.headers.main')
 @endsection
