@@ -16,6 +16,7 @@ Route::view('/advertising/tablets-ad', 'site.pages.static.tablets_ad');
 Route::view('/advertising/tv-videos', 'site.pages.static.tv_videos');
 Route::view('/advertising/visit-card', 'site.pages.static.visit_card');
 Route::view('/home', 'studio.home');
+Route::view('/site', 'studio.site.index');
 
 Route::redirect('/dosug', '/leisure');
 Route::redirect('/magaziny', '/the-shops');
