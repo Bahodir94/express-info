@@ -219,7 +219,7 @@
                         <img itemprop="image" uk-img height="200" src="{{ $company->getImage() }}" class="code-mage" alt="Course Title">
                         <div class="uk-position-cover uk-overlay-xlight"></div>
                         <div class="uk-position-top-left" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
-                            <span class="uk-text-bold uk-text-price uk-text-small" itemprop="lowPrice">{{ number_format($company->price, 0, ',', ' ') }}</span><span class="uk-text-bold uk-text-price uk-text-small" itemprop="priceCurrency" content="SUM">сум</span>
+                            <span class="uk-text-bold uk-text-price uk-text-small" itemprop="lowPrice">{{ number_format($company->price, 0, ',', '.') }}</span><span class="uk-text-bold uk-text-price uk-text-small" itemprop="priceCurrency" content="SUM">сум</span>
                         </div>
 <!-- ### Favorites
                     <div class="uk-position-top-right">
