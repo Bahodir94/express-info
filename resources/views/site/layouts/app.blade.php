@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     @yield('meta')
-    
+   
     
     <link rel="shortcut icon" type="image/png" href="https://via.placeholder.com/16x16" >
     <link rel="stylesheet" href="{{ asset('assets/css/uikit.css') }}" />
@@ -24,7 +24,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/img/favicons/apple-touch-icon-180x180.png') }}">
     <!-- END Icons -->
     <title>
-        @yield('title') | TezInfo
+        @yield('title') | vid.uz
     </title>
     <script src="{{ asset('assets/js/uikit.js') }}"></script>
     <script src="{{ asset('assets/js/uikit-icons.min.js') }}"></script>
