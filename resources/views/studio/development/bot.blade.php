@@ -396,7 +396,7 @@
                             <div class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-large"
                                  uk-grid>
                                 <div><a class="el-item uk-inline-clip uk-link-reset"
-                                        href=/development/bot/9-portfolio/159-bot-dimax> <img class=el-image alt
+                                        href="javascript: void(0)"> <img class=el-image alt
                                                                                               data-src=/templates/yootheme/cache/slide-f23b6db5.webp
                                                                                               data-srcset="/templates/yootheme/cache/slide-f23b6db5.webp 640w, /templates/yootheme/cache/slide-769d4a50.webp 768w, /templates/yootheme/cache/slide-5c37b471.webp 809w"
                                                                                               data-sizes="(min-width: 640px) 640px"
