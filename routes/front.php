@@ -20,6 +20,14 @@ Route::view('/site', 'studio.site.index');
 Route::view('/site/lange', 'studio.site.landing');
 Route::view('/site/internet-magazin', 'studio.site.eshop');
 Route::view('/site/korp', 'studio.site.korp');
+Route::view('/development/site/catalog', 'studio.development.catalog');
+Route::view('/development/mobile-app/android', 'studio.development.android');
+Route::view('/development/mobile-app/ios', 'studio.development.ios');
+Route::view('/development/bot', 'studio.development.bot');
+Route::view('/prodvizhenie-seo', 'studio.seo.index');
+Route::view('/prodvizhenie-seo/optimizatsiya', 'studio.seo.optimization');
+Route::view('/smm', 'studio.smm');
+Route::view('/lets-talk', 'studio.contacts');
 
 Route::redirect('/dosug', '/leisure');
 Route::redirect('/magaziny', '/the-shops');
