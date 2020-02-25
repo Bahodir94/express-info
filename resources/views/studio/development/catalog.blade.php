@@ -15,21 +15,27 @@
     <link rel=stylesheet href=/media/plg_jchoptimize/assets3/gz/0/17f0ff7938435c0d271523f589baa3e5.css>
     <script type=application/json class="joomla-script-options new">
         {"csrf.token":"70125eaa4983341c663ef5f8297b9f5b","system.paths":{"root":"","base":""},"joomla.jtext":{"JLIB_FORM_FIELD_INVALID":"\u041d\u0435\u043a\u043e\u0440\u0440\u0435\u043a\u0442\u043d\u043e \u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u043e \u043f\u043e\u043b\u0435:&#160;"}}
+
     </script>
     <script type=application/ld+json>
         {"@context":"https://schema.org","@type":"WebSite","url":"https://vid.uz","potentialAction":{"@type":"SearchAction","target":"https://vid.uz/index.php?option=com_search&searchphrase=all&searchword={search_term}","query-input":"required name=search_term"}}
+
     </script>
     <script type=application/ld+json>
         {"@context":"https://schema.org","@type":"Organization","url":"https://vid.uz","logo":"https://vid.uz/http://localhost:8888/vision/images/yootheme/logo.svg"}
+
     </script>
     <script type=application/ld+json>
         {"@context":"https://schema.org","@type":"Organization","name":"Креативная студия Vision","url":"https://vid.uz","sameAs":["https://www.facebook.com/VIDadwert","https://twitter.com/VIDadwert","https://plus.google.com/communities/107091493812491428674","https://www.linkedin.com/company-beta/18050520","https://telegram.me/VIDadwert"]}
+
     </script>
     <script type=application/ld+json>
         {"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://vid.uz","name":"Креативная студия Vision","image":"https://vid.uz/http://localhost:8888/vision/images/yootheme/logo.svg","url":"https://vid.uz","telephone":"+998 97 424 8899","priceRange":0,"address":{"@type":"PostalAddress","streetAddress":"ул.Мусаханова, М.Улугбекский р-н","addressLocality":"Ташкент","addressRegion":"Ташкентская","postalCode":100135,"addressCountry":"UZ"},"geo":{"@type":"GeoCoordinates","latitude":41.30091680000000309291863231919705867767333984375,"longitude":69.250277800000048955553211271762847900390625},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}}
+
     </script>
     <script type=application/ld+json>
         {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://vid.uz/","name":"Главная"}},{"@type":"ListItem","position":2,"item":{"@id":"https://vid.uz/development","name":"Разработка "}},{"@type":"ListItem","position":3,"item":{"@id":"https://vid.uz/site","name":"Создание сайтов"}},{"@type":"ListItem","position":4,"item":{"@id":"https://vid.uz/development/site/catalog","name":"Разработка каталогов"}}]}
+
     </script>
 </head>
 <body class="">
@@ -165,7 +171,8 @@
                         <div class=uk-navbar-left><a href=https://vid.uz class="uk-navbar-item uk-logo"> <img alt=Vid
                                                                                                               height=40px
                                                                                                               src=/images/yootheme/logoB.svg><img
-                                    class=uk-logo-inverse alt=Vid height=40px src=/images/yootheme/logoW.svg></a></div>
+                                        class=uk-logo-inverse alt=Vid height=40px src=/images/yootheme/logoW.svg></a>
+                        </div>
                         <div class=uk-navbar-right>
                             <ul class=uk-navbar-nav>
                                 <li><a href=/>Главная</a></li>
@@ -344,44 +351,46 @@
                                 <li uk-filter-control="[data-tag~='Создание-сайтов']"><a href=#>Создание сайтов</a></li>
                             </ul>
                             <div
-                                class="js-filter uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-large"
-                                uk-grid>
+                                    class="js-filter uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-large"
+                                    uk-grid>
                                 <div data-tag="Дизайн-сайтов Интернет-магазин Под-ключ Создание-сайтов"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img class=el-image
-                                                                                                         alt
-                                                                                                         data-src=/templates/yootheme/cache/grinder-1412225_1920-fdea961c.webp
-                                                                                                         data-srcset="/templates/yootheme/cache/grinder-1412225_1920-fdea961c.webp 640w, /templates/yootheme/cache/grinder-1412225_1920-376e35c0.webp 768w, /templates/yootheme/cache/grinder-1412225_1920-0e9e1165.webp 1024w, /templates/yootheme/cache/grinder-1412225_1920-2fe5d280.webp 1279w, /templates/yootheme/cache/grinder-1412225_1920-89144eed.webp 1280w"
-                                                                                                         data-sizes="(min-width: 640px) 640px"
-                                                                                                         data-width=640
-                                                                                                         data-height=480
-                                                                                                         uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img class=el-image
+                                                                             alt
+                                                                             data-src=/templates/yootheme/cache/grinder-1412225_1920-fdea961c.webp
+                                                                             data-srcset="/templates/yootheme/cache/grinder-1412225_1920-fdea961c.webp 640w, /templates/yootheme/cache/grinder-1412225_1920-376e35c0.webp 768w, /templates/yootheme/cache/grinder-1412225_1920-0e9e1165.webp 1024w, /templates/yootheme/cache/grinder-1412225_1920-2fe5d280.webp 1279w, /templates/yootheme/cache/grinder-1412225_1920-89144eed.webp 1280w"
+                                                                             data-sizes="(min-width: 640px) 640px"
+                                                                             data-width=640
+                                                                             data-height=480
+                                                                             uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Интернет
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom"> Интернет
                                                     магазин электро-инструментов 220volt.uz </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Интернет магазин</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Дизайн-сайтов Корпоративный-сайт Под-ключ Создание-сайтов"><a
-                                        class="el-item uk-inline-clip uk-link-reset" href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/computer-768696_1280-c19092eb.webp
-                                            data-srcset="/templates/yootheme/cache/computer-768696_1280-c19092eb.webp 640w, /templates/yootheme/cache/computer-768696_1280-4e141ec2.webp 768w, /templates/yootheme/cache/computer-768696_1280-6aa8463f.webp 1024w, /templates/yootheme/cache/computer-768696_1280-fb980130.webp 1137w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset" href="javascript: void(0)">
+                                        <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/computer-768696_1280-c19092eb.webp
+                                                data-srcset="/templates/yootheme/cache/computer-768696_1280-c19092eb.webp 640w, /templates/yootheme/cache/computer-768696_1280-4e141ec2.webp 768w, /templates/yootheme/cache/computer-768696_1280-6aa8463f.webp 1024w, /templates/yootheme/cache/computer-768696_1280-fb980130.webp 1137w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
                                                     Многофункциональный сайт для Бухгалтерии </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Корпоративный сайт</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div
-                                    data-tag="Создание-сайтов Корпоративный-сайт Landing-Page Разработка-дизайна Под-ключ">
+                                        data-tag="Создание-сайтов Корпоративный-сайт Landing-Page Разработка-дизайна Под-ключ">
                                     <a class="el-item uk-inline-clip uk-link-reset"
                                        href="javascript: void(0)">
                                         <img class=el-image alt
@@ -392,8 +401,8 @@
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
-                                                    сайт для брокерской компании Grand Broker Trade </h3>
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали сайт для брокерской компании Grand Broker Trade </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Продающий сайт (Landing
                                                     Page)
                                                 </div>
@@ -401,66 +410,72 @@
                                         </div>
                                     </a></div>
                                 <div
-                                    data-tag="Создание-сайтов Корпоративный-сайт Сайт-визитка Разработка-дизайна Под-ключ">
+                                        data-tag="Создание-сайтов Корпоративный-сайт Сайт-визитка Разработка-дизайна Под-ключ">
                                     <a class="el-item uk-inline-clip uk-link-reset"
                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/home-office-1867761_1280-59b228d7.webp
-                                            data-srcset="/templates/yootheme/cache/home-office-1867761_1280-59b228d7.webp 640w, /templates/yootheme/cache/home-office-1867761_1280-93368b0b.webp 768w, /templates/yootheme/cache/home-office-1867761_1280-8c923290.webp 1024w, /templates/yootheme/cache/home-office-1867761_1280-213899b3.webp 1138w, /templates/yootheme/cache/home-office-1867761_1280-9da86da4.webp 1139w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/home-office-1867761_1280-59b228d7.webp
+                                                data-srcset="/templates/yootheme/cache/home-office-1867761_1280-59b228d7.webp 640w, /templates/yootheme/cache/home-office-1867761_1280-93368b0b.webp 768w, /templates/yootheme/cache/home-office-1867761_1280-8c923290.webp 1024w, /templates/yootheme/cache/home-office-1867761_1280-213899b3.webp 1138w, /templates/yootheme/cache/home-office-1867761_1280-9da86da4.webp 1139w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
-                                                    сайт для компании Clutter Free </h3>
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали сайт для компании Clutter Free </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Сайт визитка</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div
-                                    data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
+                                        data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
                                     <a class="el-item uk-inline-clip uk-link-reset"
                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/mac-2619994_1280-d830f6bb.webp
-                                            data-srcset="/templates/yootheme/cache/mac-2619994_1280-d830f6bb.webp 640w, /templates/yootheme/cache/mac-2619994_1280-57b47a92.webp 768w, /templates/yootheme/cache/mac-2619994_1280-d15365dd.webp 1024w, /templates/yootheme/cache/mac-2619994_1280-406322d2.webp 1137w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/mac-2619994_1280-d830f6bb.webp
+                                                data-srcset="/templates/yootheme/cache/mac-2619994_1280-d830f6bb.webp 640w, /templates/yootheme/cache/mac-2619994_1280-57b47a92.webp 768w, /templates/yootheme/cache/mac-2619994_1280-d15365dd.webp 1024w, /templates/yootheme/cache/mac-2619994_1280-406322d2.webp 1137w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
-                                                    сайт для государственного предприятия Unicon </h3>
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали сайт для государственного предприятия Unicon </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Корпоративный сайт</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div
-                                    data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
+                                        data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
                                     <a class="el-item uk-inline-clip uk-link-reset"
                                        href="javascript: void(0)"> <img
-                                            class=el-image alt data-src=/templates/yootheme/cache/rent_3-53a5a8a3.webp
-                                            data-srcset="/templates/yootheme/cache/rent_3-53a5a8a3.webp 640w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/rent_3-53a5a8a3.webp
+                                                data-srcset="/templates/yootheme/cache/rent_3-53a5a8a3.webp 640w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
-                                                    сайт для строительного бараза DiMax </h3>
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали сайт для строительного бараза DiMax </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Корпоративный сайт</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Сайт-каталог Портфолио Под-ключ Коммерческий-сектор"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/photo_2018-07-06_13-16-06-704def05.webp
-                                            data-srcset="/templates/yootheme/cache/photo_2018-07-06_13-16-06-704def05.webp 640w, /templates/yootheme/cache/photo_2018-07-06_13-16-06-2216d34c.webp 768w, /templates/yootheme/cache/photo_2018-07-06_13-16-06-6698d428.webp 893w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/photo_2018-07-06_13-16-06-704def05.webp
+                                                data-srcset="/templates/yootheme/cache/photo_2018-07-06_13-16-06-704def05.webp 640w, /templates/yootheme/cache/photo_2018-07-06_13-16-06-2216d34c.webp 768w, /templates/yootheme/cache/photo_2018-07-06_13-16-06-6698d428.webp 893w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали
                                                     сайт декоративной штукатурки Decor Center </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Сайт каталог с
                                                     портфолио
@@ -469,215 +484,239 @@
                                         </div>
                                     </a></div>
                                 <div
-                                    data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
+                                        data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
                                     <a class="el-item uk-inline-clip uk-link-reset"
                                        href="javascript: void(0)"> <img class=el-image
-                                                                                                         alt
-                                                                                                         data-src=/templates/yootheme/cache/2.2.--2-220a41a6.webp
-                                                                                                         data-srcset="/templates/yootheme/cache/2.2.--2-220a41a6.webp 640w, /templates/yootheme/cache/2.2.--2-7f936eaa.webp 750w, /templates/yootheme/cache/2.2.--2-47393a70.webp 751w"
-                                                                                                         data-sizes="(min-width: 640px) 640px"
-                                                                                                         data-width=640
-                                                                                                         data-height=480
-                                                                                                         uk-img>
+                                                                        alt
+                                                                        data-src=/templates/yootheme/cache/2.2.--2-220a41a6.webp
+                                                                        data-srcset="/templates/yootheme/cache/2.2.--2-220a41a6.webp 640w, /templates/yootheme/cache/2.2.--2-7f936eaa.webp 750w, /templates/yootheme/cache/2.2.--2-47393a70.webp 751w"
+                                                                        data-sizes="(min-width: 640px) 640px"
+                                                                        data-width=640
+                                                                        data-height=480
+                                                                        uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали
                                                     сайт для компании Biznes Bomond </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Корпоративный сайт</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Сайт-визитка Разработка-дизайна Коммерческий-сектор"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img class=el-image
-                                                                                                         alt
-                                                                                                         data-src=/templates/yootheme/cache/instagram-6b5df9ff.webp
-                                                                                                         data-srcset="/templates/yootheme/cache/instagram-6b5df9ff.webp 640w"
-                                                                                                         data-sizes="(min-width: 640px) 640px"
-                                                                                                         data-width=640
-                                                                                                         data-height=480
-                                                                                                         uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img class=el-image
+                                                                             alt
+                                                                             data-src=/templates/yootheme/cache/instagram-6b5df9ff.webp
+                                                                             data-srcset="/templates/yootheme/cache/instagram-6b5df9ff.webp 640w"
+                                                                             data-sizes="(min-width: 640px) 640px"
+                                                                             data-width=640
+                                                                             data-height=480
+                                                                             uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали
                                                     сайт для семейного кафе "Kids Worlds" Vegas, Москва </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Сайт визитка</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Сайт-каталог Коммерческий-сектор"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt data-src=/templates/yootheme/cache/main_03-c86e78f4.webp
-                                            data-srcset="/templates/yootheme/cache/main_03-c86e78f4.webp 640w, /templates/yootheme/cache/main_03-d17d3ab6.webp 697w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/main_03-c86e78f4.webp
+                                                data-srcset="/templates/yootheme/cache/main_03-c86e78f4.webp 640w, /templates/yootheme/cache/main_03-d17d3ab6.webp 697w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали
                                                     сайт для фармацевтической компании JNS LABS </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Сайт каталог</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Landing-Page Под-ключ"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/Housekeeping-fdfcb54e.webp
-                                            data-srcset="/templates/yootheme/cache/Housekeeping-fdfcb54e.webp 640w, /templates/yootheme/cache/Housekeeping-72783967.webp 768w, /templates/yootheme/cache/Housekeeping-2bda469e.webp 1024w, /templates/yootheme/cache/Housekeeping-8c11e7b3.webp 1243w, /templates/yootheme/cache/Housekeeping-b8238e6c.webp 1244w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/Housekeeping-fdfcb54e.webp
+                                                data-srcset="/templates/yootheme/cache/Housekeeping-fdfcb54e.webp 640w, /templates/yootheme/cache/Housekeeping-72783967.webp 768w, /templates/yootheme/cache/Housekeeping-2bda469e.webp 1024w, /templates/yootheme/cache/Housekeeping-8c11e7b3.webp 1243w, /templates/yootheme/cache/Housekeeping-b8238e6c.webp 1244w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Landing Page
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom"> Landing
+                                                    Page
                                                     по химчистке ковров </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Landing Page</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Интернет-магазин Под-ключ"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/kaboompics_Interior-of-a-pub-b87391e7.webp
-                                            data-srcset="/templates/yootheme/cache/kaboompics_Interior-of-a-pub-b87391e7.webp 640w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-37f71dce.webp 768w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-719c5f23.webp 1024w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-e0ac182c.webp 1137w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/kaboompics_Interior-of-a-pub-b87391e7.webp
+                                                data-srcset="/templates/yootheme/cache/kaboompics_Interior-of-a-pub-b87391e7.webp 640w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-37f71dce.webp 768w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-719c5f23.webp 1024w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-e0ac182c.webp 1137w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали
                                                     сайт по продаже систем вызова персонала для iBells </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Интернет магазин</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Landing-Page Под-ключ"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-421f4c2a.webp
-                                            data-srcset="/templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-421f4c2a.webp 640w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-cd9bc003.webp 768w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-9879cceb.webp 1024w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-09498be4.webp 1137w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-421f4c2a.webp
+                                                data-srcset="/templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-421f4c2a.webp 640w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-cd9bc003.webp 768w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-9879cceb.webp 1024w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-09498be4.webp 1137w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Landing Page
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom"> Landing
+                                                    Page
                                                     по продаже систем вызова персонала </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Landing Page</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Корпоративный-сайт Корпоративный-сектор Под-ключ"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/turkey-2193360_1280-fdcd019c.webp
-                                            data-srcset="/templates/yootheme/cache/turkey-2193360_1280-fdcd019c.webp 640w, /templates/yootheme/cache/turkey-2193360_1280-1c1dc8a0.webp 652w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/turkey-2193360_1280-fdcd019c.webp
+                                                data-srcset="/templates/yootheme/cache/turkey-2193360_1280-fdcd019c.webp 640w, /templates/yootheme/cache/turkey-2193360_1280-1c1dc8a0.webp 652w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали
                                                     сайт под ключ для компании Akkra Zar </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Корпоративный сайт</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div
-                                    data-tag="Создание-сайтов Корпоративный-сайт Корпоративный-сектор Дизайн Дизайн-сайтов Под-ключ">
+                                        data-tag="Создание-сайтов Корпоративный-сайт Корпоративный-сектор Дизайн Дизайн-сайтов Под-ключ">
                                     <a class="el-item uk-inline-clip uk-link-reset"
                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-d9b2af15.webp
-                                            data-srcset="/templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-d9b2af15.webp 640w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-5636233c.webp 768w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-6a7a11a7.webp 1024w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-fb4a56a8.webp 1137w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-d9b2af15.webp
+                                                data-srcset="/templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-d9b2af15.webp 640w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-5636233c.webp 768w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-6a7a11a7.webp 1024w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-fb4a56a8.webp 1137w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали
                                                     сайт для адвокатской конторы Kosta Legal </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Корпоративный сайт</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Корпоративный-сайт Госс-сектор"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/izobrazhenie_63606-42717268.webp
-                                            data-srcset="/templates/yootheme/cache/izobrazhenie_63606-42717268.webp 640w, /templates/yootheme/cache/izobrazhenie_63606-cdf5fe41.webp 768w, /templates/yootheme/cache/izobrazhenie_63606-00a8c267.webp 1024w, /templates/yootheme/cache/izobrazhenie_63606-b0bea15d.webp 1279w, /templates/yootheme/cache/izobrazhenie_63606-4dd11c86.webp 1280w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/izobrazhenie_63606-42717268.webp
+                                                data-srcset="/templates/yootheme/cache/izobrazhenie_63606-42717268.webp 640w, /templates/yootheme/cache/izobrazhenie_63606-cdf5fe41.webp 768w, /templates/yootheme/cache/izobrazhenie_63606-00a8c267.webp 1024w, /templates/yootheme/cache/izobrazhenie_63606-b0bea15d.webp 1279w, /templates/yootheme/cache/izobrazhenie_63606-4dd11c86.webp 1280w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали
                                                     сайт Литейно-Механического завода </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Корпоративный сайт</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Landing-Page Под-ключ"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/kaboompics_Man-using-a-tablet-6a4f4bb6.webp
-                                            data-srcset="/templates/yootheme/cache/kaboompics_Man-using-a-tablet-6a4f4bb6.webp 640w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-e5cbc79f.webp 768w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-485a4a64.webp 1024w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-d96a0d6b.webp 1137w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/kaboompics_Man-using-a-tablet-6a4f4bb6.webp
+                                                data-srcset="/templates/yootheme/cache/kaboompics_Man-using-a-tablet-6a4f4bb6.webp 640w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-e5cbc79f.webp 768w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-485a4a64.webp 1024w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-d96a0d6b.webp 1137w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Landing Page
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom"> Landing
+                                                    Page
                                                     по аналитике данных с камер видео-наблюдения. </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Landing Page</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Landing-Page Создание-сайтов Под-ключ"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/intro-nobelic-1-3ae7a71e.webp
-                                            data-srcset="/templates/yootheme/cache/intro-nobelic-1-3ae7a71e.webp 640w, /templates/yootheme/cache/intro-nobelic-1-637c9e85.webp 768w, /templates/yootheme/cache/intro-nobelic-1-4fcfd100.webp 1024w, /templates/yootheme/cache/intro-nobelic-1-47d69fb0.webp 1279w, /templates/yootheme/cache/intro-nobelic-1-18c81ac9.webp 1280w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/intro-nobelic-1-3ae7a71e.webp
+                                                data-srcset="/templates/yootheme/cache/intro-nobelic-1-3ae7a71e.webp 640w, /templates/yootheme/cache/intro-nobelic-1-637c9e85.webp 768w, /templates/yootheme/cache/intro-nobelic-1-4fcfd100.webp 1024w, /templates/yootheme/cache/intro-nobelic-1-47d69fb0.webp 1279w, /templates/yootheme/cache/intro-nobelic-1-18c81ac9.webp 1280w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Landing Page
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom"> Landing
+                                                    Page
                                                     по онлайн видео-наблюдению </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Landing Page</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Landing-Page"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/ventilation-1743280_1280-eaeb2285.webp
-                                            data-srcset="/templates/yootheme/cache/ventilation-1743280_1280-eaeb2285.webp 640w, /templates/yootheme/cache/ventilation-1743280_1280-483a105e.webp 768w, /templates/yootheme/cache/ventilation-1743280_1280-6c40d1a9.webp 984w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/ventilation-1743280_1280-eaeb2285.webp
+                                                data-srcset="/templates/yootheme/cache/ventilation-1743280_1280-eaeb2285.webp 640w, /templates/yootheme/cache/ventilation-1743280_1280-483a105e.webp 768w, /templates/yootheme/cache/ventilation-1743280_1280-6c40d1a9.webp 984w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Landing Page
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom"> Landing
+                                                    Page
                                                     по монтажу вентиляционных систем </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Landing Page</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Интернет-магазин"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/camera-1680666_1280-bcc7d462.webp
-                                            data-srcset="/templates/yootheme/cache/camera-1680666_1280-bcc7d462.webp 640w, /templates/yootheme/cache/camera-1680666_1280-94494a10.webp 768w, /templates/yootheme/cache/camera-1680666_1280-9278cab0.webp 1024w, /templates/yootheme/cache/camera-1680666_1280-66620267.webp 1279w, /templates/yootheme/cache/camera-1680666_1280-6b26a37d.webp 1280w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/camera-1680666_1280-bcc7d462.webp
+                                                data-srcset="/templates/yootheme/cache/camera-1680666_1280-bcc7d462.webp 640w, /templates/yootheme/cache/camera-1680666_1280-94494a10.webp 768w, /templates/yootheme/cache/camera-1680666_1280-9278cab0.webp 1024w, /templates/yootheme/cache/camera-1680666_1280-66620267.webp 1279w, /templates/yootheme/cache/camera-1680666_1280-6b26a37d.webp 1280w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Интернет
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom"> Интернет
                                                     магазин видео-наблюдения </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Интернет магазин</div>
                                             </div>
@@ -692,7 +731,8 @@
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Landing Page
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom"> Landing
+                                                    Page
                                                     по монтажу видеонаблюдения </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Landing Page</div>
                                             </div>
@@ -700,24 +740,26 @@
                                     </div>
                                 </div>
                                 <div data-tag="Создание-сайтов Сайт-каталог Под-ключ"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)"> <img
-                                            class=el-image alt
-                                            data-src=/templates/yootheme/cache/home-portfolio-02-f0b83383.webp
-                                            data-srcset="/templates/yootheme/cache/home-portfolio-02-f0b83383.webp 640w, /templates/yootheme/cache/home-portfolio-02-5cfc729a.webp 768w, /templates/yootheme/cache/home-portfolio-02-7b8bf2b2.webp 1024w, /templates/yootheme/cache/home-portfolio-02-17f878fc.webp 1173w"
-                                            data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)"> <img
+                                                class=el-image alt
+                                                data-src=/templates/yootheme/cache/home-portfolio-02-f0b83383.webp
+                                                data-srcset="/templates/yootheme/cache/home-portfolio-02-f0b83383.webp 640w, /templates/yootheme/cache/home-portfolio-02-5cfc729a.webp 768w, /templates/yootheme/cache/home-portfolio-02-7b8bf2b2.webp 1024w, /templates/yootheme/cache/home-portfolio-02-17f878fc.webp 1173w"
+                                                data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480
+                                                uk-img>
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Разработали
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom">
+                                                    Разработали
                                                     сайт аренды AvtoCity </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Сайт каталог</div>
                                             </div>
                                         </div>
                                     </a></div>
                                 <div data-tag="Создание-сайтов Landing-Page Под-ключ Копирайтинг Дизайн-сайтов"><a
-                                        class="el-item uk-inline-clip uk-link-reset"
-                                        href="javascript: void(0)">
+                                            class="el-item uk-inline-clip uk-link-reset"
+                                            href="javascript: void(0)">
                                         <img class=el-image alt
                                              data-src=/templates/yootheme/cache/proposalbackground-c8c8a21c.webp
                                              data-srcset="/templates/yootheme/cache/proposalbackground-c8c8a21c.webp 640w, /templates/yootheme/cache/proposalbackground-024c01c0.webp 768w, /templates/yootheme/cache/proposalbackground-60d4a343.webp 1024w, /templates/yootheme/cache/proposalbackground-1640dcc3.webp 1279w, /templates/yootheme/cache/proposalbackground-eb2f6118.webp 1280w"
@@ -726,7 +768,8 @@
                                         <div class="uk-overlay-primary uk-position-cover"></div>
                                         <div class=uk-position-center>
                                             <div class="uk-overlay uk-margin-remove-first-child"><h3
-                                                    class="el-title uk-margin-top uk-margin-remove-bottom"> Landing Page
+                                                        class="el-title uk-margin-top uk-margin-remove-bottom"> Landing
+                                                    Page
                                                     по оформлению свадеб для Falento Flowers </h3>
                                                 <div class="el-meta uk-text-meta uk-margin-top">Landing Page</div>
                                             </div>
@@ -768,12 +811,12 @@
                             <div class="form-group uk-width-auto@s"><input type=text name=simplecallback_username
                                                                            class=simplecallback-username maxlength=10>
                                 <input type="hidden" name="70125eaa4983341c663ef5f8297b9f5b" value="1"/> <input
-                                    type=hidden name=module_id value=119/> <input type=hidden name=Itemid value=249>
+                                        type=hidden name=module_id value=119/> <input type=hidden name=Itemid value=249>
                                 <input type=hidden name=simplecallback_page_title value="Разработка каталогов"> <input
-                                    type=hidden name=simplecallback_page_url
-                                    value=https://vid.uz/development/site/catalog> <input type=hidden
-                                                                                          name=simplecallback_custom_data
-                                                                                          value="">
+                                        type=hidden name=simplecallback_page_url
+                                        value=https://vid.uz/development/site/catalog> <input type=hidden
+                                                                                              name=simplecallback_custom_data
+                                                                                              value="">
                                 <button type=submit onClick="yaCounter35958065.reachGoal('buy_button');"
                                         class="el-button uk-button uk-button-default"> Отправить
                                 </button>
@@ -786,18 +829,18 @@
                 <div class="uk-grid-item-match uk-width-1-2@m uk-width-1-1@s">
                     <div class=uk-grid-item-match>
                         <div
-                            class="uk-tile uk-grid-item-match uk-flex-middle uk-background-norepeat uk-background-center-center"
-                            data-src=/images/yootheme/home-contact-texture.svg uk-img>
+                                class="uk-tile uk-grid-item-match uk-flex-middle uk-background-norepeat uk-background-center-center"
+                                data-src=/images/yootheme/home-contact-texture.svg uk-img>
                             <div class=uk-panel>
                                 <div>
                                     <div class=uk-grid-item-match>
                                         <div
-                                            style="background-image: url('/vision/images/yootheme/home-contact-texture.svg');"
-                                            class="uk-background-norepeat uk-background-center-center uk-tile">
+                                                style="background-image: url('/vision/images/yootheme/home-contact-texture.svg');"
+                                                class="uk-background-norepeat uk-background-center-center uk-tile">
                                             <div
-                                                class="uk-margin uk-width-xlarge@m uk-text-left@m uk-text-center uk-panel"
-                                                uk-parallax="opacity: 0.2,1;viewport: 0.6" data-id=page#121
-                                                style="opacity: 0.53;">
+                                                    class="uk-margin uk-width-xlarge@m uk-text-left@m uk-text-center uk-panel"
+                                                    uk-parallax="opacity: 0.2,1;viewport: 0.6" data-id=page#121
+                                                    style="opacity: 0.53;">
                                                 <div class="el-title uk-margin uk-h2"> Индивидуальные решения</div>
                                                 <div class="el-content uk-margin uk-text-lead">Если вы хотите что-то
                                                     уникальное, мы всегда рады найти решение, соответствующее вашим
@@ -952,13 +995,13 @@
                                 <div class=simplecallback-close data-simplecallback-close>&times;</div>
                                 <div class=form-group><label>
                                         <div class="textlabel col-form-label my-1 mr-2"> Ваше имя <span
-                                                style=needreq>*</span></div>
+                                                    style=needreq>*</span></div>
                                         <input type=text placeholder='Ваше имя' name=simplecallback_name required
                                                class="input-block-level form-control mr-sm-2 effect-1"
                                                autocomplete=off/> </label></div>
                                 <div class=form-group><label>
                                         <div class="textlabel col-form-label my-1 mr-2"> Телефон <span
-                                                style=needreq>*</span></div>
+                                                    style=needreq>*</span></div>
                                         <input placeholder=Телефон type=tel pattern='(\+?\d[- .]*){6,14}'
                                                name=simplecallback_phone required
                                                class="input-block-level form-control mr-sm-2" autocomplete=off/>
@@ -971,8 +1014,9 @@
                                 <div style=display:none id=redirectsuccesssimplecallback>noturl</div>
                                 <div class=form-group><input type=text name=simplecallback_username
                                                              class=simplecallback-username maxlength=10> <input
-                                        type="hidden" name="70125eaa4983341c663ef5f8297b9f5b" value="1"/> <input
-                                        type=hidden name=module_id value=161/> <input type=hidden name=Itemid value=249>
+                                            type="hidden" name="70125eaa4983341c663ef5f8297b9f5b" value="1"/> <input
+                                            type=hidden name=module_id value=161/> <input type=hidden name=Itemid
+                                                                                          value=249>
                                     <input type=hidden name=simplecallback_page_title value="Разработка каталогов">
                                     <input type=hidden name=simplecallback_page_url
                                            value=https://vid.uz/development/site/catalog> <input type=hidden

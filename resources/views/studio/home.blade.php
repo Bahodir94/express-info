@@ -425,7 +425,7 @@
                             class="js-filter uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-grid-large"
                             uk-grid>
                             <div data-tag="Дизайн-сайтов Интернет-магазин Под-ключ Создание-сайтов"><a
-                                    class="el-item uk-inline-clip uk-link-reset" href=/2-uncategorised/178-220volt> <img
+                                    class="el-item uk-inline-clip uk-link-reset"{{-- href=/2-uncategorised/178-220volt--}}> <img
                                         class=el-image alt
                                         data-src=/templates/yootheme/cache/grinder-1412225_1920-369f39f8.jpeg
                                         data-srcset="/templates/yootheme/cache/grinder-1412225_1920-369f39f8.jpeg 640w, /templates/yootheme/cache/grinder-1412225_1920-f495b610.jpeg 768w, /templates/yootheme/cache/grinder-1412225_1920-8c835978.jpeg 1024w, /templates/yootheme/cache/grinder-1412225_1920-655984a8.jpeg 1279w, /templates/yootheme/cache/grinder-1412225_1920-d33fef0a.jpeg 1280w"
@@ -440,7 +440,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Дизайн-сайтов Корпоративный-сайт Под-ключ Создание-сайтов"><a
-                                    class="el-item uk-inline-clip uk-link-reset" href=/kp-eda/177-accaud> <img
+                                    class="el-item uk-inline-clip uk-link-reset" {{--href=/kp-eda/177-accaud--}}> <img
                                         class=el-image alt
                                         data-src=/templates/yootheme/cache/computer-768696_1280-91762578.jpeg
                                         data-srcset="/templates/yootheme/cache/computer-768696_1280-91762578.jpeg 640w, /templates/yootheme/cache/computer-768696_1280-3a76f3dd.jpeg 768w, /templates/yootheme/cache/computer-768696_1280-7c2b0ddb.jpeg 1024w, /templates/yootheme/cache/computer-768696_1280-fcba0a0c.jpeg 1137w"
@@ -455,7 +455,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag=Телеграмм-бот><a class="el-item uk-inline-clip uk-link-reset"
-                                                           href=/9-portfolio/159-bot-dimax> <img class=el-image alt
+                                                           {{--href=/9-portfolio/159-bot-dimax--}}> <img class=el-image alt
                                                                                                  data-src=/templates/yootheme/cache/slide-5a027508.jpeg
                                                                                                  data-srcset="/templates/yootheme/cache/slide-5a027508.jpeg 640w, /templates/yootheme/cache/slide-71026313.jpeg 768w, /templates/yootheme/cache/slide-6b0d5285.jpeg 809w"
                                                                                                  data-sizes="(min-width: 640px) 640px"
@@ -472,7 +472,7 @@
                                 </a></div>
                             <div data-tag="Создание-сайтов Корпоративный-сайт Landing-Page Разработка-дизайна Под-ключ">
                                 <a class="el-item uk-inline-clip uk-link-reset"
-                                   href=/10-portfolio/site/156-site-grand-broker-trade> <img class=el-image alt
+                                   {{--href=/10-portfolio/site/156-site-grand-broker-trade--}}> <img class=el-image alt
                                                                                              data-src=/templates/yootheme/cache/hero-katr-8b7f2219.png
                                                                                              data-srcset="/templates/yootheme/cache/hero-katr-8b7f2219.png 640w, /templates/yootheme/cache/hero-katr-8581fffe.png 768w, /templates/yootheme/cache/hero-katr-ba240437.png 977w"
                                                                                              data-sizes="(min-width: 640px) 640px"
@@ -491,7 +491,7 @@
                                 </a></div>
                             <div data-tag="Создание-сайтов Корпоративный-сайт Сайт-визитка Разработка-дизайна Под-ключ">
                                 <a class="el-item uk-inline-clip uk-link-reset"
-                                   href=/10-portfolio/site/155-site-clutter-free> <img class=el-image alt
+                                   {{--href=/10-portfolio/site/155-site-clutter-free--}}> <img class=el-image alt
                                                                                        data-src=/templates/yootheme/cache/home-office-1867761_1280-013ac6de.jpeg
                                                                                        data-srcset="/templates/yootheme/cache/home-office-1867761_1280-013ac6de.jpeg 640w, /templates/yootheme/cache/home-office-1867761_1280-c3304936.jpeg 768w, /templates/yootheme/cache/home-office-1867761_1280-85dbc908.jpeg 1024w, /templates/yootheme/cache/home-office-1867761_1280-62eeb184.jpeg 1138w, /templates/yootheme/cache/home-office-1867761_1280-59965b46.jpeg 1139w"
                                                                                        data-sizes="(min-width: 640px) 640px"
@@ -508,7 +508,7 @@
                                 </a></div>
                             <div
                                 data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
-                                <a class="el-item uk-inline-clip uk-link-reset" href=/10-portfolio/site/157-site-unicon>
+                                <a class="el-item uk-inline-clip uk-link-reset" {{--href=/10-portfolio/site/157-site-unicon--}}>
                                     <img class=el-image alt
                                          data-src=/templates/yootheme/cache/mac-2619994_1280-4c85789a.jpeg
                                          data-srcset="/templates/yootheme/cache/mac-2619994_1280-4c85789a.jpeg 640w, /templates/yootheme/cache/mac-2619994_1280-e785ae3f.jpeg 768w, /templates/yootheme/cache/mac-2619994_1280-fdec8977.jpeg 1024w, /templates/yootheme/cache/mac-2619994_1280-7d7d8ea0.jpeg 1137w"
@@ -524,7 +524,7 @@
                                 </a></div>
                             <div
                                 data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
-                                <a class="el-item uk-inline-clip uk-link-reset" href=/10-portfolio/site/154-site-dimax>
+                                <a class="el-item uk-inline-clip uk-link-reset" {{--href=/10-portfolio/site/154-site-dimax--}}>
                                     <img class=el-image alt data-src=/templates/yootheme/cache/rent_3-b358ba6d.png
                                          data-srcset="/templates/yootheme/cache/rent_3-b358ba6d.png 640w"
                                          data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
@@ -539,7 +539,7 @@
                                 </a></div>
                             <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/2-uncategorised/141-prodvinuli-na-pervye-pozitsii-poiska-sajt-predstavitelstvo-amkodor-v-tashkente>
+                                    {{--href=/2-uncategorised/141-prodvinuli-na-pervye-pozitsii-poiska-sajt-predstavitelstvo-amkodor-v-tashkente--}}>
                                     <img class=el-image alt
                                          data-src=/templates/yootheme/cache/46398194_176477363309991_4635987503998950922_n-a0fec0c0.jpeg
                                          data-srcset="/templates/yootheme/cache/46398194_176477363309991_4635987503998950922_n-a0fec0c0.jpeg 640w"
@@ -557,7 +557,7 @@
                                 </a></div>
                             <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/2-uncategorised/140-prodvinuli-na-pervye-pozitsii-poiska-sajt-kompanii-shistoff-uz>
+                                    {{--href=/2-uncategorised/140-prodvinuli-na-pervye-pozitsii-poiska-sajt-kompanii-shistoff-uz--}}>
                                     <img class=el-image alt
                                          data-src=/templates/yootheme/cache/Housekeeping-01eace5b.jpeg
                                          data-srcset="/templates/yootheme/cache/Housekeeping-01eace5b.jpeg 640w, /templates/yootheme/cache/Housekeeping-aaea18fe.jpeg 768w, /templates/yootheme/cache/Housekeeping-021300ba.jpeg 1024w, /templates/yootheme/cache/Housekeeping-c91963d5.jpeg 1243w, /templates/yootheme/cache/Housekeeping-acd4c915.jpeg 1244w"
@@ -575,7 +575,7 @@
                                 </a></div>
                             <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/2-uncategorised/139-prodvinuli-na-pervye-pozitsii-poiska-sajt-kompanii-majortex>
+                                    {{--href=/2-uncategorised/139-prodvinuli-na-pervye-pozitsii-poiska-sajt-kompanii-majortex--}}>
                                     <img class=el-image alt
                                          data-src=/templates/yootheme/cache/sewing-machine-324764_1280-18846cc7.jpeg
                                          data-srcset="/templates/yootheme/cache/sewing-machine-324764_1280-18846cc7.jpeg 640w, /templates/yootheme/cache/sewing-machine-324764_1280-b384ba62.jpeg 768w, /templates/yootheme/cache/sewing-machine-324764_1280-c021d303.jpeg 1024w, /templates/yootheme/cache/sewing-machine-324764_1280-40b0d4d4.jpeg 1137w"
@@ -592,7 +592,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Создание-сайтов Сайт-каталог Портфолио Под-ключ Коммерческий-сектор"><a
-                                    class="el-item uk-inline-clip uk-link-reset" href=/2-uncategorised/130-decor-center>
+                                    class="el-item uk-inline-clip uk-link-reset" {{--href=/2-uncategorised/130-decor-center--}}>
                                     <img class=el-image alt
                                          data-src=/templates/yootheme/cache/photo_2018-07-06_13-16-06-60cacabb.jpeg
                                          data-srcset="/templates/yootheme/cache/photo_2018-07-06_13-16-06-60cacabb.jpeg 640w, /templates/yootheme/cache/photo_2018-07-06_13-16-06-3653db08.jpeg 768w, /templates/yootheme/cache/photo_2018-07-06_13-16-06-ecdc445e.jpeg 893w"
@@ -609,7 +609,7 @@
                                 </a></div>
                             <div
                                 data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
-                                <a class="el-item uk-inline-clip uk-link-reset" href=/10-portfolio/site/128-bomond> <img
+                                <a class="el-item uk-inline-clip uk-link-reset" {{--href=/10-portfolio/site/128-bomond--}}> <img
                                         class=el-image alt data-src=/templates/yootheme/cache/2.2.--2-8e516cce.jpeg
                                         data-srcset="/templates/yootheme/cache/2.2.--2-8e516cce.jpeg 640w, /templates/yootheme/cache/2.2.--2-82a95a1c.jpeg 750w, /templates/yootheme/cache/2.2.--2-fef5bf7a.jpeg 751w"
                                         data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
@@ -623,7 +623,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Создание-сайтов Сайт-визитка Разработка-дизайна Коммерческий-сектор"><a
-                                    class="el-item uk-inline-clip uk-link-reset" href=/10-portfolio/site/127-vegas> <img
+                                    class="el-item uk-inline-clip uk-link-reset" {{--href=/10-portfolio/site/127-vegas--}}> <img
                                         class=el-image alt data-src=/templates/yootheme/cache/instagram-fb36b979.png
                                         data-srcset="/templates/yootheme/cache/instagram-fb36b979.png 640w"
                                         data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
@@ -637,7 +637,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Создание-сайтов Сайт-каталог Коммерческий-сектор"><a
-                                    class="el-item uk-inline-clip uk-link-reset" href=/10-portfolio/site/108-jns-labs>
+                                    class="el-item uk-inline-clip uk-link-reset" {{--href=/10-portfolio/site/108-jns-labs--}}>
                                     <img class=el-image alt data-src=/templates/yootheme/cache/main_03-ca46cced.jpeg
                                          data-srcset="/templates/yootheme/cache/main_03-ca46cced.jpeg 640w, /templates/yootheme/cache/main_03-a495ace0.jpeg 697w"
                                          data-sizes="(min-width: 640px) 640px" data-width=640 data-height=480 uk-img>
@@ -652,7 +652,7 @@
                                 </a></div>
                             <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/15-portfolio/advancement/91-korean-seo> <img class=el-image alt
+                                    {{--href=/15-portfolio/advancement/91-korean-seo--}}> <img class=el-image alt
                                                                                        data-src=/templates/yootheme/cache/531a7764454109.5ad33e5797d69-2e86bb30.jpeg
                                                                                        data-srcset="/templates/yootheme/cache/531a7764454109.5ad33e5797d69-2e86bb30.jpeg 640w, /templates/yootheme/cache/531a7764454109.5ad33e5797d69-4ebda984.jpeg 768w, /templates/yootheme/cache/531a7764454109.5ad33e5797d69-f5954df5.jpeg 1024w, /templates/yootheme/cache/531a7764454109.5ad33e5797d69-c51c99fc.jpeg 1279w, /templates/yootheme/cache/531a7764454109.5ad33e5797d69-0332b3c9.jpeg 1280w"
                                                                                        data-sizes="(min-width: 640px) 640px"
@@ -671,7 +671,7 @@
                                 </a></div>
                             <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/15-portfolio/advancement/90-220volt-seo> <img class=el-image alt
+                                    {{--href=/15-portfolio/advancement/90-220volt-seo--}}> <img class=el-image alt
                                                                                         data-src=/templates/yootheme/cache/equipment-heavy-industry-237997-1-bfd085d5.jpeg
                                                                                         data-srcset="/templates/yootheme/cache/equipment-heavy-industry-237997-1-bfd085d5.jpeg 640w, /templates/yootheme/cache/equipment-heavy-industry-237997-1-e39c6e71.jpeg 768w, /templates/yootheme/cache/equipment-heavy-industry-237997-1-c0428cda.jpeg 1024w, /templates/yootheme/cache/equipment-heavy-industry-237997-1-4368a84a.jpeg 1279w, /templates/yootheme/cache/equipment-heavy-industry-237997-1-bbf0d81f.jpeg 1280w"
                                                                                         data-sizes="(min-width: 640px) 640px"
@@ -690,7 +690,7 @@
                                 </a></div>
                             <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/15-portfolio/advancement/61-ibells> <img class=el-image alt
+                                    {{--href=/15-portfolio/advancement/61-ibells--}}> <img class=el-image alt
                                                                                    data-src=/templates/yootheme/cache/kaboompics_Top-View-Coffee-with-Heart-Shape-cake-Macbook-Laptop-Man-354fec34.jpeg
                                                                                    data-srcset="/templates/yootheme/cache/kaboompics_Top-View-Coffee-with-Heart-Shape-cake-Macbook-Laptop-Man-354fec34.jpeg 640w, /templates/yootheme/cache/kaboompics_Top-View-Coffee-with-Heart-Shape-cake-Macbook-Laptop-Man-9e4f3a91.jpeg 768w, /templates/yootheme/cache/kaboompics_Top-View-Coffee-with-Heart-Shape-cake-Macbook-Laptop-Man-40969dd4.jpeg 1024w, /templates/yootheme/cache/kaboompics_Top-View-Coffee-with-Heart-Shape-cake-Macbook-Laptop-Man-c0079a03.jpeg 1137w"
                                                                                    data-sizes="(min-width: 640px) 640px"
@@ -708,7 +708,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Дизайн логотип"><a class="el-item uk-inline-clip uk-link-reset"
-                                                              href=/18-portfolio/design/59-foodie-logo> <img
+                                                              {{--href=/18-portfolio/design/59-foodie-logo--}}> <img
                                         class=el-image alt
                                         data-src=/templates/yootheme/cache/people-2595757_1280-5b4d3e75.jpeg
                                         data-srcset="/templates/yootheme/cache/people-2595757_1280-5b4d3e75.jpeg 640w, /templates/yootheme/cache/people-2595757_1280-53a64e0b.jpeg 768w, /templates/yootheme/cache/people-2595757_1280-92570a68.jpeg 1024w, /templates/yootheme/cache/people-2595757_1280-ee9da068.jpeg 1197w"
@@ -724,7 +724,7 @@
                                 </a></div>
                             <div data-tag="Создание-сайтов Landing-Page Под-ключ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/11-portfolio/site/lange/58-clean-lange> <img class=el-image alt
+                                    {{--href=/11-portfolio/site/lange/58-clean-lange--}}> <img class=el-image alt
                                                                                        data-src=/templates/yootheme/cache/Housekeeping-01eace5b.jpeg
                                                                                        data-srcset="/templates/yootheme/cache/Housekeeping-01eace5b.jpeg 640w, /templates/yootheme/cache/Housekeeping-aaea18fe.jpeg 768w, /templates/yootheme/cache/Housekeeping-021300ba.jpeg 1024w, /templates/yootheme/cache/Housekeeping-c91963d5.jpeg 1243w, /templates/yootheme/cache/Housekeeping-acd4c915.jpeg 1244w"
                                                                                        data-sizes="(min-width: 640px) 640px"
@@ -740,7 +740,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Дизайн логотип"><a class="el-item uk-inline-clip uk-link-reset"
-                                                              href=/18-portfolio/design/57-capsula> <img class=el-image
+                                                              {{--href=/18-portfolio/design/57-capsula--}}> <img class=el-image
                                                                                                          alt
                                                                                                          data-src=/templates/yootheme/cache/kaboompics_Man-in-a-red-sneaker-shoes-d8f74781.jpeg
                                                                                                          data-srcset="/templates/yootheme/cache/kaboompics_Man-in-a-red-sneaker-shoes-d8f74781.jpeg 640w, /templates/yootheme/cache/kaboompics_Man-in-a-red-sneaker-shoes-73f79124.jpeg 768w, /templates/yootheme/cache/kaboompics_Man-in-a-red-sneaker-shoes-0b4aff5e.jpeg 1024w, /templates/yootheme/cache/kaboompics_Man-in-a-red-sneaker-shoes-8bdbf889.jpeg 1137w"
@@ -759,7 +759,7 @@
                                 </a></div>
                             <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/15-portfolio/advancement/55-kosta-seo> <img class=el-image alt
+                                    {{--href=/15-portfolio/advancement/55-kosta-seo--}}> <img class=el-image alt
                                                                                       data-src=/templates/yootheme/cache/kaboompics_Close-up-of-golden-journals-in-the-office-f1e391c2.jpeg
                                                                                       data-srcset="/templates/yootheme/cache/kaboompics_Close-up-of-golden-journals-in-the-office-f1e391c2.jpeg 640w, /templates/yootheme/cache/kaboompics_Close-up-of-golden-journals-in-the-office-5ae34767.jpeg 768w, /templates/yootheme/cache/kaboompics_Close-up-of-golden-journals-in-the-office-b42e7a0a.jpeg 1024w, /templates/yootheme/cache/kaboompics_Close-up-of-golden-journals-in-the-office-34bf7ddd.jpeg 1137w"
                                                                                       data-sizes="(min-width: 640px) 640px"
@@ -778,7 +778,7 @@
                                 </a></div>
                             <div data-tag="Создание-сайтов Интернет-магазин Под-ключ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/13-portfolio/site/shop/54-shop-ibells> <img class=el-image alt
+                                    {{--href=/13-portfolio/site/shop/54-shop-ibells--}}> <img class=el-image alt
                                                                                       data-src=/templates/yootheme/cache/kaboompics_Interior-of-a-pub-30706d36.jpeg
                                                                                       data-srcset="/templates/yootheme/cache/kaboompics_Interior-of-a-pub-30706d36.jpeg 640w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-9b70bb93.jpeg 768w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-d7eccd88.jpeg 1024w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-577dca5f.jpeg 1137w"
                                                                                       data-sizes="(min-width: 640px) 640px"
@@ -795,7 +795,7 @@
                                 </a></div>
                             <div data-tag="Создание-сайтов Landing-Page Под-ключ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/11-portfolio/site/lange/53-ibells-lange> <img class=el-image alt
+                                    {{--href=/11-portfolio/site/lange/53-ibells-lange--}}> <img class=el-image alt
                                                                                         data-src=/templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-1f8d6961.jpeg
                                                                                         data-srcset="/templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-1f8d6961.jpeg 640w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-b48dbfc4.jpeg 768w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-197fbe37.jpeg 1024w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-99eeb9e0.jpeg 1137w"
                                                                                         data-sizes="(min-width: 640px) 640px"
@@ -811,7 +811,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Дизайн логотип"><a class="el-item uk-inline-clip uk-link-reset"
-                                                              href=/18-portfolio/design/51-ibells-logo> <img
+                                                              {{--href=/18-portfolio/design/51-ibells-logo--}}> <img
                                         class=el-image alt
                                         data-src=/templates/yootheme/cache/kaboompics_Macbook-iPhone-Notebook-Cheese-Cake-and-Cup-of-Coffee-cd0658f5.jpeg
                                         data-srcset="/templates/yootheme/cache/kaboompics_Macbook-iPhone-Notebook-Cheese-Cake-and-Cup-of-Coffee-cd0658f5.jpeg 640w, /templates/yootheme/cache/kaboompics_Macbook-iPhone-Notebook-Cheese-Cake-and-Cup-of-Coffee-66068e50.jpeg 768w, /templates/yootheme/cache/kaboompics_Macbook-iPhone-Notebook-Cheese-Cake-and-Cup-of-Coffee-5f52f3d3.jpeg 1024w, /templates/yootheme/cache/kaboompics_Macbook-iPhone-Notebook-Cheese-Cake-and-Cup-of-Coffee-dfc3f404.jpeg 1137w"
@@ -826,7 +826,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Дизайн Формы-подписок"><a class="el-item uk-inline-clip uk-link-reset"
-                                                                     href=/18-portfolio/design/50-form-kosta> <img
+                                                                     {{--href=/18-portfolio/design/50-form-kosta--}}> <img
                                         class=el-image alt
                                         data-src=/templates/yootheme/cache/kaboompics_Stylish-workspace-with-Macbook-Pro-8a421d95.jpeg
                                         data-srcset="/templates/yootheme/cache/kaboompics_Stylish-workspace-with-Macbook-Pro-8a421d95.jpeg 640w, /templates/yootheme/cache/kaboompics_Stylish-workspace-with-Macbook-Pro-2142cb30.jpeg 768w, /templates/yootheme/cache/kaboompics_Stylish-workspace-with-Macbook-Pro-eb3a067d.jpeg 1024w, /templates/yootheme/cache/kaboompics_Stylish-workspace-with-Macbook-Pro-6bab01aa.jpeg 1137w"
@@ -857,7 +857,7 @@
                                 </a></div>
                             <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/15-portfolio/advancement/48-akra-seo> <img class=el-image alt
+                                    {{--href=/15-portfolio/advancement/48-akra-seo--}}> <img class=el-image alt
                                                                                      data-src=/templates/yootheme/cache/machu-picchu-1209644_1280-7488313a.jpeg
                                                                                      data-srcset="/templates/yootheme/cache/machu-picchu-1209644_1280-7488313a.jpeg 640w, /templates/yootheme/cache/machu-picchu-1209644_1280-a19eaab5.jpeg 768w, /templates/yootheme/cache/machu-picchu-1209644_1280-c625d33d.jpeg 960w"
                                                                                      data-sizes="(min-width: 640px) 640px"
@@ -876,7 +876,7 @@
                                 </a></div>
                             <div data-tag="Создание-сайтов Корпоративный-сайт Корпоративный-сектор Под-ключ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/12-portfolio/site/korp/47-site-akra> <img class=el-image alt
+                                    {{--href=/12-portfolio/site/korp/47-site-akra--}}> <img class=el-image alt
                                                                                     data-src=/templates/yootheme/cache/turkey-2193360_1280-a646be09.jpeg
                                                                                     data-srcset="/templates/yootheme/cache/turkey-2193360_1280-a646be09.jpeg 640w, /templates/yootheme/cache/turkey-2193360_1280-902d32b9.jpeg 652w"
                                                                                     data-sizes="(min-width: 640px) 640px"
@@ -894,7 +894,7 @@
                             <div
                                 data-tag="Создание-сайтов Корпоративный-сайт Корпоративный-сектор Дизайн Дизайн-сайтов Под-ключ">
                                 <a class="el-item uk-inline-clip uk-link-reset"
-                                   href=/12-portfolio/site/korp/46-site-kosta> <img class=el-image alt
+                                   {{--href=/12-portfolio/site/korp/46-site-kosta--}}> <img class=el-image alt
                                                                                     data-src=/templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-01dcfa10.jpeg
                                                                                     data-srcset="/templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-01dcfa10.jpeg 640w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-aadc2cb5.jpeg 768w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-0a4c04f5.jpeg 1024w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-8add0322.jpeg 1137w"
                                                                                     data-sizes="(min-width: 640px) 640px"
@@ -911,7 +911,7 @@
                                 </a></div>
                             <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/15-portfolio/advancement/45-seo-lmz> <img class=el-image alt
+                                    {{--href=/15-portfolio/advancement/45-seo-lmz--}}> <img class=el-image alt
                                                                                     data-src=/templates/yootheme/cache/1.1-dd84784b.jpeg
                                                                                     data-srcset="/templates/yootheme/cache/1.1-dd84784b.jpeg 640w, /templates/yootheme/cache/1.1-7684aeee.jpeg 768w, /templates/yootheme/cache/1.1-06a0e677.jpeg 1024w, /templates/yootheme/cache/1.1-bb69b175.jpeg 1279w, /templates/yootheme/cache/1.1-41b78da8.jpeg 1280w"
                                                                                     data-sizes="(min-width: 640px) 640px"
@@ -929,7 +929,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Дизайн логотип"><a class="el-item uk-inline-clip uk-link-reset"
-                                                              href=/18-portfolio/design/44-brand-vidcom> <img
+                                                              {{--href=/18-portfolio/design/44-brand-vidcom--}}> <img
                                         class=el-image alt
                                         data-src=/templates/yootheme/cache/camera-502407_1280-e2fb0f33.jpeg
                                         data-srcset="/templates/yootheme/cache/camera-502407_1280-e2fb0f33.jpeg 640w, /templates/yootheme/cache/camera-502407_1280-db672e1c.jpeg 768w, /templates/yootheme/cache/camera-502407_1280-6ad90821.jpeg 960w"
@@ -944,7 +944,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Создание-сайтов Корпоративный-сайт Госс-сектор"><a
-                                    class="el-item uk-inline-clip uk-link-reset" href=/10-portfolio/site/43-lmz-site>
+                                    class="el-item uk-inline-clip uk-link-reset" {{--href=/10-portfolio/site/43-lmz-site--}}>
                                     <img class=el-image alt
                                          data-src=/templates/yootheme/cache/izobrazhenie_63606-6c34370c.jpeg
                                          data-srcset="/templates/yootheme/cache/izobrazhenie_63606-6c34370c.jpeg 640w, /templates/yootheme/cache/izobrazhenie_63606-c734e1a9.jpeg 768w, /templates/yootheme/cache/izobrazhenie_63606-cff59dc5.jpeg 1024w, /templates/yootheme/cache/izobrazhenie_63606-723ccac7.jpeg 1279w, /templates/yootheme/cache/izobrazhenie_63606-88e2f61a.jpeg 1280w"
@@ -960,7 +960,7 @@
                                 </a></div>
                             <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/15-portfolio/advancement/42-seo-optimizirovali-sajt-vidcom> <img
+                                    {{--href=/15-portfolio/advancement/42-seo-optimizirovali-sajt-vidcom--}}> <img
                                         class=el-image alt
                                         data-src=/templates/yootheme/cache/camera-1932099_1280-5f6ad455.jpeg
                                         data-srcset="/templates/yootheme/cache/camera-1932099_1280-5f6ad455.jpeg 640w, /templates/yootheme/cache/camera-1932099_1280-f46a02f0.jpeg 768w, /templates/yootheme/cache/camera-1932099_1280-55185415.jpeg 1024w, /templates/yootheme/cache/camera-1932099_1280-d58953c2.jpeg 1137w"
@@ -978,7 +978,7 @@
                                 </a></div>
                             <div data-tag="Создание-сайтов Landing-Page Под-ключ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/11-portfolio/site/lange/38-macro-vidcom> <img class=el-image alt
+                                    {{--href=/11-portfolio/site/lange/38-macro-vidcom--}}> <img class=el-image alt
                                                                                         data-src=/templates/yootheme/cache/kaboompics_Man-using-a-tablet-f6e5dd9b.jpeg
                                                                                         data-srcset="/templates/yootheme/cache/kaboompics_Man-using-a-tablet-f6e5dd9b.jpeg 640w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-5de50b3e.jpeg 768w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-62ecca0e.jpeg 1024w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-e27dcdd9.jpeg 1137w"
                                                                                         data-sizes="(min-width: 640px) 640px"
@@ -995,7 +995,7 @@
                                 </a></div>
                             <div data-tag="Landing-Page Создание-сайтов Под-ключ"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/11-portfolio/site/lange/39-online-vidcom> <img class=el-image alt
+                                    {{--href=/11-portfolio/site/lange/39-online-vidcom--}}> <img class=el-image alt
                                                                                          data-src=/templates/yootheme/cache/intro-nobelic-1-5a0b0ea1.png
                                                                                          data-srcset="/templates/yootheme/cache/intro-nobelic-1-5a0b0ea1.png 640w, /templates/yootheme/cache/intro-nobelic-1-4ba577ec.png 768w, /templates/yootheme/cache/intro-nobelic-1-1b0f17c1.png 1024w, /templates/yootheme/cache/intro-nobelic-1-e146f3fc.png 1279w, /templates/yootheme/cache/intro-nobelic-1-40ecc6e4.png 1280w"
                                                                                          data-sizes="(min-width: 640px) 640px"
@@ -1011,7 +1011,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Создание-сайтов Landing-Page"><a class="el-item uk-inline-clip uk-link-reset"
-                                                                            href=/11-portfolio/site/lange/41-ventsys-vidcom>
+                                                                            {{--href=/11-portfolio/site/lange/41-ventsys-vidcom--}}>
                                     <img class=el-image alt
                                          data-src=/templates/yootheme/cache/ventilation-1743280_1280-a6b05fef.jpeg
                                          data-srcset="/templates/yootheme/cache/ventilation-1743280_1280-a6b05fef.jpeg 640w, /templates/yootheme/cache/ventilation-1743280_1280-afbbdae3.jpeg 768w, /templates/yootheme/cache/ventilation-1743280_1280-00c1f36d.jpeg 984w"
@@ -1027,7 +1027,7 @@
                                 </a></div>
                             <div data-tag="Создание-сайтов Интернет-магазин"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/13-portfolio/site/shop/37-vidcom-shop> <img class=el-image alt
+                                    {{--href=/13-portfolio/site/shop/37-vidcom-shop--}}> <img class=el-image alt
                                                                                       data-src=/templates/yootheme/cache/camera-1680666_1280-9d10b08d.jpeg
                                                                                       data-srcset="/templates/yootheme/cache/camera-1680666_1280-9d10b08d.jpeg 640w, /templates/yootheme/cache/camera-1680666_1280-674270cd.jpeg 768w, /templates/yootheme/cache/camera-1680666_1280-d420dcbc.jpeg 1024w, /templates/yootheme/cache/camera-1680666_1280-fc5e58bd.jpeg 1279w, /templates/yootheme/cache/camera-1680666_1280-2d5fe6a3.jpeg 1280w"
                                                                                       data-sizes="(min-width: 640px) 640px"
@@ -1059,7 +1059,7 @@
                                 </div>
                             </div>
                             <div data-tag="Создание-сайтов Сайт-каталог Под-ключ"><a
-                                    class="el-item uk-inline-clip uk-link-reset" href=/10-portfolio/site/33-avtocity>
+                                    class="el-item uk-inline-clip uk-link-reset" {{--href=/10-portfolio/site/33-avtocity--}}>
                                     <img class=el-image alt
                                          data-src=/templates/yootheme/cache/home-portfolio-02-98443d96.jpeg
                                          data-srcset="/templates/yootheme/cache/home-portfolio-02-98443d96.jpeg 640w, /templates/yootheme/cache/home-portfolio-02-f0ac817c.jpeg 768w, /templates/yootheme/cache/home-portfolio-02-adc66759.jpeg 1024w, /templates/yootheme/cache/home-portfolio-02-1fc80ee9.jpeg 1173w"
@@ -1075,7 +1075,7 @@
                                 </a></div>
                             <div data-tag="Создание-сайтов Landing-Page Под-ключ Копирайтинг Дизайн-сайтов"><a
                                     class="el-item uk-inline-clip uk-link-reset"
-                                    href=/11-portfolio/site/lange/32-landing-page-po-oformleniyu-svadeb-tsvetami> <img
+                                    {{--href=/11-portfolio/site/lange/32-landing-page-po-oformleniyu-svadeb-tsvetami--}}> <img
                                         class=el-image alt
                                         data-src=/templates/yootheme/cache/proposalbackground-974e67fd.jpeg
                                         data-srcset="/templates/yootheme/cache/proposalbackground-974e67fd.jpeg 640w, /templates/yootheme/cache/proposalbackground-5544e815.jpeg 768w, /templates/yootheme/cache/proposalbackground-5fa409aa.jpeg 1024w, /templates/yootheme/cache/proposalbackground-cc207fdc.jpeg 1279w, /templates/yootheme/cache/proposalbackground-36fe4301.jpeg 1280w"
