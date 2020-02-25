@@ -841,7 +841,7 @@
                                     </div>
                                 </a></div>
                             <div data-tag="Дизайн логотип"><a class="el-item uk-inline-clip uk-link-reset"
-                                                              href=/18-portfolio/design/49-akkra-logo> <img
+                                                              {{--href=/18-portfolio/design/49-akkra-logo--}}> <img
                                         class=el-image alt
                                         data-src=/templates/yootheme/cache/photo_2017-12-30_23-09-29-903ebb98.jpeg
                                         data-srcset="/templates/yootheme/cache/photo_2017-12-30_23-09-29-903ebb98.jpeg 640w, /templates/yootheme/cache/photo_2017-12-30_23-09-29-52343470.jpeg 768w, /templates/yootheme/cache/photo_2017-12-30_23-09-29-6c30fb49.jpeg 1024w, /templates/yootheme/cache/photo_2017-12-30_23-09-29-8b0583c5.jpeg 1138w, /templates/yootheme/cache/photo_2017-12-30_23-09-29-b07d6907.jpeg 1139w"
