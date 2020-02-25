@@ -403,7 +403,7 @@
                                 uk-grid>
                                 <div data-tag="Дизайн-сайтов Интернет-магазин Под-ключ Создание-сайтов"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/2-uncategorised/178-220volt> <img class=el-image alt
+                                        {{--href=/site/korp/2-uncategorised/178-220volt--}}> <img class=el-image alt
                                                                                           data-src=/templates/yootheme/cache/grinder-1412225_1920-fdea961c.webp
                                                                                           data-srcset="/templates/yootheme/cache/grinder-1412225_1920-fdea961c.webp 640w, /templates/yootheme/cache/grinder-1412225_1920-376e35c0.webp 768w, /templates/yootheme/cache/grinder-1412225_1920-0e9e1165.webp 1024w, /templates/yootheme/cache/grinder-1412225_1920-2fe5d280.webp 1279w, /templates/yootheme/cache/grinder-1412225_1920-89144eed.webp 1280w"
                                                                                           data-sizes="(min-width: 640px) 640px"
@@ -436,7 +436,7 @@
                                 <div
                                     data-tag="Создание-сайтов Корпоративный-сайт Landing-Page Разработка-дизайна Под-ключ">
                                     <a class="el-item uk-inline-clip uk-link-reset"
-                                       href=/site/korp/10-portfolio/site/156-site-grand-broker-trade> <img
+                                       {{--href=/site/korp/10-portfolio/site/156-site-grand-broker-trade--}}> <img
                                             class=el-image alt
                                             data-src=/templates/yootheme/cache/hero-katr-830528c5.webp
                                             data-srcset="/templates/yootheme/cache/hero-katr-830528c5.webp 640w, /templates/yootheme/cache/hero-katr-0fa281d0.webp 768w, /templates/yootheme/cache/hero-katr-50b890df.webp 977w"
@@ -455,7 +455,7 @@
                                 <div
                                     data-tag="Создание-сайтов Корпоративный-сайт Сайт-визитка Разработка-дизайна Под-ключ">
                                     <a class="el-item uk-inline-clip uk-link-reset"
-                                       href=/site/korp/10-portfolio/site/155-site-clutter-free> <img class=el-image alt
+                                       {{--href=/site/korp/10-portfolio/site/155-site-clutter-free--}}> <img class=el-image alt
                                                                                                      data-src=/templates/yootheme/cache/home-office-1867761_1280-59b228d7.webp
                                                                                                      data-srcset="/templates/yootheme/cache/home-office-1867761_1280-59b228d7.webp 640w, /templates/yootheme/cache/home-office-1867761_1280-93368b0b.webp 768w, /templates/yootheme/cache/home-office-1867761_1280-8c923290.webp 1024w, /templates/yootheme/cache/home-office-1867761_1280-213899b3.webp 1138w, /templates/yootheme/cache/home-office-1867761_1280-9da86da4.webp 1139w"
                                                                                                      data-sizes="(min-width: 640px) 640px"
@@ -474,7 +474,7 @@
                                 <div
                                     data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
                                     <a class="el-item uk-inline-clip uk-link-reset"
-                                       href=/site/korp/10-portfolio/site/157-site-unicon> <img class=el-image alt
+                                       {{--href=/site/korp/10-portfolio/site/157-site-unicon--}}> <img class=el-image alt
                                                                                                data-src=/templates/yootheme/cache/mac-2619994_1280-d830f6bb.webp
                                                                                                data-srcset="/templates/yootheme/cache/mac-2619994_1280-d830f6bb.webp 640w, /templates/yootheme/cache/mac-2619994_1280-57b47a92.webp 768w, /templates/yootheme/cache/mac-2619994_1280-d15365dd.webp 1024w, /templates/yootheme/cache/mac-2619994_1280-406322d2.webp 1137w"
                                                                                                data-sizes="(min-width: 640px) 640px"
@@ -492,7 +492,7 @@
                                 <div
                                     data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
                                     <a class="el-item uk-inline-clip uk-link-reset"
-                                       href=/site/korp/10-portfolio/site/154-site-dimax> <img class=el-image alt
+                                       {{--href=/site/korp/10-portfolio/site/154-site-dimax--}}> <img class=el-image alt
                                                                                               data-src=/templates/yootheme/cache/rent_3-53a5a8a3.webp
                                                                                               data-srcset="/templates/yootheme/cache/rent_3-53a5a8a3.webp 640w"
                                                                                               data-sizes="(min-width: 640px) 640px"
@@ -509,7 +509,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Сайт-каталог Портфолио Под-ключ Коммерческий-сектор"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/2-uncategorised/130-decor-center> <img class=el-image alt
+                                        {{--href=/site/korp/2-uncategorised/130-decor-center--}}> <img class=el-image alt
                                                                                                data-src=/templates/yootheme/cache/photo_2018-07-06_13-16-06-704def05.webp
                                                                                                data-srcset="/templates/yootheme/cache/photo_2018-07-06_13-16-06-704def05.webp 640w, /templates/yootheme/cache/photo_2018-07-06_13-16-06-2216d34c.webp 768w, /templates/yootheme/cache/photo_2018-07-06_13-16-06-6698d428.webp 893w"
                                                                                                data-sizes="(min-width: 640px) 640px"
@@ -529,7 +529,7 @@
                                 <div
                                     data-tag="Создание-сайтов Корпоративный-сайт Разработка-дизайна Под-ключ Корпоративный-сектор">
                                     <a class="el-item uk-inline-clip uk-link-reset"
-                                       href=/site/korp/10-portfolio/site/128-bomond> <img class=el-image alt
+                                       {{--href=/site/korp/10-portfolio/site/128-bomond--}}> <img class=el-image alt
                                                                                           data-src=/templates/yootheme/cache/2.2.--2-220a41a6.webp
                                                                                           data-srcset="/templates/yootheme/cache/2.2.--2-220a41a6.webp 640w, /templates/yootheme/cache/2.2.--2-7f936eaa.webp 750w, /templates/yootheme/cache/2.2.--2-47393a70.webp 751w"
                                                                                           data-sizes="(min-width: 640px) 640px"
@@ -546,7 +546,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Сайт-визитка Разработка-дизайна Коммерческий-сектор"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/10-portfolio/site/127-vegas> <img class=el-image alt
+                                        {{--href=/site/korp/10-portfolio/site/127-vegas--}}> <img class=el-image alt
                                                                                           data-src=/templates/yootheme/cache/instagram-6b5df9ff.webp
                                                                                           data-srcset="/templates/yootheme/cache/instagram-6b5df9ff.webp 640w"
                                                                                           data-sizes="(min-width: 640px) 640px"
@@ -563,7 +563,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Сайт-каталог Коммерческий-сектор"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/10-portfolio/site/108-jns-labs> <img class=el-image alt
+                                        {{--href=/site/korp/10-portfolio/site/108-jns-labs--}}> <img class=el-image alt
                                                                                              data-src=/templates/yootheme/cache/main_03-c86e78f4.webp
                                                                                              data-srcset="/templates/yootheme/cache/main_03-c86e78f4.webp 640w, /templates/yootheme/cache/main_03-d17d3ab6.webp 697w"
                                                                                              data-sizes="(min-width: 640px) 640px"
@@ -580,7 +580,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Landing-Page Под-ключ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/11-portfolio/site/lange/58-clean-lange> <img class=el-image alt
+                                        {{--href=/site/korp/11-portfolio/site/lange/58-clean-lange--}}> <img class=el-image alt
                                                                                                      data-src=/templates/yootheme/cache/Housekeeping-fdfcb54e.webp
                                                                                                      data-srcset="/templates/yootheme/cache/Housekeeping-fdfcb54e.webp 640w, /templates/yootheme/cache/Housekeeping-72783967.webp 768w, /templates/yootheme/cache/Housekeeping-2bda469e.webp 1024w, /templates/yootheme/cache/Housekeeping-8c11e7b3.webp 1243w, /templates/yootheme/cache/Housekeeping-b8238e6c.webp 1244w"
                                                                                                      data-sizes="(min-width: 640px) 640px"
@@ -598,7 +598,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Интернет-магазин Под-ключ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/13-portfolio/site/shop/54-shop-ibells> <img class=el-image alt
+                                        {{--href=/site/korp/13-portfolio/site/shop/54-shop-ibells--}}> <img class=el-image alt
                                                                                                     data-src=/templates/yootheme/cache/kaboompics_Interior-of-a-pub-b87391e7.webp
                                                                                                     data-srcset="/templates/yootheme/cache/kaboompics_Interior-of-a-pub-b87391e7.webp 640w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-37f71dce.webp 768w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-719c5f23.webp 1024w, /templates/yootheme/cache/kaboompics_Interior-of-a-pub-e0ac182c.webp 1137w"
                                                                                                     data-sizes="(min-width: 640px) 640px"
@@ -616,7 +616,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Landing-Page Под-ключ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/11-portfolio/site/lange/53-ibells-lange> <img class=el-image alt
+                                        {{--href=/site/korp/11-portfolio/site/lange/53-ibells-lange--}}> <img class=el-image alt
                                                                                                       data-src=/templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-421f4c2a.webp
                                                                                                       data-srcset="/templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-421f4c2a.webp 640w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-cd9bc003.webp 768w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-9879cceb.webp 1024w, /templates/yootheme/cache/kaboompics_Delicious-breakfast-for-two-09498be4.webp 1137w"
                                                                                                       data-sizes="(min-width: 640px) 640px"
@@ -634,7 +634,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Корпоративный-сайт Корпоративный-сектор Под-ключ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/12-portfolio/site/korp/47-site-akra> <img class=el-image alt
+                                        {{--href=/site/korp/12-portfolio/site/korp/47-site-akra--}}> <img class=el-image alt
                                                                                                   data-src=/templates/yootheme/cache/turkey-2193360_1280-fdcd019c.webp
                                                                                                   data-srcset="/templates/yootheme/cache/turkey-2193360_1280-fdcd019c.webp 640w, /templates/yootheme/cache/turkey-2193360_1280-1c1dc8a0.webp 652w"
                                                                                                   data-sizes="(min-width: 640px) 640px"
@@ -653,7 +653,7 @@
                                 <div
                                     data-tag="Создание-сайтов Корпоративный-сайт Корпоративный-сектор Дизайн Дизайн-сайтов Под-ключ">
                                     <a class="el-item uk-inline-clip uk-link-reset"
-                                       href=/site/korp/12-portfolio/site/korp/46-site-kosta> <img class=el-image alt
+                                       {{--href=/site/korp/12-portfolio/site/korp/46-site-kosta--}}> <img class=el-image alt
                                                                                                   data-src=/templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-d9b2af15.webp
                                                                                                   data-srcset="/templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-d9b2af15.webp 640w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-5636233c.webp 768w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-6a7a11a7.webp 1024w, /templates/yootheme/cache/kaboompics_Black-keyboard-with-pencils-on-a-white-table-fb4a56a8.webp 1137w"
                                                                                                   data-sizes="(min-width: 640px) 640px"
@@ -671,7 +671,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Корпоративный-сайт Госс-сектор"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/10-portfolio/site/43-lmz-site> <img class=el-image alt
+                                        {{--href=/site/korp/10-portfolio/site/43-lmz-site--}}> <img class=el-image alt
                                                                                             data-src=/templates/yootheme/cache/izobrazhenie_63606-42717268.webp
                                                                                             data-srcset="/templates/yootheme/cache/izobrazhenie_63606-42717268.webp 640w, /templates/yootheme/cache/izobrazhenie_63606-cdf5fe41.webp 768w, /templates/yootheme/cache/izobrazhenie_63606-00a8c267.webp 1024w, /templates/yootheme/cache/izobrazhenie_63606-b0bea15d.webp 1279w, /templates/yootheme/cache/izobrazhenie_63606-4dd11c86.webp 1280w"
                                                                                             data-sizes="(min-width: 640px) 640px"
@@ -688,7 +688,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Landing-Page Под-ключ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/11-portfolio/site/lange/38-macro-vidcom> <img class=el-image alt
+                                        {{--href=/site/korp/11-portfolio/site/lange/38-macro-vidcom--}}> <img class=el-image alt
                                                                                                       data-src=/templates/yootheme/cache/kaboompics_Man-using-a-tablet-6a4f4bb6.webp
                                                                                                       data-srcset="/templates/yootheme/cache/kaboompics_Man-using-a-tablet-6a4f4bb6.webp 640w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-e5cbc79f.webp 768w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-485a4a64.webp 1024w, /templates/yootheme/cache/kaboompics_Man-using-a-tablet-d96a0d6b.webp 1137w"
                                                                                                       data-sizes="(min-width: 640px) 640px"
@@ -706,7 +706,7 @@
                                     </a></div>
                                 <div data-tag="Landing-Page Создание-сайтов Под-ключ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/11-portfolio/site/lange/39-online-vidcom> <img class=el-image
+                                        {{--href=/site/korp/11-portfolio/site/lange/39-online-vidcom--}}> <img class=el-image
                                                                                                        alt
                                                                                                        data-src=/templates/yootheme/cache/intro-nobelic-1-3ae7a71e.webp
                                                                                                        data-srcset="/templates/yootheme/cache/intro-nobelic-1-3ae7a71e.webp 640w, /templates/yootheme/cache/intro-nobelic-1-637c9e85.webp 768w, /templates/yootheme/cache/intro-nobelic-1-4fcfd100.webp 1024w, /templates/yootheme/cache/intro-nobelic-1-47d69fb0.webp 1279w, /templates/yootheme/cache/intro-nobelic-1-18c81ac9.webp 1280w"
@@ -725,7 +725,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Landing-Page"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/11-portfolio/site/lange/41-ventsys-vidcom> <img class=el-image
+                                        {{--href=/site/korp/11-portfolio/site/lange/41-ventsys-vidcom--}}> <img class=el-image
                                                                                                         alt
                                                                                                         data-src=/templates/yootheme/cache/ventilation-1743280_1280-eaeb2285.webp
                                                                                                         data-srcset="/templates/yootheme/cache/ventilation-1743280_1280-eaeb2285.webp 640w, /templates/yootheme/cache/ventilation-1743280_1280-483a105e.webp 768w, /templates/yootheme/cache/ventilation-1743280_1280-6c40d1a9.webp 984w"
@@ -744,7 +744,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Интернет-магазин"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/13-portfolio/site/shop/37-vidcom-shop> <img class=el-image alt
+                                        {{--href=/site/korp/13-portfolio/site/shop/37-vidcom-shop--}}> <img class=el-image alt
                                                                                                     data-src=/templates/yootheme/cache/camera-1680666_1280-bcc7d462.webp
                                                                                                     data-srcset="/templates/yootheme/cache/camera-1680666_1280-bcc7d462.webp 640w, /templates/yootheme/cache/camera-1680666_1280-94494a10.webp 768w, /templates/yootheme/cache/camera-1680666_1280-9278cab0.webp 1024w, /templates/yootheme/cache/camera-1680666_1280-66620267.webp 1279w, /templates/yootheme/cache/camera-1680666_1280-6b26a37d.webp 1280w"
                                                                                                     data-sizes="(min-width: 640px) 640px"
@@ -778,7 +778,7 @@
                                 </div>
                                 <div data-tag="Создание-сайтов Сайт-каталог Под-ключ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/10-portfolio/site/33-avtocity> <img class=el-image alt
+                                        {{--href=/site/korp/10-portfolio/site/33-avtocity--}}> <img class=el-image alt
                                                                                             data-src=/templates/yootheme/cache/home-portfolio-02-f0b83383.webp
                                                                                             data-srcset="/templates/yootheme/cache/home-portfolio-02-f0b83383.webp 640w, /templates/yootheme/cache/home-portfolio-02-5cfc729a.webp 768w, /templates/yootheme/cache/home-portfolio-02-7b8bf2b2.webp 1024w, /templates/yootheme/cache/home-portfolio-02-17f878fc.webp 1173w"
                                                                                             data-sizes="(min-width: 640px) 640px"
@@ -795,7 +795,7 @@
                                     </a></div>
                                 <div data-tag="Создание-сайтов Landing-Page Под-ключ Копирайтинг Дизайн-сайтов"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/site/korp/11-portfolio/site/lange/32-landing-page-po-oformleniyu-svadeb-tsvetami>
+                                        {{--href=/site/korp/11-portfolio/site/lange/32-landing-page-po-oformleniyu-svadeb-tsvetami--}}>
                                         <img class=el-image alt
                                              data-src=/templates/yootheme/cache/proposalbackground-c8c8a21c.webp
                                              data-srcset="/templates/yootheme/cache/proposalbackground-c8c8a21c.webp 640w, /templates/yootheme/cache/proposalbackground-024c01c0.webp 768w, /templates/yootheme/cache/proposalbackground-60d4a343.webp 1024w, /templates/yootheme/cache/proposalbackground-1640dcc3.webp 1279w, /templates/yootheme/cache/proposalbackground-eb2f6118.webp 1280w"
