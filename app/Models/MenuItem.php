@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Components\Image;
 use App\Models\Components\Slug;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class MenuItem extends Model
 {
@@ -63,5 +64,19 @@ class MenuItem extends Model
     public function getTitle()
     {
         return strip_tags($this->ru_title);
+    }
+
+    /**
+     * @return Collection Companies from all menu item's categories
+     */
+    public function getCompanyFromCategories()
+    {
+        $companies = collect();
+        foreach ($this->categories as $category)
+        {
+            $categoryCompanies = $category->getAllCompaniesFromDescendingCategories();
+            $companies = $companies->merge($categoryCompanies);
+        }
+        return $companies;
     }
 }

@@ -145,7 +145,7 @@
         <meta itemprop="availability" content="InStock" />
         <meta itemprop="priceValidUntil" content="2022-12-05" />
           <li>
-                  <span class="uk-margin-small-right" >Цена:</span><span class="uk-margin-small-right" itemprop="Price">{{ number_format($company->price, 0, ',', '.') }}</span><span class="uk-margin-small-right" itemprop="priceCurrency" content="SUM">сум</span>
+                  <span class="uk-margin-small-right">Цена:</span><span class="uk-margin-small-right" itemprop="Price" content="{{ $company->price }}">{{ number_format($company->price, 0, ',', '.') }}</span><span class="uk-margin-small-right" itemprop="priceCurrency" content="SUM">сум</span>
 
                 </li>
 

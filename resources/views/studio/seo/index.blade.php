@@ -402,7 +402,7 @@
                                 uk-grid>
                                 <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/prodvizhenie-seo/2-uncategorised/141-prodvinuli-na-pervye-pozitsii-poiska-sajt-predstavitelstvo-amkodor-v-tashkente>
+                                        {{--href=/prodvizhenie-seo/2-uncategorised/141-prodvinuli-na-pervye-pozitsii-poiska-sajt-predstavitelstvo-amkodor-v-tashkente--}}>
                                         <img class=el-image alt
                                              data-src=/templates/yootheme/cache/46398194_176477363309991_4635987503998950922_n-07833acf.webp
                                              data-srcset="/templates/yootheme/cache/46398194_176477363309991_4635987503998950922_n-07833acf.webp 640w"
@@ -421,7 +421,7 @@
                                     </a></div>
                                 <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/prodvizhenie-seo/2-uncategorised/140-prodvinuli-na-pervye-pozitsii-poiska-sajt-kompanii-shistoff-uz>
+                                        {{--href=/prodvizhenie-seo/2-uncategorised/140-prodvinuli-na-pervye-pozitsii-poiska-sajt-kompanii-shistoff-uz--}}>
                                         <img class=el-image alt
                                              data-src=/templates/yootheme/cache/Housekeeping-fdfcb54e.webp
                                              data-srcset="/templates/yootheme/cache/Housekeeping-fdfcb54e.webp 640w, /templates/yootheme/cache/Housekeeping-72783967.webp 768w, /templates/yootheme/cache/Housekeeping-2bda469e.webp 1024w, /templates/yootheme/cache/Housekeeping-8c11e7b3.webp 1243w, /templates/yootheme/cache/Housekeeping-b8238e6c.webp 1244w"
@@ -440,7 +440,7 @@
                                     </a></div>
                                 <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/prodvizhenie-seo/2-uncategorised/139-prodvinuli-na-pervye-pozitsii-poiska-sajt-kompanii-majortex>
+                                        {{--href=/prodvizhenie-seo/2-uncategorised/139-prodvinuli-na-pervye-pozitsii-poiska-sajt-kompanii-majortex--}}>
                                         <img class=el-image alt
                                              data-src=/templates/yootheme/cache/sewing-machine-324764_1280-b641db13.webp
                                              data-srcset="/templates/yootheme/cache/sewing-machine-324764_1280-b641db13.webp 640w, /templates/yootheme/cache/sewing-machine-324764_1280-39c5573a.webp 768w, /templates/yootheme/cache/sewing-machine-324764_1280-0110722e.webp 1024w, /templates/yootheme/cache/sewing-machine-324764_1280-90203521.webp 1137w"
@@ -459,7 +459,7 @@
                                     </a></div>
                                 <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/prodvizhenie-seo/15-portfolio/advancement/91-korean-seo> <img
+                                        {{--href=/prodvizhenie-seo/15-portfolio/advancement/91-korean-seo--}}> <img
                                             class=el-image alt
                                             data-src=/templates/yootheme/cache/531a7764454109.5ad33e5797d69-1e6193b6.webp
                                             data-srcset="/templates/yootheme/cache/531a7764454109.5ad33e5797d69-1e6193b6.webp 640w, /templates/yootheme/cache/531a7764454109.5ad33e5797d69-3c5d45ec.webp 768w, /templates/yootheme/cache/531a7764454109.5ad33e5797d69-e16d53c3.webp 1024w, /templates/yootheme/cache/531a7764454109.5ad33e5797d69-78f3ad1d.webp 1279w, /templates/yootheme/cache/531a7764454109.5ad33e5797d69-61ea454a.webp 1280w"
@@ -477,7 +477,7 @@
                                     </a></div>
                                 <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/prodvizhenie-seo/15-portfolio/advancement/90-220volt-seo> <img
+                                        {{--href=/prodvizhenie-seo/15-portfolio/advancement/90-220volt-seo--}}> <img
                                             class=el-image alt
                                             data-src=/templates/yootheme/cache/equipment-heavy-industry-237997-1-c447d1af.webp
                                             data-srcset="/templates/yootheme/cache/equipment-heavy-industry-237997-1-c447d1af.webp 640w, /templates/yootheme/cache/equipment-heavy-industry-237997-1-858f43ab.webp 768w, /templates/yootheme/cache/equipment-heavy-industry-237997-1-32e2edcc.webp 1024w, /templates/yootheme/cache/equipment-heavy-industry-237997-1-7e9c7816.webp 1279w, /templates/yootheme/cache/equipment-heavy-industry-237997-1-6f601cf7.webp 1280w"
@@ -495,7 +495,7 @@
                                     </a></div>
                                 <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/prodvizhenie-seo/15-portfolio/advancement/61-ibells> <img class=el-image
+                                       {{-- href=/prodvizhenie-seo/15-portfolio/advancement/61-ibells--}}> <img class=el-image
                                                                                                         alt
                                                                                                         data-src=/templates/yootheme/cache/kaboompics_Top-View-Coffee-with-Heart-Shape-cake-Macbook-Laptop-Man-b6930f04.webp
                                                                                                         data-srcset="/templates/yootheme/cache/kaboompics_Top-View-Coffee-with-Heart-Shape-cake-Macbook-Laptop-Man-b6930f04.webp 640w, /templates/yootheme/cache/kaboompics_Top-View-Coffee-with-Heart-Shape-cake-Macbook-Laptop-Man-3917832d.webp 768w, /templates/yootheme/cache/kaboompics_Top-View-Coffee-with-Heart-Shape-cake-Macbook-Laptop-Man-95f07438.webp 1024w, /templates/yootheme/cache/kaboompics_Top-View-Coffee-with-Heart-Shape-cake-Macbook-Laptop-Man-04c03337.webp 1137w"
@@ -516,7 +516,7 @@
                                     </a></div>
                                 <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/prodvizhenie-seo/15-portfolio/advancement/55-kosta-seo> <img
+                                        {{--href=/prodvizhenie-seo/15-portfolio/advancement/55-kosta-seo--}}> <img
                                             class=el-image alt
                                             data-src=/templates/yootheme/cache/kaboompics_Close-up-of-golden-journals-in-the-office-cde848aa.webp
                                             data-srcset="/templates/yootheme/cache/kaboompics_Close-up-of-golden-journals-in-the-office-cde848aa.webp 640w, /templates/yootheme/cache/kaboompics_Close-up-of-golden-journals-in-the-office-426cc483.webp 768w, /templates/yootheme/cache/kaboompics_Close-up-of-golden-journals-in-the-office-3ef9755f.webp 1024w, /templates/yootheme/cache/kaboompics_Close-up-of-golden-journals-in-the-office-afc93250.webp 1137w"
@@ -534,7 +534,7 @@
                                     </a></div>
                                 <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/prodvizhenie-seo/15-portfolio/advancement/48-akra-seo> <img class=el-image
+                                        {{--href=/prodvizhenie-seo/15-portfolio/advancement/48-akra-seo--}}> <img class=el-image
                                                                                                           alt
                                                                                                           data-src=/templates/yootheme/cache/machu-picchu-1209644_1280-7a540a8b.webp
                                                                                                           data-srcset="/templates/yootheme/cache/machu-picchu-1209644_1280-7a540a8b.webp 640w, /templates/yootheme/cache/machu-picchu-1209644_1280-497def87.webp 768w, /templates/yootheme/cache/machu-picchu-1209644_1280-792e50c8.webp 960w"
@@ -555,7 +555,7 @@
                                     </a></div>
                                 <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/prodvizhenie-seo/15-portfolio/advancement/45-seo-lmz> <img class=el-image
+                                        {{--href=/prodvizhenie-seo/15-portfolio/advancement/45-seo-lmz--}}> <img class=el-image
                                                                                                          alt
                                                                                                          data-src=/templates/yootheme/cache/1.1-3de5e2a2.webp
                                                                                                          data-srcset="/templates/yootheme/cache/1.1-3de5e2a2.webp 640w, /templates/yootheme/cache/1.1-b2616e8b.webp 768w, /templates/yootheme/cache/1.1-1ab30cc9.webp 1024w, /templates/yootheme/cache/1.1-aaa56ff3.webp 1279w, /templates/yootheme/cache/1.1-57cad228.webp 1280w"
@@ -576,7 +576,7 @@
                                     </a></div>
                                 <div data-tag="SEO-оптимизация Продвижение-в-поиске Вывели-в-топ"><a
                                         class="el-item uk-inline-clip uk-link-reset"
-                                        href=/prodvizhenie-seo/15-portfolio/advancement/42-seo-optimizirovali-sajt-vidcom>
+                                       {{-- href=/prodvizhenie-seo/15-portfolio/advancement/42-seo-optimizirovali-sajt-vidcom--}}>
                                         <img class=el-image alt
                                              data-src=/templates/yootheme/cache/camera-1932099_1280-d01efc24.webp
                                              data-srcset="/templates/yootheme/cache/camera-1932099_1280-d01efc24.webp 640w, /templates/yootheme/cache/camera-1932099_1280-5f9a700d.webp 768w, /templates/yootheme/cache/camera-1932099_1280-01257f5d.webp 1024w, /templates/yootheme/cache/camera-1932099_1280-90153852.webp 1137w"

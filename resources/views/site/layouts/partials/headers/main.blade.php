@@ -1,11 +1,11 @@
 <!-- Header Home -->
 
 
-<header class="uk-cover-container uk-background-cover uk-background-norepeat uk-background-center-center" 
+<header class="uk-cover-container uk-background-cover uk-background-norepeat uk-background-center-center"
   >
   <video src="" uk-cover></video>
   <div class="uk-overlay uk-position-cover uk-overlay-video"></div>
-	<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; 
+	<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container;
 	  cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 500">
   <nav class="uk-navbar-container uk-letter-spacing-small uk-text-bold">
 	    <div class="uk-container uk-container-large">
@@ -22,7 +22,7 @@
                     <li><a href="{{$need->url}}">{{ $need->ru_title }}</a></li>
                     @else
                     <li class="uk-parent">
-                        <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
+                        <a>{{ $need->ru_title }}</a>
                         <!--uk-dropdown="delay-show: 250;"-->
                         <div class="uk-background-secondary code-dropdown uk-dropdown uk-overflow-auto uk-dropdown-bottom-center" uk-dropdown="pos: bottom-justify; animation: uk-animation-slide-top-small; duration: 1000">
                             <div class=" uk-grid-collapse uk-grid uk-child-width-1-4 " uk-grid>
@@ -49,8 +49,8 @@
                     @endforeach
                 </ul>
 
-                
-                
+
+
 	        </div>
 	        <div class="uk-navbar-right">
 	          <div>
@@ -61,7 +61,7 @@
 	          </div>
 	          <div style="    visibility: hidden;"class="uk-navbar-item uk-visible@m">
 	            <div><a rel="nofollow" class="uk-button uk-button-success-outline" href="#">Добавить компанию</a></div>
-	          </div>          
+	          </div>
 	          <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" uk-toggle><span uk-icon="icon: menu" ></span></a>
 	        </div>
 	      </div>
@@ -81,10 +81,10 @@
                         <span class="uk-heading-easy uk-margin-remove-top uk-letter-spacing-xl" uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">Найдите<mark> компанию или фрилансера,</mark> готовых увеличить прибыль <mark>вашего бизнеса.</mark></span>
                     @include('site.components.search')
 				</div>
-				<div class="uk-margin-auto-top" 
+				<div class="uk-margin-auto-top"
 					uk-scrollspy="cls: uk-animation-slide-bottom-medium; delay: 400; repeat: true">
 					<div class="uk-child-width-1-2@s uk-grid-large uk-margin-medium-top" uk-grid>
-						
+
 						<div>
 							<span class="uk-margin-remove uk-text-bold uk-text-large">Все в одном сайте</span>
 							<p class="uk-margin-xsmall-top uk-text-small uk-text-muted uk-text-bold">Компании и фрилансеры в сфере интернет и наружной рекламы, разработки сайтов и мобильных приложений, юридической помощи и бухгалтерии и многом другом</p>

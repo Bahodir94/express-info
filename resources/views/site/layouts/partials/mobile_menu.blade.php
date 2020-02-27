@@ -31,7 +31,7 @@
                     <li><a href="{{ $need->url }}">{{ $need->ru_title }}</a></li>
                 @else
                 <li class="uk-parent">
-                    <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
+                    <a>{{ $need->ru_title }}</a>
                     <ul class="uk-nav-sub uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
                         @foreach ($need->menuItems as $menu)
                             <li class="uk-parent" >
