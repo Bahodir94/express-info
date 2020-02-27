@@ -44,13 +44,13 @@
                         </div>
                     </div>
                 </div>
-                <h3 class="uk-h4 uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">Наши контакты</h3>
+                <h3 class="uk-h4 uk-text-left@s uk-text-center uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">По поводу рекламы</h3>
                 <div class="el-content uk-panel uk-margin uk-text-left@s uk-text-center">
                     <ul class="uk-list">
 
-                        <li><a class="el-link uk-link-reset" href="tel:+998953411717">+998 95 341 1717</a></li>
-                        <li><a class="el-link uk-link-reset" href="tel:+998954781717">+998 95 478 1717</a></li>
-                        <li><a class="el-link uk-link-reset" href="mailto:mail@tezinfo.uz">mail@tezinfo.uz</a></li>
+                        <li><a class="el-link uk-link-reset" href="tel:+998909408196">+998 90 9408196</a></li>
+                    
+                        <li visibility: hidden><a class="el-link uk-link-reset" href="mailto:mail@tezinfo.uz">mail@tezinfo.uz</a></li>
                         <!-- <li><a class="el-link uk-link-reset" href="mailto:mail@example.com">mail@tezinfo.uz</a></li> -->
 
                     </ul>
@@ -77,7 +77,7 @@
                         <div>
                             <div class="el-item uk-panel uk-margin-remove-first-child uk-scrollspy-inview uk-animation-slide-left-small" uk-scrollspy-class="" style="">
 
-                                <h3 class="el-title uk-h4 uk-margin-top uk-margin-remove-bottom">                        Полезная информация                   </h3>
+                                <h3 visibility: hidden class="el-title uk-h4 uk-margin-top uk-margin-remove-bottom">                        Полезная информация                   </h3>
 
                                 <div class="el-content uk-panel uk-margin-top">
                                     <ul class="uk-list">
@@ -92,10 +92,10 @@
                                             <a href="#" class="el-link uk-link-reset">О нас</a>
                                         </li>
 -->
-                                        <li>
+                                        <livisibility: hidden>
                                             <a rel="nofollow" target="_blank" href="http://price.tezinfo.uz" class="el-link uk-link-reset">Рекламодателям</a>
                                         </li>
-                                        <li>
+                                        <livisibility: hidden>
                                             <a rel="nofollow" target="_blank" href="http://price.tezinfo.uz" class="el-link uk-link-reset">Добавить компанию</a>
                                         </li>
                                     </ul>

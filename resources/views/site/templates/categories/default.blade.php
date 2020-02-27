@@ -106,7 +106,7 @@
     <div class="uk-container uk-container-xlarge uk-container-center">
         <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
             <div class="wrapper_title">
-                <h3>{{ $category->getTitle() }}</h3>
+                <h1>{{ $category->getTitle() }}</h1>
             </div>
             <div class="uk-width-expand@m"></div>
             @if ($category->services()->count() > 0)
@@ -228,7 +228,7 @@
 -->
                     </div>
                     <div class="uk-card-body">
-                        <h3 itemprop="name" class="uk-card-title uk-margin-small-bottom">{{ $company->ru_title }}</h3>
+                        <h2 itemprop="name" class="uk-card-title uk-margin-small-bottom">{{ $company->ru_title }}</h2>
                         <div itemprop="category" class="uk-text-muted uk-text-small">{!! $company->category->ru_title !!}</div>
 
                         <ul>

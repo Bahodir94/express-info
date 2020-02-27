@@ -59,7 +59,7 @@
                     @include('site.layouts.partials.mobile_search')
 	            </div>
 	          </div>
-	          <div class="uk-navbar-item uk-visible@m">
+	          <div style="    visibility: hidden;"class="uk-navbar-item uk-visible@m">
 	            <div><a rel="nofollow" class="uk-button uk-button-success-outline" href="#">Добавить компанию</a></div>
 	          </div>          
 	          <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" uk-toggle><span uk-icon="icon: menu" ></span></a>
@@ -77,8 +77,8 @@
 			</div>
 			<div class="uk-width-expand@m uk-section uk-flex uk-flex-column">
 				<div class="uk-margin-auto-top uk-margin-auto-bottom">
-					<h1 class="uk-heading-easy uk-margin-remove-top uk-letter-spacing-xl" uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">
-                        <mark>Площадка</mark> где вы сможете найти <mark>толковых людей,</mark> готовых помочь <mark>вашему бизнесу.</mark></h1>
+					<h1 class="uk-heading-easy uk-margin-remove-top uk-letter-spacing-xl" uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">Фриланс площадка в Узбекистане</h1>
+                        <span class="uk-heading-easy uk-margin-remove-top uk-letter-spacing-xl" uk-scrollspy="cls: uk-animation-slide-bottom-medium; repeat: true">Найдите<mark> компанию или фрилансера,</mark> готовых увеличить прибыль <mark>вашего бизнеса.</mark></span>
                     @include('site.components.search')
 				</div>
 				<div class="uk-margin-auto-top" 
@@ -86,11 +86,11 @@
 					<div class="uk-child-width-1-2@s uk-grid-large uk-margin-medium-top" uk-grid>
 						
 						<div>
-							<h4 class="uk-margin-remove">Все в одном сайте</h4>
-							<p class="uk-margin-xsmall-top uk-text-small uk-text-muted uk-text-bold">Найди компанию или фрилансера в сфере интернет и наружной рекламы, разработки сайтов и мобильных приложений, юридической помощи и бухгалтерии и многом другом</p>
+							<span class="uk-margin-remove uk-text-bold uk-text-large">Все в одном сайте</span>
+							<p class="uk-margin-xsmall-top uk-text-small uk-text-muted uk-text-bold">Компании и фрилансеры в сфере интернет и наружной рекламы, разработки сайтов и мобильных приложений, юридической помощи и бухгалтерии и многом другом</p>
 						</div>
 						<div>
-							<h4 class="uk-margin-remove">
+							<span class="uk-margin-remove uk-text-bold uk-text-large">
                                 Большой выбор</h4>
 							<p class="uk-margin-xsmall-top uk-text-small uk-text-muted uk-text-bold">Выберите более чем из 500 компаний и фрилансеров. Отфильтруй по цене и найди самое выгодное предложение</p>
 						</div>
@@ -100,9 +100,9 @@
 			<div class="uk-header-right uk-section uk-visible@m uk-flex uk-flex-right uk-flex-bottom">
 				<div>
 					<ul class="uk-subnav uk-text-xsmall uk-text-bold">
-						<li><a rel="nofollow" class="uk-link-border" href="#" target="_blank">facebook</a></li>
-						<li><a rel="nofollow" class="uk-link-border" href="#" target="_blank">twitter</a></li>
-						<li><a rel="nofollow" class="uk-link-border" href="#" target="_blank">instagram</a></li>
+						<li visibility: hidden><a rel="nofollow" class="uk-link-border" href="#" target="_blank">facebook</a></li>
+						<li><a rel="nofollow" class="uk-link-border" href="https://t.me/joinchat/AAAAAFW-benLtmOWot3pqA" target="_blank">telegram</a></li>
+						<li visibility: hidden><a rel="nofollow" class="uk-link-border" href="#" target="_blank">instagram</a></li>
 					</ul>
 				</div>
 			</div>
