@@ -19,7 +19,7 @@
                     <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
                     @foreach ($needs as $need)
                     @if (!empty($need->url))
-                    <li><a href="{{$need->url}}">{{ $need->ru_title }}</a></li>
+                        <li><a>{{ $need->ru_title }}</a></li>
                     @else
                     <li class="uk-parent">
                         <a>{{ $need->ru_title }}</a>

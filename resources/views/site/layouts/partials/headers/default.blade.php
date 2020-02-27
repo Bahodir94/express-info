@@ -12,10 +12,10 @@
                     <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
                     @foreach ($needs as $need)
                     @if (!empty($need->url))
-                    <li><a href="{{$need->url}}">{{ $need->ru_title }}</a></li>
+                    <li><a>{{ $need->ru_title }}</a></li>
                     @else
                     <li class="uk-parent">
-                        <a href="{{ route('site.catalog.main', $need->ru_slug) }}">{{ $need->ru_title }}</a>
+                        <a>{{ $need->ru_title }}</a>
                         <!--uk-dropdown="delay-show: 250;"-->
                         <div class="code-dropdown uk-dropdown uk-overflow-auto uk-dropdown-bottom-center" uk-dropdown="pos: bottom-justify; animation: uk-animation-slide-top-small; duration: 1000">
                             <div class=" uk-grid-collapse uk-grid uk-child-width-1-4 " uk-grid>
@@ -42,8 +42,8 @@
                     @endforeach
                 </ul>
 
-                
-                
+
+
 	        </div>
 	        <div class="uk-navbar-right">
 	          <div>
@@ -54,7 +54,7 @@
 	          </div>
 	          <div class="uk-navbar-item uk-visible@m">
 	            <div><a rel="nofollow" target="_blank" class="uk-button uk-button-success-outline" href="#">Добавить компанию</a></div>
-	          </div>          
+	          </div>
 	          <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" uk-toggle><span uk-icon="icon: menu" ></span></a>
 	        </div>
 	      </div>
