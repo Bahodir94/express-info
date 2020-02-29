@@ -60,7 +60,7 @@ class MenuRepository implements MenuRepositoryInterface
         $menuItem->categories()->detach();
         $menuItem->categories()->attach($menuData->get('categories'));
         if (empty($menuData->get('ru_slug')))
-            $newMenuItem->generateSlug();
+            $menuItem->generateSlug();
     }
 
     /**
