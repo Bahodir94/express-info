@@ -72,6 +72,14 @@
                                 </div>
                                 @error('ru_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
+                            <div class="form-group @error('ru_description') is-invalid @enderror">
+                                <div class="form-material floating">
+                                    <textarea name="ru_description" id="ruDescription"
+                                              class="form-control">{{ $menu->ru_description }}</textarea>
+                                    <label for="ruDescription">Описание</label>
+                                </div>
+                                @error('ru_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
                         </div>
                         <!-- END Step 1 -->
 
@@ -97,6 +105,14 @@
                                 </div>
                                 @error('en_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
+                            <div class="form-group @error('en_description') is-invalid @enderror">
+                                <div class="form-material floating">
+                                    <textarea name="en_description" id="enDescription"
+                                              class="form-control">{{ $menu->en_description }}</textarea>
+                                    <label for="enDescription">Описание</label>
+                                </div>
+                                @error('en_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
                         </div>
                         <!-- END Step 2 -->
 
@@ -121,6 +137,14 @@
                                     </label>
                                 </div>
                                 @error('uz_slug') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
+                            <div class="form-group @error('uz_description') is-invalid @enderror">
+                                <div class="form-material floating">
+                                    <textarea name="uz_description" id="uzDescription"
+                                              class="form-control">{{ $menu->uz_description }}</textarea>
+                                    <label for="ruDescription">Описание</label>
+                                </div>
+                                @error('uz_description') <div id="val-username-error" class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
                         <!-- END Step 3 -->
