@@ -14,6 +14,7 @@ class MenuItem extends Model
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title', 'need_id',
+        'ru_description', 'uz_description', 'en_description',
         'ru_slug', 'en_slug', 'uz_slug',
         'meta_title', 'meta_description', 'meta_keywords',
     ];

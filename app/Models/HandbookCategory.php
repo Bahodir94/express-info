@@ -15,6 +15,7 @@ class HandbookCategory extends Model
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title', 'ru_slug', 'en_slug', 'uz_slug', 'parent_id',
+        'ru_description', 'uz_description', 'en_description',
         'meta_title', 'meta_description', 'meta_keywords', 'template'
     ];
 
