@@ -31,7 +31,7 @@
 @endsection
 @section('meta')
     <meta name="title" content="@if(empty($menuItem->meta_title)) {{ $menuItem->ru_title }} в Ташкенте @else {{ $menuItem->meta_title }} @endif">
-    <meta name="description" content="{{ $menuItem->meta_description }}">
+    <meta name="description" content="@if (empty($menuItem->meta_description)) {{ strip_tags($menuItem->ru_description) }} @else {{ $menuItem->meta_description }} @endif">
     <meta name="keywords" content="{{ $menuItem->meta_keywords }}">
 @endsection
 @section('header')

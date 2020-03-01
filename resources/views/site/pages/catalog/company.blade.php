@@ -33,7 +33,7 @@
 }
 </style>
     <meta name="title" content="@if(empty($company->meta_title)) {{ $company->getTitle() }} в Ташкенте @else {{ $company->meta_title }} @endif">
-    <meta name="description" content="{{ $company->meta_description }}">
+<meta name="description" content="@if (empty($company->meta_description)) {{ strip_tags($company->ru_description) }} @else {{ $company->meta_description }} @endif">
     <meta name="keywords" content="{{ $company->meta_keywords }}">
 
 @endsection

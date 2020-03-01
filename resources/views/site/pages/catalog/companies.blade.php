@@ -11,7 +11,7 @@
 @section('meta')
 
     <meta name="title" content="@if(empty($category->meta_title)) {{ $category->getTitle() }} в Ташкенте @else {{ $category->meta_title }} @endif">
-    <meta name="description" content="{{ $category->meta_description }}">
+    <meta name="description" content="@if (empty($category->meta_description)) {{ strip_tags($category->ru_description) }} @else {{ $category->meta_description }} @endif">
     <meta name="keywords" content="{{ $category->meta_keywords }}">
 
 @endsection
@@ -219,13 +219,13 @@
 <!-- ### Favorites
                     <div class="uk-position-top-right">
                         <a href="#" class="uk-icon-button uk-like uk-position-z-index uk-position-relative" data-uk-icon="heart"></a>
-                    </div>            
+                    </div>
 -->
                     </div>
                     <div class="uk-card-body">
                         <h3 class="uk-card-title uk-margin-small-bottom">{{ $company->ru_title }}</h3>
                         <div class="uk-text-muted uk-text-small">{!! $company->category->ru_title !!}</div>
-                       
+
                         <ul>
                             @foreach($company->services as $service)
                                 <li><img src="{{ $service->getImage() }}" alt=""></li>
