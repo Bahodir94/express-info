@@ -107,6 +107,7 @@
         <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
             <div class="wrapper_title">
                 <h1>{{ $category->getTitle() }}</h1>
+                {!! $category->ru_description !!}
             </div>
             <div class="uk-width-expand@m"></div>
             @if ($category->services()->count() > 0)

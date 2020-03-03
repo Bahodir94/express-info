@@ -78,7 +78,8 @@
         <div class="uk-container uk-container-xlarge uk-container-center">
             <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
                 <div class="wrapper_title">
-                    <h3>{{ $menuItem->ru_title }}</h3>
+                    <h1>{{ $menuItem->ru_title }}</h1>
+                    {!! $menuItem->ru_description !!}
                 </div>
                 <div class="uk-width-expand@m"></div>
             </div>
