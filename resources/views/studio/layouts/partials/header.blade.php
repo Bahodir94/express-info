@@ -48,7 +48,7 @@
                                 </li>
                                 <li class="@if(strpos($page, 'dev') !== false) uk-active @endif uk-parent"><a>Разработка </a>
                                     <ul class=uk-nav-sub>
-                                        <li class="@if(strpos($page, 'mobile') !== false) uk-active @endif uk-parent"><a href=/development/mobile-app>Мобильные приложения</a>
+                                        <li class="@if(strpos($page, 'mobile') !== false) uk-active @endif uk-parent"><a>Мобильные приложения</a>
                                             <ul>
                                                 <li class="@if(strpos($page, 'android') !== false) uk-active @endif"><a href=/development/mobile-app/android>Android приложения</a>
                                                 </li>
@@ -135,7 +135,7 @@
                                     <div class="uk-navbar-dropdown-grid uk-child-width-1-1" uk-grid>
                                         <div>
                                             <ul class="uk-nav uk-navbar-dropdown-nav">
-                                                <li class="@if(strpos($page, 'mobile') !== false) uk-active @endif uk-parent"><a href=/development/mobile-app>Мобильные
+                                                <li class="@if(strpos($page, 'mobile') !== false) uk-active @endif uk-parent"><a>Мобильные
                                                         приложения</a>
                                                     <ul class=uk-nav-sub>
                                                         <li class="@if(strpos($page, 'android') !== false) uk-active @endif"><a href=/development/mobile-app/android>Android
