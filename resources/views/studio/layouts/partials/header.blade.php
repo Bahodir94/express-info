@@ -122,7 +122,7 @@
                                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                                 <li class="@if(strpos($page, 'landing') !== false) uk-active @endif"><a href=/site/lange>Разработка лендингов</a>
                                                 </li>
-                                                <li class="@if(strpos($page, 'ehop') !== false) uk-active @endif"><a href=/site/internet-magazin>Интернет магазины</a></li>
+                                                <li class="@if(strpos($page, 'eshop') !== false) uk-active @endif"><a href=/site/internet-magazin>Интернет магазины</a></li>
                                                 <li class="@if(strpos($page, 'korp') !== false) uk-active @endif"><a href=/site/korp>Корпоративные сайты</a></li>
                                                 <li class="@if(strpos($page, 'catalog') !== false) uk-active @endif"><a href=/development/site/catalog>Разработка каталогов</a></li>
                                             </ul>
