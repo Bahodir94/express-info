@@ -2,9 +2,7 @@
 
 namespace App;
 
-use App\Models\CguCatalog;
-use App\Models\CguCategory;
-use App\Models\CguSite;
+use App\Models;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
