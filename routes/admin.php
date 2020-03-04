@@ -15,6 +15,15 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::get('/cgusites/{id}/removeimage', 'CguSiteController@removeImage')->name('cgusites.remove.image');
     Route::post('/cgusites/change/position', 'CguSiteController@changePosition')->name('cgusites.change.position');
 
+
+
+    // BLOG Category Routes
+    Route::resource('blogcategories', 'BlogCategoryController');
+
+
+
+
+
     // Cgu Category Routes
     Route::resource('/cgucategories', 'CguCategoryController');
     Route::get('/cgucategories/{id}/removeimage', 'CguCategoryController@removeImage')->name('cgucategories.remove.image');
