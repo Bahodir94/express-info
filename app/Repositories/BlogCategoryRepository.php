@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\BlogCategory;
-use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
 //use Your Model
 
 /**
