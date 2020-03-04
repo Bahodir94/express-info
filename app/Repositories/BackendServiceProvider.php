@@ -28,8 +28,13 @@ class BackendServiceProvider extends ServiceProvider
             'App\Repositories\HandbookCategoryRepository'
         );
         $this->app->bind(
-            'App\Repositories\CguCatalogRepositoryInterface',
-            'App\Repositories\CguCatalogRepository'
+        'App\Repositories\CguCatalogRepositoryInterface',
+        'App\Repositories\CguCatalogRepository'
+    );
+
+        $this->app->bind(
+            'App\Repositories\BlogCategoryRepositoryInterface',
+            'App\Repositories\BlogCategoryRepository'
         );
 
         $this->app->bind(
