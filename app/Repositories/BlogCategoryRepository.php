@@ -22,7 +22,6 @@ class BlogCategoryRepository implements BlogCategoryRepositoryInterface
     {
         return BlogCategory::findOrFail($blogcategory_id);
     }
-
     /**
      * Get's all posts.
      *
