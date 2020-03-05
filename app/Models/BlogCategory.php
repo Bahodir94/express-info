@@ -11,7 +11,8 @@ class BlogCategory extends Model
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title',
-        'ru_slug', 'en_slug', 'uz_slug'
+        'ru_slug', 'en_slug', 'uz_slug',
+        'meta_title', 'meta_description', 'meta_keywords'
     ];
 
     /**
