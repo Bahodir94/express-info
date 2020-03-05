@@ -27,6 +27,18 @@
     <title>
         @yield('title') | vid.uz
     </title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let menuItems = document.querySelectorAll('.menu-item-li');
+            menuItems.forEach(function (item) {
+                item.addEventListener('click', function (event) {
+                    if (!event.target.classList.contains('menu-item-link-arrow')) {
+                        event.stopPropagation();
+                    }
+                }, true);
+            });
+        })
+    </script>
     <script src="{{ asset('assets/js/uikit.js') }}"></script>
     <script src="{{ asset('assets/js/uikit-icons.min.js') }}"></script>
 </head>
@@ -38,6 +50,35 @@
     @yield('content')
 
     @include('site.layouts.partials.footer')
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let menuItemArrows = document.querySelectorAll('.menu-item-link-arrow');
+            menuItemArrows.forEach(function (arrow) {
+                arrow.addEventListener('click', function () {
+                    this.classList.toggle('menu-item-link-arrow-rotate');
+                    let dropdown = this.parentNode.nextElementSibling;
+                    dropdown.parentNode.classList.toggle('uk-open');
+                    if (dropdown.hasAttribute('hidden')) {
+                        dropdown.removeAttribute('hidden');
+                    }
+                    else {
+                        dropdown.setAttribute('hidden', 'hidden');
+                    }
+                })
+            });
+            let needItems = document.querySelectorAll('.need-item');
+            needItems.forEach(function (item) {
+                item.addEventListener('click', function (event) {
+                    if (!event.target.classList.contains('menu-item-link-arrow')) {
+                        menuItemArrows.forEach(function (arrow) {
+                            arrow.classList.remove('menu-item-link-arrow-rotate');
+                        });
+                    }
+                })
+            })
+        })
+    </script>
 </body>
 <script type="application/ld+json">
     {

@@ -30,12 +30,15 @@
                 @if (!empty($need->url))
                     <li><a href="{{ $need->url }}">{{ $need->ru_title }}</a></li>
                 @else
-                <li class="uk-parent">
+                <li class="uk-parent need-item">
                     <a>{{ $need->ru_title }}</a>
-                    <ul class="uk-nav-sub uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true">
+                    <ul class="uk-nav-sub uk-nav-parent-icon uk-list uk-list-divider" uk-nav="multiple: true;">
                         @foreach ($need->menuItems as $menu)
-                            <li class="" >
-                                <a href="{{ route('site.catalog.main', $menu->ru_slug) }}">{{ $menu->ru_title }}</a>
+                            <li class="uk-parent menu-item-li" >
+                                <div class="uk-flex uk-flex-between">
+                                    <a class="menu-item-link" href="{{ route('site.catalog.main', $menu->ru_slug) }}">{{ $menu->ru_title }}</a>
+                                    <span class="menu-item-link-arrow"></span>
+                                </div>
                                 <ul class="uk-nav-sub uk-list">
                                     @foreach ($menu->categories as $category)
                                         <li><a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{{ $category->getTitle() }}</a></li>
