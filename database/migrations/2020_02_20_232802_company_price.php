@@ -14,7 +14,7 @@ class CompanyPrice extends Migration
     public function up()
     {
         Schema::table('companies', function (Blueprint $table) {
-            $table->Integer('price')->nullable();
+            $table->integer('price')->nullable();
         });
     }
 
