@@ -42,7 +42,11 @@ class BlogCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.blog.categories.create');
+        $data = [
+            'categories' => $this->blogCategoryRepository->getTree()
+        ];
+
+        return view('admin.pages.blog.categories.create', $data);
     }
 
     /**
@@ -55,15 +59,34 @@ class BlogCategoryController extends Controller
     {
         $request->validate([
             'ru_title' => 'required|unique:blog_categories|max:255',
+            //'image'    => 'nullable|image',
+            'ru_slug' => 'unique:blog_categories|max:255',
+            'en_slug' => 'unique:blog_categories|max:255',
+            'uz_slug' => 'unique:blog_categories|max:255',
         ]);
 
 
-        $this->blogCategoryRepository->store($request);
+        $category = $this->blogCategoryRepository->store($request);
 
         if ($request->has('save'))
-            return redirect()->route('admin.blog.categories.create');
+            return redirect()->route('admin.blogcategories.create');
         else
-            return redirect()->route('admin.blog.categories.index');
+            return redirect()->route('admin.blogcategories.index');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $data = [
+            'category' => $this->blogCategoryRepository->get($id),
+        ];
+
+        return view('admin.pages.blog.categories.category', $data);
     }
 
     /**
@@ -75,6 +98,7 @@ class BlogCategoryController extends Controller
     public function edit($id)
     {
         $data = [
+            'categories' => $this->blogCategoryRepository->getTree(),
             'category' => $this->blogCategoryRepository->get($id)
         ];
 
@@ -92,6 +116,7 @@ class BlogCategoryController extends Controller
     {
         $request->validate([
             'ru_title' => 'required|max:255',
+            //'image'    => 'nullable|image'
         ]);
 
         $category = $this->blogCategoryRepository->update($id, $request);
@@ -110,7 +135,11 @@ class BlogCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $this->blogCategoryRepository->delete($id);
-        return redirect()->route('admin.blog.categories.index');
+        $parent = $this->blogCategoryRepository->delete($id);
+
+        if($parent != null && $this->blogCategoryRepository->get($parent)->hasCategories())
+            return redirect()->route('admin.blogcategories.show', $parent);
+        else
+            return redirect()->route('admin.blogcategories.index');
     }
 }
