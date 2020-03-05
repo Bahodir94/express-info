@@ -74,7 +74,7 @@
         </div>
     </div> -->
     <!-- Search settings end -->
-    
+
     <div class="uk-container uk-container-xlarge uk-margin-small uk-margin-medium-bottom">
         <ul class="cat-tab uk-tab" >
             <li class="uk-active">
@@ -118,7 +118,7 @@
             </div>
         </div> -->
     </div>
-    
+
     <section class="uk-section-xsmall uk-padding-remove-vertical">
         <div class="uk-container uk-container-xlarge uk-container-center">
             <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
@@ -127,13 +127,25 @@
                     {!! $menuItem->ru_description !!}
                 </div>
                 <div class="uk-width-expand@m"></div>
+                <div class="sorting uk-grid-small uk-flex-middle" uk-grid>
+                    <p>Цена: </p>
+                    <form action="" method="get">
+                        <div class="uk-flex">
+                            <select name="price" class="uk-select" id="price">
+                                <option value="asc" @if (request()->get('price') == 'asc') selected @endif>По возрастанию</option>
+                                <option value="desc" @if (request()->get('price') == 'desc') selected @endif>По убыванию</option>
+                            </select>
+                            <input type="submit" value="Применить" class="uk-button uk-button-success-outline uk-margin-left">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
     <section class="uk-section-xsmall">
         <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
             <div uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-grid">
-                @foreach($menuItem->getCompanyFromCategories() as $company)
+                @foreach($companies as $company)
                     <div>
                         <div class="uk-card uk-card-small uk-card-border" itemscope itemtype="http://schema.org/Product">
                             <div class="uk-card-media-top uk-position-relative uk-light">

@@ -91,7 +91,7 @@ class CatalogController extends Controller
             return $this->processNeed($need);
         $menuItem = $this->menus->getBySlug($slug);
         if ($menuItem)
-            return $this->processMenuItem($menuItem);
+            return $this->processMenuItem($request, $menuItem);
         $category = $this->categories->getBySlug($slug);
         if ($category)
             return $this->processCategory($request, $category);
@@ -106,9 +106,21 @@ class CatalogController extends Controller
         return view('site.pages.catalog.need', compact('need'));
     }
 
-    private function processMenuItem($menuItem)
+    private function processMenuItem(Request $request, $menuItem)
     {
-        return view('site.pages.catalog.menuItem', compact('menuItem'));
+        $companies = $menuItem->getCompanyFromCategories();
+        if ($request->has('price')) {
+            $orderingMethod = $request->get('price');
+            if ($orderingMethod == 'asc')
+                $companies = $companies->sortBy('price');
+            else if ($orderingMethod == 'desc')
+                $companies = $companies->sortBydesc('price');
+            else {
+                abort(400);
+            }
+        }
+
+        return view('site.pages.catalog.menuItem', compact('menuItem', 'companies'));
     }
 
     private function processCategory(Request $request, $category)
