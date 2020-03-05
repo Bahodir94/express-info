@@ -1,7 +1,4 @@
 <!-- Header Menu -->
-
-
-
 <!--media: 960; show-on-up: true; animation: uk-animation-slide-top; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;-->
 <!--bottom: #offset; cls-active: uk-navbar-sticky; sel-target: .uk-navbar-container;-->
 <div class="uk-light ad-v6">
