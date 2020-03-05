@@ -189,25 +189,18 @@
                 {!! $category->ru_description !!}
             </div>
             <div class="uk-width-expand@m"></div>
-            @if ($category->services()->count() > 0)
-                <div class="sorting uk-grid-small uk-flex-middle" uk-grid>
-                    <p>Сортировать: </p>
-                    <div id="dropdown-menu" class="dropdown-menu">
-                        @isset($currentService)
-                            <span class="dropdown_title"><img src="{{ $currentService->getImage() }}" alt="">{{ $currentService->ru_title }}</span>
-                        @endisset
-                        <ul>
-                            @foreach($category->services as $service)
-                                @if ($service->companies()->count() > 0)
-                                    <li>
-                                        <a href="{{ route('site.catalog.main', [$category->id, 'service' => $service->id]) }}">{{ $service->ru_title }}</a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
+            <div class="sorting uk-grid-small uk-flex-middle" uk-grid>
+                <p>Цена: </p>
+                <form action="" method="get">
+                    <div class="uk-flex">
+                        <select name="price" class="uk-select" id="price">
+                            <option value="asc" @if (request()->get('price') == 'asc') selected @endif>По возрастанию</option>
+                            <option value="desc" @if (request()->get('price') == 'desc') selected @endif>По убыванию</option>
+                        </select>
+                        <input type="submit" value="Применить" class="uk-button uk-button-success-outline uk-margin-left">
                     </div>
-                </div>
-            @endif
+                </form>
+            </div>
         </div>
     </div>
 </section>
