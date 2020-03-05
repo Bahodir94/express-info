@@ -37,7 +37,9 @@
                             <li class="uk-parent menu-item-li" >
                                 <div class="uk-flex uk-flex-between">
                                     <a class="menu-item-link" href="{{ route('site.catalog.main', $menu->ru_slug) }}">{{ $menu->ru_title }}</a>
-                                    <span class="menu-item-link-arrow"></span>
+                                    <div class="menu-item-link-arrow">
+                                        <div class="menu-item-link-arrow-image"></div>
+                                    </div>
                                 </div>
                                 <ul class="uk-nav-sub uk-list">
                                     @foreach ($menu->categories as $category)

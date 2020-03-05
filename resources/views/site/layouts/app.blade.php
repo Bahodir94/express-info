@@ -32,7 +32,8 @@
             let menuItems = document.querySelectorAll('.menu-item-li');
             menuItems.forEach(function (item) {
                 item.addEventListener('click', function (event) {
-                    if (!event.target.classList.contains('menu-item-link-arrow')) {
+                    if (!event.target.classList.contains('menu-item-link-arrow')
+                        && !event.target.classList.contains('menu-item-link-arrow-image')) {
                         event.stopPropagation();
                     }
                 }, true);
@@ -56,7 +57,8 @@
             let menuItemArrows = document.querySelectorAll('.menu-item-link-arrow');
             menuItemArrows.forEach(function (arrow) {
                 arrow.addEventListener('click', function () {
-                    this.classList.toggle('menu-item-link-arrow-rotate');
+                    console.log(this);
+                    this.children[0].classList.toggle('menu-item-link-arrow-rotate');
                     let dropdown = this.parentNode.nextElementSibling;
                     dropdown.parentNode.classList.toggle('uk-open');
                     if (dropdown.hasAttribute('hidden')) {
