@@ -22,7 +22,6 @@ class BlogCategoryRepository implements BlogCategoryRepositoryInterface
     {
         return BlogCategory::find($blogcategory_id);
     }
-
     /**
      * Get's all posts.
      *
@@ -49,7 +48,6 @@ class BlogCategoryRepository implements BlogCategoryRepositoryInterface
 
        // return $blogcat_id;
     }
-
 
     /**
      * @param $blogcategory_id
