@@ -20,7 +20,7 @@ class BlogCategoryRepository implements BlogCategoryRepositoryInterface
      */
     public function get($blogcategory_id)
     {
-        return BlogCategory::find($blogcategory_id);
+        return BlogCategory::findOrFail($blogcategory_id);
     }
 
     /**
@@ -39,25 +39,17 @@ class BlogCategoryRepository implements BlogCategoryRepositoryInterface
      */
     public function delete($blogcategory_id)
     {
-        $category = $this->get($blogcategory_id);
-
-       /* $blogcat_id = null;
-        if($category->blogcat_id != null)
-            $blogcat_id = $category->blogcat_id;*/
-
-        $category->remove();
-
-       // return $blogcat_id;
+        BlogCategory::destroy($blogcategory_id);
     }
-
 
     /**
      * @param $blogcategory_id
-     * @param object $blogcategory_data
+     * @param $blogcategory_data
+     * @return
      */
-    public function update($blogcategory_id, object $blogcategory_data)
+    public function update($blogcategory_id, $blogcategory_data)
     {
-        $category = BlogCategory::find($blogcategory_id);
+        $category = BlogCategory::findOrFail($blogcategory_id);
         $category->update($blogcategory_data->all());
 
         return $category;
@@ -67,7 +59,7 @@ class BlogCategoryRepository implements BlogCategoryRepositoryInterface
      * @param object $blogcategory_data
      * @return mixed
      */
-    public function store(object $blogcategory_data)
+    public function store($blogcategory_data)
     {
         $category = BlogCategory::create($blogcategory_data->all());
 
