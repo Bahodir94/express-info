@@ -9,12 +9,35 @@
         <a class="active" href="/" target="_blank">
             <i class="si si-map"></i>
             <span class="sidebar-mini-hide">На сайт</span>
+            <span class="sidebar-mini-hide">На блог</span>
         </a>
     </li>
     <li class="nav-main-heading">
         <span class="sidebar-mini-visible">Р</span>
         <span class="sidebar-mini-hidden">Разделы</span>
     </li>
+
+    <li>
+        <a class="nav-submenu" data-toggle="nav-submenu" href="#">
+            <i class="si si-puzzle"></i>
+            <span class="sidebar-mini-hide">Блог</span>
+        </a>
+        <ul>
+            <li>
+                <a href="{{ route('admin.blogcategories.index') }}">
+                    Категории
+                </a>
+            </li>
+{{--           По записям блога - все пока на стадии разраб...--}}
+            <li>
+                <a href="{{ route('admin.blogposts.index') }}">
+                    Записи
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
     <li>
         <a class="nav-submenu" data-toggle="nav-submenu" href="#">
             <i class="si si-puzzle"></i>
