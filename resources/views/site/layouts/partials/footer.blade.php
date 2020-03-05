@@ -1,5 +1,3 @@
-а<!-- Footer -->
-
 
 <div class="uk-section-secondary uk-section uk-section-large" uk-scrollspy="target: [uk-scrollspy-class]; cls: uk-animation-slide-left-small; delay: false;">
 

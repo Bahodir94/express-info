@@ -37,7 +37,368 @@
                     <div>
                         <div class=uk-panel id=module-0>
                             <ul class="uk-nav uk-nav-primary uk-nav-center">
-                                <li @if($page == 'home') class="uk-active" @endif><a href=/home>Главная</a></li>
+                                <li @if($page == 'home') class="uk-active" @endif><a href=/home>Главная</a><li class=" uk-active "><a href="/" aria-expanded="false" class="">Фриланс площадка</a> <div class="uk-navbar-dropdown uk-navbar-dropdown-width-4 uk-navbar-dropdown-bottom-left" style="left: 232.031px; top: 80px;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-5 uk-grid" uk-grid="">
+                        <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#" aria-expanded="false" class="">IT</a><div class="uk-navbar-dropdown uk-navbar-dropdown-width-3 uk-navbar-dropdown-bottom-center" style="left: -239px; top: 37px;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-4 uk-grid" uk-grid="">
+                         <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                 <li class="uk-active"><a href="/sayty">Сайты</a></li>
+                                 <li><a href="/sayty/landing-page">Landing Page</a></li>
+                                 <li><a href="/sayty/internet-magazin">Интернет продвижение</a></li>
+                                 <li><a href="/sayty/sayt-katalog">Сайт каталог</a></li>
+                                 <li><a href="/sayty/portal-1">Портал</a></li>
+                                 <li><a href="/sayty/sayt-pod-klyuch">СаЙТ под ключ</a></li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/boty">Боты</a></li>
+                                <li>
+                                                <a href="/boty/biznes-bot">Для бизнеса</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/boty/bot-dlya-kanala">Для канала</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/boty/bot-magazin">Интернет магазин</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/boty/chat-bot">Чат бот</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/boty/telegram-boty">Для телеграмм</a>
+                                            </li>
+                         
+                            </ul>
+                        </div>
+                        
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/mobilnye-prilozheniya">Приложения</a></li>
+
+                                      <li>
+                                                <a href="/mobilnye-prilozheniya/android">Android</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/mobilnye-prilozheniya/ios">IOS</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/mobilnye-prilozheniya/mobilnye-igry">Мобильные игры</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/mobilnye-prilozheniya/android-ios">Мобильное приложение</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/programmnoe-obespechenie">Программное обеспечение</a></li>
+
+                                    <li>
+                                                <a href="/programmnoe-obespechenie/erp-crm">ERP / CRM</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/programmnoe-obespechenie/operatsionnye-sistemy">Операционные системы</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/programmnoe-obespechenie/biznes-resheniya">Бизнес решения</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/programmnoe-obespechenie/bezopasnost">Безопасность</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/programmnoe-obespechenie/sistemnye-programmy">Системные программы</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/programmnoe-obespechenie/grafika-i-dizayn">Графика и дизайн</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         <div class="uk-grid-margin uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/novye-tekhnologii">Новые технологии</a></li>
+            <li>
+                                                <a href="/novye-tekhnologii/vr-virtualnaya-realnost">VR - Виртуальная реальность</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/novye-tekhnologii/ar-dopolnennaya-realnost">AR - дополненная реальность</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/novye-tekhnologii/neyronnye-seti">Нейронные сети</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/novye-tekhnologii/iot-internet-veshchey">IOT - Интернет вещей</a>
+                                            </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div></li>
+                         
+                            </ul>
+                        </div>
+                   <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#" aria-expanded="false" class="">Продвижение и Маркетинг</a><div class="uk-navbar-dropdown uk-navbar-dropdown-width-3 uk-navbar-dropdown-bottom-center uk-animation-fade uk-animation-enter" style="left: -239px; top: 58px; animation-duration: 200ms;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-3 uk-grid" uk-grid="">
+                         <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                 <li class="uk-active"><a href="/internet-reklama">Интернет реклама</a></li>
+                                <li>
+                                                <a href="/internet-reklama/seo">SEO</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/internet-reklama/smm">SMM</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/internet-reklama/bannernaya-reklama">Баннерная реклама</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/internet-reklama/kontekstnaya-reklama">Контекстная реклама</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/internet-reklama/internet-marketing">Интернет маркетинг</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/internet-reklama/reklama-u-blogerov">Реклама у блогеров</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/traditsionnaya-reklama">Обычная реклама</a></li>
+                                  <li>
+                                                <a href="/traditsionnaya-reklama/marketing">Маркетинг</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/traditsionnaya-reklama/naruzhnaya-reklama">Наружная реклама</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/traditsionnaya-reklama/reklama-v-metro">Реклама в метро</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/traditsionnaya-reklama/reklama-na-tv">Реклама на тв</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/traditsionnaya-reklama/reklama-na-radio">Реклама на радио</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        
+                         
+                         
+                         
+                    </div>
+                </div></li>
+                         
+                            </ul>
+                        </div><div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#" aria-expanded="false" class="">Мультимедиа</a><div class="uk-navbar-dropdown uk-navbar-dropdown-width-3 uk-navbar-dropdown-bottom-center" style="left: -239px; top: 37px;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-4 uk-grid" uk-grid="">
+                         <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                 <li class="uk-active"><a href="/dizayn">Дизайн</a></li>
+                                <li>
+                                                <a href="/dizayn/dlya-saytov">Для сайтов</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/dlya-sots-setey">Для соц сетей</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/poligrafiya">Полиграфия</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/dizayn-nnterera">Дизайн ннтерьера</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/dizayn-eksterera">Дизайн Экстерьера</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/3d-modelirovanie">3D моделирование</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/3d-animatsiya">3D анимация</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/predmetnaya-vizualizatsiya">Предметная визуализация</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/video">Видео</a></li>
+                                 <li>
+                                                <a href="/video/videoroliki">Видеоролики</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/video/intro-i-animatsiya-logotipa">Интро и анимация логотипа</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/video/videosemka-i-montazh">Видеосъемка и монтаж</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/audio">Аудио</a></li>
+
+                                                  <li>
+                                                <a href="/audio/audiozapis-i-ozvuchka">Аудиозапись и озвучка</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/audio/muzyka-i-pesni">Музыка и песни</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/audio/redaktirovanie-audio">Редактирование аудио</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/foto">ФОТО</a></li>
+
+                                       <li>
+                                                <a href="/foto/fotouslugi">Фотоуслуги</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/foto/fotoproduktsiya">Фотопродукция</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         
+                    </div>
+                </div></li>
+                         
+                            </ul>
+                        </div><div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#" aria-expanded="false" class="">ТЕКСТ</a><div class="uk-navbar-dropdown uk-navbar-dropdown-width-3 uk-navbar-dropdown-bottom-center uk-animation-fade uk-animation-enter" style="left: -239px; top: 37px; animation-duration: 200ms;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-4 uk-grid" uk-grid="">
+                         <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                 <li class="uk-active"><a href="/napisanie">НАПИСАНИЕ</a></li>
+                               <li>
+                                                <a href="/tekst/kopirayting">Копирайтинг</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/rerayting">Рерайтинг</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/dlya-sots-seti">Для соц сети</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/stsenarii">Сценарии</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/stikhi-rasskazy-skazki">Стихи, рассказы, сказки</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/perevod">ПЕРЕВОДЫ</a></li>
+                                     <li>
+                                                <a href="/tekst/pismennyy-perevod">Письменный</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/ustnyy-perevod">Устный</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/lokalizatsiya">Локализация</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/notarialnoe-zaverenie-perevodov">Нотариальное заверение переводов</a>
+                                            </li>
+                         
+                            </ul>
+                        </div>
+                        
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/spets-perevody">СПЕЦ. ПЕРЕВОДЫ</a></li>
+
+                                      <li>
+                                                <a href="/tekst/tekhnicheskiy-perevod">Технический</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/yuridicheskiy-perevod">Юридический</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/meditsinskiy-perevod">Медицинский</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/ekonomicheskiy-i-finansovyy-perevod">Экономический и финансовый</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/khudozhestvennyy-perevod">Художественный</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/sinkhronnyy-perevod">Синхронный</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/dorabotka">ДОРАБОТКА</a></li>
+
+                                    <li>
+                                                <a href="/tekst/redaktura">Редактура</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/kontent-analiz">Контент анализ</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/transkribatsiya-audio-v-tekst">Транскрибация - аудио в текст</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/korektura">Коректура</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         
+                    </div>
+                </div></li>
+                         
+                            </ul>
+                        </div><div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#" aria-expanded="false" class="">Бизнес</a><div class="uk-navbar-dropdown uk-navbar-dropdown-width-4 uk-navbar-dropdown-bottom-left" style="left: -768px; top: 37px;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-2 uk-grid uk-grid-stack" uk-grid="">
+                         <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                 <li class="uk-active"><a href="/predprinimatelyu">ПРЕДПРИНИМАТЕЛЮ</a></li>
+  <li>
+                                                <a href="/biznes/bukhgalteriya-i-nalogi">Бухгалтерия и налоги</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/biznes/yuridicheskaya-pomoshch">Юридическая помощь</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/biznes/obuchenie-i-konsalting">Обучение и консалтинг</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/biznes/menedzhment-proektov-1">Менеджмент проектов</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/biznes/neyming">Нейминг</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        
+                        
+                         
+                         
+                         
+                    </div>
+                </div></li>
+                         
+                            </ul>
+                        </div></div></div></li></li>
                                 <li class="@if(strpos($page, 'site') !== false) uk-active @endif uk-parent"><a href=/site>Создание сайтов</a>
                                     <ul class=uk-nav-sub>
                                         <li class=@if(strpos($page, 'landing') !== false) uk-active @endif><a href=/site/lange>Разработка лендингов</a></li>
@@ -114,6 +475,368 @@
                                 class=uk-logo-inverse alt=Vid height=40px src=/images/yootheme/logoW.svg></a></div>
                     <div class=uk-navbar-right>
                         <ul class=uk-navbar-nav>
+                            <li class=" uk-active "><a href="/" aria-expanded="false" class="">Фриланс площадка</a> <div class="uk-navbar-dropdown uk-navbar-dropdown-width-4 uk-navbar-dropdown-bottom-left" style="left: 232.031px; top: 80px;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-5 uk-grid" uk-grid="">
+                        <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#" aria-expanded="false" class="">IT</a><div class="uk-navbar-dropdown uk-navbar-dropdown-width-3 uk-navbar-dropdown-bottom-center" style="left: -239px; top: 37px;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-4 uk-grid" uk-grid="">
+                         <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                 <li class="uk-active"><a href="/sayty">Сайты</a></li>
+                                 <li><a href="/sayty/landing-page">Landing Page</a></li>
+                                 <li><a href="/sayty/internet-magazin">Интернет продвижение</a></li>
+                                 <li><a href="/sayty/sayt-katalog">Сайт каталог</a></li>
+                                 <li><a href="/sayty/portal-1">Портал</a></li>
+                                 <li><a href="/sayty/sayt-pod-klyuch">СаЙТ под ключ</a></li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/boty">Боты</a></li>
+                                <li>
+                                                <a href="/boty/biznes-bot">Для бизнеса</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/boty/bot-dlya-kanala">Для канала</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/boty/bot-magazin">Интернет магазин</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/boty/chat-bot">Чат бот</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/boty/telegram-boty">Для телеграмм</a>
+                                            </li>
+                         
+                            </ul>
+                        </div>
+                        
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/mobilnye-prilozheniya">Приложения</a></li>
+
+                                      <li>
+                                                <a href="/mobilnye-prilozheniya/android">Android</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/mobilnye-prilozheniya/ios">IOS</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/mobilnye-prilozheniya/mobilnye-igry">Мобильные игры</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/mobilnye-prilozheniya/android-ios">Мобильное приложение</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/programmnoe-obespechenie">Программное обеспечение</a></li>
+
+                                    <li>
+                                                <a href="/programmnoe-obespechenie/erp-crm">ERP / CRM</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/programmnoe-obespechenie/operatsionnye-sistemy">Операционные системы</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/programmnoe-obespechenie/biznes-resheniya">Бизнес решения</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/programmnoe-obespechenie/bezopasnost">Безопасность</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/programmnoe-obespechenie/sistemnye-programmy">Системные программы</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/programmnoe-obespechenie/grafika-i-dizayn">Графика и дизайн</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         <div class="uk-grid-margin uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/novye-tekhnologii">Новые технологии</a></li>
+            <li>
+                                                <a href="/novye-tekhnologii/vr-virtualnaya-realnost">VR - Виртуальная реальность</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/novye-tekhnologii/ar-dopolnennaya-realnost">AR - дополненная реальность</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/novye-tekhnologii/neyronnye-seti">Нейронные сети</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/novye-tekhnologii/iot-internet-veshchey">IOT - Интернет вещей</a>
+                                            </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div></li>
+                         
+                            </ul>
+                        </div>
+                   <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#" aria-expanded="false" class="">Продвижение и Маркетинг</a><div class="uk-navbar-dropdown uk-navbar-dropdown-width-3 uk-navbar-dropdown-bottom-center uk-animation-fade uk-animation-enter" style="left: -239px; top: 58px; animation-duration: 200ms;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-3 uk-grid" uk-grid="">
+                         <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                 <li class="uk-active"><a href="/internet-reklama">Интернет реклама</a></li>
+                                <li>
+                                                <a href="/internet-reklama/seo">SEO</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/internet-reklama/smm">SMM</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/internet-reklama/bannernaya-reklama">Баннерная реклама</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/internet-reklama/kontekstnaya-reklama">Контекстная реклама</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/internet-reklama/internet-marketing">Интернет маркетинг</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/internet-reklama/reklama-u-blogerov">Реклама у блогеров</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/traditsionnaya-reklama">Обычная реклама</a></li>
+                                  <li>
+                                                <a href="/traditsionnaya-reklama/marketing">Маркетинг</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/traditsionnaya-reklama/naruzhnaya-reklama">Наружная реклама</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/traditsionnaya-reklama/reklama-v-metro">Реклама в метро</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/traditsionnaya-reklama/reklama-na-tv">Реклама на тв</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/traditsionnaya-reklama/reklama-na-radio">Реклама на радио</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        
+                         
+                         
+                         
+                    </div>
+                </div></li>
+                         
+                            </ul>
+                        </div><div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#" aria-expanded="false" class="">Мультимедиа</a><div class="uk-navbar-dropdown uk-navbar-dropdown-width-3 uk-navbar-dropdown-bottom-center" style="left: -239px; top: 37px;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-4 uk-grid" uk-grid="">
+                         <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                 <li class="uk-active"><a href="/dizayn">Дизайн</a></li>
+                                <li>
+                                                <a href="/dizayn/dlya-saytov">Для сайтов</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/dlya-sots-setey">Для соц сетей</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/poligrafiya">Полиграфия</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/dizayn-nnterera">Дизайн ннтерьера</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/dizayn-eksterera">Дизайн Экстерьера</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/3d-modelirovanie">3D моделирование</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/3d-animatsiya">3D анимация</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/dizayn/predmetnaya-vizualizatsiya">Предметная визуализация</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/video">Видео</a></li>
+                                 <li>
+                                                <a href="/video/videoroliki">Видеоролики</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/video/intro-i-animatsiya-logotipa">Интро и анимация логотипа</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/video/videosemka-i-montazh">Видеосъемка и монтаж</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/audio">Аудио</a></li>
+
+                                                  <li>
+                                                <a href="/audio/audiozapis-i-ozvuchka">Аудиозапись и озвучка</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/audio/muzyka-i-pesni">Музыка и песни</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/audio/redaktirovanie-audio">Редактирование аудио</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/foto">ФОТО</a></li>
+
+                                       <li>
+                                                <a href="/foto/fotouslugi">Фотоуслуги</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/foto/fotoproduktsiya">Фотопродукция</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         
+                    </div>
+                </div></li>
+                         
+                            </ul>
+                        </div><div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#" aria-expanded="false" class="">ТЕКСТ</a><div class="uk-navbar-dropdown uk-navbar-dropdown-width-3 uk-navbar-dropdown-bottom-center uk-animation-fade uk-animation-enter" style="left: -239px; top: 37px; animation-duration: 200ms;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-4 uk-grid" uk-grid="">
+                         <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                 <li class="uk-active"><a href="/napisanie">НАПИСАНИЕ</a></li>
+                               <li>
+                                                <a href="/tekst/kopirayting">Копирайтинг</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/rerayting">Рерайтинг</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/dlya-sots-seti">Для соц сети</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/stsenarii">Сценарии</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/stikhi-rasskazy-skazki">Стихи, рассказы, сказки</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/perevod">ПЕРЕВОДЫ</a></li>
+                                     <li>
+                                                <a href="/tekst/pismennyy-perevod">Письменный</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/ustnyy-perevod">Устный</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/lokalizatsiya">Локализация</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/notarialnoe-zaverenie-perevodov">Нотариальное заверение переводов</a>
+                                            </li>
+                         
+                            </ul>
+                        </div>
+                        
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/spets-perevody">СПЕЦ. ПЕРЕВОДЫ</a></li>
+
+                                      <li>
+                                                <a href="/tekst/tekhnicheskiy-perevod">Технический</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/yuridicheskiy-perevod">Юридический</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/meditsinskiy-perevod">Медицинский</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/ekonomicheskiy-i-finansovyy-perevod">Экономический и финансовый</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/khudozhestvennyy-perevod">Художественный</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/sinkhronnyy-perevod">Синхронный</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         <div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="/dorabotka">ДОРАБОТКА</a></li>
+
+                                    <li>
+                                                <a href="/tekst/redaktura">Редактура</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/kontent-analiz">Контент анализ</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/transkribatsiya-audio-v-tekst">Транскрибация - аудио в текст</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/tekst/korektura">Коректура</a>
+                                            </li>
+                            </ul>
+                        </div>
+                         
+                    </div>
+                </div></li>
+                         
+                            </ul>
+                        </div><div class="">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="#" aria-expanded="false" class="">Бизнес</a><div class="uk-navbar-dropdown uk-navbar-dropdown-width-4 uk-navbar-dropdown-bottom-left" style="left: -768px; top: 37px;">
+                    <div class="uk-navbar-dropdown-grid uk-child-width-1-2 uk-grid uk-grid-stack" uk-grid="">
+                         <div class="uk-first-column">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                 <li class="uk-active"><a href="/predprinimatelyu">ПРЕДПРИНИМАТЕЛЮ</a></li>
+  <li>
+                                                <a href="/biznes/bukhgalteriya-i-nalogi">Бухгалтерия и налоги</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/biznes/yuridicheskaya-pomoshch">Юридическая помощь</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/biznes/obuchenie-i-konsalting">Обучение и консалтинг</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/biznes/menedzhment-proektov-1">Менеджмент проектов</a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="/biznes/neyming">Нейминг</a>
+                                            </li>
+                            </ul>
+                        </div>
+                        
+                        
+                         
+                         
+                         
+                    </div>
+                </div></li>
+                         
+                            </ul>
+                        </div></div></div></li>
                             <li class="@if(strpos($page, 'home') !== false) uk-active @endif"><a href=/home>Главная</a></li>
                             <li class="@if(strpos($page, 'site') !== false) uk-active @endif uk-parent"><a href=/site>Создание сайтов</a>
                                 <div class=uk-navbar-dropdown>

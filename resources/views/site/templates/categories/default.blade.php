@@ -102,36 +102,7 @@
     </div>
 </div> -->
 <!-- Search settings end -->
-<section class="uk-section-xsmall uk-padding-remove-vertical">
-    <div class="uk-container uk-container-xlarge uk-container-center">
-        <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
-            <div class="wrapper_title">
-                <h1>{{ $category->getTitle() }}</h1>
-                {!! $category->ru_description !!}
-            </div>
-            <div class="uk-width-expand@m"></div>
-            @if ($category->services()->count() > 0)
-                <div class="sorting uk-grid-small uk-flex-middle" uk-grid>
-                    <p>Сортировать: </p>
-                    <div id="dropdown-menu" class="dropdown-menu">
-                        @isset($currentService)
-                            <span class="dropdown_title"><img src="{{ $currentService->getImage() }}" alt="">{{ $currentService->ru_title }}</span>
-                        @endisset
-                        <ul>
-                            @foreach($category->services as $service)
-                                @if ($service->companies()->count() > 0)
-                                    <li>
-                                        <a href="{{ route('site.catalog.main', [$category->id, 'service' => $service->id]) }}">{{ $service->ru_title }}</a>
-                                    </li>
-                                @endif
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            @endif
-        </div>
-    </div>
-</section>
+
     <div class="uk-container uk-container-xlarge uk-margin-small uk-margin-medium-bottom">
 <!--
         <div class="uk-child-width-auto uk-child-width-auto@m uk-grid-small" uk-grid>
@@ -210,6 +181,36 @@
             </div>
         </div> -->
     </div>
+    <section class="uk-section-xsmall uk-padding-remove-vertical">
+    <div class="uk-container uk-container-xlarge uk-container-center">
+        <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
+            <div class="wrapper_title">
+                <h1>{{ $category->getTitle() }}</h1>
+                {!! $category->ru_description !!}
+            </div>
+            <div class="uk-width-expand@m"></div>
+            @if ($category->services()->count() > 0)
+                <div class="sorting uk-grid-small uk-flex-middle" uk-grid>
+                    <p>Сортировать: </p>
+                    <div id="dropdown-menu" class="dropdown-menu">
+                        @isset($currentService)
+                            <span class="dropdown_title"><img src="{{ $currentService->getImage() }}" alt="">{{ $currentService->ru_title }}</span>
+                        @endisset
+                        <ul>
+                            @foreach($category->services as $service)
+                                @if ($service->companies()->count() > 0)
+                                    <li>
+                                        <a href="{{ route('site.catalog.main', [$category->id, 'service' => $service->id]) }}">{{ $service->ru_title }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endif
+        </div>
+    </div>
+</section>
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
         <div uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-grid">
