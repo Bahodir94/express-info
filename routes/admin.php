@@ -17,6 +17,7 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
 
     // BLOG Category Routes
     Route::resource('blogcategories', 'BlogCategoryController');
+    Route::resource('blogposts', 'BlogPostController');
 
     // Cgu Category Routes
     Route::resource('/cgucategories', 'CguCategoryController');
