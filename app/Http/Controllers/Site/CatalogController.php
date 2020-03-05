@@ -113,25 +113,22 @@ class CatalogController extends Controller
 
     private function processCategory(Request $request, $category)
     {
-        $descendantsCategories = $category->descendants;
-        $companies = collect();
-        $resultCompanies = [];
-        $companies = $companies->merge($category->companies);
-        foreach ($descendantsCategories as $descendantsCategory)
-            $companies = $companies->merge($descendantsCategory->companies);
-        if ($request->has('service'))
-        {
-            $serviceId = $request->get('service');
-            foreach ($companies as $company)
-                if ($company->hasService($serviceId))
-                    array_push($resultCompanies, $company);
+        $companies = $category->getAllCompaniesFromDescendingCategories();
+
+        if ($request->has('price')) {
+            $orderingMethod = $request->get('price');
+            if ($orderingMethod == 'asc')
+                $companies = $companies->sortBy('price');
+            else if ($orderingMethod == 'desc')
+                $companies = $companies->sortBydesc('price');
+            else {
+                abort(400);
+            }
         }
-        else
-            $resultCompanies = $companies;
 
         $data = [
             'category' => $category,
-            'companies' => $resultCompanies
+            'companies' => $companies
         ];
 
         return view("site.templates.categories.$category->template", $data);
