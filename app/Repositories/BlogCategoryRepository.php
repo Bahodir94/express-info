@@ -61,6 +61,7 @@ class BlogCategoryRepository implements BlogCategoryRepositoryInterface
     public function store($blogcategory_data)
     {
         $category = BlogCategory::create($blogcategory_data->all());
+        $category->generateSlug();
 
         return $category;
     }

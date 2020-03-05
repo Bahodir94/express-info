@@ -2,12 +2,12 @@
 
 namespace App;
 
-use Cviebrock\EloquentSluggable\Sluggable;
+use App\Models\Components\Slug;
 use Illuminate\Database\Eloquent\Model;
 
 class BlogCategory extends Model
 {
-    use Sluggable;
+    use Slug;
 
     protected $fillable = [
         'ru_title', 'en_title', 'uz_title',
