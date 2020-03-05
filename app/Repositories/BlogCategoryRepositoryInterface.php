@@ -18,8 +18,8 @@ interface BlogCategoryRepositoryInterface
 
     public function delete($blogcategory_id);
 
-    public function update($blogcategory_id, object $blogcategory_data);
+    public function update($blogcategory_id, $blogcategory_data);
 
-    public function store(object $blogcategory_data);
+    public function store($blogcategory_data);
 
 }
