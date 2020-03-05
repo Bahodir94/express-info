@@ -15,9 +15,9 @@ class CreateBlogCategoriesTable extends Migration
     {
         Schema::create('blog_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ru_title');
-            $table->string('en_title');
-            $table->string('uz_title');
+            $table->string('ru_title')->nullable();
+            $table->string('en_title')->nullable();
+            $table->string('uz_title')->nullable();
             $table->string('ru_slug')->nullable();
             $table->string('en_slug')->nullable();
             $table->string('uz_slug')->nullable();
