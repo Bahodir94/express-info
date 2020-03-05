@@ -21,5 +21,4 @@ interface BlogCategoryRepositoryInterface
     public function update($blogcategory_id, object $blogcategory_data);
 
     public function store(object $blogcategory_data);
-
 }
