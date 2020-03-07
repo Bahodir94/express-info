@@ -42,6 +42,7 @@ class BlogCategoryController extends Controller
      */
     public function create()
     {
+
         return view('admin.pages.blog.categories.create');
     }
 
