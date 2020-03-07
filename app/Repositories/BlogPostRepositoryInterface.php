@@ -33,7 +33,6 @@ interface BlogPostRepositoryInterface
 
 
     /**
-
      *
      * @param object $post_data
      * @return mixed
