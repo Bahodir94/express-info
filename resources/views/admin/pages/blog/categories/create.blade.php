@@ -124,50 +124,8 @@
                             </div>
                         </div>
                         <!-- END Step 3 -->
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label for="parent_id">Категории</label>
-                                </div>
-                                <div class="col-md-12">
-{{--                                    <select name="parent_id" id="select2" class="form-control">--}}
-{{--                                        <option value="0">-- нет --</option>--}}
-{{--                                        @foreach($categories as $category_list)--}}
-{{--                                            @include('admin.pages.blog.categories.components.category', ['delimiter' => ''])--}}
-{{--                                        @endforeach--}}
-{{--                                    </select>--}}
-                                </div>
-                            </div>
-                        </div>
-
-{{--                        <div class="form-group">--}}
-{{--                            <label for="image">Изображение</label>--}}
-{{--                            <input type="file" name="image" class="form-control">--}}
-{{--                        </div>--}}
-
                     </div>
                     <!-- END Steps Content -->
-
-                    <!-- Steps Navigation -->
-                    <div class="block-content block-content-sm block-content-full bg-body-light">
-                        <div class="row">
-                            <div class="col-6">
-                                <button type="button" class="btn btn-alt-secondary" data-wizard="prev">
-                                    <i class="fa fa-angle-left mr-5"></i> Previous
-                                </button>
-                            </div>
-                            <div class="col-6 text-right">
-                                <button type="button" class="btn btn-alt-secondary" data-wizard="next">
-                                    Next <i class="fa fa-angle-right ml-5"></i>
-                                </button>
-                                <button type="submit" class="btn btn-alt-primary d-none" data-wizard="finish">
-                                    <i class="fa fa-check mr-5"></i> Submit
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END Steps Navigation -->
                 </div>
                 <!-- END Simple Wizard -->
 
