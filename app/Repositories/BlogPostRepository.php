@@ -8,8 +8,6 @@ use App\Models\BlogPost;
 
 class BlogPostRepository implements BlogPostRepositoryInterface
 {
-
-
     /**
      * @param $post_id
      * @return mixed
@@ -20,7 +18,6 @@ class BlogPostRepository implements BlogPostRepositoryInterface
     }
 
     /**
-     * Get's all categories.
      *
      * @return mixed
      */
@@ -30,7 +27,6 @@ class BlogPostRepository implements BlogPostRepositoryInterface
     }
 
     /**
-     * Deletes a site.
      *
      * @param int
      */
