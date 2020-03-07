@@ -128,30 +128,55 @@
 
                     </div>
                     <!-- END Steps Content -->
+<<<<<<< Updated upstream
+=======
+
+                    {{--begin Meta-Tag--}}
+                    <h3 class="font-size-h3 font-w600 my-20">SEO</h3>
+                    <div class="form-group">
+                        <div class="form-material floating form-material-primary">
+                            <input type="text" name="meta_title" id="meta_title" value="{{ $category->meta_title }}" class="form-control">
+                            <label for="meta_title">Мета тег title</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-material floating form-material-primary">
+                            <input type="text" name="meta_description" id="meta_description" value="{{ $category->meta_description }}" class="form-control">
+                            <label for="meta_description">Мета тег description</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-material floating form-material-primary">
+                            <input type="text" name="meta_keywords" id="meta_keywords" value="{{ $category->meta_keywords }}" class="form-control">
+                            <label for="meta_keywords">Мета тег keywords</label>
+                        </div>
+                    </div>
+                {{--end Meta-Tag--}}
+
+                    <!-- Steps Navigation -->
+                    <div class="block-content block-content-sm block-content-full bg-body-light">
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-alt-secondary" data-wizard="prev">
+                                    <i class="fa fa-angle-left mr-5"></i> Previous
+                                </button>
+                            </div>
+                            <div class="col-6 text-right">
+                                <button type="button" class="btn btn-alt-secondary" data-wizard="next">
+                                    Next <i class="fa fa-angle-right ml-5"></i>
+                                </button>
+                                <button type="submit" class="btn btn-alt-primary d-none" data-wizard="finish">
+                                    <i class="fa fa-check mr-5"></i> Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Steps Navigation -->
+>>>>>>> Stashed changes
                 </div>
                 <!-- END Simple Wizard -->
 
-{{--begin Meta-Tag--}}
-                <h3 class="font-size-h3 font-w600 my-20">SEO</h3>
-                <div class="form-group">
-                    <div class="form-material floating form-material-primary">
-                        <input type="text" name="meta_title" id="meta_title" value="{{ $category->meta_title }}" class="form-control">
-                        <label for="meta_title">Мета тег title</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-material floating form-material-primary">
-                        <input type="text" name="meta_description" id="meta_description" value="{{ $category->meta_description }}" class="form-control">
-                        <label for="meta_description">Мета тег description</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-material floating form-material-primary">
-                        <input type="text" name="meta_keywords" id="meta_keywords" value="{{ $category->meta_keywords }}" class="form-control">
-                        <label for="meta_keywords">Мета тег keywords</label>
-                    </div>
-                </div>
-                {{--end Meta-Tag--}}
+
 
 
             </div>
