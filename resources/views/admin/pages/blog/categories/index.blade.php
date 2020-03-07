@@ -24,8 +24,6 @@
                     <tr>
                         <th class="text-center"></th>
                         <th class="sorting_desc">Заголовок</th>
-                        <th>Категории</th>
-{{--                        <th>Записи</th>--}}
                         <th class="text-center" style="width: 15%;">Действия</th>
                     </tr>
                     </thead>
@@ -34,20 +32,6 @@
                         <tr>
                             <td class="text-center">{{ $category->id }}</td>
                             <td class="font-w600">{{ $category->getTitle() }}</td>
-{{--                            <td>--}}
-{{--                                @if($category->hasCategories())--}}
-{{--                                    <a href="{{ route('admin.blogcategories.show', $category->id) }}" class="btn btn-sm btn-alt-primary">Посмотреть</a>--}}
-{{--                                @else--}}
-{{--                                    Нет--}}
-{{--                                @endif--}}
-{{--                        </td>--}}
-{{--                        <td>--}}
-{{--                            @if($category->hasSites())--}}
-{{--                                <a href="{{ route('admin.blogcategories.sites', $category->id) }}" class="btn btn-sm btn-alt-primary">Посмотреть</a>--}}
-{{--                            @else--}}
-{{--                                Нет--}}
-{{--                            @endif--}}
-{{--                        </td>--}}
                         <td class="text-center d-flex align-items-center justify-content-around">
                             <a data-toggle="tooltip" title="Редактировать" href="{{ route('admin.blogcategories.edit', $category->id) }}" class="btn btn-sm btn-alt-primary"><i class="fa fa-edit"></i></a>
                             <form method="post" action="{{ route('admin.blogcategories.destroy', $category->id) }}">
@@ -57,11 +41,6 @@
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </form>
-{{--                            <select name="position" class="position" data-id="{{ $category->id }}">--}}
-{{--                                @for($i = 0; $i <= count($categories); $i++)--}}
-{{--                                    <option value="{{ $i }}" @if($category->position == $i) selected @endif>{{ $i }}</option>--}}
-{{--                                @endfor--}}
-{{--                            </select>--}}
                         </td>
                     </tr>
                 @endforeach
