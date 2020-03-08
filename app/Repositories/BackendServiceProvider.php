@@ -30,11 +30,16 @@ class BackendServiceProvider extends ServiceProvider
         $this->app->bind(
         'App\Repositories\CguCatalogRepositoryInterface',
         'App\Repositories\CguCatalogRepository'
-    );
+        );
 
         $this->app->bind(
             'App\Repositories\BlogCategoryRepositoryInterface',
             'App\Repositories\BlogCategoryRepository'
+        );
+
+        $this->app->bind(
+            'App\Repositories\BlogPostRepositoryInterface',
+            'App\Repositories\BlogPostRepository'
         );
 
         $this->app->bind(
