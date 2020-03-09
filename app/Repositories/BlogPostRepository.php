@@ -33,7 +33,7 @@ class BlogPostRepository implements BlogPostRepositoryInterface
     public function delete($post_id)
     {
         $post = $this->get($post_id);
-        $post->remove();
+        $post->delete();
     }
 
 
@@ -63,13 +63,5 @@ class BlogPostRepository implements BlogPostRepositoryInterface
         $post->uploadImage($blog_data->file('image'));
 
         return $post;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCategoriesTree()
-    {
-        return BlogCategory::all()->toTree();
     }
 }

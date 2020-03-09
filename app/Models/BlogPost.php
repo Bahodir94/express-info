@@ -38,6 +38,18 @@ class BlogPost extends Model
         return strip_tags($this->ru_title);
     }
 
+    /**
+     * Override delete method to delete image too
+     *
+     * @return void
+     * @throws \Exception
+     */
+    public function delete()
+    {
+        $this->removeImage();
+        parent::delete();
+    }
+
     public function getShortContent()
     {
         return strip_tags($this->ru_short_content);
