@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Helpers\SlugHelper;
 use App\Repositories\CompanyRepositoryInterface;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
@@ -86,6 +87,7 @@ class CatalogController extends Controller
         if (preg_match('/[A-Z]/', $params)) {
             return redirect()->route('site.catalog.main', strtolower($params));
         }
+        abort_if(!SlugHelper::checkSlug($params), 404);
         $paramsArray = explode('/', trim($params, '/'));
         $slug = end($paramsArray);
 
