@@ -73,17 +73,6 @@ class BlogPostController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param BlogPost $blogPost
-     * @return void
-     */
-    public function show(BlogPost $blogPost)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param $id
