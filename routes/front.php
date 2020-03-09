@@ -17,7 +17,7 @@ Route::view('/advertising/tv-videos', 'site.pages.static.tv_videos');
 Route::view('/advertising/visit-card', 'site.pages.static.visit_card');
 
 // Studio static page routes
-Route::view('/home', 'studio.home', ['page' => 'home']);
+Route::view('/studiya', 'studio.home', ['page' => 'home']);
 Route::view('/site', 'studio.site.index', ['page' => 'site']);
 Route::view('/site/lange', 'studio.site.landing', ['page' => 'site.landing']);
 Route::view('/site/internet-magazin', 'studio.site.eshop', ['page' => 'site.eshop']);
