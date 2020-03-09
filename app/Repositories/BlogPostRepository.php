@@ -23,7 +23,7 @@ class BlogPostRepository implements BlogPostRepositoryInterface
      */
     public function all()
     {
-        return BlogPost::/*orderBy('position', 'asc')->*/get();
+        return BlogPost::get();
     }
 
     /**
@@ -47,7 +47,7 @@ class BlogPostRepository implements BlogPostRepositoryInterface
         $post = $this->get($post_id);
         $post->update($post_data->all());
         $post->uploadImage($post_data->file('image'));
-
+       // $post->removeImage($post_data->file('image'));
         return $post;
     }
 
