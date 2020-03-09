@@ -40,7 +40,7 @@ class BlogPost extends Model
 
     public function getShortContent()
     {
-        return strip_tags(($this->ru_short_content));
+        return strip_tags($this->ru_short_content);
     }
 
 }

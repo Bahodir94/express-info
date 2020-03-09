@@ -30,11 +30,6 @@ class BlogPostController extends Controller
 
     public function create()
     {
-        /*$data = [
-            'categories' => $this->postRepository->getCategoriesTree()
-        ];
-
-        return view('admin.pages.blog.posts.create', $data);*/
         return view('admin.pages.blog.posts.create');
     }
 
