@@ -25,6 +25,11 @@ class BlogCategory extends Model
         return strip_tags($this->ru_title);
     }
 
+    public function posts()
+    {
+        return $this->hasMany(BlogPost::class, 'category_id', 'id');
+    }
+
     /**
      * @return array
      */

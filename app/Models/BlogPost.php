@@ -22,14 +22,12 @@ class BlogPost extends Model
         'ru_content', 'uz_content', 'en_content',
         'ru_title', 'en_title', 'uz_title',
         'ru_slug', 'en_slug', 'uz_slug',
+        'category_id'
     ];
 
-    /**
-     * @return bool
-     */
-    public function hasParentCategory()
+    public function category()
     {
-        return ($this->parentCategory != null) ? true : false;
+        return $this->hasOne(BlogCategory::class, 'id', 'category_id');
     }
 
     /**
