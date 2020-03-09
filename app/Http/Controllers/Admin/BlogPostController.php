@@ -133,14 +133,4 @@ class BlogPostController extends Controller
 
         return redirect()->route('admin.blogposts.edit', $post->id);
     }
-
-    public function changePosition(Request $request)
-    {
-        $category = BlogPost::find($request->get('id'));
-        $category->position = $request->get('position');
-        if ($category->save())
-            return json_encode(['message' => 'success']);
-        else
-            return json_encode(['message' => 'failed']);
-    }
 }
