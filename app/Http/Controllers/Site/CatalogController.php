@@ -83,6 +83,9 @@ class CatalogController extends Controller
     */
     public function catalog(Request $request, string $params)
     {
+        if (ctype_upper($params)) {
+            return redirect()->route('catalog.main', strtolower($params));
+        }
         $paramsArray = explode('/', trim($params, '/'));
         $slug = end($paramsArray);
 
