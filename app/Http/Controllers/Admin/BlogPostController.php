@@ -3,18 +3,29 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\BlogPost;
+use App\Repositories\BlogCategoryRepositoryInterface;
 use App\Repositories\BlogPostRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class BlogPostController extends Controller
 {
+    /**
+     * @var BlogPostRepositoryInterface
+     */
     protected $postRepository;
 
+    /**
+     * @var BlogCategoryRepositoryInterface
+     */
+    protected $categoryRepository;
 
-    public function __construct(BlogPostRepositoryInterface $blogPostRepository)
+
+    public function __construct(BlogPostRepositoryInterface $blogPostRepository,
+                                BlogCategoryRepositoryInterface $categoryRepository)
     {
         $this->postRepository = $blogPostRepository;
+        $this->categoryRepository = $categoryRepository;
     }
 
 
@@ -30,7 +41,8 @@ class BlogPostController extends Controller
 
     public function create()
     {
-        return view('admin.pages.blog.posts.create');
+        $categories = $this->categoryRepository->all();
+        return view('admin.pages.blog.posts.create', compact('categories'));
     }
 
     /**
@@ -81,7 +93,7 @@ class BlogPostController extends Controller
     {
         $data = [
             'post' => $this->postRepository->get($id),
-           // 'categories' => $this->postRepository->getCategoriesTree()
+            'categories' => $this->categoryRepository->all()
         ];
 
         return view('admin.pages.blog.posts.edit', $data);

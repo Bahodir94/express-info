@@ -206,68 +206,33 @@
                         </div>
                         <!-- END Step 3 UZ-->
 
-                        {{--<div class="form-group">
-                            <label for="parent_id">Категории</label>
-                            <select name="category_id" id="select2" class="form-control">
-                                <option value="0">-- нет --</option>
-                                @foreach($categories as $category_list)
-                                    @include('admin.pages.cguSites.components.category', ['delimiter' => ''])
-                                @endforeach
-                            </select>
-                        </div>--}}
-
-                        <div class="form-group">
-                            <label for="image">Изображение</label>
-                            @if($post->image != null)
-                                <br>
-                                <img src="{{ $post->getImage() }}" style="width: 200px;" alt="">
-                                <br>
-                                {{--<a href="{{ route('admin.blogposts.remove.image', $post->id) }}"
-                                   class="btn btn-warning">Удалить</a>--}}
-                                <br>
-                            @endif
-                            <input type="file" name="image" class="form-control">
-                        </div>
-
-                        {{-- <div class="form-group">
-                             <label for="image">Ссылка на сайт</label>
-                             <input type="text" name="link" class="form-control" value="{{ $site->link }}">
-                         </div>--}}
-
-                        <div class="form-group">
-                            <label for="image">Активный</label>
-                            <select name="active" class="form-control">
-                                <option value="1" @if($post->active == 1) selected @endif><i class="text-success">Активный</i>
-                                </option>
-                                <option value="0" @if($post->active == 0) selected @endif><i class="text-danger">Не
-                                        активный</i></option>
-                            </select>
-                        </div>
-
                     </div>
                     <!-- END Steps Content -->
-
-                    <!-- Steps Navigation -->
-                    <div class="block-content block-content-sm block-content-full bg-body-light">
-                        <div class="row">
-                            <div class="col-6">
-                                <button type="button" class="btn btn-alt-secondary" data-wizard="prev">
-                                    <i class="fa fa-angle-left mr-5"></i> Previous
-                                </button>
-                            </div>
-                            <div class="col-6 text-right">
-                                <button type="button" class="btn btn-alt-secondary" data-wizard="next">
-                                    Next <i class="fa fa-angle-right ml-5"></i>
-                                </button>
-                                <button type="submit" class="btn btn-alt-primary d-none" data-wizard="finish">
-                                    <i class="fa fa-check mr-5"></i> Submit
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END Steps Navigation -->
                 </div>
                 <!-- END Simple Wizard -->
+                <div class="form-group">
+                    <div class="form-material floating">
+                        <select name="category_id" id="categoryId" class="form-control js-select2">
+                            <option value="0">-- нет --</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}" @if ($post->category_id == $category->id) selected @endif>{{ $category->getTitle() }}</option>
+                            @endforeach
+                        </select>
+                        <label for="categoryId">Категория</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="image">Изображение</label>
+                    @if($post->image != null)
+                        <br>
+                        <img src="{{ $post->getImage() }}" style="width: 200px;" alt="">
+                        <br>
+                        {{--<a href="{{ route('admin.blogposts.remove.image', $post->id) }}"
+                           class="btn btn-warning">Удалить</a>--}}
+                        <br>
+                    @endif
+                    <input type="file" name="image" class="form-control">
+                </div>
             </div>
             <div class="block-content">
                 <div class="block-content text-right pb-10">

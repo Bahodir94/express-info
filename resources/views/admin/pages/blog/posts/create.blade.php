@@ -75,7 +75,8 @@
                                      class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_short_content') is-invalid @enderror">
-                                <label for="ru_title" @error('ru_short_content') class="col-form-label" @enderror>
+                                <label for="ru_short_content"
+                                       @error('ru_short_content') class="col-form-label" @enderror>
                                     Краткое описание
                                     @error('ru_short_content') <span class="text-danger">*</span> @enderror
                                 </label>
@@ -86,7 +87,7 @@
                                      class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                             <div class="form-group @error('ru_content') is-invalid @enderror">
-                                <label for="ru_title" @error('ru_content') class="col-form-label" @enderror>
+                                <label for="ru_content" @error('ru_content') class="col-form-label" @enderror>
                                     Полное описание
                                     @error('ru_content') <span class="text-danger">*</span> @enderror
                                 </label>
@@ -97,148 +98,113 @@
                                      class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
                             </div>
                         </div>
+                        <!-- END Step 1 -->
+                        <!-- Step 2 -->
+                        <div class="tab-pane" id="wizard-simple-step2" role="tabpanel">
+                            <div class="form-group @error('en_title') is-invalid @enderror">
+                                <label for="uz_title" @error('en_title') class="col-form-label" @enderror>
+                                    Заголовок
+                                    @error('en_title') <span class="text-danger">*</span> @enderror
+                                </label>
+                                <input class="form-control" type="text" id="en_title" name="en_title"
+                                       value="{{ old('en_title') }}">
+                                @error('en_title')
+                                <div id="val-username-error"
+                                     class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
+                            <div class="form-group @error('en_short_content') is-invalid @enderror">
+                                <label for="ru_title" @error('en_short_content') class="col-form-label" @enderror>
+                                    Краткое описание
+                                    @error('en_short_content') <span class="text-danger">*</span> @enderror
+                                </label>
+                                <textarea class="form-control" type="text" id="en_short_content"
+                                          name="en_short_content">{{ old('en_short_content') }}</textarea>
+                                @error('en_short_content')
+                                <div id="val-username-error"
+                                     class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
+                            <div class="form-group @error('en_content') is-invalid @enderror">
+                                <label for="ru_title" @error('en_content') class="col-form-label" @enderror>
+                                    Полное описание
+                                    @error('en_content') <span class="text-danger">*</span> @enderror
+                                </label>
+                                <textarea class="form-control" type="text" id="en_content"
+                                          name="en_content">{{ old('en_content') }}</textarea>
+                                @error('en_content')
+                                <div id="val-username-error"
+                                     class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
+                        </div>
+                        <!-- END Step 2 -->
 
+                        <!-- Step 3 --> {{--странное название класса class="tab-pane" в диве сразу под этой строкой--}}
+                        <div class="tab-pane" id="wizard-simple-step3" role="tabpanel">
+                            <div class="form-group @error('uz_title') is-invalid @enderror">
+                                <label for="uz_title" @error('uz_title') class="col-form-label" @enderror>
+                                    Заголовок
+                                    @error('uz_title') <span class="text-danger">*</span> @enderror
+                                </label>
+                                <input class="form-control" type="text" id="uz_title" name="uz_title"
+                                       value="{{ old('uz_title') }}">
+                                @error('uz_title')
+                                <div id="val-username-error"
+                                     class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
+                            <div class="form-group @error('uz_short_content') is-invalid @enderror">
+                                <label for="ru_title" @error('uz_short_content') class="col-form-label" @enderror>
+                                    Краткое описание
+                                    @error('uz_short_content') <span class="text-danger">*</span> @enderror
+                                </label>
+                                <textarea class="form-control" type="text" id="uz_description"
+                                          name="uz_short_content">{{ old('uz_short_content') }}</textarea>
+                                @error('uz_short_content')
+                                <div id="val-username-error"
+                                     class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
+                            <div class="form-group @error('uz_content') is-invalid @enderror">
+                                <label for="ru_title" @error('uz_content') class="col-form-label" @enderror>
+                                    Полное описание
+                                    @error('uz_content') <span class="text-danger">*</span> @enderror
+                                </label>
+                                <textarea class="form-control" type="text" id="uz_content"
+                                          name="uz_content">{{ old('uz_content') }}</textarea>
+                                @error('uz_content')
+                                <div id="val-username-error"
+                                     class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                            </div>
+                        </div>
+                        <!-- END Step 3 -->
                     </div>
-                    <!-- END Step 1 -->
-
-                    <!-- Step 2 -->
-                    <div class="tab-pane" id="wizard-simple-step2" role="tabpanel">
-                        <div class="form-group @error('en_title') is-invalid @enderror">
-                            <label for="uz_title" @error('en_title') class="col-form-label" @enderror>
-                                Заголовок
-                                @error('en_title') <span class="text-danger">*</span> @enderror
-                            </label>
-                            <input class="form-control" type="text" id="en_title" name="en_title"
-                                   value="{{ old('en_title') }}">
-                            @error('en_title')
-                            <div id="val-username-error"
-                                 class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
-                        </div>
-                        <div class="form-group @error('en_short_content') is-invalid @enderror">
-                            <label for="ru_title" @error('en_short_content') class="col-form-label" @enderror>
-                                Краткое описание
-                                @error('en_short_content') <span class="text-danger">*</span> @enderror
-                            </label>
-                            <textarea class="form-control" type="text" id="en_short_content"
-                                      name="en_short_content">{{ old('en_short_content') }}</textarea>
-                            @error('en_short_content')
-                            <div id="val-username-error"
-                                 class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
-                        </div>
-                        <div class="form-group @error('en_content') is-invalid @enderror">
-                            <label for="ru_title" @error('en_content') class="col-form-label" @enderror>
-                                Полное описание
-                                @error('en_content') <span class="text-danger">*</span> @enderror
-                            </label>
-                            <textarea class="form-control" type="text" id="en_content"
-                                      name="en_content">{{ old('en_content') }}</textarea>
-                            @error('en_content')
-                            <div id="val-username-error"
-                                 class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
-                        </div>
-                    </div>
-                    <!-- END Step 2 -->
-
-                    <!-- Step 3 --> {{--странное название класса class="tab-pane" в диве сразу под этой строкой--}}
-                    <div class="tab-pane" id="wizard-simple-step3" role="tabpanel">
-                        <div class="form-group @error('uz_title') is-invalid @enderror">
-                            <label for="uz_title" @error('uz_title') class="col-form-label" @enderror>
-                                Заголовок
-                                @error('uz_title') <span class="text-danger">*</span> @enderror
-                            </label>
-                            <input class="form-control" type="text" id="uz_title" name="uz_title"
-                                   value="{{ old('uz_title') }}">
-                            @error('uz_title')
-                            <div id="val-username-error"
-                                 class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
-                        </div>
-                        <div class="form-group @error('uz_short_content') is-invalid @enderror">
-                            <label for="ru_title" @error('uz_short_content') class="col-form-label" @enderror>
-                                Краткое описание
-                                @error('uz_short_content') <span class="text-danger">*</span> @enderror
-                            </label>
-                            <textarea class="form-control" type="text" id="uz_description"
-                                      name="uz_short_content">{{ old('uz_short_content') }}</textarea>
-                            @error('uz_short_content')
-                            <div id="val-username-error"
-                                 class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
-                        </div>
-                        <div class="form-group @error('uz_content') is-invalid @enderror">
-                            <label for="ru_title" @error('uz_content') class="col-form-label" @enderror>
-                                Полное описание
-                                @error('uz_content') <span class="text-danger">*</span> @enderror
-                            </label>
-                            <textarea class="form-control" type="text" id="uz_content"
-                                      name="uz_content">{{ old('uz_content') }}</textarea>
-                            @error('uz_content')
-                            <div id="val-username-error"
-                                 class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
-                        </div>
-                    </div>
-                    <!-- END Step 3 -->
-
-                    {{--<div class="form-group">
-                        <label for="parent_id">Категории</label>
-                        <select name="category_id" id="select2" class="form-control">
+                    <!-- END Steps Content -->
+                </div>
+                <!-- END Simple Wizard -->
+                <div class="form-group">
+                    <div class="form-material floating">
+                        <select name="category_id" id="categoryId" class="form-control js-select2">
                             <option value="0">-- нет --</option>
-                            @foreach($categories as $category_list)
-                                @include('admin.pages.blog.posts.components.category', ['delimiter' => ''])
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->getTitle() }}</option>
                             @endforeach
                         </select>
-                    </div>--}}
-
-                    <div class="form-group">
-                        <label for="image">Изображение</label>
-                        <input type="file" name="image" class="form-control">
-                    </div>
-
-                    {{--<div class="form-group">
-                        <label for="image">Ссылка на сайт</label>
-                        <input type="text" name="link" class="form-control">
-                    </div>--}}
-
-                   {{-- <div class="form-group">
-                        <label for="image">Активный</label>
-                        <select name="active" class="form-control">
-                            <option value="1" selected>Активный</option>
-                            <option value="0">Не активный</option>
-                        </select>
-                    </div>--}}
-
-                </div>
-                <!-- END Steps Content -->
-
-                <!-- Steps Navigation -->
-                <div class="block-content block-content-sm block-content-full bg-body-light">
-                    <div class="row">
-                        <div class="col-6">
-                            <button type="button" class="btn btn-alt-secondary" data-wizard="prev">
-                                <i class="fa fa-angle-left mr-5"></i> Previous
-                            </button>
-                        </div>
-                        <div class="col-6 text-right">
-                            <button type="button" class="btn btn-alt-secondary" data-wizard="next">
-                                Next <i class="fa fa-angle-right ml-5"></i>
-                            </button>
-                            <button type="submit" class="btn btn-alt-primary d-none" data-wizard="finish">
-                                <i class="fa fa-check mr-5"></i> Submit
-                            </button>
-                        </div>
+                        <label for="categoryId">Категория</label>
                     </div>
                 </div>
-                <!-- END Steps Navigation -->
+                <div class="form-group">
+                    <label for="image">Изображение</label>
+                    <input type="file" name="image" class="form-control">
+                </div>
             </div>
-            <!-- END Simple Wizard -->
+            <div class="block-content">
+                <div class="block-content text-right pb-10">
+                    <button class="btn btn-success" name="save">Сохранить</button>
+                    <button class="btn btn-success" name="saveQuit">Сохранить и выйти</button>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="block-content">
-        <div class="block-content text-right pb-10">
-            <button class="btn btn-success" name="save">Сохранить</button>
-            <button class="btn btn-success" name="saveQuit">Сохранить и выйти</button>
-        </div>
-    </div>
-    </form>
+
+
     <!-- END Form -->
-    </div>
 
 @endsection
 

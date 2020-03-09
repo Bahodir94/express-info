@@ -19,19 +19,18 @@
             <table class="table table-responsive table-bordered table-striped table-vcenter js-dataTable-full">
                 <thead>
                 <tr>
-                    <th class="text-center"></th>
                     <th class="sorting_desc">Заголовок</th>
                     <th>Краткое описание</th>
-                    {{--<th>Активность</th>--}}
+                    <th>Категория</th>
                     <th class="text-center" style="width: 15%;">Действия</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($posts as $post)
                     <tr>
-                        <td class="text-center">{{ $post->id }}</td>
                         <td class="font-w600">{{ $post->getTitle() }}</td>
                         <td class="font-w600">{{ $post->getShortContent() }}</td>
+                        <td class="font-w600">@if ($post->category) {{ $post->category->getTitle() }} @else --нет-- @endif</td>
                        {{-- <td>
                             {{ $post->getParentCategoryTitle() }}
                         </td>--}}
