@@ -99,7 +99,6 @@ class BlogPostController extends Controller
     {
         $request->validate([
             'ru_title' => 'required|max:255',
-            'image' => 'image',
         ]);
 
         $post = $this->postRepository->update($id, $request);
