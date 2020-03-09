@@ -84,7 +84,7 @@ class CatalogController extends Controller
     public function catalog(Request $request, string $params)
     {
         if (preg_match('/[A-Z]/', $params)) {
-            return redirect()->route('catalog.main', strtolower($params));
+            return redirect()->route('site.catalog.main', strtolower($params));
         }
         $paramsArray = explode('/', trim($params, '/'));
         $slug = end($paramsArray);
