@@ -91,9 +91,6 @@ class CatalogController extends Controller
         $paramsArray = explode('/', trim($params, '/'));
         $slug = end($paramsArray);
 
-        $need = $this->needs->getBySlug($slug);
-        if ($need)
-            return $this->processNeed($need);
         $menuItem = $this->menus->getBySlug($slug);
         if ($menuItem)
             return $this->processMenuItem($request, $menuItem);
