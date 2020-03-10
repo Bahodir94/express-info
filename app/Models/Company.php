@@ -20,7 +20,8 @@ class Company extends Model
         'url', 'user_id', 'active', 'phone_number', 'geo_location', 'logo_url', 'category_id',
         'need_id', 'advantages', 'telegram_link', 'facebook_link', 'instagram_link',
         'meta_title', 'meta_description', 'meta_keywords', 'show_page',
-        'price'
+        'price',
+        'faq_id'
     ];
 
     const UPLOAD_DIRECTORY = 'uploads/companies/';
@@ -68,6 +69,11 @@ class Company extends Model
     public function services()
     {
         return $this->belongsToMany(Service::class);
+    }
+
+    public function faq()
+    {
+        return $this->hasOne(FaqGroup::class, 'id', 'faq_id');
     }
 
     /**
