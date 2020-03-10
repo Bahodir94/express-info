@@ -99,7 +99,7 @@ class CatalogController extends Controller
             return $this->processCategory($request, $category);
         $company = $this->companies->getBySlug($slug);
         if ($company)
-            return $this->processCompany($company);
+            return $this->processCompany($request, $company);
         abort(404);
     }
 
@@ -127,6 +127,7 @@ class CatalogController extends Controller
 
     private function processCategory(Request $request, $category)
     {
+        abort_if($category->getAncestorsSlugs() !== $request->path(), 404);
         $companies = $category->getAllCompaniesFromDescendingCategories();
 
         if ($request->has('price')) {
@@ -148,8 +149,9 @@ class CatalogController extends Controller
         return view("site.templates.categories.$category->template", $data);
     }
 
-    private function processCompany($company)
+    private function processCompany(Request $request, $company)
     {
+        abort_if($company->getAncestorsSlugs() !== $request->path(), 404);
         return view('site.pages.catalog.company', compact('company'));
     }
 
