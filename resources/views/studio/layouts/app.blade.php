@@ -22,14 +22,12 @@
         {"@context":"https://schema.org","@type":"Organization","url":"https://vid.uz","logo":"https://vid.uz/http://localhost:8888/vision/images/yootheme/logo.svg"}
     </script>
     <script type=application/ld+json>
-        {"@context":"https://schema.org","@type":"Organization","name":"Креативная студия Vision","url":"https://vid.uz","sameAs":["https://www.facebook.com/VIDadwert","https://twitter.com/VIDadwert","https://plus.google.com/communities/107091493812491428674","https://www.linkedin.com/company-beta/18050520","https://telegram.me/VIDadwert"]}
+        {"@context":"https://schema.org","@type":"Organization","name":"Биржа фриланса Узбекистана","url":"https://vid.uz","sameAs":["https://www.facebook.com/VIDadwert","https://twitter.com/VIDadwert","https://plus.google.com/communities/107091493812491428674","https://www.linkedin.com/company-beta/18050520","https://telegram.me/VIDadwert"]}
     </script>
     <script type=application/ld+json>
-        {"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://vid.uz","name":"Креативная студия Vision","image":"https://vid.uz/http://localhost:8888/vision/images/yootheme/logo.svg","url":"https://vid.uz","telephone":"+998 97 424 8899","priceRange":0,"address":{"@type":"PostalAddress","streetAddress":"ул.Мусаханова, М.Улугбекский р-н","addressLocality":"Ташкент","addressRegion":"Ташкентская","postalCode":100135,"addressCountry":"UZ"},"geo":{"@type":"GeoCoordinates","latitude":41.30091680000000309291863231919705867767333984375,"longitude":69.250277800000048955553211271762847900390625},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}}
+        {"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://vid.uz","name":"Креативная студия Vision","image":"https://vid.uz/http://localhost:8888/vision/images/yootheme/logo.svg","url":"https://vid.uz","telephone":"+998 90 940 8196","priceRange":0,"address":{"@type":"PostalAddress","streetAddress":"ул.Мусаханова, М.Улугбекский р-н","addressLocality":"Ташкент","addressRegion":"Ташкентская","postalCode":100135,"addressCountry":"UZ"},"geo":{"@type":"GeoCoordinates","latitude":41.30091680000000309291863231919705867767333984375,"longitude":69.250277800000048955553211271762847900390625},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}}
     </script>
-    <script type=application/ld+json>
-        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://vid.uz/","name":"Главная"}},{"@type":"ListItem","position":2,"item":{"@id":"https://vid.uz/site","name":"Создание сайтов"}},{"@type":"ListItem","position":3,"item":{"@id":"https://vid.uz/site/lange","name":"Разработка лендингов"}}]}
-    </script>
+    
 </head>
 <body class="">
 <div class=tm-page>

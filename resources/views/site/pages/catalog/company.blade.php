@@ -180,7 +180,7 @@
         </div>
       </div>
       <div class="uk-width-1-3@m">
-        <div>
+     <!--    <div>
           <div class="uk-visible" class="uk-margin-large-top" itemscope itemtype="https://schema.org/FAQPage"><h2 >FAQ</h2>
           <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <ul class="uk-margin-top" data-uk-accordion="multiple: true" >
@@ -217,7 +217,7 @@
             </div>
           </div>
 
-        </div>
+        </div>!-->
       </div>
     </div>
   </div>

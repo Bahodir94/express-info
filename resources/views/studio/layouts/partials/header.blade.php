@@ -10,14 +10,14 @@
             <div class=uk-navbar-item id=module-tm-1 style="display: inherit;">
                 <div class=custom>
                     <ul class="uk-grid-small uk-flex-inline uk-flex-middle uk-flex-nowrap uk-grid" uk-grid="">
-                        <li class=uk-first-column><a href=tel:+998974248899 class="uk-icon-button uk-icon">
+                        <li class=uk-first-column><a href=tel:+998909408196 class="uk-icon-button uk-icon">
                                 <svg width=15 height=15 viewBox="0 0 20 20" xmlns=http://www.w3.org/2000/svg
                                      data-svg=receiver>
                                     <path fill=none stroke=#000 stroke-width=1.01
                                           d="M6.189,13.611C8.134,15.525 11.097,18.239 13.867,18.257C16.47,18.275 18.2,16.241 18.2,16.241L14.509,12.551L11.539,13.639L6.189,8.29L7.313,5.355L3.76,1.8C3.76,1.8 1.732,3.537 1.7,6.092C1.667,8.809 4.347,11.738 6.189,13.611"></path>
                                 </svg>
                             </a></li>
-                        <li><a href=https://t.me/vovorus class="uk-icon-button uk-icon">
+                        <li><a href=https://t.me/muradikram class="uk-icon-button uk-icon">
                                 <svg xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink
                                      version=1.1 id=Capa_1 x=0px y=0px viewBox="0 0 512.004 512.004"
                                      style="enable-background:new 0 0 512.004 512.004;" xml:space=preserve width=12
@@ -37,7 +37,7 @@
                     <div>
                         <div class=uk-panel id=module-0>
                             <ul class="uk-nav uk-nav-primary uk-nav-center">
-                                <li @if($page == 'home') class="uk-active" @endif><a href=/home>Главная</a><li class=" uk-active "><a href="/" aria-expanded="false" class="">Фриланс площадка</a> <div class="uk-navbar-dropdown uk-navbar-dropdown-width-4 uk-navbar-dropdown-bottom-left" style="left: 232.031px; top: 80px;">
+                                <li @if($page == 'home') class="uk-active" @endif><a href=/studiya>Главная</a><li class=" uk-active "><a href="/" aria-expanded="false" class="">Фриланс площадка</a> <div class="uk-navbar-dropdown uk-navbar-dropdown-width-4 uk-navbar-dropdown-bottom-left" style="left: 232.031px; top: 80px;">
                     <div class="uk-navbar-dropdown-grid uk-child-width-1-5 uk-grid" uk-grid="">
                         <div class="uk-first-column">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -436,7 +436,7 @@
                                 <div class=custom>
                                     <ul class="uk-grid-small uk-flex-inline uk-flex-middle uk-flex-nowrap uk-grid"
                                         uk-grid="">
-                                        <li class=uk-first-column><a href=tel:+998974248899
+                                        <li class=uk-first-column><a href=tel:+998909408196
                                                                      class="uk-icon-button uk-icon">
                                                 <svg width=20 height=20 viewBox="0 0 20 20"
                                                      xmlns=http://www.w3.org/2000/svg data-svg=receiver>
@@ -444,7 +444,7 @@
                                                           d="M6.189,13.611C8.134,15.525 11.097,18.239 13.867,18.257C16.47,18.275 18.2,16.241 18.2,16.241L14.509,12.551L11.539,13.639L6.189,8.29L7.313,5.355L3.76,1.8C3.76,1.8 1.732,3.537 1.7,6.092C1.667,8.809 4.347,11.738 6.189,13.611"></path>
                                                 </svg>
                                             </a></li>
-                                        <li><a href=https://t.me/vovorus class="uk-icon-button uk-icon">
+                                        <li><a href=https://t.me/muradikram class="uk-icon-button uk-icon">
                                                 <svg xmlns=http://www.w3.org/2000/svg
                                                      xmlns:xlink=http://www.w3.org/1999/xlink version=1.1 id=Capa_1
                                                      x=0px y=0px viewBox="0 0 512.004 512.004"
@@ -837,7 +837,7 @@
                          
                             </ul>
                         </div></div></div></li>
-                            <li class="@if(strpos($page, 'home') !== false) uk-active @endif"><a href=/home>Главная</a></li>
+                            <li class="@if(strpos($page, 'home') !== false) uk-active @endif"><a href=/studiya>Главная</a></li>
                             <li class="@if(strpos($page, 'site') !== false) uk-active @endif uk-parent"><a href=/site>Создание сайтов</a>
                                 <div class=uk-navbar-dropdown>
                                     <div class="uk-navbar-dropdown-grid uk-child-width-1-1" uk-grid>
@@ -897,7 +897,7 @@
                             <div class=custom>
                                 <ul class="uk-grid-small uk-flex-inline uk-flex-middle uk-flex-nowrap uk-grid"
                                     uk-grid="">
-                                    <li class=uk-first-column><a href=tel:+998974248899
+                                    <li class=uk-first-column><a href=tel:+998909408196
                                                                  class="uk-icon-button uk-icon">
                                             <svg width=20 height=20 viewBox="0 0 20 20"
                                                  xmlns=http://www.w3.org/2000/svg data-svg=receiver>
@@ -905,7 +905,7 @@
                                                       d="M6.189,13.611C8.134,15.525 11.097,18.239 13.867,18.257C16.47,18.275 18.2,16.241 18.2,16.241L14.509,12.551L11.539,13.639L6.189,8.29L7.313,5.355L3.76,1.8C3.76,1.8 1.732,3.537 1.7,6.092C1.667,8.809 4.347,11.738 6.189,13.611"></path>
                                             </svg>
                                         </a></li>
-                                    <li><a href=https://t.me/vovorus class="uk-icon-button uk-icon">
+                                    <li><a href=https://t.me/muradikram class="uk-icon-button uk-icon">
                                             <svg xmlns=http://www.w3.org/2000/svg
                                                  xmlns:xlink=http://www.w3.org/1999/xlink version=1.1 id=Capa_1
                                                  x=0px y=0px viewBox="0 0 512.004 512.004"

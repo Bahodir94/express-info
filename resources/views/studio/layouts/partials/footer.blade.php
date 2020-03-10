@@ -81,20 +81,7 @@
                             8196</a></div>
                 </div>
             </div>
-            <div class="uk-grid-item-match uk-flex-middle uk-width-expand@m uk-width-1-2@s">
-                <div class=uk-panel>
-                    <div class="uk-h3 uk-text-left@m uk-text-center"
-                         uk-parallax="y: 20,0; opacity: 0,1; viewport: 0.7;"> Батыр
-                    </div>
-                    <div class="uk-margin uk-text-left@m uk-text-center"
-                         uk-parallax="y: 20,0; opacity: 0,1; viewport: 0.7;">Директор<br>
-                        Разработка сайтов, вопросы сотруднечества
-                    </div>
-                    <div class="uk-h4 uk-margin-remove-vertical uk-text-left@m uk-text-center"
-                         uk-parallax="y: 20,0; opacity: 0,1; viewport: 0.7;"><a class="el-link uk-link-reset"
-                                                                                href=tel:+998974248899>+998 97 424
-                            8899</a></div>
-                </div>
+           
             </div>
         </div>
         <div class="uk-grid-large uk-margin-large" uk-grid>
