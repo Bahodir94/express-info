@@ -14,6 +14,9 @@ class SlugHelper
      */
     public static function checkSlug($params) {
         $paramsArray = explode('/', trim($params, '/'));
+        $uniqueParamsArray = array_unique($paramsArray);
+        if (count($paramsArray) != count($uniqueParamsArray))
+            return false;
 
         $allSlugs = \DB::table('blog_categories')
             ->union(\DB::table('blog_posts')->select(['ru_slug']))
