@@ -25,9 +25,6 @@ class SlugHelper
             if (!$allSlugs->contains('ru_slug', $param))
                 return false;
         }
-        foreach ($paramsArray as $param)
-            if (in_array($param, $paramsArray))
-                return false;
         return true;
     }
 }
