@@ -71,10 +71,10 @@
                                                                                     <li>
                                                 <a href="/boty/telegram-boty">Для телеграмм</a>
                                             </li>
-                         
+
                             </ul>
                         </div>
-                        
+
                          <div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="/mobilnye-prilozheniya">Приложения</a></li>
@@ -132,12 +132,12 @@
                                                                                     <li>
                                                 <a href="/novye-tekhnologii/iot-internet-veshchey">IOT - Интернет вещей</a>
                                             </li>
-                               
+
                             </ul>
                         </div>
                     </div>
                 </div></li>
-                         
+
                             </ul>
                         </div>
                    <div class="">
@@ -187,13 +187,13 @@
                                             </li>
                             </ul>
                         </div>
-                        
-                         
-                         
-                         
+
+
+
+
                     </div>
                 </div></li>
-                         
+
                             </ul>
                         </div><div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -242,7 +242,7 @@
                                             </li>
                             </ul>
                         </div>
-                        
+
                          <div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="/audio">Аудио</a></li>
@@ -270,10 +270,10 @@
                                             </li>
                             </ul>
                         </div>
-                         
+
                     </div>
                 </div></li>
-                         
+
                             </ul>
                         </div><div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -314,10 +314,10 @@
                                                                                     <li>
                                                 <a href="/tekst/notarialnoe-zaverenie-perevodov">Нотариальное заверение переводов</a>
                                             </li>
-                         
+
                             </ul>
                         </div>
-                        
+
                          <div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="/spets-perevody">СПЕЦ. ПЕРЕВОДЫ</a></li>
@@ -360,10 +360,10 @@
                                             </li>
                             </ul>
                         </div>
-                         
+
                     </div>
                 </div></li>
-                         
+
                             </ul>
                         </div><div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -389,14 +389,14 @@
                                             </li>
                             </ul>
                         </div>
-                        
-                        
-                         
-                         
-                         
+
+
+
+
+
                     </div>
                 </div></li>
-                         
+
                             </ul>
                         </div></div></div></li></li>
                                 <li class="@if(strpos($page, 'site') !== false) uk-active @endif uk-parent"><a href=/site>Создание сайтов</a>
@@ -509,10 +509,10 @@
                                                                                     <li>
                                                 <a href="/boty/telegram-boty">Для телеграмм</a>
                                             </li>
-                         
+
                             </ul>
                         </div>
-                        
+
                          <div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="/mobilnye-prilozheniya">Приложения</a></li>
@@ -570,12 +570,12 @@
                                                                                     <li>
                                                 <a href="/novye-tekhnologii/iot-internet-veshchey">IOT - Интернет вещей</a>
                                             </li>
-                               
+
                             </ul>
                         </div>
                     </div>
                 </div></li>
-                         
+
                             </ul>
                         </div>
                    <div class="">
@@ -625,13 +625,13 @@
                                             </li>
                             </ul>
                         </div>
-                        
-                         
-                         
-                         
+
+
+
+
                     </div>
                 </div></li>
-                         
+
                             </ul>
                         </div><div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -680,7 +680,7 @@
                                             </li>
                             </ul>
                         </div>
-                        
+
                          <div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="/audio">Аудио</a></li>
@@ -708,10 +708,10 @@
                                             </li>
                             </ul>
                         </div>
-                         
+
                     </div>
                 </div></li>
-                         
+
                             </ul>
                         </div><div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -752,10 +752,10 @@
                                                                                     <li>
                                                 <a href="/tekst/notarialnoe-zaverenie-perevodov">Нотариальное заверение переводов</a>
                                             </li>
-                         
+
                             </ul>
                         </div>
-                        
+
                          <div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="/spets-perevody">СПЕЦ. ПЕРЕВОДЫ</a></li>
@@ -798,10 +798,10 @@
                                             </li>
                             </ul>
                         </div>
-                         
+
                     </div>
                 </div></li>
-                         
+
                             </ul>
                         </div><div class="">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -827,14 +827,14 @@
                                             </li>
                             </ul>
                         </div>
-                        
-                        
-                         
-                         
-                         
+
+
+
+
+
                     </div>
                 </div></li>
-                         
+
                             </ul>
                         </div></div></div></li>
                             <li class="@if(strpos($page, 'home') !== false) uk-active @endif"><a href=/studiya>Главная</a></li>
