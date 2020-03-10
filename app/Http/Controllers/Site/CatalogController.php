@@ -110,6 +110,7 @@ class CatalogController extends Controller
 
     private function processMenuItem(Request $request, $menuItem)
     {
+        abort_if($menuItem->ru_slug !== $request->path(), 404);
         $companies = $menuItem->getCompanyFromCategories();
         if ($request->has('price')) {
             $orderingMethod = $request->get('price');
