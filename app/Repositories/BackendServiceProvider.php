@@ -70,5 +70,9 @@ class BackendServiceProvider extends ServiceProvider
             'App\Repositories\MenuRepositoryInterface',
             'App\Repositories\MenuRepository'
         );
+        $this->app->bind(
+            'App\Repositories\FaqRepositoryInterface',
+            'App\Repositories\FaqRepository'
+        );
     }
 }
