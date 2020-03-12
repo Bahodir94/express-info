@@ -27,7 +27,51 @@
     <script type=application/ld+json>
         {"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://vid.uz","name":"Креативная студия Vision","image":"https://vid.uz/http://localhost:8888/vision/images/yootheme/logo.svg","url":"https://vid.uz","telephone":"+998 90 940 8196","priceRange":0,"address":{"@type":"PostalAddress","streetAddress":"ул.Мусаханова, М.Улугбекский р-н","addressLocality":"Ташкент","addressRegion":"Ташкентская","postalCode":100135,"addressCountry":"UZ"},"geo":{"@type":"GeoCoordinates","latitude":41.30091680000000309291863231919705867767333984375,"longitude":69.250277800000048955553211271762847900390625},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}}
     </script>
-    
+
+    <style>
+        .menu-item-link-arrow {
+            width: 100%;
+            height: 14px;
+            margin-top: 7px;
+        }
+        .menu-item-link-arrow > div {
+            width: 14px;
+            height: 14px;
+            float: right;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23444%22%20stroke-width%3D%221.1%22%20points%3D%2210%201%204%207%2010%2013%22%20%2F%3E%0A%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+        }
+
+        .menu-item-link-arrow-rotate {
+            -webkit-transform: rotate(-90deg);
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(-90deg);
+            -webkit-transform-origin: center center;
+            -moz-transform-origin: center center;
+            -ms-transform-origin: center center;
+            -o-transform-origin: center center;
+            transform-origin: center center;
+        }
+        .uk-nav-primary>li>a {
+            font-size: 18px;
+        }
+
+        .uk-nav-parent-icon>.uk-parent>a::after {
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        ul.uk-nav li ul li.uk-parent a {
+            font-size: 18px;
+        }
+
+        .uk-nav-sub li a {
+            font-size: 18px;
+        }
+    </style>
+
 </head>
 <body class="">
 <div class=tm-page>
@@ -38,6 +82,35 @@
 <noscript>
     <div><img src=//mc.yandex.ru/watch/35958065 style="position:absolute; left:-9999px;" alt=""/></div>
 </noscript>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let menuItemArrows = document.querySelectorAll('.menu-item-link-arrow');
+        menuItemArrows.forEach(function (arrow) {
+            arrow.addEventListener('click', function () {
+                console.log(this);
+                this.children[0].classList.toggle('menu-item-link-arrow-rotate');
+                let dropdown = this.parentNode.nextElementSibling;
+                dropdown.parentNode.classList.toggle('uk-open');
+                if (dropdown.hasAttribute('hidden')) {
+                    dropdown.removeAttribute('hidden');
+                }
+                else {
+                    dropdown.setAttribute('hidden', 'hidden');
+                }
+            })
+        });
+        let needItems = document.querySelectorAll('.need-item');
+        needItems.forEach(function (item) {
+            item.addEventListener('click', function (event) {
+                if (!event.target.classList.contains('menu-item-link-arrow')) {
+                    menuItemArrows.forEach(function (arrow) {
+                        arrow.classList.remove('menu-item-link-arrow-rotate');
+                    });
+                }
+            })
+        })
+    })
+</script>
 <script src=/media/plg_jchoptimize/assets3/gz/0/eae221daa5c8a63b73ed741191cae68c.js async></script>
 </body>
 </html>

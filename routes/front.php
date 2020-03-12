@@ -16,21 +16,6 @@ Route::view('/advertising/tablets-ad', 'site.pages.static.tablets_ad');
 Route::view('/advertising/tv-videos', 'site.pages.static.tv_videos');
 Route::view('/advertising/visit-card', 'site.pages.static.visit_card');
 
-// Studio static page routes
-Route::view('/studiya', 'studio.home', ['page' => 'home']);
-Route::view('/site', 'studio.site.index', ['page' => 'site']);
-Route::view('/site/lange', 'studio.site.landing', ['page' => 'site.landing']);
-Route::view('/site/internet-magazin', 'studio.site.eshop', ['page' => 'site.eshop']);
-Route::view('/site/korp', 'studio.site.korp', ['page' => 'site.korp']);
-Route::view('/development/site/catalog', 'studio.development.catalog', ['page' => 'dev.site.catalog']);
-Route::view('/development/mobile-app/android', 'studio.development.android', ['page' => 'dev.mobile.android']);
-Route::view('/development/mobile-app/ios', 'studio.development.ios', ['page' => 'dev.mobile.ios']);
-Route::view('/development/bot', 'studio.development.bot', ['page' => 'dev.bot']);
-Route::view('/prodvizhenie-seo', 'studio.seo.index', ['page' => 'seo']);
-Route::view('/prodvizhenie-seo/optimizatsiya', 'studio.seo.optimization', ['page' => 'seo.optimization']);
-Route::view('/smm', 'studio.smm', ['page' => 'smm']);
-Route::view('/lets-talk', 'studio.contacts', ['page' => 'contacts']);
-
 Route::redirect('/dosug', '/leisure');
 Route::redirect('/magaziny', '/the-shops');
 Route::redirect('/uslugi', '/Services');
@@ -48,6 +33,21 @@ Route::middleware('needsList')->namespace('Site')->group(function() {
 });
 
 Route::middleware('needsList')->name('site.')->namespace('Site')->group(function() {
+    // Studio static page routes
+    Route::view('/studiya', 'studio.home', ['page' => 'home']);
+    Route::view('/site', 'studio.site.index', ['page' => 'site']);
+    Route::view('/site/lange', 'studio.site.landing', ['page' => 'site.landing']);
+    Route::view('/site/internet-magazin', 'studio.site.eshop', ['page' => 'site.eshop']);
+    Route::view('/site/korp', 'studio.site.korp', ['page' => 'site.korp']);
+    Route::view('/development/site/catalog', 'studio.development.catalog', ['page' => 'dev.site.catalog']);
+    Route::view('/development/mobile-app/android', 'studio.development.android', ['page' => 'dev.mobile.android']);
+    Route::view('/development/mobile-app/ios', 'studio.development.ios', ['page' => 'dev.mobile.ios']);
+    Route::view('/development/bot', 'studio.development.bot', ['page' => 'dev.bot']);
+    Route::view('/prodvizhenie-seo', 'studio.seo.index', ['page' => 'seo']);
+    Route::view('/prodvizhenie-seo/optimizatsiya', 'studio.seo.optimization', ['page' => 'seo.optimization']);
+    Route::view('/smm', 'studio.smm', ['page' => 'smm']);
+    Route::view('/lets-talk', 'studio.contacts', ['page' => 'contacts']);
+
     // Catalog routes
     Route::get('/', 'CatalogController@index')->name('catalog.index');
     Route::get('/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
