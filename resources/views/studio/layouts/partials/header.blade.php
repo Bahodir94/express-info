@@ -1,6 +1,6 @@
 <div class="tm-header-mobile uk-hidden@l">
     <nav uk-sticky class=uk-navbar-container uk-navbar>
-        <div class=uk-navbar-left><a class=uk-navbar-toggle href=#tm-mobile uk-toggle>
+        <div class=uk-navbar-left>
                 <a class="uk-navbar-toggle uk-hidden@m uk-icon uk-navbar-toggle-icon" href="#offcanvas"
                    uk-navbar-toggle-icon="" uk-toggle="">
                     <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
@@ -9,8 +9,7 @@
                         <rect y="3" width="20" height="2"></rect>
                         <rect y="15" width="20" height="2"></rect>
                     </svg>
-                </a>
-                <span class=uk-margin-small-left>Меню</span> </a></div>
+                </a></div>
         <div class=uk-navbar-center><a class="uk-navbar-item uk-logo" href=https://vid.uz> <img alt=Vid height=40px
                                                                                                 src=/images/yootheme/logoB.svg>
             </a></div>
