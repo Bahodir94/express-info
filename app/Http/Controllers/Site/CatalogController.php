@@ -63,10 +63,15 @@ class CatalogController extends Controller
     /**
      * Main page of catalog
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
-    */
-    public function index()
+     */
+    public function index(Request $request)
     {
+        // Check if url path has get parameters
+        if (array_key_exists('query', parse_url($request->fullUrl())))
+            return redirect(route('site.catalog.index'), 301);
+
         $favoritesCategories = $this->categories->getFavoriteCategories();
         $parentCategories = $this->categories->all();
         $favouritesCompanies = $this->companies->getFavourites();
