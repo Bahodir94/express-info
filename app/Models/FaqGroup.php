@@ -15,4 +15,9 @@ class FaqGroup extends Model
     {
         return $this->hasMany(Company::class, 'faq_id', 'id');
     }
+
+    public function getTitle()
+    {
+        return strip_tags($this->ru_title);
+    }
 }
