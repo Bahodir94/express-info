@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Models\FaqGroup;
+use App\Models\FaqItem;
 use Illuminate\Database\Eloquent\Collection;
 
 class FaqRepository implements FaqRepositoryInterface
@@ -31,7 +32,12 @@ class FaqRepository implements FaqRepositoryInterface
      */
     public function create($faqData)
     {
-        return FaqGroup::create($faqData->all());
+        $faqGroup = FaqGroup::create($faqData->all());
+        if ($faqData->has('items')) {
+            foreach ($faqData->get('items') as $item) {
+                $faqGroup->items()->create($item);
+            }
+        }
     }
 
     /**
@@ -41,6 +47,27 @@ class FaqRepository implements FaqRepositoryInterface
     {
         $faq = $this->get($faqId);
         $faq->update($faqData->all());
+
+        if (!$faqData->has('items')) {
+            $faq->items()->delete();
+        } else {
+            $items = $faqData->get('items');
+            $currentItems = $faq->items;
+            foreach ($currentItems as $key => $currentItem) {
+                if (!isset($items[$key]))
+                    $currentItem->delete();
+                else {
+                    $currentItem->update($items[$key]);
+
+                }
+            }
+            foreach ($items as $key => $item) {
+                if (!isset($currentItems[$key])) {
+                    $faq->items()->create($item);
+                }
+            }
+        }
+
         return $faq;
     }
 
