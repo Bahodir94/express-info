@@ -18,9 +18,6 @@ class CreateFaqGroupsTable extends Migration
             $table->string('ru_title')->nullable();
             $table->string('en_title')->nullable();
             $table->string('uz_title')->nullable();
-            $table->longText('ru_content')->nullable();
-            $table->longText('en_content')->nullable();
-            $table->longText('uz_content')->nullable();
             $table->timestamps();
         });
 
