@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Repositories\FaqRepositoryInterface;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\CompanyRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
@@ -49,6 +50,11 @@ class CompanyController extends Controller
     private $services;
 
     /**
+     * @var FaqRepositoryInterface
+     */
+    private $faqRepository;
+
+    /**
      * Create a new instance
      *
      * @param HandbookCategoryRepositoryInterface $companyCategoryRepository
@@ -56,19 +62,21 @@ class CompanyController extends Controller
      * @param UserRepositoryInterface $userRepository
      * @param NeedTypeRepositoryInterface $needTypesRepository
      * @param ServiceRepositoryInterface $servicesRepository
-     * @return void
-    */
+     * @param FaqRepositoryInterface $faqRepository
+     */
     public function __construct(HandbookCategoryRepositoryInterface $companyCategoryRepository,
                                 CompanyRepositoryInterface $companyRepository,
                                 UserRepositoryInterface $userRepository,
                                 NeedTypeRepositoryInterface $needTypesRepository,
-                                ServiceRepositoryInterface $servicesRepository)
+                                ServiceRepositoryInterface $servicesRepository,
+                                FaqRepositoryInterface $faqRepository)
     {
         $this->companyCategories = $companyCategoryRepository;
         $this->companies = $companyRepository;
         $this->users = $userRepository;
         $this->needTypesRepository = $needTypesRepository;
         $this->services = $servicesRepository;
+        $this->faqRepository = $faqRepository;
     }
 
     /**
@@ -107,7 +115,8 @@ class CompanyController extends Controller
             'categories' => $this->companyCategories->getTree(),
             'users' => $this->users->all(),
             'needs' => $this->needTypesRepository->all(),
-            'services' => $this->services->all()
+            'services' => $this->services->all(),
+            'faqs' => $this->faqRepository->all()
         ];
 
         return view('admin.pages.companies.create', $data);
@@ -156,7 +165,8 @@ class CompanyController extends Controller
             'categories' => $categories,
             'users' => $this->users->all(),
             'needs' => $this->needTypesRepository->all(),
-            'services' => $this->services->all()
+            'services' => $this->services->all(),
+            'faqs' => $this->faqRepository->all()
         ];
 
         return view('admin.pages.companies.edit', $data);

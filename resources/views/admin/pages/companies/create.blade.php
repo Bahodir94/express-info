@@ -185,6 +185,17 @@
                 </div>
                 <div class="form-group">
                     <div class="form-material floating">
+                        <select name="faq_id" id="faq_id" class="form-control">
+                            <option value="0">Нет</option>
+                            @foreach($faqs as $faq)
+                                <option value="{{ $faq->id }}">{{ $faq->getTitle() }}</option>
+                            @endforeach
+                        </select>
+                        <label for="faq_id">FAQ группа</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-material floating">
                         <select name="services[]" id="services" class="form-control js-select2" multiple="multiple">
                             @foreach($services as $service)
                                 <option value="{{ $service->id }}">{{ $service->ru_title }}</option>
