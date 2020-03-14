@@ -9,7 +9,6 @@
         <a class="active" href="/" target="_blank">
             <i class="si si-map"></i>
             <span class="sidebar-mini-hide">На сайт</span>
-            <span class="sidebar-mini-hide">На блог</span>
         </a>
     </li>
     <li class="nav-main-heading">
@@ -80,6 +79,12 @@
                 <a href="{{ route('admin.services.index') }}">Услуги</a>
             </li>
         </ul>
+    </li>
+    <li>
+        <a href="{{ route('admin.faq.index') }}">
+            <i class="si si-question"></i>
+            <span class="sidebar-mini-hide">FAQ</span>
+        </a>
     </li>
     <li>
         <a href="{{ route('admin.users.index') }}">

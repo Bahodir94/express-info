@@ -60,6 +60,9 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
 
     // Banners routes
     Route::resource('/banners', 'BannerController');
+
+    // FAQ routes
+    Route::resource('/faq', 'FaqController');
 });
 
 Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function() {
