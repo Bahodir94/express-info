@@ -61,6 +61,7 @@ class BlogPostRepository implements BlogPostRepositoryInterface
     {
         $post = BlogPost::create($blog_data->all());
         $post->uploadImage($blog_data->file('image'));
+        $post->generateSlug();
 
         return $post;
     }
