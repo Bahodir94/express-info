@@ -27,6 +27,11 @@ interface BlogPostRepositoryInterface
     public function all();
 
     /**
+     * @return mixed
+     */
+    public function allOrderByDesc();
+
+    /**
      *
      * @param int
      */

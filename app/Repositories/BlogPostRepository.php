@@ -23,7 +23,7 @@ class BlogPostRepository implements BlogPostRepositoryInterface
      */
     public function all()
     {
-        return BlogPost::get();
+        return BlogPost::all();
     }
 
     /**
@@ -72,5 +72,13 @@ class BlogPostRepository implements BlogPostRepositoryInterface
     public function getBySlug(string $slug)
     {
         return BlogPost::where('ru_slug', $slug)->first();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function allOrderByDesc()
+    {
+        return BlogPost::orderBy('created_at', 'desc')->get();
     }
 }
