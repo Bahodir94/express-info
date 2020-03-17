@@ -29,8 +29,8 @@ class BlogController extends Controller
     public function index()
     {
         $blogcategories = $this->_blogcategories->all();
-        $blogposts = $this->_blogposts->all();
-        return view('blog.index', compact('blogcategories', 'blogposts'));
+        $blogposts = $this->_blogposts->all();//->orderByDesc('created_at');
+        return view('site.pages.blog.index', compact('blogcategories', 'blogposts'));
     }
 
 }
