@@ -65,4 +65,12 @@ class BlogCategoryRepository implements BlogCategoryRepositoryInterface
 
         return $category;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getBySlug(string $slug)
+    {
+        return BlogCategory::where('ru_slug', $slug)->first();
+    }
 }

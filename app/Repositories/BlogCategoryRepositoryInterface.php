@@ -14,6 +14,14 @@ interface BlogCategoryRepositoryInterface
      */
     public function get($blogcategory_id);
 
+    /**
+     * Get blog category by slug
+     *
+     * @param string $slug
+     * @return \App\Models\BlogCategory
+     */
+    public function getBySlug(string $slug);
+
     public function all();
 
     public function delete($blogcategory_id);

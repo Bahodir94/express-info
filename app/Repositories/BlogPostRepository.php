@@ -64,4 +64,12 @@ class BlogPostRepository implements BlogPostRepositoryInterface
 
         return $post;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getBySlug(string $slug)
+    {
+        return BlogPost::where('ru_slug', $slug)->first();
+    }
 }

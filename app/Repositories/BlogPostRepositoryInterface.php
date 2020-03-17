@@ -12,6 +12,14 @@ interface BlogPostRepositoryInterface
     public function get($post_id);
 
     /**
+     * Get blog post by slug
+     *
+     * @param string $slug
+     * @return \App\Models\BlogPost
+     */
+    public function getBySlug(string $slug);
+
+    /**
 
      *
      * @return mixed
