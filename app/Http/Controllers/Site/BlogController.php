@@ -10,26 +10,32 @@ use App\Helpers\SlugHelper;
 
 class BlogController extends Controller
 {
+    /**
+     * @var BlogCategoryRepositoryInterface
+     */
+    private $blogCategories;
 
-    private $blogcategories;
-    private $blogposts;
+    /**
+     * @var BlogPostRepositoryInterface
+     */
+    private $blogPosts;
 
-    public function __construct(BlogCategoryRepositoryInterface $blogcategoriesRepository,
-                                BlogPostRepositoryInterface $blogpostsRepository)
+    public function __construct(BlogCategoryRepositoryInterface $blogCategoryRepository,
+                                BlogPostRepositoryInterface $blogPostRepository)
     {
-        $this->_blogcategories = $blogcategoriesRepository;
-        $this->_blogposts = $blogpostsRepository;
+        $this->blogCategories = $blogCategoryRepository;
+        $this->blogPosts = $blogPostRepository;
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a home page of the blog
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $blogcategories = $this->_blogcategories->all();
-        $blogposts = $this->_blogposts->all();
+        $blogcategories = $this->blogCategories->all();
+        $blogposts = $this->blogPosts->all();
         return view('blog.index', compact('blogcategories', 'blogposts'));
     }
 
