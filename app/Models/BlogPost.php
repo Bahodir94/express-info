@@ -57,7 +57,10 @@ class BlogPost extends Model
 
     public function getAncestorsSlugs()
     {
-        return $this->category->ru_slug . "/$this->ru_slug";
+        if ($this->category)
+            return $this->category->ru_slug . "/$this->ru_slug";
+        else
+            return $this->ru_slug;
     }
 
 }
