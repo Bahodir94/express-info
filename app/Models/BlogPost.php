@@ -55,4 +55,9 @@ class BlogPost extends Model
         return strip_tags($this->ru_short_content);
     }
 
+    public function getAncestorsSlugs()
+    {
+        return $this->category->ru_slug . "/$this->ru_slug";
+    }
+
 }

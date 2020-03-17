@@ -36,7 +36,7 @@ class BlogController extends Controller
     {
         $blogcategories = $this->blogCategories->all();
         $blogposts = $this->blogPosts->all();
-        return view('blog.index', compact('blogcategories', 'blogposts'));
+        return view('site.pages.blog.index', compact('blogcategories', 'blogposts'));
     }
 
     /**
