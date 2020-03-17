@@ -80,10 +80,19 @@
         <div class="uk-container uk-container-xlarge uk-container-center container uk-margin-top">
             <ul class="sequence" itemscope itemtype="http://schema.org/BreadcrumbList">
                 <li itemprop="itemListElement" itemscope
-                    itemtype="http://schema.org/ListItem"><a itemprop="item" href="{{ route('site.catalog.index') }}"><span itemprop="name"><meta itemprop="position" content="1" />Главная</span></a></li>
-                <li ><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
+                    itemtype="http://schema.org/ListItem"><a href="{{ route('site.catalog.index') }}"
+                                                             itemprop="item"><span itemprop="name"><meta
+                                itemprop="position" content="1"/>Главная</span></a></li>
+                <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
                 <li itemprop="itemListElement" itemscope
-                    itemtype="http://schema.org/ListItem"><span itemprop="name"><meta itemprop="position" content="3" />{{ $category->getTitle() }}</span></li>
+                    itemtype="http://schema.org/ListItem"><a href="{{ route('site.blog.index') }}"
+                                                             itemprop="item"><span itemprop="name"><meta
+                                itemprop="position" content="2"/>Блог</span></a></li>
+                <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
+                <li itemprop="itemListElement" itemscope
+                    itemtype="http://schema.org/ListItem"><span itemprop="name"><meta itemprop="position"
+                                                                                      content="4"/>{{ $category->getTitle() }}</span>
+                </li>
             </ul>
         </div>
     </section>
