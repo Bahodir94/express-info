@@ -47,7 +47,7 @@
                     <ul class="uk-list">
 
                         <li><a class="el-link uk-link-reset" href="tel:+998909408196">+998 90 9408196</a></li>
-                    
+
                         <li visibility: hidden><a class="el-link uk-link-reset" href="mailto:mail@tezinfo.uz">mail@tezinfo.uz</a></li>
                         <!-- <li><a class="el-link uk-link-reset" href="mailto:mail@example.com">mail@tezinfo.uz</a></li> -->
 
@@ -63,6 +63,9 @@
                                 <h3 class="el-title uk-h4 uk-margin-top uk-margin-remove-bottom">                        Быстрое меню                    </h3>
                                 <div class="el-content uk-panel uk-margin-top">
                                     <ul class="uk-list">
+                                        <li>
+                                            <a href="{{ route('site.blog.index') }}" rel="nofollow" target="_blank" class="el-link uk-link-reset">Блог</a>
+                                        </li>
                                         @foreach($needs as $need)
                                             <li>
                                                 <a rel="nofollow" target="_blank" href="{{ route('site.catalog.main', $need->ru_slug) }}" class="el-link uk-link-reset">{{ $need->ru_title }}</a>
