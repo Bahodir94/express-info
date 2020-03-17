@@ -21,18 +21,18 @@ Route::redirect('/magaziny', '/the-shops');
 Route::redirect('/uslugi', '/Services');
 Route::redirect('/dlya-biznesa', '/for-business');
 Route::redirect('/servisy', '/for-citizens');
-Route::namespace('Site')->group(function() {
+Route::namespace('Site')->group(function () {
     Route::get('/ban2', 'BannerController@index');
 });
 
-Route::middleware('needsList')->namespace('Site')->group(function() {
-	Route::get('/cgu-info', 'CguController@cguInfo')->name('home.cgu.info');
-	Route::get('/cgu-info/{id}', 'CguController@cguCategory')->name('home.cgu.info.category');
-	Route::get('/cgu-ad', 'CguController@cguAd')->name('home.cgu.ad');
-	Route::get('/cgu-ad/{id}', 'CguController@cguCategory')->name('home.cgu.ad.category');
+Route::middleware('needsList')->namespace('Site')->group(function () {
+    Route::get('/cgu-info', 'CguController@cguInfo')->name('home.cgu.info');
+    Route::get('/cgu-info/{id}', 'CguController@cguCategory')->name('home.cgu.info.category');
+    Route::get('/cgu-ad', 'CguController@cguAd')->name('home.cgu.ad');
+    Route::get('/cgu-ad/{id}', 'CguController@cguCategory')->name('home.cgu.ad.category');
 });
 
-Route::middleware('needsList')->name('site.')->namespace('Site')->group(function() {
+Route::middleware('needsList')->name('site.')->namespace('Site')->group(function () {
     // Studio static page routes
     Route::view('/studiya', 'studio.home', ['page' => 'home']);
     Route::view('/site', 'studio.site.index', ['page' => 'site']);
@@ -47,9 +47,13 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::view('/prodvizhenie-seo/optimizatsiya', 'studio.seo.optimization', ['page' => 'seo.optimization']);
     Route::view('/smm', 'studio.smm', ['page' => 'smm']);
     Route::view('/lets-talk', 'studio.contacts', ['page' => 'contacts']);
-
+    // Blog route
+    Route::get('/blog', 'BlogController@index')->name('blog.index');
     // Catalog routes
     Route::get('/', 'CatalogController@index')->name('catalog.index');
     Route::get('/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
     Route::post('/search', 'CatalogController@search')->name('catalog.search');
+
 });
+
+
