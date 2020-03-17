@@ -50,7 +50,7 @@
     <!-- Banner -->
     <div itemtype="http://schema.org/Product" itemscope>
         <header id="header"
-                class="uk-background-cover uk-background-norepeat uk-background-center-center uk-background-blend-soft-light uk-background-primary">
+                class="uk-background-cover uk-background-norepeat uk-background-center-center uk-background-blend-soft-light uk-background-primary" style="background-image: url({{ $post->getImage() }}); back">
             <div class="uk-container uk-container-large uk-light" uk-height-viewport="offset-top: true">
                 <div uk-grid uk-height-viewport="offset-top: true">
                     <div class="uk-header-left uk-section uk-visible@m uk-flex uk-flex-bottom">
@@ -67,7 +67,7 @@
                                 <div class="">
                                     <h1 class="uk-heading-medium uk-margin-remove-top uk-letter-spacing-xl"
                                         itemprop="name">{{ $post->ru_title }}</h1>
-                                    <p class="uk-text-lead">{!! $post->ru_short_description !!}</p>
+                                    <p class="uk-text-lead">{!! $post->ru_short_content !!}</p>
                                 </div>
                             </div>
                         </div>

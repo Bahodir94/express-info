@@ -41,8 +41,14 @@
 
     <div class="uk-container uk-container-xlarge uk-margin-small uk-margin-medium-bottom">
         <ul class="cat-tab uk-tab" >
+            <li>
+                <a href="{{ route('site.blog.index') }}">
+                    <span uk-icon="arrow-left"></span>
+                    <span>Назад</span>
+                </a>
+            </li>
             @foreach($categories as $child)
-                <li>
+                <li  @if ($child->ru_title == $category->ru_title) class="uk-active" @endif>
                     <a href="{{ route('site.blog.main', $child->ru_slug) }}">
                         <div class="uk-flex uk-flex-middle">
                             <span>{{ $child->ru_title }} </span>
@@ -66,7 +72,7 @@
                             </div>
                             <div class="uk-card-body">
                                 <h2 itemprop="name" class="uk-card-title uk-margin-small-bottom">{{ $post->ru_title }}</h2>
-                                <div itemprop="category" class="uk-text-muted uk-text-small">{!! $post->category->ru_title !!}</div>
+                                <div itemprop="category" class="uk-text-muted uk-text-small">{!! $post->ru_short_content !!}</div>
                             </div>
                             <a href="{{ route('site.blog.main', $post->getAncestorsSlugs()) }}" class="uk-position-cover"></a>
                         </div>
