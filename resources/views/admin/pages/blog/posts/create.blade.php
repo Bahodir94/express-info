@@ -205,7 +205,6 @@
                 <div class="form-group">
                     <div class="form-material floating">
                         <select name="category_id" id="categoryId" class="form-control js-select2">
-                            <option value="0">-- нет --</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->getTitle() }}</option>
                             @endforeach
