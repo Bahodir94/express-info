@@ -14,7 +14,7 @@ class RolesTableSeeder extends Seeder
     {
         $role_customer = new Role();
         $role_customer->name = 'customer';
-        $role_customer->description = 'Пользователь с админ. панелью';
+        $role_customer->description = 'Заказчик';
         $role_customer->save();
 
         $role_admin = new Role();
