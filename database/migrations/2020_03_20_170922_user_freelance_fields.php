@@ -18,6 +18,7 @@ class UserFrilanceFields extends Migration
             $table->string('company_name')->nullable();
             $table->string('site')->nullable();
             $table->integer('foundation_year')->nullable();
+            $table->string('customer_type')->nullable();
 
             // Contractor fields
             $table->string('gender')->nullable();
