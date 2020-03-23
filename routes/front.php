@@ -47,9 +47,14 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::view('/prodvizhenie-seo/optimizatsiya', 'studio.seo.optimization', ['page' => 'seo.optimization']);
     Route::view('/smm', 'studio.smm', ['page' => 'smm']);
     Route::view('/lets-talk', 'studio.contacts', ['page' => 'contacts']);
+
     // Blog route
     Route::get('/blog', 'BlogController@index')->name('blog.index');
     Route::get('/blog/{params}', 'BlogController@blog')->where('params', '.+')->name('blog.main');
+
+    // Account routes
+    Route::get('/account', 'AccountController@index')->name('account.index');
+
     // Catalog routes
     Route::get('/', 'CatalogController@index')->name('catalog.index');
     Route::get('/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
