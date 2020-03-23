@@ -145,7 +145,7 @@
             <div class="uk-grid-item-match uk-flex-middle uk-width-expand@m uk-first-column">
 
                 <div class="uk-panel uk-width-1-1">
-                    <div class="uk-text-meta uk-margin uk-text-left@m uk-text-center">© 2019 Создано в <a href="https://vid.uz/">vid.uz</a>. Все права защищены</div>
+                    <div class="uk-text-meta uk-margin uk-text-left@m uk-text-center">© {{ now()->year }} Создано в <a href="https://vid.uz/">vid.uz</a>. Все права защищены</div>
                 </div>
 
             </div>
