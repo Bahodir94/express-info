@@ -54,6 +54,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
 
     // Account routes
     Route::get('/account', 'AccountController@index')->name('account.index');
+    Route::post('/account/personal/{id}', 'AccountController@savePersonal')->name('account.personal.save');
 
     // Catalog routes
     Route::get('/', 'CatalogController@index')->name('catalog.index');
