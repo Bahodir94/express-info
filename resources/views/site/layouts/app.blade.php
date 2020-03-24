@@ -72,6 +72,10 @@
 
     @include('site.layouts.partials.mobile_menu')
 
+    <div class="uk-container uk-container-xlarge uk-container-center">
+        @include('site.components.alerts')
+    </div>
+
     @yield('content')
 
     @include('site.layouts.partials.footer')
