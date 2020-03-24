@@ -179,4 +179,6 @@
 
     }
     </script>
+
+@yield('js')
 </html>

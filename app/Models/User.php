@@ -19,6 +19,10 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name', 'email', 'password',
+        'company_name', 'site', 'foundation_year', 'customer_type',
+        'gender', 'birthday_date', 'specialization', 'skills',
+        'facebook', 'vk', 'telegram', 'whatsapp', 'instagram',
+        'phone_number', 'about_myself'
     ];
 
     /**
@@ -225,4 +229,30 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->save();
     }
 
+    /**
+     * Check if user has completed account
+     *
+     * @return bool
+     */
+    public function checkCompletedAccount()
+    {
+        // TODO: Check account for completed data
+        return true;
+    }
+
+    public function getFirstName()
+    {
+        $explodedName = explode(' ', $this->name);
+        if (isset($explodedName[0]))
+            return $explodedName[0];
+        return '';
+    }
+
+    public function getSecondName()
+    {
+        $explodedName = explode(' ', $this->name);
+        if (isset($explodedName[1]))
+            return $explodedName[1];
+        return '';
+    }
 }
