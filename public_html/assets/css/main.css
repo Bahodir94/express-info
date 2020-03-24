@@ -11016,3 +11016,11 @@ footer .uk-subnav > * {
     -o-transform-origin: center center;
     transform-origin: center center;
 }
+
+.account-avatar {
+    width: 11rem;
+    height: 11rem;
+}
+.account-nav-list > li.uk-active > a {
+    color: #3000EF;
+}
