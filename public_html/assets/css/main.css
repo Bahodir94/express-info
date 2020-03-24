@@ -11024,3 +11024,8 @@ footer .uk-subnav > * {
 .account-nav-list > li.uk-active > a {
     color: #3000EF;
 }
+
+.price-input {
+    height: 28px;
+    width: 8rem;
+}
