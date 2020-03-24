@@ -251,8 +251,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getSecondName()
     {
         $explodedName = explode(' ', $this->name);
-        if (isset($explodedName[1]))
-            return $explodedName[1];
-        return '';
+        array_slice($explodedName, 1);
+        return implode(' ', array_slice($explodedName, 1));
     }
 }
