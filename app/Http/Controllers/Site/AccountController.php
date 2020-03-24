@@ -29,7 +29,8 @@ class AccountController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return view('site.pages.account.index', compact('user'));
+        $accountPage = 'personal';
+        return view('site.pages.account.index', compact('user', 'accountPage'));
     }
 
     public function savePersonal(Request $request, int $id)
