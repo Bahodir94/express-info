@@ -26,7 +26,8 @@
             </div>
         </div>
     </section>
-    <form action="" method="post">
+    <form action="{{ route('site.account.personal.save', $user->id) }}" method="post" enctype="multipart/form-data">
+        @csrf
         <section class="uk-section-xsmall">
             <div class="uk-container uk-container-xlarge uk-container-center">
                 <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
@@ -105,7 +106,7 @@
             <div class="uk-container uk-container-xlarge uk-container-center">
                 <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
                     <div class="wrapper_title">
-                        <h4>Ссылки на соц. сети: <span class="uk-text-danger">*</span></h4>
+                        <h4>Ссылки на соц. сети:</h4>
                     </div>
                 </div>
                 <div class="uk-grid uk-margin-remove-top">
