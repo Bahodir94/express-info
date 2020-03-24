@@ -62,12 +62,12 @@ class UserRepository implements UserRepositoryInterface
      */
     public function update($userId, $userData)
     {
-        $data = [
-            'name' => $userData->get('name'),
-            'email' => $userData->get('email')
-        ];
         $user = $this->get($userId);
-        $user->update($data);
+        $user->update($userData->all());
+        if ($userData->has('firstName') && $userData->has('secondName')) {
+            $user->name = $userData->get('firstName') . ' '.$userData->get('secondName');
+            $user->save();
+        }
         $user->uploadImage($userData->file('image'));
     }
 
