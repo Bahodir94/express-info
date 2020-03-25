@@ -10,7 +10,6 @@
                 <ul class="uk-navbar-nav uk-visible@m">
                     <!--class="uk-active"-->
                     <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
-                    <li><a href="{{ route('site.blog.index') }}">Блог</a></li>
                     @foreach ($needs as $need)
                     @if (!empty($need->url))
                     <li><a>{{ $need->ru_title }}</a></li>
