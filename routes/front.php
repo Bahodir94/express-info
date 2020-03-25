@@ -54,15 +54,14 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
 
     // Account routes
     Route::get('/account', 'AccountController@index')->name('account.index');
-    Route::post('/account/personal/{id}', 'AccountController@savePersonal')->name('account.personal.save');
-    Route::get('/account/professional', 'AccountController@professional')->name('account.professional');
+    Route::post('/account/contractor/personal', 'AccountController@savePersonalContractor')->name('account.contractor.personal.save');
+    Route::get('/account/professional', 'AccountController@professional')->name('account.contractor.professional');
     Route::post('/account/professional', 'AccountController@saveProfessional');
 
     // Catalog routes
     Route::get('/', 'CatalogController@index')->name('catalog.index');
     Route::get('/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
     Route::post('/search', 'CatalogController@search')->name('catalog.search');
-
 });
 
 

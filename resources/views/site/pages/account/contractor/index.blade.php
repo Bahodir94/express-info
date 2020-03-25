@@ -17,7 +17,7 @@
 @endsection
 @section('account.title', 'Личный кабинет')
 @section('content.account')
-    <form action="{{ route('site.account.personal.save', $user->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('site.account.contractor.personal.save') }}" method="post" enctype="multipart/form-data">
         @csrf
         <section class="uk-section-xsmall">
             <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>

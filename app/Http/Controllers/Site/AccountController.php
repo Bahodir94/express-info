@@ -50,8 +50,10 @@ class AccountController extends Controller
             abort(403);
     }
 
-    public function savePersonal(Request $request, int $id)
+    public function savePersonalContractor(Request $request)
     {
+        $user = auth()->user();
+        $user->authorizeRole('contractor');
         $request->validate([
             'firstName' => 'required|max:255|string',
             'secondName' => 'required|string|max:255',
@@ -59,7 +61,7 @@ class AccountController extends Controller
             'birthday_date' => 'required|date',
             'about_myself' => 'required|string|max:5000',
         ]);
-        $this->userRepository->update($id, $request);
+        $this->userRepository->update($user->id, $request);
 
         return redirect()->route('site.account.index')->with('success', 'Ваши личные данные обновлены');
     }
