@@ -39,7 +39,7 @@ class AccountController extends Controller
     {
         $user = auth()->user();
         $accountPage = 'personal';
-        return view('site.pages.account.index', compact('user', 'accountPage'));
+        return view('site.pages.account.contractor.index', compact('user', 'accountPage'));
     }
 
     public function savePersonal(Request $request, int $id)
@@ -77,7 +77,7 @@ class AccountController extends Controller
             }
         }
 
-        return view('site.pages.account.professional',
+        return view('site.pages.account.contractor.professional',
             compact('categories', 'user', 'specializations', 'accountPage', 'chosenSpecs'));
     }
 
