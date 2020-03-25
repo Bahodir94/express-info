@@ -109,4 +109,29 @@ class AccountController extends Controller
 
         return redirect()->route('site.account.contractor.professional')->with('success', 'Ваши профессиональные данные обновлены');
     }
+
+    public function saveCompany(Request $request)
+    {
+        $user = auth()->user();
+        $user->authorizeRole('customer');
+        $request->validate([
+            'image' => 'nullable|image',
+            'company_name' => 'required|max:255|string',
+            'about_myself' => 'nullable|string|max:5000',
+            'foundation_year' => 'nullable|int|max:255',
+            'site' => 'nullable|string|max:255',
+            'phone_number' => 'required|string|max:255',
+            'email' => 'required|email|max:255'
+        ]);
+        $this->userRepository->update($user->id, $request);
+
+        return redirect()->route('site.account.index')->with('success', 'Ваши данные о компании изменены');
+    }
+
+    public function personalCustomer()
+    {
+        $user = auth()->user();
+        $accountPage = 'personal';
+        return view('site.pages.account.customer.personal', compact('user', 'accountPage'));
+    }
 }
