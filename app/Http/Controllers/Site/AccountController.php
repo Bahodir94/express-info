@@ -134,4 +134,20 @@ class AccountController extends Controller
         $accountPage = 'personal';
         return view('site.pages.account.customer.personal', compact('user', 'accountPage'));
     }
+
+    public function personalCustomerSave (Request $request)
+    {
+        $user = auth()->user();
+        $user->authorizeRole('customer');
+        $request->validate([
+            'firstName' => 'required|max:255|string',
+            'secondName' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'image' => 'nullable|image',
+        ]);
+
+        $this->userRepository->update($user->id, $request);
+
+        return redirect()->route('site.account.customer.personal')->with('success', 'Ваш профиль обновлён');
+    }
 }

@@ -58,6 +58,8 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::get('/account/professional', 'AccountController@professional')->name('account.contractor.professional');
     Route::post('/account/professional', 'AccountController@saveProfessional');
     Route::post('/account/customer/company', 'AccountController@saveCompany')->name('account.customer.company.save');
+    Route::get('/account/personal', 'AccountController@personalCustomer')->name('account.customer.personal');
+    Route::post('/account/personal', 'AccountController@personalCustomerSave');
 
     // Catalog routes
     Route::get('/', 'CatalogController@index')->name('catalog.index');
