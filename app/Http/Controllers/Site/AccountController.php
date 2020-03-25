@@ -69,6 +69,7 @@ class AccountController extends Controller
     public function professional()
     {
         $user = auth()->user();
+        $user->authorizeRole('contractor');
         $rawSpecializations = $user->specialization;
         $specializations = [];
         $chosenSpecs = [];
@@ -94,6 +95,7 @@ class AccountController extends Controller
     public function saveProfessional(Request $request)
     {
         $user = auth()->user();
+        $user->authorizeRole('contractor');
         $specializationsArray = $request->get('specializations');
         $specializations = [];
         foreach ($specializationsArray as $item) {
@@ -105,6 +107,6 @@ class AccountController extends Controller
         $user->specialization = implode(';', $specializations);
         $user->save();
 
-        return redirect()->route('site.account.professional')->with('success', 'Ваши профессиональные данные обновлены');
+        return redirect()->route('site.account.contractor.professional')->with('success', 'Ваши профессиональные данные обновлены');
     }
 }
