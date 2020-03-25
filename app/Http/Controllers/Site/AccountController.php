@@ -38,8 +38,16 @@ class AccountController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $accountPage = 'personal';
-        return view('site.pages.account.contractor.index', compact('user', 'accountPage'));
+        if ($user->hasRole('contractor')) {
+            $accountPage = 'personal';
+            return view('site.pages.account.contractor.index', compact('user', 'accountPage'));
+        }
+        else if ($user->hasRole('customer')) {
+            if ($user->customer_type == 'company') $accountPage = 'company';
+            return view('site.pages.account.customer.index', compact('user', 'accountPage'));
+        }
+        else
+            abort(403);
     }
 
     public function savePersonal(Request $request, int $id)
