@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Site;
 
 use App\Helpers\SlugHelper;
+use App\Repositories\BlogPostRepositoryInterface;
 use App\Repositories\CompanyRepositoryInterface;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
 use App\Repositories\MenuRepositoryInterface;
+use App\Repositories\TenderRepositoryInterface;
+use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -41,23 +44,52 @@ class CatalogController extends Controller
     private $menus;
 
     /**
+     * Tenders repository
+     *
+     * @var TenderRepositoryInterface
+     */
+    private $tenders;
+
+    /**
+     * Blog posts repository
+     *
+     * @var BlogPostRepositoryInterface
+     */
+    private $posts;
+
+    /**
+     * Users repository
+     *
+     * @var UserRepositoryInterface
+     */
+    private $users;
+
+    /**
      * Create a new controller instance
      *
      * @param NeedTypeRepositoryInterface $needsRepository
      * @param HandbookCategoryRepositoryInterface $categoriesRepository
      * @param CompanyRepositoryInterface $companyRepository
      * @param MenuRepositoryInterface $menuRepository
-     * @return void
-    */
+     * @param TenderRepositoryInterface $tenderRepository
+     * @param BlogPostRepositoryInterface $blogPostRepository
+     * @param UserRepositoryInterface $userRepository
+     */
     public function __construct(NeedTypeRepositoryInterface $needsRepository,
                                 HandbookCategoryRepositoryInterface $categoriesRepository,
                                 CompanyRepositoryInterface $companyRepository,
-                                MenuRepositoryInterface $menuRepository)
+                                MenuRepositoryInterface $menuRepository,
+                                TenderRepositoryInterface $tenderRepository,
+                                BlogPostRepositoryInterface $blogPostRepository,
+                                UserRepositoryInterface $userRepository)
     {
         $this->needs = $needsRepository;
         $this->categories = $categoriesRepository;
         $this->companies = $companyRepository;
         $this->menus = $menuRepository;
+        $this->tenders = $tenderRepository;
+        $this->posts = $blogPostRepository;
+        $this->users = $userRepository;
     }
 
     /**
@@ -71,13 +103,12 @@ class CatalogController extends Controller
         // Check if url path has get parameters
         if (array_key_exists('query', parse_url($request->fullUrl())))
             return redirect(route('site.catalog.index'), 301);
-
-        $favoritesCategories = $this->categories->getFavoriteCategories();
         $parentCategories = $this->categories->all();
-        $favouritesCompanies = $this->companies->getFavourites();
+        $tenders = $this->tenders->allOrderedByCreatedAt()->take(3);
+        $posts = $this->posts->allOrderByDesc()->take(3);
 
-        return view('site.pages.catalog.index', compact('favoritesCategories',
-            'parentCategories', 'favouritesCompanies'));
+
+        return view('site.pages.catalog.index', compact('parentCategories', 'tenders', 'posts'));
     }
 
     /**
