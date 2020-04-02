@@ -61,6 +61,10 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::get('/account/personal', 'AccountController@personalCustomer')->name('account.customer.personal');
     Route::post('/account/personal', 'AccountController@personalCustomerSave');
 
+    // Tenders routes
+    Route::get('/tenders/create', 'TenderController@create')->name('tenders.common.create');
+    Route::post('/tenders/create', 'TenderController@store');
+
     // Catalog routes
     Route::get('/', 'CatalogController@index')->name('catalog.index');
     Route::get('/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
