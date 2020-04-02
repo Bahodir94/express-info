@@ -14,10 +14,11 @@
                     <ul class="main-menu">
                         <li class="active"><a href="/">Главная</a></li>
                         @foreach($needs as $need)
-                            <li><a href="#">{{ $need->ru_title }} <i class="fas fa-caret-down"></i></a>
+                            <li class="header-menu-item"><a href="#">{{ $need->ru_title }} <i class="fas fa-caret-down"></i></a>
                                 <ul class="sub-menu">
                                     @foreach($need->menuItems as $item)
-                                        <li><a href="{{ route('site.catalog.main', $item->ru_slug) }}">{{ $item->ru_title }} <i class="fas fa-caret-right"></i></a>
+                                        <li class="menu-item dropdown-submenu">
+                                            <a class="d-flex justify-content-between align-items-center" href="{{ route('site.catalog.main', $item->ru_slug) }}">{{ $item->ru_title }}<i class="fas fa-caret-right ml-2 mr-3"></i></a>
                                             <ul class="sub-menu">
                                                 @foreach($item->categories as $category)
                                                     <li>
