@@ -74,5 +74,9 @@ class BackendServiceProvider extends ServiceProvider
             'App\Repositories\FaqRepositoryInterface',
             'App\Repositories\FaqRepository'
         );
+        $this->app->bind(
+            'App\Repositories\TenderRepositoryInterface',
+            'App\Repositories\TenderRepository'
+        );
     }
 }
