@@ -1,63 +1,46 @@
-<!-- Header Menu -->
-	<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent ; top: 500">
-	  <nav class="uk-navbar-container uk-letter-spacing-small uk-text-bold">
-	    <div class="uk-container uk-container-large">
-	      <div class="uk-position-z-index" uk-navbar>
-	        <div class="uk-navbar-left">
-	          <a class="uk-navbar-item uk-logo" href="{{ route('site.catalog.index') }}">vid</a>
-	        </div>
-	        <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav uk-visible@m">
-                    <!--class="uk-active"-->
-                    <li ><a href="{{ route('site.catalog.index') }}">Главная</a></li>
-                    @foreach ($needs as $need)
-                    @if (!empty($need->url))
-                    <li><a>{{ $need->ru_title }}</a></li>
-                    @else
-                    <li class="uk-parent">
-                        <a>{{ $need->ru_title }}</a>
-                        <!--uk-dropdown="delay-show: 250;"-->
-                        <div class="code-dropdown uk-dropdown uk-overflow-auto uk-dropdown-bottom-center" uk-dropdown="pos: bottom-justify; animation: uk-animation-slide-top-small; duration: 1000">
-                            <div class=" uk-grid-collapse uk-grid uk-child-width-1-4 " uk-grid>
-                                <!-- class="uk-nav uk-navbar-dropdown-nav"-->
-                            @foreach ($need->menuItems as $menu)
-                                <div class="padding-15 ">
-                                    <ul class="uk-nav">
-                                        <div class="dropdown_wrapper uk-margin" >
-<!--                                            <img src="{{ $menu->getImage() }}" alt="">-->
-                                            <a href="{{ route('site.catalog.main', $menu->ru_slug) }}">{{ $menu->ru_title }}</a>
-                                        </div>
-                                        @foreach ($menu->categories as $category)
-                                            <li>
-                                                <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{!! $category->ru_title !!}</a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endforeach
-                            </div>
-                        </div>
-                    </li>
-                    @endif
-                    @endforeach
+<header class="header-site" id="header">
+    <div class="container-fluid">
+        <div class="header-wrap">
+            <div class="header-left">
+                <div class="header-main-toggle">
+                    <button class="btn-toggle" type="button" data-toggle="offcanvas"><i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <div class="header-logo"><a class="qdesk-logo" href="#" title="VID"><img class="qdesk-logo-white"
+                                                                                           src="{{ asset('front/images/VID.png') }}"
+                                                                                           alt="VID"><img
+                            class="qdesk-logo-black" src="{{ asset('front/images/VID-black.png') }}}" alt="VID"></a></div>
+                <div class="navigation" id="navigation">
+                    <ul class="main-menu">
+                        <li class="active"><a href="/">Главная</a></li>
+                        @foreach($needs as $need)
+                            <li><a href="#">{{ $need->ru_title }} <i class="fas fa-caret-down"></i></a>
+                                <ul class="sub-menu">
+                                    @foreach($need->menuItems as $item)
+                                        <li><a href="{{ route('site.catalog.main', $item->ru_slug) }}">{{ $item->ru_title }} <i class="fas fa-caret-right"></i></a>
+                                            <ul class="sub-menu">
+                                                @foreach($item->categories as $category)
+                                                    <li>
+                                                        <a href="{{ route('site.catalog.main', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
+
+                    </ul>
+                </div>
+            </div>
+            <div class="header-right">
+                <ul>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> Добавить заказ</a></li>
+                    <li><a href="29_sign_in.html"><i class="fas fa-sign-out-alt"></i> Вход</a><span> / </span><a
+                            href="30_register.html">Регистрация</a></li>
                 </ul>
-
-
-
-	        </div>
-	        <div class="uk-navbar-right">
-	          <div>
-	            <a class="uk-navbar-toggle" uk-icon="icon: search" href="#"></a>
-	            <div class="code-drop uk-drop" uk-drop="mode: click; pos: bottom-left; offset: 0">
-                    @include('site.layouts.partials.mobile_search')
-	            </div>
-	          </div>
-	          <div class="uk-navbar-item uk-visible@m">
-	            <div><a rel="nofollow" target="_blank" class="uk-button uk-button-success-outline" href="#">Добавить компанию</a></div>
-	          </div>
-	          <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" uk-toggle><span uk-icon="icon: menu" ></span></a>
-	        </div>
-	      </div>
-	    </div>
-	  </nav>
-	</div>
+            </div>
+        </div>
+    </div>
+</header>
