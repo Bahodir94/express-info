@@ -80,6 +80,18 @@ class HandbookCategory extends Model
     }
 
     /**
+     * Category's users
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this
+            ->belongsToMany(User::class, 'user_category', 'category_id', 'user_id')
+            ->withPivot('price_from', 'price_to', 'price_per_hour');
+    }
+
+    /**
      * Get type of need for this category
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

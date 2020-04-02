@@ -122,6 +122,18 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * User categories
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function categories()
+    {
+        return $this
+            ->belongsToMany(HandbookCategory::class, 'user_category', 'user_id', 'category_id')
+            ->withPivot('price_from', 'price_to', 'price_per_hour');
+    }
+
+    /**
      * Get history of user's actions
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
