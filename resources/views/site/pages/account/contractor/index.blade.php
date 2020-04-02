@@ -154,7 +154,6 @@
             flatpickr(document.getElementById('birthdayDate'), {
                 dateFormat: 'd.m.Y',
             });
-            console.log(ClassicEditor.create);
         });
     </script>
     <script>ClassicEditor
