@@ -65,3 +65,10 @@
 .text-primary {
     color: #63ba16 !important;
 }
+
+img.avatar {
+    vertical-align: middle;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+}
