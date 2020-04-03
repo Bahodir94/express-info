@@ -179,14 +179,16 @@ class HandbookCategory extends Model
     /**
      * Get all descendants companies
      *
-     * @return array
+     * @return \Illuminate\Support\Collection
     */
     public function getAllCompaniesFromDescendingCategories()
     {
-        $categories = $this->descendants()->pluck('id');
-        $categories[] = $this->getKey();
-
-        return Company::whereIn('category_id', $categories)->get();
+        $categories = $this->descendants;
+        $companies = collect();
+        foreach ($categories as $category) {
+            $companies = $companies->merge($category->users);
+        }
+        return $companies;
     }
 
     /**
