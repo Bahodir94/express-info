@@ -267,4 +267,14 @@ class User extends Authenticatable implements MustVerifyEmail
         array_slice($explodedName, 1);
         return implode(' ', array_slice($explodedName, 1));
     }
+
+    public function getContractorTitle()
+    {
+        if ($this->contractor_type === 'digital')
+            return $this->company_name;
+        elseif ($this->contractor_type === 'freelancer')
+            return $this->name;
+        else
+            return '';
+    }
 }
