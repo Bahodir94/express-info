@@ -36,3 +36,32 @@
 .menu-item:hover .sub-menu {
     display: block;
 }
+
+.category-badge {
+    padding: .2rem 1.3rem;
+    border-radius: 15px;
+    margin-right: .8rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.79;
+    letter-spacing: normal;
+    background-color: #e1e1e1;
+    color: #001f31;
+    opacity: .5;
+    margin-top: 1.3rem;
+}
+
+.category-badge:hover {
+    color: #63ba16;
+}
+
+.category-children__list {
+    flex-flow: wrap;
+}
+.category-children__list > a {
+    display: block;
+}
+
+.text-primary {
+    color: #63ba16 !important;
+}
