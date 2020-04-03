@@ -121,7 +121,7 @@ class UserRepository implements UserRepositoryInterface
     public function getContractors()
     {
         $allUsers = User::all();
-        return $allUsers->filter(function ($user) { return $user->hasRole('contractor') && $user->customer_type === 'agency'; });
+        return $allUsers->filter(function ($user) { return $user->hasRole('contractor'); });
     }
 
     /**
