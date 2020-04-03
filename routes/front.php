@@ -66,7 +66,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::post('/tenders/create', 'TenderController@store');
 
     // Catalog routes
-    Route::get('/', 'CatalogController@index')->name('catalog.index');
+    Route::get('/', 'HomeController@index')->name('catalog.index');
     Route::get('/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
     Route::post('/search', 'CatalogController@search')->name('catalog.search');
 });

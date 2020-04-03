@@ -93,25 +93,6 @@ class CatalogController extends Controller
     }
 
     /**
-     * Main page of catalog
-     *
-     * @param Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function index(Request $request)
-    {
-        // Check if url path has get parameters
-        if (array_key_exists('query', parse_url($request->fullUrl())))
-            return redirect(route('site.catalog.index'), 301);
-        $parentCategories = $this->categories->all();
-        $tenders = $this->tenders->allOrderedByCreatedAt()->take(3);
-        $posts = $this->posts->allOrderByDesc()->take(3);
-
-
-        return view('site.pages.catalog.index', compact('parentCategories', 'tenders', 'posts'));
-    }
-
-    /**
      * Action for catalog
      *
      * @param Request $request
