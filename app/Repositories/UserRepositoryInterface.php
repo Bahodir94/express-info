@@ -76,7 +76,7 @@ interface UserRepositoryInterface
      *
      * @return Collection
      */
-    public function getDigitalAgencies();
+    public function getContractors();
 
     /**
      * Get contractor company by slug

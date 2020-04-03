@@ -118,7 +118,7 @@ class UserRepository implements UserRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function getDigitalAgencies()
+    public function getContractors()
     {
         $allUsers = User::all();
         return $allUsers->filter(function ($user) { return $user->hasRole('contractor') && $user->customer_type === 'agency'; });
@@ -129,7 +129,7 @@ class UserRepository implements UserRepositoryInterface
      */
     public function getContractorBySlug(string $slug)
     {
-        return $this->getDigitalAgencies()->first(function ($user) use ($slug) {
+        return $this->getContractors()->first(function ($user) use ($slug) {
             return $user->slug === $slug;
         });
     }
