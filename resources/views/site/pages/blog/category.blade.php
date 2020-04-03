@@ -1,106 +1,82 @@
-
-<style>
-    .sequence{
-        display: flex;
-        align-items: center;
-        list-style: none;
-        padding: 0;
-        margin: 83px 0;
-        flex-wrap: wrap;
-
-    }
-    .sequence li{
-        margin-right: 17px;
-        color: #102840;
-        font-size: 18px;
-        /* font-family: 'opensans'; */
-        font-weight: 400;
-        margin-top: 10px;
-    }
-    .sequence li a{
-        color: #102840;
-        text-decoration: none;
-    }</style>
 @extends('site.layouts.app')
-@section('title')
-    @if(empty($category->meta_title))
-        {{ $category->getTitle() }}
-    @else
-        {{ $category->meta_title }}
-    @endif
-@endsection
+@section('title', $category->getTitle())
 @section('meta')
-    <meta name="title" content="@if(empty($category->meta_title)) {{ $category->getTitle() }} @else {{ $category->meta_title }} @endif">
-    <meta name="description" content="@if (empty($category->meta_description)) {{ strip_tags($category->ru_description) }} @else {{ $category->meta_description }} @endif">
-    <meta name="keywords" content="{{ $category->meta_keywords }}">
+    <meta name="title" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
 @endsection
 @section('header')
     @include('site.layouts.partials.headers.default')
 @endsection
 @section('content')
 
-    <div class="uk-container uk-container-xlarge uk-margin-small uk-margin-medium-bottom">
-        <ul class="cat-tab uk-tab" >
-            <li>
-                <a href="{{ route('site.blog.index') }}">
-                    <span uk-icon="arrow-left"></span>
-                    <span>Назад</span>
-                </a>
-            </li>
-            @foreach($categories as $child)
-                <li  @if ($child->ru_title == $category->ru_title) class="uk-active" @endif>
-                    <a href="{{ route('site.blog.main', $child->ru_slug) }}">
-                        <div class="uk-flex uk-flex-middle">
-                            <span>{{ $child->ru_title }} </span>
-                            <span class="countcat">({{ $child->posts()->count() }})</span>
-                        </div>
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    </div>
 
-    <section class="uk-section-xsmall">
-        <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
-            <div uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-grid">
-                @foreach($category->posts as $post)
-                    <div>
-                        <div class="uk-card uk-card-small uk-card-border" itemscope itemtype="http://schema.org/Product">
-                            <div class="uk-card-media-top uk-position-relative uk-light">
-                                <img itemprop="image" uk-img height="200" src="{{ $post->getImage() }}" class="code-mage" alt="Course Title">
-                                <div class="uk-position-cover uk-overlay-xlight"></div>
-                            </div>
-                            <div class="uk-card-body">
-                                <h2 itemprop="name" class="uk-card-title uk-margin-small-bottom">{{ $post->ru_title }}</h2>
-                                <div itemprop="category" class="uk-text-muted uk-text-small">{!! $post->ru_short_content !!}</div>
-                            </div>
-                            <a href="{{ route('site.blog.main', $post->getAncestorsSlugs()) }}" class="uk-position-cover"></a>
+    <div class="primary-page">
+        <div class="container">
+            <div class="header-page">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="section-heading">
+                            <h1 class="title-page">Блог</h1>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">Главная</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('site.blog.index') }}">Блог</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ $category->getTitle() }}</li>
+                                </ol>
+                            </nav>
                         </div>
                     </div>
-                @endforeach
-
+                    <div class="col-md-4">
+                        <div class="search-form">
+                            <input class="form-control" type="text" placeholder="Поиск здесь...">
+                            <button class="btn-clear"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="blog-lists">
+                        <div class="row">
+                            @foreach($category->posts as $post)
+                                <div class="col-sm-12 col-md-6 single-card-info">
+                                    <div class="card-info">
+                                        <div class="card-info-img"><a href="{{ route('site.blog.main', $post->getAncestorsSlugs()) }}"><img
+                                                    src="{{ $post->getImage() }}"
+                                                    alt="{{ $post->ru_title }}"></a></div>
+                                        <div class="card-info-body"><span class="meta">Опубликован {{ $post->created_at }}</span>
+                                            <h3 class="card-info-title"><a href="{{ route('site.blog.main', $post->getAncestorsSlugs()) }}">{{ $post->ru_title }}</a></h3>
+                                            <div class="card-info-text">{!! $post->ru_short_content !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="sidebar-right">
+                        <div class="sidebar-right-group">
+                            <div class="box-sidebar">
+                                <div class="header-box d-flex justify-content-between flex-wrap">
+                                    <h3 class="title-box">Категории</h3>
+                                </div>
+                                <div class="body-box">
+                                    <ul class="list-check-filter-job">
+                                        @foreach($categories as $category)
+                                            <li>
+                                                <a href="{{ route('site.blog.main', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <section class="uk-section-xsmall uk-padding-remove-vertical">
-        <div class="uk-container uk-container-xlarge uk-container-center container uk-margin-top">
-            <ul class="sequence" itemscope itemtype="http://schema.org/BreadcrumbList">
-                <li itemprop="itemListElement" itemscope
-                    itemtype="http://schema.org/ListItem"><a href="{{ route('site.catalog.index') }}"
-                                                             itemprop="item"><span itemprop="name"><meta
-                                itemprop="position" content="1"/>Главная</span></a></li>
-                <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
-                <li itemprop="itemListElement" itemscope
-                    itemtype="http://schema.org/ListItem"><a href="{{ route('site.blog.index') }}"
-                                                             itemprop="item"><span itemprop="name"><meta
-                                itemprop="position" content="2"/>Блог</span></a></li>
-                <li><img src="{{ asset('assets/img/next.svg') }}" alt=""></li>
-                <li itemprop="itemListElement" itemscope
-                    itemtype="http://schema.org/ListItem"><span itemprop="name"><meta itemprop="position"
-                                                                                      content="4"/>{{ $category->getTitle() }}</span>
-                </li>
-            </ul>
-        </div>
-    </section>
-
+    </div>
 @endsection
