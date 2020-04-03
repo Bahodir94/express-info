@@ -67,7 +67,10 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
 
     // Catalog routes
     Route::get('/', 'HomeController@index')->name('catalog.index');
-    Route::get('/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
+    Route::get('/contractors', 'ContractorsController@index')->name('contractors.index');
+    Route::get('/contractors/{slug}', 'ContractorsController@contractor')->name('contractors.show');
+
+    Route::get('/{slug}', 'ContractorContrller@category')->name('catalog.main');
     Route::post('/search', 'CatalogController@search')->name('catalog.search');
 });
 
