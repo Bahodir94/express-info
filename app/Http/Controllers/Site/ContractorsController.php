@@ -50,11 +50,13 @@ class ContractorsController extends Controller
     /**
      * Show contractors from category
      *
-     * @param string $slug
+     * @param string $params
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function category(string $slug)
+    public function category(string $params)
     {
+        $paramsArray = explode('/', $params);
+        $slug = end($paramsArray);
         $category = $this->categories->getBySlug($slug);
         abort_if(!$category, 404);
         return view('site.pages.contractors.category', compact('category'));
