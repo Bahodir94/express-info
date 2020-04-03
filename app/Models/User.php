@@ -22,7 +22,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'company_name', 'site', 'foundation_year', 'customer_type', 'contractor_type',
         'gender', 'birthday_date', 'specialization', 'skills',
         'facebook', 'vk', 'telegram', 'whatsapp', 'instagram',
-        'phone_number', 'about_myself'
+        'phone_number', 'about_myself',
+        'slug'
     ];
 
     /**
