@@ -1,26 +1,3 @@
-<style>
-    .sequence{
-        display: flex;
-        align-items: center;
-        list-style: none;
-        padding: 0;
-        margin: 83px 0;
-        flex-wrap: wrap;
-
-    }
-    .sequence li{
-        margin-right: 17px;
-        color: #102840;
-        font-size: 18px;
-        /* font-family: 'opensans'; */
-        font-weight: 400;
-        margin-top: 10px;
-    }
-    .sequence li a{
-        color: #102840;
-        text-decoration: none;
-    }</style>
-
 @extends('site.layouts.app')
 @section('title')
     @if(empty($menuItem->meta_title))
@@ -130,7 +107,7 @@
                     </form>
                 </div>
     </div>
- 
+
 
     <section class="uk-section-xsmall">
         <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
@@ -203,7 +180,7 @@
                     {!! $menuItem->ru_description !!}
                 </div>
                 <div class="uk-width-expand@m"></div>
-             
+
             </div>
         </div>
     </section>
@@ -217,5 +194,5 @@
                     itemtype="http://schema.org/ListItem"><span itemprop="name"><meta itemprop="position" content="2" />{{ $menuItem->ru_title }}</span></li>
             </ul>
         </div>
-  
+
 @endsection
