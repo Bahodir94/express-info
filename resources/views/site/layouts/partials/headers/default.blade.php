@@ -37,7 +37,7 @@
             </div>
             <div class="header-right">
                 <ul>
-                    <li><a href="#"><i class="fas fa-plus-circle"></i> Добавить заказ</a></li>
+                    <li><a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i> Добавить заказ</a></li>
                     <li><a href="29_sign_in.html"><i class="fas fa-sign-out-alt"></i> Вход</a><span> / </span><a
                             href="30_register.html">Регистрация</a></li>
                 </ul>
