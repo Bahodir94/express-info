@@ -30,8 +30,12 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function create($data)
     {
-        $tender = Tender::create($data->all());
+        $tenderData = $data->all();
+        $tenderData['client_name'] = $tenderData['firstName'] . ' ' . $tenderData['secondName'];
+        $tender = Tender::create($tenderData);
         $tender->saveFiles($data->file('files'));
+        foreach ($data->get('categories') as $categoryId)
+            $tender->categories()->attach($categoryId);
         return $tender;
     }
 

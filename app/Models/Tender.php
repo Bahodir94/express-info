@@ -17,6 +17,14 @@ class Tender extends Model
         'need_id'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::saving(function ($model) {
+            $model->generateSlug();
+        });
+    }
+
     /**
      * Type of need
      *
@@ -45,7 +53,7 @@ class Tender extends Model
 
     public function saveFiles($files)
     {
-        if (count($files) == 0)
+        if (!$files)
             return;
         $this->files()->delete();
         foreach ($files as $file) {
@@ -55,5 +63,18 @@ class Tender extends Model
                 'path' => $filename
             ]);
         }
+    }
+
+    /**
+     * Generate slug
+     *
+     * @return void
+     */
+    public function generateSlug() {
+        $slug = Str::slug($this->title);
+        $existCount = self::where('slug', $slug)->count();
+        if ($existCount > 0)
+            $slug .= "-$existCount";
+        $this->slug = $slug;
     }
 }
