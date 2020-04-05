@@ -76,3 +76,11 @@ img.avatar {
 .tender-box label {
     font-weight: 600;
 }
+
+.accordion .card-header {
+    background-color: transparent;
+}
+
+.accordion .card {
+    border: none;
+}
