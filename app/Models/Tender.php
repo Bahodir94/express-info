@@ -41,6 +41,16 @@ class Tender extends Model
     }
 
     /**
+     * All tender's requests from user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function requests()
+    {
+        return $this->hasMany(TenderRequest::class, 'tender_id', 'id');
+    }
+
+    /**
      * Tender's attached categories
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

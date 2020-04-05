@@ -145,6 +145,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * All user's requests for tenders
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function requests()
+    {
+        return $this->hasMany(TenderRequest::class, 'user_id', 'id');
+    }
+
+    /**
      * Create history item for user
      *
      * @param string $type
