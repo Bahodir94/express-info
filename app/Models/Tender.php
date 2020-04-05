@@ -87,4 +87,11 @@ class Tender extends Model
             $slug .= "-$existCount";
         $this->slug = $slug;
     }
+
+    public function getCustomerTitle() {
+        if ($this->client_type == 'private')
+            return $this->client_name;
+        else
+            return $this->client_company_name;
+    }
 }
