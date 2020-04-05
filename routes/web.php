@@ -10,6 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+include __DIR__ . '/registration.php';
 include __DIR__ . '/admin.php';
 include __DIR__ . '/front.php';
