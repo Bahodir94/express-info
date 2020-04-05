@@ -56,5 +56,5 @@ interface TenderRepositoryInterface
      * @param $slug
      * @return \App\Models\Tender
      */
-    public function getBySlug();
+    public function getBySlug(string $slug);
 }

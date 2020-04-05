@@ -66,8 +66,8 @@ class TenderRepository implements TenderRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function getBySlug()
+    public function getBySlug(string $slug)
     {
-        // TODO: Implement getBySlug() method.
+        return Tender::where('slug', $slug)->first();
     }
 }
