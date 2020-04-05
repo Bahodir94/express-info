@@ -1,0 +1,143 @@
+@extends('site.layouts.app')
+
+@section('title', 'Конкурсы')
+
+@section('meta')
+    <meta name="title" content="">
+    <meta name="description" content="">
+@endsection
+@section('header')
+    @include('site.layouts.partials.headers.default')
+@endsection
+
+@section('content')
+    <div class="primary-page">
+        <div class="container">
+            <div class="header-page">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="section-heading">
+                            <h1 class="title-page">Каталог конкурсов</h1>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{{ route('site.catalog.index') }}">Главная</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Конкурсы</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="search-form">
+                            <input class="form-control" type="text" placeholder="Поиск здесь...">
+                            <button class="btn-clear"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div id="leftcolumn">
+                        <div class="toggle-sidebar-left d-lg-none">Фильтр</div>
+                        <div class="sidebar-left">
+                            <button class="btn-close-sidebar-left btn-clear"><i class="fa fa-times-circle"></i>
+                            </button>
+                            <div class="box-sidebar">
+                                <div class="header-box d-flex justify-content-between flex-wrap">
+                                    <h3 class="title-box">Категории</h3>
+                                </div>
+                                <div class="body-box">
+                                    <div class="accordion" id="needsAccordion" role="tablist" aria-multiselectable="false">
+                                        @foreach($needs as $need)
+                                            <div class="card">
+                                                <div class="card-header d-flex justify-content-between" role="tab" id="heading{{ $need->id }}">
+                                                    <span>{{ $need->ru_title }}</span>
+                                                    <a href="#collapse{{ $need->id }}" data-toggle="collapse" data-parent="#needsAccordion" aria-expanded="true" aria-controls="collapse{{ $need->id }}"><i class="fas fa-caret-down"></i></a>
+                                                </div>
+                                                <div class="collapse" id="collapse{{ $need->id }}" role="tabpanel" aria-labelledby="heading{{ $need->id }}" data-parent="#needsAccordion">
+                                                    <div class="card-body">
+                                                        <div class="accordion" id="categoriesAccordion{{ $need->id }}" role="tablist" aria-multiselectable="false">
+                                                            @foreach($need->menuItems as $item)
+                                                                <div class="card">
+                                                                    <div class="card-header d-flex justify-content-between" id="headingCategory{{ $item->id }}">
+                                                                        <a href="{{ route('site.tenders.category', $item->ru_slug) }}">{{ $item->ru_title }}</a>
+                                                                        <a href="#collapseCategory{{ $item->id }}" data-toggle="collapse" data-parent="#categoriesAccordion{{ $need->id }}" aria-expanded="true" aria-controls="collapseCategory{{ $item->id }}"><i class="fas fa-caret-down"></i></a>
+                                                                    </div>
+                                                                    <div class="collapse" id="collapseCategory{{ $item->id }}" role="tabpanel" aria-labelledby="headingCategory{{ $item->id }}" data-parent="#categoriesAccordion{{ $need->id }}">
+                                                                        <div class="card-body">
+                                                                            <ul class="list-group list-group-flush">
+                                                                                @foreach($item->categories as $category)
+                                                                                    <a href="{{ route('site.tenders.category', $category->getAncestorsSlugs()) }}" class="list-group-item list-group-item-action">{{ $category->getTitle() }}</a>
+                                                                                @endforeach
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-sidebar">
+                                <div class="header-box">
+                                    <h3 class="title-box">Какую хотите оплату</h3>
+                                </div>
+                                <div class="body-box">
+                                    <div class="salary-range">
+                                        <input id="amount" type="text" readonly="readonly">
+                                        <div id="slider-range"
+                                             class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                            <div class="ui-slider-range ui-corner-all ui-widget-header"
+                                                 style="left: 0%; width: 12.5533%;"></div>
+                                            <span tabindex="0"
+                                                  class="ui-slider-handle ui-corner-all ui-state-default"
+                                                  style="left: 0%;"></span><span tabindex="0"
+                                                                                 class="ui-slider-handle ui-corner-all ui-state-default"
+                                                                                 style="left: 16.46%;"></span>
+                                            <div class="ui-slider-range ui-corner-all ui-widget-header"
+                                                 style="left: 0%; width: 16.46%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="content-main-right list-jobs">
+                        <div class="header-list-job d-flex flex-wrap justify-content-between align-items-center">
+                            <h4>{{ count($tenders) }} Конкурсов найдено</h4>
+                        </div>
+                        <div class="list">
+                            @foreach($tenders as $tender)
+                                <div class="job-item">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-2">
+                                            <div class="img-job text-center"><a href="#"></a></div>
+                                        </div>
+                                        <div class="col-md-10 job-info">
+                                            <div class="text">
+                                                <h3 class="title-job"><a href="#">{{ $tender->title }}</a></h3>
+                                                <div class="date-job"><i class="fa fa-check-circle"></i><span
+                                                        class="company-name">Опубликован: {{ $tender->created_at }}</span>
+                                                    <div class="date-job"><i class="fa fa-check-circle"></i><span
+                                                            class="company-name">Крайний срок приема заявок: {{ $tender->deadline }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="meta-job"><span class="salary">Бюджет {{ $tender->budget }} сум</span></div>
+                                                <button class="add-favourites"><i class="far fa-star"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

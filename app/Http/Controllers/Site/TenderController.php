@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Repositories\HandbookCategoryRepositoryInterface;
+use App\Repositories\MenuRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
 use Illuminate\Http\Request;
@@ -23,15 +24,59 @@ class TenderController extends Controller
      */
     private $tenderRepository;
 
+    /**
+     * @var HandbookCategoryRepositoryInterface
+     */
     private $categoryRepository;
+
+    /**
+     * @var MenuRepositoryInterface
+     */
+    private $menuItemsRepository;
 
     public function __construct(NeedTypeRepositoryInterface $needRepository,
                                 TenderRepositoryInterface $tenderRepository,
-                                HandbookCategoryRepositoryInterface $categoryRepository)
+                                HandbookCategoryRepositoryInterface $categoryRepository,
+                                MenuRepositoryInterface $menuItemsRepository)
     {
         $this->needRepository = $needRepository;
         $this->tenderRepository = $tenderRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->menuItemsRepository = $menuItemsRepository;
+    }
+
+    public function index()
+    {
+        $tenders = $this->tenderRepository->allOrderedByCreatedAt();
+        return view('site.pages.tenders.index', compact('tenders'));
+    }
+
+    public function category(string $params)
+    {
+       $paramsArray = explode('/', $params);
+       $tenders = collect();
+       if (count($paramsArray) === 1) {
+           $menuItemSlug = $paramsArray[0];
+           $menuItem = $this->menuItemsRepository->getBySlug($menuItemSlug);
+           foreach ($menuItem->categories as $category)
+               $tenders = $tenders->merge($category->tenders);
+           $tenders = $tenders->unique(function ($item) {
+               return $item->id;
+           });
+       } else {
+           $categorySlug = end($paramsArray);
+           $category = $this->categoryRepository->getBySlug($categorySlug);
+           $tenders = $category->tenders;
+       }
+
+       return view('site.pages.tenders.index', compact('tenders'));
+    }
+
+    public function show(string $slug)
+    {
+        $tender = $this->tenderRepository->getBySlug($slug);
+        abort_if(!$tender, 404);
+        return view('site.pages.tenders.show', compact('tender'));
     }
 
     public function create()
