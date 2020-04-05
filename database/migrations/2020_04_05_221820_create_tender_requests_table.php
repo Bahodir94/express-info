@@ -22,6 +22,7 @@ class CreateTenderRequestsTable extends Migration
             $table->string('budget_to')->nullable();
             $table->string('period_from')->nullable();
             $table->string('period_to')->nullable();
+            $table->string('comment')->nullable();
 
             $table->timestamps();
         });
