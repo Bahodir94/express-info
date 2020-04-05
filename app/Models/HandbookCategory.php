@@ -92,6 +92,16 @@ class HandbookCategory extends Model
     }
 
     /**
+     * Category's tenders
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tenders()
+    {
+        return $this->belongsToMany(Tender::class, 'tender_category', 'category_id', 'tender_id');
+    }
+
+    /**
      * Get type of need for this category
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

@@ -32,6 +32,17 @@ class Tender extends Model
         return $this->hasMany(TenderFile::class, 'tender_id', 'id');
     }
 
+    /**
+     * Tender's attached categories
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function categories()
+    {
+        return $this->belongsToMany(HandbookCategory::class, 'tender_category',
+            'tender_id', 'category_id');
+    }
+
     public function saveFiles($files)
     {
         if (count($files) == 0)
