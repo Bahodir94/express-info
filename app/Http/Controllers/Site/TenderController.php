@@ -109,4 +109,25 @@ class TenderController extends Controller
 
         return redirect()->route('site.contractors.index')->with('success', "Тендер $tender->title создан и опубликован! Вы так же можете выбрать себе исполнителей по желанию");
     }
+
+    public function makeRequest(Request $request)
+    {
+        $request->validate([
+            'budget_from' => 'required|max:255',
+            'budget_to' => 'required|max:255',
+            'period_to' => 'required|max:255',
+            'period_from' => 'required|max:255',
+            'comment' => 'nullable|string|max:255'
+        ]);
+        $tenderRequest = $this->tenderRepository->createRequest($request);
+        $tenderTitle = $tenderRequest->tender->title;
+        return back()->with('success', "Вы подали заявку на участие в конкурсе \"$tenderTitle\"");
+    }
+
+    public function cancelRequest(Request $request)
+    {
+        $requestId = $request->get('requestId');
+        $this->tenderRepository->cancelRequest($requestId);
+        return back()->with('success', 'Ваша заявка отменена');
+    }
 }

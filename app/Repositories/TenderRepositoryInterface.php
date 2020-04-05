@@ -3,6 +3,8 @@
 
 namespace App\Repositories;
 
+use App\Models\TenderRequest;
+
 interface TenderRepositoryInterface
 {
     /**
@@ -57,4 +59,20 @@ interface TenderRepositoryInterface
      * @return \App\Models\Tender
      */
     public function getBySlug(string $slug);
+
+    /**
+     * Create a request for tender
+     *
+     * @param \Illuminate\Http\Request $data
+     * @return TenderRequest
+     */
+    public function createRequest($data);
+
+    /**
+     * Cancel the request
+     *
+     * @param $requestId
+     * @return mixed
+     */
+    public function cancelRequest($requestId);
 }

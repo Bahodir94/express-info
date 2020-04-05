@@ -66,6 +66,8 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::get('/tenders/create', 'TenderController@create')->name('tenders.common.create');
     Route::get('/tenders/{params}', 'TenderController@category')->where('params', '.+')->name('tenders.category');
     Route::post('/tenders/create', 'TenderController@store');
+    Route::post('/tenders/makeRequest', 'TenderController@makeRequest')->name('tenders.requests.make');
+    Route::post('/tenders/cancelRequest', 'TenderController@cancelRequest')->name('tenders.requests.cancel');
 
     // Catalog routes
     Route::get('/', 'HomeController@index')->name('catalog.index');

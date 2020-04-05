@@ -4,6 +4,7 @@
 namespace App\Repositories;
 
 use App\Models\Tender;
+use App\Models\TenderRequest;
 
 
 class TenderRepository implements TenderRepositoryInterface
@@ -69,5 +70,21 @@ class TenderRepository implements TenderRepositoryInterface
     public function getBySlug(string $slug)
     {
         return Tender::where('slug', $slug)->first();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function createRequest($data)
+    {
+        return TenderRequest::create($data->all());
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function cancelRequest($requestId)
+    {
+        TenderRequest::destroy($requestId);
     }
 }

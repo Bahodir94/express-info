@@ -29,7 +29,7 @@
                 </div>
             @endguest
             @auth
-                @if (auth()->user()->hasRole('contractor'))
+                @if (auth()->user()->hasRole('contractor') && !in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
                     <div class="alert shadow alert-info fade show">
                         <div class="d-flex justify-content-between align-items-center">
                             <p><i class="fas fa-info"></i> Вы можете связаться с данным заказчиком</p>
@@ -48,7 +48,10 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form action="" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('site.tenders.requests.make') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                    <input type="hidden" name="tender_id" value="{{ $tender->id }}">
                                     <div class="modal-body">
                                         <p>Заинтересованы в данной задаче? Сразу отправляйте заявку. Так вы сможете
                                             быстрее
@@ -95,6 +98,18 @@
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                @endif
+                @if (in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
+                    <div class="alert alert-info shadow fade show">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p><i class="fas fa-info"></i> Вы уже оставили заявку на этот конкурс</p>
+                            <form action="{{ route('site.tenders.requests.cancel') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="requestId" value="{{ $tender->requests()->where('user_id', auth()->user()->id)->first()->id }}">
+                                <button class="btn btn-light-green" type="submit">Отменить</button>
+                            </form>
                         </div>
                     </div>
                 @endif
@@ -153,8 +168,14 @@
                                     @endif
                                 </span>
                                 <hr>
-                                <p class="text-muted"><i class="fas fa-eye"></i> Контакты видны только тем исполнителям,
-                                    которые выслали свое предложение организатору задачи</p>
+                                @if (auth()->user() && in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
+                                    <p class="m-0">Заказчик: {{ $tender->getCustomerTitle() }}</p>
+                                    <p class="m-0">Email: {{ $tender->client_email }}</p>
+                                    <p class="m-0">Телефон: {{ $tender->client_phone_number }}</p>
+                                @else
+                                    <p class="text-muted"><i class="fas fa-eye"></i> Контакты видны только тем исполнителям,
+                                        которые выслали свое предложение организатору задачи</p>
+                                @endif
                             </div>
                         </div>
                     </div>
