@@ -58,11 +58,17 @@ class TenderController extends Controller
        if (count($paramsArray) === 1) {
            $menuItemSlug = $paramsArray[0];
            $menuItem = $this->menuItemsRepository->getBySlug($menuItemSlug);
-           foreach ($menuItem->categories as $category)
-               $tenders = $tenders->merge($category->tenders);
-           $tenders = $tenders->unique(function ($item) {
-               return $item->id;
-           });
+           if ($menuItem) {
+               foreach ($menuItem->categories as $category)
+                   $tenders = $tenders->merge($category->tenders);
+               $tenders = $tenders->unique(function ($item) {
+                   return $item->id;
+               });
+           }
+           $tender = $this->tenderRepository->getBySlug($menuItemSlug);
+           if ($tender) {
+               return view('site.pages.tenders.show', compact('tender'));
+           }
        } else {
            $categorySlug = end($paramsArray);
            $category = $this->categoryRepository->getBySlug($categorySlug);
