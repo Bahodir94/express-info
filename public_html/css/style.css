@@ -72,3 +72,7 @@ img.avatar {
     height: 7rem;
     border-radius: 50%;
 }
+
+.tender-box label {
+    font-weight: 600;
+}
