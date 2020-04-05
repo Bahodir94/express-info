@@ -8,7 +8,7 @@ class TenderRequest extends Model
 {
     protected $fillable = [
         'user_id', 'budget_from', 'budget_to',
-        'period_from', 'period_to', 'comment'
+        'period_from', 'period_to', 'comment', 'tender_id'
     ];
 
     public function tender()
