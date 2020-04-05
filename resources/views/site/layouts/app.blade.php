@@ -90,7 +90,7 @@
 
     @yield('header')
 
-    <div class="uk-container uk-container-xlarge uk-container-center">
+    <div class="container">
         @include('site.components.alerts')
     </div>
     <main class="main-content">
