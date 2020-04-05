@@ -110,7 +110,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="category-button text-center"><a class="btn btn-light-green" href="#">Посмотреть Все
+            <div class="category-button text-center"><a class="btn btn-light-green" href="{{ route('site.tenders.index') }}">Посмотреть Все
                     Конкурсы</a></div>
         </div>
     </section>
