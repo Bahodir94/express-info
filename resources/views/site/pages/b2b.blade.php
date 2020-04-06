@@ -10,9 +10,7 @@
 @endsection
 
 @section('content')
-<main class="main-content">
-  <div id="content">
-    <section class="section-banner" style="background-image: url({{ asset('front/images/banner-1.jpg') }})">
+<section class="section-banner" style="background-image: url({{ asset('front/images/banner-1.jpg') }})">
     <div class="banner-content">
       <div class="container">
         <div class="banner-item">
@@ -378,7 +376,7 @@
       </div>
     </section>
 
-  </div>
-</main>
+
+
 
 @endsection
