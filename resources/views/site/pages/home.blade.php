@@ -6,7 +6,8 @@
     <meta name="title" content="фриланс биржа узбекистана | фрилансер сайт">
 @endsection
 @section('meta')
-    <meta name="description" content="Каталог фриланс услуг и услуг компаний по продвижению бизнеса. Интернет реклама в Ташкенте. Создание сайта в Ташкенте. Реклама в метро в Ташкенте. Наружная реклама в Ташкенте и многое другое">
+    <meta name="description"
+          content="Каталог фриланс услуг и услуг компаний по продвижению бизнеса. Интернет реклама в Ташкенте. Создание сайта в Ташкенте. Реклама в метро в Ташкенте. Наружная реклама в Ташкенте и многое другое">
 @endsection
 @section('header')
     @include('site.layouts.partials.headers.default')
@@ -27,31 +28,29 @@
                         <div class="row no-gutters">
 
 
-                                    <div class="col-md-3">
-                                        <div class="form-group search-key">
+                            <div class="col-md-3">
+                                <div class="form-group search-key">
 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 text-center p-1">
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-center p-1">
 
-                                        <button class="btn btn-light-green">Хочу добавить сам <i
-                                                class="fas fa-search"></i>
-                                            <div class="form-group search-location">
-
-                                            </div>
-                                        </button>
-                                    </div>
-                                    <div class="col-md-3 text-center p-1">
-                                        <button class="btn btn-light-green">Подберет система <i
-                                                class="fas fa-search"></i>
-
-                                        </button>
-                                    </div>
-                                    <div class="col-md-3">
+                                <button class="btn btn-light-green">Хочу добавить сам <i
+                                        class="fas fa-search"></i>
+                                    <div class="form-group search-location">
 
                                     </div>
+                                </button>
+                            </div>
+                            <div class="col-md-3 text-center p-1">
+                                <button class="btn btn-light-green">Подберет система <i
+                                        class="fas fa-search"></i>
 
+                                </button>
+                            </div>
+                            <div class="col-md-3">
 
+                            </div>
 
 
                             <!-- <div class="col-lg-2">
@@ -73,12 +72,20 @@
             <div class="row no-gutters category-list">
                 @foreach($parentCategories as $category)
                     <div class="col-sm-6 col-lg-4">
-                        <div class="category-single"><span class="category-single-icon"></span>
+                        <div class="category-single">
+                            <div class="category-single-icon">
+                                @if ($category->image)
+                                    <img src="{{ $category->getImage() }}" alt="{{ $category->getTitle() }}">
+                                @endif
+                            </div>
                             <div class="category-signle-content">
-                                <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}" class="category-single__title"><h3>{{ $category->getTitle() }}<span class="count">({{ $category->getAllCompaniesCount() }})</span></h3></a>
+                                <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}"
+                                   class="category-single__title"><h3>{{ $category->getTitle() }}<span class="count">({{ $category->getAllCompaniesCount() }})</span>
+                                    </h3></a>
                                 <div class="text">
                                     @foreach ($category->categories()->limit(5)->get() as $child)
-                                        <a href="{{ route('site.catalog.main', $child->getAncestorsSlugs()) }}" class="category-single__child">{!! $child->ru_title !!},</a>
+                                        <a href="{{ route('site.catalog.main', $child->getAncestorsSlugs()) }}"
+                                           class="category-single__child">{!! $child->ru_title !!},</a>
                                     @endforeach
                                 </div>
                             </div>
@@ -86,7 +93,9 @@
                     </div>
                 @endforeach
             </div>
-            <div class="category-button text-center"><a class="btn btn-light-green" href="{{ route('site.contractors.index') }}">Посмотреть все категории</a></div>
+            <div class="category-button text-center"><a class="btn btn-light-green"
+                                                        href="{{ route('site.contractors.index') }}">Посмотреть все
+                    категории</a></div>
         </div>
     </section>
     <section class="popular-category bg-white">
@@ -110,7 +119,8 @@
                                                 class="company-name">Крайний срок приема заявок: {{ $tender->deadline }}</span>
                                         </div>
                                     </div>
-                                    <div class="meta-job"><span class="salary">Бюджет {{ $tender->budget }} сум</span></div>
+                                    <div class="meta-job"><span class="salary">Бюджет {{ $tender->budget }} сум</span>
+                                    </div>
                                     <button class="add-favourites"><i class="far fa-star"></i></button>
                                 </div>
                             </div>
@@ -118,7 +128,8 @@
                     </div>
                 @endforeach
             </div>
-            <div class="category-button text-center"><a class="btn btn-light-green mt-4" href="{{ route('site.tenders.index') }}">Посмотреть Все
+            <div class="category-button text-center"><a class="btn btn-light-green mt-4"
+                                                        href="{{ route('site.tenders.index') }}">Посмотреть Все
                     Конкурсы</a></div>
         </div>
     </section>
@@ -142,7 +153,8 @@
     <section class="section-news">
         <div class="container">
             <div class="section-heading">
-                <h2 class="title">Последние новости с нашего блога</h2><a href="{{ route('site.blog.index') }}">Посмотреть больше <i
+                <h2 class="title">Последние новости с нашего блога</h2><a href="{{ route('site.blog.index') }}">Посмотреть
+                    больше <i
                         class="fas fa-long-arrow-alt-right"></i></a>
             </div>
             <div class="row">
@@ -153,7 +165,9 @@
                                         src="{{ $post->getImage() }}"
                                         alt="16 Ridiculously Easy Ways to Find &amp; Keep a Remote Job"></a></div>
                             <div class="card-info-body"><span class="meta">Опубликован {{ $post->created_at }}</span>
-                                <h3 class="card-info-title"><a href="{{ route('site.blog.main', $post->ru_slug) }}">{{ $post->getTitle() }}</a></h3>
+                                <h3 class="card-info-title"><a
+                                        href="{{ route('site.blog.main', $post->ru_slug) }}">{{ $post->getTitle() }}</a>
+                                </h3>
                                 <div class="card-info-text">{!! $post->ru_short_description !!}
                                 </div>
                             </div>
@@ -237,7 +251,8 @@
       ]
 
     }
-    </script>
+
+        </script>
 
     </section>
 @endsection
