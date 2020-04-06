@@ -66,10 +66,10 @@
                                             <label for="budget">Бюджет</label>
                                             <div class="row">
                                                 <div class="col-sm-12 col-lg-6">
-                                                    <input type="text" name="budget_from" id="budgetFrom" class="form-control" placeholder="500 000">
+                                                    <input type="text" required name="budget_from" id="budgetFrom" class="form-control" placeholder="500 000">
                                                 </div>
                                                 <div class="col-sm-12 col-lg-6">
-                                                    <input type="text" name="budget_to" id="budgetTo" class="form-control" placeholder="1 000 000">
+                                                    <input type="text" required name="budget_to" id="budgetTo" class="form-control" placeholder="1 000 000">
                                                 </div>
                                             </div>
                                         </div>
@@ -77,11 +77,11 @@
                                             <label for="period">Срок</label>
                                             <div class="row">
                                                 <div class="col-ms-12 col-lg-6">
-                                                    <input type="text" name="period_from" id="period_from"
+                                                    <input type="text" required name="period_from" id="period_from"
                                                            class="form-control" placeholder="2 дня">
                                                 </div>
                                                 <div class="col-ms-12 col-lg-6">
-                                                    <input type="text" name="period_to" id="period_to"
+                                                    <input type="text" required name="period_to" id="period_to"
                                                            class="form-control" placeholder="3 дня">
                                                 </div>
                                             </div>

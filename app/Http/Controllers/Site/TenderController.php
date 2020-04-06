@@ -96,6 +96,14 @@ class TenderController extends Controller
 
     public function store(Request $request)
     {
+        $validationMessages = [
+            'required' => 'Это поле обязательно к заполнению',
+            'max' => 'Количество символов должно быть не больше :max',
+            'integer' => 'Укажите целочисленное значение',
+            'date' => 'Неверный формат даты',
+            'string' => 'Укажите стороковое значение',
+            'email' => 'Неверный формат электронной почты'
+        ];
         if (auth()->user()) {
             auth()->user()->authorizeRole('customer');
             Validator::make($request->all(), [
@@ -105,7 +113,7 @@ class TenderController extends Controller
                 'files' => 'nullable',
                 'budget' => 'required|integer',
                 'deadline' => 'required|date'
-            ])->validate();
+            ], $validationMessages)->validate();
         } else {
             Validator::make($request->all(), [
                 'categories' => 'required',
@@ -119,7 +127,7 @@ class TenderController extends Controller
                 'secondName' => 'required|string|max:255',
                 'client_phone_number' => 'required|string|max:255',
                 'client_email' => 'required|email'
-            ])->validate();
+            ], $validationMessages)->validate();
         }
         $tender = $this->tenderRepository->create($request);
 
