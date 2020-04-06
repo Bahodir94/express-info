@@ -69,11 +69,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::post('/tenders/makeRequest', 'TenderController@makeRequest')->name('tenders.requests.make');
     Route::post('/tenders/cancelRequest', 'TenderController@cancelRequest')->name('tenders.requests.cancel');
 
-    // Catalog routes
-    // Route::get('/b2b', function () {
-    //   return view('pages.b2b');
-    // })->name('b2b');
-
+  
     Route::get('/', 'HomeController@index')->name('catalog.index');
     Route::get('/contractors', 'ContractorsController@index')->name('contractors.index');
     Route::get('/contractors/{slug}', 'ContractorsController@contractor')->name('contractors.show');
