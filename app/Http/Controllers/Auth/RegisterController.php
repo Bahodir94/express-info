@@ -54,6 +54,15 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ], [
+            'password.min' => 'Пароль должен быть не меньше :min',
+            'password.required' => 'Укажите пароль',
+            'password.confirmed' => 'Пароли должны совпадать',
+            'name.required' => 'Укажите своё имя',
+            'name.max' => 'Имя не должно превышать :max символов',
+            'email.required' => 'Укажите электронную почту',
+            'email.email' => 'Электронная почта должна быть в формате example@example.com',
+            'email.unique' => 'Такая электроннная почта уже зарегистрирована',
         ]);
     }
 
