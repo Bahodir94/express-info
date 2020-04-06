@@ -101,8 +101,8 @@
 				<div>
 					<ul class="uk-subnav uk-text-xsmall uk-text-bold">
 						<li visibility: hidden><a rel="nofollow" class="uk-link-border" href="#" target="_blank">facebook</a></li>
-						<li><a rel="nofollow" class="uk-link-border" href="https://t.me/joinchat/AAAAAFW-benLtmOWot3pqA" target="_blank">telegram</a></li>
-						<li visibility: hidden><a rel="nofollow" class="uk-link-border" href="#" target="_blank">instagram</a></li>
+						<li><a rel="nofollow" class="uk-link-border" href="https://t.me/gde_podeshevle" target="_blank">telegram</a></li>
+						<li ><a rel="nofollow" class="uk-link-border" href="https://www.instagram.com/vid.market?r=nametag" target="_blank">instagram</a></li>
 					</ul>
 				</div>
 			</div>

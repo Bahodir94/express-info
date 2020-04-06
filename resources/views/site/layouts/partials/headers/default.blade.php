@@ -52,7 +52,8 @@
                     @include('site.layouts.partials.mobile_search')
 	            </div>
 	          </div>
-	          <div class="uk-navbar-item uk-visible@m">
+	          <div class="uk-navbar-item uk-visible@m" style="
+    visibility: hidden">
 	            <div><a rel="nofollow" target="_blank" class="uk-button uk-button-success-outline" href="#">Добавить компанию</a></div>
 	          </div>
 	          <a class="uk-navbar-toggle uk-hidden@m" href="#offcanvas" uk-toggle><span uk-icon="icon: menu" ></span></a>
