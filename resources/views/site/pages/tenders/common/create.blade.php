@@ -118,44 +118,46 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="section-heading">
-                            <h2 class="title">О вас</h2>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Вы являетесь:</label>
-                            <div class="custom-control custom-radio" id="companyRadio">
-                                <input type="radio" name="client_type" value="company" id="companyRadioInput" class="custom-control-input" @if (!old('client_type')) checked @endif @if (old('client_type') == 'company') checked @endif>
-                                <label for="companyRadioInput" class="custom-control-label">Компанией</label>
+                        @guest
+                            <hr>
+                            <div class="section-heading">
+                                <h2 class="title">О вас</h2>
                             </div>
-                            <div class="custom-control custom-radio" id="privateRadio">
-                                <input type="radio" name="client_type" value="private" id="companyPrivateInput" class="custom-control-input" @if (old('client_type') == 'private') checked @endif>
-                                <label for="companyPrivateInput" class="custom-control-label">Частным лицом</label>
-                            </div>
-                        </div>
-                        <div class="form-group company-name-block">
-                            <label for="companyName">Название компании</label>
-                            <input type="text" name="client_company_name" id="companyName" class="form-control" value="{{ old('client_company_name') }}">
-                        </div>
-                        <div class="form-group">
-                            <label>Как вас зовут?</label>
-                            <div class="row">
-                                <div class="col-md-6 col-sm-12">
-                                    <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Имя" value="{{ old('firstName') }}">
+                            <div class="form-group">
+                                <label for="">Вы являетесь:</label>
+                                <div class="custom-control custom-radio" id="companyRadio">
+                                    <input type="radio" name="client_type" value="company" id="companyRadioInput" class="custom-control-input" @if (!old('client_type')) checked @endif @if (old('client_type') == 'company') checked @endif>
+                                    <label for="companyRadioInput" class="custom-control-label">Компанией</label>
                                 </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <input type="text" name="secondName" id="secondName" class="form-control" placeholder="Фамилия" value="{{ old('secondName') }}">
+                                <div class="custom-control custom-radio" id="privateRadio">
+                                    <input type="radio" name="client_type" value="private" id="companyPrivateInput" class="custom-control-input" @if (old('client_type') == 'private') checked @endif>
+                                    <label for="companyPrivateInput" class="custom-control-label">Частным лицом</label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Электронная почта</label>
-                            <input type="email" name="client_email" id="email" class="form-control" placeholder="your@email.ru" value="{{ old('client_email') }}">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone_number">Номер телефона</label>
-                            <input type="text" name="client_phone_number" id="phone_number" class="form-control" placeholder="+ 998 9X XXX XX XX" value="{{ old('client_phone_number') }}">
-                        </div>
+                            <div class="form-group company-name-block">
+                                <label for="companyName">Название компании</label>
+                                <input type="text" name="client_company_name" id="companyName" class="form-control" value="{{ old('client_company_name') }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Как вас зовут?</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12">
+                                        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Имя" value="{{ old('firstName') }}">
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <input type="text" name="secondName" id="secondName" class="form-control" placeholder="Фамилия" value="{{ old('secondName') }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Электронная почта</label>
+                                <input type="email" name="client_email" id="email" class="form-control" placeholder="your@email.ru" value="{{ old('client_email') }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone_number">Номер телефона</label>
+                                <input type="text" name="client_phone_number" id="phone_number" class="form-control" placeholder="+ 998 9X XXX XX XX" value="{{ old('client_phone_number') }}">
+                            </div>
+                        @endguest
                         <div class="mb-30 mt-5">
                             <button class="btn btn-light-green"><i class="fas fa-share"></i>  Опубликовать конкурс</button>
                         </div>
