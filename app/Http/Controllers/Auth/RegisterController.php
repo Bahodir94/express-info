@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
+use App\Models\User;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -53,6 +54,15 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ], [
+            'password.min' => 'Пароль должен быть не меньше :min',
+            'password.required' => 'Укажите пароль',
+            'password.confirmed' => 'Пароли должны совпадать',
+            'name.required' => 'Укажите своё имя',
+            'name.max' => 'Имя не должно превышать :max символов',
+            'email.required' => 'Укажите электронную почту',
+            'email.email' => 'Электронная почта должна быть в формате example@example.com',
+            'email.unique' => 'Такая электроннная почта уже зарегистрирована',
         ]);
     }
 
@@ -60,17 +70,23 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {
-
-
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'customer_type' => $data['customer_type'],
+            'contractor_type' => $data['contractor_type'],
+            'company_name' => $data['company_name'],
             'password' => Hash::make($data['password']),
         ]);
+        abort_if($data['user_role'] === 'admin', 403);
+        $role = Role::where('name', $data['user_role'])->first();
+        abort_if(!$role, 400);
+        $user->roles()->attach($role->id);
+        $user->markEmailAsVerified();
+        return $user;
     }
 }

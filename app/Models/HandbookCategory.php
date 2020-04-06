@@ -180,10 +180,7 @@ class HandbookCategory extends Model
     */
     public function getAllCompaniesCount()
     {
-        $companyCount = $this->companies()->count();
-        foreach ($this->descendants as $child)
-            $companyCount += $child->companies()->count();
-        return $companyCount;
+        return count($this->getAllCompaniesFromDescendingCategories());
     }
 
     /**
@@ -195,9 +192,11 @@ class HandbookCategory extends Model
     {
         $categories = $this->descendants;
         $companies = collect();
+        $companies = $companies->merge($this->users);
         foreach ($categories as $category) {
             $companies = $companies->merge($category->users);
         }
+        $companies = $companies->unique(function ($item) { return $item->id; });
         return $companies;
     }
 
