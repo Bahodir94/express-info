@@ -9,7 +9,7 @@
                 <div class="header-logo"><a class="qdesk-logo" href="#" title="VID"><img class="qdesk-logo-white"
                                                                                          src="{{ asset('front/images/VID.png') }}"
                                                                                          alt="VID"><img
-                            class="qdesk-logo-black" src="{{ asset('front/images/VID-black.png') }}}" alt="VID"></a>
+                            class="qdesk-logo-black" src="{{ asset('front/images/VID-black.png') }}" alt="VID"></a>
                 </div>
                 <div class="navigation" id="navigation">
                     <ul class="main-menu">
