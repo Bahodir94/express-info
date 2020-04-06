@@ -57,7 +57,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="toggle-sidebar-left d-lg-none">Filter Job</div>
+                    <div class="toggle-sidebar-left d-lg-none">Фильтр</div>
                     <div class="sidebar-left">
                         <button class="btn-close-sidebar-left btn-clear"><i class="fa fa-times-circle"></i></button>
                         <div class="box-sidebar">
