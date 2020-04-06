@@ -25,14 +25,14 @@
                     </div>
                     <div class="search-form-adv">
                         <div class="row no-gutters">
-                            <div class="col-lg-10">
-                                <div class="row no-gutters">
-                                    <div class="col-md-4">
+
+
+                                    <div class="col-md-3">
                                         <div class="form-group search-key">
 
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 text-center p-1">
 
                                         <button class="btn btn-light-green">Хочу добавить сам <i
                                                 class="fas fa-search"></i>
@@ -41,19 +41,24 @@
                                             </div>
                                         </button>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 text-center p-1">
                                         <button class="btn btn-light-green">Подберет система <i
                                                 class="fas fa-search"></i>
 
                                         </button>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
+                                    <div class="col-md-3">
+
+                                    </div>
+
+
+
+
+                            <!-- <div class="col-lg-2">
                                 <div class="search-form-submit">
 
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
