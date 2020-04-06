@@ -51,15 +51,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ], [
             'password.min' => 'Пароль должен быть не меньше :min',
             'password.required' => 'Укажите пароль',
             'password.confirmed' => 'Пароли должны совпадать',
-            'name.required' => 'Укажите своё имя',
-            'name.max' => 'Имя не должно превышать :max символов',
             'email.required' => 'Укажите электронную почту',
             'email.email' => 'Электронная почта должна быть в формате example@example.com',
             'email.unique' => 'Такая электроннная почта уже зарегистрирована',
@@ -75,11 +72,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'name' => $data['name'],
+            'name' => '',
             'email' => $data['email'],
-            'customer_type' => $data['customer_type'],
-            'contractor_type' => $data['contractor_type'],
-            'company_name' => $data['company_name'],
             'password' => Hash::make($data['password']),
         ]);
         abort_if($data['user_role'] === 'admin', 403);
