@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 
 interface UserRepositoryInterface
 {
@@ -69,4 +70,19 @@ interface UserRepositoryInterface
      * @return array
     */
     public function allRoles();
+
+    /**
+     * Get all digital agencies
+     *
+     * @return Collection
+     */
+    public function getContractors();
+
+    /**
+     * Get contractor company by slug
+     *
+     * @param string $slug
+     * @return User
+     */
+    public function getContractorBySlug(string $slug);
 }

@@ -44,6 +44,7 @@ class AccountController extends Controller
         }
         else if ($user->hasRole('customer')) {
             if ($user->customer_type == 'company') $accountPage = 'company';
+            else $accountPage = 'personal';
             return view('site.pages.account.customer.index', compact('user', 'accountPage'));
         }
         else

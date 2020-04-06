@@ -61,9 +61,20 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::get('/account/personal', 'AccountController@personalCustomer')->name('account.customer.personal');
     Route::post('/account/personal', 'AccountController@personalCustomerSave');
 
+    // Tenders routes
+    Route::get('/tenders', 'TenderController@index')->name('tenders.index');
+    Route::get('/tenders/create', 'TenderController@create')->name('tenders.common.create');
+    Route::get('/tenders/{params}', 'TenderController@category')->where('params', '.+')->name('tenders.category');
+    Route::post('/tenders/create', 'TenderController@store');
+    Route::post('/tenders/makeRequest', 'TenderController@makeRequest')->name('tenders.requests.make');
+    Route::post('/tenders/cancelRequest', 'TenderController@cancelRequest')->name('tenders.requests.cancel');
+
     // Catalog routes
-    Route::get('/', 'CatalogController@index')->name('catalog.index');
-    Route::get('/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
+    Route::get('/', 'HomeController@index')->name('catalog.index');
+    Route::get('/contractors', 'ContractorsController@index')->name('contractors.index');
+    Route::get('/contractors/{slug}', 'ContractorsController@contractor')->name('contractors.show');
+
+    Route::get('/{params}', 'ContractorsController@category')->where('params', '.+')->name('catalog.main');
     Route::post('/search', 'CatalogController@search')->name('catalog.search');
 });
 

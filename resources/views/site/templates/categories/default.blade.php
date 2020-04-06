@@ -1,26 +1,3 @@
-
-<style>
-.sequence{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 83px 0;
-    flex-wrap: wrap;
-
-}
-.sequence li{
-    margin-right: 17px;
-    color: #102840;
-    font-size: 18px;
-    /* font-family: 'opensans'; */
-    font-weight: 400;
-    margin-top: 10px;
-}
-.sequence li a{
-    color: #102840;
-    text-decoration: none;
-}</style>
 @extends('site.layouts.app')
 @section('title')
     @if(empty($category->meta_title))
@@ -33,34 +10,6 @@
     <meta name="title" content="@if(empty($category->meta_title)) {{ $category->getTitle() }} в Ташкенте @else {{ $category->meta_title }} @endif">
     <meta name="description" content="@if (empty($category->meta_description)) {{ strip_tags($category->ru_description) }} @else {{ $category->meta_description }} @endif">
     <meta name="keywords" content="{{ $category->meta_keywords }}">
-@endsection
-@section('css')
-    @if ($category->hasCguFiles())
-        <style>
-            .main_item_img{
-                width: 100%;
-                overflow: hidden;
-                padding-top: 21px;
-                padding-bottom: 5px;
-            }
-            .main_item_img img{
-                object-fit: cover;
-                max-height: 200px;
-                width: 130px !important;
-                height: 130px !important;
-            }
-            .main_item{
-                display: flex;
-                flex-flow: column;
-            }
-            .main_item_p{
-                color: #00C3CE;
-                font-family: "OpenSans-Semibold";
-                font-size: 12px;
-                text-transform: uppercase;
-            }
-        </style>
-    @endif
 @endsection
 @section('header')
     @include('site.layouts.partials.headers.default')
@@ -193,7 +142,7 @@
                 </form>
             </div>
     </div>
-  
+
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-center uk-container-xlarge uk-margin-top">
         <div uk-grid class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-large-top uk-grid-match uk-grid">
@@ -297,7 +246,7 @@
                 {!! $category->ru_description !!}
             </div>
             <div class="uk-width-expand@m"></div>
-            
+
         </div>
     </div>
 </section>

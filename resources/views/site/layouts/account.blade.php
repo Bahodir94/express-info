@@ -1,5 +1,7 @@
 @extends('site.layouts.app')
 
+
+
 @section('content')
         <div class="uk-container uk-container-xlarge uk-container-center">
             <div class="uk-grid">

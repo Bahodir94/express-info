@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Hash;
 
 class UserRepository implements UserRepositoryInterface
@@ -112,5 +113,24 @@ class UserRepository implements UserRepositoryInterface
     public function allRoles()
     {
         return Role::all();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getContractors()
+    {
+        $allUsers = User::all();
+        return $allUsers->filter(function ($user) { return $user->hasRole('contractor'); });
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getContractorBySlug(string $slug)
+    {
+        return $this->getContractors()->first(function ($user) use ($slug) {
+            return $user->slug === $slug;
+        });
     }
 }
