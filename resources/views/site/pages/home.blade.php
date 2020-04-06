@@ -108,11 +108,11 @@
                     <div class="job-item">
                         <div class="row align-items-center">
                             <div class="col-md-2">
-                                <div class="img-job text-center"><a href="04_job_details.html"></a></div>
+                                <div class="img-job text-center"><a href="{{ route('site.tenders.category', $tender->slug) }}"></a></div>
                             </div>
                             <div class="col-md-10 job-info">
                                 <div class="text">
-                                    <h3 class="title-job"><a href="04_job_details.html">{{ $tender->title }}</a></h3>
+                                    <h3 class="title-job"><a href="{{ route('site.tenders.category', $tender->slug) }}">{{ $tender->title }}</a></h3>
                                     <div class="date-job"><i class="fa fa-check-circle"></i><span
                                             class="company-name">Опубликован: {{ $tender->created_at }}</span>
                                         <div class="date-job"><i class="fa fa-check-circle"></i><span
