@@ -227,6 +227,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             flatpickr(document.getElementById('deadline'), {
                 dateFormat: 'd.m.Y',
+                minDate: new Date()
             });
             document.getElementById('companyRadio').addEventListener('click', function () {
                 document.querySelectorAll('.company-name-block').forEach(function (element) {
