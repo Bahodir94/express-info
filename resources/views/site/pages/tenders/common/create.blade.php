@@ -48,6 +48,9 @@
                             @enderror
                         </div>
                         <label class="mt-3">Выберите услуги: </label>
+                        @error('categories')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                         <ul class="nav nav-tabs mt-3" id="needsTabs" role="tablist">
                             @foreach($needs as $key => $need)
                                 <li class="nav-item">
@@ -89,7 +92,7 @@
                         </div>
                         <div class="form-group mt-3">
                             <label for="description">Опишите проект подробнее</label>
-                            <textarea name="description" id="description">{{ old('description') }}</textarea>
+                            <textarea name="description" @error('description') class="is-invalid" @enderror id="description">{{ old('description') }}</textarea>
                             @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -111,10 +114,16 @@
                                 <div class="form-group">
                                     <label for="budget">Ориентировочный бюджет</label>
                                     <input type="text" name="budget" id="budget" class="form-control @error('budget') is-invalid @enderror" placeholder="Укажите ориентировочный бюджет в сумах..." value="{{ old('budget') }}">
+                                    @error('budget')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="deadline">Срок окончания приёма заявок</label>
-                                    <input type="text" class="form-control" id="deadline" name="deadline" value="{{ old('deadline') }}">
+                                    <input type="text" class="form-control @error('deadline') is-invalid @enderror" id="deadline" name="deadline" value="{{ old('deadline') }}">
+                                    @error('deadline')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -136,26 +145,41 @@
                             </div>
                             <div class="form-group company-name-block">
                                 <label for="companyName">Название компании</label>
-                                <input type="text" name="client_company_name" id="companyName" class="form-control" value="{{ old('client_company_name') }}">
+                                <input type="text" name="client_company_name" id="companyName" class="form-control @error('client_company_name') is-invalid @enderror" value="{{ old('client_company_name') }}">
+                                @error('client_company_name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Как вас зовут?</label>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
-                                        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Имя" value="{{ old('firstName') }}">
+                                        <input type="text" name="firstName" id="firstName" class="form-control @error('firstName') is-invalid @enderror" placeholder="Имя" value="{{ old('firstName') }}">
+                                        @error('firstName')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-6 col-sm-12">
-                                        <input type="text" name="secondName" id="secondName" class="form-control" placeholder="Фамилия" value="{{ old('secondName') }}">
+                                        <input type="text" name="secondName" id="secondName" class="form-control @error('secondName') is-invalid @enderror" placeholder="Фамилия" value="{{ old('secondName') }}">
+                                        @error('secondName')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email">Электронная почта</label>
-                                <input type="email" name="client_email" id="email" class="form-control" placeholder="your@email.ru" value="{{ old('client_email') }}">
+                                <input type="email" name="client_email" id="email" class="form-control @error('client_email') is-invalid @enderror" placeholder="your@email.ru" value="{{ old('client_email') }}">
+                                @error('client_email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="phone_number">Номер телефона</label>
-                                <input type="text" name="client_phone_number" id="phone_number" class="form-control" placeholder="+ 998 9X XXX XX XX" value="{{ old('client_phone_number') }}">
+                                <input type="text" name="client_phone_number" id="phone_number" class="form-control @error('client_phone_number') is-invalid @enderror" placeholder="+ 998 9X XXX XX XX" value="{{ old('client_phone_number') }}">
+                                @error('client_phone_number')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                         @endguest
                         <div class="mb-30 mt-5">
