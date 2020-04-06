@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -68,9 +69,15 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'customer_type' => $data['customer_type'],
+            'contractor_type' => $data['contractor_type'],
+            'company_name' => $data['company_name'],
             'password' => Hash::make($data['password']),
         ]);
-
+        abort_if($data['user_role'] === 'admin', 403);
+        $role = Role::where('name', $data['user_role'])->first();
+        abort_if(!$role, 400);
+        $user->roles()->attach($role->id);
+        $user->markEmailAsVerified();
         return $user;
     }
 }
