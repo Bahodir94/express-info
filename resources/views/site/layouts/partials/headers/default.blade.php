@@ -6,7 +6,7 @@
                     <button class="btn-toggle" type="button" data-toggle="offcanvas"><i class="fas fa-bars"></i>
                     </button>
                 </div>
-                <div class="header-logo"><a class="qdesk-logo" href="#" title="VID"><img class="qdesk-logo-white"
+                <div class="header-logo"><a class="qdesk-logo" href="{{ route('site.catalog.index') }}" title="VID"><img class="qdesk-logo-white"
                                                                                          src="{{ asset('front/images/VID.png') }}"
                                                                                          alt="VID"><img
                             class="qdesk-logo-black" src="{{ asset('front/images/VID-black.png') }}" alt="VID"></a>
