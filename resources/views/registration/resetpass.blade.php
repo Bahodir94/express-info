@@ -1,5 +1,6 @@
 @extends('site.layouts.app')
 
+
 @section('title')
 Востановление пароля
 @endsection
@@ -9,36 +10,34 @@
 @endsection
 
 @section('content')
-<div class="uk-text-center" uk-grid>
-    <div class="uk-width-1-1">
-
-        <div class="uk-card uk-card-default uk-card-body">
-            <form class="uk-form-horizontal uk-margin-large" method="POST" action="{{ route('password.email') }}">
-              @csrf
+<div class="wrapper" id="wrapper">
 
 
-                <div class="uk-margin ">
-                  <label class="uk-form-label uk-text-bolder" for="form-horizontal-text">Email</label>
-                  <div class="uk-form-controls">
-                      <input class="uk-input" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
-                      @error('email')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                  </div>
-                </div>
+  <main class="main-content">
+    <div class="primary-page">
+    <div class="container">
+      <div class="sign-up">
 
-
-
-
-
-                <button type="submit" class="uk-button uk-button-primary">
-                    Отправить ссылку на востановление пароля
-                </button>
-
-              </form>
-          </div>
+      <div class="form-sign-up">
+        <form method="POST" action="{{ route('password.email') }}">
+          @csrf
+        <div class="input-group-icons">
+          <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email адресс" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus><span class="prepend-icon"><i class="fas fa-at"></i></span>
+          @error('email')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+          @enderror
         </div>
+
+        <button class="btn btn-light-green w-100" type="submit">Отправить ссылку на востановление пароля</button>
+      </form>
       </div>
+
+      </div>
+    </div>
+    </div>
+   </main>
+
+</div>
 @endsection

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::middleware('needsList')->group(function() {
   Route::get('/registration', function () {
-      return view('registration.registration');
+      return view('registration.register');
   })->name('register');
 
   Route::get('/login', function () {

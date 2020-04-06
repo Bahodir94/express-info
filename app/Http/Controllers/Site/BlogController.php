@@ -69,7 +69,8 @@ class BlogController extends Controller
 
     private function processBlogPost(Request $request, \App\Models\BlogPost $post)
     {
-        return view('site.pages.blog.post', compact('post'));
+        $categories = $this->blogCategories->all();
+        return view('site.pages.blog.post', compact('post', 'categories'));
     }
 
 

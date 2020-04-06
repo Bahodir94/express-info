@@ -19,6 +19,11 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name', 'email', 'password',
+        'company_name', 'site', 'foundation_year', 'customer_type', 'contractor_type',
+        'gender', 'birthday_date', 'specialization', 'skills',
+        'facebook', 'vk', 'telegram', 'whatsapp', 'instagram',
+        'phone_number', 'about_myself',
+        'slug'
     ];
 
     /**
@@ -118,6 +123,18 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * User categories
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function categories()
+    {
+        return $this
+            ->belongsToMany(HandbookCategory::class, 'user_category', 'user_id', 'category_id')
+            ->withPivot('price_from', 'price_to', 'price_per_hour');
+    }
+
+    /**
      * Get history of user's actions
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -125,6 +142,16 @@ class User extends Authenticatable implements MustVerifyEmail
     public function history()
     {
         return $this->hasMany(HistoryItem::class, 'user_id', 'id');
+    }
+
+    /**
+     * All user's requests for tenders
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function requests()
+    {
+        return $this->hasMany(TenderRequest::class, 'user_id', 'id');
     }
 
     /**
@@ -225,4 +252,39 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->save();
     }
 
+    /**
+     * Check if user has completed account
+     *
+     * @return bool
+     */
+    public function checkCompletedAccount()
+    {
+        // TODO: Check account for completed data
+        return true;
+    }
+
+    public function getFirstName()
+    {
+        $explodedName = explode(' ', $this->name);
+        if (isset($explodedName[0]))
+            return $explodedName[0];
+        return '';
+    }
+
+    public function getSecondName()
+    {
+        $explodedName = explode(' ', $this->name);
+        array_slice($explodedName, 1);
+        return implode(' ', array_slice($explodedName, 1));
+    }
+
+    public function getContractorTitle()
+    {
+        if ($this->contractor_type === 'agency')
+            return $this->company_name;
+        elseif ($this->contractor_type === 'freelancer')
+            return $this->name;
+        else
+            return '';
+    }
 }

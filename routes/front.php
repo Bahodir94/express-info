@@ -47,14 +47,35 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::view('/prodvizhenie-seo/optimizatsiya', 'studio.seo.optimization', ['page' => 'seo.optimization']);
     Route::view('/smm', 'studio.smm', ['page' => 'smm']);
     Route::view('/lets-talk', 'studio.contacts', ['page' => 'contacts']);
+
     // Blog route
     Route::get('/blog', 'BlogController@index')->name('blog.index');
     Route::get('/blog/{params}', 'BlogController@blog')->where('params', '.+')->name('blog.main');
-    // Catalog routes
-    Route::get('/', 'CatalogController@index')->name('catalog.index');
-    Route::get('/{params}', 'CatalogController@catalog')->where('params', '.+')->name('catalog.main');
-    Route::post('/search', 'CatalogController@search')->name('catalog.search');
 
+    // Account routes
+    Route::get('/account', 'AccountController@index')->name('account.index');
+    Route::post('/account/contractor/personal', 'AccountController@savePersonalContractor')->name('account.contractor.personal.save');
+    Route::get('/account/professional', 'AccountController@professional')->name('account.contractor.professional');
+    Route::post('/account/professional', 'AccountController@saveProfessional');
+    Route::post('/account/customer/company', 'AccountController@saveCompany')->name('account.customer.company.save');
+    Route::get('/account/personal', 'AccountController@personalCustomer')->name('account.customer.personal');
+    Route::post('/account/personal', 'AccountController@personalCustomerSave');
+
+    // Tenders routes
+    Route::get('/tenders', 'TenderController@index')->name('tenders.index');
+    Route::get('/tenders/create', 'TenderController@create')->name('tenders.common.create');
+    Route::get('/tenders/{params}', 'TenderController@category')->where('params', '.+')->name('tenders.category');
+    Route::post('/tenders/create', 'TenderController@store');
+    Route::post('/tenders/makeRequest', 'TenderController@makeRequest')->name('tenders.requests.make');
+    Route::post('/tenders/cancelRequest', 'TenderController@cancelRequest')->name('tenders.requests.cancel');
+
+    // Catalog routes
+    Route::get('/', 'HomeController@index')->name('catalog.index');
+    Route::get('/contractors', 'ContractorsController@index')->name('contractors.index');
+    Route::get('/contractors/{slug}', 'ContractorsController@contractor')->name('contractors.show');
+
+    Route::get('/{params}', 'ContractorsController@category')->where('params', '.+')->name('catalog.main');
+    Route::post('/search', 'CatalogController@search')->name('catalog.search');
 });
 
 

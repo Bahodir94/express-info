@@ -1,7 +1,8 @@
 @extends('site.layouts.app')
 
+
 @section('title')
-Авторизация
+Войти
 @endsection
 
 @section('header')
@@ -9,65 +10,50 @@
 @endsection
 
 @section('content')
-<div class="uk-text-center" uk-grid>
-    <div class="uk-width-1-1">
-
-        <div class="uk-card uk-card-default uk-card-body">
-            <form class="uk-form-horizontal uk-margin-large" method="POST" action="{{ route('login') }}">
-              @csrf
+<div class="wrapper" id="wrapper">
 
 
-                <div class="uk-margin ">
-                  <label class="uk-form-label uk-text-bolder" for="form-horizontal-text">Email</label>
-                  <div class="uk-form-controls">
-                      <input class="uk-input" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
-                      @error('email')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                  </div>
-                </div>
-
-
-
-                <div class="uk-margin">
-                  <label class="uk-form-label uk-text-bolder" for="form-horizontal-text">Пароль</label>
-                  <div class="uk-form-controls">
-                      <input class="uk-input" id="password" type="password" name="password" required autocomplete="current-password">
-                      @error('password')
-                          <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                          </span>
-                      @enderror
-                  </div>
-                </div>
-
-                <div class="uk-margin">
-                  <label class="uk-form-label uk-text-bolder" for="form-horizontal-text">Запомнить</label>
-                  <div class="uk-form-controls">
-                      <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                  </div>
-                </div>
-
-
-
-
-                <button type="submit" class="uk-button uk-button-primary">
-                    Войти
-                </button>
-                <a href="{{ route('register') }}" class="uk-button uk-button-primary">
-                    Регистрация
-                </a>
-                @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}" class="uk-button uk-button-primary">
-                        {{ __('Forgot Your Password?') }}
-                    </a>
-                @endif
-              </form>
-          </div>
+  <main class="main-content">
+    <div class="primary-page">
+    <div class="container">
+      <div class="sign-up">
+      <div class="sign-up-header">
+        <h2>Мы рады видеть вас снова!</h2>
+        <p>Нет аккаунта? <a href="{{ route('register') }}">Регистрация!</a></p>
+      </div>
+      <div class="form-sign-up">
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
+        <div class="input-group-icons">
+          <input class="form-control" type="email" placeholder="Email адресс" name="email" value="{{ old('email') }}" required autocomplete="email"><span class="prepend-icon"><i class="fas fa-at"></i></span>
+          @error('email')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+          @enderror
         </div>
+        <div class="input-group-icons">
+          <input class="form-control" type="password" placeholder="Пароль" name="password" required autocomplete="current-password"><span class="prepend-icon"><i class="fas fa-key"></i></span>
+          @error('password')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+          @enderror
+        </div>
+        <div class="text-password">
+          <div class="text-remeber">
+          <input type="checkbox" id="txt-remeber">
+          <label for="txt-remeber">Запомнить меня</label>
+          </div><a href="{{ route('password.request') }}">Забыли пароль?</a>
+        </div>
+        <button class="btn btn-light-green w-100" type="submit">Вход</button>
+      </form>
       </div>
 
+      </div>
+    </div>
+    </div>
+   </main>
+
+</div>
 @endsection

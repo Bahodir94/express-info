@@ -80,6 +80,28 @@ class HandbookCategory extends Model
     }
 
     /**
+     * Category's users
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this
+            ->belongsToMany(User::class, 'user_category', 'category_id', 'user_id')
+            ->withPivot('price_from', 'price_to', 'price_per_hour');
+    }
+
+    /**
+     * Category's tenders
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tenders()
+    {
+        return $this->belongsToMany(Tender::class, 'tender_category', 'category_id', 'tender_id');
+    }
+
+    /**
      * Get type of need for this category
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -167,14 +189,16 @@ class HandbookCategory extends Model
     /**
      * Get all descendants companies
      *
-     * @return array
+     * @return \Illuminate\Support\Collection
     */
     public function getAllCompaniesFromDescendingCategories()
     {
-        $categories = $this->descendants()->pluck('id');
-        $categories[] = $this->getKey();
-
-        return Company::whereIn('category_id', $categories)->get();
+        $categories = $this->descendants;
+        $companies = collect();
+        foreach ($categories as $category) {
+            $companies = $companies->merge($category->users);
+        }
+        return $companies;
     }
 
     /**
