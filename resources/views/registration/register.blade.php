@@ -35,35 +35,7 @@
                              aria-labelledby="home-tab">
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
-                                <input type="hidden" value="" name="customer_type">
                                 <input type="hidden" name="user_role" value="contractor">
-                                <div class="input-group-icons">
-                                    <input class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Имя" name="name"
-                                           value="{{ old('name') }}" required autocomplete="name"
-                                           autofocus><span class="prepend-icon"><i class="fas fa-signature"></i></span>
-                                    @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                                    @enderror
-
-                                </div>
-                                <div class="input-group-icons">
-                                    <select class="form-control" name="contractor_type" id="contractorTypeSelect">
-                                        <option value="freelancer" selected>Фрилансер</option>
-                                        <option value="agency">Digital-агенство</option>
-                                    </select>
-                                    <span class="prepend-icon"><i class="far fa-user"></i></span>
-                                </div>
-                                <div class="input-group-icons d-none" id="contractorCompanyName">
-                                    <input type="text" name="company_name" placeholder="Название компании"
-                                           class="form-control @error('company_name') is-invalid @enderror" value="{{ old('company_name') }}"
-                                           autocomplete="company_name"><span class="prepend-icon"><i
-                                            class="fas fa-building"></i></span>
-                                    @error('company_name')
-                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                                    @enderror
-                                </div>
                                 <div class="input-group-icons">
                                     <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email адресс"
                                            name="email" value="{{ old('email') }}" required
@@ -101,35 +73,6 @@
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
                                     <input type="hidden" name="user_role" value="customer">
-                                    <input type="hidden" name="contractor_type">
-                                    <div class="input-group-icons">
-                                        <input class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Имя" name="name"
-                                               value="{{ old('name') }}" required autocomplete="name" autofocus><span
-                                            class="prepend-icon"><i class="fas fa-signature"></i></span>
-                                        @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                                        @enderror
-                                    </div>
-                                    <div class="input-group-icons">
-                                        <select class="form-control" name="customer_type" id="customerTypeSelect">
-                                            <option value="private" selected>Частное лицо</option>
-                                            <option value="company">Компания</option>
-
-                                        </select>
-                                        <span class="prepend-icon"><i class="far fa-user"></i></span>
-                                    </div>
-                                    <div class="input-group-icons d-none" id="customerCompanyName">
-                                        <input type="text" name="company_name" placeholder="Название компании"
-                                               class="form-control @error('company_name') is-invalid @enderror" value="{{ old('company_name') }}"
-                                               autocomplete="company_name"><span class="prepend-icon"><i
-                                                class="fas fa-building"></i></span>
-                                        @error('company_name')
-                                        <span class="invalid-feedback"
-                                              role="alert"><strong>{{ $message }}</strong></span>
-                                        @enderror
-                                    </div>
                                     <div class="input-group-icons">
                                         <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email адресс"
                                                name="email" value="{{ old('email') }}" required
@@ -170,17 +113,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('js')
-    <script>
-        let customerTypeSelect = document.getElementById('customerTypeSelect');
-        customerTypeSelect.addEventListener('change', function () {
-            $('#customerCompanyName').toggleClass('d-none');
-        });
-        let contractorTypeSelect = document.getElementById('contractorTypeSelect');
-        contractorTypeSelect.addEventListener('change', function () {
-            $('#contractorCompanyName').toggleClass('d-none');
-        });
-    </script>
 @endsection
