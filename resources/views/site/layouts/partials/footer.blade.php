@@ -4,8 +4,9 @@
             <div class="row align-items-center text-center text-lg-left">
                 <div class="col-lg-4 mb-2 mb-lg-0"><img src="/front/images/VID.png" alt="VID"></div>
                 <div class="col-lg-8">
+
                     <ul class="nav-footer">
-                        <li><a href="#">Политика конфиценциальности</a></li>
+                        <li class="pl-4"><a href="#">Политика конфиценциальности</a></li>
                         <li><a href="#">Пользовательское соглашение</a></li>
                     </ul>
                 </div>
