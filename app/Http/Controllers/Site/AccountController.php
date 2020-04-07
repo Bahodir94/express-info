@@ -130,11 +130,11 @@ class AccountController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'image' => 'nullable|image',
-            'company_name' => 'required|max:255|string',
+            'company_name' => 'nullable|max:255|string',
             'about_myself' => 'nullable|string|max:5000',
             'foundation_year' => 'nullable|int|max:255',
             'site' => 'nullable|string|max:255',
-            'phone_number' => 'required|string|max:255',
+            'phone_number' => 'nullable|string|max:255',
         ]);
 
         $this->userRepository->update($user->id, $request);
