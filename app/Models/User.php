@@ -287,4 +287,24 @@ class User extends Authenticatable implements MustVerifyEmail
         else
             return '';
     }
+
+    public function getCommonTitle()
+    {
+        if ($this->hasRole('customer')) {
+            switch ($this->customer_type) {
+                case 'company': return $this->company_name;
+                case 'private': return $this->name;
+                default: return $this->email;
+            }
+        }
+        else if ($this->hasRole('contractor')) {
+            switch ($this->contractor_type) {
+                case 'agency': return $this->company_name;
+                case 'freelancer': return $this->name;
+                default: return $this->email;
+            }
+        } else {
+            return $this->email;
+        }
+    }
 }
