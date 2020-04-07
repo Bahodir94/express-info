@@ -146,4 +146,13 @@ class AccountController extends Controller
             abort(404);
         }
     }
+
+    public function editTender(string $slug)
+    {
+        $user = auth()->user();
+        $tender = $user->ownedTenders()->where('slug', $slug)->first();
+        $accountPage = 'tenders';
+        abort_if(!$tender, 404);
+        return \view('site.pages.account.customer.editTender', compact('user', 'tender', 'accountPage'));
+    }
 }
