@@ -54,7 +54,13 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function update($id, $data)
     {
-        // TODO: Implement update() method.
+        $tender = $this->get($id);
+        $tender->update($data->all());
+        $tender->saveFiles($data->file('files'));
+        $tender->categories()->detach();
+        foreach ($data->get('categories') as $categoryId) {
+            $tender->categories()->attach($categoryId);
+        }
     }
 
     /**
@@ -62,7 +68,7 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        Tender::destroy($id);
     }
 
     /**
@@ -70,7 +76,7 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function get($id)
     {
-        // TODO: Implement get() method.
+        return Tender::findOrFail($id);
     }
 
     /**
