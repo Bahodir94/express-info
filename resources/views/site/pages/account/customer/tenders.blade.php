@@ -20,7 +20,7 @@
                         <tr>
                             <th>Название проекта</th>
                             <th class="d-none d-xl-table-cell text-center">Предложений</th>
-                            <th class="d-none d-xl-table-cell text-center">Категория</th>
+                            <th class="d-none d-xl-table-cell text-center">Категории</th>
                             <th class="d-none d-xl-table-cell text-center">Статус</th>
                             <th class="d-none d-md-table-cell text-right">Действия</th>
                         </tr>
