@@ -17,7 +17,7 @@
 @section('account.title', 'Профиль компании')
 
 @section('content.account')
-    <form action="{{ route('site.account.customer.company.save') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('site.account.customer.profile.save') }}" method="post" enctype="multipart/form-data">
         @csrf
         <section class="uk-section-xsmall">
             <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>

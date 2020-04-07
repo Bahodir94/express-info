@@ -18,7 +18,7 @@
 @section('account.title.h1', 'Профиль')
 @section('account.title', 'Личные данные')
 @section('account.content')
-    <form action="{{ route('site.account.customer.profile.save') }}" enctype="multipart/form-data" method="post">
+    <form action="{{ route('site.account.contractor.profile.save') }}" enctype="multipart/form-data" method="post">
         @csrf
         @if ($user->customer_type == 'company')
             <section class="box-admin edit-profile">
