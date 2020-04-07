@@ -18,25 +18,80 @@
 @section('account.title.h1', 'Профиль')
 @section('account.title', 'Личные данные')
 @section('account.content')
-    <form action="{{ route('site.account.contractor.personal.save') }}" enctype="multipart/form-data" method="post">
+    <form action="{{ route('site.account.customer.profile.save') }}" enctype="multipart/form-data" method="post">
         @csrf
+        @if ($user->customer_type == 'company')
+            <section class="box-admin edit-profile">
+                <div class="header-box-admin">
+                    <h3>Данные о компании</h3>
+                </div>
+                <div class="body-box-admin">
+                    <div class="upload-avatar">
+                        <div class="avatar">
+                            <img src="{{ $user->getImage() }}" alt="{{ $user->getCommonTitle() }}">
+                        </div>
+                        <div class="upload">
+                            <div class="desc">Минимальные пропорции: 120х120 пикселей</div>
+                            <div class="btn-upload">
+                                <input type="file" name="image" id="image">
+                                <span class="btn btn-light-green">Выбрать изображение</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="company_name">Название компании</label>
+                                <input type="text" name="company_name" id="company_name" class="form-control" value="{{ $user->company_name }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="foundation_year">Год основания</label>
+                                <input type="text" name="foundation_year" id="foundation_year" class="form-control" value="{{ $user->foundation_year }}">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="aboutMySelf">О компании</label>
+                                <textarea name="about_myself" id="aboutMySelf">{{ $user->about_myself }}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="site">Ссылка на сайт</label>
+                                <input type="text" name="site" id="site" class="form-control" value="{{ $user->site }}"></div>
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <label for="email">Электронная почта</label>
+                                <input type="text" name="email" id="email" class="form-control" value="{{ $user->email }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        @endif
+
         <section class="box-admin edit-profile">
             <div class="header-box-admin">
                 <h3>Личные данные</h3>
             </div>
             <div class="body-box-admin">
-                <div class="upload-avatar">
-                    <div class="avatar">
-                        <img src="{{ $user->getImage() }}" alt="{{ $user->getCommonTitle() }}">
-                    </div>
-                    <div class="upload">
-                        <div class="desc">Минимальные пропорции: 120х120 пикселей</div>
-                        <div class="btn-upload">
-                            <input type="file" name="image" id="image">
-                            <span class="btn btn-light-green">Выбрать изображение</span>
+                @if ($user->customer_type != 'company')
+                    <div class="upload-avatar">
+                        <div class="avatar">
+                            <img src="{{ $user->getImage() }}" alt="{{ $user->getCommonTitle() }}">
+                        </div>
+                        <div class="upload">
+                            <div class="desc">Минимальные пропорции: 120х120 пикселей</div>
+                            <div class="btn-upload">
+                                <input type="file" name="image" id="image">
+                                <span class="btn btn-light-green">Выбрать изображение</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group">
@@ -50,42 +105,11 @@
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group">
-                            <label for="birthdayDate">Дата рождения</label>
-                            <input type="text" class="form-control @error('birthday_date') is-invalid @enderror"
-                                   id="birthdayDate" name="birthday_date" value="{{ $user->birthday_date }}">
-                            @error('birthday_date')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class="form-group">
-                            <label>Ваш пол:</label>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" name="gender" value="male" id="maleRadio"
-                                       class="custom-control-input" @if ($user->gender == 'male') checked @endif>
-                                <label for="maleRadio" class="custom-control-label">Мужской</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" name="gender" value="female" id="femaleRadio"
-                                       class="custom-control-input" @if ($user->gender == 'female') checked @endif>
-                                <label for="femaleRadio" class="custom-control-label">Женский</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class="form-group">
                             <label for="phoneNumber">Номер телефона</label>
                             <input type="text" name="phone_number" id="phoneNumber" class="form-control @error('phone_number') is-invalid @enderror" value="{{ $user->phone_number }}">
                             @error('phone_number')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="form-group">
-                            <label for="aboutMySelf">О себе</label>
-                            <textarea name="about_myself" id="aboutMySelf">{{ $user->about_myself }}</textarea>
                         </div>
                     </div>
                 </div>
