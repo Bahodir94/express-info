@@ -123,7 +123,7 @@ class AccountController extends Controller
             'image' => 'nullable|image',
             'company_name' => [Rule::requiredIf($user->customer_type == 'company')],
             'about_myself' => 'required|string|max:5000',
-            'foundation_year' => 'nullable|int|max:255',
+            'foundation_year' => 'nullable|integer',
             'site' => 'nullable|string|max:255',
             'phone_number' => 'required|string|max:255',
             'email' => 'required|email|max:255'
@@ -132,5 +132,18 @@ class AccountController extends Controller
         $this->userRepository->update($user->id, $request);
 
         return redirect()->route('site.account.index')->with('success', 'Ваш профиль обновлён');
+    }
+
+    public function tenders()
+    {
+        $user = auth()->user();
+        $accountPage = 'tenders';
+        if ($user->hasRole('customer')) {
+            return \view('site.pages.account.customer.tenders', compact('user', 'accountPage'));
+        } else if ($user->hasRole('contractor')) {
+            return \view('site.pages.account.contractor.tenders', compact('user', 'accountPage'));
+        } else {
+            abort(404);
+        }
     }
 }
