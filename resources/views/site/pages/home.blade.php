@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="col-md-3 text-center p-1">
 
-                                        <a class="btn btn-light-green" href="{{ route('site.b2b') }}">Хочу добавить сам <i class="fas fa-chevron-right"></i>
+                                        <a class="btn btn-light-green" href="{{ route('site.tenders.common.create') }}">Хочу добавить сам <i class="fas fa-chevron-right"></i>
                                             <div class="form-group search-location">
 
                                             </div>

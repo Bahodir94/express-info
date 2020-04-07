@@ -56,8 +56,7 @@ class AccountController extends Controller
         $user = auth()->user();
         $user->authorizeRole('contractor');
         $request->validate([
-            'firstName' => 'required|max:255|string',
-            'secondName' => 'required|string|max:255',
+            'name' => 'required|max:255|string',
             'gender' => 'required|string',
             'birthday_date' => 'required|date',
             'about_myself' => 'required|string|max:5000',
@@ -71,42 +70,29 @@ class AccountController extends Controller
     {
         $user = auth()->user();
         $user->authorizeRole('contractor');
-        $rawSpecializations = $user->specialization;
-        $specializations = [];
-        $chosenSpecs = [];
+        $chosenSpecs = $user->categories()->pluck('category_id')->toArray();
         $accountPage = 'professional';
         $categories = $this->categoryRepository->all();
-        if ($rawSpecializations) {
-            $explodedSpecializations = explode(';', $rawSpecializations);
-            foreach ($explodedSpecializations as $specialization) {
-                $specializationsParts = explode(',', $specialization);
-                $chosenSpecs[] = (int)$specializationsParts[0];
-                $specializations[(int)$specializationsParts[0]] = [
-                    'minPrice' => $specializationsParts[1],
-                    'maxPrice' => $specializationsParts[2],
-                    'pricePerHouse' => $specializationsParts[3]
-                ];
-            }
-        }
 
         return view('site.pages.account.contractor.professional',
-            compact('categories', 'user', 'specializations', 'accountPage', 'chosenSpecs'));
+            compact('categories', 'user', 'accountPage', 'chosenSpecs'));
     }
 
     public function saveProfessional(Request $request)
     {
         $user = auth()->user();
         $user->authorizeRole('contractor');
-        $specializationsArray = $request->get('specializations');
-        $specializations = [];
-        foreach ($specializationsArray as $item) {
-            if (isset($item['id'])) {
-                $specializationItem = implode(',', $item);
-                $specializations[] = $specializationItem;
+        $categories = $request->get('categories');
+        $user->categories()->detach();
+        foreach ($categories as $category) {
+            if (isset($category['id'])) {
+                $user->categories()->attach($category['id'],
+                        ['price_to' => $category['price_to'],
+                        'price_from' => $category['price_from'],
+                        'price_per_hour' => $category['price_per_hour']]
+                );
             }
         }
-        $user->specialization = implode(';', $specializations);
-        $user->save();
 
         return redirect()->route('site.account.contractor.professional')->with('success', 'Ваши профессиональные данные обновлены');
     }

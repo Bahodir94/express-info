@@ -15,130 +15,117 @@
     </style>
     <link rel="stylesheet" href="{{ asset('assets/css/ckeditor.css') }}">
 @endsection
-@section('account.title', 'Личный кабинет')
-@section('content.account')
-    <form action="{{ route('site.account.contractor.personal.save') }}" method="post" enctype="multipart/form-data">
+@section('account.title.h1', 'Профиль')
+@section('account.title', 'Личные данные')
+@section('account.content')
+    <form action="{{ route('site.account.contractor.personal.save') }}" enctype="multipart/form-data" method="post">
         @csrf
-        <section class="uk-section-xsmall">
-            <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
-                <div class="wrapper_title">
-                    <h4>Фото</h4>
-                </div>
+        <section class="box-admin edit-profile">
+            <div class="header-box-admin">
+                <h3>Личные данные</h3>
             </div>
-            <div class="uk-grid">
-                <div class="uk-width-1-4">
-                    <img src="{{ $user->getImage() }}" alt="{{ $user->name }}" class="uk-border-circle account-avatar">
-                </div>
-                <div class="uk-width-3-4">
-                    <div class="uk-flex uk-flex-column uk-flex-center">
-                        <div class="js-upload" uk-form-custom>
+            <div class="body-box-admin">
+                <div class="upload-avatar">
+                    <div class="avatar">
+                        <img src="{{ $user->getImage() }}" alt="{{ $user->getCommonTitle() }}">
+                    </div>
+                    <div class="upload">
+                        <div class="desc">Минимальные пропорции: 120х120 пикселей</div>
+                        <div class="btn-upload">
                             <input type="file" name="image" id="image">
-                            <button class="uk-button uk-button-primary-outline" type="button" tabindex="-1"><span
-                                    uk-icon="image" class="uk-margin-small-right"></span>Загрузить фото
-                            </button>
+                            <span class="btn btn-light-green">Выбрать изображение</span>
                         </div>
-                        <span class="uk-text-muted uk-text-small uk-margin-small-top"><span uk-icon="info"></span> Минимальные пропорции: 120х120 пикселей</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" name="name" id="name"
+                                   class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}">
+                            @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            <label for="birthdayDate">Дата рождения</label>
+                            <input type="text" class="form-control @error('birthday_date') is-invalid @enderror"
+                                   id="birthdayDate" name="birthday_date" value="{{ $user->birthday_date }}">
+                            @error('birthday_date')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            <label>Ваш пол:</label>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" name="gender" value="male" id="maleRadio"
+                                       class="custom-control-input" @if ($user->gender == 'male') checked @endif>
+                                <label for="maleRadio" class="custom-control-label">Мужской</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input type="radio" name="gender" value="female" id="femaleRadio"
+                                       class="custom-control-input" @if ($user->gender == 'female') checked @endif>
+                                <label for="femaleRadio" class="custom-control-label">Женский</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="aboutMySelf">О себе</label>
+                            <textarea name="about_myself" id="aboutMySelf">{{ $user->about_myself }}</textarea>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
-                <div class="wrapper_title">
-                    <h4>Ваше имя: <span class="uk-text-danger">*</span></h4>
-                </div>
+        </section>
+        <section class="box-admin edit-profile">
+            <div class="header-box-admin">
+                <h3>Социальные сети</h3>
             </div>
-            <div class="uk-grid uk-margin-remove-top">
-                <div class="uk-width-1-2">
-                    <input type="text" placeholder="Имя" name="firstName"
-                           class="uk-input @error('firstName') uk-form-danger @enderror"
-                           value="{{ $user->getFirstName() }}">
-                </div>
-                <div class="uk-width-1-2">
-                    <input type="text" placeholder="Фамилия" name="secondName"
-                           class="uk-input @error('secondName') uk-form-danger @enderror"
-                           value="{{ $user->getSecondName() }}">
-                </div>
-            </div>
-            <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
-                <div class="wrapper_title">
-                    <h4>Пол: <span class="uk-text-danger">*</span></h4>
-                </div>
-            </div>
-            <div class="uk-grid-small uk-child-width-1-1 uk-grid uk-margin-remove-top">
-                <label><input type="radio" name="gender" id="gender" class="uk-radio" value="male"
-                              @if($user->gender == 'male') checked @endif> Мужской</label>
-                <label class="uk-margin-small-top"><input type="radio" name="gender" id="gender" class="uk-radio"
-                                                          value="female" @if($user->gender == 'female') checked @endif>
-                    Женский</label>
-            </div>
-            <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
-                <div class="wrapper_title">
-                    <h4>Дата рождения: <span class="uk-text-danger">*</span></h4>
-                </div>
-            </div>
-            <div class="uk-grid uk-margin-remove-top">
-                <div class="uk-width-1-2">
-                    <div class="uk-inline" style="width: 100%">
-                        <span class="uk-form-icon" uk-icon="icon: calendar"></span>
-                        <input type="text" class="uk-input" id="birthdayDate" name="birthday_date"
-                               value="{{ $user->birthday_date }}">
+            <div class="body-box-admin">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="facebook"><i class="fab fa-facebook"></i> Facebook</label>
+                            <input type="text" name="facebook" id="facebook" class="form-control" value="{{ $user->facebook }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="twitter"><i class="fab fa-twitter"></i> Twitter</label>
+                            <input type="text" name="twitter" id="twitter" class="form-control" value="{{ $user->twitter }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="telegram"><i class="fab fa-telegram"></i> Telegram</label>
+                            <input type="text" name="telegram" id="telegram" class="form-control" value="{{ $user->telegram }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="instagram"><i class="fab fa-instagram"></i> Instagram</label>
+                            <input type="text" name="instagram" id="instagram" class="form-control" value="{{ $user->instagram }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="vk"><i class="fab fa-vk"></i> Вконтакте</label>
+                            <input type="text" name="vk" id="vk" class="form-control" value="{{ $user->vk }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label for="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</label>
+                            <input type="text" name="whatsapp" id="whatsapp" class="form-control" value="{{ $user->whatsapp }}">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
-                <div class="wrapper_title">
-                    <h4>О себе: <span class="uk-text-danger">*</span></h4>
-                </div>
-            </div>
-            <div class="uk-grid uk-margin-remove-top">
-                <div class="uk-width-1-1">
-                    <textarea name="about_myself" id="aboutMySelf">{!! $user->about_myself !!}</textarea>
-                </div>
-            </div>
-            <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
-                <div class="wrapper_title">
-                    <h4>Ссылки на соц. сети:</h4>
-                </div>
-            </div>
-            <div class="uk-grid uk-margin-remove-top">
-                <div class="uk-width-1-2 uk-margin-small-bottom">
-                    <div class="uk-inline" style="width: 100%">
-                        <span class="uk-form-icon" uk-icon="icon: facebook"></span>
-                        <input type="text" class="uk-input" id="facebook" name="facebook" placeholder="Facebook"
-                               value="{{ $user->facebook }}">
-                    </div>
-                </div>
-                <div class="uk-width-1-2 uk-margin-small-bottom">
-                    <div class="uk-inline" style="width: 100%">
-                        <span class="uk-form-icon" uk-icon="icon: question"></span>
-                        <input type="text" class="uk-input" id="telegram" name="telegram" placeholder="Telegram"
-                               value="{{ $user->telegram }}">
-                    </div>
-                </div>
-                <div class="uk-width-1-2 uk-margin-small-bottom">
-                    <div class="uk-inline" style="width: 100%">
-                        <span class="uk-form-icon" uk-icon="icon: question"></span>
-                        <input type="text" class="uk-input" id="vk" name="vk" placeholder="ВКонтакте"
-                               value="{{ $user->vk }}">
-                    </div>
-                </div>
-                <div class="uk-width-1-2 uk-margin-small-bottom">
-                    <div class="uk-inline" style="width: 100%">
-                        <span class="uk-form-icon" uk-icon="icon: whatsapp"></span>
-                        <input type="text" class="uk-input" id="whatsapp" name="whatsapp" placeholder="WhatsApp"
-                               value="{{ $user->vk }}">
-                    </div>
-                </div>
-                <div class="uk-width-1-2">
-                    <div class="uk-inline" style="width: 100%">
-                        <span class="uk-form-icon" uk-icon="icon: instagram"></span>
-                        <input type="text" class="uk-input" id="instagram" name="instagram" placeholder="Instagram"
-                               value="{{ $user->instagram }}">
-                    </div>
-                </div>
-            </div>
-            <div class="uk-grid">
-                <button type="submit" class="uk-button uk-button-success uk-width-1-1 uk-margin-medium-left">Сохранить
-                </button>
+                <button type="submit" class="btn btn-light-green"><i class="fas fa-save"></i> Сохранить</button>
             </div>
         </section>
     </form>
@@ -153,6 +140,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             flatpickr(document.getElementById('birthdayDate'), {
                 dateFormat: 'd.m.Y',
+                maxDate: new Date()
             });
         });
     </script>
