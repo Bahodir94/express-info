@@ -56,8 +56,7 @@ class AccountController extends Controller
         $user = auth()->user();
         $user->authorizeRole('contractor');
         $request->validate([
-            'firstName' => 'required|max:255|string',
-            'secondName' => 'required|string|max:255',
+            'name' => 'required|max:255|string',
             'gender' => 'required|string',
             'birthday_date' => 'required|date',
             'about_myself' => 'required|string|max:5000',
