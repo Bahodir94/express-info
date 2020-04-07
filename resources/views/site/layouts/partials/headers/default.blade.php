@@ -117,30 +117,75 @@
     </div>
     <div class="menu-mobile">
       <ul class="main-menu-mobile">
-        @foreach($needs as $need)
-          <li><a data-toggle="collapse" href="#a{{ $need->id }}" aria-expanded="false" aria-controls="a{{ $need->id }}">{{ $need->ru_title }}</a>
-            <div class="collapse" id="a{{ $need->id }}">
+
+          <li><a data-toggle="collapse" href="#sub-1" aria-expanded="false" aria-controls="sub-1">Конкурсы</a>
+            <div class="collapse" id="sub-1">
+              @foreach($needs as $need)
               <ul class="main-menu-mobile">
-                @foreach($need->menuItems as $item)
 
-                <li><a data-toggle="collapse" href="#b{{ $item->id }}" aria-expanded="false" aria-controls="b{{ $item->id }}">{{ $item->ru_title }}</a>
-                  <div class="collapse" id="b{{ $item->id }}">
-                    <ul class="sub-menu-mobile">
-                        @foreach($item->categories as $category)
-                          <li>
-                              <a href="{{ route('site.catalog.main', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
-                          </li>
+                <li>
+
+                  <li><a data-toggle="collapse" href="#a{{ $need->id }}" aria-expanded="false" aria-controls="a{{ $need->id }}">{{ $need->ru_title }}</a>
+                    <div class="collapse" id="a{{ $need->id }}">
+                      <ul class="main-menu-mobile">
+                        @foreach($need->menuItems as $item)
+                        <li><a data-toggle="collapse" href="#b{{ $item->id }}" aria-expanded="false" aria-controls="b{{ $item->id }}">{{ $item->ru_title }}</a>
+                          <div class="collapse" id="b{{ $item->id }}">
+                            <ul class="sub-menu-mobile">
+                              @foreach($item->categories as $category)
+                              <li>
+                                  <a href="{{ route('site.tenders.category', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                              </li>
+                              @endforeach
+                            </ul>
+                          </div>
+                        </li>
                         @endforeach
-                    </ul>
-
-                  </div>
+                      </ul>
+                    </div>
                 </li>
-                @endforeach
+              </li>
+
+
               </ul>
+              @endforeach
             </div>
           </li>
-          @endforeach
-        </ul>
+
+          <li><a data-toggle="collapse" href="#sub-2" aria-expanded="false" aria-controls="sub-2">Исполнители</a>
+            <div class="collapse" id="sub-2">
+              @foreach($needs as $need)
+              <ul class="main-menu-mobile">
+
+                <li>
+
+                  <li><a data-toggle="collapse" href="#d{{ $need->id }}" aria-expanded="false" aria-controls="d{{ $need->id }}">{{ $need->ru_title }}</a>
+                    <div class="collapse" id="d{{ $need->id }}">
+                      <ul class="main-menu-mobile">
+                        @foreach($need->menuItems as $item)
+                        <li><a data-toggle="collapse" href="#c{{ $item->id }}" aria-expanded="false" aria-controls="c{{ $item->id }}">{{ $item->ru_title }}</a>
+                          <div class="collapse" id="c{{ $item->id }}">
+                            <ul class="sub-menu-mobile">
+                              @foreach($item->categories as $category)
+                              <li>
+                                <a href="{{ route('site.catalog.main', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                              </li>
+                              @endforeach
+                            </ul>
+                          </div>
+                        </li>
+                        @endforeach
+                      </ul>
+                    </div>
+                </li>
+              </li>
+
+
+              </ul>
+              @endforeach
+            </div>
+          </li>
+
     </div>
   </div>
 </div>
