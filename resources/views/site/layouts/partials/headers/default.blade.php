@@ -14,28 +14,58 @@
                 <div class="navigation" id="navigation">
                     <ul class="main-menu">
                         <li class="active"><a href="/">Главная</a></li>
-                        @foreach($needs as $need)
-                            <li class="header-menu-item"><a href="#">{{ $need->ru_title }} <i
-                                        class="fas fa-caret-down"></i></a>
-                                <ul class="sub-menu">
-                                    @foreach($need->menuItems as $item)
-                                        <li class="menu-item dropdown-submenu">
-                                            <a class="d-flex justify-content-between align-items-center"
-                                               href="{{ route('site.catalog.main', $item->ru_slug) }}">{{ $item->ru_title }}
-                                                <i class="fas fa-caret-right ml-2 mr-3"></i></a>
-                                            <ul class="sub-menu">
-                                                @foreach($item->categories as $category)
-                                                    <li>
-                                                        <a href="{{ route('site.catalog.main', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                        @endforeach
-
+                        <li class="header-menu-item"><a href="#">Конкурсы <i
+                                class="fas fa-caret-down"></i></a>
+                            <ul class="sub-menu">
+                                @foreach($needs as $need)
+                                    <li class="menu-item dropdown-submenu">
+                                        <a class="d-flex justify-content-between align-items-center">{{ $need->ru_title }}
+                                            <i class="fas fa-caret-right ml-2 mr-3"></i></a>
+                                        <ul class="sub-menu">
+                                            @foreach($need->menuItems as $item)
+                                                <li class="menu-item dropdown-submenu">
+                                                    <a href="{{ route('site.tenders.category', $item->ru_slug) }}" class="d-flex justify-content-between align-items-center">{{ $item->ru_title }}
+                                                        <i class="fas fa-caret-right ml-2 mr-3"></i></a>
+                                                    <ul class="sub-menu">
+                                                        @foreach($item->categories as $category)
+                                                            <li>
+                                                                <a href="{{ route('site.tenders.category', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li class="header-menu-item"><a href="#">Исполнители <i
+                                    class="fas fa-caret-down"></i></a>
+                            <ul class="sub-menu">
+                                @foreach($needs as $need)
+                                    <li class="menu-item dropdown-submenu">
+                                        <a class="d-flex justify-content-between align-items-center">{{ $need->ru_title }}
+                                            <i class="fas fa-caret-right ml-2 mr-3"></i></a>
+                                        <ul class="sub-menu">
+                                            @foreach($need->menuItems as $item)
+                                                <li class="menu-item dropdown-submenu">
+                                                    <a href="{{ route('site.catalog.main', $item->ru_slug) }}" class="d-flex justify-content-between align-items-center">{{ $item->ru_title }}
+                                                        <i class="fas fa-caret-right ml-2 mr-3"></i></a>
+                                                    <ul class="sub-menu">
+                                                        @foreach($item->categories as $category)
+                                                            <li>
+                                                                <a href="{{ route('site.catalog.main', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
