@@ -7,6 +7,8 @@ use App\Repositories\UserRepositoryInterface;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class AccountController extends Controller
@@ -55,12 +57,20 @@ class AccountController extends Controller
     {
         $user = auth()->user();
         $user->authorizeRole('contractor');
-        $request->validate([
+        $validationMessages = [
+            'required' => 'Это поле обязательно к заполнению',
+            'max' => 'Количество символов должно быть не больше :max',
+            'integer' => 'Укажите целочисленное значение',
+            'date' => 'Неверный формат даты',
+            'string' => 'Укажите стороковое значение',
+            'email' => 'Неверный формат электронной почты'
+        ];
+        Validator::make($request->all(), [
             'name' => 'required|max:255|string',
             'gender' => 'required|string',
             'birthday_date' => 'required|date',
             'about_myself' => 'required|string|max:5000',
-        ]);
+        ], $validationMessages)->validate();
         $this->userRepository->update($user->id, $request);
 
         return redirect()->route('site.account.index')->with('success', 'Ваши личные данные обновлены');
@@ -97,45 +107,27 @@ class AccountController extends Controller
         return redirect()->route('site.account.contractor.professional')->with('success', 'Ваши профессиональные данные обновлены');
     }
 
-    public function saveCompany(Request $request)
-    {
-        $user = auth()->user();
-        $user->authorizeRole('customer');
-        $request->validate([
-            'image' => 'nullable|image',
-            'company_name' => 'required|max:255|string',
-            'about_myself' => 'nullable|string|max:5000',
-            'foundation_year' => 'nullable|int|max:255',
-            'site' => 'nullable|string|max:255',
-            'phone_number' => 'required|string|max:255',
-            'email' => 'required|email|max:255'
-        ]);
-        $this->userRepository->update($user->id, $request);
-
-        return redirect()->route('site.account.index')->with('success', 'Ваши данные о компании изменены');
-    }
-
-    public function personalCustomer()
-    {
-        $user = auth()->user();
-        $accountPage = 'personal';
-        return view('site.pages.account.customer.personal', compact('user', 'accountPage'));
-    }
-
     public function saveCustomerProfile (Request $request)
     {
         $user = auth()->user();
         $user->authorizeRole('customer');
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+        $validationMessages = [
+            'required' => 'Это поле обязательно к заполнению',
+            'max' => 'Количество символов должно быть не больше :max',
+            'integer' => 'Укажите целочисленное значение',
+            'date' => 'Неверный формат даты',
+            'string' => 'Укажите стороковое значение',
+            'email' => 'Неверный формат электронной почты'
+        ];
+        Validator::make($request->all(), [
             'image' => 'nullable|image',
-            'company_name' => 'nullable|max:255|string',
-            'about_myself' => 'nullable|string|max:5000',
+            'company_name' => [Rule::requiredIf($user->customer_type == 'company')],
+            'about_myself' => 'required|string|max:5000',
             'foundation_year' => 'nullable|int|max:255',
             'site' => 'nullable|string|max:255',
-            'phone_number' => 'nullable|string|max:255',
-        ]);
+            'phone_number' => 'required|string|max:255',
+            'email' => 'required|email|max:255'
+        ], $validationMessages)->validate();
 
         $this->userRepository->update($user->id, $request);
 
