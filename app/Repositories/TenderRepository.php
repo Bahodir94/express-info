@@ -36,11 +36,12 @@ class TenderRepository implements TenderRepositoryInterface
         if ($user) {
             $tenderData['client_name'] = $user->name;
             $tenderData['client_email'] = $user->email;
-            $tenderData['client_phone_number'] = $user->phone_number;
+            $tenderData['client_phone_number'] = $user->phone_number || '';
             $tenderData['client_type'] = $user->customer_type;
             $tenderData['owner_id'] = $user->id;
+        } else {
+            $tenderData['client_name'] = $tenderData['firstName'] . ' ' . $tenderData['secondName'];
         }
-        $tenderData['client_name'] = $tenderData['firstName'] . ' ' . $tenderData['secondName'];
         $tender = Tender::create($tenderData);
         $tender->saveFiles($data->file('files'));
         foreach ($data->get('categories') as $categoryId)
