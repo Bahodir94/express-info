@@ -61,7 +61,7 @@
                                 <div class="d-flex">
                                     <a href="{{ route('site.account.tenders.edit', $tender->slug) }}" class="btn btn-light btn-edit"><i class="fas fa-pencil-alt"></i>
                                     </a>
-                                    <form action="{{ route('site.tenders.delete', $tender->id) }}">
+                                    <form action="{{ route('site.tenders.delete', $tender->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                         <input type="hidden" name="redirect_to" value="{{ route('site.account.tenders') }}">
