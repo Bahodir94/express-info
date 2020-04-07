@@ -65,6 +65,7 @@ class UserRepository implements UserRepositoryInterface
     {
         $user = $this->get($userId);
         $user->update($userData->all());
+        $user->generateSlug();
         $user->uploadImage($userData->file('image'));
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -155,6 +156,24 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Generate slug
+     *
+     * @return void
+     */
+    public function generateSlug() {
+        $slug = Str::slug($this->email);
+        if ($this->company_name)
+            $slug = Str::slug($this->company_name);
+        elseif ($this->name)
+            $slug = Str::slug($this->name);
+        $existCount = self::where('slug', $slug)->count();
+        if ($existCount > 0)
+            $slug .= "-$existCount";
+        $this->slug = $slug;
+        $this->save();
+    }
+
+    /**
      * Create history item for user
      *
      * @param string $type
@@ -285,7 +304,10 @@ class User extends Authenticatable implements MustVerifyEmail
         elseif ($this->contractor_type === 'freelancer')
             return $this->name;
         else
-            return '';
+            if ($this->name)
+                return $this->name;
+            else
+                return $this->email;
     }
 
     public function getCommonTitle()
