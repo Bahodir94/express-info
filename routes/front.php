@@ -60,6 +60,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::post('/account/customer/profile/save', 'AccountController@saveCustomerProfile')->name('account.customer.profile.save');
     Route::get('/account/tenders', 'AccountController@tenders')->name('account.tenders');
     Route::get('/account/tenders/{slug}/edit', 'AccountController@editTender')->name('account.tenders.edit');
+    Route::get('/account/tenders/{slug}/candidates', 'AccountController@tenderCandidates')->name('account.tenders.candidates');
 
     // Tenders routes
     Route::get('/tenders', 'TenderController@index')->name('tenders.index');

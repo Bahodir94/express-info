@@ -155,4 +155,12 @@ class AccountController extends Controller
         abort_if(!$tender, 404);
         return \view('site.pages.account.customer.editTender', compact('user', 'tender', 'accountPage'));
     }
+
+    public function tenderCandidates (string $slug) {
+        $user = auth()->user();
+        $tender = $user->ownedTenders()->where('slug', $slug)->first();
+        abort_if(!$tender, 404);
+        $accountPage = 'tenders';
+        return \view('site.pages.account.customer.candidates', compact('user', 'accountPage', 'tender'));
+    }
 }

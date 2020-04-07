@@ -152,6 +152,9 @@ class TenderController extends Controller
     {
         $requestId = $request->get('requestId');
         $this->tenderRepository->cancelRequest($requestId);
+        if ($request->has('redirect_to')) {
+            return redirect($request->get('redirect_to'))->with('success', 'Заявка отклонена.');
+        }
         return back()->with('success', 'Ваша заявка отменена');
     }
 

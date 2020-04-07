@@ -2,6 +2,10 @@
 
 @section('title', "Релактировать конкрус $tender->title")
 
+@section('header')
+    @include('site.layouts.partials.headers.default')
+@endsection
+
 @section('account.title.h1', "Конкурс $tender->title")
 
 @section('css')
