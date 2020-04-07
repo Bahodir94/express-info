@@ -31,7 +31,7 @@
                             <h3 class="title-footer">Конкурсы</h3>
                             <ul class="links-footer">
                                 <li><a href="{{ route('site.tenders.common.create') }}">Создание конкурса</a></li>
-                                <li><a href="{{ route('site.tender.index') }}">Каталог конкурсов</a></li>
+                                <li><a href="{{ route('site.tenders.index') }}">Каталог конкурсов</a></li>
                             </ul>
                         </div>
                         <div class="col-6 col-md-4">
