@@ -1,37 +1,39 @@
 @extends('site.layouts.app')
-
-
-
 @section('content')
-        <div class="uk-container uk-container-xlarge uk-container-center">
-            <div class="uk-grid">
-                <div class="uk-width-3-4">
-                    <div class="wrapper uk-padding-small uk-padding-remove-horizontal uk-flex-middle uk-margin-top" uk-grid>
-                        <div class="wrapper_title">
-                            <h1>@yield('account.title')</h1>
-                        </div>
-                    </div>
-                        @yield('content.account')
-                </div>
-                <div class="uk-width-1-4">
-                        @if ($user->hasRole('contractor'))
-                            <ul class="uk-nav uk-nav-default uk-margin-medium-left uk-margin-xlarge-top account-nav-list">
-                                <li @if($accountPage == 'personal')class="uk-active"@endif><a href="{{ route('site.account.index') }}"><span uk-icon="user" class="uk-margin-small-right"></span> Личные данные</a></li>
-                                <li class="uk-nav-divider"></li>
-                                <li @if($accountPage == 'professional')class="uk-active"@endif><a href="{{ route('site.account.contractor.professional') }}"><span uk-icon="bookmark" class="uk-margin-small-right"></span>Проф. данные</a></li>
-                                <li class="uk-nav-divider"></li>
-                                <li><a href=""><span uk-icon="star" class="uk-margin-small-right"></span>Погртфолио</a></li>
-                            </ul>
-                        @elseif($user->hasRole('customer'))
-                            <ul class="uk-nav uk-nav-default uk-margin-medium-left uk-margin-xlarge-top account-nav-list">
-                                @if ($user->customer_type=='company')
-                                    <li @if($accountPage == 'company')class="uk-active"@endif><a href="{{ route('site.account.index') }}"><span uk-icon="nut" class="uk-margin-small-right"></span> Профиль компании</a></li>
-                                    <li class="uk-nav-divider"></li>
-                                @endif
-                                <li @if($accountPage == 'personal')class="uk-active"@endif><a href="{{ route('site.account.customer.personal') }}"><span uk-icon="user" class="uk-margin-small-right"></span> Мой профиль</a></li>
-                            </ul>
-                        @endif
+    <div class="wrapper-admin">
+        <div class="sidebar-admin">
+            <div class="header-user">
+                <div class="avatar"><a href="#"><img src="{{ $user->getImage() }}" alt="Image"></a></div>
+                <div class="info-user">
+                    <h3><a href="{{ route('site.account.index') }}">{{ $user->getCommonTitle() }}</a></h3>
                 </div>
             </div>
+            <ul class="nav-sidebar-admin">
+                <li @if ($accountPage == 'personal') class="active" @endif><a href="{{ route('site.account.index') }}"><i class="fas fa-user"></i> Профиль</a></li>
+                @if ($user->hasRole('contractor'))
+                    <li><a href="{{ route('site.account.contractor.professional') }}"><i class="fas fa-suitcase"></i> Проф. данные</a></li>
+                    <li><a href=""><i class="fas fa-file-alt"></i> Мои конкурсы</a></li>
+                    <li><a href=""><i class="fas fa-star"></i> Портфолио</a></li>
+                @endif
+                @if ($user->hasRole('customer'))
+                    <li><a href=""><i class="fas fa-file-alt"></i> Мои конкурсы</a></li>
+                @endif
+            </ul>
         </div>
+        <button class="toggle-sidebar-admin"><i class="fas fa-long-arrow-alt-right"></i></button>
+        <div class="main-content-admin">
+            <main class="main-content">
+                <div class="header-page">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="section-heading">
+                                <h1 class="title-page">@yield('account.title.h1')</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @yield('account.content')
+            </main>
+        </div>
+    </div>
 @endsection
