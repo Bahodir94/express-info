@@ -156,6 +156,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Tenders created by the user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function ownedTenders()
+    {
+        return $this->hasMany(Tender::class, 'owner_id', 'id');
+    }
+
+    /**
      * Generate slug
      *
      * @return void
