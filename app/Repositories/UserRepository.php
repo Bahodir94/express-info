@@ -66,7 +66,8 @@ class UserRepository implements UserRepositoryInterface
     {
         $user = $this->get($userId);
         $data = $userData->all();
-        $data['birthday_date'] = Carbon::create($data['birthday_date'])->format('Y-m-d');
+        if (isset($data['birthday_date']))
+            $data['birthday_date'] = Carbon::create($data['birthday_date'])->format('Y-m-d');
         $user->update($data);
         $user->generateSlug();
         $user->uploadImage($userData->file('image'));

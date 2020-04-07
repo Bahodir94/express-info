@@ -154,4 +154,33 @@ class TenderController extends Controller
         $this->tenderRepository->cancelRequest($requestId);
         return back()->with('success', 'Ваша заявка отменена');
     }
+
+    public function update(Request $request, int $id)
+    {
+        $validationMessages = [
+            'required' => 'Это поле обязательно к заполнению',
+            'max' => 'Количество символов должно быть не больше :max',
+            'integer' => 'Укажите целочисленное значение',
+            'date' => 'Неверный формат даты',
+            'string' => 'Укажите стороковое значение',
+            'email' => 'Неверный формат электронной почты'
+        ];
+        Validator::make($request->all(), [
+            'categories' => 'required',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|max:5000',
+            'files' => 'nullable',
+            'budget' => 'required|integer',
+            'deadline' => 'required|date'
+        ], $validationMessages)->validate();
+        $this->tenderRepository->update($id, $request);
+        return redirect($request->get('redirect_to'))->with('success', 'Конкрус отредактитрован!');
+    }
+
+    public function delete(Request $request, int $id)
+    {
+        $this->tenderRepository->delete($id);
+
+        return redirect($request->get('redirect_to'))->with('success', 'Конкурс удалён');
+    }
 }

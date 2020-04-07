@@ -36,11 +36,12 @@ class TenderRepository implements TenderRepositoryInterface
         if ($user) {
             $tenderData['client_name'] = $user->name;
             $tenderData['client_email'] = $user->email;
-            $tenderData['client_phone_number'] = $user->phone_number;
+            $tenderData['client_phone_number'] = $user->phone_number || '';
             $tenderData['client_type'] = $user->customer_type;
             $tenderData['owner_id'] = $user->id;
+        } else {
+            $tenderData['client_name'] = $tenderData['firstName'] . ' ' . $tenderData['secondName'];
         }
-        $tenderData['client_name'] = $tenderData['firstName'] . ' ' . $tenderData['secondName'];
         $tender = Tender::create($tenderData);
         $tender->saveFiles($data->file('files'));
         foreach ($data->get('categories') as $categoryId)
@@ -53,7 +54,13 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function update($id, $data)
     {
-        // TODO: Implement update() method.
+        $tender = $this->get($id);
+        $tender->update($data->all());
+        $tender->saveFiles($data->file('files'));
+        $tender->categories()->detach();
+        foreach ($data->get('categories') as $categoryId) {
+            $tender->categories()->attach($categoryId);
+        }
     }
 
     /**
@@ -61,7 +68,7 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        Tender::destroy($id);
     }
 
     /**
@@ -69,7 +76,7 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function get($id)
     {
-        // TODO: Implement get() method.
+        return Tender::findOrFail($id);
     }
 
     /**

@@ -12,11 +12,10 @@
                 <li @if ($accountPage == 'personal') class="active" @endif><a href="{{ route('site.account.index') }}"><i class="fas fa-user"></i> Профиль</a></li>
                 @if ($user->hasRole('contractor'))
                     <li><a href="{{ route('site.account.contractor.professional') }}"><i class="fas fa-suitcase"></i> Проф. данные</a></li>
-                    <li><a href=""><i class="fas fa-file-alt"></i> Мои конкурсы</a></li>
-                    <li><a href=""><i class="fas fa-star"></i> Портфолио</a></li>
+                    <li><a href="{{ route('site.account.tenders') }}"><i class="fas fa-file-alt"></i> Мои конкурсы</a></li>
                 @endif
                 @if ($user->hasRole('customer'))
-                    <li><a href=""><i class="fas fa-file-alt"></i> Мои конкурсы</a></li>
+                    <li><a href="{{ route('site.account.tenders') }}"><i class="fas fa-file-alt"></i> Мои конкурсы</a></li>
                 @endif
             </ul>
         </div>

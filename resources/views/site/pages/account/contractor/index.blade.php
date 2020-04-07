@@ -18,7 +18,7 @@
 @section('account.title.h1', 'Профиль')
 @section('account.title', 'Личные данные')
 @section('account.content')
-    <form action="{{ route('site.account.contractor.personal.save') }}" enctype="multipart/form-data" method="post">
+    <form action="{{ route('site.account.contractor.profile.save') }}" enctype="multipart/form-data" method="post">
         @csrf
         <section class="box-admin edit-profile">
             <div class="header-box-admin">
@@ -78,7 +78,7 @@
                             <label for="phoneNumber">Номер телефона</label>
                             <input type="text" name="phone_number" id="phoneNumber" class="form-control @error('phone_number') is-invalid @enderror" value="{{ $user->phone_number }}">
                             @error('phone_number')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                            <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
