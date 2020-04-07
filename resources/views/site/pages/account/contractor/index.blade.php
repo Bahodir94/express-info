@@ -73,6 +73,15 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            <label for="phoneNumber">Номер телефона</label>
+                            <input type="text" name="phone_number" id="phoneNumber" class="form-control @error('phone_number') is-invalid @enderror" value="{{ $user->phone_number }}">
+                            @error('phone_number')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="aboutMySelf">О себе</label>
