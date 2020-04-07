@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Models\Role;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Hash;
 
@@ -64,6 +65,8 @@ class UserRepository implements UserRepositoryInterface
     public function update($userId, $userData)
     {
         $user = $this->get($userId);
+        $data = $userData->all();
+        $data['birthday_date'] = Carbon::create($data['birthday_date'])->format('Y-m-d');
         $user->update($userData->all());
         $user->generateSlug();
         $user->uploadImage($userData->file('image'));
