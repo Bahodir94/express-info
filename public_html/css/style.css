@@ -84,3 +84,11 @@ img.avatar {
 .accordion .card {
     border: none;
 }
+
+.header-user .info-user h3 {
+    font-size: 1rem;
+}
+
+.custom-control label {
+    font-weight: 400;
+}
