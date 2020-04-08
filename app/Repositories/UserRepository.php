@@ -148,6 +148,7 @@ class UserRepository implements UserRepositoryInterface
         $dataToSet['name'] = $data->get($userRole.'_name');
         $dataToSet['phone_number'] = $data->get($userRole.'_phone_number');
         $dataToSet[$userRole.'_type'] = $data->get($userRole.'_type');
+        $dataToSet['email'] = $data->get($userRole.'_email');
         $dataToSet['company_name'] = $data->get($userRole.'_company_name');
         $dataToSet['about_myself'] = $data->get($userRole.'_about_myself');
         if ($userRole == 'contractor') {
