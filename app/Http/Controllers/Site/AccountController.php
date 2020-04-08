@@ -88,6 +88,7 @@ class AccountController extends Controller
             $userType . '_name' => ['required', 'string', 'max:255'],
             $userType . '_phone_number' => ['required', 'string'],
             'contractor_birthday_date' => Rule::requiredIf($userType == 'contractor' && $request->get('contractor_type') == 'freelancer'),
+            $userType . '_email' => ['required', 'email'],
             $userType . '_about_myself' => ['required', 'string'],
             $userType . '_company_name' => Rule::requiredIf($request->get('customer_type') == 'company' || $request->get('contractor_type') == 'agency'),
             'image' => 'nullable|file'
@@ -213,5 +214,38 @@ class AccountController extends Controller
         abort_if(!$tender, 404);
         $accountPage = 'tenders';
         return \view('site.pages.account.customer.candidates', compact('user', 'accountPage', 'tender'));
+    }
+
+    public function telegramCallback(Request $request)
+    {
+        if ($this->checkTelegramAuthorization($request->all())) {
+            $telegramId = $request->get('id');
+            $user = $this->userRepository->getUserByTelegramId((int) $telegramId);
+            if (!$user) {
+                $user = $this->userRepository->createUserViaTelegram($request);
+            }
+            \Auth::loginUsingId($user->id);
+            return redirect()->route('site.account.index');
+        } else {
+            return back()->with('error', 'Ошибка при попытке авторизации через Telegram');
+        }
+    }
+
+    private function checkTelegramAuthorization($auth_data)
+    {
+        $check_hash = $auth_data['hash'];
+        unset($auth_data['hash']);
+        $data_check_arr = [];
+        foreach ($auth_data as $key => $value) {
+            $data_check_arr[] = $key . '=' . $value;
+        }
+        sort($data_check_arr);
+        $data_check_string = implode("\n", $data_check_arr);
+        $secret_key = hash('sha256', BOT_TOKEN, true);
+        $hash = hash_hmac('sha256', $data_check_string, $secret_key);
+        if (strcmp($hash, $check_hash) !== 0 || (time() - $auth_data['auth_date']) > 86400) {
+            return false;
+        }
+        return true;
     }
 }

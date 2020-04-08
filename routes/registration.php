@@ -19,6 +19,13 @@ Route::middleware('needsList')->group(function() {
       return view('registration.email');
   })->name('password.request');
 
+  Route::get('google', function () {
+    return view('googleAuth');
+});
+
+Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
   // Auth::routes();
   // Auth::routes(['verify' => true]);
   Route::post('/registration', 'Auth\RegisterController@register');
@@ -43,3 +50,4 @@ Route::middleware('needsList')->group(function() {
 
   Route::get('/home', 'HomeControllerReg@index')->name('home');
 });
+Route::get('/auth/telegram/callback', 'AccountController@telegramCallback');
