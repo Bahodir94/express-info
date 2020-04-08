@@ -9,12 +9,14 @@ Route::middleware('needsList')->group(function() {
       return view('registration.register');
   })->name('register');
 
+
+
   Route::get('/login', function () {
       return view('registration.login');
   })->name('login');
 
   Route::get('/password/reset', function () {
-      return view('registration.resetpass');
+      return view('registration.email');
   })->name('password.request');
 
   // Auth::routes();

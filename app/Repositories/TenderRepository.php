@@ -23,7 +23,7 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function allOrderedByCreatedAt()
     {
-        return Tender::orderBy('created_at', 'desc')->get();
+        return Tender::whereNotNull('owner_id')->orderBy('created_at', 'desc')->get();
     }
 
     /**
@@ -40,7 +40,9 @@ class TenderRepository implements TenderRepositoryInterface
             $tenderData['client_type'] = $user->customer_type;
             $tenderData['owner_id'] = $user->id;
         } else {
-            $tenderData['client_name'] = $tenderData['firstName'] . ' ' . $tenderData['secondName'];
+            $tenderData['client_name'] = '';
+            $tenderData['client_type'] = '';
+            $tenderData['client_phone_number'] = '';
         }
         $tender = Tender::create($tenderData);
         $tender->saveFiles($data->file('files'));
@@ -116,5 +118,15 @@ class TenderRepository implements TenderRepositoryInterface
         $tender->contractor_id = $request->user_id;
         $tender->save();
         return true;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setOwnerToTender($tenderId, $userId)
+    {
+        $tender = $this->get($tenderId);
+        $tender->owner_id = $userId;
+        $tender->save();
     }
 }
