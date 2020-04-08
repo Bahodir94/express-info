@@ -14,7 +14,7 @@ class DropUniqueUserEmail extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropUnique('email');
+            $table->dropUnique('users_email_unique');
         });
     }
 
@@ -26,7 +26,7 @@ class DropUniqueUserEmail extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unique('email');
+            $table->unique('users_email_unique');
         });
     }
 }
