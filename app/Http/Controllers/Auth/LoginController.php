@@ -89,7 +89,7 @@ class LoginController extends Controller
                     'google_id'=> $user->id
                 ]);
                 Auth::login($newUser);
-                return redirect('/home');;
+                return redirect()->route('site.account.index');
             }
         } catch (Exception $e) {
             return redirect('auth/google');
