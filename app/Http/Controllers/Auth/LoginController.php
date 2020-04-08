@@ -99,4 +99,13 @@ class LoginController extends Controller
             return redirect()->route('site.catalog.index')->with('error', 'Авторизация через Google в данный момент недоступна.');
         }
     }
+
+    protected function loggedOut(Request $request)
+    {
+        return redirect()->route('site.catalog.index')
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate')
+            ->header('Cache-Control', 'post-check=0, pre-check=0', false)
+            ->header('Pragma', 'no-cache')
+            ->header('Expires', 'Sat, 26 Jul 1997 05:00:00 GMT');
+    }
 }
