@@ -74,7 +74,7 @@ class LoginController extends Controller
     }
 
     public function redirectToGoogle(){
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver('google')->scopes(['profile','email'])->redirect();
     }
 
     public function handleGoogleCallback(){
