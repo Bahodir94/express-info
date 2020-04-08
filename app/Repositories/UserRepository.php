@@ -158,5 +158,6 @@ class UserRepository implements UserRepositoryInterface
         $user->completed = true;
         $user->save();
         $user->generateSlug();
+        $user->uploadImage($data->file('image'));
     }
 }
