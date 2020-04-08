@@ -71,6 +71,16 @@ class Tender extends Model
         return $this->hasOne(User::class, 'id', 'owner_id');
     }
 
+    /**
+     * Contractor of the tender
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function contractor()
+    {
+        return $this->hasOne(User::class, 'id', 'contractor_id');
+    }
+
     public function saveFiles($files)
     {
         if (!$files)
