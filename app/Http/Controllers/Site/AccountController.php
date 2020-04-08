@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Repositories\HandbookCategoryRepositoryInterface;
+use App\Repositories\TenderRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
@@ -23,14 +24,26 @@ class AccountController extends Controller
      */
     private $categoryRepository;
 
+    /**
+     * @var TenderRepositoryInterface
+     */
+    private $tenderRepository;
 
-    public function __construct(UserRepositoryInterface $userRepository, HandbookCategoryRepositoryInterface $categoryRepository)
+    /**
+     * AccountController constructor.
+     * @param UserRepositoryInterface $userRepository
+     * @param HandbookCategoryRepositoryInterface $categoryRepository
+     */
+    public function __construct(UserRepositoryInterface $userRepository,
+                                HandbookCategoryRepositoryInterface $categoryRepository,
+                                TenderRepositoryInterface $tenderRepository)
     {
         $this->middleware('auth');
         $this->middleware('account.completed')->except(['create', 'store']);
 
         $this->userRepository = $userRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->tenderRepository = $tenderRepository;
     }
 
     /**
@@ -82,6 +95,10 @@ class AccountController extends Controller
         $this->userRepository->createAccount($request);
         if ($userType == 'contractor')
             return redirect()->route('site.account.contractor.professional');
+        if ($request->hasCookie('tenderId')) {
+            $this->tenderRepository->setOwnerToTender($request->cookie('tenderId'), auth()->user()->id);
+            return redirect()->route('site.account.index')->with('success', 'Ваш тендер опубликован, вы можете посмотреть его в разделе "Мои тендеры".');
+        }
         return redirect()->route('site.account.index');
     }
 

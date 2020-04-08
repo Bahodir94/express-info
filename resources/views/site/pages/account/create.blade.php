@@ -30,116 +30,120 @@
                 <hr>
                 <div class="body-box-admin">
                     <ul class="nav nav-tabs btn-group-toggle" data-toggle="buttons" id="myTab" role="tablist">
+                        @if (!request()->hasCookie('tenderId'))
+                            <li class="nav-item">
+                                <a class="nav-link @if (!old('user_role') || old('user_role') == 'contractor' ) active @endif" id="home-tab" data-toggle="tab" href="#contractor"
+                                   role="tab" aria-controls="contractor" aria-selected="true">Исполнитель</a>
+                            </li>
+                        @endif
                         <li class="nav-item">
-                            <a class="nav-link @if (!old('user_role') || old('user_role') == 'contractor' ) active @endif" id="home-tab" data-toggle="tab" href="#contractor"
-                               role="tab" aria-controls="contractor" aria-selected="true">Исполнитель</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link @if (old('user_role') == 'customer' ) active @endif" id="profile-tab" data-toggle="tab" href="#customer" role="tab"
+                            <a class="nav-link @if (old('user_role') == 'customer' || request()->hasCookie('tenderId')) active @endif" id="profile-tab" data-toggle="tab" href="#customer" role="tab"
                                aria-controls="customer" aria-selected="false">Заказчик</a>
                         </li>
 
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade @if (!old('user_role') || old('user_role') == 'contractor' ) show active @endif" id="contractor" role="tabpanel"
-                             aria-labelledby="home-tab">
-                            <form method="POST" action="" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" name="user_role" value="contractor">
-                                <div class="upload-avatar">
-                                    <div class="avatar">
-                                        <img src="{{ $user->getImage() }}" alt="{{ $user->email }}">
-                                    </div>
-                                    <div class="upload">
-                                        <div class="desc">Минимальные пропорции: 120х120 пикселей</div>
-                                        <div class="btn-upload">
-                                            <input type="file" name="image" id="image">
-                                            <span class="btn btn-light-green">Выбрать изображение</span>
+                        @if (!request()->hasCookie('tenderId'))
+                            <div class="tab-pane fade @if (!old('user_role') || old('user_role') == 'contractor' ) show active @endif" id="contractor" role="tabpanel"
+                                 aria-labelledby="home-tab">
+                                <form method="POST" action="" enctype="multipart/form-data">
+                                    @csrf
+                                    <input type="hidden" name="user_role" value="contractor">
+                                    <div class="upload-avatar">
+                                        <div class="avatar">
+                                            <img src="{{ $user->getImage() }}" alt="{{ $user->email }}">
+                                        </div>
+                                        <div class="upload">
+                                            <div class="desc">Минимальные пропорции: 120х120 пикселей</div>
+                                            <div class="btn-upload">
+                                                <input type="file" name="image" id="image">
+                                                <span class="btn btn-light-green">Выбрать изображение</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group">
-                                            <label for="contractorName">Ваше имя</label>
-                                            <input type="text" name="contractor_name" id="contractorName"
-                                                   class="form-control @error('contractor_name') is-invalid @enderror" value="{{ old('contractor_name') }}">
-                                            @error('contractor_name')
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-group">
+                                                <label for="contractorName">Ваше имя</label>
+                                                <input type="text" name="contractor_name" id="contractorName"
+                                                       class="form-control @error('contractor_name') is-invalid @enderror" value="{{ old('contractor_name') }}">
+                                                @error('contractor_name')
                                                 <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                                @enderror
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group">
-                                            <label for="contractor_phoneNumber">Номер телефона</label>
-                                            <input type="text" name="contractor_phone_number" id="contractor_phoneNumber" class="form-control @error('contractor_phone_number') is-invalid @enderror" value="{{ old('contractor_phone_number') }}">
-                                            @error('contractor_phone_number')
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-group">
+                                                <label for="contractor_phoneNumber">Номер телефона</label>
+                                                <input type="text" name="contractor_phone_number" id="contractor_phoneNumber" class="form-control @error('contractor_phone_number') is-invalid @enderror" value="{{ old('contractor_phone_number') }}">
+                                                @error('contractor_phone_number')
                                                 <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="">Вы являетесь:</label>
-                                            <div class="custom-control custom-radio" id="freelancerRadio">
-                                                <input type="radio" name="contractor_type" value="freelancer" id="freelancerRadioInput" class="custom-control-input" @if (!old('contractor_type') || old('contractor_type') == 'freelancer') checked @endif>
-                                                <label for="freelancerRadioInput" class="custom-control-label">Фрилансером</label>
-                                            </div>
-                                            <div class="custom-control custom-radio" id="agencyRadio">
-                                                <input type="radio" name="contractor_type" value="agency" id="agencyRadioInput" class="custom-control-input" @if (old('contractor_type') == 'agency') checked @endif>
-                                                <label for="agencyRadioInput" class="custom-control-label">Digital агенством</label>
+                                                @enderror
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group contractor-type-agency @if (!old('contractor_type') && old('contractor_type') == 'freelancer') d-none @endif">
-                                            <label for="contractor_companyName">Название компании</label>
-                                            <input type="text" name="contractor_company_name" id="contractor_companyName" class="form-control @error('contractor_company_name') is-invalid @enderror" value="{{ old('contractor_company_name') }}">
-                                            @error('contractor_company_name')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group contractor-type-freelancer @if (old('contractor_type') == 'agency') d-none @endif">
-                                            <label>Ваш пол:</label>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" name="gender" value="male" id="maleRadio"
-                                                       class="custom-control-input" @if (!old('gender') || old('gender') == 'male') checked @endif>
-                                                <label for="maleRadio" class="custom-control-label">Мужской</label>
-                                            </div>
-                                            <div class="custom-control custom-radio">
-                                                <input type="radio" name="gender" value="female" id="femaleRadio"
-                                                       class="custom-control-input" @if (old('gender') == 'female') checked @endif>
-                                                <label for="femaleRadio" class="custom-control-label">Женский</label>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for="">Вы являетесь:</label>
+                                                <div class="custom-control custom-radio" id="freelancerRadio">
+                                                    <input type="radio" name="contractor_type" value="freelancer" id="freelancerRadioInput" class="custom-control-input" @if (!old('contractor_type') || old('contractor_type') == 'freelancer') checked @endif>
+                                                    <label for="freelancerRadioInput" class="custom-control-label">Фрилансером</label>
+                                                </div>
+                                                <div class="custom-control custom-radio" id="agencyRadio">
+                                                    <input type="radio" name="contractor_type" value="agency" id="agencyRadioInput" class="custom-control-input" @if (old('contractor_type') == 'agency') checked @endif>
+                                                    <label for="agencyRadioInput" class="custom-control-label">Digital агенством</label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group contractor-type-freelancer @if (old('contractor_type') == 'agency') d-none @endif">
-                                            <label for="contractor_birthdayDate">Дата рождения</label>
-                                            <input type="text" class="form-control @error('contractor_birthday_date') is-invalid @enderror"
-                                                   id="contractor_birthdayDate" name="contractor_birthday_date" value="{{ old('contractor_birthday_date')  }}">
-                                            @error('contractor_birthday_date')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                        <div class="col-sm-12">
+                                            <div class="form-group contractor-type-agency @if (!old('contractor_type') && old('contractor_type') == 'freelancer') d-none @endif">
+                                                <label for="contractor_companyName">Название компании</label>
+                                                <input type="text" name="contractor_company_name" id="contractor_companyName" class="form-control @error('contractor_company_name') is-invalid @enderror" value="{{ old('contractor_company_name') }}">
+                                                @error('contractor_company_name')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group">
-                                            <label for="aboutMySelfContractor" class="contractor-type-freelancer @if (old('contractor_type') == 'agency') d-none @endif">О себе</label><label
-                                                for="aboutMySelfContractor" class="contractor-type-agency @if (!old('contractor_type') || old('contractor_type') == 'freelancer') d-none @endif">О компании</label>
-                                            <textarea name="contractor_about_myself" id="aboutMySelfContractor">{{ old('about_myself') }}</textarea>
-                                            @error('contractor_about_myself')
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-group contractor-type-freelancer @if (old('contractor_type') == 'agency') d-none @endif">
+                                                <label>Ваш пол:</label>
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" name="gender" value="male" id="maleRadio"
+                                                           class="custom-control-input" @if (!old('gender') || old('gender') == 'male') checked @endif>
+                                                    <label for="maleRadio" class="custom-control-label">Мужской</label>
+                                                </div>
+                                                <div class="custom-control custom-radio">
+                                                    <input type="radio" name="gender" value="female" id="femaleRadio"
+                                                           class="custom-control-input" @if (old('gender') == 'female') checked @endif>
+                                                    <label for="femaleRadio" class="custom-control-label">Женский</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <div class="form-group contractor-type-freelancer @if (old('contractor_type') == 'agency') d-none @endif">
+                                                <label for="contractor_birthdayDate">Дата рождения</label>
+                                                <input type="text" class="form-control @error('contractor_birthday_date') is-invalid @enderror"
+                                                       id="contractor_birthdayDate" name="contractor_birthday_date" value="{{ old('contractor_birthday_date')  }}">
+                                                @error('contractor_birthday_date')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for="aboutMySelfContractor" class="contractor-type-freelancer @if (old('contractor_type') == 'agency') d-none @endif">О себе</label><label
+                                                    for="aboutMySelfContractor" class="contractor-type-agency @if (!old('contractor_type') || old('contractor_type') == 'freelancer') d-none @endif">О компании</label>
+                                                <textarea name="contractor_about_myself" id="aboutMySelfContractor">{{ old('about_myself') }}</textarea>
+                                                @error('contractor_about_myself')
                                                 <div class="text-danger">{{ $message }}</div>
-                                            @enderror
+                                                @enderror
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <button type="submit" class="btn btn-light-green">Профессиональные данные <i class="fas fa-arrow-right"></i></button>
-                            </form>
-                        </div>
-                        <div class="tab-pane fade @if (old('user_role') == 'customer' ) show active @endif" id="customer" role="tabpanel" aria-labelledby="profile-tab">
+                                    <button type="submit" class="btn btn-light-green">Профессиональные данные <i class="fas fa-arrow-right"></i></button>
+                                </form>
+                            </div>
+                        @endif
+                        <div class="tab-pane fade @if (old('user_role') == 'customer' || request()->hasCookie('tenderId') ) show active @endif" id="customer" role="tabpanel" aria-labelledby="profile-tab">
                             <form action="" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="user_role" value="customer">
@@ -222,16 +226,19 @@
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
             <script src="{{ asset('js/ckeditor.js') }}"></script>
-
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    flatpickr(document.getElementById('contractor_birthdayDate'), {
-                        dateFormat: 'd.m.Y',
-                        maxDate: new Date()
+            @if (!request()->hasCookie('tenderId'))
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        flatpickr(document.getElementById('contractor_birthdayDate'), {
+                            dateFormat: 'd.m.Y',
+                            maxDate: new Date()
+                        });
                     });
-                });
-            </script>
-            <script>ClassicEditor
+                </script>
+            @endif
+            <script>
+                @if (!request()->hasCookie('tenderId'))
+                ClassicEditor
                     .create(document.querySelector('#aboutMySelfContractor'), {
 
                         toolbar: {
@@ -257,6 +264,7 @@
                     .catch(error => {
                         console.error(error);
                     });
+                @endif
                 ClassicEditor
                     .create(document.querySelector('#aboutMySelfCompany'), {
 
@@ -285,14 +293,16 @@
                     });
             </script>
             <script>
-                    document.getElementById('agencyRadio').addEventListener('click', function () {
-                        $('.contractor-type-freelancer').addClass('d-none');
-                        $('.contractor-type-agency').removeClass('d-none');
-                    });
-                    document.getElementById('freelancerRadio').addEventListener('click', function () {
-                        $('.contractor-type-agency').addClass('d-none');
-                        $('.contractor-type-freelancer').removeClass('d-none');
-                    });
+                    @if (!request()->hasCookie('tenderId'))
+                        document.getElementById('agencyRadio').addEventListener('click', function () {
+                            $('.contractor-type-freelancer').addClass('d-none');
+                            $('.contractor-type-agency').removeClass('d-none');
+                        });
+                        document.getElementById('freelancerRadio').addEventListener('click', function () {
+                            $('.contractor-type-agency').addClass('d-none');
+                            $('.contractor-type-freelancer').removeClass('d-none');
+                        });
+                    @endif
                     document.getElementById('privateRadio').addEventListener('click', function () {
                         $('.customer-type-company').addClass('d-none');
                         $('.customer-type-private').removeClass('d-none');
