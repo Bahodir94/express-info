@@ -111,8 +111,29 @@
       </div>
       <ul class="user-profile">
 
-        <li><a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i>Войти</a></li>
-        <li><a href="{{ route('register') }}"><i class="fas fa-registered"></i>Зарегистрироваться</a></li>
+          @guest
+              <li><a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i>Войти</a></li>
+              <li><a href="{{ route('register') }}"><i class="fas fa-registered"></i>Зарегистрироваться</a></li>
+          @else
+              @if (auth()->user()->hasRole('customer'))
+                  <li><a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i>
+                          Добавить заказ</a></li>@endif
+              <li>
+                  <a href="#" id="navBarDropdown" class="nav-link dropdown-toggle" role="button"
+                     data-toggle="dropdown" aria-haspopup="true"
+                     aria-expanded="false">@if (Auth::user()->name) {{ Auth::user()->name }} @else {{ Auth::user()->email }} @endif
+                      <span class="caret"></span></a>
+                  <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                      <a href="{{ route('site.account.index') }}" class="dropdown-item"><i
+                              class="fas fa-user"></i> Личный кабинет</a>
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                          <i class="fas fa-sign-out-alt"></i> Выйти
+                      </a>
+                  </div>
+              </li>
+          @endguest
       </ul>
     </div>
     <div class="menu-mobile">
