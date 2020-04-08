@@ -26,7 +26,8 @@ class AccountController extends Controller
 
     public function __construct(UserRepositoryInterface $userRepository, HandbookCategoryRepositoryInterface $categoryRepository)
     {
-        $this->middleware('account.completed');
+        $this->middleware('auth');
+        $this->middleware('account.completed')->except(['create', 'store']);
 
         $this->userRepository = $userRepository;
         $this->categoryRepository = $categoryRepository;
@@ -52,6 +53,38 @@ class AccountController extends Controller
         else
             abort(403);
     }
+
+    public function create()
+    {
+        $user = auth()->user();
+        return \view('site.pages.account.create', compact('user'));
+    }
+
+    public function store(Request $request)
+    {
+        $userType = $request->get('user_role');
+        $validationMessages = [
+            'required' => 'Это поле обязательно к заполнению',
+            'max' => 'Количество символов должно быть не больше :max',
+            'integer' => 'Укажите целочисленное значение',
+            'date' => 'Неверный формат даты',
+            'string' => 'Укажите стороковое значение',
+            'email' => 'Неверный формат электронной почты'
+        ];
+        Validator::make($request->all(), [
+            $userType . '_name' => ['required', 'string', 'max:255'],
+            $userType . '_phone_number' => ['required', 'string'],
+            'contractor_birthday_date' => Rule::requiredIf($userType == 'contractor' && $request->get('contractor_type') == 'freelancer'),
+            $userType . '_about_myself' => ['required', 'string'],
+            $userType . '_company_name' => Rule::requiredIf($request->get('customer_type') == 'company' || $request->get('contractor_type') == 'agency'),
+            'image' => 'nullable|file'
+        ], $validationMessages)->validate();
+        $this->userRepository->createAccount($request);
+        if ($userType == 'contractor')
+            return redirect()->route('site.account.contractor.professional');
+        return redirect()->route('site.account.index');
+    }
+
 
     public function savePersonalContractor(Request $request)
     {

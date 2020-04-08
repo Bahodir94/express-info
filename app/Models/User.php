@@ -298,8 +298,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function checkCompletedAccount()
     {
-        // TODO: Check account for completed data
-        return true;
+        return $this->completed;
     }
 
     public function getFirstName()
