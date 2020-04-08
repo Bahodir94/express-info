@@ -62,7 +62,7 @@
                                             <input type="hidden" name="redirect_to" value="{{ route('site.account.tenders.candidates', $tender->slug) }}">
                                             <button class="btn btn-light btn-edit" type="submit" onclick="return confirm('Вы уверены, что хотите принять кандидата {{ $request->user->getCommonTitle() }} на роль исполнителя этого конкурса? В будущем вы не сможете поменять своё решение.')" data-toggle="tooltip" data-placement="top" title="Принять заявку"><i class="fas fa-check"></i></button>
                                         </form>
-                                        <form action="{{ route('site.tenders.requests.cancel', $tender->id) }}" method="post" class="ml-1">
+                                        <form action="{{ route('site.tenders.requests.cancel') }}" method="post" class="ml-1">
                                             @csrf
                                             <input type="hidden" name="requestId" value="{{ $request->id }}">
                                             <input type="hidden" name="redirect_to" value="{{ route('site.account.tenders.candidates', $tender->slug) }}">
