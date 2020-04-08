@@ -80,7 +80,7 @@ class LoginController extends Controller
     public function handleGoogleCallback(){
 
        $user = Socialite::driver('google')->stateless()->user();
-       return $user->toket;
+       return $user->token;
     }
 
     protected function loggedOut(Request $request)
