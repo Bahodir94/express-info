@@ -47,7 +47,7 @@ return [
     'google' => [
         'client_id' => '79646134491-gurl104nfn4dljdtb47673id0fddm8n7.apps.googleusercontent.com',
         'client_secret' => 'd1gDXTWVHHgDM04Mq32Up_o4',
-        'redirect' => 'https://www.vid.uz/auth/google/callback',
+        'redirect' => 'https://vid.uz/auth/google/callback',
 
     ],
 
