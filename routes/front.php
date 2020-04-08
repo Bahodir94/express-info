@@ -71,6 +71,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::post('/tenders/cancelRequest', 'TenderController@cancelRequest')->name('tenders.requests.cancel');
     Route::delete('/tenders/{id}/delete', 'TenderController@delete')->name('tenders.delete');
     Route::post('/tenders/{id}/update', 'TenderController@update')->name('tenders.edit');
+    Route::post('/tenders/{tenderId}/accept/{requestId}', 'TenderController@acceptTenderRequest')->name('tenders.accept');
 
 
     Route::get('/', 'HomeController@index')->name('catalog.index');

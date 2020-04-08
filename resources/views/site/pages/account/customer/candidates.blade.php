@@ -32,7 +32,7 @@
                                     <div class="img"><img src="{{ $request->user->getImage() }}" alt="{{ $request->user->getCommonTitle() }}">
                                     </div>
                                     <div class="text">
-                                        <h3 class="title-job"><a href="{{ route('site.contractors.show', $request->user->slug) }}">{{ $request->user->getCommonTitle() }}</a></h3>
+                                        <h3 class="title-job"><a href="{{ route('site.contractors.show', $request->user->slug) }}">{{ $request->user->getCommonTitle() }}</a>  @if ($tender->contractor_id == $request->user_id) <i class="fas fa-check-circle text-success"></i> @endif</h3>
                                         <div class="date-job"><i class="fas fa-check-circle"></i> @if ($request->user->cotractor_type == 'agency') Digital-агенство @else Фрилансер @endif </div>
                                     </div>
                                 </div>
@@ -56,14 +56,20 @@
                             <td class="d-none d-xl-table-cell text-center">от {{ $request->budget_from }} сум до {{ $request->budget_to }} сум</td>
                             <td class="d-none d-md-table-cell text-right">
                                 <div class="d-flex">
-                                    <a class="btn btn-light btn-edit"><i class="fas fa-check"></i></a>
-                                    <form action="{{ route('site.tenders.requests.cancel', $tender->id) }}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="requestId" value="{{ $request->id }}">
-                                        <input type="hidden" name="redirect_to" value="{{ route('site.account.tenders.candidates', $tender->slug) }}">
-                                        <button type="submit" onclick="return confirm('Вы уверены, что хотите отклонить кандидата {{ $request->user->getCommonTitle() }}?')" class="btn btn-light btn-delete"><i class="fas fa-times"></i>
-                                        </button>
-                                    </form>
+                                    @if ($tender->contractor_id !== $request->user_id)
+                                        <form action="{{ route('site.tenders.accept', ['tenderId' => $tender->id, 'requestId' => $request->id]) }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="redirect_to" value="{{ route('site.account.tenders.candidates', $tender->slug) }}">
+                                            <button class="btn btn-light btn-edit" type="submit" onclick="return confirm('Вы уверены, что хотите принять кандидата {{ $request->user->getCommonTitle() }} на роль исполнителя этого конкурса? В будущем вы не сможете поменять своё решение.')" data-toggle="tooltip" data-placement="top" title="Принять заявку"><i class="fas fa-check"></i></button>
+                                        </form>
+                                        <form action="{{ route('site.tenders.requests.cancel', $tender->id) }}" method="post" class="ml-1">
+                                            @csrf
+                                            <input type="hidden" name="requestId" value="{{ $request->id }}">
+                                            <input type="hidden" name="redirect_to" value="{{ route('site.account.tenders.candidates', $tender->slug) }}">
+                                            <button type="submit" onclick="return confirm('Вы уверены, что хотите отклонить кандидата {{ $request->user->getCommonTitle() }}?')" data-toggle="tooltip" data-placement="top" title="Отклонить заявку" class="btn btn-light btn-delete"><i class="fas fa-times"></i>
+                                            </button>
+                                        </form>
+                                    @endif
                                 </div>
                             </td>
                         </tr>
