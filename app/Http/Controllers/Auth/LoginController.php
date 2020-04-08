@@ -9,7 +9,12 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Socialite;
+
+use Auth;
+
 use Exception;
+
+use App\User;
 
 
 class LoginController extends Controller
@@ -89,7 +94,7 @@ class LoginController extends Controller
                     'google_id'=> $user->id
                 ]);
                 Auth::login($newUser);
-                return redirect('/home');;
+                return redirect()->back();
             }
         } catch (Exception $e) {
             return redirect('auth/google');
