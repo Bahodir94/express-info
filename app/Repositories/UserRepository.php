@@ -161,4 +161,31 @@ class UserRepository implements UserRepositoryInterface
         $user->generateSlug();
         $user->uploadImage($data->file('image'));
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function createUserViaTelegram($data)
+    {
+        $telegramId = $data->get('id');
+        $name = $data->get('first_name') . ' ' . $data->get('last_name');
+        $username = $data->get('username');
+        $user = User::create([
+            'name' => $name,
+            'telegram_id' => $telegramId,
+            'telegram_username' => $username,
+            'email' => '',
+            'password' => ''
+        ]);
+        $user->generateSlug();
+        return $user;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getUserByTelegramId(int $telegramId)
+    {
+        return User::where('telegram_id', $telegramId)->first();
+    }
 }

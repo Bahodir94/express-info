@@ -93,4 +93,20 @@ interface UserRepositoryInterface
      * @return mixed
      */
     public function createAccount($data);
+
+    /**
+     * Register new user via Telegram
+     *
+     * @param \Illuminate\Http\Request $data
+     * @return mixed
+     */
+    public function createUserViaTelegram($data);
+
+    /**
+     * Get user by Telegram ID
+     *
+     * @param int $telegramId
+     * @return User
+     */
+    public function getUserByTelegramId(int $telegramId);
 }

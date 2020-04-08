@@ -43,3 +43,4 @@ Route::middleware('needsList')->group(function() {
 
   Route::get('/home', 'HomeControllerReg@index')->name('home');
 });
+Route::get('/auth/telegram/callback', 'AccountController@telegramCallback');
