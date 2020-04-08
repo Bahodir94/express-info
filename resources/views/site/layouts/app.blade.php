@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('front/css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap&subset=cyrillic"
           rel="stylesheet">
@@ -33,6 +34,7 @@
     <title>
         @yield('title') | vid.uz
     </title>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             let menuItems = document.querySelectorAll('.menu-item-li');
