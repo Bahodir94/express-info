@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
@@ -50,5 +51,19 @@ class LoginController extends Controller
             'email.email' => 'Неверный формат электронной почты',
             'password.required' => 'Укажите пароль'
         ])->validate();
+    }
+
+    protected function sendLoginResponse(Request $request)
+    {
+        $email = $request->get('email');
+        $user = User::where('email', $email)->first();
+        if (!$user->completed)
+            return redirect('/account/create');
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        return $this->authenticated($request, $this->guard()->user())
+            ?: redirect()->intended($this->redirectPath());
     }
 }
