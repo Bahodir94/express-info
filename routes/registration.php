@@ -50,4 +50,4 @@ Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
 
   Route::get('/home', 'HomeControllerReg@index')->name('home');
 });
-Route::get('/auth/telegram/callback', 'AccountController@telegramCallback');
+Route::get('/auth/telegram/callback', 'Site\AccountController@telegramCallback');
