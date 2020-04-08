@@ -25,7 +25,7 @@
             </div>
             <div class="box-admin tender-box">
                 <div class="header-box-admin">
-                    <h3>Создание аккаунта для {{ $user->email }}</h3>
+                    <h3>Создание аккаунта для {{ $user->getCommonTitle() }}</h3>
                 </div>
                 <hr>
                 <div class="body-box-admin">
@@ -66,7 +66,7 @@
                                             <div class="form-group">
                                                 <label for="contractorName">Ваше имя</label>
                                                 <input type="text" name="contractor_name" id="contractorName"
-                                                       class="form-control @error('contractor_name') is-invalid @enderror" value="{{ old('contractor_name') }}">
+                                                       class="form-control @error('contractor_name') is-invalid @enderror" value="@if($user->name) {{ $user->name }} @else {{ old('contractor_name') }} @endif">
                                                 @error('contractor_name')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -130,6 +130,15 @@
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group">
+                                                <label for="contractor_email">Email</label>
+                                                <input type="text" name="contractor_email" id="contractor_email" class="form-control @error('contractor_email') is-invalid @enderror" @if ($user->email) disabled @endif value="@if ($user->email) {{ $user->email }} @else {{ old('contractor_email') }} @endif">
+                                                @error('contractor_email')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
                                                 <label for="aboutMySelfContractor" class="contractor-type-freelancer @if (old('contractor_type') == 'agency') d-none @endif">О себе</label><label
                                                     for="aboutMySelfContractor" class="contractor-type-agency @if (!old('contractor_type') || old('contractor_type') == 'freelancer') d-none @endif">О компании</label>
                                                 <textarea name="contractor_about_myself" id="aboutMySelfContractor">{{ old('about_myself') }}</textarea>
@@ -164,7 +173,7 @@
                                         <div class="form-group">
                                             <label for="customer_name">Ваше имя</label>
                                             <input type="text" name="customer_name" id="customer_name"
-                                                   class="form-control @error('customer_name') is-invalid @enderror" value="{{ old('customer_name') }}">
+                                                   class="form-control @error('customer_name') is-invalid @enderror" value="@if($user->name) {{ $user->name }} @else {{ old('customer_name') }} @endif">
                                             @error('customer_name')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -197,6 +206,15 @@
                                             <label for="customer_companyName">Название компании</label>
                                             <input type="text" name="customer_company_name" id="customer_companyName" class="form-control @error('customer_company_name') is-invalid @enderror" value="{{ old('customer_company_name') }}">
                                             @error('customer_company_name')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="customer_email">Email</label>
+                                            <input type="text" name="customer_email" id="customer_email" class="form-control @error('customer_email') is-invalid @enderror" @if ($user->email) disabled @endif value="@if ($user->email) {{ $user->email }} @else {{ old('customer_email') }} @endif">
+                                            @error('customer_email')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
