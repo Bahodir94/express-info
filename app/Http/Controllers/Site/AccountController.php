@@ -82,13 +82,14 @@ class AccountController extends Controller
             'integer' => 'Укажите целочисленное значение',
             'date' => 'Неверный формат даты',
             'string' => 'Укажите стороковое значение',
-            'email' => 'Неверный формат электронной почты'
+            'email' => 'Неверный формат электронной почты',
+            $userType . '_email.unique' => 'Такая электронная почта уже зарегистрирована'
         ];
         Validator::make($request->all(), [
             $userType . '_name' => ['required', 'string', 'max:255'],
             $userType . '_phone_number' => ['required', 'string'],
             'contractor_birthday_date' => Rule::requiredIf($userType == 'contractor' && $request->get('contractor_type') == 'freelancer'),
-            $userType . '_email' => ['required', 'email'],
+            $userType . '_email' => ['required', 'email', 'unique:users,email'],
             $userType . '_about_myself' => ['required', 'string'],
             $userType . '_company_name' => Rule::requiredIf($request->get('customer_type') == 'company' || $request->get('contractor_type') == 'agency'),
             'image' => 'nullable|file'
