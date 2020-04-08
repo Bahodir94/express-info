@@ -76,6 +76,7 @@ class AccountController extends Controller
     public function store(Request $request)
     {
         $userType = $request->get('user_role');
+        $user = auth()->user();
         $validationMessages = [
             'required' => 'Это поле обязательно к заполнению',
             'max' => 'Количество символов должно быть не больше :max',
@@ -89,7 +90,7 @@ class AccountController extends Controller
             $userType . '_name' => ['required', 'string', 'max:255'],
             $userType . '_phone_number' => ['required', 'string'],
             'contractor_birthday_date' => Rule::requiredIf($userType == 'contractor' && $request->get('contractor_type') == 'freelancer'),
-            $userType . '_email' => ['required', 'email', 'unique:users,email'],
+            $userType . '_email' => ['required', 'email', 'unique:users,email,'.$user->id],
             $userType . '_about_myself' => ['required', 'string'],
             $userType . '_company_name' => Rule::requiredIf($request->get('customer_type') == 'company' || $request->get('contractor_type') == 'agency'),
             'image' => 'nullable|file'
