@@ -97,6 +97,7 @@ class AccountController extends Controller
             return redirect()->route('site.account.contractor.professional');
         if ($request->hasCookie('tenderId')) {
             $this->tenderRepository->setOwnerToTender($request->cookie('tenderId'), auth()->user()->id);
+            \Cookie::forget('tenderId');
             return redirect()->route('site.account.index')->with('success', 'Ваш тендер опубликован, вы можете посмотреть его в разделе "Мои тендеры".');
         }
         return redirect()->route('site.account.index');
