@@ -93,10 +93,10 @@ class LoginController extends Controller
                     'password' => ''
                 ]);
                 Auth::login($newUser);
-                return redirect()->route('site.catalog.index')->with('error', 'Авторизация через Google в данный момент недоступна.');
+                return redirect()->route('site.account.index');
             }
         } catch (Exception $e) {
-            return redirect()->route('site.account.index');
+            return redirect()->route('site.catalog.index')->with('error', 'Авторизация через Google в данный момент недоступна.');
         }
     }
 }
