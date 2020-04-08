@@ -40,7 +40,9 @@ class TenderRepository implements TenderRepositoryInterface
             $tenderData['client_type'] = $user->customer_type;
             $tenderData['owner_id'] = $user->id;
         } else {
-            $tenderData['client_name'] = $tenderData['firstName'] . ' ' . $tenderData['secondName'];
+            $tenderData['client_name'] = '';
+            $tenderData['client_type'] = '';
+            $tenderData['client_phone_number'] = '';
         }
         $tender = Tender::create($tenderData);
         $tender->saveFiles($data->file('files'));
