@@ -84,11 +84,12 @@
                                 Добавить заказ</a></li>@endif
                         <li>
                             <a href="#" id="navBarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@if (Auth::user()->name) {{ Auth::user()->name }} @else {{ Auth::user()->email }} @endif <span class="caret"></span></a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-primary" href="{{ route('logout') }}"
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                                <a href="{{ route('site.account.index') }}" class="dropdown-item"><i class="fas fa-user"></i> Личный кабинет</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    Выйти
+                                    <i class="fas fa-sign-out-alt"></i> Выйти
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

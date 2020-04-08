@@ -111,3 +111,7 @@ img.avatar {
     border-color: #63ba16;
     outline: 0;
 }
+
+a.dropdown-item:active {
+    background-color: #e4e5e6;
+}
