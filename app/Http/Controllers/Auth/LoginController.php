@@ -84,18 +84,19 @@ class LoginController extends Controller
             $finduser = User::where('google_id', $user->id)->first();
             if($finduser){
                 Auth::login($finduser);
-                return redirect('/home');
+                return redirect()->route('site.account.index');
             }else{
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
-                    'google_id'=> $user->id
+                    'google_id'=> $user->id,
+                    'password' => ''
                 ]);
                 Auth::login($newUser);
-                return redirect()->route('site.account.index');
+                return redirect()->route('site.catalog.index')->with('error', 'Авторизация через Google в данный момент недоступна.');
             }
         } catch (Exception $e) {
-            return redirect('auth/google');
+            return redirect()->route('site.account.index');
         }
     }
 }
