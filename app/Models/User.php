@@ -25,7 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'facebook', 'vk', 'telegram', 'whatsapp', 'instagram',
         'phone_number', 'about_myself',
         'slug',
-        'telegram_id', 'telegram_username'
+        'telegram_id', 'telegram_username', 'google_id'
     ];
 
     /**
