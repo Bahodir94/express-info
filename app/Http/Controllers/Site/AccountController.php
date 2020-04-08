@@ -38,8 +38,8 @@ class AccountController extends Controller
                                 HandbookCategoryRepositoryInterface $categoryRepository,
                                 TenderRepositoryInterface $tenderRepository)
     {
-        $this->middleware('auth');
-        $this->middleware('account.completed')->except(['create', 'store']);
+        $this->middleware('auth')->except(['telegramCallback']);
+        $this->middleware('account.completed')->except(['create', 'store', 'telegramCallback']);
 
         $this->userRepository = $userRepository;
         $this->categoryRepository = $categoryRepository;
