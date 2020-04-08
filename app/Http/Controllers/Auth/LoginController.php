@@ -9,7 +9,12 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Socialite;
+
+use Auth;
+
 use Exception;
+
+use App\User;
 
 
 class LoginController extends Controller
