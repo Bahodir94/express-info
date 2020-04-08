@@ -106,8 +106,9 @@ class LoginController extends Controller
       } catch (Exception $e) {
           return redirect()->route('site.catalog.index')->with('error', 'Авторизация через Google в данный момент недоступна.');
       }
-      }
     }
+
+
 
     protected function loggedOut(Request $request)
     {
