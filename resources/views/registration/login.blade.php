@@ -49,7 +49,13 @@
                         <button class="btn btn-light-green w-100" type="submit">Вход</button>
                     </form>
                 </div>
-
+                <div class="sign-up-other">
+                  <div class="text-or">Или</div>
+                  <div class="sign-in-social row row-md">
+                    <div class="col-md-6"><a class="sign-in-btn sign-in-btn-fb" href="№"><i class="fab fa-telegram-plane"></i>Вход через Telegram</a></div>
+                    <div class="col-md-6"><a class="sign-in-btn sign-in-btn-google-p" href="{{ url('auth/google') }}"> <i class="fab fa-google-plus-g"></i>Вход через Google</a></div>
+                  </div>
+                </div>
             </div>
         </div>
     </div>
