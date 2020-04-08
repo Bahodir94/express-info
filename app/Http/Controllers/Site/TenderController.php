@@ -152,6 +152,9 @@ class TenderController extends Controller
     {
         $requestId = $request->get('requestId');
         $this->tenderRepository->cancelRequest($requestId);
+        if ($request->has('redirect_to')) {
+            return redirect($request->get('redirect_to'))->with('success', 'Заявка отклонена.');
+        }
         return back()->with('success', 'Ваша заявка отменена');
     }
 
@@ -182,5 +185,15 @@ class TenderController extends Controller
         $this->tenderRepository->delete($id);
 
         return redirect($request->get('redirect_to'))->with('success', 'Конкурс удалён');
+    }
+
+    public function acceptTenderRequest(Request $request, int $tenderId, int $requestId)
+    {
+        $redirectTo = $request->get('redirect_to');
+        if ($this->tenderRepository->acceptRequest($tenderId, $requestId)) {
+            return redirect($redirectTo)->with('success', 'Исполнитель на этот конкурс назначен! ');
+        } else {
+            return redirect($redirectTo)->with('error', 'Невозможно назначить исполнителя на этот конкурс');
+        }
     }
 }

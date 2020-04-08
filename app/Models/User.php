@@ -166,6 +166,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * All tenders that user's request was accepted
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function contractedTenders()
+    {
+        return $this->hasMany(Tender::class, 'contractor_id', 'user_id');
+    }
+
+    /**
      * Generate slug
      *
      * @return void
@@ -288,8 +298,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function checkCompletedAccount()
     {
-        // TODO: Check account for completed data
-        return true;
+        return $this->completed;
     }
 
     public function getFirstName()

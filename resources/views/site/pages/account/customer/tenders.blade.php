@@ -59,6 +59,7 @@
                             <td class="d-none d-xl-table-cell text-center active">@if ($tender->opened) Активный @endif</td>
                             <td class="d-none d-md-table-cell text-right">
                                 <div class="d-flex">
+                                    <a href="{{ route('site.account.tenders.candidates', $tender->slug) }}" class="btn btn-light btn-new" data-toggle="tooltip" title="Посмотреть кандидатов"><i class="fas fa-eye"></i></a>
                                     <a href="{{ route('site.account.tenders.edit', $tender->slug) }}" class="btn btn-light btn-edit"><i class="fas fa-pencil-alt"></i>
                                     </a>
                                     <form action="{{ route('site.tenders.delete', $tender->id) }}" method="post">

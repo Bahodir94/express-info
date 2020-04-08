@@ -21,7 +21,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="input-group-icons">
-                            <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email адресс" name="email"
+                            <input class="form-control @error('email') is-invalid @enderror" type="email" placeholder="Email адрес" name="email"
                                    value="{{ old('email') }}" autocomplete="email"><span
                                 class="prepend-icon"><i class="fas fa-at"></i></span>
                             @error('email')

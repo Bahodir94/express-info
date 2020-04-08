@@ -102,4 +102,19 @@ class TenderRepository implements TenderRepositoryInterface
     {
         TenderRequest::destroy($requestId);
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function acceptRequest($tenderId, $requestId)
+    {
+        $tender = $this->get($tenderId);
+        $request = TenderRequest::findOrFail($requestId);
+        if ($tender->contractor)
+            return false;
+        abort_if($tender->owner->id !== auth()->user()->id, 401);
+        $tender->contractor_id = $request->user_id;
+        $tender->save();
+        return true;
+    }
 }

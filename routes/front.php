@@ -54,12 +54,15 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
 
     // Account routes
     Route::get('/account', 'AccountController@index')->name('account.index');
+    Route::get('/account/create', 'AccountController@create');
+    Route::post('/account/create', 'AccountController@store');
     Route::post('/account/contractor/profile/save', 'AccountController@savePersonalContractor')->name('account.contractor.profile.save');
     Route::get('/account/professional', 'AccountController@professional')->name('account.contractor.professional');
     Route::post('/account/professional', 'AccountController@saveProfessional');
     Route::post('/account/customer/profile/save', 'AccountController@saveCustomerProfile')->name('account.customer.profile.save');
     Route::get('/account/tenders', 'AccountController@tenders')->name('account.tenders');
     Route::get('/account/tenders/{slug}/edit', 'AccountController@editTender')->name('account.tenders.edit');
+    Route::get('/account/tenders/{slug}/candidates', 'AccountController@tenderCandidates')->name('account.tenders.candidates');
 
     // Tenders routes
     Route::get('/tenders', 'TenderController@index')->name('tenders.index');
@@ -70,6 +73,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::post('/tenders/cancelRequest', 'TenderController@cancelRequest')->name('tenders.requests.cancel');
     Route::delete('/tenders/{id}/delete', 'TenderController@delete')->name('tenders.delete');
     Route::post('/tenders/{id}/update', 'TenderController@update')->name('tenders.edit');
+    Route::post('/tenders/{tenderId}/accept/{requestId}', 'TenderController@acceptTenderRequest')->name('tenders.accept');
 
 
     Route::get('/', 'HomeController@index')->name('catalog.index');

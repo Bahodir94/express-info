@@ -50,31 +50,6 @@
                     </div>
                     <div class="col-sm-12 col-md-6">
                         <div class="form-group">
-                            <label for="birthdayDate">Дата рождения</label>
-                            <input type="text" class="form-control @error('birthday_date') is-invalid @enderror"
-                                   id="birthdayDate" name="birthday_date" value="{{ $user->birthday_date }}">
-                            @error('birthday_date')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class="form-group">
-                            <label>Ваш пол:</label>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" name="gender" value="male" id="maleRadio"
-                                       class="custom-control-input" @if ($user->gender == 'male') checked @endif>
-                                <label for="maleRadio" class="custom-control-label">Мужской</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" name="gender" value="female" id="femaleRadio"
-                                       class="custom-control-input" @if ($user->gender == 'female') checked @endif>
-                                <label for="femaleRadio" class="custom-control-label">Женский</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div class="form-group">
                             <label for="phoneNumber">Номер телефона</label>
                             <input type="text" name="phone_number" id="phoneNumber" class="form-control @error('phone_number') is-invalid @enderror" value="{{ $user->phone_number }}">
                             @error('phone_number')
@@ -82,9 +57,43 @@
                             @enderror
                         </div>
                     </div>
+                    @if ($user->contractor_type == 'freelancer')
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label>Ваш пол:</label>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" name="gender" value="male" id="maleRadio"
+                                           class="custom-control-input" @if ($user->gender == 'male') checked @endif>
+                                    <label for="maleRadio" class="custom-control-label">Мужской</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" name="gender" value="female" id="femaleRadio"
+                                           class="custom-control-input" @if ($user->gender == 'female') checked @endif>
+                                    <label for="femaleRadio" class="custom-control-label">Женский</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label for="birthdayDate">Дата рождения</label>
+                                <input type="text" class="form-control @error('birthday_date') is-invalid @enderror"
+                                       id="birthdayDate" name="birthday_date" value="{{ $user->birthday_date }}">
+                                @error('birthday_date')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    @elseif($user->contractor_type == 'agency')
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="company_name">Название компании</label>
+                                <input type="text" name="company_name" id="company_name" class="form-control form-control" value="{{ $user->company_name }}">
+                            </div>
+                        </div>
+                    @endif
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <label for="aboutMySelf">О себе</label>
+                            <label for="aboutMySelf">@if($user->contractor_type == 'agency') О компании @elseif($user->contractor_type == 'freelancer') О себе @endif</label>
                             <textarea name="about_myself" id="aboutMySelf">{{ $user->about_myself }}</textarea>
                         </div>
                     </div>
