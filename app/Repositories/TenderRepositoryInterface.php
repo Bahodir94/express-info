@@ -84,4 +84,13 @@ interface TenderRepositoryInterface
      * @return boolean
      */
     public function acceptRequest($tenderId, $requestId);
+
+    /**
+     * Set the owner to the tender
+     *
+     * @param $tenderId
+     * @param $userId
+     * @return mixed
+     */
+    public function setOwnerToTender($tenderId, $userId);
 }

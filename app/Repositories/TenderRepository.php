@@ -117,4 +117,14 @@ class TenderRepository implements TenderRepositoryInterface
         $tender->save();
         return true;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function setOwnerToTender($tenderId, $userId)
+    {
+        $tender = $this->get($tenderId);
+        $tender->owner_id = $userId;
+        $tender->save();
+    }
 }
