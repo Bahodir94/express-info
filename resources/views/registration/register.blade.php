@@ -58,7 +58,7 @@
                 <div class="sign-up-other">
                     <div class="text-or">Или</div>
                     <div class="sign-in-social row row-md">
-                        <div class="col-md-6"><script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="vid_registration_bot" data-size="medium" data-auth-url="/account/create" data-request-access="write"></script></div>
+                        <div class="col-md-6"><script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="vid_registration_bot" data-size="large" data-auth-url="/auth/telegram/callback"></script></div>
 
                     </div>
                 </div>
