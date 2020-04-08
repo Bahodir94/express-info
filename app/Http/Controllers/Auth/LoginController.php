@@ -72,14 +72,23 @@ class LoginController extends Controller
         return $this->authenticated($request, $this->guard()->user())
             ?: redirect()->intended($this->redirectPath());
     }
-
+    /**
+     * Redirect the user to the google authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function redirectToGoogle(){
-        return Socialite::driver('google')->scopes(['profile','email'])->redirect();
+        return Socialite::driver('google')->redirect();
     }
 
+    /**
+     * Obtain the user information from google.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function handleGoogleCallback(){
 
-       $user = Socialite::driver('google')->stateless()->user();
+       $user = Socialite::driver('google')->user();
        return $user->name;
     }
 
