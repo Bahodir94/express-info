@@ -119,5 +119,8 @@ img.avatar {
    padding: 10px 0;
    position: relative;
    font-weight: 600;
+}
 
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #d4d5d6;
 }

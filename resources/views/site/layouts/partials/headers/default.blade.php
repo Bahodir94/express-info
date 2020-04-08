@@ -70,34 +70,33 @@
                 </div>
             </div>
             <div class="header-right">
-                @guest
-                    <ul>
-                        <li><a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i>
-                                Добавить заказ</a></li>
-                        <li><a href="{{ route('login')}}"><i class="fas fa-sign-out-alt"></i> Вход</a><span> / </span><a
-                                href="{{ route('register')}}">Регистрация</a></li>
-                    </ul>
-                @endguest
-                @auth
-                    <ul>
-                        @if (auth()->user()->hasRole('customer')) <li><a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i>
-                                Добавить заказ</a></li>@endif
+                <ul>
+
+                    @guest
+                        <li><a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i> Добавить заказ</a></li>
+                        <li><a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i> Вход</a><span> / </span><a
+                                href="{{ route('register') }}">Регистрация</a></li>
+                    @else
+                        @if (auth()->user()->hasRole('customer'))
+                            <li><a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i>
+                                    Добавить заказ</a></li>@endif
                         <li>
-                            <a href="#" id="navBarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@if (Auth::user()->name) {{ Auth::user()->name }} @else {{ Auth::user()->email }} @endif <span class="caret"></span></a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-primary" href="{{ route('logout') }}"
+                            <a href="#" id="navBarDropdown" class="nav-link dropdown-toggle" role="button"
+                               data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">@if (Auth::user()->name) {{ Auth::user()->name }} @else {{ Auth::user()->email }} @endif
+                                <span class="caret"></span></a>
+                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+                                <a href="{{ route('site.account.index') }}" class="dropdown-item"><i
+                                        class="fas fa-user"></i> Личный кабинет</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    Выйти
+                                    <i class="fas fa-sign-out-alt"></i> Выйти
                                 </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
                             </div>
                         </li>
-                    </ul>
-                @endauth
+                    @endguest
+                </ul>
             </div>
         </div>
     </div>
@@ -131,6 +130,9 @@
                                                      document.getElementById('logout-form').submit();">
                           <i class="fas fa-sign-out-alt"></i> Выйти
                       </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
                   </div>
               </li>
           @endguest
