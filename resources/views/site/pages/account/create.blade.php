@@ -132,7 +132,7 @@
                                             <div class="form-group">
                                                 <label for="contractor_email">Email</label>
                                                 <input type="text" name="contractor_email" id="contractor_email" class="form-control @error('contractor_email') is-invalid @enderror" @if ($user->email) disabled @endif value="@if ($user->email) {{ $user->email }} @else {{ old('contractor_email') }} @endif">
-                                                @error
+                                                @error('contractor_email')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </div>
@@ -214,7 +214,7 @@
                                         <div class="form-group">
                                             <label for="customer_email">Email</label>
                                             <input type="text" name="customer_email" id="customer_email" class="form-control @error('customer_email') is-invalid @enderror" @if ($user->email) disabled @endif value="@if ($user->email) {{ $user->email }} @else {{ old('customer_email') }} @endif">
-                                            @error
+                                            @error('customer_email')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
