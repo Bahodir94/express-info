@@ -76,10 +76,6 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        abort_if($data['user_role'] === 'admin', 403);
-        $role = Role::where('name', $data['user_role'])->first();
-        abort_if(!$role, 400);
-        $user->roles()->attach($role->id);
         $user->markEmailAsVerified();
         return $user;
     }
