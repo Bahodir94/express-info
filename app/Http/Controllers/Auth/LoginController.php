@@ -80,7 +80,7 @@ class LoginController extends Controller
     public function handleGoogleCallback(){
 
         try {
-            $user = Socialite::driver('google')->user();
+            $user = Socialite::driver('google')->stateless()->user();;
             $finduser = User::where('google_id', $user->id)->first();
             if($finduser){
                 Auth::login($finduser);
@@ -98,16 +98,5 @@ class LoginController extends Controller
         } catch (Exception $e) {
             return redirect()->route('site.catalog.index')->with('error', 'Авторизация через Google в данный момент недоступна.');
         }
-    }
-    public function logout(Request $request)
-    {
-        $this->guard()->logout();
-
-        $request->session()->invalidate();
-        $cookies = \Cookie::get();
-        foreach ($cookies as $key => $item)
-            \Cookie::forget($key);
-
-        return $this->loggedOut($request) ?: redirect('/');
     }
 }
