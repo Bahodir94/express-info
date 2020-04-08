@@ -60,7 +60,7 @@ class TenderController extends Controller
            $menuItem = $this->menuItemsRepository->getBySlug($menuItemSlug);
            if ($menuItem) {
                foreach ($menuItem->categories as $category)
-                   $tenders = $tenders->merge($category->tenders);
+                   $tenders = $tenders->merge($category->tenders()->whereNotNull('owner_id')->get());
                $tenders = $tenders->unique(function ($item) {
                    return $item->id;
                });
