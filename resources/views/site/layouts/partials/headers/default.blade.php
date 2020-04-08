@@ -129,12 +129,12 @@
                     <div class="collapse" id="a{{ $need->id }}">
                       <ul class="main-menu-mobile">
                         @foreach($need->menuItems as $item)
-                        <li><a data-toggle="collapse" href="#b{{ $item->id }}" aria-expanded="false" aria-controls="b{{ $item->id }}">{{ $item->ru_title }}</a>
+                        <li><div class="row"><div class="col-10"><a class="style_a" href="{{ route('site.tenders.category', $item->ru_slug) }}">{{ $item->ru_title }}</a></div><div class="col-2"><a class="text-left" data-toggle="collapse" href="#b{{ $item->id }}" aria-expanded="false" aria-controls="b{{ $item->id }}" style="color:#383838;"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></a></div></div>
                           <div class="collapse" id="b{{ $item->id }}">
                             <ul class="sub-menu-mobile">
                               @foreach($item->categories as $category)
                               <li>
-                                  <a href="{{ route('site.tenders.category', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                                  <a style="color: #63ba16; font-weight: 600;" href="{{ route('site.tenders.category', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
                               </li>
                               @endforeach
                             </ul>
@@ -163,12 +163,12 @@
                     <div class="collapse" id="d{{ $need->id }}">
                       <ul class="main-menu-mobile">
                         @foreach($need->menuItems as $item)
-                        <li><a data-toggle="collapse" href="#c{{ $item->id }}" aria-expanded="false" aria-controls="c{{ $item->id }}">{{ $item->ru_title }}</a>
+                        <li><div class="row"><div class="col-10"><a class="style_a" href="{{ route('site.catalog.main', $item->ru_slug) }}">{{ $item->ru_title }}</a></div><div class="col-2"><a class="text-left" data-toggle="collapse" href="#c{{ $item->id }}" aria-expanded="false" aria-controls="c{{ $item->id }}" style="color:#383838;"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></a></div></div>
                           <div class="collapse" id="c{{ $item->id }}">
                             <ul class="sub-menu-mobile">
                               @foreach($item->categories as $category)
                               <li>
-                                <a href="{{ route('site.catalog.main', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                                <a style="color: #63ba16; font-weight: 600;" href="{{ route('site.catalog.main', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
                               </li>
                               @endforeach
                             </ul>
