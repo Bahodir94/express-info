@@ -73,8 +73,9 @@
                 <ul>
 
                     @guest
-                        <li><a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i>Войти</a></li>
-                        <li><a href="{{ route('register') }}"><i class="fas fa-registered"></i>Зарегистрироваться</a></li>
+                        <li><a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i> Добавить заказ</a></li>
+                        <li><a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i> Вход</a><span> / </span><a
+                                href="{{ route('register') }}">Регистрация</a></li>
                     @else
                         @if (auth()->user()->hasRole('customer'))
                             <li><a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i>
