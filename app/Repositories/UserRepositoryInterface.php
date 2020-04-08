@@ -85,4 +85,12 @@ interface UserRepositoryInterface
      * @return User
      */
     public function getContractorBySlug(string $slug);
+
+    /**
+     * Create an account for user
+     *
+     * @param \Illuminate\Http\Request $data
+     * @return mixed
+     */
+    public function createAccount($data);
 }

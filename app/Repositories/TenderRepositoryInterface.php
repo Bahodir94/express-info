@@ -75,4 +75,13 @@ interface TenderRepositoryInterface
      * @return mixed
      */
     public function cancelRequest($requestId);
+
+    /**
+     * Accept request for tender
+     *
+     * @param $tenderId
+     * @param $requestId
+     * @return boolean
+     */
+    public function acceptRequest($tenderId, $requestId);
 }

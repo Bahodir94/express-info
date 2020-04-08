@@ -7,6 +7,8 @@ use App\Repositories\UserRepositoryInterface;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class AccountController extends Controller
@@ -24,7 +26,8 @@ class AccountController extends Controller
 
     public function __construct(UserRepositoryInterface $userRepository, HandbookCategoryRepositoryInterface $categoryRepository)
     {
-        $this->middleware('account.completed');
+        $this->middleware('auth');
+        $this->middleware('account.completed')->except(['create', 'store']);
 
         $this->userRepository = $userRepository;
         $this->categoryRepository = $categoryRepository;
@@ -51,16 +54,56 @@ class AccountController extends Controller
             abort(403);
     }
 
+    public function create()
+    {
+        $user = auth()->user();
+        return \view('site.pages.account.create', compact('user'));
+    }
+
+    public function store(Request $request)
+    {
+        $userType = $request->get('user_role');
+        $validationMessages = [
+            'required' => 'Это поле обязательно к заполнению',
+            'max' => 'Количество символов должно быть не больше :max',
+            'integer' => 'Укажите целочисленное значение',
+            'date' => 'Неверный формат даты',
+            'string' => 'Укажите стороковое значение',
+            'email' => 'Неверный формат электронной почты'
+        ];
+        Validator::make($request->all(), [
+            $userType . '_name' => ['required', 'string', 'max:255'],
+            $userType . '_phone_number' => ['required', 'string'],
+            'contractor_birthday_date' => Rule::requiredIf($userType == 'contractor' && $request->get('contractor_type') == 'freelancer'),
+            $userType . '_about_myself' => ['required', 'string'],
+            $userType . '_company_name' => Rule::requiredIf($request->get('customer_type') == 'company' || $request->get('contractor_type') == 'agency'),
+            'image' => 'nullable|file'
+        ], $validationMessages)->validate();
+        $this->userRepository->createAccount($request);
+        if ($userType == 'contractor')
+            return redirect()->route('site.account.contractor.professional');
+        return redirect()->route('site.account.index');
+    }
+
+
     public function savePersonalContractor(Request $request)
     {
         $user = auth()->user();
         $user->authorizeRole('contractor');
-        $request->validate([
+        $validationMessages = [
+            'required' => 'Это поле обязательно к заполнению',
+            'max' => 'Количество символов должно быть не больше :max',
+            'integer' => 'Укажите целочисленное значение',
+            'date' => 'Неверный формат даты',
+            'string' => 'Укажите стороковое значение',
+            'email' => 'Неверный формат электронной почты'
+        ];
+        Validator::make($request->all(), [
             'name' => 'required|max:255|string',
             'gender' => 'required|string',
             'birthday_date' => 'required|date',
             'about_myself' => 'required|string|max:5000',
-        ]);
+        ], $validationMessages)->validate();
         $this->userRepository->update($user->id, $request);
 
         return redirect()->route('site.account.index')->with('success', 'Ваши личные данные обновлены');
@@ -97,44 +140,60 @@ class AccountController extends Controller
         return redirect()->route('site.account.contractor.professional')->with('success', 'Ваши профессиональные данные обновлены');
     }
 
-    public function saveCompany(Request $request)
+    public function saveCustomerProfile (Request $request)
     {
         $user = auth()->user();
         $user->authorizeRole('customer');
-        $request->validate([
+        $validationMessages = [
+            'required' => 'Это поле обязательно к заполнению',
+            'max' => 'Количество символов должно быть не больше :max',
+            'integer' => 'Укажите целочисленное значение',
+            'date' => 'Неверный формат даты',
+            'string' => 'Укажите стороковое значение',
+            'email' => 'Неверный формат электронной почты'
+        ];
+        Validator::make($request->all(), [
             'image' => 'nullable|image',
-            'company_name' => 'required|max:255|string',
-            'about_myself' => 'nullable|string|max:5000',
-            'foundation_year' => 'nullable|int|max:255',
+            'company_name' => [Rule::requiredIf($user->customer_type == 'company')],
+            'about_myself' => 'required|string|max:5000',
+            'foundation_year' => 'nullable|integer',
             'site' => 'nullable|string|max:255',
             'phone_number' => 'required|string|max:255',
             'email' => 'required|email|max:255'
-        ]);
-        $this->userRepository->update($user->id, $request);
-
-        return redirect()->route('site.account.index')->with('success', 'Ваши данные о компании изменены');
-    }
-
-    public function personalCustomer()
-    {
-        $user = auth()->user();
-        $accountPage = 'personal';
-        return view('site.pages.account.customer.personal', compact('user', 'accountPage'));
-    }
-
-    public function personalCustomerSave (Request $request)
-    {
-        $user = auth()->user();
-        $user->authorizeRole('customer');
-        $request->validate([
-            'firstName' => 'required|max:255|string',
-            'secondName' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'image' => 'nullable|image',
-        ]);
+        ], $validationMessages)->validate();
 
         $this->userRepository->update($user->id, $request);
 
-        return redirect()->route('site.account.customer.personal')->with('success', 'Ваш профиль обновлён');
+        return redirect()->route('site.account.index')->with('success', 'Ваш профиль обновлён');
+    }
+
+    public function tenders()
+    {
+        $user = auth()->user();
+        $accountPage = 'tenders';
+        if ($user->hasRole('customer')) {
+            return \view('site.pages.account.customer.tenders', compact('user', 'accountPage'));
+        } else if ($user->hasRole('contractor')) {
+            return \view('site.pages.account.contractor.tenders', compact('user', 'accountPage'));
+        } else {
+            abort(404);
+        }
+    }
+
+    public function editTender(string $slug)
+    {
+        $user = auth()->user();
+        $tender = $user->ownedTenders()->where('slug', $slug)->first();
+        $accountPage = 'tenders';
+        abort_if(!$tender, 404);
+        return \view('site.pages.account.customer.editTender', compact('user', 'tender', 'accountPage'));
+    }
+
+    public function tenderCandidates (string $slug) {
+        $user = auth()->user();
+        $tender = $user->ownedTenders()->where('slug', $slug)->first();
+        abort_if(!$tender, 404);
+        $accountPage = 'tenders';
+        return \view('site.pages.account.customer.candidates', compact('user', 'accountPage', 'tender'));
     }
 }

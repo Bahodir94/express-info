@@ -16,9 +16,13 @@ class CheckCompletedAccountMiddleware
     public function handle($request, Closure $next)
     {
         $user = auth()->user();
-        if ($user && $user->checkCompletedAccount()) {
-            return $next($request);
+        if ($user) {
+            if ($user->checkCompletedAccount())
+                return $next($request);
+            else
+                return redirect('/account/create');
         }
-        return redirect()->route('site.login');
+
+        return redirect()->route('login');
     }
 }

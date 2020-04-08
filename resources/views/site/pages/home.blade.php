@@ -64,7 +64,7 @@
             <div class="row no-gutters category-list">
                 @foreach($parentCategories as $category)
                     <div class="col-sm-6 col-lg-4">
-                        <div class="category-single"><span class="category-single-icon"></span>
+                        <div class="category-single"><span class="category-single-icon"><img src="{{ $category->getImage() }}" alt=""></span>
                             <div class="category-signle-content">
                                 <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}" class="category-single__title"><h3>{{ $category->getTitle() }}<span class="count">({{ $category->getAllCompaniesCount() }})</span></h3></a>
                                 <div class="text">
@@ -90,11 +90,11 @@
                     <div class="job-item">
                         <div class="row align-items-center">
                             <div class="col-md-2">
-                                <div class="img-job text-center"><a href="04_job_details.html"></a></div>
+                                <div class="img-job text-center"><a href="{{ route('site.tenders.category', $tender->slug) }}"></a></div>
                             </div>
                             <div class="col-md-10 job-info">
                                 <div class="text">
-                                    <h3 class="title-job"><a href="04_job_details.html">{{ $tender->title }}</a></h3>
+                                    <h3 class="title-job"><a href="{{ route('site.tenders.category', $tender->slug) }}">{{ $tender->title }}</a></h3>
                                     <div class="date-job"><i class="fa fa-check-circle"></i><span
                                             class="company-name">Опубликован: {{ $tender->created_at }}</span>
                                         <div class="date-job"><i class="fa fa-check-circle"></i><span
