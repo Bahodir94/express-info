@@ -99,15 +99,4 @@ class LoginController extends Controller
             return redirect()->route('site.catalog.index')->with('error', 'Авторизация через Google в данный момент недоступна.');
         }
     }
-    public function logout(Request $request)
-    {
-        $this->guard()->logout();
-
-        $request->session()->invalidate();
-        $cookies = \Cookie::get();
-        foreach ($cookies as $key => $item)
-            \Cookie::forget($key);
-
-        return $this->loggedOut($request) ?: redirect('/');
-    }
 }
