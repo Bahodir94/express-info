@@ -72,33 +72,43 @@ class LoginController extends Controller
         return $this->authenticated($request, $this->guard()->user())
             ?: redirect()->intended($this->redirectPath());
     }
-
+    /**
+     * Redirect the user to the google authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function redirectToGoogle(){
         return Socialite::driver('google')->with(["prompt" => "select_account"])->redirect();
     }
 
+    /**
+     * Obtain the user information from google.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function handleGoogleCallback(){
-
-        try {
-            $user = Socialite::driver('google')->stateless()->user();;
-            $finduser = User::where('google_id', $user->id)->first();
-            if($finduser){
-                Auth::login($finduser);
-                return redirect()->route('site.account.index');
-            }else{
-                $newUser = User::create([
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'google_id'=> $user->id,
-                    'password' => ''
-                ]);
-                Auth::login($newUser);
-                return redirect()->route('site.account.index');
-            }
-        } catch (Exception $e) {
-            return redirect()->route('site.catalog.index')->with('error', 'Авторизация через Google в данный момент недоступна.');
-        }
+      try {
+          $user = Socialite::driver('google')->stateless()->user();;
+          $finduser = User::where('google_id', $user->id)->first();
+          if($finduser){
+              Auth::login($finduser);
+              return redirect()->route('site.account.index');
+          }else{
+              $newUser = User::create([
+                  'name' => $user->name,
+                  'email' => $user->email,
+                  'google_id'=> $user->id,
+                  'password' => ''
+              ]);
+              Auth::login($newUser);
+              return redirect()->route('site.account.index');
+          }
+      } catch (Exception $e) {
+          return redirect()->route('site.catalog.index')->with('error', 'Авторизация через Google в данный момент недоступна.');
+      }
     }
+
+
 
     protected function loggedOut(Request $request)
     {
