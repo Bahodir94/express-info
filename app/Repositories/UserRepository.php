@@ -67,7 +67,7 @@ class UserRepository implements UserRepositoryInterface
         $user = $this->get($userId);
         $data = $userData->all();
         if (isset($data['birthday_date']))
-            $data['birthday_date'] = Carbon::create($data['birthday_date'])->format('Y-m-d');
+            $data['birthday_date'] = Carbon::createFromFormat('d.m.Y', $data['birthday_date'])->format('Y-m-d');
         $user->update($data);
         $user->generateSlug();
         $user->uploadImage($userData->file('image'));
@@ -152,7 +152,7 @@ class UserRepository implements UserRepositoryInterface
         $dataToSet['company_name'] = $data->get($userRole.'_company_name');
         $dataToSet['about_myself'] = $data->get($userRole.'_about_myself');
         if ($userRole == 'contractor') {
-            $dataToSet['birthday_date'] = $data->get('birthday_date');
+            $dataToSet['birthday_date'] = $data->get('contractor_birthday_date');
             $dataToSet['gender'] = $data->get('gender');
         }
         $user->update($dataToSet);
