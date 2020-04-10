@@ -100,12 +100,15 @@
                                             <div class="text">
                                                 <h3 class="title-job"><a href="{{ route('site.tenders.category', $tender->slug) }}">{{ $tender->title }}</a></h3>
                                                 <div class="date-job"><i class="fa fa-check-circle"></i><span
-                                                        class="company-name">Опубликован: {{ $tender->created_at }}</span>
+                                                        class="company-name">Опубликован: {{ $tender->created_at->format('d.m.Y') }}</span>
                                                     <div class="date-job"><i class="fa fa-check-circle"></i><span
-                                                            class="company-name">Крайний срок приема заявок: {{ $tender->deadline }}</span>
+                                                            class="company-name">Крайний срок приема заявок: {{ \Carbon\Carbon::create($tender->deadline)->format('d.m.Y') }}</span>
                                                     </div>
                                                 </div>
-                                                <div class="meta-job"><span class="salary">Бюджет {{ $tender->budget }} сум</span></div>
+                                                <div class="meta-job">
+                                                    <div class="categories">@foreach($tender->categories as $category){{ $category->getTitle() }} @endforeach</div>
+                                                    <span class="salary">Бюджет {{ $tender->budget }} сум</span>
+                                                </div>
                                                 <button class="add-favourites"><i class="far fa-star"></i></button>
                                             </div>
                                         </div>
