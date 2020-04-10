@@ -86,9 +86,9 @@
                                aria-expanded="false">@if (Auth::user()->name) {{ Auth::user()->name }} @else {{ Auth::user()->email }} @endif
                                 <span class="caret"></span></a>
                             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                                <a href="{{ route('site.account.index') }}" class="dropdown-item"><i
+                                <a href="{{ route('site.account.index') }}" class="dropdown-item user-dropdown-item"><i
                                         class="fas fa-user"></i> Личный кабинет</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item user-dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     <i class="fas fa-sign-out-alt"></i> Выйти
