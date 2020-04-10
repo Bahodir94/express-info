@@ -95,7 +95,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
-                                            <div class="form-group contractor-type-agency @if (!old('contractor_type') && old('contractor_type') == 'freelancer') d-none @endif">
+                                            <div class="form-group contractor-type-agency @if (!old('contractor_type') || old('contractor_type') == 'freelancer') d-none @endif">
                                                 <label for="contractor_companyName">Название компании</label>
                                                 <input type="text" name="contractor_company_name" id="contractor_companyName" class="form-control @error('contractor_company_name') is-invalid @enderror" value="{{ old('contractor_company_name') }}">
                                                 @error('contractor_company_name')
