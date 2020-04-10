@@ -97,11 +97,11 @@ class AccountController extends Controller
         ], $validationMessages)->validate();
         $this->userRepository->createAccount($request);
         if ($userType == 'contractor')
-            return redirect()->route('site.account.contractor.professional');
+            return redirect()->route('site.account.contractor.professional')-with('account.success', 'Ваш аккаунт создан! Заполните свои профессиональные данные, что бы вас могли найти в каталоге');
         if ($request->hasCookie('tenderId')) {
             $this->tenderRepository->setOwnerToTender($request->cookie('tenderId'), auth()->user()->id);
             \Cookie::forget('tenderId');
-            return redirect()->route('site.account.index')->with('success', 'Ваш тендер опубликован, вы можете посмотреть его в разделе "Мои тендеры".');
+            return redirect()->route('site.account.index')->with('account.success', 'Ваш аккаунт создан, а тендер опубликован, вы можете посмотреть его в разделе "Мои тендеры".');
         }
         return redirect()->route('site.account.index');
     }
@@ -127,7 +127,7 @@ class AccountController extends Controller
         ], $validationMessages)->validate();
         $this->userRepository->update($user->id, $request);
 
-        return redirect()->route('site.account.index')->with('success', 'Ваши личные данные обновлены');
+        return redirect()->route('site.account.index')->with('account.success', 'Ваши личные данные обновлены');
     }
 
     public function professional()
@@ -158,7 +158,7 @@ class AccountController extends Controller
             }
         }
 
-        return redirect()->route('site.account.contractor.professional')->with('success', 'Ваши профессиональные данные обновлены');
+        return redirect()->route('site.account.contractor.professional')->with('account.success', 'Ваши профессиональные данные обновлены');
     }
 
     public function saveCustomerProfile (Request $request)
@@ -185,7 +185,7 @@ class AccountController extends Controller
 
         $this->userRepository->update($user->id, $request);
 
-        return redirect()->route('site.account.index')->with('success', 'Ваш профиль обновлён');
+        return redirect()->route('site.account.index')->with('account.success', 'Ваш профиль обновлён');
     }
 
     public function tenders()

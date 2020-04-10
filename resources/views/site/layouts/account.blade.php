@@ -22,6 +22,7 @@
         <button class="toggle-sidebar-admin"><i class="fas fa-long-arrow-alt-right"></i></button>
         <div class="main-content-admin">
             <main class="main-content">
+                @include('site.components.account_alerts')
                 <div class="header-page">
                     <div class="row">
                         <div class="col-md-8">
