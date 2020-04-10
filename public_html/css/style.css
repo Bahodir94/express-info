@@ -124,3 +124,15 @@ img.avatar {
 .dropdown-item.active, .dropdown-item:active {
     background-color: #d4d5d6;
 }
+
+.home .header-site a.user-dropdown-item {
+    color: #383838;
+}
+
+.home .header-site a.user-dropdown-item:hover {
+    color: #63ba16;
+}
+
+a.user-dropdown-item:active {
+    background-color: #d4d5d6;
+}
