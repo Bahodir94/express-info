@@ -107,7 +107,7 @@
                                                 </div>
                                                 <div class="meta-job">
                                                     <div class="categories">@foreach($tender->categories as $category){{ $category->getTitle() }} @endforeach</div>
-                                                    <span class="salary">Бюджет {{ $tender->budget }} сум</span>
+                                                    <span class="salary">Бюджет {{  number_format($tender->budget, 0, ',', ' ') }} сум</span>
                                                 </div>
                                                 <button class="add-favourites"><i class="far fa-star"></i></button>
                                             </div>
