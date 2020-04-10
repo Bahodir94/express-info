@@ -14,7 +14,7 @@
                 <div class="navigation" id="navigation">
                     <ul class="main-menu">
                         <li class="active"><a href="/">Главная</a></li>
-                        <li class="header-menu-item"><a href="#">Конкурсы <i
+                        <li class="header-menu-item"><a href="{{ route('site.tenders.index') }}">Конкурсы <i
                                 class="fas fa-caret-down"></i></a>
                             <ul class="sub-menu">
                                 @foreach($needs as $need)
@@ -40,7 +40,7 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li class="header-menu-item"><a href="#">Исполнители <i
+                        <li class="header-menu-item"><a href="{{ route('site.contractors.index') }}">Исполнители <i
                                     class="fas fa-caret-down"></i></a>
                             <ul class="sub-menu">
                                 @foreach($needs as $need)
