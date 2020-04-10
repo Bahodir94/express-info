@@ -141,7 +141,7 @@
     <div class="menu-mobile">
       <ul class="main-menu-mobile">
 
-          <li><a data-toggle="collapse" href="#sub-1" aria-expanded="false" aria-controls="sub-1">Конкурсы</a>
+          <li><div class="row"><div class="col-10"><a class="style_a" href="{{ route('site.tenders.index') }}">Конкурсы</a></div><div class="col-2"><a class="text-left" data-toggle="collapse" href="#sub-1" aria-expanded="false" aria-controls="sub-1" style="color:#383838;"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></a></div></div>
             <div class="collapse" id="sub-1">
               @foreach($needs as $need)
               <ul class="main-menu-mobile">
@@ -175,7 +175,7 @@
             </div>
           </li>
 
-          <li><a data-toggle="collapse" href="#sub-2" aria-expanded="false" aria-controls="sub-2">Исполнители</a>
+          <li><div class="row"><div class="col-10"><a class="style_a" href="{{ route('site.contractors.index') }}">Исполнители</a></div><div class="col-2"><a class="text-left" data-toggle="collapse" href="#sub-2" aria-expanded="false" aria-controls="sub-2" style="color:#383838;"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></a></div></div>
             <div class="collapse" id="sub-2">
               @foreach($needs as $need)
               <ul class="main-menu-mobile">
