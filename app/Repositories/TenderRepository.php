@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 use App\Models\Tender;
 use App\Models\TenderRequest;
+use Carbon\Carbon;
 
 
 class TenderRepository implements TenderRepositoryInterface
@@ -44,6 +45,7 @@ class TenderRepository implements TenderRepositoryInterface
             $tenderData['client_type'] = '';
             $tenderData['client_phone_number'] = '';
         }
+        $tenderData['deadline'] = Carbon::createFromFormat('d.m.Y', $data->get('deadline'))->format('Y-m-d');
         $tender = Tender::create($tenderData);
         $tender->saveFiles($data->file('files'));
         foreach ($data->get('categories') as $categoryId)
