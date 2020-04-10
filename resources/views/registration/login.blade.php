@@ -52,8 +52,7 @@
                 <div class="sign-up-other">
                   <div class="text-or">Или</div>
                   <div class="sign-in-social row row-md">
-                    <div class="col-md-6"><script async src="https://telegram.org/js/telegram-widget.js?7" data-telegram-login="vid_registration_bot" data-size="large" data-auth-url="/auth/telegram/callback"></script></div>
-                    <div class="col-md-6 pb-1"><a class="sign-in-btn sign-in-btn-google-p" href="{{ url('auth/google') }}"> <i class="fab fa-google-plus-g"></i>Вход через Google</a></div>
+                    <div class="col-md-12"><a class="sign-in-btn sign-in-btn-google-p" href="{{ url('auth/google') }}"> <i class="fab fa-google-plus-g"></i>Вход через Google</a></div>
                   </div>
                 </div>
             </div>
