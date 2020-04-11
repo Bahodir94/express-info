@@ -97,7 +97,7 @@ class AccountController extends Controller
         ], $validationMessages)->validate();
         $this->userRepository->createAccount($request);
         if ($userType == 'contractor')
-            return redirect()->route('site.account.contractor.professional')-with('account.success', 'Ваш аккаунт создан! Заполните свои профессиональные данные, что бы вас могли найти в каталоге');
+            return redirect()->route('site.account.contractor.professional')->with('account.success', 'Ваш аккаунт создан! Заполните свои профессиональные данные, что бы вас могли найти в каталоге');
         if ($request->hasCookie('tenderId')) {
             $this->tenderRepository->setOwnerToTender($request->cookie('tenderId'), auth()->user()->id);
             \Cookie::forget('tenderId');
