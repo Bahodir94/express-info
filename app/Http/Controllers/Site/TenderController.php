@@ -49,14 +49,15 @@ class TenderController extends Controller
     public function index()
     {
         $tenders = $this->tenderRepository->allOrderedByCreatedAt();
-        return view('site.pages.tenders.index', compact('tenders'));
+        $currentCategory = null;
+        return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
     }
 
     public function category(string $params)
     {
        $paramsArray = explode('/', $params);
        $tenders = collect();
-       $category = null;
+        $currentCategory = null;
        if (count($paramsArray) === 1) {
            $menuItemSlug = $paramsArray[0];
            $menuItem = $this->menuItemsRepository->getBySlug($menuItemSlug);
@@ -66,7 +67,7 @@ class TenderController extends Controller
                $tenders = $tenders->unique(function ($item) {
                    return $item->id;
                });
-               $category = $menuItem;
+               $currentCategory = $menuItem;
            }
            $tender = $this->tenderRepository->getBySlug($menuItemSlug);
            if ($tender) {
@@ -74,11 +75,10 @@ class TenderController extends Controller
            }
        } else {
            $categorySlug = end($paramsArray);
-           $category = $this->categoryRepository->getBySlug($categorySlug);
-           $tenders = $category->tenders;
+           $currentCategory = $this->categoryRepository->getBySlug($categorySlug);
+           $tenders = $currentCategory->tenders;
        }
-
-       return view('site.pages.tenders.index', compact('tenders', 'category'));
+       return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
     }
 
     public function show(string $slug)
