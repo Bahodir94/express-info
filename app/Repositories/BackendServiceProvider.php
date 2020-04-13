@@ -78,5 +78,9 @@ class BackendServiceProvider extends ServiceProvider
             'App\Repositories\TenderRepositoryInterface',
             'App\Repositories\TenderRepository'
         );
+        $this->app->bind(
+            'App\Repositories\ChatRepositoryInterface',
+            'App\Repositories\ChatRepository'
+        );
     }
 }
