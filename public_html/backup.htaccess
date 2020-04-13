@@ -31,8 +31,10 @@ SetEnvIfNoCase User-Agent "^Parser" search_bot
     
     # Redirect old home page
     Redirect 301 /home https://vid.uz/
-    Redirect 301 /promote/ads/contextus https://vid.uz/internet-reklama/kontekstnaya-reklama
-    Redirect 301 /development/mobile-app https://vid.uz/mobilnye-prilozheniya
+    
+    RewriteCond %{REQUEST_URI} /index.php
+    RewriteRule ^(.*)$ https://vid.uz/ [R=301,L]
+    
     RewriteCond %{THE_REQUEST} //
     # Проверяем, повторяется ли слеш (//) более двух раз.
     RewriteRule .* /$0 [R=301,L]

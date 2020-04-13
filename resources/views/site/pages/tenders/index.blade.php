@@ -119,6 +119,28 @@
                     </div>
                 </div>
             </div>
+              <div class="row">
+                <div class="col-lg">
+                    <div id="leftcolumn">
+                        <div class="toggle-sidebar-left d-lg-none">Фильтр</div>
+                        <div class="sidebar-left">
+                            <button class="btn-close-sidebar-left btn-clear"><i class="fa fa-times-circle"></i>
+                            </button>
+                            <div class="box-sidebar" style="
+    margin-top: 40px;
+">
+                                <div class="header-box d-flex justify-content-between flex-wrap">
+                                    <h3 class="title-box">Описание</h3>
+                                </div>
+                                <div class="body-box">
+                       <p>{!! $category->ru_description !!}</p>             
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
 @endsection
