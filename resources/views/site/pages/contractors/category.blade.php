@@ -11,7 +11,7 @@
 @section('meta')
 
     <meta name="title"
-          content="@if(empty($category->meta_title)) {{ $category->getTitle() }} в Ташкенте @else {{ $category->meta_title }} @endif">
+          content="@if(empty($category->meta_title)) {{ $category->getTitle() }} @else {{ $category->meta_title }} @endif в Ташкенте|Узбекистане">
     <meta name="description"
           content="@if (empty($category->meta_description)) {{ strip_tags($category->ru_description) }} @else {{ $category->meta_description }} @endif">
     <meta name="keywords" content="{{ $category->meta_keywords }}">
@@ -149,13 +149,13 @@
                                     <h3 class="title-box">Описание</h3>
                                 </div>
                                 <div class="body-box">
-                       <p>{!! $category->ru_description !!}</p>             
+                       <p>{!! $category->ru_description !!}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
