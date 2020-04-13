@@ -13,107 +13,121 @@
 @section('content')
     <div class="primary-page">
         <div class="container">
-            @guest
-                <div class="alert shadow alert-warning fade show">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-8">
-                            <p><i class="fas fa-warning"></i> Войдите и зарегистрируйтесь как "Исполнитель". Это
-                                позволит вам откликаться на задачи. </p>
-                        </div>
-                        <div class="col-sm-12 col-md-4">
-                            <div class="d-flex justify-content-between align-items-center"><a href="#"
-                                                                                              class="btn btn-light-green mr-1">Войти</a>
-                                или <a href="#" class="btn ml-1 btn-light-green">Зарегистрироваться</a></div>
-                        </div>
-                    </div>
-                </div>
-            @endguest
-            @auth
-                @if (auth()->user()->hasRole('contractor') && !in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
-                    <div class="alert shadow alert-info fade show">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p><i class="fas fa-info"></i> Вы можете связаться с данным заказчиком</p>
-                            <button class="btn btn-light-green" type="button" data-toggle="modal"
-                                    data-target="#requestFormModal">Оставить заявку
-                            </button>
-                        </div>
-                    </div>
-                    <div class="modal fade" id="requestFormModal" tabindex="-1" role="dialog"
-                         aria-labelledby="requestFormModelLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="requestFormModelLabel">Ваша заявка</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form action="{{ route('site.tenders.requests.make') }}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-                                    <input type="hidden" name="tender_id" value="{{ $tender->id }}">
-                                    <div class="modal-body">
-                                        <p>Заинтересованы в данной задаче? Сразу отправляйте заявку. Так вы сможете
-                                            быстрее
-                                            связаться с заказчиком и обсудить все детали.
-                                            <b>Бюджет</b> и <b>Cроки</b> в
-                                            заявке — <b>ориентировочные</b>. Их требуется указать
-                                            лишь для того, чтобы заказчик понимал ваш уровень цен и скорость работы. При
-                                            общении с заказчиком вы всегда сможете их пересмотреть.
-                                            Ваше предложение и дальнейшую переписку увидит только организатор задачи.
-                                        </p>
-                                        <div class="form-group">
-                                            <label for="budget">Бюджет</label>
-                                            <div class="row">
-                                                <div class="col-sm-12 col-lg-6">
-                                                    <input type="text" required name="budget_from" id="budgetFrom" class="form-control" placeholder="500 000">
-                                                </div>
-                                                <div class="col-sm-12 col-lg-6">
-                                                    <input type="text" required name="budget_to" id="budgetTo" class="form-control" placeholder="1 000 000">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="period">Срок</label>
-                                            <div class="row">
-                                                <div class="col-ms-12 col-lg-6">
-                                                    <input type="text" required name="period_from" id="period_from"
-                                                           class="form-control" placeholder="2 дня">
-                                                </div>
-                                                <div class="col-ms-12 col-lg-6">
-                                                    <input type="text" required name="period_to" id="period_to"
-                                                           class="form-control" placeholder="3 дня">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="comment">Комментарий (по желанию)</label>
-                                            <textarea name="comment" id="comment" rows="3"
-                                                      class="form-control"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                                        <button class="btn btn-light-green" type="submit">Отправить заявку <i class="fas fa-send"></i></button>
-                                    </div>
-                                </form>
+            @if ($tender->checkDeadline())
+                @guest
+                    <div class="alert shadow alert-warning fade show">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-8">
+                                <p><i class="fas fa-warning"></i> Войдите и зарегистрируйтесь как "Исполнитель". Это
+                                    позволит вам откликаться на задачи. </p>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="d-flex justify-content-between align-items-center"><a href="#"
+                                                                                                  class="btn btn-light-green mr-1">Войти</a>
+                                    или <a href="#" class="btn ml-1 btn-light-green">Зарегистрироваться</a></div>
                             </div>
                         </div>
                     </div>
-                @endif
-                @if (in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
-                    <div class="alert alert-info shadow fade show">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p><i class="fas fa-info"></i> Вы уже оставили заявку на этот конкурс</p>
-                            <form action="{{ route('site.tenders.requests.cancel') }}" method="post">
-                                @csrf
-                                <input type="hidden" name="requestId" value="{{ $tender->requests()->where('user_id', auth()->user()->id)->first()->id }}">
-                                <button class="btn btn-light-green" type="submit">Отменить</button>
-                            </form>
+                @endguest
+                @auth
+                    @if (auth()->user()->hasRole('contractor') && !in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
+                        <div class="alert shadow alert-info fade show">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p><i class="fas fa-info"></i> Вы можете связаться с данным заказчиком</p>
+                                <button class="btn btn-light-green" type="button" data-toggle="modal"
+                                        data-target="#requestFormModal">Оставить заявку
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                @endif
-            @endauth
+                        <div class="modal fade" id="requestFormModal" tabindex="-1" role="dialog"
+                             aria-labelledby="requestFormModelLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="requestFormModelLabel">Ваша заявка</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form action="{{ route('site.tenders.requests.make') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                        <input type="hidden" name="tender_id" value="{{ $tender->id }}">
+                                        <div class="modal-body">
+                                            <p>Заинтересованы в данной задаче? Сразу отправляйте заявку. Так вы сможете
+                                                быстрее
+                                                связаться с заказчиком и обсудить все детали.
+                                                <b>Бюджет</b> и <b>Cроки</b> в
+                                                заявке — <b>ориентировочные</b>. Их требуется указать
+                                                лишь для того, чтобы заказчик понимал ваш уровень цен и скорость работы.
+                                                При
+                                                общении с заказчиком вы всегда сможете их пересмотреть.
+                                                Ваше предложение и дальнейшую переписку увидит только организатор
+                                                задачи.
+                                            </p>
+                                            <div class="form-group">
+                                                <label for="budget">Бюджет</label>
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-lg-6">
+                                                        <input type="text" required name="budget_from" id="budgetFrom"
+                                                               class="form-control" placeholder="500 000">
+                                                    </div>
+                                                    <div class="col-sm-12 col-lg-6">
+                                                        <input type="text" required name="budget_to" id="budgetTo"
+                                                               class="form-control" placeholder="1 000 000">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="period">Срок</label>
+                                                <div class="row">
+                                                    <div class="col-ms-12 col-lg-6">
+                                                        <input type="text" required name="period_from" id="period_from"
+                                                               class="form-control" placeholder="2 дня">
+                                                    </div>
+                                                    <div class="col-ms-12 col-lg-6">
+                                                        <input type="text" required name="period_to" id="period_to"
+                                                               class="form-control" placeholder="3 дня">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="comment">Комментарий (по желанию)</label>
+                                                <textarea name="comment" id="comment" rows="3"
+                                                          class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                Закрыть
+                                            </button>
+                                            <button class="btn btn-light-green" type="submit">Отправить заявку <i
+                                                    class="fas fa-send"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    @if (in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
+                        <div class="alert alert-info shadow fade show">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p><i class="fas fa-info"></i> Вы уже оставили заявку на этот конкурс</p>
+                                <form action="{{ route('site.tenders.requests.cancel') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="requestId"
+                                           value="{{ $tender->requests()->where('user_id', auth()->user()->id)->first()->id }}">
+                                    <button class="btn btn-light-green" type="submit">Отменить</button>
+                                </form>
+                            </div>
+                        </div>
+                    @endif
+                @endauth
+            @else
+                <div class="alert alert-info shadow fade show">
+                    <p class="fas fa-info"> Срок приёма заявок окончен.</p>
+                </div>
+            @endif
             <div class="item-detail-special">
                 <div class="text pl-5">
                     <div class="row align-items-lg-center">
@@ -173,7 +187,8 @@
                                     <p class="m-0">Email: {{ $tender->client_email }}</p>
                                     <p class="m-0">Телефон: {{ $tender->client_phone_number }}</p>
                                 @else
-                                    <p class="text-muted"><i class="fas fa-eye"></i> Контакты видны только тем исполнителям,
+                                    <p class="text-muted"><i class="fas fa-eye"></i> Контакты видны только тем
+                                        исполнителям,
                                         которые выслали свое предложение организатору задачи</p>
                                 @endif
                             </div>

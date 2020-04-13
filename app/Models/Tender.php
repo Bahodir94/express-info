@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -113,5 +114,11 @@ class Tender extends Model
             return $this->client_name;
         else
             return $this->client_company_name;
+    }
+
+    public function checkDeadline()
+    {
+        $deadline = Carbon::create($this->deadline);
+        return now() < $deadline;
     }
 }
