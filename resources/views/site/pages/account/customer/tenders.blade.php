@@ -56,7 +56,7 @@
                                     <div>{{ $category->getTitle() }} </div>
                                 @endforeach
                             </td>
-                            <td class="d-none d-xl-table-cell text-center active">@if ($tender->opened) Активный @else Закрыт @endif</td>
+                            <td class="d-none d-xl-table-cell text-center active">@if ($tender->status !== 'done') @if ($tender->checkDeadline()) Открыт @else @if($tender->owner_id && $tender->opened) В разработке @else Приём заявок закрыт @endif @endif @else Выполнен! @endif</td>
                             <td class="d-none d-md-table-cell text-right">
                                 <div class="d-flex">
                                     <a href="{{ route('site.account.tenders.candidates', $tender->slug) }}" class="btn btn-light btn-new" data-toggle="tooltip" title="Посмотреть кандидатов"><i class="fas fa-eye"></i></a>
