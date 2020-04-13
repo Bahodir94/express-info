@@ -19,7 +19,7 @@ Route::middleware('needsList')->group(function() {
       return view('registration.email');
   })->name('password.request');
 
-  
+
 
 Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
