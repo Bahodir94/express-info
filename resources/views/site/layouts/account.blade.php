@@ -17,6 +17,7 @@
                 @if ($user->hasRole('customer'))
                     <li><a href="{{ route('site.account.tenders') }}"><i class="fas fa-file-alt"></i> Мои конкурсы</a></li>
                 @endif
+                <li><a href="{{ route('site.account.chats') }}"><i class="fas fa-comments"></i>Чаты</a></li>
             </ul>
         </div>
         <button class="toggle-sidebar-admin"><i class="fas fa-long-arrow-alt-right"></i></button>

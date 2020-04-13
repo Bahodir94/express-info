@@ -63,6 +63,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::get('/account/tenders', 'AccountController@tenders')->name('account.tenders');
     Route::get('/account/tenders/{slug}/edit', 'AccountController@editTender')->name('account.tenders.edit');
     Route::get('/account/tenders/{slug}/candidates', 'AccountController@tenderCandidates')->name('account.tenders.candidates');
+    Route::get('/account/chats', 'ChatsController@index')->name('account.chats');
 
     // Tenders routes
     Route::get('/tenders', 'TenderController@index')->name('tenders.index');
