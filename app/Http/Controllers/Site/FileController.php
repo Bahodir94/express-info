@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use Validator,Redirect,Response,File;
-Use App\Document;
-use App\FormMultipleUpload;
+use App\Document;
+use App\Models\FormMultipleUpload;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
