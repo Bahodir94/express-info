@@ -34,7 +34,7 @@
     <title>
         @yield('title') | vid.uz
     </title>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             let menuItems = document.querySelectorAll('.menu-item-li');

@@ -14,14 +14,15 @@ class FileController extends Controller
 {
   public function index()
   {
-      if (Auth::check()) {
-        $user_id = auth()->user()->id;
+        $user = auth()->user();
+        $accountPage = 'tenders';
+        $user_id = $user->id;
         $data = FormMultipleUpload::where('user_id', $user_id)->get();
-
-        return view('site.pages.account.contractor.portfolio', compact('data'));
+        return view('site.pages.account.contractor.portfolio', compact('data', 'user', 'accountPage'));
       }
-      return view('site.pages.account.contractor.portfolio');
-  }
+      // return view('site.pages.account.contractor.portfolio');
+
+
 
 
   public function save(Request $request){
@@ -33,7 +34,7 @@ class FileController extends Controller
       if($request->hasFile('filename')){
           foreach($request->file('filename') as $image){
             $name = $image->getClientOriginalName();
-            $image->move(public_path().'/images/', $name);
+            $image->move(public_path().'/images/portfolio/portfolio_contractor', $name);
             $data[] = $name;
           }
       }
@@ -44,4 +45,5 @@ class FileController extends Controller
       return back()->with('success', 'Картинка добавлена');
 
   }
-}
+
+  }

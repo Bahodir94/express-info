@@ -13,7 +13,7 @@
                 @if ($user->hasRole('contractor'))
                     <li><a href="{{ route('site.account.contractor.professional') }}"><i class="fas fa-suitcase"></i> Проф. данные</a></li>
                     <li><a href="{{ route('site.account.tenders') }}"><i class="fas fa-file-alt"></i> Мои конкурсы</a></li>
-                    <li><a href="{{ route('site.account.portfolio') }}"><i class="fas fa-file-alt"></i>Портфолио</a></li>
+                    <li><a href="{{ route('site.account.portfolio') }}"><i class="far fa-images"></i>Портфолио</a></li>
                 @endif
                 @if ($user->hasRole('customer'))
                     <li><a href="{{ route('site.account.tenders') }}"><i class="fas fa-file-alt"></i> Мои конкурсы</a></li>
