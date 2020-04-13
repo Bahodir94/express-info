@@ -7,7 +7,7 @@
         @php
             $metaWords = ['Тендеры по', 'Заказы по', 'Работа по']
         @endphp
-        <meta name="title" content="{{ array_rand($metaWords, 1) }} @if(empty($currentCategory->meta_title)) {{ $currentCategory->getTitle() }} @else {{ $currentCategory->meta_title }} @endif в Ташкенте|Узбекистане">
+        <meta name="title" content="{{ $metaWords[array_rand($metaWords, 1)] }} @if(empty($currentCategory->meta_title)) {{ $currentCategory->getTitle() }} @else {{ $currentCategory->meta_title }} @endif в Ташкенте|Узбекистане">
         <meta name="description"
               content="@if (empty($currentCategory->meta_description)) {{ strip_tags($currentCategory->ru_description) }} @else {{ $currentCategory->meta_description }} @endif">
     @endif
