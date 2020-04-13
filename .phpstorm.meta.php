@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2020-04-13 16:44:50.
+    * Generated on 2020-04-08 17:37:09.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -26,8 +26,6 @@ namespace PHPSTORM_META {
         'App\Repositories\TenderRepositoryInterface' => \App\Repositories\TenderRepository::class,
         'App\Repositories\UserClickRepositoryInterface' => \App\Repositories\UserClickRepository::class,
         'App\Repositories\UserRepositoryInterface' => \App\Repositories\UserRepository::class,
-        'BeyondCode\LaravelWebSockets\Apps\AppProvider' => \BeyondCode\LaravelWebSockets\Apps\ConfigAppProvider::class,
-        'BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager' => \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManagers\ArrayChannelManager::class,
         'Cviebrock\EloquentSluggable\SluggableObserver' => \Cviebrock\EloquentSluggable\SluggableObserver::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
@@ -170,7 +168,6 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
-        'websockets.router' => \BeyondCode\LaravelWebSockets\Server\Router::class,
     ]));
     override(\Illuminate\Container\Container::makeWith(0), map([
         '' => '@',
@@ -188,8 +185,6 @@ namespace PHPSTORM_META {
         'App\Repositories\TenderRepositoryInterface' => \App\Repositories\TenderRepository::class,
         'App\Repositories\UserClickRepositoryInterface' => \App\Repositories\UserClickRepository::class,
         'App\Repositories\UserRepositoryInterface' => \App\Repositories\UserRepository::class,
-        'BeyondCode\LaravelWebSockets\Apps\AppProvider' => \BeyondCode\LaravelWebSockets\Apps\ConfigAppProvider::class,
-        'BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager' => \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManagers\ArrayChannelManager::class,
         'Cviebrock\EloquentSluggable\SluggableObserver' => \Cviebrock\EloquentSluggable\SluggableObserver::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
@@ -332,7 +327,6 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
-        'websockets.router' => \BeyondCode\LaravelWebSockets\Server\Router::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
@@ -350,8 +344,6 @@ namespace PHPSTORM_META {
         'App\Repositories\TenderRepositoryInterface' => \App\Repositories\TenderRepository::class,
         'App\Repositories\UserClickRepositoryInterface' => \App\Repositories\UserClickRepository::class,
         'App\Repositories\UserRepositoryInterface' => \App\Repositories\UserRepository::class,
-        'BeyondCode\LaravelWebSockets\Apps\AppProvider' => \BeyondCode\LaravelWebSockets\Apps\ConfigAppProvider::class,
-        'BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager' => \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManagers\ArrayChannelManager::class,
         'Cviebrock\EloquentSluggable\SluggableObserver' => \Cviebrock\EloquentSluggable\SluggableObserver::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
@@ -494,7 +486,6 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
-        'websockets.router' => \BeyondCode\LaravelWebSockets\Server\Router::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
@@ -512,8 +503,6 @@ namespace PHPSTORM_META {
         'App\Repositories\TenderRepositoryInterface' => \App\Repositories\TenderRepository::class,
         'App\Repositories\UserClickRepositoryInterface' => \App\Repositories\UserClickRepository::class,
         'App\Repositories\UserRepositoryInterface' => \App\Repositories\UserRepository::class,
-        'BeyondCode\LaravelWebSockets\Apps\AppProvider' => \BeyondCode\LaravelWebSockets\Apps\ConfigAppProvider::class,
-        'BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager' => \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManagers\ArrayChannelManager::class,
         'Cviebrock\EloquentSluggable\SluggableObserver' => \Cviebrock\EloquentSluggable\SluggableObserver::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
@@ -656,7 +645,6 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
-        'websockets.router' => \BeyondCode\LaravelWebSockets\Server\Router::class,
     ]));
     override(\App::make(0), map([
         '' => '@',
@@ -674,8 +662,6 @@ namespace PHPSTORM_META {
         'App\Repositories\TenderRepositoryInterface' => \App\Repositories\TenderRepository::class,
         'App\Repositories\UserClickRepositoryInterface' => \App\Repositories\UserClickRepository::class,
         'App\Repositories\UserRepositoryInterface' => \App\Repositories\UserRepository::class,
-        'BeyondCode\LaravelWebSockets\Apps\AppProvider' => \BeyondCode\LaravelWebSockets\Apps\ConfigAppProvider::class,
-        'BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager' => \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManagers\ArrayChannelManager::class,
         'Cviebrock\EloquentSluggable\SluggableObserver' => \Cviebrock\EloquentSluggable\SluggableObserver::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
@@ -818,7 +804,6 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
-        'websockets.router' => \BeyondCode\LaravelWebSockets\Server\Router::class,
     ]));
     override(\App::makeWith(0), map([
         '' => '@',
@@ -836,8 +821,6 @@ namespace PHPSTORM_META {
         'App\Repositories\TenderRepositoryInterface' => \App\Repositories\TenderRepository::class,
         'App\Repositories\UserClickRepositoryInterface' => \App\Repositories\UserClickRepository::class,
         'App\Repositories\UserRepositoryInterface' => \App\Repositories\UserRepository::class,
-        'BeyondCode\LaravelWebSockets\Apps\AppProvider' => \BeyondCode\LaravelWebSockets\Apps\ConfigAppProvider::class,
-        'BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager' => \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManagers\ArrayChannelManager::class,
         'Cviebrock\EloquentSluggable\SluggableObserver' => \Cviebrock\EloquentSluggable\SluggableObserver::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
@@ -980,7 +963,6 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
-        'websockets.router' => \BeyondCode\LaravelWebSockets\Server\Router::class,
     ]));
     override(\app(0), map([
         '' => '@',
@@ -998,8 +980,6 @@ namespace PHPSTORM_META {
         'App\Repositories\TenderRepositoryInterface' => \App\Repositories\TenderRepository::class,
         'App\Repositories\UserClickRepositoryInterface' => \App\Repositories\UserClickRepository::class,
         'App\Repositories\UserRepositoryInterface' => \App\Repositories\UserRepository::class,
-        'BeyondCode\LaravelWebSockets\Apps\AppProvider' => \BeyondCode\LaravelWebSockets\Apps\ConfigAppProvider::class,
-        'BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager' => \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManagers\ArrayChannelManager::class,
         'Cviebrock\EloquentSluggable\SluggableObserver' => \Cviebrock\EloquentSluggable\SluggableObserver::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
@@ -1142,7 +1122,6 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
-        'websockets.router' => \BeyondCode\LaravelWebSockets\Server\Router::class,
     ]));
     override(\resolve(0), map([
         '' => '@',
@@ -1160,8 +1139,6 @@ namespace PHPSTORM_META {
         'App\Repositories\TenderRepositoryInterface' => \App\Repositories\TenderRepository::class,
         'App\Repositories\UserClickRepositoryInterface' => \App\Repositories\UserClickRepository::class,
         'App\Repositories\UserRepositoryInterface' => \App\Repositories\UserRepository::class,
-        'BeyondCode\LaravelWebSockets\Apps\AppProvider' => \BeyondCode\LaravelWebSockets\Apps\ConfigAppProvider::class,
-        'BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManager' => \BeyondCode\LaravelWebSockets\WebSockets\Channels\ChannelManagers\ArrayChannelManager::class,
         'Cviebrock\EloquentSluggable\SluggableObserver' => \Cviebrock\EloquentSluggable\SluggableObserver::class,
         'Illuminate\Broadcasting\BroadcastManager' => \Illuminate\Broadcasting\BroadcastManager::class,
         'Illuminate\Bus\Dispatcher' => \Illuminate\Bus\Dispatcher::class,
@@ -1304,7 +1281,6 @@ namespace PHPSTORM_META {
         'view' => \Illuminate\View\Factory::class,
         'view.engine.resolver' => \Illuminate\View\Engines\EngineResolver::class,
         'view.finder' => \Illuminate\View\FileViewFinder::class,
-        'websockets.router' => \BeyondCode\LaravelWebSockets\Server\Router::class,
     ]));
 
 
