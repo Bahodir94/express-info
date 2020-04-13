@@ -136,3 +136,7 @@ img.avatar {
 a.user-dropdown-item:active {
     background-color: #d4d5d6;
 }
+
+.title-job .tags a:hover {
+    color: #fff;
+}
