@@ -32,4 +32,20 @@
       </form>
     </div>
   </div>
+  <div class="intro-profile">
+  <h3 class="title-box">Портфолио</h3>
+  <div class="candidate-box">
+    <div class="item-list">
+      @foreach($data as $image)
+        <div class="col-lg-3 col-md-4 col-6 thumb border-right border-bottom">
+          <?php foreach (json_decode($image->filename)as $picture) { ?>
+            <a data-fancybox="gallery" href="{{ asset('/images/'.$picture) }}">
+                <img class="img-fluid" src="{{ asset('/images/'.$picture) }}" style="height:120px; width:200px"/>
+            </a>
+            <?php } ?>
+        </div>
+      @endforeach
+    </div>
+
 </section>
+@endsection
