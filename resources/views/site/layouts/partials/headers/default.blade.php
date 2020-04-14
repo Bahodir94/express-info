@@ -69,6 +69,9 @@
                     </ul>
                 </div>
             </div>
+            <div class="mobile-header-right">
+                <a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i> Добавить заказ</a>
+            </div>
             <div class="header-right">
                 <ul>
 

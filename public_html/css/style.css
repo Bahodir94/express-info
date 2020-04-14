@@ -150,3 +150,13 @@ a.user-dropdown-item:active {
         padding: 25px 30px 0;
     }
 }
+
+.mobile-header-right {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .mobile-header-right {
+        display: block;
+    }
+}
