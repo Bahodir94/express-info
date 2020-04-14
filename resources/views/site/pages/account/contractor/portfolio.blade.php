@@ -61,8 +61,7 @@
       </div>
       <div class="candidate-box">
         <div class="item-list">
-
-
+          <div class="table-responsive m-1 p-1">
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -95,7 +94,7 @@
 
 
               </table>
-
+          </div>
         </div>
       </div>
     </div>
