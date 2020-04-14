@@ -2,6 +2,13 @@
 
 @section('title', $contractor->getContractorTitle())
 
+@section('meta')
+    <meta name="title"
+          content="{{ $contractor->getCommonTitle() }}">
+    <meta name="description"
+          content="{{ strip_tags($contractor->about_myself) }}">
+@endsection
+
 @section('header')
     @include('site.layouts.partials.headers.default')
 @endsection
