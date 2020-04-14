@@ -104,7 +104,7 @@ class CatalogController extends Controller
         if (preg_match('/[A-Z]/', $params)) {
             return redirect(route('site.catalog.main', strtolower($params)), 301);
         }
-        if (strpos($params, 'tenders')) {
+        if (strpos($params, 'tenders') !== false) {
             return app('App\Http\Controllers\Site\TenderController')->category($params);
         }
         abort_if(!SlugHelper::checkSlug($params), 404);
