@@ -62,9 +62,9 @@ class ContractorsController extends Controller
         $paramsArray = explode('/', $params);
         $slug = end($paramsArray);
         $category = $this->categories->getBySlug($slug);
+        abort_if(!$category, 404);
         if ($category->getAncestorsSlugs() !== $params)
             return redirect(route('site.catalog.main', $category->getAncestorsSlugs()), 301);
-        abort_if(!$category, 404);
         $contractors = $category->getAllCompaniesFromDescendingCategories();
         return view('site.pages.contractors.category', compact('category', 'contractors'));
     }
