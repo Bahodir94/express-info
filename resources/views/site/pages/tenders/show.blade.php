@@ -3,8 +3,8 @@
 @section('title', "Конкурс $tender->title")
 
 @section('meta')
-    <meta name="title" content="">
-    <meta name="description" content="">
+    <meta name="title" content="{{ $tender->title }}">
+    <meta name="description" content="{{ strip_tags($tender->description) }}">
 @endsection
 @section('header')
     @include('site.layouts.partials.headers.default')
