@@ -19,17 +19,24 @@ class FileController extends Controller
         $user_id = $user->id;
         $data = FormMultipleUpload::where('user_id', $user_id)->get();
         return view('site.pages.account.contractor.portfolio', compact('data', 'user', 'accountPage'));
-      }
-      // return view('site.pages.account.contractor.portfolio');
+  }
+
 
 
 
 
   public function save(Request $request){
-        $validatedData = $request->validate([
+
+        $user = auth()->user();
+        $validationMessages = [
+            'filename.*' => 'Файл должен быть картинкой',
+
+        ];
+
+        $validatedData = Validator::make($request->all(), [
           'filename' => 'required',
-          'filename.*' => 'image|mimes:jpeg, jpg, png, gif, svg|max:4098',
-      ]);
+          'filename.*' => 'image|max:4098',
+      ], $validationMessages)->validate();
 
       if($request->hasFile('filename')){
           foreach($request->file('filename') as $image){
@@ -40,9 +47,10 @@ class FileController extends Controller
       }
       $upload_model = new FormMultipleUpload;
       $upload_model -> filename = json_encode($data);
-      $upload_model -> user_id = auth()->user()->id;
+      $upload_model -> user_id = $user->id;
       $upload_model->save();
-      return back()->with('success', 'Картинка добавлена');
+      return redirect()->route('site.account.portfolio')->with('account.success', 'Файлы успешно добавлены');
+
 
   }
 
