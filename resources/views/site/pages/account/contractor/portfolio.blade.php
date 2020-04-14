@@ -18,6 +18,20 @@
 @section('account.content')
 
 <section class="box-admin edit-profile">
+  <div class="card-body">
+
+
+   @if (count($errors) > 0)
+       <div class="alert alert-danger">
+          
+           <ul>
+               @foreach ($errors->all() as $error)
+                   <li>{{ $error }}</li>
+               @endforeach
+           </ul>
+       </div>
+   @endif
+   </div>
   <div class="header-box-admin">
       <h3>Добавить изображения</h3>
   </div>
