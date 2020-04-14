@@ -1,6 +1,6 @@
 @extends('site.layouts.app')
 
-@section('title', $contractor->getContractorTitle())
+@section('title', $contractor->getCommonTitle())
 
 @section('meta')
     <meta name="title"

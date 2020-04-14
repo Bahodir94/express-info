@@ -1,12 +1,18 @@
 @extends('site.layouts.app')
 
-@section('title', 'Конкурсы')
-
-@section('meta')
+@section('title')
     @if ($currentCategory)
         @php
             $metaWords = ['Тендеры по', 'Заказы по', 'Работа по']
         @endphp
+        {{ $metaWords[array_rand($metaWords, 1)] }} @if(empty($currentCategory->meta_title)) {{ $currentCategory->getTitle() }} @else {{ $currentCategory->meta_title }} @endif в Ташкенте|Узбекистане
+    @else
+        Конкурсы
+    @endif
+@endsection
+
+@section('meta')
+    @if ($currentCategory)
         <meta name="title" content="{{ $metaWords[array_rand($metaWords, 1)] }} @if(empty($currentCategory->meta_title)) {{ $currentCategory->getTitle() }} @else {{ $currentCategory->meta_title }} @endif в Ташкенте|Узбекистане">
         <meta name="description"
               content="@if (empty($currentCategory->meta_description)) {{ strip_tags($currentCategory->ru_description) }} @else {{ $currentCategory->meta_description }} @endif">
