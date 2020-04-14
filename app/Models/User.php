@@ -28,6 +28,23 @@ class User extends Authenticatable implements MustVerifyEmail
         'telegram_id', 'telegram_username', 'google_id'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($item) {
+            event('model.changed');
+        });
+
+        static::updated(function ($item) {
+            event('model.changed');
+        });
+
+        static::deleted(function ($item) {
+            event('model.changed');
+        });
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -24,6 +24,18 @@ class Tender extends Model
         static::saving(function ($model) {
             $model->generateSlug();
         });
+
+        static::created(function ($item) {
+            event('model.changed');
+        });
+
+        static::updated(function ($item) {
+            event('model.changed');
+        });
+
+        static::deleted(function ($item) {
+            event('model.changed');
+        });
     }
 
     /**

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Spatie\Sitemap\SitemapGenerator;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,10 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
+        Event::listen('model.changed', function () {
+            dd('here');
+            SitemapGenerator::create(config('app.url'))
+                ->getSitemap()->writeToFile(public_path('sitemap.xml'));
+        });
     }
 }
