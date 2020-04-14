@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Models\Role;
+use App\Models\FormMultiUpload;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Hash;
@@ -125,6 +126,8 @@ class UserRepository implements UserRepositoryInterface
         return $allUsers->filter(function ($user) { return $user->hasRole('contractor'); });
     }
 
+
+
     /**
      * @inheritDoc
      */
@@ -133,6 +136,18 @@ class UserRepository implements UserRepositoryInterface
         return $this->getContractors()->first(function ($user) use ($slug) {
             return $user->slug === $slug;
         });
+    }
+
+    public function getPortfolio(){
+      $allPortfolio = FormMultiUpload::all();
+      return $allPortfolio;
+    }
+
+    public function getPortfolioBySlug(string $slug){
+
+      return $this->getPortfolio()->first(function ($user) use ($slug) {
+          return $user->slug === $slug;
+      });
     }
 
     /**

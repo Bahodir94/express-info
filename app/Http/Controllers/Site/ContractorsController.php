@@ -88,7 +88,9 @@ class ContractorsController extends Controller
     public function contractor(string $slug)
     {
         $contractor = $this->users->getContractorBySlug($slug);
+        $portfolio = $this->users->getPortfolioBySlug($slug);
         abort_if(!$contractor, 404);
-        return view('site.pages.contractors.show', compact('contractor'));
+        abort_if(!$portfolio, 404);
+        return view('site.pages.contractors.show', compact('contractor', 'portfolio'));
     }
 }

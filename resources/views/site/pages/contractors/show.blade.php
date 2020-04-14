@@ -59,6 +59,23 @@
                                 </div>
                             </div>
                         </div>
+                        <hr>
+                        <div class="intro-profile">
+                            <h3 class="title-box">Портфолио</h3>
+                            <div class="candidate-box">
+                              <table class="table table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <td>Название проекта</td>
+                                      <td>Изображение</td>
+                                      <td>Ссылка</td>
+                                  </thead>
+
+                                  <tbody>
+                                  </tbody>
+                              </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4">

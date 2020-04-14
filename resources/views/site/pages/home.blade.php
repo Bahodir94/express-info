@@ -17,7 +17,9 @@
     <section class="section-banner" style="background-image: url({{ asset('front/images/banner-1.jpg') }})">
         <div class="banner-content">
             <div class="container">
+
                 <div class="banner-item">
+                  <h4 class="banner-sub-title">VID присоединяется к борьбе с Covid-19. Все услуги на площадке на время карантина становятся бесплатными </h2>
                     <h2 class="banner-title">2 Лучших способа найти IT специалиста для продвижения вашего
                         бизнеса</h2>
                     <div class="banner-sub-title">Добавьте в конкурс на выполнение вашего заказа исполнителя
