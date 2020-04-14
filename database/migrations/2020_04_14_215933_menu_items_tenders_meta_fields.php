@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CategoriesTendersMetaFields extends Migration
+class MenuItemsTendersMetaFields extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CategoriesTendersMetaFields extends Migration
      */
     public function up()
     {
-        Schema::table('handbook_categories', function (Blueprint $table) {
+        Schema::table('menu_items', function (Blueprint $table) {
             $table->string('tender_meta_title_prefix')->nullable();
         });
     }
@@ -25,7 +25,7 @@ class CategoriesTendersMetaFields extends Migration
      */
     public function down()
     {
-        Schema::table('handbook_categories', function (Blueprint $table) {
+        Schema::table('menu_items', function (Blueprint $table) {
             $table->dropColumn('tender_meta_title_prefix');
         });
     }
