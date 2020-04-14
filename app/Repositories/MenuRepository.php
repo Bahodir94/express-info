@@ -42,6 +42,9 @@ class MenuRepository implements MenuRepositoryInterface
         $newMenuItem->uploadImage($menuData->file('image'));
         $categoriesIds = $menuData->get('categories');
         $newMenuItem->categories()->attach($categoriesIds);
+        $metaWords = ['Тендеры по', 'Заказы по', 'Работа по'];
+        $newMenuItem->tender_meta_title_prefix = $metaWords[array_rand($metaWords)];
+        $newMenuItem->save();
         if (empty($menuData->get('ru_slug')))
             $newMenuItem->generateSlug();
     }

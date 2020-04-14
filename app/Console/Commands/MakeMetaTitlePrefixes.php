@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\HandbookCategory;
+use App\Models\MenuItem;
 use Illuminate\Console\Command;
 
 class MakeMetaTitlePrefixes extends Command
@@ -43,6 +44,11 @@ class MakeMetaTitlePrefixes extends Command
         foreach ($categories as $category) {
             $category->tender_meta_title_prefix = $metaWords[array_rand($metaWords)];
             $category->save();
+        }
+        $menuItems = MenuItem::all();
+        foreach ($menuItems as $item) {
+            $item->tender_meta_title_prefix = $metaWords[array_rand($metaWords)];
+            $item->save();
         }
     }
 }
