@@ -64,6 +64,11 @@ class ContractorsController extends Controller
             $slug = end($paramsArray);
             return redirect(route('site.tenders.category', "tenders/$slug"), 301);
         }
+        if (strpos($params, 'blog') !== false) {
+            $paramsArray = explode('/', $params);
+            $slug = end($paramsArray);
+            return redirect(route('site.blog.main', $slug), 301);
+        }
         $paramsArray = explode('/', $params);
         $slug = end($paramsArray);
         $category = $this->categories->getBySlug($slug);

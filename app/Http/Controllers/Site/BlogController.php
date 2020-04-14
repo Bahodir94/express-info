@@ -48,12 +48,19 @@ class BlogController extends Controller
      */
     public function blog(Request $request, string $params)
     {
+        if (preg_match('/[A-Z]/', $params)) {
+            return redirect(route('site.blog.main', strtolower($params)), 301);
+        }
         $paramsArray = explode('/', trim($params, '/'));
         $slug = end($paramsArray);
 
         $blogCategory = $this->blogCategories->getBySlug($slug);
-        if ($blogCategory)
+        if ($blogCategory) {
+            if ($blogCategory->ru_slug !== $params) {
+                return redirect(route('site.blog.main', $blogCategory->ru_slug), 301);
+            }
             return $this->processBlogCategory($request, $blogCategory);
+        }
         $blogPost = $this->blogPosts->getBySlug($slug);
         if ($blogPost)
             return $this->processBlogPost($request, $blogPost);
