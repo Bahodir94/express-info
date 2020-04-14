@@ -68,6 +68,7 @@
                         </li>
                     </ul>
                 </div>
+                
             </div>
             @guest
                 <div class="mobile-header-right">

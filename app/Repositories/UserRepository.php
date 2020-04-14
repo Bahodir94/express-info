@@ -138,16 +138,17 @@ class UserRepository implements UserRepositoryInterface
         });
     }
 
-    public function getPortfolio(){
-      $allPortfolio = FormMultipleUpload::all();
+
+    public function getPortfolio(string $slug){
+      $allPortfolio = FormMultipleUpload::where('slug', $slug)->get();
       return $allPortfolio;
 
     }
 
     public function getPortfolioBySlug(string $slug){
 
-      return $this->getPortfolio()->all(function ($image) use ($slug) {
-          return $image->slug === $slug;
+      return $this->getPortfolio($slug)->all(function ($user) use ($slug) {
+          return $user->slug === $slug;
       });
     }
 
