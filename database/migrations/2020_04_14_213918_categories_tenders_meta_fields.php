@@ -16,6 +16,9 @@ class CategoriesTendersMetaFields extends Migration
         Schema::table('handbook_categories', function (Blueprint $table) {
             $table->string('tender_meta_title_prefix')->nullable();
         });
+        Schema::table('menu_items', function (Blueprint $table) {
+            $table->string('tender_meta_title_prefix')->nullable();
+        });
     }
 
     /**
@@ -26,6 +29,9 @@ class CategoriesTendersMetaFields extends Migration
     public function down()
     {
         Schema::table('handbook_categories', function (Blueprint $table) {
+            $table->dropColumn('tender_meta_title_prefix');
+        });
+        Schema::table('menu_items', function (Blueprint $table) {
             $table->dropColumn('tender_meta_title_prefix');
         });
     }
