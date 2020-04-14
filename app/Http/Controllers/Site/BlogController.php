@@ -64,7 +64,7 @@ class BlogController extends Controller
         $blogPost = $this->blogPosts->getBySlug($slug);
         if ($blogPost) {
             if ($blogPost->getAncestorsSlugs() !== $params) {
-                return redirect(route('site.catalog.main', $blogPost->getAncestorsSlugs()), 301);
+                return redirect(route('site.blog.main', $blogPost->getAncestorsSlugs()), 301);
             }
             return $this->processBlogPost($request, $blogPost);
         }
