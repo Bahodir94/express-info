@@ -14,6 +14,7 @@
         <section class="box-admin edit-profile">
             <div class="header-box-admin">
                 <h3>Специализация</h3>
+                <p>Выберите в этом списке услуги, предоставляемые вами и укажите минимальные и максимальные цены на них.</p>
             </div>
             <div class="accordion" id="parentCategoriesAccordion" role="tablist" aria-multiselectable="false">
                 @foreach($categories as $category)
