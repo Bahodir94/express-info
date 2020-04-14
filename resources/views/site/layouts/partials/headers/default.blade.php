@@ -69,9 +69,17 @@
                     </ul>
                 </div>
             </div>
-            <div class="mobile-header-right">
-                <a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i> Добавить заказ</a>
-            </div>
+            @guest
+                <div class="mobile-header-right">
+                    <a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i> Добавить заказ</a>
+                </div>
+            @else
+                @if (auth()->user()->hasRole('customer'))
+                    <div class="mobile-header-right">
+                        <a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i> Добавить заказ</a>
+                    </div>
+                @endif
+            @endguest
             <div class="header-right">
                 <ul>
 
