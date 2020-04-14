@@ -60,7 +60,9 @@ class ContractorsController extends Controller
             return redirect(route('site.catalog.main', strtolower($params)), 301);
         }
         if (strpos($params, 'tenders') !== false) {
-            return app('App\Http\Controllers\Site\TenderController')->category($params);
+            $paramsArray = explode('/', $params);
+            $slug = end($paramsArray);
+            return redirect(route('site.tenders.category', "tenders/$slug"), 301);
         }
         $paramsArray = explode('/', $params);
         $slug = end($paramsArray);
