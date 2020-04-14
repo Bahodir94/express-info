@@ -31,7 +31,6 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         Event::listen('model.changed', function () {
-            dd('here');
             SitemapGenerator::create(config('app.url'))
                 ->getSitemap()->writeToFile(public_path('sitemap.xml'));
         });
