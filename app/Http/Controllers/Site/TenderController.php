@@ -55,36 +55,44 @@ class TenderController extends Controller
 
     public function category(string $params)
     {
-       $paramsArray = explode('/', $params);
-       $tenders = collect();
-       $currentCategory = null;
-       if (count($paramsArray) === 1) {
-           $menuItemSlug = $paramsArray[0];
-           $menuItem = $this->menuItemsRepository->getBySlug($menuItemSlug);
-           if ($menuItem) {
-               foreach ($menuItem->categories as $category)
-                   $tenders = $tenders->merge($category->tenders()->whereNotNull('owner_id')->get());
-               $tenders = $tenders->unique(function ($item) {
-                   return $item->id;
-               });
-               $currentCategory = $menuItem;
-               return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
-           }
-           $tender = $this->tenderRepository->getBySlug($menuItemSlug);
-           if ($tender) {
-               return view('site.pages.tenders.show', compact('tender'));
-           }
-           abort(404, "Ресурс не найден");
-       } else {
-           $categorySlug = end($paramsArray);
-           $currentCategory = $this->categoryRepository->getBySlug($categorySlug);
-           if ($currentCategory) {
-               $tenders = $currentCategory->tenders;
-               return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
-           } else {
-               abort(404, "Ресурс не найден");
-           }
-       }
+        if (preg_match('/[A-Z]/', $params)) {
+            return redirect(route('site.tenders.category', strtolower($params)), 301);
+        }
+        if (substr_count($params, 'tenders') > 1) {
+            $paramsArray = explode('/', $params);
+            $uniqueParams = array_unique($paramsArray);
+            return redirect(route('site.tenders.category', implode('/', $uniqueParams)), 301);
+        }
+        $paramsArray = explode('/', $params);
+        $tenders = collect();
+        $currentCategory = null;
+        if (count($paramsArray) === 1) {
+            $menuItemSlug = $paramsArray[0];
+            $menuItem = $this->menuItemsRepository->getBySlug($menuItemSlug);
+            if ($menuItem) {
+                foreach ($menuItem->categories as $category)
+                    $tenders = $tenders->merge($category->tenders()->whereNotNull('owner_id')->get());
+                $tenders = $tenders->unique(function ($item) {
+                    return $item->id;
+                });
+                $currentCategory = $menuItem;
+                return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
+            }
+            $tender = $this->tenderRepository->getBySlug($menuItemSlug);
+            if ($tender) {
+                return view('site.pages.tenders.show', compact('tender'));
+            }
+            abort(404, "Ресурс не найден");
+        } else {
+            $categorySlug = end($paramsArray);
+            $currentCategory = $this->categoryRepository->getBySlug($categorySlug);
+            if ($currentCategory) {
+                $tenders = $currentCategory->tenders;
+                return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
+            } else {
+                abort(404, "Ресурс не найден");
+            }
+        }
     }
 
     public function show(string $slug)
