@@ -19,6 +19,23 @@ class HandbookCategory extends Model
         'meta_title', 'meta_description', 'meta_keywords', 'template'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($item) {
+            event('model.changed');
+        });
+
+        static::updated(function ($item) {
+            event('model.changed');
+        });
+
+        static::deleted(function ($item) {
+            event('model.changed');
+        });
+    }
+
     const UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
 
     /**

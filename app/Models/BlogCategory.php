@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Components\Slug;
 use Illuminate\Database\Eloquent\Model;
+use function foo\func;
 
 class BlogCategory extends Model
 {
@@ -14,6 +15,23 @@ class BlogCategory extends Model
         'ru_slug', 'en_slug', 'uz_slug',
         'meta_title', 'meta_description', 'meta_keywords'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($item) {
+            event('model.changed');
+        });
+
+        static::updated(function ($item) {
+            event('model.changed');
+        });
+
+        static::deleted(function ($item) {
+            event('model.changed');
+        });
+    }
 
     /**
      * Возвращаем очищенный заголовок

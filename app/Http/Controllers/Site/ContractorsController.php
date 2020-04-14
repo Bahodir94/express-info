@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Helpers\SlugHelper;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
@@ -55,10 +56,25 @@ class ContractorsController extends Controller
      */
     public function category(string $params)
     {
+        if (preg_match('/[A-Z]/', $params)) {
+            return redirect(route('site.catalog.main', strtolower($params)), 301);
+        }
+        if (strpos($params, 'tenders') !== false) {
+            $paramsArray = explode('/', $params);
+            $slug = end($paramsArray);
+            return redirect(route('site.tenders.category', "tenders/$slug"), 301);
+        }
+        if (strpos($params, 'blog') !== false) {
+            $paramsArray = explode('/', $params);
+            $slug = end($paramsArray);
+            return redirect(route('site.blog.main', $slug), 301);
+        }
         $paramsArray = explode('/', $params);
         $slug = end($paramsArray);
         $category = $this->categories->getBySlug($slug);
         abort_if(!$category, 404);
+        if ($category->getAncestorsSlugs() !== $params)
+            return redirect(route('site.catalog.main', $category->getAncestorsSlugs()), 301);
         $contractors = $category->getAllCompaniesFromDescendingCategories();
         return view('site.pages.contractors.category', compact('category', 'contractors'));
     }
