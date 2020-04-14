@@ -109,6 +109,10 @@ class HandbookCategoryRepository implements HandbookCategoryRepositoryInterface
             $category->appendToNode($parent)->save();
         }
 
+        $metaWords = ['Тендеры по', 'Заказы по', 'Работа по'];
+        $category->tender_meta_title_prefix = $metaWords[array_rand($metaWords)];
+        $category->save();
+
         $template = $categoryData->get('template');
         self::setTemplate($category, $template);
 
