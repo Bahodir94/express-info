@@ -57,7 +57,7 @@ class TenderController extends Controller
     {
        $paramsArray = explode('/', $params);
        $tenders = collect();
-        $currentCategory = null;
+       $currentCategory = null;
        if (count($paramsArray) === 1) {
            $menuItemSlug = $paramsArray[0];
            $menuItem = $this->menuItemsRepository->getBySlug($menuItemSlug);
@@ -68,17 +68,23 @@ class TenderController extends Controller
                    return $item->id;
                });
                $currentCategory = $menuItem;
+               return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
            }
            $tender = $this->tenderRepository->getBySlug($menuItemSlug);
            if ($tender) {
                return view('site.pages.tenders.show', compact('tender'));
            }
+           abort(404, "Ресурс не найден");
        } else {
            $categorySlug = end($paramsArray);
            $currentCategory = $this->categoryRepository->getBySlug($categorySlug);
-           $tenders = $currentCategory->tenders;
+           if ($currentCategory) {
+               $tenders = $currentCategory->tenders;
+               return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
+           } else {
+               abort(404, "Ресурс не найден");
+           }
        }
-       return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
     }
 
     public function show(string $slug)
