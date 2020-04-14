@@ -6,7 +6,7 @@ namespace App\Repositories;
 
 use App\Models\User;
 use App\Models\Role;
-use App\Models\FormMultiUpload;
+use App\Models\FormMultipleUpload;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Hash;
@@ -139,14 +139,15 @@ class UserRepository implements UserRepositoryInterface
     }
 
     public function getPortfolio(){
-      $allPortfolio = FormMultiUpload::all();
+      $allPortfolio = FormMultipleUpload::all();
       return $allPortfolio;
+
     }
 
     public function getPortfolioBySlug(string $slug){
 
-      return $this->getPortfolio()->first(function ($user) use ($slug) {
-          return $user->slug === $slug;
+      return $this->getPortfolio()->all(function ($image) use ($slug) {
+          return $image->slug === $slug;
       });
     }
 

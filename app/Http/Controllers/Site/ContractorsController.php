@@ -89,8 +89,9 @@ class ContractorsController extends Controller
     {
         $contractor = $this->users->getContractorBySlug($slug);
         $portfolio = $this->users->getPortfolioBySlug($slug);
+
         abort_if(!$contractor, 404);
-        abort_if(!$portfolio, 404);
+        
         return view('site.pages.contractors.show', compact('contractor', 'portfolio'));
     }
 }

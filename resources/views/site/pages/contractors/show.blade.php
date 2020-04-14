@@ -72,6 +72,25 @@
                                   </thead>
 
                                   <tbody>
+                                  @foreach($portfolio as $row)
+                                  @if($row)
+                                    <tr>
+                                      <td>{{ $row->project_name}}</td>
+                                      <td>
+                                        <a data-fancybox="gallery" href="{{ asset('images/portfolio/portfolio_contractor/'.$row->filename) }}">
+                                            <img class="img-fluid" src="{{ asset('images/portfolio/portfolio_contractor/'.$row->filename) }}" style="height:120px; width:200px"/>
+                                        </a>
+                                      </td>
+                                      @if($row->link)
+                                        <td>
+                                          <a href="{{ $row->link }}">Перейти на проект</a>
+                                        </td>
+                                      @else
+                                        <td>Ссылка не указана исполнителем</td>
+                                      @endif
+                                    </tr>
+                                  @endif
+                                  @endforeach
                                   </tbody>
                               </table>
                             </div>
