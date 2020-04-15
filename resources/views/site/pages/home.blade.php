@@ -36,14 +36,14 @@
                                     </div>
                                     <div class="col-md-3 text-center p-1">
 
-                                        <a class="btn btn-light-green" href="{{ route('site.tenders.common.create') }}">Хочу добавить сам <i class="fas fa-chevron-right"></i>
+                                        <a class="btn btn-light-green" href="{{ route('site.contractors.index') }}">Хочу добавить сам <i class="fas fa-chevron-right"></i>
                                             <div class="form-group search-location">
 
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col-md-3 text-center p-1">
-                                        <a class="btn btn-light-green" href="{{ route('site.contractors.index') }}">
+                                        <a class="btn btn-light-green" href="{{ route('site.tenders.common.create') }}">
                                           Подберет система <i class="fas fa-chevron-right"></i>
 
                                         </a>
