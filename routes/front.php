@@ -69,6 +69,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     // Tenders routes
     Route::get('/tenders', 'TenderController@index')->name('tenders.index');
     Route::get('/tenders/create', 'TenderController@create')->name('tenders.common.create');
+    Route::get('/tenders/addContractor/{contractorId}/to/{tenderId}', 'TenderController@addContractor')->name('tenders.contractors.add');
     Route::get('/tenders/{params}', 'TenderController@category')->where('params', '.+')->name('tenders.category');
     Route::post('/tenders/create', 'TenderController@store');
     Route::post('/tenders/makeRequest', 'TenderController@makeRequest')->name('tenders.requests.make');
