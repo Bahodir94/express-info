@@ -208,9 +208,4 @@ class TenderController extends Controller
             return redirect($redirectTo)->with('account.error', 'Невозможно назначить исполнителя на этот конкурс');
         }
     }
-
-    public function addContractor(int $contractorId, int $tenderId) {
-        $this->tenderRepository->addContractor($tenderId, $contractorId);
-        return back()->with('success', 'Исполнитель добавлен в конкурс!');
-    }
 }

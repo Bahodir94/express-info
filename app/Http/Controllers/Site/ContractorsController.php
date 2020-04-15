@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Helpers\SlugHelper;
 use App\Repositories\HandbookCategoryRepositoryInterface;
+use App\Repositories\TenderRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -26,15 +27,22 @@ class ContractorsController extends Controller
     private $categories;
 
     /**
+     * @var TenderRepositoryInterface
+     */
+    private $tenders;
+
+    /**
      * ContractorsController constructor.
      * @param UserRepositoryInterface $userRepository
      * @param HandbookCategoryRepositoryInterface $categoriesRepository
      */
     public function __construct(UserRepositoryInterface $userRepository,
-                                HandbookCategoryRepositoryInterface $categoriesRepository)
+                                HandbookCategoryRepositoryInterface $categoriesRepository,
+                                TenderRepositoryInterface $tenderRepository)
     {
         $this->users = $userRepository;
         $this->categories = $categoriesRepository;
+        $this->tenders = $tenderRepository;
     }
 
     /**
@@ -91,7 +99,48 @@ class ContractorsController extends Controller
         $portfolio = $this->users->getPortfolioBySlug($slug);
 
         abort_if(!$contractor, 404);
-        
+
         return view('site.pages.contractors.show', compact('contractor', 'portfolio'));
+    }
+
+    public function addContractor(int $contractorId, int $tenderId) {
+        $this->tenders->addContractor($tenderId, $contractorId);
+        return back()->with('success', 'Исполнитель добавлен в конкурс!');
+    }
+
+    public function addContractorForNonAuth(int $contractorId) {
+        $user = $this->users->get($contractorId);
+        $contractors = \Session::get('contractors', collect());
+        if ($contractors->contains('id', $contractorId))
+            return back();
+        $contractors->push([
+            'id' => $contractorId,
+            'name' => $user->getCommonTitle(),
+            'image' => $user->getImage()
+        ]);
+        \Session::put('contractors', $contractors);
+        return back();
+    }
+
+    public function deleteContractorFromSession(int $contractorId) {
+        $contractors = \Session::get('contractors');
+        if (!$contractors->contains('id', $contractorId))
+            return back();
+        $contractors = $contractors->filter(function ($item) use ($contractorId) {
+            return $item['id'] !== $contractorId;
+        });
+        if (count($contractors) === 0) {
+            \Session::forget('contractors');
+            \Session::save();
+            return back();
+        }
+        \Session::put('contractors', $contractors);
+        return back();
+    }
+
+    public function deleteAllContractorsFromSession() {
+        \Session::forget('contractors');
+        \Session::save();
+        return back();
     }
 }

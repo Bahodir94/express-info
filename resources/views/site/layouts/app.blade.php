@@ -102,6 +102,7 @@
     </main>
 
     @include('site.layouts.partials.footer')
+    @include('site.components.contractors')
 </div>
 
 <script src="/front/js/jquery.min.js"></script>
