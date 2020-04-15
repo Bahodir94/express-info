@@ -9,6 +9,13 @@
           content="{{ strip_tags($contractor->about_myself) }}">
 @endsection
 
+@section('css')
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+@endsection
+
 @section('header')
     @include('site.layouts.partials.headers.default')
 @endsection
@@ -63,36 +70,38 @@
                         <div class="intro-profile">
                             <h3 class="title-box">Портфолио</h3>
                             <div class="candidate-box">
-                              <table class="table table-bordered">
-                                  <thead>
-                                    <tr>
-                                      <td>Название проекта</td>
-                                      <td>Изображение</td>
-                                      <td>Ссылка</td>
-                                  </thead>
+                              <div class="table-responsive m-1 p-1">
+                                <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <td>Название проекта</td>
+                                        <td>Изображение</td>
+                                        <td>Ссылка</td>
+                                    </thead>
 
-                                  <tbody>
-                                  @foreach($portfolio as $row)
-                                  @if($row)
-                                    <tr>
-                                      <td>{{ $row->project_name}}</td>
-                                      <td>
-                                        <a data-fancybox="gallery" href="{{ asset('images/portfolio/portfolio_contractor/'.$row->filename) }}">
-                                            <img class="img-fluid" src="{{ asset('images/portfolio/portfolio_contractor/'.$row->filename) }}" style="height:120px; width:200px"/>
-                                        </a>
-                                      </td>
-                                      @if($row->link)
+                                    <tbody>
+                                    @foreach($portfolio as $row)
+                                    @if($row)
+                                      <tr>
+                                        <td>{{ $row->project_name}}</td>
                                         <td>
-                                          <a href="{{ $row->link }}">Перейти на проект</a>
+                                          <a data-fancybox="gallery" href="{{ asset('images/portfolio/portfolio_contractor/'.$row->filename) }}">
+                                              <img class="img-fluid" src="{{ asset('images/portfolio/portfolio_contractor/'.$row->filename) }}" style="height:120px; width:200px"/>
+                                          </a>
                                         </td>
-                                      @else
-                                        <td>Ссылка не указана исполнителем</td>
-                                      @endif
-                                    </tr>
-                                  @endif
-                                  @endforeach
-                                  </tbody>
-                              </table>
+                                        @if($row->link)
+                                          <td>
+                                            <a href="{{ $row->link }}">Перейти на проект</a>
+                                          </td>
+                                        @else
+                                          <td>Ссылка не указана исполнителем</td>
+                                        @endif
+                                      </tr>
+                                    @endif
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                              </div>
                             </div>
                         </div>
                     </div>
