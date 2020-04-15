@@ -133,4 +133,9 @@ class Tender extends Model
         $deadline = Carbon::create($this->deadline);
         return now() < $deadline;
     }
+
+    public function hasRequestFrom($userId)
+    {
+        return $this->requests()->where('user_id', $userId)->count() > 0;
+    }
 }

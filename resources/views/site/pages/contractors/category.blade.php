@@ -113,6 +113,10 @@
                                                                     <ul class="list-group list-group-flush">
                                                                         @foreach(auth()->user()->ownedTenders as $tender)
                                                                             @continue(!$tender->opened || $tender->status == 'done')
+                                                                            @if ($tender->hasRequestFrom($contractor->id))
+                                                                                <li class="list-group-item">{{ $tender->title }} <small class="text-primary"><i class="far fa-check-circle"></i> Уже участвует в этом конкурсе</small></li>
+                                                                                @continue
+                                                                            @endif
                                                                             <a href="#" class="list-group-item list-group-item-action tender-item" data-target="{{ route('site.tenders.contractors.add', ['tenderId' => $tender->id, 'contractorId' => $contractor->id]) }}">{{ $tender->title }}</a>
                                                                         @endforeach
                                                                     </ul>
