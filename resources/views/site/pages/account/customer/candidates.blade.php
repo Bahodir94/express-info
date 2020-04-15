@@ -32,7 +32,7 @@
                                     <div class="img"><img src="{{ $request->user->getImage() }}" alt="{{ $request->user->getCommonTitle() }}">
                                     </div>
                                     <div class="text">
-                                        <h3 class="title-job"><a href="{{ route('site.contractors.show', $request->user->slug) }}">{{ $request->user->getCommonTitle() }}</a>  @if ($tender->contractor_id == $request->user_id) <i class="fas fa-check-circle text-success"></i> @endif</h3>
+                                        <h3 class="title-job"><a href="{{ route('site.contractors.show', $request->user->slug) }}">{{ $request->user->getCommonTitle() }}</a> @if ($request->invited) <small class="text-primary"><i class="far fa-check-circle"></i> Приглашённый</small>@endif  @if ($tender->contractor_id == $request->user_id) <i class="fas fa-check-double text-success"></i> @endif</h3>
                                         <div class="date-job"><i class="fas fa-check-circle"></i> @if ($request->user->cotractor_type == 'agency') Digital-агенство @else Фрилансер @endif </div>
                                     </div>
                                 </div>

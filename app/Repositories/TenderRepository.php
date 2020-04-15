@@ -139,7 +139,8 @@ class TenderRepository implements TenderRepositoryInterface
     {
         TenderRequest::create([
             'user_id' => $contractorId,
-            'tender_id' => $tenderId
+            'tender_id' => $tenderId,
+            'invited' => true
         ]);
     }
 }
