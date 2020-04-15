@@ -38,9 +38,13 @@
                                 </div>
                                 <div class="job-info-mobile d-xl-none">
                                     <ul>
-                                        <li><strong>Сроки: </strong>{{ $request->period_from }} - {{ $request->period_to }}
-                                        </li>
-                                        <li><strong>Бюджет: </strong>{{ $request->budget_from }} - {{ $request->budget_to }}</li>
+                                        @if ($request->period_from && $request->period_to)
+                                            <li><strong>Сроки: </strong>{{ $request->period_from }} - {{ $request->period_to }}
+                                            </li>
+                                        @endif
+                                        @if ($request->budget_from && $request->budget_to)
+                                            <li><strong>Бюджет: </strong>{{ $request->budget_from }} - {{ $request->budget_to }}</li>
+                                        @endif
                                     </ul>
                                     <div class="job-func d-md-none">
                                         <button class="btn btn-light btn-new"><i class="far fa-сheck"></i>
@@ -52,8 +56,8 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="d-none d-xl-table-cell text-center" style="width: 100%">{{ $request->period_from }} - {{ $request->period_to }} дней</td>
-                            <td class="d-none d-xl-table-cell text-center">от {{ $request->budget_from }} сум до {{ $request->budget_to }} сум</td>
+                            <td class="d-none d-xl-table-cell text-center" style="width: 100%">@if ($request->period_from && $request->period_to){{ $request->period_from }} - {{ $request->period_to }} дней@endif</td>
+                            <td class="d-none d-xl-table-cell text-center">@if ($request->budget_from && $request->budget_to)от {{ $request->budget_from }} сум до {{ $request->budget_to }} сум@endif</td>
                             <td class="d-none d-md-table-cell text-right">
                                 <div class="d-flex">
                                     @if ($tender->contractor_id !== $request->user_id)
