@@ -140,8 +140,16 @@ class TenderController extends Controller
         ], $validationMessages)->validate();
         $tender = $this->tenderRepository->create($request);
 
-        if (!Auth::check())
+        if (!Auth::check()) {
+            if (session()->has('contractors')) {
+                $contractors = session('contractors');
+                foreach ($contractors as $contractor)
+                    $tender->requests()->create(['user_id' => $contractor['id'], 'invited' => true]);
+                session()->forget('contractors');
+                session()->save();
+            }
             return redirect()->route('register')->withCookie(cookie('tenderId', "$tender->id"))->with('success', 'Ваш тендер сохранён и будет опубликован только после регистрации');
+        }
 
         return redirect()->route('site.contractors.index')->with('success', "Тендер $tender->title создан и опубликован! Вы так же можете выбрать себе исполнителей по желанию");
     }
