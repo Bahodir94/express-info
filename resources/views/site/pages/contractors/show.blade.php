@@ -66,44 +66,8 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="intro-profile">
-                            <h3 class="title-box">Портфолио</h3>
-                            <div class="candidate-box">
-                              <div class="table-responsive m-1 p-1">
-                                <table class="table table-bordered">
-                                    <thead>
-                                      <tr>
-                                        <td>Название проекта</td>
-                                        <td>Изображение</td>
-                                        <td>Ссылка</td>
-                                    </thead>
 
-                                    <tbody>
-                                    @foreach($portfolio as $row)
-                                    @if($row)
-                                      <tr>
-                                        <td>{{ $row->project_name}}</td>
-                                        <td>
-                                          <a data-fancybox="gallery" href="{{ asset('images/portfolio/portfolio_contractor/'.$row->filename) }}">
-                                              <img class="img-fluid" src="{{ asset('images/portfolio/portfolio_contractor/'.$row->filename) }}" style="height:120px; width:200px"/>
-                                          </a>
-                                        </td>
-                                        @if($row->link)
-                                          <td>
-                                            <a href="{{ $row->link }}">Перейти на проект</a>
-                                          </td>
-                                        @else
-                                          <td>Ссылка не указана исполнителем</td>
-                                        @endif
-                                      </tr>
-                                    @endif
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                              </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -130,7 +94,52 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+            <div class="row mt-1">
+              <div class="col-lg-8">
+                <div class="content-main-right single-detail">
+                  <div class="intro-profile">
+                    <h3 class="title-box">Портфолио</h3>
+                  <div class="candidate-box">
+                    <div class="table-responsive m-1 p-1">
+                      <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <td>Название проекта</td>
+                              <td>Изображение</td>
+                              <td>Ссылка</td>
+                          </thead>
+
+                          <tbody>
+                          @foreach($portfolio as $row)
+                          @if($row)
+                            <tr>
+                              <td>{{ $row->project_name}}</td>
+                              <td>
+                                <a data-fancybox="gallery" href="{{ asset('images/portfolio/portfolio_contractor/'.$row->filename) }}">
+                                    <img class="img-fluid" src="{{ asset('images/portfolio/portfolio_contractor/'.$row->filename) }}" style="height:120px; width:200px"/>
+                                </a>
+                              </td>
+                              @if($row->link)
+                                <td>
+                                  <a href="{{ $row->link }}">Перейти на проект</a>
+                                </td>
+                              @else
+                                <td>Ссылка не указана исполнителем</td>
+                              @endif
+                            </tr>
+                          @endif
+                          @endforeach
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="col-lg-4"></div>
         </div>
     </div>
 @endsection
