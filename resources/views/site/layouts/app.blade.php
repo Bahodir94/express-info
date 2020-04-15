@@ -145,6 +145,14 @@
         $('[data-toggle="tooltip"]').tooltip()
     })
 </script>
+<script>
+    $(function() {
+        $('.tender-item').on('click', function () {
+            let url = $(this).data('target');
+            window.location.href = url;
+        });
+    });
+</script>
 </body>
 <script type="application/ld+json">
     {

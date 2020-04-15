@@ -194,14 +194,3 @@
         </div>
     </div>
 @endsection
-
-@section('js')
-    <script>
-        $(function() {
-            $('.tender-item').on('click', function () {
-                let url = $(this).data('target');
-                window.location.href = url;
-            });
-        });
-    </script>
-@endsection
