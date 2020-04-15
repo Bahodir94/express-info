@@ -30,7 +30,7 @@
                     </div>
                 @endguest
                 @auth
-                    @if (auth()->user()->requests()->where('invited', false)->count() > 0)
+                    @if (auth()->user()->requests()->where('invited', false)->count() > 0 && !in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
                         <div class="alert alert-info shadow fade show">
                             <p class="fas fa-info"> Вы не можете подать заявку на участие более чем в одном конкурсе.</p>
                         </div>
