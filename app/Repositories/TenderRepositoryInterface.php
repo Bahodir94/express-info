@@ -93,4 +93,13 @@ interface TenderRepositoryInterface
      * @return mixed
      */
     public function setOwnerToTender($tenderId, $userId);
+
+    /**
+     * Manually add contractor to tender
+     *
+     * @param $tenderId
+     * @param $contractorId
+     * @return mixed
+     */
+    public function addContractor($tenderId, $contractorId);
 }

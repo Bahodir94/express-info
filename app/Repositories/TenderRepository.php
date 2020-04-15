@@ -131,4 +131,16 @@ class TenderRepository implements TenderRepositoryInterface
         $tender->owner_id = $userId;
         $tender->save();
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function addContractor($tenderId, $contractorId)
+    {
+        TenderRequest::create([
+            'user_id' => $contractorId,
+            'tender_id' => $tenderId,
+            'invited' => true
+        ]);
+    }
 }

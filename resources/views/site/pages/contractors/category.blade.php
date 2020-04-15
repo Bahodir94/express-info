@@ -93,10 +93,42 @@
                                                     </h3>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="candidate-button"><a class="btn btn-light btn-lg" href="#">Добавить
-                                                        в конкурс</a></div>
-                                            </div>
+                                            @auth
+                                                @if (auth()->user()->hasRole('customer'))
+                                                    <div class="col-md-4">
+                                                        <div class="candidate-button"><button class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#tendersModal{{ $contractor->id }}">Добавить
+                                                                в конкурс</button></div>
+                                                    </div>
+                                                    <div class="modal fade" id="tendersModal{{ $contractor->id }}" tabindex="-1" role="dialog" aria-labelledby="tendersModalLabel{{ $contractor->id }}" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="tendersModalLabel{{ $contractor->id }}">Выберите конкурс</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Выберите конкурс, в который вы хотите пригласить исполнителя</p>
+                                                                    <ul class="list-group list-group-flush">
+                                                                        @foreach(auth()->user()->ownedTenders as $tender)
+                                                                            @continue(!$tender->opened || $tender->status == 'done')
+                                                                            @if ($tender->hasRequestFrom($contractor->id))
+                                                                                <li class="list-group-item">{{ $tender->title }} <small class="text-primary"><i class="far fa-check-circle"></i> Уже участвует в этом конкурсе</small></li>
+                                                                                @continue
+                                                                            @endif
+                                                                            <a href="#" class="list-group-item list-group-item-action tender-item" data-target="{{ route('site.tenders.contractors.add', ['tenderId' => $tender->id, 'contractorId' => $contractor->id]) }}">{{ $tender->title }}</a>
+                                                                        @endforeach
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-green" data-dismiss="modal">Закрыть</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            @endauth
                                         </div>
                                     </div>
                                     <div class="candidate-content mt-3" style="margin-left: 36px;">
@@ -155,4 +187,15 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $(function() {
+            $('.tender-item').on('click', function () {
+                let url = $(this).data('target');
+                window.location.href = url;
+            });
+        });
+    </script>
 @endsection
