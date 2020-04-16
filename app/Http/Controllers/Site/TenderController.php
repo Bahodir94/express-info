@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Notifications\InviteRequest;
 use App\Notifications\NewRequest;
+use App\Notifications\RequestAction;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\MenuRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
@@ -177,7 +178,13 @@ class TenderController extends Controller
     public function cancelRequest(Request $request)
     {
         $requestId = $request->get('requestId');
-        $this->tenderRepository->cancelRequest($requestId);
+        $rejected = $request->get('rejected') === 'true' ? true : false;
+        $tenderRequest = $this->tenderRepository->cancelRequest($requestId);
+        if ($rejected) {
+            $tender = $this->tenderRepository->get($tenderRequest->tender_id);
+            $user = User::find($tenderRequest->user_id);
+            $user->notify(new RequestAction('rejected', $tenderRequest, $tender));
+        }
         if ($request->has('redirect_to')) {
             return redirect($request->get('redirect_to'))->with('account.success', 'Заявка отклонена.');
         }
@@ -216,7 +223,8 @@ class TenderController extends Controller
     public function acceptTenderRequest(Request $request, int $tenderId, int $requestId)
     {
         $redirectTo = $request->get('redirect_to');
-        if ($this->tenderRepository->acceptRequest($tenderId, $requestId)) {
+        if ($request = $this->tenderRepository->acceptRequest($tenderId, $requestId)) {
+            $request->user->notify(new RequestAction('accepted', $request));
             return redirect($redirectTo)->with('account.success', 'Исполнитель на этот конкурс назначен! ');
         } else {
             return redirect($redirectTo)->with('account.error', 'Невозможно назначить исполнителя на этот конкурс');

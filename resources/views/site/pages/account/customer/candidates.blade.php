@@ -69,6 +69,7 @@
                                         <form action="{{ route('site.tenders.requests.cancel') }}" method="post" class="ml-1">
                                             @csrf
                                             <input type="hidden" name="requestId" value="{{ $request->id }}">
+                                            <input type="hidden" name="rejected" value="true">
                                             <input type="hidden" name="redirect_to" value="{{ route('site.account.tenders.candidates', $tender->slug) }}">
                                             <button type="submit" onclick="return confirm('Вы уверены, что хотите отклонить кандидата {{ $request->user->getCommonTitle() }}?')" data-toggle="tooltip" data-placement="top" title="Отклонить заявку" class="btn btn-light btn-delete"><i class="fas fa-times"></i>
                                             </button>
