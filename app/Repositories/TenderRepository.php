@@ -24,7 +24,7 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function allOrderedByCreatedAt()
     {
-        return Tender::where(['contractor_id', 'IS NULL', null], ['owner_id', 'IS NOT NULL', null])
+        return Tender::whereNull('contractor_id')->whereNotNull('owner_id')
             ->orderBy('created_at', 'desc')
             ->get();
     }

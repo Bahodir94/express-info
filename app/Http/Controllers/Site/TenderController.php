@@ -77,7 +77,7 @@ class TenderController extends Controller
                 if ($menuItem->ru_slug !== $params)
                     return redirect(route('site.tenders.category', $menuItem->ru_slug), 301);
                 foreach ($menuItem->categories as $category)
-                    $tenders = $tenders->merge($category->tenders()->where(['contractor_id', 'IS NULL', null], ['owner_id', 'IS NOT NULL', null])->get());
+                    $tenders = $tenders->merge($category->tenders()->whereNull('contractor_id')->whereNotNull('owner_id')->get());
                 $tenders = $tenders->unique(function ($item) {
                     return $item->id;
                 });
@@ -98,7 +98,7 @@ class TenderController extends Controller
             if ($currentCategory) {
                 if ($currentCategory->getAncestorsSlugs() !== $params)
                     return redirect(route('site.tenders.category', $currentCategory->getAncestorsSlugs()), 301);
-                $tenders = $currentCategory->tenders()->where(['contractor_id', 'IS NULL', null], ['owner_id', 'IS NOT NULL', null]);
+                $tenders = $currentCategory->tenders()->whereNull('contractor_id')->whereNotNull('owner_id')->get();
                 return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
             } else {
                 abort(404, "Ресурс не найден");
