@@ -102,6 +102,7 @@
     </main>
 
     @include('site.layouts.partials.footer')
+    @include('site.components.contractors')
 </div>
 
 <script src="/front/js/jquery.min.js"></script>
@@ -143,6 +144,14 @@
         });
         $('[data-toggle="tooltip"]').tooltip()
     })
+</script>
+<script>
+    $(function() {
+        $('.tender-item').on('click', function () {
+            let url = $(this).data('target');
+            window.location.href = url;
+        });
+    });
 </script>
 </body>
 <script type="application/ld+json">

@@ -155,6 +155,25 @@ a.user-dropdown-item:active {
     display: none;
 }
 
+.contractors-bar {
+    background-color: #383838 !important;
+}
+
+.contractors-bar .btn-link {
+    color: #63ba16;
+}
+
+.contractors-bar .btn-link.btn-delete, .contractors-modal .btn-link.btn-delete {
+    color: #C82333;
+}
+
+.contractors-modal .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
 @media (max-width: 767px) {
     .mobile-header-right {
         display: block;

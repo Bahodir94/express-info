@@ -30,7 +30,11 @@
                     </div>
                 @endguest
                 @auth
-                    @if (auth()->user()->hasRole('contractor') && !in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
+                    @if (auth()->user()->requests()->where('invited', false)->count() > 0 && !in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
+                        <div class="alert alert-info shadow fade show">
+                            <p class="fas fa-info"> Вы не можете подать заявку на участие более чем в одном конкурсе.</p>
+                        </div>
+                    @elseif (auth()->user()->hasRole('contractor') && !in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
                         <div class="alert shadow alert-info fade show">
                             <div class="d-flex justify-content-between align-items-center">
                                 <p><i class="fas fa-info"></i> Вы можете связаться с данным заказчиком</p>

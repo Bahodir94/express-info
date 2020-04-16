@@ -93,6 +93,12 @@
                                                     </h3>
                                                 </div>
                                             </div>
+                                            @guest
+                                                <div class="col-md-4">
+                                                    <div class="candidate-button"><button class="btn btn-light btn-lg tender-item" type="button" data-target="{{ route('site.tenders.contractors.add.guest', $contractor->id) }}">Добавить
+                                                            в конкурс</button></div>
+                                                </div>
+                                            @endguest
                                             @auth
                                                 @if (auth()->user()->hasRole('customer'))
                                                     <div class="col-md-4">
@@ -187,15 +193,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('js')
-    <script>
-        $(function() {
-            $('.tender-item').on('click', function () {
-                let url = $(this).data('target');
-                window.location.href = url;
-            });
-        });
-    </script>
 @endsection
