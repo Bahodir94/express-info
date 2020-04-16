@@ -20,7 +20,7 @@ class NewRequest extends Notification
     /**
      * Create a new notification instance.
      *
-     * @return void
+     * @param \App\Models\TenderRequest $request
      */
     public function __construct(\App\Models\TenderRequest $request)
     {
