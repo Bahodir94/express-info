@@ -68,7 +68,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
             </div>
             @guest
                 <div class="mobile-header-right">
@@ -92,6 +92,54 @@
                         @if (auth()->user()->hasRole('customer'))
                             <li><a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i>
                                     Добавить заказ</a></li>@endif
+                        <li>
+                            <div class="notification-item">
+                                <a role="button" id="page-header-notifications" class="notification-button" data-toggle="dropdown" class="" aria-haspopup="true">
+                                    <i class="far fa-bell"></i>
+                                    @if (auth()->user()->unreadNotifications->count() > 0)<span class="numeric">{{ auth()->user()->unreadNotifications->count() }}</span> @endif
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right notifications-dropdown" aria-labelledby="page-header-notifications">
+                                    <h5 class="h6 text-center py-10 mb-0 border-bottom text-uppercase">Оповещения</h5>
+                                    <ul>
+                                        @if (auth()->user()->unreadNotifications->count() > 0)
+                                            @foreach(auth()->user()->unreadNotifications as $notification)
+                                               <li>
+                                                   @if ($notification->type == 'App\Notifications\NewRequest')
+                                                       <a href="{{ route('site.account.tenders.candidates', $notification->data['tenderSlug']) }}">
+                                                           <div class="icon">
+                                                               <small><i class="fas fa-info text-primary"></i></small>
+                                                           </div>
+                                                           <div class="notification-item-body">
+                                                               <p class="mb-0">Новая заявка на участие в конкурсе <span class="font-weight-bold">{{ $notification->data['tenderName'] }}</span> от исполнителя <span class="font-weight-bold">{{ $notification->data['contractorName'] }}</span></p>
+                                                               <small class="text-muted font-italic">{{ $notification->created_at->diffForHumans() }}</small>
+                                                           </div>
+                                                       </a>
+                                                   @endif
+                                               </li>
+                                            @endforeach
+                                        @else
+                                            @foreach(auth()->user()->notifications()->take(5)->get() as $notification)
+                                                <li>
+                                                    @if ($notification->type == 'App\Notifications\NewRequest')
+                                                        <a href="{{ route('site.account.tenders.candidates', $notification->data['tenderSlug']) }}">
+                                                            <div class="icon">
+                                                                <small><i class="fas fa-info text-primary"></i></small>
+                                                            </div>
+                                                            <div class="notification-item-body">
+                                                                <p class="mb-0">Новая заявка на участие в конкурсе <span class="font-weight-bold">{{ $notification->data['tenderName'] }}</span> от исполнителя <span class="font-weight-bold">{{ $notification->data['contractorName'] }}</span></p>
+                                                                <small class="text-muted font-italic">{{ $notification->created_at->diffForHumans() }}</small>
+                                                            </div>
+                                                        </a>
+                                                    @endif
+                                                </li>
+                                            @endforeach
+                                        @endif
+                                    </ul>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item text-center mb-0"><small><i class="fas fa-flag"></i></small> Посмотреть все</a>
+                                </div>
+                            </div>
+                        </li>
                         <li>
                             <a href="#" id="navBarDropdown" class="nav-link dropdown-toggle" role="button"
                                data-toggle="dropdown" aria-haspopup="true"

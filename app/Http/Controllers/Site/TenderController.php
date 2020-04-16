@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Notifications\NewRequest;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\MenuRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
@@ -164,6 +165,7 @@ class TenderController extends Controller
             'comment' => 'nullable|string|max:255'
         ]);
         $tenderRequest = $this->tenderRepository->createRequest($request);
+        $tenderRequest->tender->owner->notify(new NewRequest($tenderRequest));
         $tenderTitle = $tenderRequest->tender->title;
         return back()->with('success', "Вы подали заявку на участие в конкурсе \"$tenderTitle\"");
     }
