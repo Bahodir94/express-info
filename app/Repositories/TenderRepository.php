@@ -24,7 +24,7 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function allOrderedByCreatedAt()
     {
-        return Tender::whereNull('owner_id')->orderBy('created_at', 'desc')->get();
+        return Tender::whereNull('contractor_id')->orderBy('created_at', 'desc')->get();
     }
 
     /**
@@ -104,7 +104,9 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function cancelRequest($requestId)
     {
-        TenderRequest::destroy($requestId);
+        $request = TenderRequest::findOrFail($requestId);
+        //$request->delete();
+        return $request;
     }
 
     /**
@@ -119,7 +121,7 @@ class TenderRepository implements TenderRepositoryInterface
         abort_if($tender->owner->id !== auth()->user()->id, 401);
         $tender->contractor_id = $request->user_id;
         $tender->save();
-        return true;
+        return $request;
     }
 
     /**
