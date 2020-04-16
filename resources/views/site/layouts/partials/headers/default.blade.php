@@ -115,6 +115,17 @@
                                                            </div>
                                                        </a>
                                                    @endif
+                                                   @if ($notification->type == 'App\Notifications\InviteRequest')
+                                                       <a href="{{ route('site.tenders.category', $notification->data['tenderSlug']) }}">
+                                                           <div class="icon">
+                                                               <small><i class="fas fa-info text-primary"></i></small>
+                                                           </div>
+                                                           <div class="notification-item-body">
+                                                               <p class="mb-0">Заказчик <span class="font-weight-bold">{{ $notification->data['customerName'] }}</span> приглашает вас принять участие в конкурсе <span class="font-weight-bold">{{ $notification->data['tenderName'] }}</span> и добавил вас в список участников</p>
+                                                               <small class="text-muted font-italic">{{ $notification->created_at->diffForHumans() }}</small>
+                                                           </div>
+                                                       </a>
+                                                       @endif
                                                </li>
                                             @endforeach
                                         @else

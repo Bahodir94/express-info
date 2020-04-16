@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Notifications\InviteRequest;
 use App\Notifications\NewRequest;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\MenuRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -144,8 +146,10 @@ class TenderController extends Controller
         if (!Auth::check()) {
             if (session()->has('contractors')) {
                 $contractors = session('contractors');
-                foreach ($contractors as $contractor)
-                    $tender->requests()->create(['user_id' => $contractor['id'], 'invited' => true]);
+                foreach ($contractors as $contractor) {
+                    $request = $tender->requests()->create(['user_id' => $contractor['id'], 'invited' => true]);
+                    User::find($contractor['id'])->notify(new InviteRequest($request));
+                }
                 session()->forget('contractors');
                 session()->save();
             }

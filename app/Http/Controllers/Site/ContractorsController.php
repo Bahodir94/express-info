@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Helpers\SlugHelper;
+use App\Notifications\InviteRequest;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
@@ -104,7 +105,8 @@ class ContractorsController extends Controller
     }
 
     public function addContractor(int $contractorId, int $tenderId) {
-        $this->tenders->addContractor($tenderId, $contractorId);
+        $request = $this->tenders->addContractor($tenderId, $contractorId);
+        $this->users->get($contractorId)->notify(new InviteRequest($request));
         return back()->with('success', 'Исполнитель добавлен в конкурс!');
     }
 

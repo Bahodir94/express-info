@@ -137,7 +137,7 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function addContractor($tenderId, $contractorId)
     {
-        TenderRequest::create([
+        return TenderRequest::create([
             'user_id' => $contractorId,
             'tender_id' => $tenderId,
             'invited' => true
