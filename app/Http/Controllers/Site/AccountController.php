@@ -251,4 +251,10 @@ class AccountController extends Controller
         }
         return true;
     }
+
+    public function markNotificationsAsRead()
+    {
+        auth()->user()->unreadNotifications->markAsRead();
+        return \Response::make('', 204);
+    }
 }
