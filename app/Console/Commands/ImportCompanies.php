@@ -14,14 +14,14 @@ class ImportCompanies extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'users:import';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Import users from companies';
 
     /**
      * Create a new command instance.
