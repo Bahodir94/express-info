@@ -13,7 +13,7 @@
 @section('content')
     <div class="primary-page">
         <div class="container">
-            @if ($tender->checkDeadline())
+            @if ($tender->checkDeadline() && !$tender->contractor)
                 @guest
                     <div class="alert shadow alert-warning fade show">
                         <div class="row">
