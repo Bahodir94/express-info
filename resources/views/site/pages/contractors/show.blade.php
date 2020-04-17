@@ -31,7 +31,7 @@
                     <div class="row align-items-lg-center">
                         <div class="col-lg-7 col-xl-8">
                             <h2 class="title-detail">{{ $contractor->getContractorTitle() }}</h2>
-                            <div class="date-job">@if ($contractor->contractor_type == 'freelancer') Фрилансер @elseif ($contractor->contractor_type == 'agency') Digital-агество
+                            <div class="date-job">@if ($contractor->contractor_type == 'freelancer') Фрилансер @elseif ($contractor->contractor_type == 'agency') Digital-агество @endif
                             </div>
                             <div class="meta-job"><span class="phone"><i class="fa fa-mobile-alt"></i>{{ $contractor->phone_number }} </span><span
                                     class="mail"><i class="far fa-envelope"></i><a
