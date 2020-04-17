@@ -47,6 +47,7 @@ class ImportCompanies extends Command
             $slug = $company->ru_slug;
             $phoneNumber = $company->phoneNumber;
             $categoryId = $company->category_id;
+            $price = $company->price;
             $user = User::create([
                 'company_name' => $companyName,
                 'about_myself' => $aboutMySelf,
@@ -57,7 +58,7 @@ class ImportCompanies extends Command
                 'password' => '',
                 'name' => '',
             ]);
-            $user->categories()->attach($categoryId);
+            $user->categories()->attach($categoryId, ['price_from' => $price]);
             $user->roles()->attach(Role::where('name', 'contractor')->first()->id);
         }
     }
