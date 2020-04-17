@@ -1,10 +1,12 @@
 @extends('site.layouts.app')
 
-@section('title', $contractor->getCommonTitle())
+@section('title')
+    @if (empty($contractor->meta_title)) {{ $contractor->getCommonTitle() }} @else {{ $contractor->meta_title }} @endif
+@endsection
 
 @section('meta')
     <meta name="title"
-          content="{{ $contractor->getCommonTitle() }}">
+          content="@if (empty($contractor->meta_title)) {{ $contractor->getCommonTitle() }} @else {{ $contractor->meta_title }} @endif">
     <meta name="description"
           content="{{ strip_tags($contractor->about_myself) }}">
 @endsection
