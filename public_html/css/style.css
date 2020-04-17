@@ -237,3 +237,32 @@ a.user-dropdown-item:active {
         display: block;
     }
 }
+
+@media only screen and (min-width: 768px) {
+    .job-item .add-request {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    }
+}
+
+.job-item .add-request {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.add-request {
+    border: none;
+    text-align: center;
+    width: 120px;
+}
+
+.add-favourites:hover i:before, .add-favourites:focus i:before {
+    content: "\f067";
+}
+
+.job-item:hover .add-favourites i:before {
+    content: "\f067";
+}
+
