@@ -22,9 +22,9 @@
                                     позволит вам откликаться на задачи. </p>
                             </div>
                             <div class="col-sm-12 col-md-4">
-                                <div class="d-flex justify-content-between align-items-center"><a href="#"
+                                <div class="d-flex justify-content-between align-items-center"><a href="{{ route('login') }}"
                                                                                                   class="btn btn-light-green mr-1">Войти</a>
-                                    или <a href="#" class="btn ml-1 btn-light-green">Зарегистрироваться</a></div>
+                                    или <a href="{{ route('register') }}" class="btn ml-1 btn-light-green">Зарегистрироваться</a></div>
                             </div>
                         </div>
                     </div>
