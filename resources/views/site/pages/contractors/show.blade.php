@@ -42,8 +42,6 @@
                         <div class="col-lg-5 col-xl-4">
                             <div class="btn-feature"><a class="btn btn-light-green" href="#"><i
                                         class="fas fa-download"></i> Добавить в конкурс</a>
-                                <a class="btn btn-light btn-add-favourites"><i class="far fa-star"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
