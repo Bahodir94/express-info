@@ -40,8 +40,45 @@
                             </div>
                         </div>
                         <div class="col-lg-5 col-xl-4">
-                            <div class="btn-feature"><a class="btn btn-light-green" href="#"><i
-                                        class="fas fa-download"></i> Добавить в конкурс</a>
+                            <div class="btn-feature">
+                                @guest
+                                        <button class="btn btn-light btn-lg tender-item" type="button" data-target="{{ route('site.tenders.contractors.add.guest', $contractor->id) }}">Добавить
+                                                в конкурс</button>
+                                @endguest
+                                @auth
+                                    @if (auth()->user()->hasRole('customer'))
+                                            <button class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#tendersModal{{ $contractor->id }}">Добавить
+                                                    в конкурс</button>
+                                        <div class="modal fade" id="tendersModal{{ $contractor->id }}" tabindex="-1" role="dialog" aria-labelledby="tendersModalLabel{{ $contractor->id }}" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="tendersModalLabel{{ $contractor->id }}">Выберите конкурс</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Выберите конкурс, в который вы хотите пригласить исполнителя</p>
+                                                        <ul class="list-group list-group-flush">
+                                                            @foreach(auth()->user()->ownedTenders as $tender)
+                                                                @continue(!$tender->opened || $tender->status == 'done')
+                                                                @if ($tender->hasRequestFrom($contractor->id))
+                                                                    <li class="list-group-item">{{ $tender->title }} <small class="text-primary"><i class="far fa-check-circle"></i> Уже участвует в этом конкурсе</small></li>
+                                                                    @continue
+                                                                @endif
+                                                                <a href="#" class="list-group-item list-group-item-action tender-item" data-target="{{ route('site.tenders.contractors.add', ['tenderId' => $tender->id, 'contractorId' => $contractor->id]) }}">{{ $tender->title }}</a>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-green" data-dismiss="modal">Закрыть</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endauth
                             </div>
                         </div>
                     </div>
