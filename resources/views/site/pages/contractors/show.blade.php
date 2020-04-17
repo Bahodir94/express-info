@@ -1,12 +1,12 @@
 @extends('site.layouts.app')
 
 @section('title')
-    @if (empty($contractor->meta_title)) {{ $contractor->getCommonTitle() }} @else {{ $contractor->meta_title }} @endif в Ташкенте
+    @if (empty($contractor->meta_title)) {{ $contractor->getCommonTitle() }} @else {{ $contractor->meta_title }} @endif в Ташкенте / Узбекистане
 @endsection
 
 @section('meta')
     <meta name="title"
-          content="@if (empty($contractor->meta_title)) {{ $contractor->getCommonTitle() }} @else {{ $contractor->meta_title }} @endif в Ташкенте">
+          content="@if (empty($contractor->meta_title)) {{ $contractor->getCommonTitle() }} @else {{ $contractor->meta_title }} @endif в Ташкенте / Узбекистане">
     <meta name="description"
           content="{{ strip_tags($contractor->about_myself) }}">
 @endsection
