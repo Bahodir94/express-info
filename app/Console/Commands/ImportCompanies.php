@@ -45,7 +45,7 @@ class ImportCompanies extends Command
             $companyName = $company->ru_title;
             $aboutMySelf = $company->ru_description;
             $slug = $company->ru_slug;
-            $phoneNumber = $company->phoneNumber;
+            $phoneNumber = $company->phone_number;
             $categoryId = $company->category_id;
             $price = $company->price;
             $metaTitle = $company->meta_title;
