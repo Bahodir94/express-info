@@ -48,15 +48,18 @@ class ImportCompanies extends Command
             $phoneNumber = $company->phoneNumber;
             $categoryId = $company->category_id;
             $price = $company->price;
+            $metaTitle = $company->meta_title;
             $user = User::create([
                 'company_name' => $companyName,
                 'about_myself' => $aboutMySelf,
                 'slug' => $slug,
                 'phone_number' => $phoneNumber,
                 'contractor_type' => 'agency',
+                'meta_title' => $metaTitle,
                 'email' => '',
                 'password' => '',
                 'name' => '',
+                'fake' => true
             ]);
             $user->categories()->attach($categoryId, ['price_from' => $price]);
             $user->roles()->attach(Role::where('name', 'contractor')->first()->id);
