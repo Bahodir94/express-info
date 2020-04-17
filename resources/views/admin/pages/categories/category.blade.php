@@ -10,11 +10,11 @@
     @include('admin.components.breadcrumb', [
         'list' => [
             [
-                'url' => route('admin.handbookcategories.index'),
+                'url' => route('admin.categories.index'),
                 'title' => 'Категории справочника'
             ],
             [
-                'url' => ($category->hasParentCategory()) ? route('admin.handbookcategories.show', $category->parentCategory->id) : '#',
+                'url' => ($category->hasParentCategory()) ? route('admin.categories.show', $category->parentCategory->id) : '#',
                 'title' => ($category->hasParentCategory()) ? $category->parentCategory->ru_title : ''
             ]
         ],
@@ -24,7 +24,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Категории <small>главные</small></h3>
             <div class="block-options">
-                <a href="{{ route('admin.handbookcategories.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus mr-5"></i>Добавить</a>
+                <a href="{{ route('admin.categories.create') }}" class="btn btn-alt-primary"><i class="fa fa-plus mr-5"></i>Добавить</a>
             </div>
         </div>
         <div class="block-content">
@@ -35,7 +35,8 @@
                         <th></th>
                         <th class="text-center">Заголовок</th>
                         <th class="text-center">Категории</th>
-                        <th class="text-center">Компании</th>
+                        <th class="text-center">Исполнители</th>
+                        <th class="text-center">Конкурсы</th>
                         <th class="text-center" style="width: 15%">Действия</th>
                     </tr>
                     </thead>
@@ -46,28 +47,38 @@
                             <td class="font-w600">{{ $category->getTitle() }}</td>
                             <td class="text-center">
                                 @if($category->hasCategories())
-                                    <a href="{{ route('admin.handbookcategories.show', $category->id) }}" class="btn btn-sm btn-alt-primary">Посмотреть</a>
+                                    <a href="{{ route('admin.categories.show', $category->id) }}" class="btn btn-sm btn-alt-primary">Посмотреть</a>
                                 @else
                                     Нет
                                 @endif
                             </td>
                             <td class="text-center">
-                                @if ($category->hasCompanies())
-                                    <a href="{{ route('admin.handbookcategories.companies', $category->id) }}"
+                                @if ($category->getAllCompaniesFromDescendingCategories()->count() > 0)
+                                    <a href="{{ route('admin.categories.companies', $category->id) }}"
                                        class="btn btn-sm btn-alt-primary">Посмотреть</a>
                                 @else
                                     Нет
                                 @endif
                             </td>
-                            <td class="text-center d-flex align-items-center justify-content-around">
-                                <a href="{{ route('admin.handbookcategories.edit', $category->id) }}" data-toggle="tooltip" class="btn btn-sm btn-alt-info" title="Редактировать"><i class="fa fa-edit"></i></a>
-                                <form method="post" action="{{ route('admin.handbookcategories.destroy', $category->id) }}">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-sm btn-alt-danger" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </form>
+                            <td class="text-center">
+                                @if ($category->getAllTendersFromDescendingCategories()->count() > 0)
+                                    <a href="{{ route('admin.categories.tenders', $category->id) }}"
+                                       class="btn btn-sm btn-alt-primary">Посмотреть</a>
+                                @else
+                                    Нет
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                <div class="d-flex align-items-center justify-content-around">
+                                    <a href="{{ route('admin.categories.edit', $category->id) }}" data-toggle="tooltip" class="btn btn-sm btn-alt-info" title="Редактировать"><i class="fa fa-edit"></i></a>
+                                    <form method="post" action="{{ route('admin.categories.destroy', $category->id) }}">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="btn btn-sm btn-alt-danger" onclick="return confirm('Вы уверены?')" data-toggle="tooltip" title="Удалить">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
