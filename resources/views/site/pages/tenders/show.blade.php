@@ -185,16 +185,6 @@
                                         Компания
                                     @endif
                                 </span>
-                                <hr>
-                                @if (auth()->user() && in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
-                                    <p class="m-0">Заказчик: {{ $tender->getCustomerTitle() }}</p>
-                                    <p class="m-0">Email: {{ $tender->client_email }}</p>
-                                    <p class="m-0">Телефон: {{ $tender->client_phone_number }}</p>
-                                @else
-                                    <p class="text-muted"><i class="fas fa-eye"></i> Контакты видны только тем
-                                        исполнителям,
-                                        которые выслали свое предложение организатору задачи</p>
-                                @endif
                             </div>
                         </div>
                     </div>
