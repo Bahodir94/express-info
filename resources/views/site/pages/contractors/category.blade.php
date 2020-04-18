@@ -155,7 +155,11 @@
                                                         <div class="price-item">
                                                             <i class="fa fa-check-circle text-primary"></i> <span
                                                                 class="service-name">{{ $contractorCategory->getTitle() }}: </span>
-                                                            <span class="price-from">{{ $contractorCategory->pivot->price_from }}</span> - <span class="price-to">{{ $contractorCategory->pivot->price_to }}</span> сум
+                                                            @if($contractorCategory ->pivot->price_from!='' or $contractorCategory->pivot->price_to !='')
+                                                              <span class="price-from">{{ $contractorCategory->pivot->price_from }}</span> - <span class="price-to">{{ $contractorCategory->pivot->price_to }}</span> сум
+                                                            @elseif
+                                                              <span class="price-from">Договорная</span>
+                                                            @endif
                                                         </div>
                                                     @endforeach
                                                 </div>
