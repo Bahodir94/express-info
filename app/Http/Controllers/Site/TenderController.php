@@ -139,7 +139,7 @@ class TenderController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:5000',
             'files' => 'nullable',
-            'budget' => 'required|integer',
+            'budget' => 'required',
             'deadline' => 'required|date'
         ], $validationMessages)->validate();
         $tender = $this->tenderRepository->create($request);
@@ -206,7 +206,7 @@ class TenderController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:5000',
             'files' => 'nullable',
-            'budget' => 'required|integer',
+            'budget' => 'required',
             'deadline' => 'required|date'
         ], $validationMessages)->validate();
         $this->tenderRepository->update($id, $request);
