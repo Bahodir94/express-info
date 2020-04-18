@@ -32,10 +32,15 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::post('/cgucatalogs/change/position', 'CguCatalogController@changePosition')->name('cgucatalogs.change.position');
 
     // Handbook Category Routes
-    Route::resource('/handbookcategories', 'HandbookCategoryController');
-    Route::get('/handbookcategories/{id}/removeImage', 'HandbookCategoryController@removeImage')->name('handbookcategories.remove.image');
-    Route::post('/handbookcategories/position', 'HandbookCategoryController@changePosition')->name('handbookcategories.change.position');
-    Route::get('/handbookcategories/{id}/companies', 'HandbookCategoryController@companies')->name('handbookcategories.companies');
+    Route::resource('/categories', 'HandbookCategoryController');
+    Route::get('/categories/{id}/removeImage', 'HandbookCategoryController@removeImage')->name('categories.remove.image');
+    Route::post('/categories/position', 'HandbookCategoryController@changePosition')->name('categories.change.position');
+    Route::get('/categories/{id}/companies', 'HandbookCategoryController@companies')->name('categories.companies');
+    Route::get('/categories/{id}/tenders', 'HandbookCategoryController@tenders')->name('categories.tenders');
+
+    // Tenders routes
+    Route::resource('/tenders', 'TenderController');
+    Route::post('/tenders/{id}/requests/create', 'TenderController@createRequest')->name('tenders.requests.create');
 
     // Companies Routes
     Route::resource('/companies', 'CompanyController');

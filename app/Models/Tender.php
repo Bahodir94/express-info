@@ -115,6 +115,8 @@ class Tender extends Model
      */
     public function generateSlug() {
         $slug = Str::slug($this->title);
+        if ($this->slug == $slug)
+            return;
         $existCount = self::where('slug', $slug)->count();
         if ($existCount > 0)
             $slug .= "-$existCount";

@@ -143,7 +143,7 @@
                                                 <div class="col-md-6">
                                                     <div class="candidate-info">
                                                         <h3 class="title-job">Описание</h3>
-                                                        <div class="date-job"><p>{!! $contractor->about_myself !!}</p>
+                                                        <div class="date-job"><p>{{ \Illuminate\Support\Str::limit(strip_tags($contractor->about_myself), 150, $end='...') }}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -157,7 +157,7 @@
                                                                 class="service-name">{{ $contractorCategory->getTitle() }}: </span>
                                                             @if($contractorCategory ->pivot->price_from!='' or $contractorCategory->pivot->price_to !='')
                                                               <span class="price-from">{{ $contractorCategory->pivot->price_from }}</span> - <span class="price-to">{{ $contractorCategory->pivot->price_to }}</span> сум
-                                                            @elseif
+                                                            @else
                                                               <span class="price-from">Договорная</span>
                                                             @endif
                                                         </div>

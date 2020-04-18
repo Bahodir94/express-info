@@ -151,6 +151,11 @@
             let url = $(this).data('target');
             window.location.href = url;
         });
+        $('.notification-button').on('click', function () {
+            $.get("{{ route('site.account.notifications.read') }}", function (data) {
+                $('.numeric').addClass('d-none');
+            });
+        })
     });
 </script>
 </body>

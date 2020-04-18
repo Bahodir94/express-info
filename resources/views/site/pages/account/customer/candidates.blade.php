@@ -47,12 +47,23 @@
                                         @endif
                                     </ul>
                                     <div class="job-func d-md-none">
-                                        <button class="btn btn-light btn-new"><i class="far fa-сheck"></i>
-                                        </button>
-                                        <button class="btn btn-light btn-edit"><i class="fas fa-pencil-alt"></i>
-                                        </button>
-                                        <button class="btn btn-light btn-delete"><i
-                                                class="far fa-trash-alt"></i></button>
+                                        <div class="d-flex">
+                                            @if ($tender->contractor_id !== $request->user_id)
+                                                <form action="{{ route('site.tenders.accept', ['tenderId' => $tender->id, 'requestId' => $request->id]) }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="redirect_to" value="{{ route('site.account.tenders.candidates', $tender->slug) }}">
+                                                    <button class="btn btn-light btn-edit" type="submit" onclick="return confirm('Вы уверены, что хотите принять кандидата {{ $request->user->getCommonTitle() }} на роль исполнителя этого конкурса? В будущем вы не сможете поменять своё решение.')" data-toggle="tooltip" data-placement="top" title="Принять заявку"><i class="fas fa-check"></i></button>
+                                                </form>
+                                                <form action="{{ route('site.tenders.requests.cancel') }}" method="post" class="ml-1">
+                                                    @csrf
+                                                    <input type="hidden" name="requestId" value="{{ $request->id }}">
+                                                    <input type="hidden" name="rejected" value="true">
+                                                    <input type="hidden" name="redirect_to" value="{{ route('site.account.tenders.candidates', $tender->slug) }}">
+                                                    <button type="submit" onclick="return confirm('Вы уверены, что хотите отклонить кандидата {{ $request->user->getCommonTitle() }}?')" data-toggle="tooltip" data-placement="top" title="Отклонить заявку" class="btn btn-light btn-delete"><i class="fas fa-times"></i>
+                                                    </button>
+                                                </form>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </td>
@@ -69,6 +80,7 @@
                                         <form action="{{ route('site.tenders.requests.cancel') }}" method="post" class="ml-1">
                                             @csrf
                                             <input type="hidden" name="requestId" value="{{ $request->id }}">
+                                            <input type="hidden" name="rejected" value="true">
                                             <input type="hidden" name="redirect_to" value="{{ route('site.account.tenders.candidates', $tender->slug) }}">
                                             <button type="submit" onclick="return confirm('Вы уверены, что хотите отклонить кандидата {{ $request->user->getCommonTitle() }}?')" data-toggle="tooltip" data-placement="top" title="Отклонить заявку" class="btn btn-light btn-delete"><i class="fas fa-times"></i>
                                             </button>

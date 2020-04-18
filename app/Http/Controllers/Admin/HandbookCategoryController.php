@@ -50,7 +50,7 @@ class HandbookCategoryController extends Controller
             'categories' => $this->handbookCategoryRepository->all()
         ];
 
-        return view('admin.pages.handbookCategories.index', $data);
+        return view('admin.pages.categories.index', $data);
     }
 
     /**
@@ -71,7 +71,7 @@ class HandbookCategoryController extends Controller
             'templates' => $templateStrings
         ];
 
-        return view('admin.pages.handbookCategories.create', $data);
+        return view('admin.pages.categories.create', $data);
     }
 
     /**
@@ -93,12 +93,12 @@ class HandbookCategoryController extends Controller
         {
             $parent = $category->getParentId();
             if ($parent != null)
-                return redirect()->route('admin.handbookcategories.show', $parent);
+                return redirect()->route('admin.categories.show', $parent);
             else
-                return redirect()->route('admin.handbookcategories.index');
+                return redirect()->route('admin.categories.index');
         }
         else
-            return redirect()->route('admin.handbookcategories.create');
+            return redirect()->route('admin.categories.create');
     }
 
     /**
@@ -113,7 +113,7 @@ class HandbookCategoryController extends Controller
             'category' => $this->handbookCategoryRepository->get($id)
         ];
 
-        return view('admin.pages.handbookCategories.category', $data);
+        return view('admin.pages.categories.category', $data);
     }
 
     /**
@@ -128,7 +128,13 @@ class HandbookCategoryController extends Controller
             'category' => $this->handbookCategoryRepository->get($id)
         ];
 
-        return view('admin.pages.handbookCategories.companies', $data);
+        return view('admin.pages.categories.companies', $data);
+    }
+
+    public function tenders(int $id)
+    {
+        $category = $this->handbookCategoryRepository->get($id);
+        return view('admin.pages.categories.tenders', compact('category'));
     }
 
     /**
@@ -148,7 +154,7 @@ class HandbookCategoryController extends Controller
             'categories' => $this->handbookCategoryRepository->getTree(),
             'templates' => $templateStrings
         ];
-        return view('admin.pages.handbookCategories.edit', $data);
+        return view('admin.pages.categories.edit', $data);
     }
 
     /**
@@ -169,9 +175,9 @@ class HandbookCategoryController extends Controller
 
         $parentId = $category->getParentId();
         if ($parentId != null)
-            return redirect()->route('admin.handbookcategories.show', $parentId);
+            return redirect()->route('admin.categories.show', $parentId);
         else
-            return redirect()->route('admin.handbookcategories.index');
+            return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -188,9 +194,9 @@ class HandbookCategoryController extends Controller
         $parent = $this->handbookCategoryRepository->delete($id);
 
         if ($parent != null && $this->handbookCategoryRepository->get($parent)->hasCategories())
-            return redirect()->route('admin.handbookcategories.show', $parent);
+            return redirect()->route('admin.categories.show', $parent);
         else
-            return redirect()->route('admin.handbookcategories.index');
+            return redirect()->route('admin.categories.index');
     }
 
     /**

@@ -1,10 +1,12 @@
 @extends('site.layouts.app')
 
-@section('title', $contractor->getCommonTitle())
+@section('title')
+    @if (empty($contractor->meta_title)) {{ $contractor->getCommonTitle() }} @else {{ $contractor->meta_title }} @endif в Ташкенте / Узбекистане
+@endsection
 
 @section('meta')
     <meta name="title"
-          content="{{ $contractor->getCommonTitle() }}">
+          content="@if (empty($contractor->meta_title)) {{ $contractor->getCommonTitle() }} @else {{ $contractor->meta_title }} @endif в Ташкенте / Узбекистане">
     <meta name="description"
           content="{{ strip_tags($contractor->about_myself) }}">
 @endsection
@@ -29,19 +31,54 @@
                     <div class="row align-items-lg-center">
                         <div class="col-lg-7 col-xl-8">
                             <h2 class="title-detail">{{ $contractor->getContractorTitle() }}</h2>
-                            <div class="date-job"><i class="fa fa-check-circle"></i>Magento Certified Developer
+                            <div class="date-job">@if ($contractor->contractor_type == 'freelancer') Фрилансер @elseif ($contractor->contractor_type == 'agency') Digital-агество @endif
                             </div>
-                            <div class="meta-job"><span class="phone"><i class="fa fa-mobile-alt"></i>{{ $contractor->phone_number }} </span><span
+                            <div class="meta-job"><span class="phone"><i class="fa fa-mobile-alt"></i>@guest [Скрыто] @else @if (auth()->user()->hasRequestFromContractor($contractor)) {{ $contractor->phone_number }} @else [Скрыто] @endif @endguest </span><span
                                     class="mail"><i class="far fa-envelope"></i><a
                                         href="#" class="__cf_email__"
                                         data-cfemail="25565144574750464e56654c4b434a0b464a48">[email&nbsp;protected]</a></span>
                             </div>
                         </div>
                         <div class="col-lg-5 col-xl-4">
-                            <div class="btn-feature"><a class="btn btn-light-green" href="#"><i
-                                        class="fas fa-download"></i> Добавить в конкурс</a>
-                                <a class="btn btn-light btn-add-favourites"><i class="far fa-star"></i>
-                                </a>
+                            <div class="btn-feature">
+                                @guest
+                                        <button class="btn btn-light btn-lg tender-item" type="button" data-target="{{ route('site.tenders.contractors.add.guest', $contractor->id) }}">Добавить
+                                                в конкурс</button>
+                                @endguest
+                                @auth
+                                    @if (auth()->user()->hasRole('customer'))
+                                            <button class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#tendersModal{{ $contractor->id }}">Добавить
+                                                    в конкурс</button>
+                                        <div class="modal fade" id="tendersModal{{ $contractor->id }}" tabindex="-1" role="dialog" aria-labelledby="tendersModalLabel{{ $contractor->id }}" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="tendersModalLabel{{ $contractor->id }}">Выберите конкурс</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Выберите конкурс, в который вы хотите пригласить исполнителя</p>
+                                                        <ul class="list-group list-group-flush">
+                                                            @foreach(auth()->user()->ownedTenders as $tender)
+                                                                @continue(!$tender->opened || $tender->status == 'done')
+                                                                @if ($tender->hasRequestFrom($contractor->id))
+                                                                    <li class="list-group-item">{{ $tender->title }} <small class="text-primary"><i class="far fa-check-circle"></i> Уже участвует в этом конкурсе</small></li>
+                                                                    @continue
+                                                                @endif
+                                                                <a href="#" class="list-group-item list-group-item-action tender-item" data-target="{{ route('site.tenders.contractors.add', ['tenderId' => $tender->id, 'contractorId' => $contractor->id]) }}">{{ $tender->title }}</a>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-green" data-dismiss="modal">Закрыть</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endauth
                             </div>
                         </div>
                     </div>
@@ -77,7 +114,11 @@
                                 <h3 class="title-block">Цены на услуги</h3>
                                 <ul>
                                     @foreach($contractor->categories as $category)
+                                      @if($category ->pivot->price_from!='' or $category->pivot->price_to !='')
                                         <li><span>{{ $category->getTitle() }}</span>: {{ $category->pivot->price_from }} - {{ $category->pivot->price_to }} сум</li>
+                                      @else
+                                        <li><span>{{ $category->getTitle() }}</span>: Договорная</li>
+                                      @endif
                                     @endforeach
                                 </ul>
                             </div>

@@ -25,7 +25,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'facebook', 'vk', 'telegram', 'whatsapp', 'instagram',
         'phone_number', 'about_myself',
         'slug',
-        'telegram_id', 'telegram_username', 'google_id'
+        'telegram_id', 'telegram_username', 'google_id',
+        'fake', 'meta_title'
     ];
 
     protected static function boot()
@@ -365,5 +366,16 @@ class User extends Authenticatable implements MustVerifyEmail
         } else {
             return $this->email;
         }
+    }
+
+    public function hasRequestFromContractor(User $contractor) {
+        if ($this->hasRole('customer')) {
+            if ($contractor->requests()->count() > 0) {
+                $tendersIds = $this->ownedTenders()->pluck('id')->toArray();
+                return $contractor->requests()->whereIn('tender_id', $tendersIds)->count() > 0;
+            }
+            return false;
+        }
+        return false;
     }
 }

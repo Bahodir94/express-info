@@ -11,7 +11,7 @@
     @include('admin.components.breadcrumb', [
         'list' => [
             [
-                'url' => route('admin.handbookcategories.index'),
+                'url' => route('admin.categories.index'),
                 'title' => 'Категории справочника'
             ]
         ],
@@ -23,7 +23,7 @@
             <h3 class="block-title">Добавить категорию</h3>
         </div>
         <!-- Form -->
-        <form action="{{ route('admin.handbookcategories.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.categories.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="block-content">
                 <!-- Simple Wizard -->
@@ -145,7 +145,7 @@
                     <select name="parent_id" id="select2" class="form-control">
                         <option value="0">-- нет --</option>
                         @foreach($categories as $category_list)
-                            @include('admin.pages.handbookCategories.components.category', ['delimiter' => ''])
+                            @include('admin.pages.categories.components.category', ['delimiter' => ''])
                         @endforeach
                     </select>
                 </div>

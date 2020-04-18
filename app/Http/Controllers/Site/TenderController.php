@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Notifications\InviteRequest;
+use App\Notifications\NewRequest;
+use App\Notifications\RequestAction;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\MenuRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -94,7 +98,7 @@ class TenderController extends Controller
             if ($currentCategory) {
                 if ($currentCategory->getAncestorsSlugs() !== $params)
                     return redirect(route('site.tenders.category', $currentCategory->getAncestorsSlugs()), 301);
-                $tenders = $currentCategory->tenders;
+                $tenders = $currentCategory->tenders()->whereNotNull('owner_id')->get();
                 return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
             } else {
                 abort(404, "Ресурс не найден");
@@ -143,8 +147,10 @@ class TenderController extends Controller
         if (!Auth::check()) {
             if (session()->has('contractors')) {
                 $contractors = session('contractors');
-                foreach ($contractors as $contractor)
-                    $tender->requests()->create(['user_id' => $contractor['id'], 'invited' => true]);
+                foreach ($contractors as $contractor) {
+                    $request = $tender->requests()->create(['user_id' => $contractor['id'], 'invited' => true]);
+                    User::find($contractor['id'])->notify(new InviteRequest($request));
+                }
                 session()->forget('contractors');
                 session()->save();
             }
@@ -164,6 +170,7 @@ class TenderController extends Controller
             'comment' => 'nullable|string|max:255'
         ]);
         $tenderRequest = $this->tenderRepository->createRequest($request);
+        $tenderRequest->tender->owner->notify(new NewRequest($tenderRequest));
         $tenderTitle = $tenderRequest->tender->title;
         return back()->with('success', "Вы подали заявку на участие в конкурсе \"$tenderTitle\"");
     }
@@ -171,7 +178,13 @@ class TenderController extends Controller
     public function cancelRequest(Request $request)
     {
         $requestId = $request->get('requestId');
-        $this->tenderRepository->cancelRequest($requestId);
+        $rejected = $request->get('rejected') === 'true' ? true : false;
+        $tenderRequest = $this->tenderRepository->cancelRequest($requestId);
+        if ($rejected) {
+            $tender = $this->tenderRepository->get($tenderRequest->tender_id);
+            $user = User::find($tenderRequest->user_id);
+            $user->notify(new RequestAction('rejected', $tenderRequest, $tender));
+        }
         if ($request->has('redirect_to')) {
             return redirect($request->get('redirect_to'))->with('account.success', 'Заявка отклонена.');
         }
@@ -210,7 +223,8 @@ class TenderController extends Controller
     public function acceptTenderRequest(Request $request, int $tenderId, int $requestId)
     {
         $redirectTo = $request->get('redirect_to');
-        if ($this->tenderRepository->acceptRequest($tenderId, $requestId)) {
+        if ($request = $this->tenderRepository->acceptRequest($tenderId, $requestId)) {
+            $request->user->notify(new RequestAction('accepted', $request));
             return redirect($redirectTo)->with('account.success', 'Исполнитель на этот конкурс назначен! ');
         } else {
             return redirect($redirectTo)->with('account.error', 'Невозможно назначить исполнителя на этот конкурс');

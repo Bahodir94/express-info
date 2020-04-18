@@ -88,6 +88,7 @@ MAIN CONTENT LAYOUT
         <!-- Page Content -->
         <div class="content">
             {{-- Content --}}
+            @include('admin.components.alerts')
             @yield('content')
         </div>
         <!-- END Page Content -->

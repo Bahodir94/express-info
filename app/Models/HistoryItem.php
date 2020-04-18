@@ -45,12 +45,12 @@ class HistoryItem extends Model
                 return "Удали(а) компанию $name";
             }
             case 'category.create': {
-                $url = route('admin.handbookcategories.edit', $metaArray['id']);
+                $url = route('admin.categories.edit', $metaArray['id']);
                 $name = $metaArray['ru_title'];
                 return "Создал(a) категорию справочника <a href='$url' class='link-effect'>$name</a>";
             }
             case 'category.update': {
-                $url = route('admin.handbookcategories.edit', $metaArray['id']);
+                $url = route('admin.categories.edit', $metaArray['id']);
                 $name = $metaArray['ru_title'];
                 return "Изменил(a) категорию справочника <a href='$url' class='link-effect'>$name</a>";
             }

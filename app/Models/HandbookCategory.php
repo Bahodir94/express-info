@@ -217,6 +217,17 @@ class HandbookCategory extends Model
         return $companies;
     }
 
+    public function getAllTendersFromDescendingCategories()
+    {
+        $categories = $this->descendants;
+        $tenders = collect();
+        $tenders = $tenders->merge($this->tenders);
+        foreach ($categories as $category)
+            $tenders = $tenders->merge($category->tenders);
+        $tenders = $tenders->unique(function ($item) { return $item->id; });
+        return $tenders;
+    }
+
     /**
      * Get all ancestors slugs as url param
      *

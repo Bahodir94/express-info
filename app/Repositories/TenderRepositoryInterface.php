@@ -99,7 +99,7 @@ interface TenderRepositoryInterface
      *
      * @param $tenderId
      * @param $contractorId
-     * @return mixed
+     * @return \App\Models\TenderRequest
      */
     public function addContractor($tenderId, $contractorId);
 }

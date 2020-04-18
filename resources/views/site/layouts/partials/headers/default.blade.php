@@ -29,7 +29,7 @@
                                                     <ul class="sub-menu">
                                                         @foreach($item->categories as $category)
                                                             <li>
-                                                                <a href="{{ route('site.tenders.category', $category->getAncestorsSlugs()) }}">{{ $category->getTitle() }}</a>
+                                                                <a href="{{ route('site.tenders.category', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
                                                             </li>
                                                         @endforeach
                                                     </ul>
@@ -68,19 +68,7 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
-            @guest
-                <div class="mobile-header-right">
-                    <a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i> Добавить заказ</a>
-                </div>
-            @else
-                @if (auth()->user()->hasRole('customer'))
-                    <div class="mobile-header-right">
-                        <a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i> Добавить заказ</a>
-                    </div>
-                @endif
-            @endguest
             <div class="header-right">
                 <ul>
 
@@ -153,7 +141,7 @@
     <div class="menu-mobile">
       <ul class="main-menu-mobile">
 
-          <li><div class="row"><div class="col-10"><a class="style_a" href="{{ route('site.tenders.index') }}" class="stretched-link">Конкурсы</a></div><a class="text-left" data-toggle="collapse" href="#sub-1" aria-expanded="false" aria-controls="sub-1" style="color:#383838;"><div class="col-2"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></div></a></div>
+          <li><div class="row"><div class="col-10"><a class="style_a stretched-link" href="{{ route('site.tenders.index') }}">Конкурсы</a></div><div class="col-2"><a class="text-left stretched-link" data-toggle="collapse" href="#sub-1" aria-expanded="false" aria-controls="sub-1" style="color:#383838;"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></a></div></div>
             <div class="collapse" id="sub-1">
               @foreach($needs as $need)
               <ul class="main-menu-mobile">
@@ -164,12 +152,12 @@
                     <div class="collapse" id="a{{ $need->id }}">
                       <ul class="main-menu-mobile">
                         @foreach($need->menuItems as $item)
-                        <li><div class="row"><div class="col-9"><a class="style_a" href="{{ route('site.tenders.category', $item->ru_slug) }}" class="stretched-link">{{ $item->ru_title }}</a></div><a class="text-left" data-toggle="collapse" href="#b{{ $item->id }}" aria-expanded="false" aria-controls="b{{ $item->id }}" style="color:#383838;"><div class="col-3"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></div></a></div>
+                        <li><div class="row"><div class="col-10"><a class="style_a stretched-link" href="{{ route('site.tenders.category', $item->ru_slug) }}">{{ $item->ru_title }}</a></div><div class="col-2"><a class="text-left stretched-link" data-toggle="collapse" href="#b{{ $item->id }}" aria-expanded="false" aria-controls="b{{ $item->id }}" style="color:#383838;"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></a></div></div>
                           <div class="collapse" id="b{{ $item->id }}">
                             <ul class="sub-menu-mobile">
                               @foreach($item->categories as $category)
                               <li>
-                                  <a style="color: #63ba16; font-weight: 600;" href="{{ route('site.tenders.category', $category->getAncestorsSlugs()) }}">{{ $category->getTitle() }}</a>
+                                  <a style="color: #63ba16; font-weight: 600;" href="{{ route('site.tenders.category', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
                               </li>
                               @endforeach
                             </ul>
@@ -187,7 +175,7 @@
             </div>
           </li>
 
-          <li><div class="row"><div class="col-10"><a class="style_a" href="{{ route('site.contractors.index') }}" class="stretched-link">Исполнители</a></div><a class="text-left" data-toggle="collapse" href="#sub-2" aria-expanded="false" aria-controls="sub-2" style="color:#383838;"><div class="col-2"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></div></a></div>
+          <li><div class="row"><div class="col-10"><a class="style_a stretched-link" href="{{ route('site.contractors.index') }}">Исполнители</a></div><div class="col-2"><a class="text-left stretched-link" data-toggle="collapse" href="#sub-2" aria-expanded="false" aria-controls="sub-2" style="color:#383838;"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></a></div></div>
             <div class="collapse" id="sub-2">
               @foreach($needs as $need)
               <ul class="main-menu-mobile">
@@ -198,7 +186,7 @@
                     <div class="collapse" id="d{{ $need->id }}">
                       <ul class="main-menu-mobile">
                         @foreach($need->menuItems as $item)
-                        <li><div class="row"><div class="col-9"><a class="style_a" href="{{ route('site.catalog.main', $item->ru_slug) }}" class="stretched-link">{{ $item->ru_title }}</a></div><a class="text-left" data-toggle="collapse" href="#c{{ $item->id }}" aria-expanded="false" aria-controls="c{{ $item->id }}" style="color:#383838;"><div class="col-2"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></div></i></a></div>
+                        <li><div class="row"><div class="col-10"><a class="style_a stretched-link" href="{{ route('site.catalog.main', $item->ru_slug) }}">{{ $item->ru_title }}</a></div><div class="col-2"><a class="text-left stretched-link" data-toggle="collapse" href="#c{{ $item->id }}" aria-expanded="false" aria-controls="c{{ $item->id }}" style="color:#383838;"><i class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></a></div></div>
                           <div class="collapse" id="c{{ $item->id }}">
                             <ul class="sub-menu-mobile">
                               @foreach($item->categories as $category)
