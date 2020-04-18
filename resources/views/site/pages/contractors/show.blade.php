@@ -33,7 +33,7 @@
                             <h2 class="title-detail">{{ $contractor->getContractorTitle() }}</h2>
                             <div class="date-job">@if ($contractor->contractor_type == 'freelancer') Фрилансер @elseif ($contractor->contractor_type == 'agency') Digital-агество @endif
                             </div>
-                            <div class="meta-job"><span class="phone"><i class="fa fa-mobile-alt"></i>{{ $contractor->phone_number }} </span><span
+                            <div class="meta-job"><span class="phone"><i class="fa fa-mobile-alt"></i>@guest [Скрыто] @else @if (auth()->user()->hasRequestFromContractor($contractor)) {{ $contractor->phone_number }} @else [Скрыто] @endif @endguest </span><span
                                     class="mail"><i class="far fa-envelope"></i><a
                                         href="#" class="__cf_email__"
                                         data-cfemail="25565144574750464e56654c4b434a0b464a48">[email&nbsp;protected]</a></span>

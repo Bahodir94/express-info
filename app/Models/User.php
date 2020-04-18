@@ -367,4 +367,15 @@ class User extends Authenticatable implements MustVerifyEmail
             return $this->email;
         }
     }
+
+    public function hasRequestFromContractor(User $contractor) {
+        if ($this->hasRole('customer')) {
+            if ($contractor->requests()->count() > 0) {
+                $tendersIds = $this->ownedTenders()->pluck('id')->toArray();
+                return $contractor->requests()->whereIn('tender_id', $tendersIds)->count() > 0;
+            }
+            return false;
+        }
+        return false;
+    }
 }
