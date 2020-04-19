@@ -53,8 +53,8 @@
                         </div>
                     </div>
                     <ul class="social-footer">
-                        <li><a href="https://t.me/gde_podeshevle"><i class="fab fa-telegram"></i></a></li>
-                        <li><a href="https://www.instagram.com/vid.market/"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://t.me/gde_podeshevle"><i class="fab fa-telegram" style="font-size:30px"></i></a></li>
+                        <li><a href="https://www.instagram.com/vid.market/"><i class="fab fa-instagram" style="font-size:30px"></i></a></li>
                     </ul>
                 </div>
             </div>
