@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Repositories\HandbookCategoryRepositoryInterface;
+use App\Repositories\NeedTypeRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 use foo\bar;
@@ -31,13 +32,21 @@ class AccountController extends Controller
     private $tenderRepository;
 
     /**
+     * @var NeedTypeRepositoryInterface
+     */
+    private $needsRepository;
+
+    /**
      * AccountController constructor.
      * @param UserRepositoryInterface $userRepository
      * @param HandbookCategoryRepositoryInterface $categoryRepository
+     * @param TenderRepositoryInterface $tenderRepository
+     * @param NeedTypeRepositoryInterface $needsRepository
      */
     public function __construct(UserRepositoryInterface $userRepository,
                                 HandbookCategoryRepositoryInterface $categoryRepository,
-                                TenderRepositoryInterface $tenderRepository)
+                                TenderRepositoryInterface $tenderRepository,
+                                NeedTypeRepositoryInterface $needsRepository)
     {
         $this->middleware('auth')->except(['telegramCallback']);
         $this->middleware('account.completed')->except(['create', 'store', 'telegramCallback']);
@@ -45,6 +54,7 @@ class AccountController extends Controller
         $this->userRepository = $userRepository;
         $this->categoryRepository = $categoryRepository;
         $this->tenderRepository = $tenderRepository;
+        $this->needsRepository = $needsRepository;
     }
 
     /**
@@ -154,6 +164,20 @@ class AccountController extends Controller
         if ($categories->count() == 0) {
             return back()->with('account.error', 'Укажите услуги, которые вы предоставляете');
         }
+        $needs = $this->needsRepository->all();
+        $selectedNeedsCount = 0;
+        $categoryIds = $categories->pluck('id')->toArray();
+        foreach ($needs as $need) {
+            $menuItems = $need->menuItems;
+            foreach ($menuItems as $menuItem) {
+                if ($menuItem->categories()->whereIn('handbook_categories.id', $categoryIds)->count() > 0) {
+                    $selectedNeedsCount++;
+                    break;
+                }
+            }
+        }
+        if ($selectedNeedsCount >= 3)
+            return back()->with('error', 'Извините, мы не даём возможность выбирать категории из всех сфер деятельности. Вы можете выбрать максимум две сферы. Например, из сферы IT и Мультимедия, Бизнес и Маркетинг. Комбинации не ограничены');
         $user->categories()->detach();
         foreach ($categories as $category) {
             $user->categories()->attach($category['id'],
