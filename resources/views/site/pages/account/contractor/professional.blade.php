@@ -16,13 +16,13 @@
                 <h3>Специализация</h3>
             </div>
             <div class="description-box-admin">
-                <p>Выберите в этом списке услуги, предоставляемые вами и укажите минимальные и максимальные цены на них.</p>
+                <p>Выберите в этом списке услуги, предоставляемые вами и укажите минимальные и максимальные цены на них. Если вы хотите указать, что цена договорная, оставьте поля с ценами пустыми.</p>
             </div>
             <div class="accordion" id="parentCategoriesAccordion" role="tablist" aria-multiselectable="false">
                 @foreach($categories as $category)
                     <div class="card">
                         <div class="card-header d-flex justify-content-between" role="tab" id="heading{{ $category->id }}">
-                            <a href="#collapse{{ $category->id }}" class="d-block w-100" data-toggle="collapse" data-parent="#parentCategoriesAccordion" aria-expanded="true" aria-controls="collapse{{ $category->id }}"><span>{{ $category->getTitle() }}</span><i class="fas fa-caret-down"></i></a>
+                            <a href="#collapse{{ $category->id }}" class="d-block w-100" data-toggle="collapse" data-parent="#parentCategoriesAccordion" aria-expanded="true" aria-controls="collapse{{ $category->id }}"><span>{{ $category->getTitle() }}</span> <i class="fas fa-caret-down"></i></a>
                         </div>
                         <div class="collapse" id="collapse{{ $category->id }}" role="tabpanel" aria-labelledby="heading{{ $category->id }}" data-parent="#parentCategoriesAccordion">
                             <div class="card-body">
