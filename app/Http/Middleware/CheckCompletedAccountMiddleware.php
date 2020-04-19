@@ -17,8 +17,11 @@ class CheckCompletedAccountMiddleware
     {
         $user = auth()->user();
         if ($user) {
-            if ($user->checkCompletedAccount())
+            if ($user->checkCompletedAccount()) {
+                if ($user->hasRole('contractor') && $user->categories()->count() == 0 && $request->path() !== 'account/professional')
+                    return redirect('/account/professional')->with('account.warning', 'Выберите услуги, которые вы предоставляете');
                 return $next($request);
+            }
             else
                 return redirect('/account/create');
         }
