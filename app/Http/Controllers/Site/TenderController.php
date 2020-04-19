@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Http\Controllers\Helpers\PaginateCollection;
 use App\Notifications\InviteRequest;
 use App\Notifications\NewRequest;
 use App\Notifications\RequestAction;
@@ -9,10 +10,12 @@ use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\MenuRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
+use App\Repositories\UserRepositoryInterface;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -39,22 +42,39 @@ class TenderController extends Controller
      */
     private $menuItemsRepository;
 
+    /**
+     * @var UserRepositoryInterface
+     */
+    private $userRepository;
+
+    /**
+     * TenderController constructor.
+     * @param NeedTypeRepositoryInterface $needRepository
+     * @param TenderRepositoryInterface $tenderRepository
+     * @param HandbookCategoryRepositoryInterface $categoryRepository
+     * @param MenuRepositoryInterface $menuItemsRepository
+     * @param UserRepositoryInterface $userRepository
+     */
     public function __construct(NeedTypeRepositoryInterface $needRepository,
                                 TenderRepositoryInterface $tenderRepository,
                                 HandbookCategoryRepositoryInterface $categoryRepository,
-                                MenuRepositoryInterface $menuItemsRepository)
+                                MenuRepositoryInterface $menuItemsRepository,
+                                UserRepositoryInterface $userRepository)
     {
         $this->needRepository = $needRepository;
         $this->tenderRepository = $tenderRepository;
         $this->categoryRepository = $categoryRepository;
         $this->menuItemsRepository = $menuItemsRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function index()
     {
         $tenders = $this->tenderRepository->allOrderedByCreatedAt();
         $currentCategory = null;
-        return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
+        $tendersCount = $tenders->count();
+        $tenders = PaginateCollection::paginateCollection($tenders, 5);
+        return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
     }
 
     public function category(string $params)
@@ -82,7 +102,9 @@ class TenderController extends Controller
                     return $item->id;
                 });
                 $currentCategory = $menuItem;
-                return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
+                $tendersCount = $tenders->count();
+                $tenders = PaginateCollection::paginateCollection($tenders, 5);
+                return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
             }
             $tender = $this->tenderRepository->getBySlug($menuItemSlug);
             if ($tender) {
@@ -99,7 +121,9 @@ class TenderController extends Controller
                 if ($currentCategory->getAncestorsSlugs() !== $params)
                     return redirect(route('site.tenders.category', $currentCategory->getAncestorsSlugs()), 301);
                 $tenders = $currentCategory->tenders()->whereNotNull('owner_id')->get();
-                return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
+                $tendersCount = $tenders->count();
+                $tenders = PaginateCollection::paginateCollection($tenders, 5);
+                return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
             } else {
                 abort(404, "Ресурс не найден");
             }
@@ -225,7 +249,9 @@ class TenderController extends Controller
         $redirectTo = $request->get('redirect_to');
         if ($request = $this->tenderRepository->acceptRequest($tenderId, $requestId)) {
             $request->user->notify(new RequestAction('accepted', $request));
-            return redirect($redirectTo)->with('account.success', 'Исполнитель на этот конкурс назначен! ');
+            $adminUsers = $this->userRepository->getAdmins();
+            Notification::send($adminUsers, new RequestAction('accepted', $request));
+            return redirect($redirectTo)->with('account.success', 'Исполнитель на этот конкурс назначен! Администратор сайта с вами свяжется и вы получите инструкции, необходимые для того, чтобы исполнитель приступил к работе.');
         } else {
             return redirect($redirectTo)->with('account.error', 'Невозможно назначить исполнителя на этот конкурс');
         }

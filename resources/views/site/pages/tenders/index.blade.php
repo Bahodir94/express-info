@@ -96,7 +96,7 @@
                 <div class="col-lg-8">
                     <div class="content-main-right list-jobs">
                         <div class="header-list-job d-flex flex-wrap justify-content-between align-items-center">
-                            <h4>{{ count($tenders) }} Конкурсов найдено</h4>
+                            <h4>{{ $tendersCount }} Конкурсов найдено</h4>
                         </div>
                         <div class="list">
                             @foreach($tenders as $tender)
@@ -209,6 +209,9 @@
                                     </div>
                                 </div>
                             @endforeach
+                            <div class="pagination-page d-flex justify-content-end">
+                                {{ $tenders->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>
