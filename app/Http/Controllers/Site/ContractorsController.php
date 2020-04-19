@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Helpers\SlugHelper;
+use App\Http\Controllers\Helpers\PaginateCollection;
 use App\Notifications\InviteRequest;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
@@ -63,7 +64,7 @@ class ContractorsController extends Controller
      * @param string $params
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function category(string $params)
+    public function category(Request $request, string $params)
     {
         if (preg_match('/[A-Z]/', $params)) {
             return redirect(route('site.catalog.main', strtolower($params)), 301);
@@ -85,7 +86,9 @@ class ContractorsController extends Controller
         if ($category->getAncestorsSlugs() !== $params)
             return redirect(route('site.catalog.main', $category->getAncestorsSlugs()), 301);
         $contractors = $category->getAllCompaniesFromDescendingCategories();
-        return view('site.pages.contractors.category', compact('category', 'contractors'));
+        $contractorsCount = $contractors->count();
+        $contractors = PaginateCollection::paginateCollection($contractors, 5);
+        return view('site.pages.contractors.category', compact('category', 'contractors', 'contractorsCount'));
     }
 
     /**
