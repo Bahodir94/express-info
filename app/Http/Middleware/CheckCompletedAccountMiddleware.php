@@ -23,7 +23,7 @@ class CheckCompletedAccountMiddleware
                 return $next($request);
             }
             else
-                return redirect('/account/create');
+                return redirect('/account/create')->with('warning', 'Для начала заполните данные');
         }
 
         return redirect()->route('login');
