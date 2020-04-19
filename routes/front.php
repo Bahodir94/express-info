@@ -48,6 +48,10 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::view('/smm', 'studio.smm', ['page' => 'smm']);
     Route::view('/lets-talk', 'studio.contacts', ['page' => 'contacts']);
     Route::view('/b2b', 'site.pages.b2b')->name('b2b');
+
+    //Info page
+    Route::view('/info', 'site.pages.info');
+
     // Blog route
     Route::get('/blog', 'BlogController@index')->name('blog.index');
     Route::get('/blog/{params}', 'BlogController@blog')->where('params', '.+')->name('blog.main');
