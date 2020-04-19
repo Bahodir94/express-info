@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Http\Controllers\Helpers\PaginateCollection;
 use App\Notifications\InviteRequest;
 use App\Notifications\NewRequest;
 use App\Notifications\RequestAction;
@@ -54,7 +55,9 @@ class TenderController extends Controller
     {
         $tenders = $this->tenderRepository->allOrderedByCreatedAt();
         $currentCategory = null;
-        return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
+        $tendersCount = $tenders->count();
+        $tenders = PaginateCollection::paginateCollection($tenders, 5);
+        return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
     }
 
     public function category(string $params)
@@ -82,7 +85,9 @@ class TenderController extends Controller
                     return $item->id;
                 });
                 $currentCategory = $menuItem;
-                return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
+                $tendersCount = $tenders->count();
+                $tenders = PaginateCollection::paginateCollection($tenders, 5);
+                return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
             }
             $tender = $this->tenderRepository->getBySlug($menuItemSlug);
             if ($tender) {
@@ -99,7 +104,9 @@ class TenderController extends Controller
                 if ($currentCategory->getAncestorsSlugs() !== $params)
                     return redirect(route('site.tenders.category', $currentCategory->getAncestorsSlugs()), 301);
                 $tenders = $currentCategory->tenders()->whereNotNull('owner_id')->get();
-                return view('site.pages.tenders.index', compact('tenders', 'currentCategory'));
+                $tendersCount = $tenders->count();
+                $tenders = PaginateCollection::paginateCollection($tenders, 5);
+                return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
             } else {
                 abort(404, "Ресурс не найден");
             }
