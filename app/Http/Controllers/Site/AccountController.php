@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
+use foo\bar;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -146,16 +147,20 @@ class AccountController extends Controller
     {
         $user = auth()->user();
         $user->authorizeRole('contractor');
-        $categories = $request->get('categories');
+        $categories = collect();
+        foreach ($request->get('categories') as $requestCategory)
+            if (isset($requestCategory['id']))
+                $categories->push($requestCategory);
+        if ($categories->count() == 0) {
+            return back()->with('account.error', 'Укажите услуги, которые вы предоставляете');
+        }
         $user->categories()->detach();
         foreach ($categories as $category) {
-            if (isset($category['id'])) {
-                $user->categories()->attach($category['id'],
-                        ['price_to' => $category['price_to'],
-                        'price_from' => $category['price_from'],
-                        'price_per_hour' => $category['price_per_hour']]
-                );
-            }
+            $user->categories()->attach($category['id'],
+                ['price_to' => $category['price_to'],
+                    'price_from' => $category['price_from'],
+                    'price_per_hour' => $category['price_per_hour']]
+            );
         }
 
         return redirect()->route('site.account.contractor.professional')->with('account.success', 'Ваши профессиональные данные обновлены');
