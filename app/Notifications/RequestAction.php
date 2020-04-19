@@ -73,7 +73,12 @@ class RequestAction extends Notification
                 'tenderName' => $this->request->tender->title,
                 'customerName' => $this->request->tender->owner->getCommonTitle(),
                 'tenderId' => $this->request->tender_id,
-                'tenderSlug' => $this->request->tender->slug
+                'tenderSlug' => $this->request->tender->slug,
+                'customerSlug' => $this->request->tender->owner->slug,
+                'customerId' => $this->request->tender->owner->id,
+                'contractorSlug' => $this->request->user->slug,
+                'contractorId' => $this->request->user->id,
+                'contractorName' => $this->request->user->getCommonTitle()
             ];
         } else {
             return [
