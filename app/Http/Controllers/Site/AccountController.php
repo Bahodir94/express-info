@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Notifications\TenderCreated;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
@@ -110,9 +111,12 @@ class AccountController extends Controller
         if ($userType == 'contractor')
             return redirect()->route('site.account.contractor.professional')->with('account.success', 'Ваш аккаунт создан! Заполните свои профессиональные данные, что бы вас могли найти в каталоге');
         if ($request->hasCookie('tenderId')) {
-            $this->tenderRepository->setOwnerToTender($request->cookie('tenderId'), auth()->user()->id);
+            $tenderId = $request->cookie('tenderId');
+            $this->tenderRepository->setOwnerToTender($tenderId, auth()->user()->id);
             \Cookie::forget('tenderId');
-            return redirect()->route('site.account.index')->with('account.success', 'Ваш аккаунт создан, а тендер опубликован, вы можете посмотреть его в разделе "Мои тендеры".');
+            $tender = $this->tenderRepository->get($tenderId);
+            \Notification::send($this->userRepository->getAdmins(), new TenderCreated($tender));
+            return redirect()->route('site.account.index')->with('account.success', 'Ваш аккаунт создан, а тендер отправлен на модерацию, вы можете посмотреть его в разделе "Мои тендеры".');
         }
         return redirect()->route('site.account.index');
     }

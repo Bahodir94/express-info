@@ -43,6 +43,23 @@
                                                     href="{{ route('admin.tenders.show', $notification->data['tenderId']) }}"
                                                     class="font-weight-bold link-effect">{{ $notification->data['tenderName'] }}</a>
                                         </div>
+                                    </div>
+                                @endif
+                                @if ($notification->type == 'App\Notifications\TenderCreated')
+                                    <div class="text-body-color-dark media mb-15">
+                                        <div class="ml-5 mr-15">
+                                            <i class="fa fa-fw fa-info text-info"></i>
+                                        </div>
+                                        <div class="media-body pr-10">
+                                            <p class="mb-0">
+                                                Заказчик <a
+                                                    href="{{ route('admin.users.edit', $notification->data['tender']['owner_id']) }}"
+                                                    class="font-weight-bold link-effect">{{ $notification->data['customerName'] }}</a>
+                                                создал новый конкурс <a
+                                                    href="{{ route('admin.tenders.show', $notification->data['tender']['id']) }}"
+                                                    class="font-weight-bold link-effect">{{ $notification->data['tender']['title'] }}</a>
+                                        </div>
+                                    </div>
                                 @endif
                             </li>
                         @endforeach

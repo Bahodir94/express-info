@@ -6,6 +6,7 @@ use App\Http\Controllers\Helpers\PaginateCollection;
 use App\Notifications\InviteRequest;
 use App\Notifications\NewRequest;
 use App\Notifications\RequestAction;
+use App\Notifications\TenderCreated;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\MenuRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
@@ -178,10 +179,10 @@ class TenderController extends Controller
                 session()->forget('contractors');
                 session()->save();
             }
-            return redirect()->route('register')->withCookie(cookie('tenderId', "$tender->id"))->with('success', 'Ваш тендер сохранён и будет опубликован только после регистрации');
+            return redirect()->route('register')->withCookie(cookie('tenderId', "$tender->id"))->with('success', 'Ваш тендер сохранён и будет отправлен на модерацию только после регистрации');
         }
-
-        return redirect()->route('site.contractors.index')->with('success', "Тендер $tender->title создан и опубликован! Вы так же можете выбрать себе исполнителей по желанию");
+        Notification::send($this->userRepository->getAdmins(), new TenderCreated($tender));
+        return redirect()->route('site.account.tenders')->with('success', "Тендер $tender->title создан и отправлен на модерацию!");
     }
 
     public function makeRequest(Request $request)
