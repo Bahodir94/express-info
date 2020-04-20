@@ -23,7 +23,7 @@
                         <input type="hidden" name="user_role" value="contractor">
                         <div class="input-group-icons">
                             <input class="form-control @error('email') is-invalid @enderror" type="email"
-                                   placeholder="Email адресс"
+                                   placeholder="Email адрес"
                                    name="email" value="{{ old('email') }}" required
                                    autocomplete="email"><span class="prepend-icon"><i
                                     class="fas fa-at"></i></span>

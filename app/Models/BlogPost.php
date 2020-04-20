@@ -25,6 +25,23 @@ class BlogPost extends Model
         'category_id'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($item) {
+            event('model.changed');
+        });
+
+        static::updated(function ($item) {
+            event('model.changed');
+        });
+
+        static::deleted(function ($item) {
+            event('model.changed');
+        });
+    }
+
     public function category()
     {
         return $this->hasOne(BlogCategory::class, 'id', 'category_id');

@@ -24,7 +24,10 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function allOrderedByCreatedAt()
     {
-        return Tender::whereNull('owner_id')->orderBy('created_at', 'desc')->get();
+        return Tender::whereNotNull('owner_id')
+            ->where('published', true)
+            ->orderBy('created_at', 'desc')
+            ->get();
     }
 
     /**
@@ -104,7 +107,9 @@ class TenderRepository implements TenderRepositoryInterface
      */
     public function cancelRequest($requestId)
     {
-        TenderRequest::destroy($requestId);
+        $request = TenderRequest::findOrFail($requestId);
+        $request->delete();
+        return $request;
     }
 
     /**
@@ -119,7 +124,7 @@ class TenderRepository implements TenderRepositoryInterface
         abort_if($tender->owner->id !== auth()->user()->id, 401);
         $tender->contractor_id = $request->user_id;
         $tender->save();
-        return true;
+        return $request;
     }
 
     /**
@@ -130,5 +135,29 @@ class TenderRepository implements TenderRepositoryInterface
         $tender = $this->get($tenderId);
         $tender->owner_id = $userId;
         $tender->save();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function addContractor($tenderId, $contractorId)
+    {
+        return TenderRequest::create([
+            'user_id' => $contractorId,
+            'tender_id' => $tenderId,
+            'invited' => true
+        ]);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function publishTender($tenderId)
+    {
+        $tender = $this->get($tenderId);
+        $tender->published = true;
+        $tender->published_at = now();
+        $tender->save();
+        return $tender;
     }
 }

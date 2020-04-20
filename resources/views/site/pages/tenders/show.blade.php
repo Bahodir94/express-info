@@ -3,8 +3,8 @@
 @section('title', "Конкурс $tender->title")
 
 @section('meta')
-    <meta name="title" content="">
-    <meta name="description" content="">
+    <meta name="title" content="{{ $tender->title }}">
+    <meta name="description" content="{{ strip_tags($tender->description) }}">
 @endsection
 @section('header')
     @include('site.layouts.partials.headers.default')
@@ -13,7 +13,7 @@
 @section('content')
     <div class="primary-page">
         <div class="container">
-            @if ($tender->checkDeadline())
+            @if ($tender->checkDeadline() && !$tender->contractor)
                 @guest
                     <div class="alert shadow alert-warning fade show">
                         <div class="row">
@@ -22,15 +22,19 @@
                                     позволит вам откликаться на задачи. </p>
                             </div>
                             <div class="col-sm-12 col-md-4">
-                                <div class="d-flex justify-content-between align-items-center"><a href="#"
+                                <div class="d-flex justify-content-between align-items-center"><a href="{{ route('login') }}"
                                                                                                   class="btn btn-light-green mr-1">Войти</a>
-                                    или <a href="#" class="btn ml-1 btn-light-green">Зарегистрироваться</a></div>
+                                    или <a href="{{ route('register') }}" class="btn ml-1 btn-light-green">Зарегистрироваться</a></div>
                             </div>
                         </div>
                     </div>
                 @endguest
                 @auth
-                    @if (auth()->user()->hasRole('contractor') && !in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
+                    @if (auth()->user()->requests()->where('invited', false)->count() > 0 && !in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
+                        <div class="alert alert-info shadow fade show">
+                            <p class="fas fa-info"> Вы не можете подать заявку на участие более чем в одном конкурсе.</p>
+                        </div>
+                    @elseif (auth()->user()->hasRole('contractor') && !in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
                         <div class="alert shadow alert-info fade show">
                             <div class="d-flex justify-content-between align-items-center">
                                 <p><i class="fas fa-info"></i> Вы можете связаться с данным заказчиком</p>
@@ -134,7 +138,7 @@
                         <div class="col-12">
                             <h2 class="title-detail">{{ $tender->title }}</h2>
                             <div class="meta-job"><span class="phone"><i class="far fa-money-bill-alt"></i>Бюджет: {{ $tender->budget }} </span><span
-                                    class="mail"><i class="far fa-calendar"></i>Опубликовано: {{ $tender->created_at }}</span><span><i
+                                    class="mail"><i class="far fa-calendar"></i>Опубликовано: {{ \Carbon\Carbon::create($tender->published_at)->format('d.m.Y') }}</span><span><i
                                         class="fas fa-calendar-times"></i>Крайний срок приёма заявок: {{ $tender->deadline }}</span>
                             </div>
                         </div>
@@ -181,16 +185,6 @@
                                         Компания
                                     @endif
                                 </span>
-                                <hr>
-                                @if (auth()->user() && in_array(auth()->user()->id, $tender->requests()->pluck('user_id')->toArray()))
-                                    <p class="m-0">Заказчик: {{ $tender->getCustomerTitle() }}</p>
-                                    <p class="m-0">Email: {{ $tender->client_email }}</p>
-                                    <p class="m-0">Телефон: {{ $tender->client_phone_number }}</p>
-                                @else
-                                    <p class="text-muted"><i class="fas fa-eye"></i> Контакты видны только тем
-                                        исполнителям,
-                                        которые выслали свое предложение организатору задачи</p>
-                                @endif
                             </div>
                         </div>
                     </div>

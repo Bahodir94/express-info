@@ -34,7 +34,7 @@
     <title>
         @yield('title') | vid.uz
     </title>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             let menuItems = document.querySelectorAll('.menu-item-li');
@@ -102,6 +102,7 @@
     </main>
 
     @include('site.layouts.partials.footer')
+    @include('site.components.contractors')
 </div>
 
 <script src="/front/js/jquery.min.js"></script>
@@ -143,6 +144,19 @@
         });
         $('[data-toggle="tooltip"]').tooltip()
     })
+</script>
+<script>
+    $(function() {
+        $('.tender-item').on('click', function () {
+            let url = $(this).data('target');
+            window.location.href = url;
+        });
+        $('.notification-button').on('click', function () {
+            $.get("{{ route('site.account.notifications.read') }}", function (data) {
+                $('.numeric').addClass('d-none');
+            });
+        })
+    });
 </script>
 </body>
 <script type="application/ld+json">

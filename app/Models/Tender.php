@@ -24,6 +24,18 @@ class Tender extends Model
         static::saving(function ($model) {
             $model->generateSlug();
         });
+
+        static::created(function ($item) {
+            event('model.changed');
+        });
+
+        static::updated(function ($item) {
+            event('model.changed');
+        });
+
+        static::deleted(function ($item) {
+            event('model.changed');
+        });
     }
 
     /**
@@ -103,6 +115,8 @@ class Tender extends Model
      */
     public function generateSlug() {
         $slug = Str::slug($this->title);
+        if ($this->slug == $slug)
+            return;
         $existCount = self::where('slug', $slug)->count();
         if ($existCount > 0)
             $slug .= "-$existCount";
@@ -120,5 +134,10 @@ class Tender extends Model
     {
         $deadline = Carbon::create($this->deadline);
         return now() < $deadline;
+    }
+
+    public function hasRequestFrom($userId)
+    {
+        return $this->requests()->where('user_id', $userId)->count() > 0;
     }
 }

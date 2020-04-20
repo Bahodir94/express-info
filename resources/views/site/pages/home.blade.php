@@ -17,7 +17,9 @@
     <section class="section-banner" style="background-image: url({{ asset('front/images/banner-1.jpg') }})">
         <div class="banner-content">
             <div class="container">
+
                 <div class="banner-item">
+                  <h4 class="banner-sub-title">VID присоединяется к борьбе с Covid-19. Все услуги на площадке на время карантина становятся бесплатными </h4>
                     <h2 class="banner-title">2 Лучших способа найти IT специалиста для продвижения вашего
                         бизнеса</h2>
                     <div class="banner-sub-title">Добавьте в конкурс на выполнение вашего заказа исполнителя
@@ -34,14 +36,14 @@
                                     </div>
                                     <div class="col-md-3 text-center p-1">
 
-                                        <a class="btn btn-light-green" href="{{ route('site.tenders.common.create') }}">Хочу добавить сам <i class="fas fa-chevron-right"></i>
+                                        <a class="btn btn-light-green" href="{{ route('site.contractors.index') }}">Хочу добавить сам <i class="fas fa-chevron-right"></i>
                                             <div class="form-group search-location">
 
                                             </div>
                                         </a>
                                     </div>
                                     <div class="col-md-3 text-center p-1">
-                                        <a class="btn btn-light-green" href="{{ route('site.contractors.index') }}">
+                                        <a class="btn btn-light-green" href="{{ route('site.tenders.common.create') }}">
                                           Подберет система <i class="fas fa-chevron-right"></i>
 
                                         </a>
@@ -95,8 +97,9 @@
                             <div class="col-md-10 job-info">
                                 <div class="text">
                                     <h3 class="title-job"><a href="{{ route('site.tenders.category', $tender->slug) }}">{{ $tender->title }}</a></h3>
-                                    <div class="date-job"><i class="fa fa-check-circle"></i><span
-                                            class="company-name">Опубликован: {{ $tender->created_at->format('d.m.Y') }}</span>
+                                    <div class="date-job">
+                                      <i class="fa fa-check-circle"></i><span
+                                            class="company-name">Опубликован: {{ \Carbon\Carbon::create($tender->published_at)->format('d.m.Y') }}</span>
                                         <div class="date-job"><i class="fa fa-check-circle"></i><span
                                                 class="company-name">Крайний срок приема заявок: {{ \Carbon\Carbon::create($tender->deadline)->format('d.m.Y') }}</span>
                                         </div>

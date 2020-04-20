@@ -35,48 +35,20 @@
             </li>
         </ul>
     </li>
-
-
-    <li>
-        <a class="nav-submenu" data-toggle="nav-submenu" href="#">
-            <i class="si si-puzzle"></i>
-            <span class="sidebar-mini-hide">Цгу</span>
-        </a>
-        <ul>
-            <li>
-                <a href="{{ route('admin.cgucategories.index') }}">
-                    Категории
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.cgucatalogs.index') }}">
-                    Файлы
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.cgusites.index') }}">
-                    Сайты
-                </a>
-            </li>
-        </ul>
-    </li>
     <li>
         <a href="#" class="nav-submenu" data-toggle="nav-submenu">
             <i class="si si-list"></i>
-            <span class="sidebar-mini-hide">Справочник</span>
+            <span class="sidebar-mini-hide">Каталог</span>
         </a>
         <ul>
             <li>
                 <a href="{{ route('admin.needs.index') }}">Главное меню</a>
             </li>
             <li>
-                <a href="{{ route('admin.handbookcategories.index') }}">Категории</a>
+                <a href="{{ route('admin.categories.index') }}">Категории</a>
             </li>
             <li>
                 <a href="{{ route('admin.companies.index') }}">Компании</a>
-            </li>
-            <li>
-                <a href="{{ route('admin.services.index') }}">Услуги</a>
             </li>
         </ul>
     </li>

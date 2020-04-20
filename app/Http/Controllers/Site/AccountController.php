@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Notifications\TenderCreated;
 use App\Repositories\HandbookCategoryRepositoryInterface;
+use App\Repositories\NeedTypeRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
+use foo\bar;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -30,13 +33,21 @@ class AccountController extends Controller
     private $tenderRepository;
 
     /**
+     * @var NeedTypeRepositoryInterface
+     */
+    private $needsRepository;
+
+    /**
      * AccountController constructor.
      * @param UserRepositoryInterface $userRepository
      * @param HandbookCategoryRepositoryInterface $categoryRepository
+     * @param TenderRepositoryInterface $tenderRepository
+     * @param NeedTypeRepositoryInterface $needsRepository
      */
     public function __construct(UserRepositoryInterface $userRepository,
                                 HandbookCategoryRepositoryInterface $categoryRepository,
-                                TenderRepositoryInterface $tenderRepository)
+                                TenderRepositoryInterface $tenderRepository,
+                                NeedTypeRepositoryInterface $needsRepository)
     {
         $this->middleware('auth')->except(['telegramCallback']);
         $this->middleware('account.completed')->except(['create', 'store', 'telegramCallback']);
@@ -44,6 +55,7 @@ class AccountController extends Controller
         $this->userRepository = $userRepository;
         $this->categoryRepository = $categoryRepository;
         $this->tenderRepository = $tenderRepository;
+        $this->needsRepository = $needsRepository;
     }
 
     /**
@@ -99,9 +111,12 @@ class AccountController extends Controller
         if ($userType == 'contractor')
             return redirect()->route('site.account.contractor.professional')->with('account.success', 'Ваш аккаунт создан! Заполните свои профессиональные данные, что бы вас могли найти в каталоге');
         if ($request->hasCookie('tenderId')) {
-            $this->tenderRepository->setOwnerToTender($request->cookie('tenderId'), auth()->user()->id);
+            $tenderId = $request->cookie('tenderId');
+            $this->tenderRepository->setOwnerToTender($tenderId, auth()->user()->id);
             \Cookie::forget('tenderId');
-            return redirect()->route('site.account.index')->with('account.success', 'Ваш аккаунт создан, а тендер опубликован, вы можете посмотреть его в разделе "Мои тендеры".');
+            $tender = $this->tenderRepository->get($tenderId);
+            \Notification::send($this->userRepository->getAdmins(), new TenderCreated($tender));
+            return redirect()->route('site.account.index')->with('account.success', 'Ваш аккаунт создан, а тендер отправлен на модерацию, вы можете посмотреть его в разделе "Мои тендеры".');
         }
         return redirect()->route('site.account.index');
     }
@@ -146,16 +161,40 @@ class AccountController extends Controller
     {
         $user = auth()->user();
         $user->authorizeRole('contractor');
-        $categories = $request->get('categories');
+        $categories = collect();
+        foreach ($request->get('categories') as $requestCategory)
+            if (isset($requestCategory['id']))
+                $categories->push($requestCategory);
+        if ($categories->count() == 0) {
+            return back()->with('account.error', 'Укажите услуги, которые вы предоставляете');
+        }
+        $needs = $this->needsRepository->all();
+        $selectedNeedsCount = 0;
+        $categoryIds = $categories->pluck('id')->toArray();
+        foreach ($needs as $need) {
+            $menuItems = $need->menuItems;
+            foreach ($menuItems as $menuItem) {
+                if ($menuItem->categories()->whereIn('handbook_categories.id', $categoryIds)->count() > 0) {
+                    $selectedNeedsCount++;
+                    break;
+                }
+            }
+        }
+        if ($selectedNeedsCount >= 3)
+            return back()->with('account.error', 'Извините, мы не даём возможность выбирать категории из всех сфер деятельности. Вы можете выбрать максимум две сферы. Например, из сферы IT и Мультимедия, Бизнес и Маркетинг. Комбинации не ограничены');
+        foreach ($categories as $category) {
+            if (!isset($category['price_from']) || !isset($category['price_to']) || !isset($category['price_per_hour'])
+            || empty($category['price_from']) || empty($category['price_to']) || empty($category['price_per_hour'])) {
+                return back()->with('account.error', 'Укажите цены на каждую выбранную услугу');
+            }
+        }
         $user->categories()->detach();
         foreach ($categories as $category) {
-            if (isset($category['id'])) {
-                $user->categories()->attach($category['id'],
-                        ['price_to' => $category['price_to'],
-                        'price_from' => $category['price_from'],
-                        'price_per_hour' => $category['price_per_hour']]
-                );
-            }
+            $user->categories()->attach($category['id'],
+                ['price_to' => $category['price_to'],
+                    'price_from' => $category['price_from'],
+                    'price_per_hour' => $category['price_per_hour']]
+            );
         }
 
         return redirect()->route('site.account.contractor.professional')->with('account.success', 'Ваши профессиональные данные обновлены');
@@ -250,5 +289,11 @@ class AccountController extends Controller
             return false;
         }
         return true;
+    }
+
+    public function markNotificationsAsRead()
+    {
+        auth()->user()->unreadNotifications->markAsRead();
+        return \Response::make('', 204);
     }
 }

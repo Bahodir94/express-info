@@ -57,6 +57,8 @@ trait Image
         if ($this->image) {
             Storage::delete(self::UPLOAD_DIRECTORY . $this->image);
         }
+        $this->image = null;
+        $this->save();
     }
 
     /**

@@ -141,6 +141,127 @@ a.user-dropdown-item:active {
     color: #fff;
 }
 
-.account-chat .avatar img {
+.description-box-admin {
+    padding: 15px 15px 0;
+}
+
+@media only screen and (min-width: 768px) {
+    .description-box-admin {
+        padding: 25px 30px 0;
+    }
+}
+
+.mobile-header-right {
+    display: none;
+}
+
+.contractors-bar {
+    background-color: #383838 !important;
+}
+
+.contractors-bar .btn-link {
+    color: #63ba16;
+}
+
+.contractors-bar .btn-link.btn-delete, .contractors-modal .btn-link.btn-delete {
+    color: #C82333;
+}
+
+.contractors-modal .avatar {
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    margin-right: 10px;
+}
+
+.notifications-dropdown {
+    padding: 8px;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #575757;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e4e7ed;
+    border-right: 2px;
+    min-width: 300px;
+}
+
+.notifications-dropdown h5 {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    letter-spacing: .05rem;
+    font-size: 1rem;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.notifications-dropdown ul {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 0;
+    list-style: none;
+}
+
+.notifications-dropdown ul a {
+    color: #171717;
+    margin-bottom: 15px;
+    display: flex !important;
+    align-items: flex-start;
+}
+
+
+.notifications-dropdown ul a .icon {
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
+.notifications-dropdown ul a .icon i {
+    width: 0.8rem;
+    text-align: center;
+}
+
+.notifications-dropdown ul a .notification-item-body {
+    padding-right: 10px;
+    flex: 1;
+}
+
+.notifications-dropdown ul a .notification-item-body p {
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+    .mobile-header-right {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .job-item .add-request {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    }
+}
+
+.job-item .add-request {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.add-request {
+    border: none;
+    text-align: center;
+    width: 120px;
+}
+
+.add-favourites:hover i:before, .add-favourites:focus i:before {
+    content: "\f067";
+}
+
+.job-item:hover .add-favourites i:before {
+    content: "\f067";
 }

@@ -60,6 +60,15 @@
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6 ">
+                        <div class="form-group @error('phone_number') is-invalid @enderror">
+                            <div class="form-material floating">
+                                <input type="email" name="phone_number" id="phone_number" class="form-control" value="{{ $user->phone_number }}">
+                                <label for="phone_number">Номер телефона</label>
+                            </div>
+                            @error('phone_number') <div class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
                         <div class="d-flex align-items-center flex-column">
                             <label for="image" class="d-block">Аватар</label>
                             @if ($user->image)

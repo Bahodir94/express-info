@@ -123,9 +123,9 @@
                     <div class="uk-header-right uk-section uk-visible@m uk-flex uk-flex-right uk-flex-bottom">
                         <div>
                             <ul class="uk-subnav uk-text-xsmall uk-text-bold">
-                                <li><a class="uk-link-border" href="#" target="_blank">facebook</a></li>
-                                <li><a class="uk-link-border" href="#" target="_blank">twitter</a></li>
-                                <li><a class="uk-link-border" href="#" target="_blank">instagram</a></li>
+                                
+                                <li><a class="uk-link-border" href="https://t.me/gde_podeshevle" target="_blank">telegram</a></li>
+                                <li><a class="uk-link-border" href="https://www.instagram.com/vid.market/?r=nametag" target="_blank">instagram</a></li>
                             </ul>
                         </div>
                     </div>

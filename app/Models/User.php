@@ -26,8 +26,26 @@ class User extends Authenticatable implements MustVerifyEmail
         'facebook', 'vk', 'telegram', 'whatsapp', 'instagram',
         'phone_number', 'about_myself',
         'slug',
-        'telegram_id', 'telegram_username', 'google_id'
+        'telegram_id', 'telegram_username', 'google_id',
+        'fake', 'meta_title'
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($item) {
+            event('model.changed');
+        });
+
+        static::updated(function ($item) {
+            event('model.changed');
+        });
+
+        static::deleted(function ($item) {
+            event('model.changed');
+        });
+    }
 
     /**
      * The attributes that should be hidden for arrays.
@@ -359,5 +377,16 @@ class User extends Authenticatable implements MustVerifyEmail
         } else {
             return $this->email;
         }
+    }
+
+    public function hasRequestFromContractor(User $contractor) {
+        if ($this->hasRole('customer')) {
+            if ($contractor->requests()->count() > 0) {
+                $tendersIds = $this->ownedTenders()->pluck('id')->toArray();
+                return $contractor->requests()->whereIn('tender_id', $tendersIds)->count() > 0;
+            }
+            return false;
+        }
+        return false;
     }
 }

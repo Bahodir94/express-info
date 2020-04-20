@@ -19,6 +19,23 @@ class HandbookCategory extends Model
         'meta_title', 'meta_description', 'meta_keywords', 'template'
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($item) {
+            event('model.changed');
+        });
+
+        static::updated(function ($item) {
+            event('model.changed');
+        });
+
+        static::deleted(function ($item) {
+            event('model.changed');
+        });
+    }
+
     const UPLOAD_DIRECTORY = 'uploads/handbook_categories_images/';
 
     /**
@@ -198,6 +215,17 @@ class HandbookCategory extends Model
         }
         $companies = $companies->unique(function ($item) { return $item->id; });
         return $companies;
+    }
+
+    public function getAllTendersFromDescendingCategories()
+    {
+        $categories = $this->descendants;
+        $tenders = collect();
+        $tenders = $tenders->merge($this->tenders);
+        foreach ($categories as $category)
+            $tenders = $tenders->merge($category->tenders);
+        $tenders = $tenders->unique(function ($item) { return $item->id; });
+        return $tenders;
     }
 
     /**

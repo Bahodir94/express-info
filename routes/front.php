@@ -48,12 +48,17 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::view('/smm', 'studio.smm', ['page' => 'smm']);
     Route::view('/lets-talk', 'studio.contacts', ['page' => 'contacts']);
     Route::view('/b2b', 'site.pages.b2b')->name('b2b');
+
+    //Info page
+    Route::view('/info', 'site.pages.info');
+
     // Blog route
     Route::get('/blog', 'BlogController@index')->name('blog.index');
     Route::get('/blog/{params}', 'BlogController@blog')->where('params', '.+')->name('blog.main');
 
     // Account routes
     Route::get('/account', 'AccountController@index')->name('account.index');
+    Route::get('/account/notifications/markAsRead', 'AccountController@markNotificationsAsRead')->name('account.notifications.read');
     Route::get('/account/create', 'AccountController@create');
     Route::post('/account/create', 'AccountController@store');
     Route::post('/account/contractor/profile/save', 'AccountController@savePersonalContractor')->name('account.contractor.profile.save');
@@ -61,6 +66,8 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::post('/account/professional', 'AccountController@saveProfessional');
     Route::post('/account/customer/profile/save', 'AccountController@saveCustomerProfile')->name('account.customer.profile.save');
     Route::get('/account/tenders', 'AccountController@tenders')->name('account.tenders');
+    Route::get('/account/portfolio', 'FileController@index')->name('account.portfolio');
+    Route::post('/account/portfolio/save', 'FileController@save')->name('account.portfolio.save');
     Route::get('/account/tenders/{slug}/edit', 'AccountController@editTender')->name('account.tenders.edit');
     Route::get('/account/tenders/{slug}/candidates', 'AccountController@tenderCandidates')->name('account.tenders.candidates');
     Route::get('/account/chats', 'ChatsController@index')->name('account.chats');
@@ -79,6 +86,10 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
 
     Route::get('/', 'HomeController@index')->name('catalog.index');
     Route::get('/contractors', 'ContractorsController@index')->name('contractors.index');
+    Route::get('/contractors/addContractor/{contractorId}/to/{tenderId}', 'ContractorsController@addContractor')->name('tenders.contractors.add');
+    Route::get('/contractors/addContractorGuest/clear', 'ContractorsController@deleteAllContractorsFromSession')->name('tenders.contractors.clear');
+    Route::get('/contractors/addContractorGuest/{contractorId}', 'ContractorsController@addContractorForNonAuth')->name('tenders.contractors.add.guest');
+    Route::get('/contractors/addContractorGuest/remove/{contractorId}', 'ContractorsController@deleteContractorFromSession')->name('tenders.contractors.delete');
     Route::get('/contractors/{slug}', 'ContractorsController@contractor')->name('contractors.show');
 
     Route::get('/{params}', 'ContractorsController@category')->where('params', '.+')->name('catalog.main');

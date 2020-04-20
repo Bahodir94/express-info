@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Http\Controllers\Helpers\PaginateCollection;
+use App\Notifications\InviteRequest;
+use App\Notifications\NewRequest;
+use App\Notifications\RequestAction;
+use App\Notifications\TenderCreated;
 use App\Repositories\HandbookCategoryRepositoryInterface;
 use App\Repositories\MenuRepositoryInterface;
 use App\Repositories\NeedTypeRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
+use App\Repositories\UserRepositoryInterface;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -35,48 +43,92 @@ class TenderController extends Controller
      */
     private $menuItemsRepository;
 
+    /**
+     * @var UserRepositoryInterface
+     */
+    private $userRepository;
+
+    /**
+     * TenderController constructor.
+     * @param NeedTypeRepositoryInterface $needRepository
+     * @param TenderRepositoryInterface $tenderRepository
+     * @param HandbookCategoryRepositoryInterface $categoryRepository
+     * @param MenuRepositoryInterface $menuItemsRepository
+     * @param UserRepositoryInterface $userRepository
+     */
     public function __construct(NeedTypeRepositoryInterface $needRepository,
                                 TenderRepositoryInterface $tenderRepository,
                                 HandbookCategoryRepositoryInterface $categoryRepository,
-                                MenuRepositoryInterface $menuItemsRepository)
+                                MenuRepositoryInterface $menuItemsRepository,
+                                UserRepositoryInterface $userRepository)
     {
         $this->needRepository = $needRepository;
         $this->tenderRepository = $tenderRepository;
         $this->categoryRepository = $categoryRepository;
         $this->menuItemsRepository = $menuItemsRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function index()
     {
         $tenders = $this->tenderRepository->allOrderedByCreatedAt();
-        return view('site.pages.tenders.index', compact('tenders'));
+        $currentCategory = null;
+        $tendersCount = $tenders->count();
+        $tenders = PaginateCollection::paginateCollection($tenders, 5);
+        return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
     }
 
     public function category(string $params)
     {
-       $paramsArray = explode('/', $params);
-       $tenders = collect();
-       if (count($paramsArray) === 1) {
-           $menuItemSlug = $paramsArray[0];
-           $menuItem = $this->menuItemsRepository->getBySlug($menuItemSlug);
-           if ($menuItem) {
-               foreach ($menuItem->categories as $category)
-                   $tenders = $tenders->merge($category->tenders()->whereNotNull('owner_id')->get());
-               $tenders = $tenders->unique(function ($item) {
-                   return $item->id;
-               });
-           }
-           $tender = $this->tenderRepository->getBySlug($menuItemSlug);
-           if ($tender) {
-               return view('site.pages.tenders.show', compact('tender'));
-           }
-       } else {
-           $categorySlug = end($paramsArray);
-           $category = $this->categoryRepository->getBySlug($categorySlug);
-           $tenders = $category->tenders;
-       }
-
-       return view('site.pages.tenders.index', compact('tenders'));
+        if (preg_match('/[A-Z]/', $params)) {
+            return redirect(route('site.tenders.category', strtolower($params)), 301);
+        }
+        if (substr_count($params, 'tenders') > 1) {
+            $paramsArray = explode('/', $params);
+            $uniqueParams = array_unique($paramsArray);
+            return redirect(route('site.tenders.category', implode('/', $uniqueParams)), 301);
+        }
+        $paramsArray = explode('/', $params);
+        $tenders = collect();
+        $currentCategory = null;
+        if (count($paramsArray) === 1) {
+            $menuItemSlug = $paramsArray[0];
+            $menuItem = $this->menuItemsRepository->getBySlug($menuItemSlug);
+            if ($menuItem) {
+                if ($menuItem->ru_slug !== $params)
+                    return redirect(route('site.tenders.category', $menuItem->ru_slug), 301);
+                foreach ($menuItem->categories as $category)
+                    $tenders = $tenders->merge($category->tenders()->whereNotNull('owner_id')->where('published', true)->get());
+                $tenders = $tenders->unique(function ($item) {
+                    return $item->id;
+                });
+                $currentCategory = $menuItem;
+                $tendersCount = $tenders->count();
+                $tenders = PaginateCollection::paginateCollection($tenders, 5);
+                return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
+            }
+            $tender = $this->tenderRepository->getBySlug($menuItemSlug);
+            if ($tender) {
+                if ($tender->slug !== $params) {
+                    return redirect(route('site.catalog.tenders', $tender->slug), 301);
+                }
+                return view('site.pages.tenders.show', compact('tender'));
+            }
+            abort(404, "Ресурс не найден");
+        } else {
+            $categorySlug = end($paramsArray);
+            $currentCategory = $this->categoryRepository->getBySlug($categorySlug);
+            if ($currentCategory) {
+                if ($currentCategory->getAncestorsSlugs() !== $params)
+                    return redirect(route('site.tenders.category', $currentCategory->getAncestorsSlugs()), 301);
+                $tenders = $currentCategory->tenders()->whereNotNull('owner_id')->where('published', true)->get();
+                $tendersCount = $tenders->count();
+                $tenders = PaginateCollection::paginateCollection($tenders, 5);
+                return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
+            } else {
+                abort(404, "Ресурс не найден");
+            }
+        }
     }
 
     public function show(string $slug)
@@ -112,15 +164,25 @@ class TenderController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:5000',
             'files' => 'nullable',
-            'budget' => 'required|integer',
+            'budget' => 'required',
             'deadline' => 'required|date'
         ], $validationMessages)->validate();
         $tender = $this->tenderRepository->create($request);
 
-        if (!Auth::check())
-            return redirect()->route('register')->withCookie(cookie('tenderId', "$tender->id"))->with('success', 'Ваш тендер сохранён и будет опубликован только после регистрации');
-
-        return redirect()->route('site.contractors.index')->with('success', "Тендер $tender->title создан и опубликован! Вы так же можете выбрать себе исполнителей по желанию");
+        if (!Auth::check()) {
+            if (session()->has('contractors')) {
+                $contractors = session('contractors');
+                foreach ($contractors as $contractor) {
+                    $request = $tender->requests()->create(['user_id' => $contractor['id'], 'invited' => true]);
+                    User::find($contractor['id'])->notify(new InviteRequest($request));
+                }
+                session()->forget('contractors');
+                session()->save();
+            }
+            return redirect()->route('register')->withCookie(cookie('tenderId', "$tender->id"))->with('success', 'Ваш тендер сохранён и будет отправлен на модерацию только после регистрации');
+        }
+        Notification::send($this->userRepository->getAdmins(), new TenderCreated($tender));
+        return redirect()->route('site.account.tenders')->with('success', "Тендер $tender->title создан и отправлен на модерацию!");
     }
 
     public function makeRequest(Request $request)
@@ -133,6 +195,7 @@ class TenderController extends Controller
             'comment' => 'nullable|string|max:255'
         ]);
         $tenderRequest = $this->tenderRepository->createRequest($request);
+        $tenderRequest->tender->owner->notify(new NewRequest($tenderRequest));
         $tenderTitle = $tenderRequest->tender->title;
         return back()->with('success', "Вы подали заявку на участие в конкурсе \"$tenderTitle\"");
     }
@@ -140,7 +203,13 @@ class TenderController extends Controller
     public function cancelRequest(Request $request)
     {
         $requestId = $request->get('requestId');
-        $this->tenderRepository->cancelRequest($requestId);
+        $rejected = $request->get('rejected') === 'true' ? true : false;
+        $tenderRequest = $this->tenderRepository->cancelRequest($requestId);
+        if ($rejected) {
+            $tender = $this->tenderRepository->get($tenderRequest->tender_id);
+            $user = User::find($tenderRequest->user_id);
+            $user->notify(new RequestAction('rejected', $tenderRequest, $tender));
+        }
         if ($request->has('redirect_to')) {
             return redirect($request->get('redirect_to'))->with('account.success', 'Заявка отклонена.');
         }
@@ -162,7 +231,7 @@ class TenderController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:5000',
             'files' => 'nullable',
-            'budget' => 'required|integer',
+            'budget' => 'required',
             'deadline' => 'required|date'
         ], $validationMessages)->validate();
         $this->tenderRepository->update($id, $request);
@@ -179,8 +248,17 @@ class TenderController extends Controller
     public function acceptTenderRequest(Request $request, int $tenderId, int $requestId)
     {
         $redirectTo = $request->get('redirect_to');
-        if ($this->tenderRepository->acceptRequest($tenderId, $requestId)) {
-            return redirect($redirectTo)->with('account.success', 'Исполнитель на этот конкурс назначен! ');
+        if ($request = $this->tenderRepository->acceptRequest($tenderId, $requestId)) {
+            $request->user->notify(new RequestAction('accepted', $request));
+            $requests = $request->tender->requests;
+            foreach ($requests as $otherRequest) {
+                if ($otherRequest->user_id == $request->user_id)
+                    continue;
+                $otherRequest->user->notify(new RequestAction('rejected', $otherRequest, $otherRequest->tender));
+            }
+            $adminUsers = $this->userRepository->getAdmins();
+            Notification::send($adminUsers, new RequestAction('accepted', $request));
+            return redirect($redirectTo)->with('account.success', 'Исполнитель на этот конкурс назначен! Администратор сайта с вами свяжется и вы получите инструкции, необходимые для того, чтобы исполнитель приступил к работе.');
         } else {
             return redirect($redirectTo)->with('account.error', 'Невозможно назначить исполнителя на этот конкурс');
         }
