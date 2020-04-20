@@ -27,6 +27,9 @@
                     </thead>
                     <tbody>
                         @foreach($user->requests as $request)
+                            @if (!$request->tender)
+                                @continue
+                            @endif
                             <tr class="my-job-item">
                                 <td>
                                     <h3 class="title-job"><a href="{{ route('site.tenders.category', $request->tender->slug) }}">{{ $request->tender->title }}</a></h3>
