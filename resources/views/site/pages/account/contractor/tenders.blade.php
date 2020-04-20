@@ -33,7 +33,7 @@
                             <tr class="my-job-item">
                                 <td>
                                     <h3 class="title-job"><a href="{{ route('site.tenders.category', $request->tender->slug) }}">{{ $request->tender->title }}</a></h3>
-                                    <div class="meta-job"><span> <i class="fas fa-calendar-alt"></i>Опубликован: {{ \Carbon\Carbon::create($tender->published_at)->format('d.m.Y') }}</span><span> <i
+                                    <div class="meta-job"><span> <i class="fas fa-calendar-alt"></i>Опубликован: {{ \Carbon\Carbon::create($request->$tender->published_at)->format('d.m.Y') }}</span><span> <i
                                                 class="fas fa-calendar-alt"></i>Истекает {{ \Carbon\Carbon::create($tender->deadline)->format('d.m.Y') }}</span></div>
                                     <div class="salary-job"><i class="fas fa-money-bill-alt"></i>{{ $request->tender->budget }} сум
                                     </div>
