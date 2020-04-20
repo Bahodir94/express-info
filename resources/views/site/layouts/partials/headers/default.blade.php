@@ -79,8 +79,9 @@
                         <li><a href="{{ route('site.tenders.common.create') }}"><i class="fas fa-plus-circle"></i>
                                 Добавить заказ</a></li>
                         <li>
-                          <a href="https://t.me/gde_podeshevle"><i class="fab fa-telegram" style="font-size:25px"></i></a>
-                          <a href="https://www.instagram.com/vid.market/"><i class="fab fa-instagram pl-3" style="font-size:25px"></i></a>
+                            <a href="https://t.me/gde_podeshevle"><i class="fab fa-telegram" style="font-size:25px"></i></a>
+                            <a href="https://www.instagram.com/vid.market/"><i class="fab fa-instagram pl-3"
+                                                                               style="font-size:25px"></i></a>
                         </li>
                         <li><a href="{{ route('login') }}"><i class="fas fa-sign-out-alt"></i>
                                 Вход</a><span> / </span><a
@@ -163,6 +164,19 @@
                                                         </div>
                                                     </a>
                                                 @endif
+                                                @if ($notification->type == 'App\Notifications\TenderPublished')
+                                                    <a href="{{ route('site.tenders.category', $notification->data['tender']['slug']) }}">
+                                                        <div class="icon">
+                                                            <small><i class="fas fa-info text-primary"></i></small>
+                                                        </div>
+                                                        <div class="notification-item-body">
+                                                            <p class="mb-0">
+                                                                Ваш конкурс <span class="font-weight-bold">{{ $notification->data['tender']['title'] }}</span> опубликован!
+                                                            </p>
+                                                            <small class="text-muted font-italic">{{ $notification->created_at->diffForHumans() }}</small>
+                                                        </div>
+                                                    </a>
+                                                @endif
                                             </li>
                                         @endforeach
                                     </ul>
@@ -170,8 +184,9 @@
                             </div>
                         </li>
                         <li>
-                          <a href="https://t.me/gde_podeshevle"><i class="fab fa-telegram" style="font-size:25px"></i></a>
-                          <a href="https://www.instagram.com/vid.market/"><i class="fab fa-instagram pl-3" style="font-size:25px"></i></a>
+                            <a href="https://t.me/gde_podeshevle"><i class="fab fa-telegram" style="font-size:25px"></i></a>
+                            <a href="https://www.instagram.com/vid.market/"><i class="fab fa-instagram pl-3"
+                                                                               style="font-size:25px"></i></a>
                         </li>
                         <li>
                             <a href="#" id="navBarDropdown" class="nav-link dropdown-toggle" role="button"
@@ -230,8 +245,9 @@
                     </li>
                 @endguest
                 <li>
-                  <a href="https://t.me/gde_podeshevle"><i class="fab fa-telegram" style="font-size:25px"></i></a>
-                  <a href="https://www.instagram.com/vid.market/"><i class="fab fa-instagram pl-3" style="font-size:25px"></i></a>
+                    <a href="https://t.me/gde_podeshevle"><i class="fab fa-telegram" style="font-size:25px"></i></a>
+                    <a href="https://www.instagram.com/vid.market/"><i class="fab fa-instagram pl-3"
+                                                                       style="font-size:25px"></i></a>
                 </li>
             </ul>
         </div>
@@ -260,7 +276,7 @@
                                                 <li>
                                                     <div class="row">
                                                         <div class="col-9"><a class="style_a stretched-link"
-                                                                               href="{{ route('site.tenders.category', $item->ru_slug) }}">{{ $item->ru_title }}</a>
+                                                                              href="{{ route('site.tenders.category', $item->ru_slug) }}">{{ $item->ru_title }}</a>
                                                         </div>
                                                         <div class="col-3"><a class="text-left stretched-link"
                                                                               data-toggle="collapse"
@@ -297,7 +313,7 @@
                 <li>
                     <div class="row">
                         <div class="col-9"><a class="style_a stretched-link"
-                                               href="{{ route('site.contractors.index') }}">Исполнители</a></div>
+                                              href="{{ route('site.contractors.index') }}">Исполнители</a></div>
                         <div class="col-3"><a class="text-left stretched-link" data-toggle="collapse" href="#sub-2"
                                               aria-expanded="false" aria-controls="sub-2" style="color:#383838;"><i
                                     class="fas fa-chevron-right" style="transform: rotate(90deg);"></i></a></div>
@@ -316,7 +332,7 @@
                                                 <li>
                                                     <div class="row">
                                                         <div class="col-9"><a class="style_a stretched-link"
-                                                                               href="{{ route('site.catalog.main', $item->ru_slug) }}">{{ $item->ru_title }}</a>
+                                                                              href="{{ route('site.catalog.main', $item->ru_slug) }}">{{ $item->ru_title }}</a>
                                                         </div>
                                                         <div class="col-3"><a class="text-left stretched-link"
                                                                               data-toggle="collapse"
