@@ -25,6 +25,7 @@ class TenderRepository implements TenderRepositoryInterface
     public function allOrderedByCreatedAt()
     {
         return Tender::whereNotNull('owner_id')
+            ->where('published', true)
             ->orderBy('created_at', 'desc')
             ->get();
     }

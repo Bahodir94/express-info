@@ -97,7 +97,7 @@ class TenderController extends Controller
                 if ($menuItem->ru_slug !== $params)
                     return redirect(route('site.tenders.category', $menuItem->ru_slug), 301);
                 foreach ($menuItem->categories as $category)
-                    $tenders = $tenders->merge($category->tenders()->whereNotNull('owner_id')->get());
+                    $tenders = $tenders->merge($category->tenders()->whereNotNull('owner_id')->where('published', true)->get());
                 $tenders = $tenders->unique(function ($item) {
                     return $item->id;
                 });
@@ -120,7 +120,7 @@ class TenderController extends Controller
             if ($currentCategory) {
                 if ($currentCategory->getAncestorsSlugs() !== $params)
                     return redirect(route('site.tenders.category', $currentCategory->getAncestorsSlugs()), 301);
-                $tenders = $currentCategory->tenders()->whereNotNull('owner_id')->get();
+                $tenders = $currentCategory->tenders()->whereNotNull('owner_id')->where('published', true)->get();
                 $tendersCount = $tenders->count();
                 $tenders = PaginateCollection::paginateCollection($tenders, 5);
                 return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
