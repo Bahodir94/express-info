@@ -41,6 +41,7 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     // Tenders routes
     Route::resource('/tenders', 'TenderController');
     Route::post('/tenders/{id}/requests/create', 'TenderController@createRequest')->name('tenders.requests.create');
+    Route::get('/tenders/{id}/publish', 'TenderController@publishTender')->name('tenders.publish');
 
     // Companies Routes
     Route::resource('/companies', 'CompanyController');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Notifications\TenderPublished;
 use App\Repositories\TenderRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
@@ -105,5 +106,12 @@ class TenderController extends Controller
             return back()->with('info', 'Пользователь уже участвует в конкурсе');
         $tender->requests()->create($request->all());
         return back()->with('success', 'Добалена новая заявка на участие в этом конкурсе!');
+    }
+
+    public function publishTender(int $tenderId)
+    {
+        $tender = $this->tenderRepository->publishTender($tenderId);
+        $tender->owner->notify(new TenderPublished($tender, true));
+        return back()->with('success', 'Конкурс опубликован!');
     }
 }

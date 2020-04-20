@@ -13,13 +13,14 @@
             <h3 class="block-title">Конкурс {{ $tender->title }}</h3>
             <div class="block-options">
                 <button type="button" class="btn btn-alt-primary" data-toggle="modal" data-target="#requestModal"><i class="fa fa-plus mr-5"></i>Добавить заявку</button>
+                @if (!$tender->publish) <a href="{{ route('admin.tenders.publish', $tender->id) }}" class="btn btn-alt-success"><i class="si si-check"></i> Опубликовать</a> @endif
             </div>
         </div>
         <div class="block-content">
             <p class="font-weight-bold h4">{{ $tender->title }}</p>
             <div class="d-flex align-items-center justify-content-between mb-50">
                 <span><i class="si si-wallet text-primary"></i> Бюджет: {{ $tender->budget }}</span>
-                <span><i class="si si-calendar text-info"></i> Опубликован: {{ $tender->created_at->format('d.m.Y') }}</span>
+                <span><i class="si si-calendar text-info"></i> Опубликован: @if ($tender->publish) {{ $tender->published_at->format('d.m.Y') }} @else На модерации @endif</span>
                 <span><i class="fa fa-calendar-times-o text-danger"></i> Крайний срок: {{ \Carbon\Carbon::create($tender->deadline)->format('d.m.Y') }}</span>
                 <span><i class="si si-user text-info"></i> Организатор: @if ($tender->owner) <a
                         href="{{ route('admin.users.edit', $tender->owner_id) }}"

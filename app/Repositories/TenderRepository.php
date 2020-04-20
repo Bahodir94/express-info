@@ -148,4 +148,16 @@ class TenderRepository implements TenderRepositoryInterface
             'invited' => true
         ]);
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function publishTender($tenderId)
+    {
+        $tender = $this->get($tenderId);
+        $tender->published = true;
+        $tender->published_at = now();
+        $tender->save();
+        return $tender;
+    }
 }

@@ -102,4 +102,12 @@ interface TenderRepositoryInterface
      * @return \App\Models\TenderRequest
      */
     public function addContractor($tenderId, $contractorId);
+
+    /**
+     * Publish the tender
+     *
+     * @param $tenderId
+     * @return \App\Models\Tender
+     */
+    public function publishTender($tenderId);
 }
