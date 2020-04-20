@@ -30,7 +30,7 @@
                             <tr class="my-job-item">
                                 <td>
                                     <h3 class="title-job"><a href="{{ route('site.tenders.category', $request->tender->slug) }}">{{ $request->tender->title }}</a></h3>
-                                    <div class="meta-job"><span> <i class="fas fa-calendar-alt"></i>Опубликован {{ $request->tender->created_at->format('d.m.Y') }}</span><span> <i
+                                    <div class="meta-job"><span> <i class="fas fa-calendar-alt"></i>Опубликован: {{ $request->tender->published_at->format('d.m.Y') }}</span><span> <i
                                                 class="fas fa-calendar-alt"></i>Истекает {{ $request->tender->deadline }}</span></div>
                                     <div class="salary-job"><i class="fas fa-money-bill-alt"></i>{{ $request->tender->budget }} сум
                                     </div>
