@@ -47,7 +47,7 @@ class TenderCreated extends Notification
     {
         return [
             'tender' => $this->tender,
-            'customerName' => $this->tender->owner->getCommonTitle
+            'customerName' => $this->tender->owner->getCommonTitle()
         ];
     }
 }
