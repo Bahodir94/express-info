@@ -265,3 +265,7 @@ a.user-dropdown-item:active {
 .job-item:hover .add-favourites i:before {
     content: "\f067";
 }
+
+.account-chat .avatar img {
+    border-radius: 50%;
+}
