@@ -38,7 +38,7 @@
                                                     class="font-weight-bold link-effect">{{ $notification['customerName'] }}</a>
                                                 выбрал исполнителя
                                                 <a href="{{ route('admin.users.edit', $notification->data['contractorId']) }}"
-                                                   class="font-weight-bold link-effect">{{ $notification->data['contractorName'] }}</a>в
+                                                   class="font-weight-bold link-effect">{{ $notification->data['contractorName'] }}</a> в
                                                 качестве победителя в конкурсе <a
                                                     href="{{ route('admin.tenders.show', $notification->data['tenderId']) }}"
                                                     class="font-weight-bold link-effect">{{ $notification->data['tenderName'] }}</a>
