@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Notifications\NewRequest;
 use App\Notifications\TenderPublished;
 use App\Repositories\TenderRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
@@ -104,7 +105,9 @@ class TenderController extends Controller
         $userId = $request->get('user_id');
         if ($tender->requests()->where('user_id', $userId)->count() > 0)
             return back()->with('info', 'Пользователь уже участвует в конкурсе');
-        $tender->requests()->create($request->all());
+        $request = $tender->requests()->create($request->all());
+        if ($tender->owner)
+            $tender->owner->notify(new NewRequest($request));
         return back()->with('success', 'Добалена новая заявка на участие в этом конкурсе!');
     }
 
