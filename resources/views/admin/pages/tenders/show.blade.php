@@ -12,7 +12,7 @@
         <div class="block-header block-header-default">
             <h3 class="block-title">Конкурс {{ $tender->title }}</h3>
             <div class="block-options">
-                <button type="button" class="btn btn-alt-primary" data-toggle="modal" data-target="#requestModal"><i class="fa fa-plus mr-5"></i>Добавить заявку</button>
+                @if (!$tender->contractor) <button type="button" class="btn btn-alt-primary" data-toggle="modal" data-target="#requestModal"><i class="fa fa-plus mr-5"></i>Добавить заявку</button> @endif
                 @if (!$tender->publish) <a href="{{ route('admin.tenders.publish', $tender->id) }}" class="btn btn-alt-success"><i class="si si-check"></i> Опубликовать</a> @endif
             </div>
         </div>

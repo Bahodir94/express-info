@@ -15,9 +15,10 @@ interface TenderRepositoryInterface
 
     /**
      * Get all tenders ordered by created at field
+     * @param bool $withoutContractors
      * @return mixed
      */
-    public function allOrderedByCreatedAt();
+    public function allOrderedByCreatedAt($withoutContractors = false);
 
     /**
      * Create a new tender
