@@ -50,7 +50,7 @@ class AccountController extends Controller
                                 NeedTypeRepositoryInterface $needsRepository)
     {
         $this->middleware('auth')->except(['telegramCallback']);
-        $this->middleware('account.completed')->except(['create', 'store', 'telegramCallback']);
+        $this->middleware('account.completed')->except(['create', 'store', 'telegramCallback', 'markNotificationsAsRead']);
 
         $this->userRepository = $userRepository;
         $this->categoryRepository = $categoryRepository;
