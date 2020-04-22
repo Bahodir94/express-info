@@ -24,7 +24,7 @@
                         <div class="card-header d-flex justify-content-between" role="tab" id="heading{{ $need->id }}">
                             <a href="#collapse{{ $need->id }}" data-toggle="collapse" data-parent="#needsAccordion" aria-expanded="true" aria-controls="collapse{{ $need->id }}">{{ $need->ru_title }} <i class="fas fa-caret-down"></i></a>
                         </div>
-                        <div class="collapse" id="collapse{{ $need->id }}" role="tabpanel" aria-labelledby="heading{{ $need->id }}" data-parent="#needsAccordion">
+                        <div class="collapse" id="collapse{{ $need->id }}" data-toggle="false" role="tabpanel" aria-labelledby="heading{{ $need->id }}">
                             <div class="card-body">
                                 <div class="accordion" id="categoriesAccordion{{ $need->id }}" role="tablist" aria-multiselectable="false">
                                     @foreach($need->menuItems as $item)
@@ -32,7 +32,7 @@
                                             <div class="card-header d-flex justify-content-between" id="headingCategory{{ $item->id }}">
                                                 <a href="#collapseCategory{{ $item->id }}" data-toggle="collapse" data-parent="#categoriesAccordion{{ $need->id }}" aria-expanded="true" aria-controls="collapseCategory{{ $item->id }}">{{ $item->ru_title }} <i class="fas fa-caret-down"></i></a>
                                             </div>
-                                            <div class="collapse" id="collapseCategory{{ $item->id }}" role="tabpanel" aria-labelledby="headingCategory{{ $item->id }}" data-parent="#categoriesAccordion{{ $need->id }}">
+                                            <div class="collapse" id="collapseCategory{{ $item->id }}" role="tabpanel" aria-labelledby="headingCategory{{ $item->id }}">
                                                 <div class="card-body">
                                                     <ul class="list-group list-group-flush">
                                                         @foreach($item->categories as $child)
@@ -73,4 +73,9 @@
 
 @section('js')
     <script src="{{ asset('js/account.professional.js') }}"></script>
+    <script>
+        $('.collapse').collapse({
+            toggle: false
+        });
+    </script>
 @endsection
