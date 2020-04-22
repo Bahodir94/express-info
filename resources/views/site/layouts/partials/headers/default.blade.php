@@ -103,7 +103,7 @@
                                     <h5 class="h6 text-center py-10 mb-0 border-bottom text-uppercase">Оповещения</h5>
                                     <ul>
                                         @foreach(auth()->user()->unreadNotifications as $notification)
-                                            <li>
+                                            <li class="ml-0">
                                                 @if ($notification->type == 'App\Notifications\NewRequest')
                                                     <a href="{{ route('site.account.tenders.candidates', $notification->data['tenderSlug']) }}">
                                                         <div class="icon">
