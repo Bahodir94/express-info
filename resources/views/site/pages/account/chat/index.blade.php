@@ -11,11 +11,7 @@
 
 
 @section('account.content')
-<div id="app">
-  <chat-component>
-  </chat-component>
-</div>
-    <!-- <div class="box-admin account-chat employer-messages">
+    <div class="box-admin account-chat employer-messages">
         <div class="header-box-admin d-block d-xl-flex flex-wrap">
             <div class="conversationer">
                 <div class="back-view">
@@ -67,9 +63,5 @@
                 </div>
             </div>
         </div>
-    </div> -->
-@endsection
-
-@section('js')
-  <script src="{{ asset('js/app.js') }}"></script>
+    </div>
 @endsection

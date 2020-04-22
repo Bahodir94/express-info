@@ -9,18 +9,19 @@
 @section('account.title', 'Чат')
 
 @section('account.content')
+    @php
+        $anotherUser = $chat->getAnotherUser()
+    @endphp
     <div class="bod-admin">
         <div class="header-box-admin">
-            <h3>Диалог с </h3>
+            <h3>Диалог с {{ $anotherUser->getCommonTitle() }}</h3>
         </div>
         <div class="body-box-admin">
-            <div id="app">
 
-            </div>
         </div>
     </div>
 @endsection
 
 @section('js')
-
+    <script src="{{ asset('js/app.js') }}"></script>
 @endsection
