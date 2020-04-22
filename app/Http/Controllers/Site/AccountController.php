@@ -183,8 +183,8 @@ class AccountController extends Controller
         if ($selectedNeedsCount >= 3)
             return back()->with('account.error', 'Извините, мы не даём возможность выбирать категории из всех сфер деятельности. Вы можете выбрать максимум две сферы. Например, из сферы IT и Мультимедия, Бизнес и Маркетинг. Комбинации не ограничены');
         foreach ($categories as $category) {
-            if (!isset($category['price_from']) || !isset($category['price_to']) || !isset($category['price_per_hour'])
-            || empty($category['price_from']) || empty($category['price_to']) || empty($category['price_per_hour'])) {
+            if (!isset($category['price_from']) || !isset($category['price_to'])
+            || empty($category['price_from']) || empty($category['price_to'])) {
                 return back()->with('account.error', 'Укажите цены на каждую выбранную услугу');
             }
         }
