@@ -22,12 +22,12 @@ class TenderRepository implements TenderRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function allOrderedByCreatedAt()
+    public function allOrderedByCreatedAt($withoutContractors = false)
     {
-        return Tender::whereNotNull('owner_id')
-            ->where('published', true)
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $query = Tender::whereNotNull('owner_id')->where('published', true);
+        if ($withoutContractors)
+            $query = $query->whereNull('contractor_id');
+        return $query->orderBy('created_at', 'desc')->get();
     }
 
     /**
