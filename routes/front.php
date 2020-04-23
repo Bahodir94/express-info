@@ -76,6 +76,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::get('/account/tenders/{slug}/edit', 'AccountController@editTender')->name('account.tenders.edit');
     Route::get('/account/tenders/{slug}/candidates', 'AccountController@tenderCandidates')->name('account.tenders.candidates');
     Route::get('/account/chats', 'ChatsController@index')->name('account.chats');
+    Route::post('/account/chats', 'ChatsController@createChat')->name('account.chats.create');
 
     // Tenders routes
     Route::get('/tenders', 'TenderController@index')->name('tenders.index');

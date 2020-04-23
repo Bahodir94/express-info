@@ -72,4 +72,17 @@ class ChatsController extends Controller
             }
         return $messages;
     }
+
+    public function createChat(Request $request)
+    {
+        $withUserId = $request->get('with_user_id');
+        $currentUser = auth()->user();
+        foreach ($currentUser->chats as $chat) {
+            if ($chat->getAnotherUser()->id == $withUserId)
+                return redirect(route('site.account.chats') . '?chat_id=' . $chat->id);
+        }
+        $chat = Chat::create();
+        $chat->participants()->attach([$currentUser->id, $withUserId]);
+        return redirect(route('site.account.chats') . '?chat_id=' . $chat->id);
+    }
 }
