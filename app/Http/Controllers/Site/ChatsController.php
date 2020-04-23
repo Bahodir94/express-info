@@ -48,10 +48,12 @@ class ChatsController extends Controller
             'text' => $message
         ];
         $message = Message::create($messageData);
-        broadcast(new MessageSent($message->load('user')));
-        return [
-            'status' => 'success',
-            'message' => $message
-        ];
+        // broadcast(new MessageSent($message->load('user')));
+        return $message->load('user');
+    }
+
+    public function fetchMessages(Request $request)
+    {
+        return Message::where('chat_id', $request->get('chat_id'))->with('user')->get();
     }
 }

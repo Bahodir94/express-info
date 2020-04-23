@@ -232,20 +232,6 @@ a.user-dropdown-item:active {
     font-size: 1rem;
 }
 
-@media (max-width: 767px) {
-    .mobile-header-right {
-        display: block;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .job-item .add-request {
-        top: 50%;
-        transform: translateY(-50%);
-        right: 0;
-    }
-}
-
 .job-item .add-request {
     position: absolute;
     top: 15px;
@@ -268,4 +254,18 @@ a.user-dropdown-item:active {
 
 .account-chat .avatar img {
     border-radius: 50%;
+}
+
+@media (max-width: 767px) {
+    .mobile-header-right {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .job-item .add-request {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    }
 }

@@ -65,3 +65,11 @@
         </div>
     </div>
 @endsection
+
+@section('js')
+    <script>
+        $('.msg-contacts li a').on('click', function () {
+            window.location = $(this).attr('href');
+        })
+    </script>
+@endsection

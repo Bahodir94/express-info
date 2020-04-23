@@ -10,14 +10,58 @@
 
 @section('account.content')
     @php
-        $anotherUser = $chat->getAnotherUser()
+        $currentCompanion = $chat->getAnotherUser()
     @endphp
-    <div class="bod-admin">
-        <div class="header-box-admin">
-            <h3>Диалог с {{ $anotherUser->getCommonTitle() }}</h3>
-        </div>
-        <div class="body-box-admin">
-
+    <div id="app">
+        <div class="box-admin account-chat employer-messages">
+            <div class="header-box-admin d-block d-xl-flex flex-wrap">
+                <div class="conversationer">
+                    <div class="back-view">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="user-main d-flex align-items-center">
+                        <div class="avatar">
+                            <img src="{{ $currentCompanion->getImage() }}" alt="">
+                        </div>
+                        <div class="text ml-3"><h4>{{ $currentCompanion->getCommonTitle() }}</h4></div>
+                    </div>
+                </div>
+                <div class="header-box-right order-md-first">
+                    <h3>Ваши далоги</h3>
+                </div>
+            </div>
+            <div class="body-box-admin p-0">
+                <div class="chat" @if ($user->chats()->count() == 0)style="height: 500px"@endif>
+                    <div class="contact-chat">
+                        @if ($user->chats()->count() > 0)
+                            <ul class="msg-contacts">
+                                @foreach($user->chats as $loopChat)
+                                    @php
+                                        $anotherUser = $loopChat->getAnotherUser()
+                                    @endphp
+                                    <li><a href="{{ route('site.account.chats') }}?chat_id={{ $loopChat->id }}"
+                                           class="msg-contact-item">
+                                            <div class="avatar-user">
+                                                <img src="{{ $anotherUser->getImage() }}"
+                                                     alt="{{ $anotherUser->getCommonTitle() }}">
+                                            </div>
+                                            <div class="text">
+                                                <div class="msg-contact-name">{{ $anotherUser->getCommonTitle() }}</div>
+                                                <div class="desc-short">{{ $loopChat->getLastMessageText() }}</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @else
+                            <div class="d-flex justify-content-center align-items-center h-100">
+                                <p>У вас нет открытых диалогов</p>
+                            </div>
+                        @endif
+                    </div>
+                    <chat-component chat-id="{{ $chat->id }}" :companion="{{ $currentCompanion }}" :user="{{ Auth::user() }}"></chat-component>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

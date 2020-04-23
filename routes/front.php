@@ -32,6 +32,11 @@ Route::middleware('needsList')->namespace('Site')->group(function () {
     Route::get('/cgu-ad/{id}', 'CguController@cguCategory')->name('home.cgu.ad.category');
 });
 
+Route::prefix('api')->group(function () {
+    Route::post('/messages', 'Site\ChatsController@sendMessage');
+    Route::get('/messages', 'Site\ChatsController@fetchMessages');
+});
+
 Route::middleware('needsList')->name('site.')->namespace('Site')->group(function () {
     // Studio static page routes
     Route::view('/studiya', 'studio.home', ['page' => 'home']);
