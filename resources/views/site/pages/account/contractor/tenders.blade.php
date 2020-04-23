@@ -26,7 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($user->requests as $request)
+                        @foreach($user->requests()->orderBy('created_at', 'des')->get() as $request)
                             @if (!$request->tender)
                                 @continue
                             @endif

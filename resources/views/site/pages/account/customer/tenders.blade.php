@@ -26,7 +26,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($user->ownedTenders as $tender)
+                    @foreach($user->ownedTenders()->orderBy('created_at', 'des')->get() as $tender)
                         <tr class="my-job-item">
                             <td>
                                 <h3 class="title-job"><a href="#">{{ $tender->title }}</a></h3>
