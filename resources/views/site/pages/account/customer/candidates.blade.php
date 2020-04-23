@@ -48,6 +48,11 @@
                                     </ul>
                                     <div class="job-func d-md-none">
                                         <div class="d-flex">
+                                            <form action="{{ route('site.account.chats') }}" method="post">
+                                                @csrf
+                                                <input type="hidden" name="with_user_id" value="{{ $request->user->id }}">
+                                                <button class="btn btn-light btn-view" type="submit" data-toggle="tooltip" title="Связаться"><i class="fas fa-comments"></i></button>
+                                            </form>
                                             @if ($tender->contractor_id !== $request->user_id)
                                                 <form action="{{ route('site.tenders.accept', ['tenderId' => $tender->id, 'requestId' => $request->id]) }}" method="post">
                                                     @csrf
@@ -71,6 +76,11 @@
                             <td class="d-none d-xl-table-cell text-center">@if ($request->budget_from && $request->budget_to)от {{ $request->budget_from }} сум до {{ $request->budget_to }} сум@endif</td>
                             <td class="d-none d-md-table-cell text-right">
                                 <div class="d-flex">
+                                    <form action="{{ route('site.account.chats') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="with_user_id" value="{{ $request->user->id }}">
+                                        <button class="btn btn-light btn-view mr-1" type="submit" data-toggle="tooltip" title="Связаться"><i class="fas fa-comments"></i></button>
+                                    </form>
                                     @if ($tender->contractor_id !== $request->user_id)
                                         <form action="{{ route('site.tenders.accept', ['tenderId' => $tender->id, 'requestId' => $request->id]) }}" method="post">
                                             @csrf

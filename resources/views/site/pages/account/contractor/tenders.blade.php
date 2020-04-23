@@ -40,7 +40,12 @@
                                     <div class="job-info d-xl-none"><span
                                             class="number-application">Ташкент</span>@foreach($request->tender->categories as $category) <span>{{ $category->getTitle() }} </span>@endforeach<span
                                             class="active">@if($request->tender->contractor_id == $request->user_id) Активный @else В ожидании @endif </span></div>
-                                    <div class="job-func d-md-none">
+                                    <div class="job-func d-flex d-md-none">
+                                        <form action="{{ route('site.account.chats') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="with_user_id" value="{{ $request->tender->owner->id }}">
+                                            <button class="btn btn-light btn-view" type="submit" data-toggle="tooltip" title="Связаться"><i class="fas fa-comments"></i></button>
+                                        </form>
                                         <form action="{{ route('site.tenders.requests.cancel') }}" method="post" class="ml-1">
                                             @csrf
                                             <input type="hidden" name="requestId" value="{{ $request->id }}">
@@ -53,12 +58,19 @@
                                 <td class="d-none d-xl-table-cell text-center">@foreach($request->tender->categories as $category) <div>{{ $category->getTitle() }} </div>@endforeach</td>
                                 <td class="d-none d-xl-table-cell text-center active">@if($request->tender->contractor_id == $request->user_id) Активный @else В ожидании @endif</td>
                                 <td class="d-none d-md-table-cell text-right">
-                                    <form action="{{ route('site.tenders.requests.cancel') }}" method="post" class="ml-1">
-                                        @csrf
-                                        <input type="hidden" name="requestId" value="{{ $request->id }}">
-                                        <button type="submit" onclick="return confirm('Вы уверены, что хотите отменить заявку на конкурс {{ $request->tender->title }}?')" data-toggle="tooltip" data-placement="top" title="Отменить заявку" class="btn btn-light btn-delete"><i class="fas fa-times"></i>
-                                        </button>
-                                    </form>
+                                    <div class="d-flex">
+                                        <form action="{{ route('site.account.chats') }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="with_user_id" value="{{ $request->tender->owner->id }}">
+                                            <button class="btn btn-light btn-view" type="submit" data-toggle="tooltip" title="Связаться"><i class="fas fa-comments"></i></button>
+                                        </form>
+                                        <form action="{{ route('site.tenders.requests.cancel') }}" method="post" class="ml-1">
+                                            @csrf
+                                            <input type="hidden" name="requestId" value="{{ $request->id }}">
+                                            <button type="submit" onclick="return confirm('Вы уверены, что хотите отменить заявку на конкурс {{ $request->tender->title }}?')" data-toggle="tooltip" data-placement="top" title="Отменить заявку" class="btn btn-light btn-delete"><i class="fas fa-times"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
