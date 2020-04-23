@@ -1729,7 +1729,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: ['chatId', 'companion', 'user'],
   created: function created() {
-    setInterval(this.fetchMessages, 1000);
+    this.fetchMessages();
+    setInterval(this.fetchUnreadMessages, 1500);
   },
   methods: {
     fetchMessages: function fetchMessages() {
@@ -1749,6 +1750,13 @@ __webpack_require__.r(__webpack_exports__);
         _this2.messages.push(response.data);
 
         _this2.newMessage = '';
+      });
+    },
+    fetchUnreadMessages: function fetchUnreadMessages() {
+      var _this3 = this;
+
+      axios.get("/api/messages?chat_id=".concat(this.chatId, "&unread_only")).then(function (response) {
+        _this3.messages = _this3.messages.concat(response.data);
       });
     },
     formatDate: function formatDate(dateString) {

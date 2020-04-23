@@ -31,7 +31,8 @@
         },
         props: ['chatId', 'companion', 'user'],
         created() {
-            setInterval(this.fetchMessages, 1000);
+            this.fetchMessages();
+            setInterval(this.fetchUnreadMessages, 1500);
         },
         methods: {
             fetchMessages() {
@@ -43,6 +44,11 @@
                 axios.post('/api/messages', { 'chatId': this.chatId, 'message': this.newMessage }).then(response => {
                     this.messages.push(response.data);
                     this.newMessage = '';
+                });
+            },
+            fetchUnreadMessages() {
+                axios.get(`/api/messages?chat_id=${this.chatId}&unread_only`).then(response => {
+                    this.messages = this.messages.concat(response.data);
                 });
             },
             formatDate(dateString) {

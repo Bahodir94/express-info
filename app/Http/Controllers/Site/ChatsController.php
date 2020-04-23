@@ -54,6 +54,22 @@ class ChatsController extends Controller
 
     public function fetchMessages(Request $request)
     {
-        return Message::where('chat_id', $request->get('chat_id'))->with('user')->get();
+        $chat = Chat::find($request->get('chat_id'));
+        $otherUser = $chat->getAnotherUser();
+        if ($request->has('unread_only')) {
+            $messages = $chat->messages()->where('read', false)->where('user_id', $otherUser->id)->with('user')->get();
+            foreach ($messages as $message) {
+                $message->read = true;
+                $message->save();
+            }
+            return $messages;
+        }
+        $messages = $chat->messages()->with('user')->get();
+        foreach ($messages as $message)
+            if ($message->user_id == $otherUser->id) {
+                $message->read = true;
+                $message->save();
+            }
+        return $messages;
     }
 }
