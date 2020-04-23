@@ -31,7 +31,7 @@
                                                     <ul class="sub-menu">
                                                         @foreach($item->categories as $category)
                                                             <li>
-                                                                <a href="{{ route('site.tenders.category', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                                                                <a href="{{ route('site.tenders.category', $category->getAncestorsSlugs()) }}">{{ $category->getTitle() }}</a>
                                                             </li>
                                                         @endforeach
                                                     </ul>
@@ -58,7 +58,7 @@
                                                     <ul class="sub-menu">
                                                         @foreach($item->categories as $category)
                                                             <li>
-                                                                <a href="{{ route('site.catalog.main', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                                                                <a href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{{ $category->getTitle() }}</a>
                                                             </li>
                                                         @endforeach
                                                     </ul>
@@ -292,7 +292,7 @@
                                                             @foreach($item->categories as $category)
                                                                 <li>
                                                                     <a style="color: #63ba16; font-weight: 600;"
-                                                                       href="{{ route('site.tenders.category', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                                                                       href="{{ route('site.tenders.category', $category->getAncestorsSlugs()) }}">{{ $category->getTitle() }}</a>
                                                                 </li>
                                                             @endforeach
                                                         </ul>
@@ -348,7 +348,7 @@
                                                             @foreach($item->categories as $category)
                                                                 <li>
                                                                     <a style="color: #63ba16; font-weight: 600;"
-                                                                       href="{{ route('site.catalog.main', $category->ru_slug) }}">{{ $category->getTitle() }}</a>
+                                                                       href="{{ route('site.catalog.main', $category->getAncestorsSlugs()) }}">{{ $category->getTitle() }}</a>
                                                                 </li>
                                                             @endforeach
                                                         </ul>
