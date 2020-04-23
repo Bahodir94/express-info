@@ -1,6 +1,6 @@
 <template>
     <div class="content-chat">
-        <div class="list" v-chat-scroll style="max-height: 450px; overflow-y: scroll">
+        <div class="list" v-chat-scroll style="max-height: 500px; overflow-y: scroll">
             <div class="chat-item" v-bind:class="{ gray: user.id === message.user.id, green: companion.id === message.user.id }" v-for="message in messages" :key="message.id">
                 <div class="avatar">
                     <img v-if="user.image === null" :src="getUserImage(message.user)" :alt="getUserName(message.user)">

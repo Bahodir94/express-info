@@ -37543,7 +37543,7 @@ var render = function() {
       {
         directives: [{ name: "chat-scroll", rawName: "v-chat-scroll" }],
         staticClass: "list",
-        staticStyle: { "max-height": "450px", "overflow-y": "scroll" }
+        staticStyle: { "max-height": "500px", "overflow-y": "scroll" }
       },
       _vm._l(_vm.messages, function(message) {
         return _c(
