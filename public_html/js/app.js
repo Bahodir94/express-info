@@ -1719,6 +1719,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1749,6 +1750,19 @@ __webpack_require__.r(__webpack_exports__);
 
         _this2.newMessage = '';
       });
+    },
+    formatDate: function formatDate(dateString) {
+      var date = new Date(dateString);
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      return "".concat(hours, ":").concat(minutes);
+    },
+    getUserImage: function getUserImage(user) {
+      if (user.image !== null) return "/uploads/users/".concat(user.image);
+      return '/assets/img/avatars/avatar15.jpg';
+    },
+    getUserName: function getUserName(user) {
+      return user.company_name ? user.company_name : user.name;
     }
   }
 });
@@ -37521,7 +37535,7 @@ var render = function() {
       {
         directives: [{ name: "chat-scroll", rawName: "v-chat-scroll" }],
         staticClass: "list",
-        staticStyle: { "max-height": "500px", "overflow-y": "scroll" }
+        staticStyle: { "max-height": "450px", "overflow-y": "scroll" }
       },
       _vm._l(_vm.messages, function(message) {
         return _c(
@@ -37536,17 +37550,23 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "avatar" }, [
-              _c("img", {
-                attrs: {
-                  src: "/assets/img/avatars/avatar15.jpg",
-                  alt: message.user.name
-                }
-              })
+              _vm.user.image === null
+                ? _c("img", {
+                    attrs: {
+                      src: _vm.getUserImage(message.user),
+                      alt: _vm.getUserName(message.user)
+                    }
+                  })
+                : _vm._e()
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "text" }, [
+              _c("div", { staticClass: "name" }, [
+                _vm._v(_vm._s(_vm.getUserName(message.user)))
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "time" }, [
-                _vm._v(_vm._s(message.created_at))
+                _vm._v(_vm._s(_vm.formatDate(message.created_at)))
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "content" }, [

@@ -256,6 +256,15 @@ a.user-dropdown-item:active {
     border-radius: 50%;
 }
 
+.chat-enter-active, .chat-leave-active {
+    transition: all 1s;
+}
+
+.chat-enter, .chat-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
 @media (max-width: 767px) {
     .mobile-header-right {
         display: block;

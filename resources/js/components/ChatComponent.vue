@@ -1,12 +1,13 @@
 <template>
     <div class="content-chat">
-        <div class="list" v-chat-scroll style="max-height: 500px; overflow-y: scroll">
+        <div class="list" v-chat-scroll style="max-height: 450px; overflow-y: scroll">
             <div class="chat-item" v-bind:class="{ gray: user.id === message.user.id, green: companion.id === message.user.id }" v-for="message in messages" :key="message.id">
                 <div class="avatar">
-                    <img src="/assets/img/avatars/avatar15.jpg" :alt="message.user.name">
+                    <img v-if="user.image === null" :src="getUserImage(message.user)" :alt="getUserName(message.user)">
                 </div>
                 <div class="text">
-                    <div class="time">{{ message.created_at }}</div>
+                    <div class="name">{{ getUserName(message.user) }}</div>
+                    <div class="time">{{ formatDate(message.created_at) }}</div>
                     <div class="content">{{ message.text }}</div>
                 </div>
             </div>
@@ -43,6 +44,20 @@
                     this.messages.push(response.data);
                     this.newMessage = '';
                 });
+            },
+            formatDate(dateString) {
+                let date = new Date(dateString);
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
+                return `${hours}:${minutes}`;
+            },
+            getUserImage(user) {
+                if (user.image !== null)
+                    return `/uploads/users/${user.image}`;
+                return '/assets/img/avatars/avatar15.jpg';
+            },
+            getUserName(user) {
+                return user.company_name ? user.company_name : user.name;
             }
         }
     }
