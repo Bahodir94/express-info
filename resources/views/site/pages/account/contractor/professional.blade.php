@@ -24,7 +24,7 @@
                         <div class="card-header d-flex justify-content-between" role="tab" id="heading{{ $need->id }}">
                             <a href="#collapse{{ $need->id }}" data-toggle="collapse" data-parent="#needsAccordion" aria-expanded="true" aria-controls="collapse{{ $need->id }}">{{ $need->ru_title }} <i class="fas fa-caret-down"></i></a>
                         </div>
-                        <div class="collapse" id="collapse{{ $need->id }}" role="tabpanel" aria-labelledby="heading{{ $need->id }}" data-parent="#needsAccordion">
+                        <div class="collapse" id="collapse{{ $need->id }}" data-toggle="false" role="tabpanel" aria-labelledby="heading{{ $need->id }}">
                             <div class="card-body">
                                 <div class="accordion" id="categoriesAccordion{{ $need->id }}" role="tablist" aria-multiselectable="false">
                                     @foreach($need->menuItems as $item)
@@ -32,7 +32,7 @@
                                             <div class="card-header d-flex justify-content-between" id="headingCategory{{ $item->id }}">
                                                 <a href="#collapseCategory{{ $item->id }}" data-toggle="collapse" data-parent="#categoriesAccordion{{ $need->id }}" aria-expanded="true" aria-controls="collapseCategory{{ $item->id }}">{{ $item->ru_title }} <i class="fas fa-caret-down"></i></a>
                                             </div>
-                                            <div class="collapse" id="collapseCategory{{ $item->id }}" role="tabpanel" aria-labelledby="headingCategory{{ $item->id }}" data-parent="#categoriesAccordion{{ $need->id }}">
+                                            <div class="collapse" id="collapseCategory{{ $item->id }}" role="tabpanel" aria-labelledby="headingCategory{{ $item->id }}">
                                                 <div class="card-body">
                                                     <ul class="list-group list-group-flush">
                                                         @foreach($item->categories as $child)
@@ -45,12 +45,12 @@
                                                                 <div class="row @if (!in_array($child->id, $chosenSpecs)) d-none @endif" id="category-{{ $child->id }}-prices">
                                                                     <div class="col-md-4">
                                                                         <p class="mb-1 text-muted">Примерная стоимость услуги</p>
-                                                                        <input type="text" @if (in_array($child->id, $chosenSpecs)) required @endif name="categories[{{ $child->id }}][price_from]" @if (in_array($child->id, $chosenSpecs)) value="{{ $user->categories()->find($child->id)->pivot->price_from }}" @endif class="price-control" style="width: 35%"> &mdash; <input
-                                                                            type="text" @if (in_array($child->id, $chosenSpecs)) required @endif name="categories[{{ $child->id }}][price_to]" @if (in_array($child->id, $chosenSpecs)) value="{{ $user->categories()->find($child->id)->pivot->price_to }}" @endif class="price-control" style="width: 35%"> <span class="text-muted">сум</span>
+                                                                        <input type="text" @if (in_array($child->id, $chosenSpecs)) required @endif name="categories[{{ $child->id }}][price_from]" @if (in_array($child->id, $chosenSpecs)) value="{{ $user->categories()->find($child->id)->pivot->price_from }}" @endif class="price-control must-required" style="width: 35%"> &mdash; <input
+                                                                            type="text" @if (in_array($child->id, $chosenSpecs)) required @endif name="categories[{{ $child->id }}][price_to]" @if (in_array($child->id, $chosenSpecs)) value="{{ $user->categories()->find($child->id)->pivot->price_to }}" @endif class="price-control must-required" style="width: 35%"> <span class="text-muted">сум</span>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <p class="mb-1 text-muted">Стоимость в час</p>
-                                                                        <input type="text" @if (in_array($child->id, $chosenSpecs)) required @endif name="categories[{{ $child->id }}][price_per_hour]" @if (in_array($child->id, $chosenSpecs)) value="{{ $user->categories()->find($child->id)->pivot->price_per_hour }}" @endif class="price-control" style="width: 60%"> <span class="text-muted">сум/час</span>
+                                                                        <input type="text" name="categories[{{ $child->id }}][price_per_hour]" @if (in_array($child->id, $chosenSpecs)) value="{{ $user->categories()->find($child->id)->pivot->price_per_hour }}" @endif class="price-control" style="width: 60%"> <span class="text-muted">сум/час</span>
                                                                     </div>
                                                                 </div>
                                                             </li>
@@ -73,4 +73,9 @@
 
 @section('js')
     <script src="{{ asset('js/account.professional.js') }}"></script>
+    <script>
+        $('.collapse').collapse({
+            toggle: false
+        });
+    </script>
 @endsection

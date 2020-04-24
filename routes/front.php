@@ -32,6 +32,11 @@ Route::middleware('needsList')->namespace('Site')->group(function () {
     Route::get('/cgu-ad/{id}', 'CguController@cguCategory')->name('home.cgu.ad.category');
 });
 
+Route::prefix('api')->group(function () {
+    Route::post('/messages', 'Site\ChatsController@sendMessage');
+    Route::get('/messages', 'Site\ChatsController@fetchMessages');
+});
+
 Route::middleware('needsList')->name('site.')->namespace('Site')->group(function () {
     // Studio static page routes
     Route::view('/studiya', 'studio.home', ['page' => 'home']);
@@ -70,6 +75,8 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::post('/account/portfolio/save', 'FileController@save')->name('account.portfolio.save');
     Route::get('/account/tenders/{slug}/edit', 'AccountController@editTender')->name('account.tenders.edit');
     Route::get('/account/tenders/{slug}/candidates', 'AccountController@tenderCandidates')->name('account.tenders.candidates');
+    Route::get('/account/chats', 'ChatsController@index')->name('account.chats');
+    Route::post('/account/chats', 'ChatsController@createChat')->name('account.chats.create');
 
     // Tenders routes
     Route::get('/tenders', 'TenderController@index')->name('tenders.index');

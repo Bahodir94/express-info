@@ -52,7 +52,7 @@ class HomeController extends Controller
         if (array_key_exists('query', parse_url($request->fullUrl())))
             return redirect(route('site.catalog.index'), 301);
         $parentCategories = $this->categories->all();
-        $tenders = $this->tenders->allOrderedByCreatedAt()->take(3);
+        $tenders = $this->tenders->allOrderedByCreatedAt($withoutContractors = true)->take(3);
         $posts = $this->posts->allOrderByDesc()->take(3);
 
         return view('site.pages.home', compact('parentCategories', 'tenders', 'posts'));

@@ -152,7 +152,7 @@ MAIN CONTENT LAYOUT
                 userNotificationDropdown.next().toggleClass('show');
                 userNotificationDropdown.parent().toggleClass('show');
                 jQuery.get({
-                    url: '/notifications/markAsRead',
+                    url: "{{ route('site.account.notifications.read') }}",
                     success: function () {
                         $('#notifications-count').addClass('d-none');
                     }

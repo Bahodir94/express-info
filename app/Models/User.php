@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Chat\Chat;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -152,6 +153,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this
             ->belongsToMany(HandbookCategory::class, 'user_category', 'user_id', 'category_id')
             ->withPivot('price_from', 'price_to', 'price_per_hour');
+    }
+
+    /**
+     * Get all user's chats
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function chats()
+    {
+        return $this->belongsToMany(Chat::class, 'chat_participants', 'user_id', 'chat_id');
     }
 
     /**
