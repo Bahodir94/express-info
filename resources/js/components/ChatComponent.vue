@@ -63,7 +63,11 @@
                 return '/assets/img/avatars/avatar15.jpg';
             },
             getUserName(user) {
-                return user.company_name ? user.company_name : user.name;
+                if (this.user.contractor_type && user.customer_type) {
+                    return 'Заказчик';
+                } else {
+                    return user.company_name ? user.company_name : user.name;
+                }
             }
         }
     }
