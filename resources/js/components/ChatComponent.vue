@@ -58,9 +58,14 @@
                 return `${hours}:${minutes}`;
             },
             getUserImage(user) {
-                if (user.image !== null)
-                    return `/uploads/users/${user.image}`;
-                return '/assets/img/avatars/avatar15.jpg';
+                if (this.user.contractor_type && user.customer_type) {
+                    return '/assets/img/avatars/avatar15.jpg';
+                } else {
+                    if (user.image !== null)
+                        return `/uploads/users/${user.image}`;
+                    return '/assets/img/avatars/avatar15.jpg';
+                }
+
             },
             getUserName(user) {
                 if (this.user.contractor_type && user.customer_type) {

@@ -39,7 +39,7 @@
                                 @endphp
                                 <li><a href="{{ route('site.account.chats') }}?chat_id={{ $chat->id }}" class="msg-contact-item">
                                         <div class="avatar-user">
-                                            <img src="{{ $anotherUser->getImage() }}"
+                                            <img src="@if ($user->hasRole('contractor') && $anotherUser->hasRole('customer')) /assets/img/avatars/avatar15.jpg @else {{ $anotherUser->getImage() }} @endif"
                                                  alt="@if ($user->hasRole('contractor') && $anotherUser->hasRole('customer')) Заказчик @else {{ $anotherUser->getCommonTitle() }} @endif">
                                         </div>
                                         <div class="text">
