@@ -21,9 +21,9 @@
                     </div>
                     <div class="user-main d-flex align-items-center">
                         <div class="avatar">
-                            <img src="{{ $currentCompanion->getImage() }}" alt="">
+                            <img src="@if ($user->hasRole('contractor') && $currentCompanion->hasRole('customer')) /assets/img/avatars/avatar15.jpg @else {{ $currentCompanion->getImage() }} @endif" alt="">
                         </div>
-                        <div class="text ml-3"><h4>{{ $currentCompanion->getCommonTitle() }}</h4></div>
+                        <div class="text ml-3"><h4>@if ($user->hasRole('contractor') && $currentCompanion->hasRole('customer')) Заказчик @else {{ $currentCompanion->getCommonTitle() }} @endif</h4></div>
                     </div>
                 </div>
                 <div class="header-box-right order-md-first">
@@ -42,11 +42,11 @@
                                     <li><a href="{{ route('site.account.chats') }}?chat_id={{ $loopChat->id }}"
                                            class="msg-contact-item">
                                             <div class="avatar-user">
-                                                <img src="{{ $anotherUser->getImage() }}"
-                                                     alt="{{ $anotherUser->getCommonTitle() }}">
+                                                <img src="@if ($user->hasRole('contractor') && $anotherUser->hasRole('customer')) /assets/img/avatars/avatar15.jpg @else {{ $anotherUser->getImage() }} @endif"
+                                                     alt="@if ($user->hasRole('contractor') && $anotherUser->hasRole('customer')) Заказчик @else {{ $anotherUser->getCommonTitle() }} @endif">
                                             </div>
                                             <div class="text">
-                                                <div class="msg-contact-name">{{ $anotherUser->getCommonTitle() }}</div>
+                                                <div class="msg-contact-name">@if ($user->hasRole('contractor') && $anotherUser->hasRole('customer')) Заказчик @else {{ $anotherUser->getCommonTitle() }} @endif</div>
                                                 <div class="desc-short">{{ $loopChat->getLastMessageText() }}</div>
                                             </div>
                                         </a>

@@ -6,6 +6,7 @@ use App\Helpers\SlugHelper;
 use App\Http\Controllers\Helpers\PaginateCollection;
 use App\Notifications\InviteRequest;
 use App\Repositories\HandbookCategoryRepositoryInterface;
+use App\Repositories\MenuRepositoryInterface;
 use App\Repositories\TenderRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
@@ -34,17 +35,26 @@ class ContractorsController extends Controller
     private $tenders;
 
     /**
+     * @var MenuRepositoryInterface
+     */
+    private $menu;
+
+    /**
      * ContractorsController constructor.
      * @param UserRepositoryInterface $userRepository
      * @param HandbookCategoryRepositoryInterface $categoriesRepository
+     * @param TenderRepositoryInterface $tenderRepository
+     * @param MenuRepositoryInterface $menuRepository
      */
     public function __construct(UserRepositoryInterface $userRepository,
                                 HandbookCategoryRepositoryInterface $categoriesRepository,
-                                TenderRepositoryInterface $tenderRepository)
+                                TenderRepositoryInterface $tenderRepository,
+                                MenuRepositoryInterface $menuRepository)
     {
         $this->users = $userRepository;
         $this->categories = $categoriesRepository;
         $this->tenders = $tenderRepository;
+        $this->menu = $menuRepository;
     }
 
     /**
@@ -62,7 +72,7 @@ class ContractorsController extends Controller
      * Show contractors from category
      *
      * @param string $params
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
     public function category(Request $request, string $params)
     {
@@ -82,13 +92,25 @@ class ContractorsController extends Controller
         $paramsArray = explode('/', $params);
         $slug = end($paramsArray);
         $category = $this->categories->getBySlug($slug);
-        abort_if(!$category, 404);
-        if ($category->getAncestorsSlugs() !== $params)
-            return redirect(route('site.catalog.main', $category->getAncestorsSlugs()), 301);
-        $contractors = $category->getAllCompaniesFromDescendingCategories();
-        $contractorsCount = $contractors->count();
-        $contractors = PaginateCollection::paginateCollection($contractors, 5);
-        return view('site.pages.contractors.category', compact('category', 'contractors', 'contractorsCount'));
+        if ($category) {
+            if ($category->getAncestorsSlugs() !== $params)
+                return redirect(route('site.catalog.main', $category->getAncestorsSlugs()), 301);
+            $contractors = $category->getAllCompaniesFromDescendingCategories();
+            $contractorsCount = $contractors->count();
+            $contractors = PaginateCollection::paginateCollection($contractors, 5);
+            return view('site.pages.contractors.category', compact('category', 'contractors', 'contractorsCount'));
+        }
+        $menuItem = $this->menu->getBySlug($slug);
+        if ($menuItem) {
+            if ($menuItem->ru_slug !== $params)
+                return redirect(route('site.catalog.main', $menuItem->ru_slug), 301);
+            $contractors = $menuItem->getCompanyFromCategories();
+            $category = $menuItem->categories[0]->parent;
+            $contractorsCount = $contractors->count();
+            $contractors = PaginateCollection::paginateCollection($contractors, 5);
+            return view('site.pages.contractors.category', compact('category', 'contractors', 'contractorsCount'));
+        }
+        abort(404);
     }
 
     /**

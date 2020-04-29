@@ -117,12 +117,19 @@
                         <div class="alert alert-info shadow fade show">
                             <div class="d-flex justify-content-between align-items-center">
                                 <p><i class="fas fa-info"></i> Вы уже оставили заявку на этот конкурс</p>
-                                <form action="{{ route('site.tenders.requests.cancel') }}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="requestId"
-                                           value="{{ $tender->requests()->where('user_id', auth()->user()->id)->first()->id }}">
-                                    <button class="btn btn-light-green" type="submit">Отменить</button>
-                                </form>
+                                <div class="d-flex">
+                                    <form action="{{ route('site.tenders.requests.cancel') }}" method="post" class="mr-3">
+                                        @csrf
+                                        <input type="hidden" name="requestId"
+                                               value="{{ $tender->requests()->where('user_id', auth()->user()->id)->first()->id }}">
+                                        <button class="btn btn-light-green" type="submit">Отменить</button>
+                                    </form>
+                                    <form action="{{ route('site.account.chats') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="with_user_id" value="{{ $tender->owner->id }}">
+                                        <button class="btn btn-light-green" type="submit" data-toggle="tooltip" title="Связаться">Связаться через чат</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     @endif

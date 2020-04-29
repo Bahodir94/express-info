@@ -205,10 +205,23 @@ class TenderController extends Controller
         $requestId = $request->get('requestId');
         $rejected = $request->get('rejected') === 'true' ? true : false;
         $tenderRequest = $this->tenderRepository->cancelRequest($requestId);
+        $tender = $this->tenderRepository->get($tenderRequest->tender_id);
         if ($rejected) {
-            $tender = $this->tenderRepository->get($tenderRequest->tender_id);
             $user = User::find($tenderRequest->user_id);
             $user->notify(new RequestAction('rejected', $tenderRequest, $tender));
+            foreach (auth()->user()->chats as $chat) {
+                if ($chat->getAnotherUser()->id === $request->user_id) {
+                    $chat->delete();
+                    break;
+                }
+            }
+        } else {
+            foreach (auth()->user()->chats as $chat) {
+                if ($chat->getAnotherUser()->id === $tender->owner_id) {
+                    $chat->delete();
+                    break;
+                }
+            }
         }
         if ($request->has('redirect_to')) {
             return redirect($request->get('redirect_to'))->with('account.success', 'Заявка отклонена.');
