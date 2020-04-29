@@ -128,7 +128,9 @@ class ContractorsController extends Controller
         foreach($comments as $comment_sum){
           $mean+=(int)$comment_sum->assessment;
         }
-        $mean = $mean/count($comments);
+        if($mean!=0){
+          $mean = $mean/count($comments);
+        }
 
         abort_if(!$contractor, 404);
 
