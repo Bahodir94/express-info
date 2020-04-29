@@ -101,10 +101,16 @@ class ContractorsController extends Controller
     {
         $contractor = $this->users->getContractorBySlug($slug);
         $portfolio = $this->users->getPortfolioBySlug($slug);
+        $comments = $this->users->getCommentBySlug($slug);
+        $mean = 0;
+        foreach($comments as $comment_sum){
+          $mean+=(int)$comment_sum->assessment;
+        }
+        $mean = $mean/count($comments);
 
         abort_if(!$contractor, 404);
 
-        return view('site.pages.contractors.show', compact('contractor', 'portfolio'));
+        return view('site.pages.contractors.show', compact('contractor', 'portfolio', 'comments', 'mean'));
     }
 
     public function addContractor(int $contractorId, int $tenderId) {

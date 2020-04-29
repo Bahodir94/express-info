@@ -16,7 +16,7 @@ class FileController extends Controller
   public function index()
   {
         $user = auth()->user();
-        
+
         $accountPage = 'tenders';
         $user_id = $user->id;
         $data = FormMultipleUpload::where('user_id', $user_id)->get();
