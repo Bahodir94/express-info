@@ -62,7 +62,9 @@ class TenderRepository implements TenderRepositoryInterface
     public function update($id, $data)
     {
         $tender = $this->get($id);
-        $tender->update($data->all());
+        $tenderData = $data->all();
+        $tenderData['deadline'] = Carbon::createFromFormat('d.m.Y', $data->get('deadline'))->format('Y-m-d');
+        $tender->update($tenderData);
         $tender->saveFiles($data->file('files'));
         $tender->categories()->detach();
         foreach ($data->get('categories') as $categoryId) {
