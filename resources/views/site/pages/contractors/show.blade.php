@@ -94,16 +94,9 @@
                     <div class="row align-items-lg-center">
                         <div class="col-lg-7 col-xl-8">
                             <h2 class="title-detail">{{ $contractor->getContractorTitle() }}</h2>
-                            <div class="date-job">@if ($contractor->contractor_type == 'freelancer') Фрилансер @elseif ($contractor->contractor_type == 'agency') Digital-агество @endif
+                            <div class="date-job"><li class="fa fa-check-circle"></li>@if ($contractor->contractor_type == 'freelancer') Фрилансер @elseif ($contractor->contractor_type == 'agency') Digital-агество @endif
                             </div>
-                            @for($i=0; $i<$mean; $i++)
-                              <i class="fas fa-star" style="font-size:15px; color:green"></i>
-                            @endfor
-                            <div class="meta-job"><span class="phone"><i class="fa fa-mobile-alt"></i>@guest [Скрыто] @else @if (auth()->user()->hasRequestFromContractor($contractor)) {{ $contractor->phone_number }} @else [Скрыто] @endif @endguest </span><span
-                                    class="mail"><i class="far fa-envelope"></i><a
-                                        href="#" class="__cf_email__"
-                                        data-cfemail="25565144574750464e56654c4b434a0b464a48">[email&nbsp;protected]</a></span>
-                            </div>
+
                         </div>
                         <div class="col-lg-5 col-xl-4">
                             <div class="btn-feature">
@@ -224,7 +217,7 @@
                                 <div class="col-lg-4 text-md-right">
                                   <div class="star-rating">
                                     @for($i=0; $i<$comment->assessment; $i++)
-                                    <i class="fas fa-star"></i>
+                                      <i class="fas fa-star"></i>
                                     @endfor
                                   </div>
                                 </div>
@@ -233,24 +226,75 @@
                             <div class="review-content">{!! $comment->comment !!}</div>
                           </div>
                           @endforeach
-
                         </div>
                       </div>
+
+                        @guest
+                        @else
+                        <form action="{{ route('site.contractors.comment.contractor') }}" method="post">
+                          @csrf
+
+                        <input type="hidden" name="for_comment_id" value="{{ $contractor->slug}}">
+                        <a class="btn btn-light-green" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Оставить отзыв</a>
+                        <div class="collapse" id="collapseExample">
+                          <div class="reviews">
+                            <div class="review-item">
+                              <div class="review-item-heading">
+                                <div class="row align-items-md-center">
+                                  <div class="col-lg-8">
+                                    <h3 class="review-title">Поставить оценку</h3>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="review-content">
+
+                                <div class="form-group">
+                                  <label for="aboutMySelf">
+                                    <div class="rating">
+                                        <input type="radio" id="star10" name="rating" value="5" /><label for="star10" title="Rocks!">5 stars</label>
+                                        <input type="radio" id="star9" name="rating" value="4" /><label for="star9" title="Rocks!">4 stars</label>
+                                        <input type="radio" id="star8" name="rating" value="3" /><label for="star8" title="Pretty good">3 stars</label>
+                                        <input type="radio" id="star7" name="rating" value="2" /><label for="star7" title="Pretty good">2 stars</label>
+                                        <input type="radio" id="star6" name="rating" value="1" /><label for="star6" title="Meh">1 star</label>
+
+                                    </div>
+
+                                  </label>
+                                  <textarea name="comment" id="writeComment"></textarea>
+                                </div>
+                                <button class="btn btn-success" type="submit">Сохранить</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </form?>
+                        @endguest
+
                 </div>
 
                 <div class="col-lg-4">
                     <div class="sidebar-right">
                         <div class="sidebar-right-group">
                             <div class="job-detail-summary">
-                                <h3 class="title-block">Цены на услуги</h3>
+                                <h3 class="title-block">Информация</h3>
                                 <ul>
                                     @foreach($contractor->categories as $category)
+                                    <li><i class="fa fa-mobile-alt pr-1"></i>@guest [Скрыто] @else @if (auth()->user()->hasRequestFromContractor($contractor)) {{ $contractor->phone_number }} @else [Скрыто] @endif @endguest </li>
+                                    <li><i class="far fa-envelope pr-1"></i><a href="#" class="__cf_email__" data-cfemail="25565144574750464e56654c4b434a0b464a48">[email&nbsp;protected]</a></li>
+
                                       @if($category ->pivot->price_from!='' or $category->pivot->price_to !='')
-                                        <li><span>{{ $category->getTitle() }}</span>: {{ $category->pivot->price_from }} - {{ $category->pivot->price_to }} сум</li>
+                                        <li>{{ $category->getTitle() }}: {{ $category->pivot->price_from }} - {{ $category->pivot->price_to }} сум</li>
                                       @else
-                                        <li><span>{{ $category->getTitle() }}</span>: Договорная</li>
+                                        <li>{{ $category->getTitle() }}: Договорная</li>
                                       @endif
+                                      <li>Рейтинг:
+                                        @for($i=0; $i<$mean; $i++)
+                                          <i class="fas fa-star" style="font-size:15px; color:#ffb13c"></i>
+                                        @endfor
+                                        
+                                      </li>
                                     @endforeach
+
                                 </ul>
                             </div>
                             <!-- <div class="side-right-social">
@@ -263,39 +307,9 @@
                                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 </ul>
                             </div> -->
-                            @if (auth()->user()->hasRole('customer'))
-                            @guest
-                            @else
-                            <form action="{{ route('site.contractors.comment.contractor') }}" method="post">
-                              @csrf
-                              <input type="hidden" name="for_comment_id" value="{{ $contractor->slug}}">
-                              <div class="job-detail-summary">
-                                <h3 class="title-block">Поставить оценку</h3>
-                                <div class="container">
-                              	<div class="row">
-                              	<div class="rating">
-                                    <input type="radio" id="star10" name="rating" value="5" /><label for="star10" title="Rocks!">5 stars</label>
-                                    <input type="radio" id="star9" name="rating" value="4" /><label for="star9" title="Rocks!">4 stars</label>
-                                    <input type="radio" id="star8" name="rating" value="3" /><label for="star8" title="Pretty good">3 stars</label>
-                                    <input type="radio" id="star7" name="rating" value="2" /><label for="star7" title="Pretty good">2 stars</label>
-                                    <input type="radio" id="star6" name="rating" value="1" /><label for="star6" title="Meh">1 star</label>
 
-                                  </div>
-                                  <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                    Оставить комментарий <i class="fas fa-long-arrow-alt-right"></i>
-                                  </a>
-                                  <div class="collapse" id="collapseExample">
-                                    <!-- <input type="text" class="form-control" name="theme" placeholder="Тема комментария"> -->
-                                    <textarea name="comment" id="writeComment"></textarea>
 
-                                  </div>
-                                  <button class="btn btn-success" type="submit">Сохранить</button>
-                              	</div>
-                              </div>
-                            </div>
-                          </form>
-                          @endguest
-                          @endif
+
                         </div>
                     </div>
                 </div>
