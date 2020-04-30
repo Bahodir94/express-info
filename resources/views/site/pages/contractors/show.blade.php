@@ -228,9 +228,10 @@
                           @endforeach
                         </div>
                       </div>
-                        @if (auth()->user()->hasRole('customer'))
+
                         @guest
                         @else
+                        @if (auth()->user()->hasRole('customer'))
                         <form action="{{ route('site.contractors.comment.contractor') }}" method="post">
                           @csrf
 
@@ -267,9 +268,10 @@
                             </div>
                           </div>
                         </div>
-                        </form?>
-                        @endguest
+                        </form>
                         @endif
+                        @endguest
+
 
                 </div>
 
