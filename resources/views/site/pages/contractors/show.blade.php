@@ -228,7 +228,7 @@
                           @endforeach
                         </div>
                       </div>
-
+                        @if (auth()->user()->hasRole('customer'))
                         @guest
                         @else
                         <form action="{{ route('site.contractors.comment.contractor') }}" method="post">
@@ -269,6 +269,7 @@
                         </div>
                         </form?>
                         @endguest
+                        @endif
 
                 </div>
 
@@ -291,7 +292,7 @@
                                         @for($i=0; $i<$mean; $i++)
                                           <i class="fas fa-star" style="font-size:15px; color:#ffb13c"></i>
                                         @endfor
-                                        
+
                                       </li>
                                     @endforeach
 
