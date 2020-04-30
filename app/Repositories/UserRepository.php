@@ -154,7 +154,7 @@ class UserRepository implements UserRepositoryInterface
     }
 
     public function getComment(string $slug){
-      $allComments = Comments::where('for_set', $slug)->get();
+      $allComments = Comments::where('for_set', $slug)->whereNotNull('comment')->get();
       return $allComments;
 
     }

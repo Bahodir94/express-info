@@ -52,6 +52,7 @@ class CommentController extends Controller
     $save_comment->comment = $request->comment;
     $save_comment->for_set  = $request->for_comment_id;
     $save_comment->assessment  = $request->rating;
+    $save_comment->theme = $request->theme;
     $save_comment->save();
     return back()->with('success', 'Ваша оценка сохранена!');
 

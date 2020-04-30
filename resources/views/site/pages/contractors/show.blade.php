@@ -155,7 +155,9 @@
                     <div class="content-main-right single-detail">
                         <div class="box-description">
                             <h3>Об исполнителе</h3>
-                            {!! $contractor->about_myself !!}
+                            <div class="review-content">
+                              {!! $contractor->about_myself !!}
+                            </div>
 
                         </div>
                         <hr>
@@ -170,34 +172,6 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="intro-profile">
-                            <h3 class="title-box">Комментарии</h3>
-                            <div class="candidate-box">
-                                <div class="tags">
-                                  <div class="row">
-                                  @foreach($comments as $comment)
-                                      <div class="col-md-4 single-card-info">
-                                          <div class="card-info">
-
-                                              <div class="card-info-body">
-                                                  <h3 class="card-info-title">{{ $comment->who_set }}</h3>
-                                                  Оценка:
-                                                  @for($i = 0; $i< $comment->assessment; $i++)
-                                                    <i class="fas fa-star" style="font-size:15px; color:green"></i>
-                                                  @endfor
-                                                  <hr>
-                                                  <div class="card-info-text">{!! $comment->comment !!}
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  @endforeach
-                                </div>
-
-                            </div>
-                          </div>
-                        </div>
-
                         <div class="intro-profile pt-5">
                           <h3 class="title-box">Портфолио</h3>
                         <div class="candidate-box">
@@ -205,9 +179,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                   <tr>
-                                    <td>Название проекта</td>
-                                    <td>Изображение</td>
-                                    <td>Ссылка</td>
+                                    <td class="text-muted">Название проекта</td>
+                                    <td class="text-muted">Изображение</td>
+                                    <td class="text-muted">Ссылка</td>
                                 </thead>
 
                                 <tbody>
@@ -235,10 +209,35 @@
                             </div>
                           </div>
                         </div>
+                      </div>
+                      <div class="review-wrap">
+                        <h3 class="title-block">Комментарии</h3>
+                        <div class="reviews">
+                          @foreach($comments as $comment)
+                          <div class="review-item">
+                            <div class="review-item-heading">
+                              <div class="row align-items-md-center">
+                                <div class="col-lg-8">
+                                  <h3 class="review-title">{{ $comment->who_set }}</h3>
+                                  <div class="meta-text"><span class="date-post">Опубликован: {{ $comment->created_at }}</span></div>
+                                </div>
+                                <div class="col-lg-4 text-md-right">
+                                  <div class="star-rating">
+                                    @for($i=0; $i<$comment->assessment; $i++)
+                                    <i class="fas fa-star"></i>
+                                    @endfor
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="review-content">{!! $comment->comment !!}</div>
+                          </div>
+                          @endforeach
 
-
-                    </div>
+                        </div>
+                      </div>
                 </div>
+
                 <div class="col-lg-4">
                     <div class="sidebar-right">
                         <div class="sidebar-right-group">
@@ -254,7 +253,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <div class="side-right-social">
+                            <!-- <div class="side-right-social">
                                 <h3 class="title-block">Поделиться исполнителем</h3>
                                 <ul>
                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -263,7 +262,10 @@
                                     <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
                                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 </ul>
-                            </div>
+                            </div> -->
+                            @if (auth()->user()->hasRole('customer'))
+                            @guest
+                            @else
                             <form action="{{ route('site.contractors.comment.contractor') }}" method="post">
                               @csrf
                               <input type="hidden" name="for_comment_id" value="{{ $contractor->slug}}">
@@ -283,7 +285,7 @@
                                     Оставить комментарий <i class="fas fa-long-arrow-alt-right"></i>
                                   </a>
                                   <div class="collapse" id="collapseExample">
-
+                                    <!-- <input type="text" class="form-control" name="theme" placeholder="Тема комментария"> -->
                                     <textarea name="comment" id="writeComment"></textarea>
 
                                   </div>
@@ -292,9 +294,12 @@
                               </div>
                             </div>
                           </form>
+                          @endguest
+                          @endif
                         </div>
                     </div>
                 </div>
+
 
             </div>
 
