@@ -223,6 +223,29 @@
     <section class="section-news">
         <div class="container">
             <div class="section-heading">
+                <h2 class="title">Комментарии пользователей</h2><a href="">Посмотреть больше <i
+                        class="fas fa-long-arrow-alt-right"></i></a>
+            </div>
+            <div class="row">
+                @foreach($comments as $comment)
+                    <div class="col-md-4 single-card-info">
+                        <div class="card-info">
+
+                            <div class="card-info-body">
+                                <h3 class="card-info-title">{{ $comment->who_set }}</h3>
+                                <hr>
+                                <div class="card-info-text">{!! $comment->comment !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <section class="section-news">
+        <div class="container">
+            <div class="section-heading">
                 <h2 class="title">Последние новости с нашего блога</h2><a href="{{ route('site.blog.index') }}">Посмотреть больше <i
                         class="fas fa-long-arrow-alt-right"></i></a>
             </div>

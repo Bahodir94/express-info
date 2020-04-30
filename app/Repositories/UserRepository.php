@@ -7,6 +7,7 @@ namespace App\Repositories;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\FormMultipleUpload;
+use App\Models\Comments;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Hash;
@@ -148,6 +149,19 @@ class UserRepository implements UserRepositoryInterface
     public function getPortfolioBySlug(string $slug){
 
       return $this->getPortfolio($slug)->all(function ($user) use ($slug) {
+          return $user->slug === $slug;
+      });
+    }
+
+    public function getComment(string $slug){
+      $allComments = Comments::where('for_set', $slug)->get();
+      return $allComments;
+
+    }
+
+    public function getCommentBySlug(string $slug){
+
+      return $this->getComment($slug)->all(function ($user) use ($slug) {
           return $user->slug === $slug;
       });
     }

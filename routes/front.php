@@ -77,6 +77,9 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::get('/account/tenders/{slug}/candidates', 'AccountController@tenderCandidates')->name('account.tenders.candidates');
     Route::get('/account/chats', 'ChatsController@index')->name('account.chats');
     Route::post('/account/chats', 'ChatsController@createChat')->name('account.chats.create');
+    Route::get('/account/comment', 'CommentController@index')->name('account.comment');
+    Route::post('/account/comment', 'CommentController@createCommentAll')->name('account.comment.create');
+
 
     // Tenders routes
     Route::get('/tenders', 'TenderController@index')->name('tenders.index');
@@ -97,6 +100,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
     Route::get('/contractors/addContractorGuest/{contractorId}', 'ContractorsController@addContractorForNonAuth')->name('tenders.contractors.add.guest');
     Route::get('/contractors/addContractorGuest/remove/{contractorId}', 'ContractorsController@deleteContractorFromSession')->name('tenders.contractors.delete');
     Route::get('/contractors/{slug}', 'ContractorsController@contractor')->name('contractors.show');
+    Route::post('/contractors/comment', 'CommentController@createCommentContractor')->name('contractors.comment.contractor');
 
     Route::get('/{params}', 'ContractorsController@category')->where('params', '.+')->name('catalog.main');
     Route::post('/search', 'CatalogController@search')->name('catalog.search');
