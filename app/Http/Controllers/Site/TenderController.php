@@ -210,7 +210,7 @@ class TenderController extends Controller
             $user = User::find($tenderRequest->user_id);
             $user->notify(new RequestAction('rejected', $tenderRequest, $tender));
             foreach (auth()->user()->chats as $chat) {
-                if ($chat->getAnotherUser()->id === $request->user_id) {
+                if ($chat->getAnotherUser()->id === $tenderRequest->user_id) {
                     $chat->delete();
                     break;
                 }

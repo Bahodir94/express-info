@@ -27,7 +27,7 @@
                         @foreach(auth()->user()->unreadNotifications as $notification)
                             <li>
                                 @if ($notification->type == 'App\Notifications\RequestAction')
-                                    <div class="text-body-color-dark media mb-15">
+                                    <div class="text-body-color-dark media mb-15" data-notification-id="{{ $notification->id }}">
                                         <div class="ml-5 mr-15">
                                             <i class="fa fa-fw fa-info text-info"></i>
                                         </div>
@@ -46,7 +46,7 @@
                                     </div>
                                 @endif
                                 @if ($notification->type == 'App\Notifications\TenderCreated')
-                                    <div class="text-body-color-dark media mb-15">
+                                    <div class="text-body-color-dark media mb-15" data-notification-id="{{ $notification->id }}">
                                         <div class="ml-5 mr-15">
                                             <i class="fa fa-fw fa-info text-info"></i>
                                         </div>

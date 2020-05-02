@@ -151,13 +151,14 @@ MAIN CONTENT LAYOUT
                 e.preventDefault();
                 userNotificationDropdown.next().toggleClass('show');
                 userNotificationDropdown.parent().toggleClass('show');
-                jQuery.get({
-                    url: "{{ route('site.account.notifications.read') }}",
-                    success: function () {
-                        $('#notifications-count').addClass('d-none');
-                    }
-                })
-            })
+            });
+
+            let userNotifications = jQuery('div[data-notification-id]');
+            userNotifications.on('click', function (e) {
+                let notificationId = $(this).data('notification-id');
+                let url = "/account/notifications/markAsRead?id=" + notificationId;
+                $.get(url);
+            });
         };
         notificationsDropdown();
     });
