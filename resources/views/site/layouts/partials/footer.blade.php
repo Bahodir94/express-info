@@ -6,7 +6,7 @@
                 <div class="col-lg-8">
                     <ul class="nav-footer">
                         <li class="pl-4"><a href="#">Политика конфиценциальности</a></li>
-                        <li><a href="#">Пользовательское соглашение</a></li>
+                        <li><a href="{{ asset('terms_of_use.pdf') }}">Пользовательское соглашение</a></li>
                     </ul>
                 </div>
             </div>
