@@ -207,8 +207,7 @@ class TenderController extends Controller
         $tenderRequest = $this->tenderRepository->cancelRequest($requestId);
         $tender = $this->tenderRepository->get($tenderRequest->tender_id);
         if ($rejected) {
-            $user = User::find($tenderRequest->user_id);
-            $user->notify(new RequestAction('rejected', $tenderRequest, $tender));
+            $tenderRequest->user->notify(new RequestAction('rejected', $tenderRequest, $tender));
             foreach (auth()->user()->chats as $chat) {
                 if ($chat->getAnotherUser()->id === $tenderRequest->user_id) {
                     $chat->delete();
