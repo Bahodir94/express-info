@@ -281,21 +281,24 @@
                             <div class="job-detail-summary">
                                 <h3 class="title-block">Информация</h3>
                                 <ul>
+                                  @if($mean!=0)
+                                  <li>Рейтинг:
+                                    @for($i=0; $i<$mean; $i++)
+                                      <i class="fas fa-star" style="font-size:15px; color:#ffb13c"></i>
+                                    @endfor
+
+                                  </li>
+                                    @endif
+                                  <li><i class="fa fa-mobile-alt pr-1"></i>@guest [Скрыто] @else @if (auth()->user()->hasRequestFromContractor($contractor)) {{ $contractor->phone_number }} @else [Скрыто] @endif @endguest </li>
+                                  <li><i class="far fa-envelope pr-1"></i><a href="#" class="__cf_email__" data-cfemail="25565144574750464e56654c4b434a0b464a48">[email&nbsp;protected]</a></li>
                                     @foreach($contractor->categories as $category)
-                                    <li><i class="fa fa-mobile-alt pr-1"></i>@guest [Скрыто] @else @if (auth()->user()->hasRequestFromContractor($contractor)) {{ $contractor->phone_number }} @else [Скрыто] @endif @endguest </li>
-                                    <li><i class="far fa-envelope pr-1"></i><a href="#" class="__cf_email__" data-cfemail="25565144574750464e56654c4b434a0b464a48">[email&nbsp;protected]</a></li>
 
                                       @if($category ->pivot->price_from!='' or $category->pivot->price_to !='')
                                         <li>{{ $category->getTitle() }}: {{ $category->pivot->price_from }} - {{ $category->pivot->price_to }} сум</li>
                                       @else
                                         <li>{{ $category->getTitle() }}: Договорная</li>
                                       @endif
-                                      <li>Рейтинг:
-                                        @for($i=0; $i<$mean; $i++)
-                                          <i class="fas fa-star" style="font-size:15px; color:#ffb13c"></i>
-                                        @endfor
 
-                                      </li>
                                     @endforeach
 
                                 </ul>
