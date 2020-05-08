@@ -60,7 +60,7 @@
                                             <div class="card">
                                                 <div class="card-header d-flex justify-content-between" role="tab" id="heading{{ $need->id }}">
                                                     <span>{{ $need->ru_title }}</span>
-                                                    <a href="#collapse{{ $need->id }}" data-toggle="collapse" data-parent="#needsAccordion" aria-expanded="true" aria-controls="collapse{{ $need->id }}"><i class="fas fa-caret-down"></i></a>
+                                                    <a href="#collapse{{ $need->id }}" data-toggle="collapse" data-parent="#needsAccordion" aria-expanded="true" aria-controls="collapse{{ $need->id }}" style="font-size:8px"><button class="btn btn-outline-success"><i class="fas fa-caret-down"></i></button></a>
                                                 </div>
                                                 <div class="collapse" id="collapse{{ $need->id }}" role="tabpanel" aria-labelledby="heading{{ $need->id }}" data-parent="#needsAccordion">
                                                     <div class="card-body">
@@ -69,7 +69,7 @@
                                                                 <div class="card">
                                                                     <div class="card-header d-flex justify-content-between" id="headingCategory{{ $item->id }}">
                                                                         <a href="{{ route('site.tenders.category', $item->ru_slug) }}">{{ $item->ru_title }}</a>
-                                                                        <a href="#collapseCategory{{ $item->id }}" data-toggle="collapse" data-parent="#categoriesAccordion{{ $need->id }}" aria-expanded="true" aria-controls="collapseCategory{{ $item->id }}"><i class="fas fa-caret-down"></i></a>
+                                                                        <a href="#collapseCategory{{ $item->id }}" data-toggle="collapse" data-parent="#categoriesAccordion{{ $need->id }}" aria-expanded="true" aria-controls="collapseCategory{{ $item->id }}" style="font-size:8px"><button class="btn btn-outline-success"><i class="fas fa-caret-down"></i></button></a>
                                                                     </div>
                                                                     <div class="collapse" id="collapseCategory{{ $item->id }}" role="tabpanel" aria-labelledby="headingCategory{{ $item->id }}" data-parent="#categoriesAccordion{{ $need->id }}">
                                                                         <div class="card-body">
