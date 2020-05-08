@@ -42,7 +42,7 @@ Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
   // Route::get('/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
   Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 
-  Route::post('/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+  Route::get('/email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
   Route::get('/email/verify', 'Auth\VerificationController@show')->name('verification.notice');
   Route::get('/email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
 
