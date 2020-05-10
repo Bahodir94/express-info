@@ -41,7 +41,7 @@ class TenderPublished extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return $notifiable->email ? ['database', 'mail'] : ['database'];
     }
 
     /**
@@ -56,5 +56,22 @@ class TenderPublished extends Notification
             'published' => $this->published,
             'tender' => $this->tender
         ];
+    }
+
+    /**
+     * Get the mail representation of the notification.
+     *
+     * @param  \App\Models\User  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
+    public function toMail($notifiable)
+    {
+        $url = route('site.tenders.category', $this->tender->slug);
+
+        return (new MailMessage)
+            ->subject('Ваш конкурс ' . $this->tender->title . 'опубликован!')
+            ->greeting('Здравствуйте, '. $notifiable->getCommonTitle())
+            ->line('Ваш конкурс ' . $this->tender->title . ' прошёл модерацию и опубликован на площадке!')
+            ->action('Перейти к конкурсу', $url);
     }
 }
