@@ -34,7 +34,7 @@ class TenderCreated extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return $notifiable->email ? ['database', 'mail'] : ['database'];
     }
 
     /**
@@ -49,5 +49,22 @@ class TenderCreated extends Notification
             'tender' => $this->tender,
             'customerName' => $this->tender->owner->getCommonTitle()
         ];
+    }
+
+    /**
+     * Get the mail representation of the notification.
+     *
+     * @param  \App\Models\User  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
+    public function toMail($notifiable)
+    {
+        $url = route('admin.tenders.show', $this->tender->id);
+
+        return (new MailMessage)
+            ->subject('На сайте создан новый конкурс!')
+            ->greeting('Здравствуйте, '. $notifiable->getCommonTitle())
+            ->line('Заказчик ' . $this->tender->owner->getCommonTitle() . ' создал новый конкурс ' . $this->tender->title)
+            ->action('Перейти к конкурсу', $url);
     }
 }

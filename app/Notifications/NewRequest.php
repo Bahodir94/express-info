@@ -35,7 +35,7 @@ class NewRequest extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return $notifiable->email ? ['database', 'mail'] : ['database'];
     }
 
     /**
@@ -52,5 +52,22 @@ class NewRequest extends Notification
             'tenderId' => $this->request->tender_id,
             'tenderSlug' => $this->request->tender->slug
         ];
+    }
+
+    /**
+     * Get the mail representation of the notification.
+     *
+     * @param  \App\Models\User  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
+    public function toMail($notifiable)
+    {
+        $url = route('site.account.tenders.candidates', $this->request->tender->slug);
+
+        return (new MailMessage)
+            ->subject('На участие в конкурсе ' . $this->request->tender->title . ' поступила новая заявка!')
+            ->greeting('Здравствуйте, '. $notifiable->getCommonTitle())
+            ->line('Новая заявка на участие в конкурсе ' . $this->request->tender->title . ' от исполнителя ' . $this->request->user->getCommonTitle())
+            ->action('Перейти к списку участников', $url);
     }
 }

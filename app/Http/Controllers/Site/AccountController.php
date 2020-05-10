@@ -49,7 +49,7 @@ class AccountController extends Controller
                                 TenderRepositoryInterface $tenderRepository,
                                 NeedTypeRepositoryInterface $needsRepository)
     {
-        $this->middleware(['auth'])->except(['telegramCallback']);
+        $this->middleware(['auth', 'verified'])->except(['telegramCallback']);
         $this->middleware('account.completed')->except(['create', 'store', 'telegramCallback', 'markNotificationsAsRead']);
 
         $this->userRepository = $userRepository;
@@ -82,6 +82,8 @@ class AccountController extends Controller
     public function create()
     {
         $user = auth()->user();
+        if ($user->checkCompletedAccount())
+            return redirect()->route('site.account.index');
         return \view('site.pages.account.create', compact('user'));
     }
 

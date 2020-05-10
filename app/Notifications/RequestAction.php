@@ -48,7 +48,7 @@ class RequestAction extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return $notifiable->email ? ['database', 'mail'] : ['database'];
     }
 
     /**
@@ -84,6 +84,31 @@ class RequestAction extends Notification
             return [
                 //
             ];
+        }
+    }
+
+    /**
+     * Get the mail representation of the notification.
+     *
+     * @param  \App\Models\User  $notifiable
+     * @return \Illuminate\Notifications\Messages\MailMessage
+     */
+    public function toMail($notifiable)
+    {
+        $tenderUrl = route('site.tenders.category', $this->request->tender->slug);
+
+        if ($notifiable->hasRole('admin') && $this->type === 'accepted') {
+            return (new MailMessage)
+                ->subject('Победитель в конкурсе!')
+                ->greeting('Здравствуйте, '. $notifiable->getCommonTitle())
+                ->line('Заказчик ' . $this->request->tender->owner->getCommonTitle() . ' выбрал исполнителя ' . $this->request->user->getCommonTitle() . 'в качестве победителя в конкурсе ' . $this->request->tender->title)
+                ->action('Перейти к конкурсу', route('admin.tenders.show', $this->request->tender_id));
+        } else {
+            return (new MailMessage)
+                ->subject($this->type === 'rejected' ? 'Вы проиграли!' : 'Вы выиграли!')
+                ->greeting('Здравствуйте, '. $notifiable->getCommonTitle())
+                ->line('Заказчик ' . ($this->type === 'rejected' ? $this->tender->owner->getCommonTitle() : $this->request->tender->owner->getCommonTitle()) . ($this->type === 'rejected' ? ' отклонил вашу заявку на участие в конкурсе ' : ' выбрал Вас в качестве исполнителя на конкурс ') . $this->request->tender->title)
+                ->action('Перейти к конкурсу', $tenderUrl);
         }
     }
 }
