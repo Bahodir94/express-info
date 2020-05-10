@@ -82,6 +82,8 @@ class AccountController extends Controller
     public function create()
     {
         $user = auth()->user();
+        if ($user->checkCompletedAccount())
+            return redirect()->route('site.account.index');
         return \view('site.pages.account.create', compact('user'));
     }
 
