@@ -132,7 +132,7 @@ class Tender extends Model
 
     public function checkDeadline()
     {
-        $deadline = Carbon::create($this->deadline);
+        $deadline = Carbon::create($this->deadline)->setHour(23)->setMinute(59)->setSecond(59);
         return now() < $deadline;
     }
 

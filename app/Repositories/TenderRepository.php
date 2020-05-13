@@ -49,7 +49,7 @@ class TenderRepository implements TenderRepositoryInterface
             $tenderData['client_type'] = '';
             $tenderData['client_phone_number'] = '';
         }
-        $tenderData['deadline'] = Carbon::createFromFormat('d.m.Y', $data->get('deadline'))->format('Y-m-d');
+        $tenderData['deadline'] = Carbon::createFromFormat('d.m.Y', $data->get('deadline'))->setHour(23)->setMinutes(59)->setSecond(59)->format('Y-m-d H:i:s');
         $tender = Tender::create($tenderData);
         $tender->saveFiles($data->file('files'));
         foreach ($data->get('categories') as $categoryId)
@@ -64,7 +64,7 @@ class TenderRepository implements TenderRepositoryInterface
     {
         $tender = $this->get($id);
         $tenderData = $data->all();
-        $tenderData['deadline'] = Carbon::createFromFormat('d.m.Y', $data->get('deadline'))->format('Y-m-d');
+        $tenderData['deadline'] = Carbon::createFromFormat('d.m.Y', $data->get('deadline'))->setHour(23)->setMinutes(59)->setSecond(59)->format('Y-m-d H:i:s');
         $tender->update($tenderData);
         $tender->saveFiles($data->file('files'));
         $tender->categories()->detach();

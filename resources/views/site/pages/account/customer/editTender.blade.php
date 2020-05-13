@@ -109,7 +109,7 @@
                         </div>
                         <div class="form-group">
                             <label for="deadline">Срок окончания приёма заявок</label>
-                            <input type="text" class="form-control @error('deadline') is-invalid @enderror" id="deadline" name="deadline" value="{{ $tender->deadline }}">
+                            <input type="text" class="form-control @error('deadline') is-invalid @enderror" id="deadline" name="deadline" value="{{ \Carbon\Carbon::create($tender->deadline)->format('d.m.Y') }}">
                             @error('deadline')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
