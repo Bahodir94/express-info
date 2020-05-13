@@ -75,6 +75,7 @@ class TenderController extends Controller
         $currentCategory = null;
         $tendersCount = $tenders->count();
         $tenders = PaginateCollection::paginateCollection($tenders, 5);
+        
         return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
     }
 
