@@ -105,8 +105,8 @@ class RequestAction extends Notification
                 ->action('Перейти к конкурсу', route('admin.tenders.show', $this->request->tender_id));
         }
         return (new MailMessage)
-            ->subject($this->type === 'rejected' ? 'Вы проиграли!' : 'Вы выиграли!')
-            ->greeting('Здравствуйте, '. $notifiable->getCommonTitle())
+            ->subject($this->type === 'rejected' ? 'Ваша заявка отклонена!' : 'Вы выиграли!')
+            ->greeting('Здравствуйте, '. $notifiable->getCommonTitle() . '. Не отчаивайтесь, у вас есть возможность получить другой заказ!')
             ->line('Заказчик ' . ($this->type === 'rejected' ? $this->tender->owner->getCommonTitle() : $this->request->tender->owner->getCommonTitle()) . ($this->type === 'rejected' ? ' отклонил вашу заявку на участие в конкурсе ' : ' выбрал Вас в качестве исполнителя на конкурс ') . $this->request->tender->title)
             ->action('Перейти к конкурсу', $tenderUrl);
     }
