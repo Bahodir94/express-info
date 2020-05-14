@@ -19,7 +19,7 @@
     ])
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">{{ $user->name }} <small>Редактировать</small></h3>
+            <h3 class="block-title"><i class="fa fa-user-circle mr-5 text-muted"></i> {{ $user->getCommonTitle() }}</h3>
         </div>
         <div class="block-content">
             <form action="{{ route('admin.users.update', $user->id) }}" method="post" enctype="multipart/form-data">
@@ -62,10 +62,26 @@
                     <div class="col-sm-12 col-md-6 ">
                         <div class="form-group @error('phone_number') is-invalid @enderror">
                             <div class="form-material floating">
-                                <input type="email" name="phone_number" id="phone_number" class="form-control" value="{{ $user->phone_number }}">
+                                <input type="text" name="phone_number" id="phone_number" class="form-control" value="{{ $user->phone_number }}">
                                 <label for="phone_number">Номер телефона</label>
                             </div>
                             @error('phone_number') <div class="invalid-feedback animated fadeInDown">{{ $message }}</div> @enderror
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="form-material floating">
+                                <input type="text" name="company_name" id="company_name" class="form-control" value="{{ $user->company_name }}">
+                                <label for="company_name">Название компании</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="form-material floating">
+                                <textarea name="about_myself" id="about_myself" class="form-control">{!! $user->about_myself !!}</textarea>
+                                <label for="about_myself">О себе</label>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
@@ -91,7 +107,7 @@
 
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Изменить пароль</h3>
+            <h3 class="block-title"><i class="fa fa-asterisk mr-5 text-muted"></i> Изменить пароль</h3>
         </div>
         <div class="block-content">
             @if(session('change_password_success'))

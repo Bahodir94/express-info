@@ -140,4 +140,10 @@ class Tender extends Model
     {
         return $this->requests()->where('user_id', $userId)->count() > 0;
     }
+
+    public function delete()
+    {
+        $this->requests()->delete();
+        return parent::delete();
+    }
 }

@@ -39,11 +39,11 @@
                     <tbody>
                         @foreach($users as $user)
                             <tr>
-                                <td class="text-center">@if($user->image) <img src="{{ $user->getImage() }}" alt="{{ $user->name }}" class="img-avatar img-avatar48"> @else - @endif</td>
-                                <td class="text-center font-w600">{{ $user->name }}</td>
+                                <td class="text-center"><img src="{{ $user->getImage() }}" alt="{{ $user->getCommonTitle() }}" class="img-avatar img-avatar48"></td>
+                                <td class="text-center font-w600">{{ $user->getCommonTitle() }}</td>
                                 <td class="text-center font-w600">{{ $user->email }}</td>
                                 <td class="text-center forn-w600">@if($user->hasOneRole()) <span class="badge badge-pill badge-primary">{{ $user->getRole()->description }}</span> @else - @endif </td>
-                                <td class="text-center font-w600">{{ $user->created_at }}</td>
+                                <td class="text-center font-w600">{{ $user->created_at->format('d.m.Y h:i:s') }}</td>
                                 <td class="text-center font-w600 d-flex align-items-center justify-content-around">
                                     <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-alt-info" data-toggle="tooltip"
                                        title="Редактировать"><i class="fa fa-edit"></i></a>
