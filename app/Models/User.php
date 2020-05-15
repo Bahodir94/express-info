@@ -196,6 +196,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * User portfolio
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function portfolio()
+    {
+        return $this->hasMany(FormMultipleUpload::class, 'user_id', 'id');
+    }
+
+    /**
      * All tenders that user's request was accepted
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

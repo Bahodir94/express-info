@@ -46,6 +46,22 @@
             </div>
         </div>
     </div>
+    <div class="block">
+        <div class="block-header block-header-default">
+            <h3 class="block-title">Заявки на участие, {{ $tender->requests()->count() }}</h3>
+        </div>
+        <div class="block-content">
+            <ul class="list-group list-group-flush mb-20">
+                @foreach($tender->requests as $request)
+                    <a href="{{ route('admin.users.edit', $request->user_id) }}" class="list-group-item list-group-item-action">
+                        <p class="font-weight-bold font-size-lg">{{ $request->user->getCommonTitle() }}</p>
+                        <p class="text-muted m-0">Срок: {{ $request->period_from }} - {{ $request->period_to }} дней</p>
+                        <p class="text-muted m-0">Бюджет: {{ $request->budget_from }} - {{ $request->budget_to }} <сум></сум></p>
+                    </a>
+                @endforeach
+            </ul>
+        </div>
+    </div>
     <div class="modal fade" id="requestModal" aria-labelledby="requestModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-fromright modal-lg" role="document">
             <div class="modal-content">

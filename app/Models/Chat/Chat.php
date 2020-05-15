@@ -28,9 +28,10 @@ class Chat extends Model
         return $this->hasMany(Message::class, 'chat_id', 'id');
     }
 
-    public function getAnotherUser()
+    public function getAnotherUser($currentUser = null)
     {
-        $currentUser = auth()->user();
+        if (!$currentUser)
+            $currentUser = auth()->user();
         return $this->participants()->where('user_id', '!=', $currentUser->id)->first();
     }
 
