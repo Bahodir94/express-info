@@ -95,9 +95,10 @@ class ContractorsController extends Controller
         if ($category) {
             if ($category->getAncestorsSlugs() !== $params)
                 return redirect(route('site.catalog.main', $category->getAncestorsSlugs()), 301);
-            $contractors = $category->getAllCompaniesFromDescendingCategories();
+            $contractors = $category->getAllCompaniesFromDescendingCategories()->sortByDesc('created_at');
             $contractorsCount = $contractors->count();
             $contractors = PaginateCollection::paginateCollection($contractors, 5);
+
             return view('site.pages.contractors.category', compact('category', 'contractors', 'contractorsCount'));
         }
         $menuItem = $this->menu->getBySlug($slug);

@@ -219,4 +219,6 @@ class UserRepository implements UserRepositoryInterface
     {
         return User::where('telegram_id', $telegramId)->first();
     }
+
+    
 }

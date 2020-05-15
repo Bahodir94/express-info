@@ -75,7 +75,7 @@ class TenderController extends Controller
         $currentCategory = null;
         $tendersCount = $tenders->count();
         $tenders = PaginateCollection::paginateCollection($tenders, 5);
-        
+
         return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
     }
 
@@ -260,10 +260,12 @@ class TenderController extends Controller
 
     public function acceptTenderRequest(Request $request, int $tenderId, int $requestId)
     {
+
         $redirectTo = $request->get('redirect_to');
         if ($request = $this->tenderRepository->acceptRequest($tenderId, $requestId)) {
             $request->user->notify(new RequestAction('accepted', $request));
             $requests = $request->tender->requests;
+          
             foreach ($requests as $otherRequest) {
                 if ($otherRequest->user_id == $request->user_id)
                     continue;

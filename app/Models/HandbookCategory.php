@@ -214,6 +214,7 @@ class HandbookCategory extends Model
             $companies = $companies->merge($category->users);
         }
         $companies = $companies->unique(function ($item) { return $item->id; });
+        
         return $companies;
     }
 
