@@ -99,7 +99,7 @@ class TenderController extends Controller
                 if ($menuItem->ru_slug !== $params)
                     return redirect(route('site.tenders.category', $menuItem->ru_slug), 301);
                 foreach ($menuItem->categories as $category)
-                    $tenders = $tenders->merge($category->tenders()->whereNotNull('owner_id')->where('published', true)->orderByRaw('-contractor_id asc')->orderBy('deadline', 'desc')->orderBy('created_at', 'desc')->get());
+                    $tenders = $tenders->merge($category->tenders()->whereNotNull('owner_id')->where('published', true)->orderByRaw('-contractor_id asc')->orderBy('created_at', 'desc')->orderBy('deadline', 'desc')->get());
                 $tenders = $tenders->unique(function ($item) {
                     return $item->id;
                 });
@@ -122,7 +122,7 @@ class TenderController extends Controller
             if ($currentCategory) {
                 if ($currentCategory->getAncestorsSlugs() !== $params)
                     return redirect(route('site.tenders.category', $currentCategory->getAncestorsSlugs()), 301);
-                $tenders = $currentCategory->tenders()->whereNotNull('owner_id')->where('published', true)->orderByRaw('-contractor_id asc')->orderBy('deadline', 'desc')->orderBy('created_at', 'desc')->get();
+                $tenders = $currentCategory->tenders()->whereNotNull('owner_id')->where('published', true)->orderByRaw('-contractor_id asc')->orderBy('created_at', 'desc')->orderBy('deadline', 'desc')->get();
                 $tendersCount = $tenders->count();
                 $tenders = PaginateCollection::paginateCollection($tenders, 5);
                 return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
