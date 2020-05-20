@@ -27,7 +27,7 @@ class TenderRepository implements TenderRepositoryInterface
         $query = Tender::whereNotNull('owner_id')->where('published', true);
         if ($withoutContractors)
             $query = $query->whereNull('contractor_id');
-        return $query->orderBy('opened', 'desc')->orderBy('updated_at', 'desc')->get();
+        return $query->whereNotNull('owner_id')->orderBy('opened', 'desc')->orderBy('created_at', 'desc')->get();
         //orderBy('created_at', 'desc') orderByRaw('-contractor_id asc')
     }
 
