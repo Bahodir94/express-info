@@ -126,6 +126,7 @@ class TenderRepository implements TenderRepositoryInterface
             return false;
         abort_if($tender->owner->id !== auth()->user()->id, 401);
         $tender->contractor_id = $request->user_id;
+        $tender->opened = false;
         $tender->save();
         $request->user->victories_count+=1;
         $request->user->save();
