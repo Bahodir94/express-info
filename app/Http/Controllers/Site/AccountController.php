@@ -138,9 +138,9 @@ class AccountController extends Controller
         ];
         Validator::make($request->all(), [
             'name' => 'required|max:255|string',
-            'gender' => 'required|string',
-            'birthday_date' => 'required|date',
             'about_myself' => 'required|string|max:5000',
+            'company_name' => Rule::requiredIf($user->contractor_type == 'agency'),
+            'phone_number' => 'required'
         ], $validationMessages)->validate();
         $this->userRepository->update($user->id, $request);
 
@@ -221,7 +221,8 @@ class AccountController extends Controller
             'foundation_year' => 'nullable|integer',
             'site' => 'nullable|string|max:255',
             'phone_number' => 'required|string|max:255',
-            'email' => 'required|email|max:255'
+            'email' => 'required|email|max:255',
+            'name' => 'required|max:255'
         ], $validationMessages)->validate();
 
         $this->userRepository->update($user->id, $request);
