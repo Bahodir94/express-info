@@ -11,7 +11,7 @@
     <meta name="description" content="Административная панель TezInfo">
     <meta name="author" content="vid.uz">
     <meta name="robots" content="noindex, nofollow">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
     <link rel="shortcut icon" href="{{ asset('assets/img/favicons/favicon.png') }}">

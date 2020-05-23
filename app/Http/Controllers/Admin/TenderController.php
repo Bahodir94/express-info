@@ -9,6 +9,7 @@ use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use function React\Promise\reduce;
+use App\Http\Controllers\Helpers\PaginateCollection;
 
 class TenderController extends Controller
 {
@@ -47,6 +48,14 @@ class TenderController extends Controller
     public function store(Request $request)
     {
         //
+    }
+    public function allTenders(){
+      $tenders = $this->tenderRepository->allOrderedByCreatedAtAdmin();
+      $currentCategory = null;
+      $tendersCount = $tenders->count();
+      $tenders = PaginateCollection::paginateCollection($tenders, 10);
+
+      return view('admin.pages.tenders.alltenders', compact('tenders', 'currentCategory', 'tendersCount'));
     }
 
     /**
@@ -94,10 +103,16 @@ class TenderController extends Controller
      */
     public function destroy(Request $request, $id)
     {
+      if($request->get('from_category')){
         $fromCategory = $request->get('from_category');
         $this->tenderRepository->delete($id);
         return redirect()->route('admin.categories.tenders', $fromCategory);
+      }else{
+        $this->tenderRepository->delete($id);
+        return redirect()->route('admin.tenders.all');
+      }
     }
+
 
     public function createRequest(Request $request, int $id)
     {

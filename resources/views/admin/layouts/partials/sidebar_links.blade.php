@@ -70,4 +70,11 @@
             <span class="sidebar-mini-hide">Баннеры</span>
         </a>
     </li>
+    <li>
+        <a href="{{ route('admin.tenders.all') }}">
+          <i class="fas fa-angry"></i>
+
+            <span class="sidebar-mini-hide">Конкурсы</span>
+        </a>
+    </li>
 </ul>

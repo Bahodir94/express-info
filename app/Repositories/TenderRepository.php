@@ -30,6 +30,14 @@ class TenderRepository implements TenderRepositoryInterface
         return $query->whereNotNull('owner_id')->orderBy('opened', 'desc')->orderBy('created_at', 'desc')->get();
         //orderBy('created_at', 'desc') orderByRaw('-contractor_id asc')
     }
+    public function allOrderedByCreatedAtAdmin($withoutContractors = false)
+    {
+        $query = Tender::whereNotNull('owner_id')->where('published', true);
+        if ($withoutContractors)
+            $query = $query->whereNull('contractor_id');
+        return $query->whereNotNull('owner_id')->orderBy('created_at', 'desc')->get();
+        //orderBy('created_at', 'desc') orderByRaw('-contractor_id asc')
+    }
 
     /**
      * @inheritDoc

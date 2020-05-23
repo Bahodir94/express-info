@@ -137,6 +137,8 @@ class HandbookCategoryController extends Controller
         return view('admin.pages.categories.tenders', compact('category'));
     }
 
+    
+
     /**
      * Show the form for editing the specified resource.
      *

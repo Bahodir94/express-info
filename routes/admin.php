@@ -39,9 +39,11 @@ Route::middleware('checkIsAdmin')->prefix('admin')->name('admin.')->namespace('A
     Route::get('/categories/{id}/tenders', 'HandbookCategoryController@tenders')->name('categories.tenders');
 
     // Tenders routes
+
     Route::resource('/tenders', 'TenderController');
     Route::post('/tenders/{id}/requests/create', 'TenderController@createRequest')->name('tenders.requests.create');
     Route::get('/tenders/{id}/publish', 'TenderController@publishTender')->name('tenders.publish');
+    Route::get('/tenders_all', 'TenderController@allTenders')->name('tenders.all');
 
     // Companies Routes
     Route::resource('/companies', 'CompanyController');
