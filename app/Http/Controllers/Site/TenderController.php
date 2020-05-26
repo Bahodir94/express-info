@@ -273,7 +273,8 @@ class TenderController extends Controller
             }
             $adminUsers = $this->userRepository->getAdmins();
             Notification::send($adminUsers, new RequestAction('accepted', $request));
-            return redirect($redirectTo)->with('account.success', 'Исполнитель на этот конкурс назначен! Администратор сайта с вами свяжется и вы получите инструкции, необходимые для того, чтобы исполнитель приступил к работе.');
+            return redirect()->route('site.account.chats.create');
+            // return redirect($redirectTo)->with('account.success', 'Исполнитель на этот конкурс назначен! Администратор сайта с вами свяжется и вы получите инструкции, необходимые для того, чтобы исполнитель приступил к работе.');
         } else {
             return redirect($redirectTo)->with('account.error', 'Невозможно назначить исполнителя на этот конкурс');
         }

@@ -106,8 +106,16 @@
                                 @endguest
                                 @auth
                                     @if (auth()->user()->hasRole('customer'))
+                                          <form action="{{ route('site.account.chats') }}" method="post">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
                                             <button class="btn btn-light btn-lg" type="button" data-toggle="modal" data-target="#tendersModal{{ $contractor->id }}">Добавить
                                                     в конкурс</button>
+
+                                                @csrf
+                                                <input type="hidden" name="with_user_id" value="{{  $contractor->id }}">
+                                                <button class="btn btn-light btn-view" type="submit" data-toggle="tooltip" title="Связаться">Связаться</button>
+                                              </div>
+                                            </form>
                                         <div class="modal fade" id="tendersModal{{ $contractor->id }}" tabindex="-1" role="dialog" aria-labelledby="tendersModalLabel{{ $contractor->id }}" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered" role="document">
                                                 <div class="modal-content">
@@ -290,8 +298,8 @@
                                   </li>
                                     @endif
                                   <li>Победы: {{$contractor->victories_count}}</li>
-                                  <li><i class="fa fa-mobile-alt pr-1"></i>@guest [Скрыто] @else @if (auth()->user()->hasRequestFromContractor($contractor)) {{ $contractor->phone_number }} @else [Скрыто] @endif @endguest </li>
-                                  <li><i class="far fa-envelope pr-1"></i><a href="#" class="__cf_email__" data-cfemail="25565144574750464e56654c4b434a0b464a48">[email&nbsp;protected]</a></li>
+                                  <li><i class="fa fa-mobile-alt pr-1"></i>@guest [Скрыто] @else {{ $contractor->phone_number }}  @endguest </li>
+                                  <li><i class="far fa-envelope pr-1"></i>@guest [Скрыто] @else <a href="#" class="__cf_email__" data-cfemail="25565144574750464e56654c4b434a0b464a48">{{$contractor->email }}</a> @endguest</li>
                                     @foreach($contractor->categories as $category)
 
                                       @if($category ->pivot->price_from!='' or $category->pivot->price_to !='')

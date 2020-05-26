@@ -113,7 +113,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="budget">Ориентировочный бюджет, сум</label>
-                                    <input type="text" name="budget" id="budget" class="form-control @error('budget') is-invalid @enderror" placeholder="Укажите ориентировочный бюджет..." value="{{ old('budget') }}">
+                                    <input type="text" name="budget" id="budget" onkeypress='validate(event)' class="form-control @error('budget') is-invalid @enderror" placeholder="Укажите ориентировочный бюджет..." value="{{ old('budget') }}">
                                     @error('budget')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -169,19 +169,31 @@
     </script>
 
     <script>
+    function validate(evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode( key );
+        var regex = /[0-9]|\./;
+        if( !regex.test(key) ) {
+          theEvent.returnValue = false;
+          if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+      }
         document.addEventListener('DOMContentLoaded', function () {
             flatpickr(document.getElementById('deadline'), {
                 dateFormat: 'd.m.Y',
                 minDate: new Date()
             });
-            document.getElementById('budget').onkeydown = function(event) {
-                console.log(event);
-                let charCode = (event.which) ? event.which : event.keyCode;
-                if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 96 || charCode > 105) && charCode != 189 && charCode != 32 && charCode != 116) {
-                    return false;
-                }
-                return true;
-            };
+
+            // document.getElementById('budget').onkeydown = function(event) {
+            //     console.log(event);
+            //
+            //     let charCode = (event.which) ? event.which : event.keyCode;
+            //     if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 96 || charCode > 105) && charCode != 189 && charCode != 32 && charCode != 116) {
+            //         return false;
+            //     }
+            //     return true;
+            // };
         });
     </script>
 @endsection

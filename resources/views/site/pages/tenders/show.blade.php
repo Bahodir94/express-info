@@ -144,7 +144,7 @@
                     <div class="row align-items-lg-center">
                         <div class="col-12">
                             <h2 class="title-detail">{{ $tender->title }}</h2>
-                            <div class="meta-job"><span class="phone"><i class="far fa-money-bill-alt"></i>Бюджет: {{ $tender->budget }} </span><span
+                            <div class="meta-job"><span class="phone"><i class="far fa-money-bill-alt"></i>Бюджет: {{ $tender->budget }} сум </span><span
                                     class="mail"><i class="far fa-calendar"></i>Опубликовано: {{ \Carbon\Carbon::create($tender->published_at)->format('d.m.Y') }}</span><span><i
                                         class="fas fa-calendar-times"></i>Крайний срок приёма заявок: {{ $tender->deadline }}</span>
                             </div>
