@@ -39,7 +39,8 @@
                                     @php
                                         $anotherUser = $loopChat->getAnotherUser()
                                     @endphp
-                                    <li><a href="" class="msg-contact-item" onclick="location.href='{{ route('site.account.chats') }}?chat_id={{ $loopChat->id }}';">
+                                    <li><a href="{{ route('site.account.chats') }}?chat_id={{ $loopChat->id }}"
+                                           class="msg-contact-item">
                                             <div class="avatar-user">
                                                 <img src="@if ($user->hasRole('contractor') && $anotherUser->hasRole('customer')) /assets/img/avatars/avatar15.jpg @else {{ $anotherUser->getImage() }} @endif"
                                                      alt="@if ($user->hasRole('contractor') && $anotherUser->hasRole('customer')) Заказчик @else {{ $anotherUser->getCommonTitle() }} @endif">
@@ -62,7 +63,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 @endsection
 
