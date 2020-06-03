@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="header-box-right order-md-first">
-                <h3>Ваши далоги</h3>
+                <h3>Ваши диалоги</h3>
             </div>
         </div>
         <div class="body-box-admin p-0">
