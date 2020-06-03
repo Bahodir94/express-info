@@ -30,6 +30,8 @@
                         <th class="text-center">Категории</th>
                         <th class="text-center">Владелец</th>
                         <th class="text-center">Создан</th>
+                        <th class="text-center">Заявки</th>
+
                         <th class="text-center" style="width: 50px">Действия</th>
                     </tr>
                     </thead>
@@ -45,6 +47,7 @@
                                 class="link-effect">{{ $tender->owner->getCommonTitle() }}</a> @else Не
                             зарегистрирован @endif</td>
                         <td class="text-center">{{ $tender->created_at->format('d.m.Y') }}</td>
+                        <td class="text-center">{{ $tender->requests()->count()  }}</td>
                         <td class="text-center font-w600">
                             <div class="d-flex align-items-center justify-content-around">
                                 <a href="{{ route('admin.tenders.show', $tender->id) }}"
