@@ -37,12 +37,16 @@
                     </div>
                     <div class="col-md-4">
                         <div class="search-form">
-                            <input class="form-control" type="text" placeholder="Поиск здесь...">
-                            <button class="btn-clear"><i class="fa fa-search"></i></button>
+                          <form action="{{ route('site.tenders.index.search') }}" method="post">
+                            @csrf
+                            <div class="form-group">
+                              <input class="form-control" name="search" type="text" placeholder="Поиск здесь...">
+                              <button class="btn-clear" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                          </form>
                         </div>
                     </div>
                 </div>
-            </div>
             <div class="row">
                 <div class="col-lg-4">
                     <div id="leftcolumn">
@@ -97,6 +101,9 @@
                     <div class="content-main-right list-jobs">
                         <div class="header-list-job d-flex flex-wrap justify-content-between align-items-center">
                             <h4>{{ $tendersCount }} Конкурсов найдено</h4>
+                            @if (!\Request::is('tenders'))
+                              <a class="btn btn-outline-success" href="{{ route('site.tenders.index') }}">Все результаты</a>
+                            @endif
                         </div>
                         <div class="list">
                             @foreach($tenders as $tender)
@@ -107,7 +114,7 @@
                                         </div>
                                         <div class="col-md-10 job-info">
                                             <div class="text">
-                                                <h3 class="title-job"><a href="{{ route('site.tenders.category', $tender->slug) }}">{{ $tender->title }}</a><span class="ml-2 tags"><a>@if (!$tender->checkDeadline() || $tender->contractor) Приём заявок окончен @else Открыт @endif</a></span></h3>
+                                                <h3 class="title-job"><a href="{{ route('site.tenders.category', $tender->slug) }}">{{ $tender->title }}</a><span class="ml-2 tags"><a>@if ($tender->opened==1 || $tender->contractor) Приём заявок окончен @else Открыт @endif</a></span></h3>
                                                 <div class="date-job">
                                                   <i class="fa fa-check-circle"></i><span
                                                         class="company-name">Опубликован: {{ \Carbon\Carbon::create($tender->published_at)->format('d.m.Y') }}</span>

@@ -20,6 +20,11 @@ interface TenderRepositoryInterface
      */
     public function allOrderedByCreatedAt($withoutContractors = false);
 
+    // Search tender
+    // @param Request $search
+    // return mixed
+    public function TenderSearch(Request $search);
+
     /**
      * Create a new tender
      *
@@ -27,6 +32,7 @@ interface TenderRepositoryInterface
      * @return \App\Models\Tender
      */
     public function create($data);
+
 
     /**
      * Update a tender

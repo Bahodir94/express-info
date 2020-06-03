@@ -79,6 +79,14 @@ class TenderController extends Controller
         return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
     }
 
+    public function searchTender(Request $request){
+      $tenders = $this->tenderRepository->TenderSearch($request);
+      $currentCategory = null;
+      $tendersCount = $tenders->count();
+      $tenders = PaginateCollection::paginateCollection($tenders, 5);
+      return view('site.pages.tenders.index', compact('tenders', 'currentCategory', 'tendersCount'));
+
+    }
     public function category(string $params)
     {
         if (preg_match('/[A-Z]/', $params)) {

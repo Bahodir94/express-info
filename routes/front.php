@@ -83,6 +83,7 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
 
     // Tenders routes
     Route::get('/tenders', 'TenderController@index')->name('tenders.index');
+    Route::post('/tenders/search', 'TenderController@searchTender')->name('tenders.index.search');
     Route::get('/tenders/create', 'TenderController@create')->name('tenders.common.create');
     Route::get('/tenders/{params}', 'TenderController@category')->where('params', '.+')->name('tenders.category');
     Route::post('/tenders/create', 'TenderController@store');
@@ -95,13 +96,15 @@ Route::middleware('needsList')->name('site.')->namespace('Site')->group(function
 
     Route::get('/', 'HomeController@index')->name('catalog.index');
     Route::get('/contractors', 'ContractorsController@index')->name('contractors.index');
+    Route::get('/contractors/category/{params}', 'ContractorsController@category')->where('params', '.+')->name('catalog.main');
     Route::get('/contractors/addContractor/{contractorId}/to/{tenderId}', 'ContractorsController@addContractor')->name('tenders.contractors.add');
     Route::get('/contractors/addContractorGuest/clear', 'ContractorsController@deleteAllContractorsFromSession')->name('tenders.contractors.clear');
     Route::get('/contractors/addContractorGuest/{contractorId}', 'ContractorsController@addContractorForNonAuth')->name('tenders.contractors.add.guest');
     Route::get('/contractors/addContractorGuest/remove/{contractorId}', 'ContractorsController@deleteContractorFromSession')->name('tenders.contractors.delete');
     Route::get('/contractors/{slug}', 'ContractorsController@contractor')->name('contractors.show');
     Route::post('/contractors/comment', 'CommentController@createCommentContractor')->name('contractors.comment.contractor');
+    Route::post('/contractors/search', 'ContractorsController@contractorSearch')->name('contractors.search');
 
-    Route::get('/{params}', 'ContractorsController@category')->where('params', '.+')->name('catalog.main');
+    // Route::get('/{params}', 'ContractorsController@category')->where('params', '.+')->name('catalog.main');
     Route::post('/search', 'CatalogController@search')->name('catalog.search');
 });

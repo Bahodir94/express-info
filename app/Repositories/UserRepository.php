@@ -25,6 +25,16 @@ class UserRepository implements UserRepositoryInterface
         return User::all();
     }
 
+    public function searchContractors($search){
+      
+      $users = User::where('name', 'like', '%'.$search->contractorSearch.'%')->get();
+      return $users->filter(function ($user) { return $user->hasRole('contractor');});
+
+
+    }
+    //$allUsers = User::all();
+    // return $allUsers->filter(function ($user) { return $user->hasRole('contractor'); });
+
     /**
      * Get user by it's id
      *
@@ -220,5 +230,5 @@ class UserRepository implements UserRepositoryInterface
         return User::where('telegram_id', $telegramId)->first();
     }
 
-    
+
 }

@@ -65,7 +65,26 @@ class ContractorsController extends Controller
     public function index()
     {
         $categories = $this->categories->all();
-        return view('site.pages.contractors.index', compact('categories'));
+        $contractors = collect();
+        foreach($categories as $category){
+            $contractors = $contractors->merge($category->getAllCompaniesFromDescendingCategories()->sortByDesc('created_at'));
+        }
+        $contractorsCount = $contractors->count();
+        $contractors = PaginateCollection::paginateCollection($contractors, 5);
+        return view('site.pages.contractors.index', compact('category', 'contractors', 'contractorsCount'));
+
+    }
+
+    public function contractorSearch(Request $request){
+      $categories = $this->categories->all();
+      foreach($categories as $category){
+
+      }
+      $contractors = $this->users->searchContractors($request);
+
+      $contractorsCount = $contractors->count();
+      $contractors = PaginateCollection::paginateCollection($contractors, 5);
+      return view('site.pages.contractors.index', compact('category', 'contractors', 'contractorsCount'));
     }
 
     /**
@@ -99,7 +118,7 @@ class ContractorsController extends Controller
             $contractorsCount = $contractors->count();
             $contractors = PaginateCollection::paginateCollection($contractors, 5);
 
-            return view('site.pages.contractors.category', compact('category', 'contractors', 'contractorsCount'));
+            return view('site.pages.contractors.index', compact('category', 'contractors', 'contractorsCount'));
         }
         $menuItem = $this->menu->getBySlug($slug);
         if ($menuItem) {
@@ -114,6 +133,7 @@ class ContractorsController extends Controller
         abort(404);
     }
 
+
     /**
      * Show concrete contractor
      *
@@ -122,6 +142,7 @@ class ContractorsController extends Controller
      */
     public function contractor(string $slug)
     {
+
         $contractor = $this->users->getContractorBySlug($slug);
         $portfolio = $this->users->getPortfolioBySlug($slug);
         $comments = $this->users->getCommentBySlug($slug);

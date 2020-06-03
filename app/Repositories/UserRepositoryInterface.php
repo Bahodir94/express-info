@@ -17,11 +17,21 @@ interface UserRepositoryInterface
     public function all();
 
     /**
+     * Get user by search
+     *
+     * @param request $search
+     * @return Users
+    */
+    public function searchContractors(Request $search);
+
+    /**
      * Get user by it's id
      *
      * @param int $userId
      * @return User
     */
+
+
     public function get($userId);
 
     /**
