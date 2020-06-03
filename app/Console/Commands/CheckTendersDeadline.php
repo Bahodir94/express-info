@@ -38,7 +38,7 @@ class CheckTendersDeadline extends Command
      */
     public function handle()
     {
-        $tenders = Tender::where('deadline', '<', now())->whereNull('contractor_id')->get();
+        $tenders = Tender::where('deadline', '<', now())->get();
         foreach ($tenders as $tender) {
             $tender->opened = false;
             $tender->save();
