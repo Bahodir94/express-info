@@ -114,7 +114,7 @@
                                         </div>
                                         <div class="col-md-10 job-info">
                                             <div class="text">
-                                                <h3 class="title-job"><a href="{{ route('site.tenders.category', $tender->slug) }}">{{ $tender->title }}</a><span class="ml-2 tags"><a>@if ($tender->opened==1 || $tender->contractor) Приём заявок окончен @else Открыт @endif</a></span></h3>
+                                                <h3 class="title-job"><a href="{{ route('site.tenders.category', $tender->slug) }}">{{ $tender->title }}</a><span class="ml-2 tags"><a>@if ($tender->opened==0 || $tender->contractor) Приём заявок окончен @else Открыт @endif</a></span></h3>
                                                 <div class="date-job">
                                                   <i class="fa fa-check-circle"></i><span
                                                         class="company-name">Опубликован: {{ \Carbon\Carbon::create($tender->published_at)->format('d.m.Y') }}</span>
